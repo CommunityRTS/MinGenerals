@@ -1,0 +1,108 @@
+# UNIVERSAL
+*~
+*.user
+*.bak
+[Tt]emp/
+
+# DO NOT COMMIT PRIVATE KEYS! This section prevents accidental leaks.
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.key
+*.ppk
+*.pem
+
+# CMAKE
+CMakeUserPresets.json
+
+# VISUAL C++ (Legacy)
+*.ncb
+*.opt
+*.plg
+*.vbw
+*.aps
+*.positions
+
+# VISUAL STUDIO (Modern)
+.vs/
+*.suo
+*.rsuser
+*.userosscache
+*.sln.docstates
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# VSCODE
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+
+# JETBRAINS
+.idea/
+
+# XCODE
+xcuserdata/
+
+# SUBLIMETEXT
+*.sublime-workspace
+
+# EMACS
+.#*
+
+# VIM
+Session.vim
+Sessionx.vim
+.netrwhist
+[._]*.un~
+[._]*.sw[a-p]
+
+# OS/Platform junk
+.DS_Store
+Thumbs.db
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+nohup.out
+
+# STASH DIRECTORIES
+[Bb]ak/
+[Uu]ntracked/
+/[Ss]tash/
+
+# OUTPUT DIRECTORIES (standard)
+[Bb]in/
+[Ll]ib/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Oo]ut/
+[Bb]uild/
+[Ii]nstall/
+[Gg]enerated
+[Rr]elease/
+[Dd]ebug/
+[Mm]in[Ss]ize[Rr]el/
+[Rr]el[Ww]ith[Dd][be][gb][Ii]nfo/
+
+# OUTPUT DIRECTORIES (project specific)
+[Rr]un/
+[Pp]rofile/
+[Ii]nternal/
+[Dd]ebug[Ww]3[Dd]/
+[Hh]ybrid/
+[Ee]nglish/
+[Ff]rench/
+[Gg]erman/
+[Ss]panish/
+[Mm]ax4[Rr]elease/
+[Mm]ax4[Hh]ybrid/
