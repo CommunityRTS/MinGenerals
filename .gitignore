@@ -1,0 +1,80 @@
+# UNIVERSAL
+*.user
+*.bak
+*~
+
+# DO NOT COMMIT PRIVATE KEYS! This section prevents accidental leaks.
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.key
+*.ppk 
+*.pem
+
+# OUTPUT DIRECTORIES
+[Bb]uild/
+[Ii]nstall/
+[Rr]elease/
+[Dd]ebug/
+[Pp]rofile/
+[Ii]nternal/
+[Rr]el[Ww]ith[Dd]bg[Ii]nfo/
+[Mm]in[Ss]ize[Rr]el/
+[Ll]ib/
+[Oo]ut/
+**/[Bb]uild/
+**/[Ii]nstall/
+**/[Rr]elease/
+**/[Dd]ebug/
+**/[Pp]rofile/
+**/[Ii]nternal/
+**/[Rr]el[Ww]ith[Dd]bg[Ii]nfo/
+**/[Mm]in[Ss]ize[Rr]el/
+**/[Ll]ib/
+**/[Oo]ut/
+
+# CMAKE
+CMakeLists.txt.user
+CMakeUserPresets.json
+
+# VISUAL C++ (Legacy)
+*.ncb
+*.opt
+*.plg
+*.vbw
+*.aps
+
+# VISUAL STUDIO (Modern)
+.vs/
+
+# VSCODE
+.vscode/
+
+# JETBRAINS
+.idea/
+
+# XCODE
+xcuserdata/
+
+# SUBLIMETEXT
+*.sublime-workspace
+
+# EMACS
+.#*
+
+# VIM
+Session.vim
+Sessionx.vim
+.netrwhist
+[._]*.un~
+[._]*.sw[a-p]
+
+# OS/Platform junk
+.DS_Store
+Thumbs.db
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+nohup.out
