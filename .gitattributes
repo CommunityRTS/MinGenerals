@@ -1,0 +1,267 @@
+# Auto-detect text and normalize LF by default
+*                 text=auto
+
+# ---------- Documents ----------
+*.bibtex          text diff=bibtex
+*.doc             diff=astextplain
+*.DOC             diff=astextplain
+*.docx            diff=astextplain
+*.DOCX            diff=astextplain
+*.dot             diff=astextplain
+*.DOT             diff=astextplain
+*.rtf             diff=astextplain
+*.RTF             diff=astextplain
+*.md              text diff=markdown linguist-detectable
+*.mdx             text diff=markdown
+*.tex             text diff=tex
+*.adoc            text
+*.textile         text
+*.mustache        text
+*.csv             text eol=crlf
+*.tab             text
+*.tsv             text
+*.txt             text
+*.sql             text
+*.epub            diff=astextplain
+*.log             text eol=lf
+*.str             text eol=lf
+*.dox             text
+
+# ---------- Graphics ----------
+*.ai              binary
+*.bmp             binary
+*.eps             binary
+*.gif             binary
+*.gifv            binary
+*.ico             binary
+*.cur             binary
+*.ani             binary
+*.jng             binary
+*.jp2             binary
+*.jpg             binary
+*.jpeg            binary
+*.jpx             binary
+*.jxr             binary
+*.pdf             binary
+*.png             binary
+*.psb             binary
+*.psd             binary
+*.svg             text
+# *.svg           binary
+*.svgz            binary
+*.tif             binary
+*.tiff            binary
+*.wbmp            binary
+*.webp            binary
+*.tga             binary
+*.dds             binary
+*.w3d             binary
+*.pso             binary
+*.vso             binary
+
+# ---------- Video ----------
+*.3gpp            binary
+*.3gp             binary
+*.as              binary
+*.asf             binary
+*.asx             binary
+*.avi             binary
+*.fla             binary
+*.flv             binary
+*.m4v             binary
+*.mng             binary
+*.mov             binary
+*.mp4             binary
+*.mpeg            binary
+*.mpg             binary
+*.ogv             binary
+*.swc             binary
+*.swf             binary
+*.webm            binary
+*.bnk             binary
+*.bik             binary
+
+# ---------- Audio ----------
+*.kar             binary
+*.m4a             binary
+*.mid             binary
+*.midi            binary
+*.mp3             binary
+*.ogg             binary
+*.ra              binary
+*.wav             binary
+*.m3d             binary
+*.asi             binary
+*.flt             binary
+
+# ---------- Fonts ----------
+*.ttf             binary
+*.eot             binary
+*.otf             binary
+*.woff            binary
+*.woff2           binary
+
+# ---------- Scripts / Data ----------
+*.bash            text eol=lf
+*.fish            text eol=lf
+*.ksh             text eol=lf
+*.sh              text eol=lf
+*.zsh             text eol=lf
+*.ini             text
+*.reg             text eol=crlf
+
+# Windows script files
+*.bat             text eol=crlf
+*.cmd             text eol=crlf
+*.ps1             text eol=crlf
+*.psm1            text eol=crlf
+*.psd1            text eol=crlf
+
+# ---------- Serialization ----------
+*.json            text
+*.toml            text
+*.xml             text
+*.yaml            text
+*.yml             text
+*.tlh             text
+*.tli             text
+
+# ---------- Archives ----------
+*.7z              binary
+*.bz              binary
+*.bz2             binary
+*.bzip2           binary
+*.gz              binary
+*.lz              binary
+*.lzma            binary
+*.rar             binary
+*.tar             binary
+*.taz             binary
+*.tbz             binary
+*.tbz2            binary
+*.tgz             binary
+*.tlz             binary
+*.txz             binary
+*.xz              binary
+*.Z               binary
+*.zip             binary
+*.zst             binary
+*.big             binary
+
+# Text patches keep original endings
+*.patch           -text
+
+# ---------- Source code ----------
+*.c               text diff=cpp
+*.cc              text diff=cpp
+*.cxx             text diff=cpp
+*.cpp             text diff=cpp
+*.cpi             text diff=cpp
+*.c++             text diff=cpp
+*.hpp             text diff=cpp
+*.h               text diff=cpp
+*.h++             text diff=cpp
+*.hh              text diff=cpp
+*.inl             text diff=cpp
+*.tbl             text diff=cpp
+*.def             text
+
+# Shader sources
+*.nvv             text
+*.nvp             text
+
+# IDL family
+*.idl             text
+*.odl             text
+*.tlb             binary
+
+# ---------- Objects / Binaries ----------
+*.slo             binary
+*.lo              binary
+*.o               binary
+*.obj             binary
+*.gch             binary
+*.pch             binary
+*.so              binary
+*.dylib           binary
+*.dll             binary
+*.lai             binary
+*.la              binary
+*.a               binary
+*.lib             binary
+*.exe             binary
+*.out             binary
+*.app             binary
+*.res             binary
+*.sbr             binary
+
+# ---------- Editors ----------
+# VIM
+*.vim             text eol=lf
+.vimrc            text eol=lf
+.gvimrc           text eol=lf
+
+# VS Code (allow comments JSON)
+.vscode/*.json    linguist-language=JSON-with-Comments
+
+# Devcontainer
+.devcontainer.json linguist-language=JSON-with-Comments
+devcontainer.json  linguist-language=JSON-with-Comments
+
+# ---------- Build systems ----------
+CMakeLists.txt    text
+*.cmake           text
+meson.build       text
+meson_options.txt text
+
+# ---------- Visual Studio (modern) ----------
+*.sln             text eol=crlf merge=union
+*.csproj          text eol=crlf merge=union
+*.vbproj          text eol=crlf merge=union
+*.vcxproj         text eol=crlf merge=union
+*.vcproj          text eol=crlf merge=union
+*.dbproj          text eol=crlf merge=union
+*.fsproj          text eol=crlf merge=union
+*.lsproj          text eol=crlf merge=union
+*.wixproj         text eol=crlf merge=union
+*.modelproj       text eol=crlf merge=union
+*.sqlproj         text eol=crlf merge=union
+*.wwaproj         text eol=crlf merge=union
+*.xproj           text eol=crlf merge=union
+*.props           text eol=crlf merge=union
+*.filters         text eol=crlf merge=union
+*.vcxitems        text eol=crlf merge=union
+
+# ---------- Visual Studio 6 (legacy) ----------
+*.dsp             text eol=crlf merge=union
+*.dsw             text eol=crlf merge=union
+*.ncb             binary
+*.opt             binary
+*.plg             binary
+*.idb             binary
+
+# ---------- Visual Studio (General) ----------
+*.rc              text eol=crlf
+*.rc2             text eol=crlf
+*.aps             binary
+*.pdb             binary
+*.ilk             binary
+*.exp             binary
+
+# ---------- Project-specific ----------
+*.map             binary
+*.wak             binary
+*.csf             binary
+*.dat             binary
+*.scb             binary
+*.vdf             text
+*.wnd             text
+*.sec             binary
+
+# Ignore-like files
+*.*ignore         text
+
+# Optional export excludes
+#.gitattributes   export-ignore
+#.gitignore       export-ignore
+#.gitkeep         export-ignore
