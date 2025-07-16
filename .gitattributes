@@ -1,0 +1,276 @@
+# Auto-detect text files
+* text=auto
+
+# Text files where line endings should be preserved
+*.patch -text
+*.diff  -text
+
+#  ---------- Git related files ----------
+*.gitignore         text eol=lf
+*.gitattributes     text eol=lf
+*.gitkeep           text eol=lf
+*.editorconfig      text eol=lf
+*.clang-format      text eol=lf
+*.clang-tidy        text eol=lf
+
+# ---------- C/C++ Sources ----------
+*.c                 text eol=lf    diff=cpp
+*.cc                text eol=lf    diff=cpp
+*.cxx               text eol=lf    diff=cpp
+*.cpp               text eol=lf    diff=cpp
+*.cpi               text eol=lf    diff=cpp
+*.c++               text eol=lf    diff=cpp
+*.hpp               text eol=lf    diff=cpp
+*.h                 text eol=lf    diff=cpp
+*.h++               text eol=lf    diff=cpp
+*.hh                text eol=lf    diff=cpp
+*.ixx               text eol=lf    diff=cpp
+*.inl               text eol=lf    diff=cpp
+*.tbl               text eol=lf    diff=cpp
+*.tcc               text eol=lf    diff=cpp
+*.mpp               text eol=lf    diff=cpp
+*.cppm              text eol=lf    diff=cpp
+*.def               text eol=crlf
+*.rc                text eol=crlf
+*.rc2               text eol=crlf
+*.idl               text eol=crlf
+*.odl               text eol=crlf
+*.tlh               text eol=crlf
+*.tli               text eol=crlf
+*.hm                text eol=crlf
+
+# ---------- Shader sources ----------
+*.nvv               text eol=lf
+*.nvp               text eol=lf
+*.psh               text eol=lf
+*.vsh               text eol=lf
+
+# ---------- Lua sources ----------
+*.lua               text eol=lf
+
+# ---------- Python sources ----------
+*.pxd               text eol=lf    diff=python
+*.py                text eol=lf    diff=python
+*.py[3wxzi]         text eol=lf    diff=python
+
+# ---------- Perl sources ----------
+*.pl                text eol=lf
+
+# ---------- Visual Studio projects ----------
+*.dsp               text eol=crlf
+*.dsw               text eol=crlf
+*.sln               text eol=crlf
+*.props             text eol=crlf
+*.targets           text eol=crlf
+*.filters           text eol=crlf
+*.vcxitems          text eol=crlf
+*.*proj             text eol=crlf
+
+# ---------- Text Editors ----------
+*.vim               text eol=lf
+.vimrc              text eol=lf
+.gvimrc             text eol=lf
+
+# ---------- Scripting ----------
+*.bash              text eol=lf
+*.fish              text eol=lf
+*.ksh               text eol=lf
+*.sh                text eol=lf
+*.zsh               text eol=lf
+# (These are explicitly windows files and should use crlf)
+*.ps1               text eol=crlf
+*.ps1x              text eol=crlf
+*.psm1              text eol=crlf
+*.psd1              text eol=crlf
+*.ps1xml            text eol=crlf
+*.pssc              text eol=crlf
+*.psrc              text eol=crlf
+*.cdxml             text eol=crlf
+*.bat               text eol=crlf
+*.cmd               text eol=crlf
+*.dbgcmd            text eol=crlf
+*.reg               text eol=crlf
+
+# Serialisation
+*.ini               text eol=lf
+*.toml              text eol=lf
+*.xml               text eol=lf
+*.yaml              text eol=lf
+*.yml               text eol=lf
+*.json              text eol=lf
+# (Fix syntax highlighting on GitHub to allow comments)
+*.jsonc             text eol=lf
+*.cjson             text eol=lf
+.vscode/*.json      text eol=lf
+devcontainer.json   text eol=lf
+.devcontainer.json  text eol=lf
+
+# ---------- Documents ----------
+*.bibtex            text eol=lf    diff=bibtex
+*.doc                              diff=astextplain
+*.docx                             diff=astextplain
+*.dot                              diff=astextplain
+*.pdf                              diff=astextplain
+*.rtf                              diff=astextplain
+*.epub                             diff=astextplain
+*.md                text eol=lf    diff=markdown linguist-detectable
+*.mdx               text eol=lf    diff=markdown
+*.css               text eol=lf    diff=css
+*.scss              text eol=lf    diff=css
+*.htm               text eol=lf    diff=html
+*.html              text eol=lf    diff=html
+*.xhtml             text eol=lf    diff=html
+*.tex               text eol=lf    diff=tex
+*.svg               text eol=lf
+*.adoc              text eol=lf
+*.textile           text eol=lf
+*.mustache          text eol=lf
+*.tab               text eol=lf
+*.tsv               text eol=lf
+*.txt               text eol=lf
+*.sql               text eol=lf
+*.log               text eol=lf
+*.str               text eol=lf
+*.dox               text eol=lf
+*.ipynb             text eol=lf
+*.csv               text eol=crlf
+
+# ---------- Build systems ----------
+meson.build         text eol=lf
+*.cmake             text eol=lf
+*.ninja             text eol=lf
+*.mk                text eol=lf
+*.mak               text eol=lf
+*[Mm]akefile        text eol=lf
+*[Gg]nu[Mm]akefile  text eol=lf
+
+# ---------- Project-specific ----------
+*.vdf               text eol=lf
+*.wnd               text eol=lf
+
+################# BINARIES #################
+
+# ---------- Project-specific ----------
+*.map               binary
+*.wak               binary
+*.csf               binary
+*.dat               binary
+*.scb               binary
+*.sec               binary
+*.xlt               binary
+
+# ---------- Objects / Binaries ----------
+*.slo               binary
+*.lo                binary
+*.o                 binary
+*.obj               binary
+*.gch               binary
+*.pch               binary
+*.so                binary
+*.dylib             binary
+*.dll               binary
+*.lai               binary
+*.la                binary
+*.a                 binary
+*.lib               binary
+*.exe               binary
+*.out               binary
+*.app               binary
+*.res               binary
+*.sbr               binary
+*.aps               binary
+*.pdb               binary
+*.ilk               binary
+*.exp               binary
+*.ncb               binary
+*.opt               binary
+*.plg               binary
+*.idb               binary
+*.tlb               binary
+
+# ---------- Archives ----------
+*.z                 binary
+*.7z                binary
+*.bz                binary
+*.bz2               binary
+*.bzip2             binary
+*.[glx]z            binary
+*.lzma              binary
+*.rar               binary
+*.tar               binary
+*.t[abglx]z         binary
+*.tbz2              binary
+*.zip               binary
+*.zst               binary
+*.big               binary
+
+# ---------- Video ----------
+*.3gpp              binary
+*.3gp               binary
+*.as                binary
+*.asf               binary
+*.asx               binary
+*.avi               binary
+*.fla               binary
+*.flv               binary
+*.m4v               binary
+*.mng               binary
+*.mov               binary
+*.mp4               binary
+*.mpeg              binary
+*.mpg               binary
+*.ogv               binary
+*.swc               binary
+*.swf               binary
+*.webm              binary
+*.bnk               binary
+*.bik               binary
+
+# ---------- Graphics ----------
+*.ai                binary
+*.bmp               binary
+*.eps               binary
+*.gif               binary
+*.gifv              binary
+*.ico               binary
+*.cur               binary
+*.ani               binary
+*.jng               binary
+*.jp2               binary
+*.jpg               binary
+*.jpeg              binary
+*.jpx               binary
+*.jxr               binary
+*.png               binary
+*.psb               binary
+*.psd               binary
+*.tif               binary
+*.tiff              binary
+*.wbmp              binary
+*.webp              binary
+*.tga               binary
+*.dds               binary
+*.w3d               binary
+*.pso               binary
+*.vso               binary
+*.svgz              binary
+
+# ---------- Audio ----------
+*.kar               binary
+*.m4a               binary
+*.mid               binary
+*.midi              binary
+*.mp3               binary
+*.ogg               binary
+*.ra                binary
+*.wav               binary
+*.m3d               binary
+*.asi               binary
+*.flt               binary
+
+# ---------- Fonts ----------
+*.ttf               binary
+*.eot               binary
+*.otf               binary
+*.woff              binary
+*.woff2             binary
