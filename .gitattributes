@@ -1,0 +1,273 @@
+# Auto detect text files and perform LF normalization
+*          text=auto
+
+#
+# The above will handle all files NOT found below
+#
+
+# Documents
+*.bibtex   text diff=bibtex
+*.doc      diff=astextplain
+*.DOC      diff=astextplain
+*.docx     diff=astextplain
+*.DOCX     diff=astextplain
+*.dot      diff=astextplain
+*.DOT      diff=astextplain
+*.rtf      diff=astextplain
+*.RTF      diff=astextplain
+*.md       text diff=markdown
+*.mdx      text diff=markdown
+*.tex      text diff=tex
+*.adoc     text
+*.textile  text
+*.mustache text
+*.csv      text eol=crlf
+*.tab      text
+*.tsv      text
+*.txt      text
+*.sql      text
+*.epub     diff=astextplain
+*.log      text eol=lf
+*.str      text eol=lf
+
+# Graphics
+*.ai              binary
+*.bmp             binary
+*.eps             binary
+*.gif             binary
+*.gifv            binary
+*.ico             binary
+*.jng             binary
+*.jp2             binary
+*.jpg             binary
+*.jpeg            binary
+*.jpx             binary
+*.jxr             binary
+*.pdf             binary
+*.png             binary
+*.psb             binary
+*.psd             binary
+# SVG treated as an asset (binary) by default.
+*.svg             text
+# If you want to treat it as binary,
+# use the following line instead.
+# *.svg           binary
+*.svgz            binary
+*.tif             binary
+*.tiff            binary
+*.wbmp            binary
+*.webp            binary
+*.tga             binary
+*.dds             binary
+*.w3d             binary
+*.pso             binary
+*.vso             binary
+
+# Video
+*.3gpp            binary
+*.3gp             binary
+*.as              binary
+*.asf             binary
+*.asx             binary
+*.avi             binary
+*.fla             binary
+*.flv             binary
+*.m4v             binary
+*.mng             binary
+*.mov             binary
+*.mp4             binary
+*.mpeg            binary
+*.mpg             binary
+*.ogv             binary
+*.swc             binary
+*.swf             binary
+*.webm            binary
+*.bnk             binary
+
+# Audio
+*.kar             binary
+*.m4a             binary
+*.mid             binary
+*.midi            binary
+*.mp3             binary
+*.ogg             binary
+*.ra              binary
+*.wav             binary
+*.m3d             binary
+*.asi             binary
+*.flt             binary
+
+# Fonts
+*.ttf             binary
+*.eot             binary
+*.otf             binary
+*.woff            binary
+*.woff2           binary
+
+# Scripts
+*.bash     text eol=lf
+*.fish     text eol=lf
+*.ksh      text eol=lf
+*.sh       text eol=lf
+*.zsh      text eol=lf
+*.ini      text eol=lf
+# These are explicitly windows files and should use crlf
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+*.ps1      text eol=crlf
+
+# Serialisation
+*.json     text
+*.toml     text
+*.xml      text
+*.yaml     text
+*.yml      text
+
+# Archives
+*.7z       binary
+*.bz       binary
+*.bz2      binary
+*.bzip2    binary
+*.gz       binary
+*.lz       binary
+*.lzma     binary
+*.rar      binary
+*.tar      binary
+*.taz      binary
+*.tbz      binary
+*.tbz2     binary
+*.tgz      binary
+*.tlz      binary
+*.txz      binary
+*.xz       binary
+*.Z        binary
+*.zip      binary
+*.zst      binary
+*.big      binary
+
+# Text files where line endings should be preserved
+*.patch    -text
+
+# Sources
+*.c     text diff=cpp
+*.cc    text diff=cpp
+*.cxx   text diff=cpp
+*.cpp   text diff=cpp
+*.cpi   text diff=cpp
+*.c++   text diff=cpp
+*.hpp   text diff=cpp
+*.h     text diff=cpp
+*.h++   text diff=cpp
+*.hh    text diff=cpp
+
+# Compiled Object files
+*.slo   binary
+*.lo    binary
+*.o     binary
+*.obj   binary
+
+# Precompiled Headers
+*.gch   binary
+*.pch   binary
+
+# Compiled Dynamic libraries
+*.so    binary
+*.dylib binary
+*.dll   binary
+
+# Compiled Static libraries
+*.lai   binary
+*.la    binary
+*.a     binary
+*.lib   binary
+
+# Executables
+*.exe   binary
+*.out   binary
+*.app   binary
+
+# VIM (Vim on Linux works with LF only, Vim on Windows works with both LF and CRLF)
+*.vim    text eol=lf
+.vimrc   text eol=lf
+.gvimrc  text eol=lf
+
+# VSCODE (Fix syntax highlighting on GitHub to allow comments)
+.vscode/*.json linguist-language=JSON-with-Comments
+
+# DEVCONTAINER (Fix syntax highlighting on GitHub to allow comments)
+.devcontainer.json linguist-language=JSON-with-Comments
+devcontainer.json linguist-language=JSON-with-Comments
+
+# VISUAL STUDIO
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just comment the entries below and
+# uncomment the group further below
+###############################################################################
+
+*.sln        text eol=crlf
+*.csproj     text eol=crlf
+*.vbproj     text eol=crlf
+*.vcxproj    text eol=crlf
+*.vcproj     text eol=crlf
+*.dbproj     text eol=crlf
+*.fsproj     text eol=crlf
+*.lsproj     text eol=crlf
+*.wixproj    text eol=crlf
+*.modelproj  text eol=crlf
+*.sqlproj    text eol=crlf
+*.wwaproj    text eol=crlf
+*.xproj      text eol=crlf
+*.props      text eol=crlf
+*.filters    text eol=crlf
+*.vcxitems   text eol=crlf
+
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
+#*.xproj     merge=binary
+#*.props     merge=binary
+#*.filters   merge=binary
+#*.vcxitems  merge=binary
+
+# MARKDOWZ (Apply override to all files in the directory)
+*.md linguist-detectable
+
+# RC files 
+*.rc             text
+
+# GENZH
+*.map   binary
+*.wak   binary
+*.csf   binary
+*.dat   binary
+*.tbl   binary
+*.scb   binary
+
+*.vdf   binary
+*.nvv   text    eol=lf
+*.nvp   text    eol=lf
+*.wnd   text    eol=lf
+
+# Ignore files (like .npmignore or .gitignore)
+*.*ignore         text
+
+# Exclude files from exporting
+#.gitattributes export-ignore
+#.gitignore     export-ignore
+#.gitkeep       export-ignore
