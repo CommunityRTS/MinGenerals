@@ -1,6 +1,7 @@
-Electronic Arts Inc. has released the source code for Command & Conquer Generals
-and Command & Conquer Generals Zero Hour under the GPL V3 license below, with
-additional terms at the bottom.
+MinGenerals is released under the GPL V3 license below, with additional terms
+at the bottom. Individual source files may be available under other licenses
+as specified in those files or an accompanying file. This is the default
+license used where no other license is specified.
 
 GNU General Public License
 ==========================
@@ -600,6 +601,8 @@ License. But first, please read
 
 ## ADDITIONAL TERMS per GNU GPL Section 7
 
+### Electronic Arts Inc. Terms
+
 No trademark or publicity rights are granted. This license does NOT give you
 any right, title or interest in "Command & Conquer" or any other Electronic Arts
 trademark. You may not distribute any modification of this program using any
@@ -635,3 +638,24 @@ WARRANTY. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF OR LIMITATIONS ON
 IMPLIED WARRANTIES OR THE LIMITATIONS ON THE APPLICABLE STATUTORY RIGHTS OF A
 CONSUMER, SO SOME OR ALL OF THE ABOVE EXCLUSIONS AND LIMITATIONS MAY NOT APPLY
 TO YOU.
+
+---
+
+### CommunityRTS Terms
+
+No trademark or publicity rights are granted. This license does NOT give you
+any right, title or interest in MinGenerals or any other CommunityRTS trademark.
+You may not distribute any modification of this program using any CommunityRTS
+trademark or claim any affiliation or association with CommunityRTS or its
+affiliates or their members.
+
+Any propagation or conveyance of this program must include this copyright
+notice and these terms.
+
+If you convey this program (or any modifications of it) and assume
+contractual liability for the program to recipients of it, you agree to
+indemnify CommunityRTS for any liability that those contractual assumptions
+impose on CommunityRTS.
+
+This disclaimer supplements the one included in the General Public License as
+well as the disclaimer from Electronic Arts Inc. that precedes it.
