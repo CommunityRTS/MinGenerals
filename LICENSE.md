@@ -1,12 +1,18 @@
-Electronic Arts Inc. has released the source code for Command & Conquer Generals
-and Command & Conquer Generals Zero Hour under the GPL V3 license below, with
-additional terms at the bottom.
+SPDX-License-Identifier: GPL-3.0-only  
+SPDX-License-Comment: Additional terms per LicenseRef-CommunityRTS-Section7
+
+---
+
+MinGenerals is released under the GPL v3 license below only, with additional terms
+at the bottom. Individual source files may be available under other licenses
+as specified in those files or an accompanying file. This is the default
+license used where no other license is specified.
 
 GNU General Public License
 ==========================
 
-_Version 3, 29 June 2007_  
-_Copyright © 2007 Free Software Foundation, Inc. &lt;<http://fsf.org/>&gt;_
+_Version 3, 29 June 2007_
+_Copyright © 2007 Free Software Foundation, Inc. &lt;<https://fsf.org/>&gt;_
 
 Everyone is permitted to copy and distribute verbatim copies of this license
 document, but changing it is not allowed.
@@ -570,7 +576,7 @@ where the full notice is found.
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 Also add information on how to contact you by electronic and paper mail.
 
@@ -589,16 +595,20 @@ for a GUI interface, you would use an “about box”.
 You should also get your employer (if you work as a programmer) or school, if any, to
 sign a “copyright disclaimer” for the program, if necessary. For more
 information on this, and how to apply and follow the GNU GPL, see
-&lt;<http://www.gnu.org/licenses/>&gt;.
+&lt;<https://www.gnu.org/licenses/>&gt;.
 
 The GNU General Public License does not permit incorporating your program into
 proprietary programs. If your program is a subroutine library, you may consider it
 more useful to permit linking proprietary applications with the library. If this is
 what you want to do, use the GNU Lesser General Public License instead of this
 License. But first, please read
-&lt;<http://www.gnu.org/philosophy/why-not-lgpl.html>&gt;.
+&lt;<https://www.gnu.org/philosophy/why-not-lgpl.html>&gt;.
 
 ## ADDITIONAL TERMS per GNU GPL Section 7
+
+### LicenseRef-CommunityRTS-Section7
+
+### Electronic Arts Inc. Terms
 
 No trademark or publicity rights are granted. This license does NOT give you
 any right, title or interest in "Command & Conquer" or any other Electronic Arts
@@ -635,3 +645,26 @@ WARRANTY. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF OR LIMITATIONS ON
 IMPLIED WARRANTIES OR THE LIMITATIONS ON THE APPLICABLE STATUTORY RIGHTS OF A
 CONSUMER, SO SOME OR ALL OF THE ABOVE EXCLUSIONS AND LIMITATIONS MAY NOT APPLY
 TO YOU.
+
+---
+
+### CommunityRTS Terms
+
+No trademark or publicity rights are granted. This license does NOT give you
+any right, title or interest in MinGenerals or any other CommunityRTS trademark.
+You may not distribute any modification of this program using any CommunityRTS
+trademark or claim any affiliation or association with CommunityRTS or its
+affiliates or their members.
+
+Any propagation or conveyance of this program must include this copyright
+notice and these terms.
+
+If you convey this program (or any modifications of it) and assume
+contractual liability for the program to recipients of it, you agree to
+indemnify CommunityRTS for any liability that those contractual assumptions
+impose on CommunityRTS.
+
+This disclaimer supplements the one included in the General Public License as
+well as the disclaimer from Electronic Arts Inc. that precedes it.
+
+These terms are intended under GPLv3 Section 7(b), 7(c), 7(e), and 7(f).
