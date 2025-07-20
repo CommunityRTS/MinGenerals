@@ -1,59 +1,164 @@
+<!-- markdownlint-disable -->
+<div align="center">
+  <img src="./Generals/Code/Main/Generals.ico" alt="MinGenerals" width="64" height="64">
 
-# Command & Conquer Generals (inc. Zero Hour) Source Code
+# MinGenerals
 
-This repository includes source code for Command & Conquer Generals, and its expansion pack Zero Hour. This release provides support to the Steam Workshop for both games ([C&C Generals](https://steamcommunity.com/workshop/browse/?appid=2229870) and [C&C Generals - Zero Hour](https://steamcommunity.com/workshop/browse/?appid=2732960)).
+**An open-source preservation project for Command & Conquer Generals and Zero Hour**
 
+[![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE.md)
+![Platform](https://img.shields.io/badge/Platform-Win32-lightgrey.svg)
+![Build System](https://img.shields.io/badge/Build%20System-Visual%20Studio%206.0-orange.svg)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg)](https://discord.gg/CRZDZEhR5p)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CommunityRTS/MinGenerals)
+
+[Getting Started](#getting-started) • [Building](#building) • [Dependencies](#dependencies) • [Known Issues](#known-issues)
+
+</div>
+
+MinGenerals contains the complete source code for Command & Conquer Generals and its expansion pack Zero Hour. This open-source platform enables modding, bug fixes, and modernization efforts of these beloved RTS classics. Built from the original EA source release, this project empowers the community to maintain and evolve the games for current and future platforms.
+
+> [!IMPORTANT]
+> You must own the original games to use the compiled binaries. Purchase the C&C Ultimate Collection on [EA App](https://www.ea.com/en-gb/games/command-and-conquer/command-and-conquer-the-ultimate-collection/buy/pc) or [Steam](https://store.steampowered.com/bundle/39394/Command__Conquer_The_Ultimate_Collection/).
+
+## Getting Started
+
+### Prerequisites
+
+- **Operating System**: Windows (Win32 architecture)
+- **Compiler**: Microsoft Visual Studio C++ 6.0 (SP6 recommended)
+- **Game Ownership**: Valid copy of C&C Generals/Zero Hour
+- **Dependencies**: See [Dependencies](#dependencies) section for required libraries
+
+### Quick Start
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/CommunityRTS/MinGenerals
+   ```
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd MinGenerals
+   ```
+
+3. **Set up dependencies** (see [Dependencies](#dependencies) section)
+
+4. **Open the workspace**:
+   - Launch Visual Studio C++ 6.0
+   - Open `Generals/Code/RTS.dsw` or `GeneralsMD/Code/RTS.dsw`
+
+5. **Build the project**:
+   - Select Build → Batch Build
+   - Click "Rebuild All"
+
+## Building
+
+### Visual Studio 6.0 (Recommended)
+
+For binary-accurate builds matching official releases:
+
+```bash
+# Open workspace file
+Generals/Code/RTS.dsw          # For Generals
+GeneralsMD/Code/RTS.dsw        # For Zero Hour
+```
+
+- **Generals**: Matches patch 1.08
+- **Zero Hour**: Matches patch 1.04
+
+### Modern Visual Studio
+
+To use a newer version of Visual Studio:
+
+1. Open `RTS.dsw` in Visual Studio .NET 2003
+2. Convert the project files when prompted
+3. Open the converted solution in MSVC 2015 or newer
+
+> [!WARNING]
+> Modern MSVC versions enforce stricter C++ standards. Extensive code modifications may be required for successful compilation, especially for Win64 targets.
+
+### Output
+
+Compiled binaries are copied to the `/Run/` folder in the respective game directory.
 
 ## Dependencies
 
-If you wish to rebuild the source code and tools successfully you will need to find or write new replacements (or remove the code using them entirely) for the following libraries;
+The following libraries must be downloaded separately due to licensing restrictions:
 
-- DirectX SDK (Version 9.0 or higher) (expected path `\Code\Libraries\DirectX\`)
-- STLport (4.5.3) - (expected path `\Code\Libraries\STLport-4.5.3`)
-- 3DSMax 4 SDK - (expected path `\Code\Libraries\Max4SDK\`)
-- NVASM - (expected path `\Code\Tools\NVASM\`)
-- BYTEmark - (expected path `\Code\Libraries\Source\Benchmark`)
-- RAD Miles Sound System SDK - (expected path `\Code\Libraries\Source\WWVegas\Miles6\`)
-- RAD Bink SDK - (expected path `\Code\GameEngineDevice\Include\VideoDevice\Bink`)
-- SafeDisk API - (expected path `\Code\GameEngine\Include\Common\SafeDisk` and `\Code\Tools\Launcher\SafeDisk\`)
-- Miles Sound System "Asimp3" - (expected path `\Code\Libraries\WPAudio\Asimp3`)
-- GameSpy SDK - (expected path `\Code\Libraries\Source\GameSpy\`)
-- ZLib (1.1.4) - (expected path `\Code\Libraries\Source\Compression\ZLib\`)
-- LZH-Light (1.0) - (expected path `\Code\Libraries\Source\Compression\LZHCompress\CompLibSource` and `CompLibHeader`)
+### DirectX 8.1 SDK
+- **Download**: https://archive.org/download/dx81sdk_full/dx81sdk_full.exe
+- **Install to**: `\Code\Libraries\Source\DirectX\`
 
-
-## Compiling (Win32 Only)
-
-To use the compiled binaries, you must own the game. The C&C Ultimate Collection is available for purchase on [EA App](https://www.ea.com/en-gb/games/command-and-conquer/command-and-conquer-the-ultimate-collection/buy/pc) or [Steam](https://store.steampowered.com/bundle/39394/Command__Conquer_The_Ultimate_Collection/).
-
-The quickest way to build all configurations in the project is to open `rts.dsw` in Microsoft Visual Studio C++ 6.0 (SP6 recommended for binary matching to Generals patch 1.08 and Zero Hour patch 1.04) and select Build -> Batch Build, then hit the “Rebuild All” button.
-
-If you wish to compile the code under a modern version of Microsoft Visual Studio, you can convert the legacy project file to a modern MSVC solution by opening `rts.dsw` in Microsoft Visual Studio .NET 2003, and then opening the newly created project and solution file in MSVC 2015 or newer.
-
-NOTE: As modern versions of MSVC enforce newer revisions of the C++ standard, you will need to make extensive changes to the codebase before it successfully compiles, even more so if you plan on compiling for the Win64 platform.
-
-When the workspace has finished building, the compiled binaries will be copied to the folder called `/Run/` found in the root of each games directory. 
-
+### NVASM 1.42 (Nvidia Shader Assembler)
+- **Download**: https://archive.org/download/nvasm_1_42/nvasm_1_42.zip
+- **Install to**: `\Code\Tools\NVASM\`
 
 ## Known Issues
 
-Windows has a policy where executables that contain words “version”, “update” or “install” in their filename will require UAC Elevation to run. This will affect “versionUpdate” and “buildVersionUpdate” projects from running as post-build events. Renaming the output binary name for these projects to not include these words should resolve the issue for you.
+### UAC Elevation
 
+Windows may require UAC elevation for executables containing "version", "update", or "install" in their filenames. This affects:
 
-## STLport
-STLport will require changes to successfully compile this source code. The file [stlport.diff](stlport.diff) has been provided for you so you can review and apply these changes. Please make sure you are using STLport 4.5.3 before attempting to apply the patch.
+- `versionUpdate` project
+- `buildVersionUpdate` project
 
+**Solution**: Rename the output binaries to avoid these keywords.
 
-## Contributing
+### Modern Compiler Compatibility
 
-This repository will not be accepting contributions (pull requests, issues, etc). If you wish to create changes to the source code and encourage collaboration, please create a fork of the repository under your GitHub user/organization space.
+> [!NOTE]
+> As modern versions of MSVC enforce newer revisions of the C++ standard, you will need to make extensive changes to the codebase before it successfully compiles, even more so if you plan on compiling for the Win64 platform.
 
+## Project Structure
+
+```
+MinGenerals/
+├── Generals/          # Base game source code
+│   ├── Code/         # Main source directory
+│   │   ├── GameEngine/        # Core game engine
+│   │   ├── GameEngineDevice/  # Hardware abstraction
+│   │   ├── Libraries/         # Third-party dependencies
+│   │   ├── Main/             # Application entry point
+│   │   └── Tools/            # Development utilities
+│   └── Run/          # Compiled binaries
+├── GeneralsMD/       # Zero Hour expansion source
+│   └── [Same structure as Generals]
+├── LICENSE.md        # GPL v3 license with additional terms
+├── README.md         # This file
+└── stlport.diff     # STLport compatibility patch
+```
+
+## Tools Included
+
+- **WorldBuilder**: Map creation and editing tool
+- **Particle Editor**: Visual effects editor  
+- **Autorun**: Installation utilities
+- **Launcher**: Game launcher with mod support
+- **Various Utilities**: Compression, asset management, and debugging tools
 
 ## Support
 
-This repository is for preservation purposes only and is archived without support. 
+For questions, discussions, and support, join our [Discord server](https://discord.gg/CRZDZEhR5p).
 
+## Contributing
 
-## License
+We welcome contributions to the MinGenerals project! Whether you're fixing bugs, adding features, improving documentation, or creating new tools, your contributions help preserve and enhance this classic game's source code.
+
+### How to Contribute
+
+1. **Fork the repository** to your GitHub account
+2. **Create a feature branch** from the main branch
+3. **Make your changes** with clear, descriptive commit messages
+4. **Test your changes** to ensure they work correctly
+5. **Submit a pull request** with a detailed description of your changes
+
+For major changes or new features, consider opening an issue first to discuss your ideas with the community.
+
+## License & Legal Disclaimer
+
+This project is neither affiliated with nor associated with Electronic Arts Inc., its affiliates, or their employees. All trademarks and intellectual property rights belong to their respective owners.
 
 This repository and its contents are licensed under the GPL v3 license, with additional terms applied. Please see [LICENSE.md](LICENSE.md) for details.
