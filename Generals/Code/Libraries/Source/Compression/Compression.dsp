@@ -177,35 +177,35 @@ SOURCE=.\ZLib\zutil.c
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Hdec_g.tbl
+SOURCE=.\LZHCompress\CompLibHeader\Hdec_g.tbl
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Hdec_s.tbl
+SOURCE=.\LZHCompress\CompLibHeader\Hdec_s.tbl
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Hdisp.tbl
+SOURCE=.\LZHCompress\CompLibHeader\Hdisp.tbl
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Henc.tbl
+SOURCE=.\LZHCompress\CompLibHeader\Henc.tbl
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Huff.cpp
+SOURCE=.\LZHCompress\CompLibHeader\Huff.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Lz.cpp
+SOURCE=.\LZHCompress\CompLibHeader\Lz.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Lzhl.cpp
+SOURCE=.\LZHCompress\CompLibHeader\Lzhl.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\LZHCompress\CompLibSource\Lzhl_tcp.cpp
+SOURCE=.\LZHCompress\CompLibHeader\Lzhl_tcp.cpp
 # End Source File
 # Begin Source File
 
