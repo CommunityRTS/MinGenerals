@@ -1,0 +1,18 @@
+name: Conventional Commits
+
+on:
+  push:
+    branches: [ '**' ]         # All branches
+  pull_request:
+    branches: [ '**' ]         # All branches
+
+jobs:
+  build:
+    name: Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: webiny/action-conventional-commits@v1.3.0
+        with:
+          allowed-commit-types: "feat,fix,docs,chore,build,refactor,style,perf,test,ci,revert"
