@@ -34,12 +34,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "bfish.h"
-#include "SafeDisk\CdaPfn.h"
 #include <Debug\DebugPrint.h>
 
 void __cdecl doIt(void);
-
-CDAPFN_DECLARE_GLOBAL(doIt, CDAPFN_OVERHEAD_L5, CDAPFN_CONSTRAINT_NONE);
 
 static void doIt(void)
 {
@@ -185,8 +182,6 @@ static void doIt(void)
 		fwrite(cypherText, textLen, 1, fp);
 		fclose(fp);
 	}
-
-	CDAPFN_ENDMARK(doIt);
 }
 
 int APIENTRY WinMain(HINSTANCE hInstance,
