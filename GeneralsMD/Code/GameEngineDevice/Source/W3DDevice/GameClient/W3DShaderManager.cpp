@@ -73,7 +73,6 @@
 #include "d3dx8tex.h"
 #include "dx8caps.h"
 #include "common/gamelod.h"
-#include "Benchmark.h"
 
 #ifdef _INTERNAL
 // for occasional debugging...
@@ -3113,7 +3112,10 @@ Bool W3DShaderManager::testMinimumRequirements(ChipsetType *videoChipType, CpuTy
 
 	if (intBenchIndex && floatBenchIndex && memBenchIndex)
 	{
-		RunBenchmark(0, NULL, floatBenchIndex, intBenchIndex, memBenchIndex);
+		// Aliendroid1: Just simulating fake ideal results for now because this benchmarking is redundant on modern hardware
+		*floatBenchIndex = 10.0f;
+		*intBenchIndex = 10.0f;
+		*memBenchIndex = 10.0f;
 	}
 
 	return TRUE;
