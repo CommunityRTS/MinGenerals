@@ -1345,7 +1345,7 @@ void PeerThreadClass::Thread_Function()
 		}
 		IPlist = IPlist->getNext();
 	}
-	chatSetLocalIP(preferredIP);
+	//chatSetLocalIP(preferredIP); //Aliendroid1: Disabled because it is not supported by the GameSpy implementation we are using
 
 	UnsignedInt preferredQRPort = 0;
 	AsciiString selectedQRPort = pref["GameSpyQRPort"];
@@ -2276,7 +2276,7 @@ void PeerThreadClass::connectCallback( PEER peer, PEERBool success )
 	resp.player.profileID = m_profileID;
 	resp.nick = m_loginName;
 	GetLocalChatConnectionAddress("peerchat.gamespy.com", 6667, localIP);
-	chatSetLocalIP(localIP);
+	//chatSetLocalIP(preferredIP); //Aliendroid1: Disabled because it is not supported by the GameSpy implementation we are using
 	resp.player.internalIP = ntohl(localIP);
 	resp.player.externalIP = ntohl(peerGetLocalIP(peer));
 	TheGameSpyPeerMessageQueue->addResponse(resp);
