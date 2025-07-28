@@ -129,6 +129,10 @@ SOURCE=.\ghttpConnection.c
 # End Source File
 # Begin Source File
 
+SOURCE=.\ghttpEncryption.c
+# End Source File
+# Begin Source File
+
 SOURCE=.\ghttpMain.c
 # End Source File
 # Begin Source File
@@ -162,6 +166,10 @@ SOURCE=.\ghttpCommon.h
 # Begin Source File
 
 SOURCE=.\ghttpConnection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ghttpEncryption.h
 # End Source File
 # Begin Source File
 
