@@ -2500,9 +2500,9 @@ WindowMsgHandledType WOLGameSetupMenuInput( GameWindow *window, UnsignedInt msg,
 
 
 // Slash commands -------------------------------------------------------------------------
-extern "C" {
-int getQR2HostingStatus(void);
-}
+//extern "C" {
+//int getQR2HostingStatus(void);
+//}
 extern int isThreadHosting;
 
 Bool handleGameSetupSlashCommands(UnicodeString uText)
@@ -2523,7 +2523,7 @@ Bool handleGameSetupSlashCommands(UnicodeString uText)
 	if (token == "host")
 	{
 		UnicodeString s;
-		s.format(L"Hosting qr2:%d thread:%d", getQR2HostingStatus(), isThreadHosting);
+		s.format(L"Hosting qr2:%d thread:%d", 0, isThreadHosting);
 		TheGameSpyInfo->addText(s, GameSpyColor[GSCOLOR_DEFAULT], NULL);
 		return TRUE; // was a slash command
 	}

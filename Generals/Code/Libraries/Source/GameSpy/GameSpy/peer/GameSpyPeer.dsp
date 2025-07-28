@@ -113,11 +113,19 @@ LIB32=link.exe -lib
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\peerAutoMatch.c
+# End Source File
+# Begin Source File
+
 SOURCE=.\peerCallbacks.c
 # End Source File
 # Begin Source File
 
 SOURCE=.\peerGlobalCallbacks.c
+# End Source File
+# Begin Source File
+
+SOURCE=.\peerHost.c
 # End Source File
 # Begin Source File
 
@@ -145,6 +153,10 @@ SOURCE=.\peerPlayers.c
 # End Source File
 # Begin Source File
 
+SOURCE=.\peerQR.c
+# End Source File
+# Begin Source File
+
 SOURCE=.\peerRooms.c
 # End Source File
 # Begin Source File
@@ -161,11 +173,23 @@ SOURCE=.\peer.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\peerAscii.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\peerAutoMatch.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\peerCallbacks.h
 # End Source File
 # Begin Source File
 
 SOURCE=.\peerGlobalCallbacks.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\peerHost.h
 # End Source File
 # Begin Source File
 
@@ -190,6 +214,10 @@ SOURCE=.\peerPing.h
 # Begin Source File
 
 SOURCE=.\peerPlayers.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\peerQR.h
 # End Source File
 # Begin Source File
 
@@ -370,6 +398,346 @@ SOURCE=..\serverbrowsing\sb_serverbrowsing.h
 # Begin Source File
 
 SOURCE=..\serverbrowsing\sb_serverlist.c
+# End Source File
+# End Group
+# Begin Group "common"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\common\gsAvailable.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsAvailable.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsCommon.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsCore.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsCore.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsCrypt.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsCrypt.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsDebug.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsDebug.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsLargeInt.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsLargeInt.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsRC4.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsRC4.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSHA1.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSHA1.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSoap.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSoap.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSSL.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsSSL.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsStringUtil.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsStringUtil.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsUdpEngine.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsUdpEngine.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsXML.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\gsXML.h
+# End Source File
+# End Group
+# Begin Group "gp"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\gp\gpi.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpi.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiBuddy.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiBuddy.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiBuffer.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiBuffer.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiCallback.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiCallback.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiConnect.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiConnect.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiInfo.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiInfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiKeys.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiKeys.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiOperation.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiOperation.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiPeer.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiPeer.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiProfile.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiProfile.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiPS3.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiPS3.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiSearch.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiSearch.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiTransfer.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiTransfer.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiUnique.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiUnique.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiUtility.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gp\gpiUtility.h
+# End Source File
+# End Group
+# Begin Group "gt2"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\gt2\gt2.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Auth.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Auth.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Buffer.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Buffer.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Callback.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Callback.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Connection.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Connection.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Encode.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Encode.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Filter.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Filter.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Main.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Main.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Message.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Message.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Socket.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Socket.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Utility.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\gt2\gt2Utility.h
+# End Source File
+# End Group
+# Begin Group "natneg"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\natneg\NATify.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\natneg\NATify.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\natneg\natneg.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\natneg\natneg.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\natneg\nninternal.h
 # End Source File
 # End Group
 # End Target
