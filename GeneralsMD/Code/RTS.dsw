@@ -3,6 +3,18 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
+Project: "Bink"=.\Libraries\Source\Bink\Bink.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
 Project: "CRCDiff"=.\Tools\CRCDiff\CRCDiff.dsp - Package Owner=<4>
 
 Package=<5>
@@ -154,6 +166,9 @@ Package=<4>
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name Compression
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Bink
     End Project Dependency
 }}}
 
