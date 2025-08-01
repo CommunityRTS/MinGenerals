@@ -158,6 +158,9 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name Bink
     End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Miles
+    End Project Dependency
 }}}
 
 ###############################################################################
@@ -320,6 +323,18 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name wwsaveload
     End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Miles"=.\LIBRARIES\SOURCE\Miles\Miles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
 }}}
 
 ###############################################################################
