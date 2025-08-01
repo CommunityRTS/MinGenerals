@@ -3,6 +3,18 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
+Project: "Bink"=.\LIBRARIES\SOURCE\Bink\Bink.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
 Project: "Compress"=.\Tools\Compress\Compress.dsp - Package Owner=<4>
 
 Package=<5>
@@ -142,6 +154,9 @@ Package=<4>
 {{{
     Begin Project Dependency
     Project_Dep_Name EABrowserDispatch
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Bink
     End Project Dependency
 }}}
 
