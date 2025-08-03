@@ -4,7 +4,7 @@
 
 # MinGenerals
 
-**An open-source preservation project for Command & Conquer Generals and Zero Hour**
+**A community fork of Command & Conquer Generals, and its expansion pack Zero Hour**
 
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE.md)
 ![Platform](https://img.shields.io/badge/Platform-Win32-lightgrey.svg)
@@ -12,20 +12,26 @@
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg)](https://discord.gg/CRZDZEhR5p)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CommunityRTS/MinGenerals)
 
-[Getting Started](#getting-started) • [Building](#building) • [Dependencies](#dependencies) • [Known Issues](#known-issues)
+[Getting Started](#getting-started) • [Building](#building) • [Dependencies](#dependencies)
 
 </div>
 
-MinGenerals contains the complete source code for Command & Conquer Generals and its expansion pack Zero Hour. This open-source platform enables modding, bug fixes, and modernization efforts of these beloved RTS classics. Built from the original EA source release, this project empowers the community to maintain and evolve the games for current and future platforms.
+This repository includes modified source code from Command & Conquer Generals, and its expansion pack Zero Hour.
+
+Non-code assets that are needed to run the games such as graphics, sounds, or music are not included.
 
 > [!IMPORTANT]
-> You must own the original games to use the compiled binaries. Purchase the C&C Ultimate Collection on [EA App](https://www.ea.com/en-gb/games/command-and-conquer/command-and-conquer-the-ultimate-collection/buy/pc) or [Steam](https://store.steampowered.com/bundle/39394/Command__Conquer_The_Ultimate_Collection/).
+> You must own the original games to use the official game art and other copyrighted game assets. 
+Purchase the C&C Ultimate Collection 
+on [EA App](https://www.ea.com/en-gb/games/command-and-conquer/command-and-conquer-the-ultimate-collection/buy/pc) 
+or [Steam](https://store.steampowered.com/bundle/39394/Command__Conquer_The_Ultimate_Collection/).
+
 ## Getting Started
 
 ### Prerequisites
 
-- **Operating System**: Windows (Win32 architecture)
-- **Compiler**: Microsoft Visual Studio C++ 6.0 (SP6 recommended)
+- **Operating System**: Windows
+- **Compiler**: Microsoft Visual Studio C++ 6.0 (SP6)
 - **Game Ownership**: Valid copy of C&C Generals/Zero Hour
 - **Dependencies**: See [Dependencies](#dependencies) section for required libraries
 
@@ -53,31 +59,17 @@ MinGenerals contains the complete source code for Command & Conquer Generals and
    - Select Build → Batch Build
    - Click "Rebuild All"
 
-## Building
+## Building (Visual Studio 6.0)
 
-### Visual Studio 6.0 (Recommended)
-
-For binary-accurate builds matching official releases:
-
-```bash
+```text
 # Open workspace file
 Generals/Code/RTS.dsw          # For Generals
 GeneralsMD/Code/RTS.dsw        # For Zero Hour
 ```
 
-- **Generals**: Matches patch 1.08
-- **Zero Hour**: Matches patch 1.04
+- **Generals**: Matches EA's Generals patch 1.08
+- **GeneralsMD**: Matches EA's Zero Hour patch 1.04
 
-### Modern Visual Studio
-
-To use a newer version of Visual Studio:
-
-1. Open `RTS.dsw` in Visual Studio .NET 2003
-2. Convert the project files when prompted
-3. Open the converted solution in MSVC 2015 or newer
-
-> [!WARNING]
-> Modern MSVC versions enforce stricter C++ standards. Extensive code modifications may be required for successful compilation, especially for Win64 targets.
 ### Output
 
 Compiled binaries are copied to the `/Run/` folder in the respective game directory.
@@ -94,38 +86,22 @@ The following libraries must be downloaded separately due to licensing restricti
 - **Download**: https://archive.org/download/nvasm_1_42/nvasm_1_42.zip
 - **Install to**: `\Code\Tools\NVASM\`
 
-## Known Issues
-
-### UAC Elevation
-
-Windows may require UAC elevation for executables containing "version", "update", or "install" in their filenames. This affects:
-
-- `versionUpdate` project
-- `buildVersionUpdate` project
-
-**Solution**: Rename the output binaries to avoid these keywords.
-
-### Modern Compiler Compatibility
-
-> [!NOTE]
-> As modern versions of MSVC enforce newer revisions of the C++ standard, you will need to make extensive changes to the codebase before it successfully compiles, even more so if you plan on compiling for the Win64 platform.
 ## Project Structure
 
-```
+```text
 MinGenerals/
-├── Generals/          # Base game source code
+├── Generals/         # Base game source code
 │   ├── Code/         # Main source directory
 │   │   ├── GameEngine/        # Core game engine
 │   │   ├── GameEngineDevice/  # Hardware abstraction
 │   │   ├── Libraries/         # Third-party dependencies
-│   │   ├── Main/             # Application entry point
-│   │   └── Tools/            # Development utilities
+│   │   ├── Main/              # Application entry point
+│   │   └── Tools/             # Development utilities
 │   └── Run/          # Compiled binaries
 ├── GeneralsMD/       # Zero Hour expansion source
 │   └── [Same structure as Generals]
 ├── LICENSE.md        # GPL v3 license with additional terms
-├── README.md         # This file
-└── stlport.diff     # STLport compatibility patch
+└── README.md         # This file
 ```
 
 ## Tools Included
@@ -150,7 +126,7 @@ We welcome contributions to the MinGenerals project! Whether you're fixing bugs,
 2. **Create a feature branch** from the main branch
 3. **Make your changes** with clear, descriptive commit messages
 4. **Test your changes** to ensure they work correctly
-5. **Submit a pull request** with a detailed description of your changes
+5. **Submit a pull request** to the dev branch with a detailed description of your changes
 
 For major changes or new features, consider opening an issue first to discuss your ideas with the community.
 
