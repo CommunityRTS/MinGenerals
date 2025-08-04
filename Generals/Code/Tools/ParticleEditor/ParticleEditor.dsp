@@ -43,7 +43,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /Ob2 /I "./include" /I "./res" /I "../../libraries/include" /I "../../gameengine/include" /I "../../gameenginedevice/include/" /I "../../libraries/source/wwvegas" /I "../../libraries/source/wwvegas/ww3d2" /I "../../libraries/source/wwvegas/wwdebug" /I "../../libraries/source/wwvegas/wwlib" /I "../../libraries/source/wwvegas/wwmath" /I "../../libraries/source/wwvegas/wwsaveload" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_MBCS" /D "_USRDLL" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /Ob2 /I "./include" /I "./res" /I "../../libraries/include" /I "../../gameengine/include" /I "../../gameenginedevice/include/" /I "../../libraries/source/wwvegas" /I "../../libraries/source/wwvegas/ww3d2" /I "../../libraries/source/wwvegas/wwdebug" /I "../../libraries/source/wwvegas/wwlib" /I "../../libraries/source/wwvegas/wwmath" /I "../../libraries/source/wwvegas/wwsaveload" /I "../../libraries/source/stlport/stlport" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_MBCS" /D "_USRDLL" /Yu"stdafx.h" /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -54,7 +54,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /dll /machine:I386
 # ADD LINK32 /nologo /subsystem:windows /dll /pdb:"../../../Run/ParticleEditor.pdb" /map:"../../../Run/ParticleEditor.map" /debug /machine:I386 /out:"../../../Run/ParticleEditor.dll"
-# SUBTRACT LINK32 
+# SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "ParticleEditor - Win32 Debug"
 
@@ -70,7 +70,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "./include" /I "./res" /I "../../libraries/include" /I "../../gameengine/include" /I "../../gameenginedevice/include/" /I "../../libraries/source/wwvegas" /I "../../libraries/source/wwvegas/ww3d2" /I "../../libraries/source/wwvegas/wwdebug" /I "../../libraries/source/wwvegas/wwlib" /I "../../libraries/source/wwvegas/wwmath" /I "../../libraries/source/wwvegas/wwsaveload" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_MBCS" /D "_USRDLL" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "./include" /I "./res" /I "../../libraries/include" /I "../../gameengine/include" /I "../../gameenginedevice/include/" /I "../../libraries/source/wwvegas" /I "../../libraries/source/wwvegas/ww3d2" /I "../../libraries/source/wwvegas/wwdebug" /I "../../libraries/source/wwvegas/wwlib" /I "../../libraries/source/wwvegas/wwmath" /I "../../libraries/source/wwvegas/wwsaveload" /I "../../libraries/source/stlport/stlport" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_MBCS" /D "_USRDLL" /Yu"stdafx.h" /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
@@ -79,9 +79,9 @@ BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD BASE LINK32 /nologo /subsystem:windows /dll /debug /machine:I386 
+# ADD BASE LINK32 /nologo /subsystem:windows /dll /debug /machine:I386
 # ADD LINK32 /nologo /subsystem:windows /dll /pdb:"../../../Run/ParticleEditorD.pdb" /map:"../../../Run/ParticleEditorD.map" /debug /machine:I386 /out:"../../../Run/ParticleEditorD.dll"
-# SUBTRACT LINK32  
+# SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
 

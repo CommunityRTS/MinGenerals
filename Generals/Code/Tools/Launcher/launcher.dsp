@@ -43,7 +43,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /I "ToolKit" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "USE_NOTEPAD" /FR /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /I "ToolKit" /I "../../libraries/source/stlport/stlport" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "USE_NOTEPAD" /FR /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
@@ -54,7 +54,7 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386
 # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib /nologo /subsystem:windows /pdb:"../../../Run/Generals.pdb" /map:"../../../Run/Generals.map" /debug /machine:I386 /out:"../../../Run/Generals.exe"
-# SUBTRACT LINK32 
+# SUBTRACT LINK32 /pdb:none
 
 !ELSEIF  "$(CFG)" == "launcher - Win32 Debug"
 
@@ -70,7 +70,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "ToolKit" /D "_DEBUG" /D "DEBUG" /D "USE_GAMEDIR_FROM_LCF" /D "WIN32" /D "_WINDOWS" /D "USE_NOTEPAD" /FR /FD /c
+# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "ToolKit" /I "../../libraries/source/stlport/stlport" /D "_DEBUG" /D "DEBUG" /D "USE_GAMEDIR_FROM_LCF" /D "WIN32" /D "_WINDOWS" /D "USE_NOTEPAD" /FR /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
@@ -80,9 +80,9 @@ BSC32=bscmake.exe
 # ADD BASE BSC32 /nologo
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386 
+# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386
 # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib comctl32.lib winmm.lib /nologo /subsystem:windows /pdb:"../../../Run/GeneralsD.pdb" /map:"../../../Run/GeneralsD.map" /debug /machine:I386 /out:"../../../Run/GeneralsD.exe" /libpath:"."
-# SUBTRACT LINK32  
+# SUBTRACT LINK32 /pdb:none
 
 !ENDIF 
 
