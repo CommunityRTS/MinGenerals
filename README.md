@@ -12,8 +12,6 @@
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2.svg)](https://discord.gg/CRZDZEhR5p)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CommunityRTS/MinGenerals)
 
-[Getting Started](#getting-started) • [Building](#building) • [Dependencies](#dependencies)
-
 </div>
 
 This repository includes modified source code from Command & Conquer Generals, and its expansion pack Zero Hour.
