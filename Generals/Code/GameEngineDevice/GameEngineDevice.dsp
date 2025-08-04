@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /GX /O2 /Ob2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /D "_LIB" /D "_WINDOWS" /D "IG_DEBUG_STACKTRACE" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_RELEASE" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /GX /O2 /Ob2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /I "../Libraries/Source/DXSDK" /I "../Libraries/Source/DXSDK\include" /D "_LIB" /D "_WINDOWS" /D "IG_DEBUG_STACKTRACE" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_RELEASE" /Fr /YX /FD /c
 # SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -66,7 +66,7 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /Gm /GX /ZI /Od /I "..\Libraries\Include\MSS" /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /D "_DEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /Fr /YX /FD /GZ /c
+# ADD CPP /nologo /G6 /MDd /W3 /Gm /GX /ZI /Od /I "..\Libraries\Include\MSS" /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /I "../Libraries/Source/DXSDK" /I "../Libraries/Source/DXSDK\include" /D "_DEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /Fr /YX /FD /GZ /c
 # SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -90,7 +90,7 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Internal"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /Zi /O2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /GX /Zi /O2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "_INTERNAL" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /GX /Zi /O2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /I "../Libraries/Source/stlport/stlport" /I "../Libraries/Source/DXSDK" /I "../Libraries/Source/DXSDK\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "_INTERNAL" /Fr /YX /FD /c
 # SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
