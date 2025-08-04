@@ -43,7 +43,8 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /Z7 /Od /I "..\Library" /D "G_CODE_BASE" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gi /GX /Zi /O2 /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "G_CODE_BASE" /D "DIRECTX" /D "_DEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MDd /W3 /Gi /GX /Zi /O2 /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "G_CODE_BASE" /D "DIRECTX" /D "_DEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /Fr /YX /FD /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409
 # ADD RSC /l 0x409
 BSC32=bscmake.exe
@@ -66,7 +67,8 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /I "..\Library" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Gi /GX /O2 /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "NDEBUG" /D "WIN32" /D "IG_DEBUG_STACKTRACE" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /Gi /GX /O2 /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "NDEBUG" /D "WIN32" /D "IG_DEBUG_STACKTRACE" /Fr /YX /FD /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409
 # ADD RSC /l 0x409
 BSC32=bscmake.exe
@@ -89,8 +91,8 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Profile"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /I "..\Library" /I "..\wwdebug" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /FR /YX /FD /c
-# ADD CPP /nologo /MD /W3 /WX /GX /Zi /O2 /Op /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "NDEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /YX /FD /c
-# SUBTRACT CPP /Fr
+# ADD CPP /nologo /MD /W3 /GX /Zi /O2 /Op /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "NDEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /YX /FD /c
+# SUBTRACT CPP /WX /Fr
 # ADD BASE RSC /l 0x409
 # ADD RSC /l 0x409
 BSC32=bscmake.exe
@@ -114,7 +116,8 @@ LIB32=link.exe -lib
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W4 /WX /Gi /GX /O2 /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /D "NDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /YX /FD /c
 # SUBTRACT BASE CPP /Fr
-# ADD CPP /nologo /G6 /MD /W3 /WX /Gi /GX /Zi /O2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "NDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "_INTERNAL" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /Gi /GX /Zi /O2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwsaveload" /I "..\..\stlport\stlport" /D "NDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "_INTERNAL" /Fr /YX /FD /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409
 # ADD RSC /l 0x409
 BSC32=bscmake.exe

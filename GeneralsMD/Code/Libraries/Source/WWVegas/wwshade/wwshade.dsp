@@ -45,6 +45,7 @@ RSC=rc.exe
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
 # ADD CPP /nologo /G6 /MD /W3 /GX /Zi /O2 /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "../../stlport/stlport" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /FD /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -68,6 +69,7 @@ LIB32=link.exe -lib
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
 # ADD CPP /nologo /G6 /MDd /W3 /Gm /GX /ZI /Od /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "../../stlport/stlport" /D "_MBCS" /D "_LIB" /D "WWDEBUG" /D "_DEBUG" /D "WIN32" /FR /FD /GZ /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -91,6 +93,7 @@ LIB32=link.exe -lib
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /I "..\DirectX\include" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "..\wwsaveload" /I "..\ww3d2" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
 # ADD CPP /nologo /W3 /GX /Zi /O2 /I "..\DirectX\include" /I "$(ProjDir)/DXSDK\INCLUDE" /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "../STLPORT" /I "../../../../DXSDK/INCLUDE" /I "../../stlport/stlport" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "_PROFILE" /YX /FD /Gh /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -113,7 +116,8 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Internal"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /I "..\DirectX\include" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "..\wwsaveload" /I "..\ww3d2" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /O2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwmath" /I "..\wwsaveload" /I "..\ww3d2" /I "../../stlport/stlport" /D WINVER=0x400 /D "WWDEBUG" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_INTERNAL" /Fr /YX /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /GX /Zi /O2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwmath" /I "..\wwsaveload" /I "..\ww3d2" /I "../../stlport/stlport" /D WINVER=0x400 /D "WWDEBUG" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_INTERNAL" /Fr /YX /FD /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -138,6 +142,7 @@ LIB32=link.exe -lib
 # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /D "_MBCS" /D "_LIB" /D "WWDEBUG" /D "_DEBUG" /D "WIN32" /FR /FD /GZ /c
 # SUBTRACT BASE CPP /YX
 # ADD CPP /nologo /G6 /MTd /W3 /Gm /GX /ZI /Od /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "../../stlport/stlport" /D "_MBCS" /D "_LIB" /D "WWDEBUG" /D "_DEBUG" /D "WIN32" /FR /FD /GZ /c
+# SUBTRACT CPP /WX
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
