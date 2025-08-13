@@ -1,0 +1,35 @@
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+end_of_line = lf
+spelling_language = en-US
+
+[*.ps{1,1x,m1,d1,1xml,sc,rc}]
+end_of_line = crlf
+[*.{cdxml,bat,cmd,dbgcmd,reg}]
+end_of_line = crlf
+[*.{dsp,dsw,sln,props,targets,filters,vcxitems,*proj}]
+end_of_line = crlf
+[*.{def,rc,rc2,idl,odl,tlh,tli,hm}]
+end_of_line = crlf
+
+[*.{yml,yaml,json,jsonc,cjson}]
+indent_size = 2
+
+[{[Mm]akefile,[Gg]nu[Mm]akefile,.mk,.mak}]
+indent_style = tab
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{patch,diff}]
+trim_trailing_whitespace = false
+insert_final_newline = false
+indent_style = unset
+indent_size = unset
+end_of_line = unset
