@@ -106,3 +106,17 @@ nohup.out
 [Ss]panish/
 [Mm]ax4[Rr]elease/
 [Mm]ax4[Hh]ybrid/
+
+# TEMPORARY EXCEPTIONS! (project specific)
+![Ll]ib/
+**/[Ll]ib/**
+!**/[Ll]ib/[Tt]rig.h
+!**/[Ll]ib/[Bb]ase[Tt]ype.h
+
+!**/[Tt]oolkit/[Dd]ebug
+**/[Tt]oolkit/[Dd]ebug/**
+!**/[Tt]oolkit/[Dd]ebug/[Dd]ebug[Pp]rint.cpp
+!**/[Tt]oolkit/[Dd]ebug/[Dd]ebug[Pp]rint.h
+
+!**/[Ss]ource/[Dd]ebug
+!**/[Ss]ource/[Pp]rofile
