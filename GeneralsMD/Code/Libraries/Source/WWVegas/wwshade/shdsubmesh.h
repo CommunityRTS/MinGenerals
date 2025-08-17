@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Jani P                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 07/12/02 10:31a                                              $*
  *                                                                                             *
  *                    $Revision:: 1                                                           $*
@@ -52,18 +52,18 @@ class MeshModelClass;
 class HTreeClass;
 
 /**
-** ShdSubMeshClass - A single ShdMeshClass instance will contain one or more ShdSubMeshClass.  
-** The "sub-mesh" is a collection of polygons who all use the same shader.  
+** ShdSubMeshClass - A single ShdMeshClass instance will contain one or more ShdSubMeshClass.
+** The "sub-mesh" is a collection of polygons who all use the same shader.
 */
 class ShdSubMeshClass : public MeshGeometryClass
 {
-public:	
+public:
 	W3DMPO_GLUE(ShdSubMeshClass);
-	
+
 	ShdSubMeshClass(void);
 	ShdSubMeshClass(const ShdSubMeshClass & that);
 	~ShdSubMeshClass(void);
-	
+
 	ShdSubMeshClass & operator = (const ShdSubMeshClass & that);
 	void							Reset(int polycount,int vertcount);
 
@@ -75,7 +75,7 @@ public:
 	// Material interface, All of these functions call through to the current
 	// material decription.
 	/////////////////////////////////////////////////////////////////////////////////////
-	void							Set_Shader(ShdInterfaceClass * shader)										{ REF_PTR_SET(Shader,shader); } 
+	void							Set_Shader(ShdInterfaceClass * shader)										{ REF_PTR_SET(Shader,shader); }
 	ShdInterfaceClass *		Peek_Shader(void) const															{ return Shader; }
 
 	/////////////////////////////////////////////////////////////////////////////////////

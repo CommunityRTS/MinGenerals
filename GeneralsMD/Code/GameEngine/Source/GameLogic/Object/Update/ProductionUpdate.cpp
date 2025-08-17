@@ -63,7 +63,7 @@
 
 // PUBLIC /////////////////////////////////////////////////////////////////////////////////////////
 
-static const ModelConditionFlagType theOpeningFlags[DOOR_COUNT_MAX] = 
+static const ModelConditionFlagType theOpeningFlags[DOOR_COUNT_MAX] =
 {
 	MODELCONDITION_DOOR_1_OPENING,
 	MODELCONDITION_DOOR_2_OPENING,
@@ -71,7 +71,7 @@ static const ModelConditionFlagType theOpeningFlags[DOOR_COUNT_MAX] =
 	MODELCONDITION_DOOR_4_OPENING
 };
 
-static const ModelConditionFlagType theClosingFlags[DOOR_COUNT_MAX] = 
+static const ModelConditionFlagType theClosingFlags[DOOR_COUNT_MAX] =
 {
 	MODELCONDITION_DOOR_1_CLOSING,
 	MODELCONDITION_DOOR_2_CLOSING,
@@ -79,7 +79,7 @@ static const ModelConditionFlagType theClosingFlags[DOOR_COUNT_MAX] =
 	MODELCONDITION_DOOR_4_CLOSING
 };
 
-static const ModelConditionFlagType theWaitingOpenFlags[DOOR_COUNT_MAX] = 
+static const ModelConditionFlagType theWaitingOpenFlags[DOOR_COUNT_MAX] =
 {
 	MODELCONDITION_DOOR_1_WAITING_OPEN,
 	MODELCONDITION_DOOR_2_WAITING_OPEN,
@@ -87,7 +87,7 @@ static const ModelConditionFlagType theWaitingOpenFlags[DOOR_COUNT_MAX] =
 	MODELCONDITION_DOOR_4_WAITING_OPEN
 };
 
-static const ModelConditionFlagType theWaitingToCloseFlags[DOOR_COUNT_MAX] = 
+static const ModelConditionFlagType theWaitingToCloseFlags[DOOR_COUNT_MAX] =
 {
 	MODELCONDITION_DOOR_1_WAITING_TO_CLOSE,
 	MODELCONDITION_DOOR_2_WAITING_TO_CLOSE,
@@ -126,11 +126,11 @@ ProductionUpdateModuleData::ProductionUpdateModuleData( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-/*static*/ void ProductionUpdateModuleData::buildFieldParse(MultiIniFieldParse& p) 
+/*static*/ void ProductionUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpdateModuleData::buildFieldParse( p );
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "MaxQueueEntries",	INI::parseInt, NULL, offsetof( ProductionUpdateModuleData, m_maxQueueEntries ) },
 		{ "NumDoorAnimations",	INI::parseInt, NULL, offsetof( ProductionUpdateModuleData, m_numDoorAnimations ) },
@@ -183,7 +183,7 @@ ProductionEntry::~ProductionEntry( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-ProductionUpdate::ProductionUpdate( Thing *thing, const ModuleData* moduleData ) : 
+ProductionUpdate::ProductionUpdate( Thing *thing, const ModuleData* moduleData ) :
 									UpdateModule( thing, moduleData )
 {
 
@@ -237,8 +237,8 @@ CanMakeType ProductionUpdate::canQueueUpgrade( const UpgradeTemplate *upgrade ) 
 //-------------------------------------------------------------------------------------------------
 CanMakeType ProductionUpdate::canQueueCreateUnit( const ThingTemplate *unitType ) const
 {
-	/// @todo srj -- this is horrible, but the "right" way to do it is to move 
-	// ProductionUpdate to be part of ParkingPlaceBehavior, which I don't currently 
+	/// @todo srj -- this is horrible, but the "right" way to do it is to move
+	// ProductionUpdate to be part of ParkingPlaceBehavior, which I don't currently
 	// have time for...
 	ParkingPlaceBehaviorInterface* pp = NULL;
 	for (BehaviorModule** i = getObject()->getBehaviorModules(); *i; ++i)
@@ -271,7 +271,7 @@ Bool ProductionUpdate::queueUpgrade( const UpgradeTemplate *upgrade )
 	Player *player = getObject()->getControllingPlayer();
 
 	// sanity check to make sure we can build this upgrade
-	if( upgrade->getUpgradeType() == UPGRADE_TYPE_PLAYER && 
+	if( upgrade->getUpgradeType() == UPGRADE_TYPE_PLAYER &&
 			TheUpgradeCenter->canAffordUpgrade( player, upgrade ) == FALSE )
 		return FALSE;
 	else if( upgrade->getUpgradeType() == UPGRADE_TYPE_OBJECT &&
@@ -282,7 +282,7 @@ Bool ProductionUpdate::queueUpgrade( const UpgradeTemplate *upgrade )
 	// you cannot queue the production of an upgrade twice in this queue
 	if( isUpgradeInQueue( upgrade ) == TRUE )
 		return FALSE;
-	
+
 	// STOP cheaters by making sure they can actually build this
 	if( !getObject()->canProduceUpgrade(upgrade) )
 		return FALSE;
@@ -292,7 +292,7 @@ Bool ProductionUpdate::queueUpgrade( const UpgradeTemplate *upgrade )
 	// (or that somewhere else could even possibly be here)
 	//
 	if( upgrade->getUpgradeType() == UPGRADE_TYPE_PLAYER &&
-      (player->hasUpgradeComplete( upgrade ) || player->hasUpgradeInProduction( upgrade )) ) 
+      (player->hasUpgradeComplete( upgrade ) || player->hasUpgradeInProduction( upgrade )) )
 		return FALSE;
 
 	if (m_productionCount >= getProductionUpdateModuleData()->m_maxQueueEntries)
@@ -320,7 +320,7 @@ Bool ProductionUpdate::queueUpgrade( const UpgradeTemplate *upgrade )
 	// add this upgrade as in progress in the player
 	player->addUpgrade( upgrade, UPGRADE_STATUS_IN_PRODUCTION );
 
-	
+
 
 	return TRUE;  // queued
 
@@ -377,7 +377,7 @@ void ProductionUpdate::cancelUpgrade( const UpgradeTemplate *upgrade )
 	//
 	if( upgrade->getUpgradeType() == UPGRADE_TYPE_PLAYER )
 		player->removeUpgrade( upgrade );
-	
+
 }  // end cancelUpgrade
 
 //-------------------------------------------------------------------------------------------------
@@ -394,8 +394,8 @@ Bool ProductionUpdate::queueCreateUnit( const ThingTemplate *unitType, Productio
 
 	ExitDoorType exitDoor = DOOR_NONE_AVAILABLE;
 
-	/// @todo srj -- this is horrible, but the "right" way to do it is to move 
-	// ProductionUpdate to be part of ParkingPlaceBehavior, which I don't currently 
+	/// @todo srj -- this is horrible, but the "right" way to do it is to move
+	// ProductionUpdate to be part of ParkingPlaceBehavior, which I don't currently
 	// have time for...
 	ParkingPlaceBehaviorInterface* pp = NULL;
 	for (BehaviorModule** i = getObject()->getBehaviorModules(); *i; ++i)
@@ -447,7 +447,7 @@ Bool ProductionUpdate::queueCreateUnit( const ThingTemplate *unitType, Productio
 			break;
 		}
 	}
-	
+
 	// assing production entry data
 	production->m_type = PRODUCTION_UNIT;
 	production->m_objectToProduce = unitType;
@@ -514,12 +514,12 @@ void ProductionUpdate::cancelAllUnitsOfType( const ThingTemplate *unitType)
 
 			// cancel the production
 			cancelUnitCreate( production->getProductionID() );
-		
+
 			// advance
 			production = temp;
 
-		}  // end if 
-		else 
+		}  // end if
+		else
 		{
 
 			// advance
@@ -551,7 +551,7 @@ void ProductionUpdate::updateDoors()
 
 			if( now - m_doors[i].m_doorOpenedFrame > d->m_doorOpeningTime )
 			{
-			
+
 				// set our frame markers for door states
 				m_doors[i].m_doorOpenedFrame = 0;
 				m_doors[i].m_doorWaitOpenFrame = now;
@@ -626,7 +626,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 	//
 	if( m_constructionCompleteFrame )
 	{
-	
+
 		if( now - m_constructionCompleteFrame > d->m_constructionCompleteDuration )
 		{
 
@@ -658,7 +658,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 	}  // end if
 
 	// if nothing in the queue get outta here
-	if( production == NULL )	
+	if( production == NULL )
 		return UPDATE_SLEEP_NONE;
 
 	//
@@ -694,15 +694,15 @@ UpdateSleepTime ProductionUpdate::update( void )
 	//
 	if( production->getProductionType() == PRODUCTION_UNIT &&
 			player->allowedToBuild( production->getProductionObject() ) == FALSE )
-	{	
-	
+	{
+
 		// Don't cancel dozers in the queue.  jba.
-		if (!production->getProductionObject()->isKindOf(KINDOF_DOZER)) 
+		if (!production->getProductionObject()->isKindOf(KINDOF_DOZER))
 		{
 
 			cancelUnitCreate(production->getProductionID());
 			return UPDATE_SLEEP_NONE;
-	
+
 		}  // end if
 
 	}  // end if
@@ -810,7 +810,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 							m_flagsDirty = TRUE;
 
 						}  // end if
-											
+
 						//
 						// make a new object, note that for production buildings that have door
 						// animations we will not make the object until the door has been totally
@@ -818,9 +818,9 @@ UpdateSleepTime ProductionUpdate::update( void )
 						//
 						if( d->m_numDoorAnimations == 0 || door == NULL || door->m_doorWaitOpenFrame != 0 )
 						{
-							Object *newObj = TheThingFactory->newObject( production->m_objectToProduce, 
+							Object *newObj = TheThingFactory->newObject( production->m_objectToProduce,
 																	creationBuilding->getControllingPlayer()->getDefaultTeam() );
-							
+
 							newObj->setProducer(creationBuilding);
 
 							// call the exit interface to do the rally point and position stuff
@@ -872,7 +872,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 				{
 					// remove this production entry so we can go on to the next if we are totally finished
 					removeFromProductionQueue( production );
-					
+
 					// delete the production entry
 					production->deleteInstance();
 				}
@@ -882,7 +882,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 			{
 
 				// there is no exit interface, this is an error
-				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s', there is no ExitUpdate interface defined for producer object '%s'\n", 
+				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s', there is no ExitUpdate interface defined for producer object '%s'\n",
 															production->m_objectToProduce->getName().str(),
 															creationBuilding->getTemplate()->getName().str()) );
 
@@ -893,7 +893,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 				production->deleteInstance();
 
 			}  // end else
-	
+
 		}  // end if, production unit
 		else if( production->m_type == PRODUCTION_UPGRADE )
 		{
@@ -901,7 +901,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 
 			// we finished an upgrade, lets add that money spent on it to the scorekeeper
 			player->getScoreKeeper()->addMoneySpent(upgrade->calcCostToBuild(player));
-			
+
 			// notify the script engine
 			TheScriptEngine->notifyOfCompletedUpgrade(
 				us->getControllingPlayer()->getPlayerIndex(),
@@ -920,10 +920,10 @@ UpdateSleepTime ProductionUpdate::update( void )
 
 				// upgrades are a more rare event, play a nifty radar event thingie
 				TheRadar->createEvent( us->getPosition(), RADAR_EVENT_UPGRADE );
-				
+
 				//Play the sound for the upgrade, because we just built it!
 				AudioEventRTS sound = *upgrade->getResearchCompleteSound();
-				if( TheAudio->isValidAudioEvent( &sound ) ) 
+				if( TheAudio->isValidAudioEvent( &sound ) )
 				{
 					//We have a custom upgrade complete sound.
 					sound.setObjectID( us->getID() );
@@ -939,7 +939,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 				sound = *upgrade->getUnitSpecificSound();
 				sound.setObjectID( us->getID() );
 				TheAudio->addAudioEvent( &sound );
-			
+
 			}  // end if
 
 			// update the upgrade status in the player or give the upgrade to the object
@@ -953,7 +953,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 			}
 
 			player->getAcademyStats()->recordUpgrade( upgrade, FALSE );
-			
+
 			//Also mark the UI dirty -- incase object with upgrade cameo is selected.
 			Drawable *draw = TheInGameUI->getFirstSelectedDrawable();
 			Object *selectedObject = draw ? draw->getObject() : NULL;
@@ -982,7 +982,7 @@ UpdateSleepTime ProductionUpdate::update( void )
 		}  // end else, production upgrade
 
 	}  // end if, production is 100% complete
-	
+
 	return UPDATE_SLEEP_NONE;
 }  // end update
 
@@ -1071,13 +1071,13 @@ void ProductionUpdate::removeFromProductionQueue( ProductionEntry *production )
 			m_clearFlags.set( MODELCONDITION_ACTIVELY_CONSTRUCTING, true );
 			m_setFlags.set( MODELCONDITION_ACTIVELY_CONSTRUCTING, false );
 			m_flagsDirty = TRUE;
-		
+
 		}  // end if
 
 	}  // end if
 
 /*
-	// Debugging 
+	// Debugging
 	UnicodeString msg;
 	if( production->getProductionType() == ProductionEntry::PRODUCTION_UNIT )
 	{
@@ -1095,7 +1095,7 @@ void ProductionUpdate::removeFromProductionQueue( ProductionEntry *production )
 }  // end removeFromProductionQueue
 
 //-------------------------------------------------------------------------------------------------
-/** Is the upgrade already in the production queue.  Note that you can only have one 
+/** Is the upgrade already in the production queue.  Note that you can only have one
 	* production entry for any given upgrade in the queue */
 //-------------------------------------------------------------------------------------------------
 Bool ProductionUpdate::isUpgradeInQueue( const UpgradeTemplate *upgrade ) const
@@ -1120,7 +1120,7 @@ UnsignedInt ProductionUpdate::countUnitTypeInQueue( const ThingTemplate *unitTyp
 	const ProductionEntry *production;
 
 	for( production = firstProduction(); production; production = nextProduction( production ) )
-		if( production->getProductionType() == PRODUCTION_UNIT && 
+		if( production->getProductionType() == PRODUCTION_UNIT &&
 				production->getProductionObject() == unitType )
 			count++;
 
@@ -1145,7 +1145,7 @@ void ProductionUpdate::cancelAndRefundAllProduction( void )
 	// Empirically, in release the code can loop forever.  So we limit to 100 passes. jba. [8/31/2003]
 	const Int productionLimit = 100;// With luck, we never queue up 100 units. [8/31/2003]
 	Int i;
-	for (i=0; i<productionLimit; i++) 
+	for (i=0; i<productionLimit; i++)
 	{
 		// iterate through our production queue
 		if( m_productionQueue )
@@ -1186,7 +1186,7 @@ void ProductionUpdate::setHoldDoorOpen(ExitDoorType exitDoor, Bool holdIt)
 // ------------------------------------------------------------------------------------------------
 /*static*/ ProductionUpdateInterface *ProductionUpdate::getProductionUpdateInterfaceFromObject( Object *obj )
 {
-	
+
 	// sanity
 	if( obj == NULL )
 		return NULL;
@@ -1241,7 +1241,7 @@ void ProductionUpdate::xfer( Xfer *xfer )
 	for( production = m_productionQueue; production; production = production->m_next )
 		productionCount++;
 	xfer->xferUnsignedShort( &productionCount );
-	
+
 	// production queue data
 	if( xfer->getXferMode() == XFER_SAVE )
 	{
@@ -1289,7 +1289,7 @@ void ProductionUpdate::xfer( Xfer *xfer )
 		// the queue should be emtpy now
 		if( m_productionQueue != NULL )
 		{
-		
+
 			DEBUG_CRASH(( "ProductionUpdate::xfer - m_productionQueue is not empty, but should be\n" ));
 			throw SC_INVALID_DATA;
 
@@ -1329,7 +1329,7 @@ void ProductionUpdate::xfer( Xfer *xfer )
 				production->m_objectToProduce = TheThingFactory->findTemplate( name );
 				if( production->m_objectToProduce == NULL )
 				{
-	
+
 					DEBUG_CRASH(( "ProductionUpdate::xfer - Cannot find template '%s'\n", name.str() ));
 					throw SC_INVALID_DATA;
 
@@ -1374,13 +1374,13 @@ void ProductionUpdate::xfer( Xfer *xfer )
 
 	// unique id
 	xfer->xferUser( &m_uniqueID, sizeof( ProductionID ) );
-	
+
 	// production count
 	xfer->xferUnsignedInt( &m_productionCount );
-	
+
 	// construction complete frame
 	xfer->xferUnsignedInt( &m_constructionCompleteFrame );
-	
+
 	// door info
 	xfer->xferUser( &m_doors, sizeof( DoorInfo ) * DOOR_COUNT_MAX );
 

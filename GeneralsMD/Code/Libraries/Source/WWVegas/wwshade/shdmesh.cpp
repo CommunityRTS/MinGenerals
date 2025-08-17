@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Jani P                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 07/12/02 10:31a                                              $*
  *                                                                                             *
  *                    $Revision:: 1                                                           $*
@@ -46,22 +46,22 @@
 #include "mesh.h"
 #include "meshmdl.h"
 
-ShdMeshClass::ShdMeshClass() 
+ShdMeshClass::ShdMeshClass()
 : 	Name("UnNamed"),
 	LightEnvironment(NULL),
 	Applying_Shadow_Map(false)
 {
 }
 
-ShdMeshClass::ShdMeshClass(const ShdMeshClass & src) 
-:	RenderObjClass(src),	
+ShdMeshClass::ShdMeshClass(const ShdMeshClass & src)
+:	RenderObjClass(src),
 	Name(src.Name),
 	LightEnvironment(NULL),
 	Applying_Shadow_Map(false)
 {
 	Free();
 	SubMeshes.Resize(src.SubMeshes.Length());
-	for (int i=0;i<SubMeshes.Length();++i) 
+	for (int i=0;i<SubMeshes.Length();++i)
 	{
 		SubMeshes[i].Mesh=NULL;
 		SubMeshes[i].Renderer=NULL;
@@ -107,18 +107,18 @@ void ShdMeshClass::Free()
 	for (int i=0;i<SubMeshes.Length();++i)
 	{
 		REF_PTR_RELEASE(SubMeshes[i].Mesh);
-		if (SubMeshes[i].Renderer) 
+		if (SubMeshes[i].Renderer)
 		{
 			delete SubMeshes[i].Renderer;
 			SubMeshes[i].Renderer=NULL;
 		}
 	}
 }
- 
+
 int ShdMeshClass::Get_Num_Polys() const
 {
 	int count = 0;
-	for (int i=0; i<SubMeshes.Length(); i++) 
+	for (int i=0; i<SubMeshes.Length(); i++)
 	{
 		count+= SubMeshes[i].Mesh->Get_Polygon_Count();
 	}
@@ -128,7 +128,7 @@ int ShdMeshClass::Get_Num_Polys() const
 int ShdMeshClass::Get_Num_Vertices(void) const
 {
 	int count = 0;
-	for (int i=0; i<SubMeshes.Length(); i++) 
+	for (int i=0; i<SubMeshes.Length(); i++)
 	{
 		count+= SubMeshes[i].Mesh->Get_Vertex_Count();
 	}
@@ -139,7 +139,7 @@ int ShdMeshClass::Get_Num_Vertices(void) const
 void ShdMeshClass::Render(RenderInfoClass& rinfo)
 {
 	WWPROFILE("ShdMeshClass::Render");
-	if (Is_Not_Hidden_At_All() == false) 
+	if (Is_Not_Hidden_At_All() == false)
 	{
 		return;
 	}
@@ -174,14 +174,14 @@ void ShdMeshClass::Render(RenderInfoClass& rinfo)
 
 
 	// TODO: What to do with SKINS?
-	if (1)//CollisionMath::Overlap_Test(frustum,Get_Bounding_Box())!=CollisionMath::OUTSIDE ) 
+	if (1)//CollisionMath::Overlap_Test(frustum,Get_Bounding_Box())!=CollisionMath::OUTSIDE )
 	{
 //		bool rendered_something = false;
 
 		// TODO: Override flags, decals and material passes (probably in the submesh rendering)
-		for (int i=0;i<SubMeshes.Length();++i) 
+		for (int i=0;i<SubMeshes.Length();++i)
 		{
-			if (!SubMeshes[i].Renderer) 
+			if (!SubMeshes[i].Renderer)
 			{
 				SubMeshes[i].Renderer=ShdRendererClass::Peek_Instance()->Register_Mesh(this,SubMeshes[i].Mesh);
 			}
@@ -218,7 +218,7 @@ void ShdMeshClass::Special_Render(SpecialRenderInfoClass & rinfo)
  *=============================================================================================*/
 bool ShdMeshClass::Cast_Ray(RayCollisionTestClass & raytest)
 {
-	if ((Get_Collision_Type() & raytest.CollisionType) == 0) return false;	
+	if ((Get_Collision_Type() & raytest.CollisionType) == 0) return false;
 	if ((Is_Translucent()!=0) && (!raytest.CheckTranslucent)) return false;
 	if (Is_Animation_Hidden()) return false;
 	if (raytest.Result->StartBad) return false;
@@ -231,7 +231,7 @@ bool ShdMeshClass::Cast_Ray(RayCollisionTestClass & raytest)
 			Vector3 mesh_position;
 			world.Get_Translation(&mesh_position);
 			world.Obj_Look_At(mesh_position,mesh_position - raytest.Ray.Get_Dir(),0.0f);
-	} else if (Model->Get_Flag(MeshModelClass::ORIENTED)) {		
+	} else if (Model->Get_Flag(MeshModelClass::ORIENTED)) {
 			Vector3 mesh_position;
 			world.Get_Translation(&mesh_position);
 			world.Obj_Look_At(mesh_position,raytest.Ray.Get_P0(),0.0f);
@@ -251,7 +251,7 @@ bool ShdMeshClass::Cast_Ray(RayCollisionTestClass & raytest)
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -349,7 +349,7 @@ bool ShdMeshClass::Intersect_AABox(AABoxIntersectionTestClass & boxtest)
 	Matrix3D inv_tm;
 	Get_Transform().Get_Orthogonal_Inverse(inv_tm);
 	OBBoxIntersectionTestClass local_test(boxtest,inv_tm);
-	
+
 	for (int i=0;i<SubMeshes.Length();++i) {
 		if (SubMeshes[i].Mesh->Intersect_OBBox(local_test)) return true;
 	}
@@ -405,13 +405,13 @@ void ShdMeshClass::Add_Dependencies_To_List
 )
 {
 	// loop through sub meshes
-	for (int i=0;i<SubMeshes.Length();i++) 
+	for (int i=0;i<SubMeshes.Length();i++)
 	{
 		ShdInterfaceClass* shd=SubMeshes[i].Mesh->Peek_Shader();
-			
+
 		for (int tidx=0;tidx<shd->Get_Texture_Count();tidx++)
 		{
-			TextureClass* texture=shd->Peek_Texture(tidx);	
+			TextureClass* texture=shd->Peek_Texture(tidx);
 			if (texture)
 			{
 				file_list.Add(texture->Get_Full_Path());
@@ -503,7 +503,7 @@ void ShdMeshClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 		for (int i=1;i<SubMeshes.Length();++i) {
 			AABoxClass tmp_b;
 			SubMeshes[i].Mesh->Get_Bounding_Box(&tmp_b);
-			
+
 			box.Add_Box(tmp_b);
 		}
 	}
@@ -516,7 +516,7 @@ void ShdMeshClass::Init_From_Legacy_Mesh(MeshClass* mesh)
 {
 	Set_Name(mesh->Get_Name());
 	MeshModelClass* model=mesh->Peek_Model();
-	if (model) 
+	if (model)
 	{
 		int first_poly=0;
 		int sub_mesh_count=0;
@@ -535,28 +535,28 @@ void ShdMeshClass::Init_From_Legacy_Mesh(MeshClass* mesh)
 	// Pull interesting stuff out of the w3d attributes bits
 	Set_Collision_Type(mesh->Get_Collision_Type());
 	Set_Hidden(mesh->Is_Hidden());
-	Set_Translucent(mesh->Is_Translucent());	
+	Set_Translucent(mesh->Is_Translucent());
 }
 
 
 
-/*********************************************************************************************** 
- * ShdMeshClass::Load -- creates a shader mesh out of a shader mesh chunk in a .w3d file       * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- * 																														  * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/21/2002 KM  : Created.                                                                 * 
+/***********************************************************************************************
+ * ShdMeshClass::Load -- creates a shader mesh out of a shader mesh chunk in a .w3d file       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ * 																														  *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/21/2002 KM  : Created.                                                                 *
  *=============================================================================================*/
 WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 {
 	//	Open the first chunk, it should be the shader mesh name
 	cload.Open_Chunk();
-	
+
 	if (cload.Cur_Chunk_ID()!=W3D_CHUNK_SHDMESH_NAME)
 	{
 		WWDEBUG_SAY(("Invalid format shader mesh.\n"));
@@ -572,7 +572,7 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 	// open header
 	W3dShdMeshHeaderStruct hdr;
 	cload.Open_Chunk();
-	if 
+	if
 	(
 		cload.Read
 		(
@@ -599,12 +599,12 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 	// Flags (todo)
 
 	// user text
-	
+
 
 	// next are the sub meshes
 	Free();
 	SubMeshes.Resize(hdr.NumSubMeshes);
-	for (int i=0;i<SubMeshes.Length(); ) 
+	for (int i=0;i<SubMeshes.Length(); )
 	{
 		cload.Open_Chunk();
 
@@ -616,7 +616,7 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 		else
 		{
 			ShdSubMeshClass* ssmesh=NEW_REF(ShdSubMeshClass,());
-			if (ssmesh==NULL) 
+			if (ssmesh==NULL)
 			{
 				WWDEBUG_SAY(("ShdMeshClass::Load_W3D - Failed to allocate sub mesh\r\n"));
 				return WW3D_ERROR_LOAD_FAILED;
@@ -627,12 +627,12 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 			REF_PTR_SET(SubMeshes[i].Mesh,SubMeshes[i].Mesh);
 
 			ssmesh->Load_W3D(cload);
-			
+
 			// assign each sub-mesh with a name in the format: <parentmesh>.<index>
 			StringClass tmp;
 			tmp.Format("%s.%d",Name,i);
 			ssmesh->Set_Name(tmp);
-			
+
 			i++;
 		}
 
@@ -643,17 +643,17 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 	int col_bits = (hdr.Attributes & W3D_MESH_FLAG_COLLISION_TYPE_MASK) >> W3D_MESH_FLAG_COLLISION_TYPE_SHIFT;
 	Set_Collision_Type( col_bits << 1 );
 	Set_Hidden(hdr.Attributes & W3D_MESH_FLAG_HIDDEN);
-	
-	for (i=0;i<SubMeshes.Length(); i++) { 
+
+	for (i=0;i<SubMeshes.Length(); i++) {
 		bool shadow = (hdr.Attributes & W3D_MESH_FLAG_CAST_SHADOW) == W3D_MESH_FLAG_CAST_SHADOW;
 		SubMeshes[i].Mesh->Set_Flag(MeshGeometryClass::CAST_SHADOW,shadow);
 	}
-	
+
 	// Indicate whether this mesh is translucent.  The mesh is considered translucent
 	// if sorting has been enabled (alpha blending on pass 0) or if pass0 contains alpha-test.
 	// This flag is used to determine if the mesh can cast a geometric shadow.
 	bool is_translucent = false;
-	for (i=0;i<SubMeshes.Length(); i++) { 
+	for (i=0;i<SubMeshes.Length(); i++) {
 		if (SubMeshes[i].Mesh) {
 			if (SubMeshes[i].Mesh->Is_Sorting()) {
 				Set_Translucent(true);

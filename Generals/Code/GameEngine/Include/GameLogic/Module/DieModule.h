@@ -24,7 +24,7 @@
 
 // FILE: DieModule.h /////////////////////////////////////////////////////////////////////////////////
 // Author: Colin Day, September 2001
-// Desc:	 
+// Desc:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -72,7 +72,7 @@ class DieModuleData : public BehaviorModuleData
 public:
 	DieMuxData			m_dieMuxData;
 
-	static void buildFieldParse(MultiIniFieldParse& p) 
+	static void buildFieldParse(MultiIniFieldParse& p)
 	{
 		BehaviorModuleData::buildFieldParse(p);
 		p.add(DieMuxData::getFieldParse(), offsetof( DieModuleData, m_dieMuxData ));
@@ -103,7 +103,7 @@ public:
 
 protected:
 	Bool isDieApplicable(const DamageInfo *damageInfo) const { return getDieModuleData()->isDieApplicable(getObject(), damageInfo); }
-	
+
 };
 inline DieModule::DieModule( Thing *thing, const ModuleData* moduleData ) : BehaviorModule( thing, moduleData ) { }
 inline DieModule::~DieModule() { }

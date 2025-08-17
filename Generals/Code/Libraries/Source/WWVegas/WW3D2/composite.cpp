@@ -173,9 +173,9 @@ void CompositeRenderObjClass::Restart(void)
  * HISTORY:                                                                                    *
  *   1/26/00    gth : Created.                                                                 *
  *=============================================================================================*/
-const char * CompositeRenderObjClass::Get_Name(void) const															
-{ 
-	return Name; 
+const char * CompositeRenderObjClass::Get_Name(void) const
+{
+	return Name;
 }
 
 
@@ -191,8 +191,8 @@ const char * CompositeRenderObjClass::Get_Name(void) const
  * HISTORY:                                                                                    *
  *   1/26/00    gth : Created.                                                                 *
  *=============================================================================================*/
-void CompositeRenderObjClass::Set_Name(const char * name)												
-{ 
+void CompositeRenderObjClass::Set_Name(const char * name)
+{
 	if (Name) {
 		free(Name);
 		Name = NULL;
@@ -227,7 +227,7 @@ void CompositeRenderObjClass::Set_Base_Model_Name(const char *name)
 	if (name) {
 		BaseModelName = ::strdup(name);
 	}
-	
+
 	return ;
 }
 
@@ -252,7 +252,7 @@ int CompositeRenderObjClass::Get_Num_Polys(void) const
 		WWASSERT(robj);
 		count += robj->Get_Num_Polys();
 		robj->Release_Ref();
-	}	
+	}
 	return count;
 }
 
@@ -504,7 +504,7 @@ void CompositeRenderObjClass::Update_Obj_Space_Bounding_Volumes(void)
 		return;
 	}
 
-	
+
 	AABoxClass obj_aabox;
 	MinMaxAABoxClass box;
 	SphereClass sphere;
@@ -518,10 +518,10 @@ void CompositeRenderObjClass::Update_Obj_Space_Bounding_Volumes(void)
 	box.Init(obj_aabox);
 
 	for (i=1; i<Get_Num_Sub_Objects(); i++) {
-		
+
 		robj = Get_Sub_Object(i);
 		WWASSERT(robj);
-		
+
 		robj->Get_Obj_Space_Bounding_Sphere(sphere);
 		robj->Get_Obj_Space_Bounding_Box(obj_aabox);
 

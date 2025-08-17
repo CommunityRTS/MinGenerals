@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------=
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information					                  
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:    WSYS Library
@@ -49,7 +49,7 @@
 
 
 //----------------------------------------------------------------------------
-//           Includes                                                      
+//           Includes
 //----------------------------------------------------------------------------
 
 #include "Common/File.h"
@@ -82,21 +82,21 @@
 
 class LocalFile : public File
 {
-	MEMORY_POOL_GLUE_ABC(LocalFile)		
+	MEMORY_POOL_GLUE_ABC(LocalFile)
 	private:
 
 #ifdef USE_BUFFERED_IO
 		FILE* m_file;
 
 		enum { BUF_SIZE = 32768 };
-		char m_vbuf[BUF_SIZE];	
+		char m_vbuf[BUF_SIZE];
 #else
 		int m_handle;											///< Local C file handle
 #endif
-		
+
 	public:
-		
-		LocalFile();										
+
+		LocalFile();
 		//virtual				~LocalFile();
 
 
@@ -110,7 +110,7 @@ class LocalFile : public File
 		virtual Bool	scanReal(Real &newReal);														///< return what gets read in as a float at the current file position.
 		virtual	Bool	scanString(AsciiString &newString);									///< return what gets read in as a string at the current file position.
 		/**
-			Allocate a buffer large enough to hold entire file, read 
+			Allocate a buffer large enough to hold entire file, read
 			the entire file into the buffer, then close the file.
 			the buffer is owned by the caller, who is responsible
 			for freeing is (via delete[]). This is a Good Thing to
@@ -125,7 +125,7 @@ class LocalFile : public File
 
 
 //----------------------------------------------------------------------------
-//           Inlining                                                       
+//           Inlining
 //----------------------------------------------------------------------------
 
 

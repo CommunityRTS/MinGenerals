@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shd7bumpdiff.cpp                           $*
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 6/06/02 11:18p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -127,7 +127,7 @@ void Shd7BumpDiffClass::Shutdown()
 
 
 //**********************************************************************************************
-//! Apply shared states for 2 pass DX7 bump diffuse 
+//! Apply shared states for 2 pass DX7 bump diffuse
 /*! 6/03/02 8:12a KJM Created
 */
 void Shd7BumpDiffClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
@@ -210,7 +210,7 @@ void Shd7BumpDiffClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
 }
 
 //**********************************************************************************************
-//! Apply per instance states for 2 pass DX7 bump diffuse 
+//! Apply per instance states for 2 pass DX7 bump diffuse
 /*! 6/03/02 8:12a KJM Created
 */
 void Shd7BumpDiffClass::Apply_Instance(int cur_pass, RenderInfoClass& rinfo)
@@ -251,45 +251,45 @@ unsigned Shd7BumpDiffClass::Get_Vertex_Size(unsigned stream) const
 
 void Shd7BumpDiffClass::Copy_Vertex_Stream
 (
-	unsigned stream, 
-	void* dest_buffer, 
-	const VertexStreamStruct& vss, 
+	unsigned stream,
+	void* dest_buffer,
+	const VertexStreamStruct& vss,
 	unsigned vertex_count
 )
 {
    VertexFormatXYZNDUV1TG3* verts=(VertexFormatXYZNDUV1TG3*)dest_buffer;
 
-	for (unsigned i=0; i<vertex_count; ++i) 
+	for (unsigned i=0; i<vertex_count; ++i)
 	{
-		if (vss.Locations) 
+		if (vss.Locations)
 		{
 			verts[i].x=vss.Locations[i][0];
 			verts[i].y=vss.Locations[i][1];
 			verts[i].z=vss.Locations[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].x=0.0f;
 			verts[i].y=0.0f;
 			verts[i].z=0.0f;
 		}
 
-		if (vss.DiffuseInt) 
+		if (vss.DiffuseInt)
 		{
 			verts[i].diffuse=vss.DiffuseInt[i];
 		}
-		else 
+		else
 		{
 			verts[i].diffuse=0xffffffff;
 		}
-	
-		if (vss.Normals) 
+
+		if (vss.Normals)
 		{
 			verts[i].nx=vss.Normals[i][0];
 			verts[i].ny=vss.Normals[i][1];
 			verts[i].nz=vss.Normals[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].nx=0.0f;
 			verts[i].ny=0.0f;
@@ -301,7 +301,7 @@ void Shd7BumpDiffClass::Copy_Vertex_Stream
 			verts[i].u1=vss.UV[0][i].U;
 			verts[i].v1=vss.UV[0][i].V;
 		}
-		else 
+		else
 		{
 			verts[i].u1=0.0f;
 			verts[i].v1=0.0f;

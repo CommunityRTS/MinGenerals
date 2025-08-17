@@ -196,7 +196,7 @@ typedef struct  AudioDriverChannelTag
 						LPDIRECTSOUNDBUFFER dsbuf;			/* Direct sound buffer interface */
 						int									buf_size;		/* size of active area in bytes*/
 						int									frame_bytes;	/* frame size in bytes */
-						
+
 						CB_TRANSFER					*transfer;		/* code to read sample data */
 						TRANSFER						transfer_data;
 
@@ -1655,7 +1655,7 @@ static  int		audioCheck ( AudioChannel *chan )
 		else
 		{
 				return FALSE;
-		}	
+		}
 	}
 
 	return FALSE;
@@ -2055,7 +2055,7 @@ static short MSAdpcmDecode( unsigned char nibble, MS_DATA *ms, int sample1, int 
 		ms->idelta = 16;
 	}
 
-	if (newsample > 0x7fff) 
+	if (newsample > 0x7fff)
 	{
 		newsample = 0x7fff;
 	}
@@ -2078,7 +2078,7 @@ static int MS_decode_block (  AUD_DRV_CHAN *ci )
 	int hsize = data->channels*(1+2+2+2);
 	int channels = data->channels;
 	int hi,lo;
-	
+
 	// set up output
 	data->out_bytes = 0;
 	short *out = (short *) data->out;
@@ -2128,7 +2128,7 @@ static int MS_decode_block (  AUD_DRV_CHAN *ci )
 	{
 		unsigned char byte;
 
-		while ( bytes ) 
+		while ( bytes )
 		{
 			byte = *in++;
 			*out++ = MSAdpcmDecode(byte >> 4, &data->ms[0], out[-1], out[-2]);
@@ -2145,18 +2145,18 @@ static int MS_decode_block (  AUD_DRV_CHAN *ci )
 		int channels2 = 2*channels;
 		int out_bytes = 4*channels;
 
-		while ( bytes ) 
+		while ( bytes )
 		{
 			byte = *in++;
 
 			*out++ = MSAdpcmDecode(byte >> 4, &data->ms[chan], out[-channels], out[-channels2]);
-			if (++chan == channels ) 
+			if (++chan == channels )
 			{
 				chan = 0;
 			}
 
 			*out++ = MSAdpcmDecode(byte&0x0f, &data->ms[chan], out[-channels], out[-channels2]);
-			if (++chan == channels) 
+			if (++chan == channels)
 			{
 				chan = 0;
 			}

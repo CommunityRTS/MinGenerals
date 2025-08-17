@@ -24,12 +24,12 @@
 
 // FILE: Money.cpp /////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -85,7 +85,7 @@ void Money::deposit(UnsignedInt amountToDeposit, Bool playSound)
 	// Play a sound
 	if (playSound)
 		TheAudio->addAudioEvent(&event);
-	
+
 	m_money += amountToDeposit;
 }
 

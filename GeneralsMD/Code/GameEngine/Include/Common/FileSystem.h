@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------=
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information					                  
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:    GameEngine
@@ -37,7 +37,7 @@
 //
 // File name:  FileSystem.h
 //
-// Created:    
+// Created:
 //
 //----------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@
 #define __FILESYSTEM_H
 
 //----------------------------------------------------------------------------
-//           Includes                                                      
+//           Includes
 //----------------------------------------------------------------------------
 
 //#include "Common/File.h"
@@ -111,8 +111,8 @@ struct FileInfo {
 //===============================
 /**
   * FileSystem is an interface class for creating specific FileSystem objects.
-  * 
-	* A FileSystem object's implemenation decides what derivative of File object needs to be 
+  *
+	* A FileSystem object's implemenation decides what derivative of File object needs to be
 	* created when FileSystem::Open() gets called.
 	*/
 //===============================
@@ -122,7 +122,7 @@ class FileSystem : public SubsystemInterface
 {
   FileSystem(const FileSystem&);
   FileSystem& operator=(const FileSystem&);
-  
+
 public:
 	FileSystem();
 	virtual	~FileSystem();
@@ -150,7 +150,7 @@ extern FileSystem*	TheFileSystem;
 
 
 //----------------------------------------------------------------------------
-//           Inlining                                                       
+//           Inlining
 //----------------------------------------------------------------------------
 
 

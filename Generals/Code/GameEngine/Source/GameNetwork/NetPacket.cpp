@@ -1284,7 +1284,7 @@ void NetPacket::FillBufferWithDisconnectKeepAliveCommand(UnsignedByte *buffer, N
 	UnsignedByte newRelay = msg->getRelay();
 	memcpy(buffer+offset, &newRelay, sizeof(UnsignedByte));
 	offset += sizeof(UnsignedByte);
-	
+
 	// Put the player ID into the packet.
 	buffer[offset] = 'P';
 	++offset;
@@ -2427,7 +2427,7 @@ Bool NetPacket::addFileCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-		
+
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -2531,7 +2531,7 @@ Bool NetPacket::addFileAnnounceCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-		
+
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -2640,7 +2640,7 @@ Bool NetPacket::addFileProgressCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-		
+
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -2741,7 +2741,7 @@ Bool NetPacket::addWrapperCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-		
+
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -3568,7 +3568,7 @@ Bool NetPacket::addPacketRouterQueryCommand(NetCommandRef *msg) {
 			m_lastCommand->deleteInstance();
 			m_lastCommand = NULL;
 		}
-		m_lastCommand = NEW_NETCOMMANDREF(msg->getCommand());	
+		m_lastCommand = NEW_NETCOMMANDREF(msg->getCommand());
 		m_lastCommand->setRelay(msg->getRelay());
 		return TRUE;
 	}
@@ -5199,7 +5199,7 @@ NetCommandList * NetPacket::getCommandList() {
 /**
  * Reads the data portion of a game message from the given position in the packet.
  */
-NetCommandMsg * NetPacket::readGameMessage(UnsignedByte *data, Int &i) 
+NetCommandMsg * NetPacket::readGameMessage(UnsignedByte *data, Int &i)
 {
 	NetGameCommandMsg *msg = newInstance(NetGameCommandMsg);
 

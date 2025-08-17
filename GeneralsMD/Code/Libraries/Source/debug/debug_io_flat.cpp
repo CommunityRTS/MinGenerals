@@ -404,7 +404,7 @@ void DebugIOFlat::Execute(class Debug& dbg, const char *cmd, bool structuredCmd,
     else if (!strcmp(argv[0],"splitremove"))
       dbg << "splitremove <namepattern>\n\n"
              "Removes all active splits matching the given name pattern.";
-    else 
+    else
       dbg << "Unknown flat I/O command";
   }
   else if (!strcmp(cmd,"add"))
@@ -522,7 +522,7 @@ void DebugIOFlat::Execute(class Debug& dbg, const char *cmd, bool structuredCmd,
       else
         entryPtr=&((*entryPtr)->next);
     }
-    
+
     // must fixup m_lastSplitPtr now
     if (m_firstSplit)
     {

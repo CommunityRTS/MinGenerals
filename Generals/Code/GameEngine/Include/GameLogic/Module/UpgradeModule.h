@@ -81,9 +81,9 @@ public:
 		m_requiresAllTriggers = false;
 	}
 
-	static const FieldParse* getFieldParse() 
+	static const FieldParse* getFieldParse()
 	{
-		static const FieldParse dataFieldParse[] = 
+		static const FieldParse dataFieldParse[] =
 		{
 			{ "TriggeredBy",		INI::parseAsciiStringVector, NULL, offsetof( UpgradeMuxData, m_activationUpgradeNames ) },
 			{ "ConflictsWith",	INI::parseAsciiStringVector, NULL, offsetof( UpgradeMuxData, m_conflictingUpgradeNames ) },
@@ -123,7 +123,7 @@ protected:
 	virtual void performUpgradeFX() = 0;	///< perform the associated fx list
 	virtual Bool requiresAllActivationUpgrades() const = 0;
 	virtual Bool isSubObjectsUpgrade() = 0;
-	
+
 	void giveSelfUpgrade()
 	{
 		// If I have an activation condition, and I haven't activated, and this key matches my condition.
@@ -152,7 +152,7 @@ struct UpgradeModuleData : public BehaviorModuleData
 public:
 	UpgradeMuxData				m_upgradeMuxData;
 
-	static void buildFieldParse(MultiIniFieldParse& p) 
+	static void buildFieldParse(MultiIniFieldParse& p)
 	{
     ModuleData::buildFieldParse(p);
 		p.add(UpgradeMuxData::getFieldParse(), offsetof( UpgradeModuleData, m_upgradeMuxData ));

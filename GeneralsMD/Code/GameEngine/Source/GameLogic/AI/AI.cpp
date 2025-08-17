@@ -56,13 +56,13 @@ extern void addIcon(const Coord3D *pos, Real width, Int numFramesDuration, RGBCo
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE CLASS ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-void TAiData::addSideInfo(AISideInfo *infoToAdd) 
+void TAiData::addSideInfo(AISideInfo *infoToAdd)
 {
 	infoToAdd->m_next = m_sideInfo;
 	m_sideInfo = infoToAdd;
 }
 
-void TAiData::addFactionBuildList(AISideBuildList *buildList) 
+void TAiData::addFactionBuildList(AISideBuildList *buildList)
 {
 
 	AISideBuildList *info = m_sideBuildLists;
@@ -86,7 +86,7 @@ TAiData::~TAiData()
 {
 	AISideInfo *info = m_sideInfo;
 	m_sideInfo = NULL;
-	while (info) { 
+	while (info) {
 		AISideInfo *cur = info;
 		info = info->m_next;
 		cur->deleteInstance();
@@ -94,7 +94,7 @@ TAiData::~TAiData()
 
 	AISideBuildList *build = m_sideBuildLists;
 	m_sideBuildLists = NULL;
-	while (build) { 
+	while (build) {
 		AISideBuildList *cur = build;
 		build = build->m_next;
 		cur->deleteInstance();
@@ -105,9 +105,9 @@ TAiData::~TAiData()
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE CLASS ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-AISideBuildList::AISideBuildList( AsciiString side ) : 
-	m_side(side), 
-	m_buildList(NULL), 
+AISideBuildList::AISideBuildList( AsciiString side ) :
+	m_side(side),
+	m_buildList(NULL),
 	m_next(NULL)
 {
 }
@@ -139,9 +139,9 @@ void AISideBuildList::addInfo(BuildListInfo *info)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-static const FieldParse TheAIFieldParseTable[] = 
+static const FieldParse TheAIFieldParseTable[] =
 {
-																	 
+
 	{ "StructureSeconds",				INI::parseReal,NULL,		offsetof( TAiData, m_structureSeconds ) },
 	{ "TeamSeconds",						INI::parseReal,NULL,		offsetof( TAiData, m_teamSeconds ) },
 	{ "Wealthy",								INI::parseInt,NULL,			offsetof( TAiData, m_resourcesWealthy ) },
@@ -173,7 +173,7 @@ static const FieldParse TheAIFieldParseTable[] =
 	{ "AttackUsesLineOfSight",	INI::parseBool,NULL,		offsetof( TAiData, m_attackUsesLineOfSight ) },
 	{ "AttackIgnoreInsignificantBuildings",	INI::parseBool,NULL,		offsetof( TAiData, m_attackIgnoreInsignificantBuildings ) },
 
-	
+
 	{ "AttackPriorityDistanceModifier", INI::parseReal,NULL, offsetof( TAiData, m_attackPriorityDistanceModifier) },
  	{ "MaxRecruitRadius",				INI::parseReal,NULL,		offsetof( TAiData, m_maxRecruitDistance ) },
 	{ "SkirmishBaseDefenseExtraDistance",	INI::parseReal,NULL,	offsetof( TAiData, m_skirmishBaseDefenseExtraDistance ) },
@@ -214,7 +214,7 @@ void AI::parseSideInfo(INI *ini, void *instance, void* /*store*/, const void* /*
 	const char* c = ini->getNextToken();
 	AsciiString side(c);
 
-	static const FieldParse myFieldParse[] = 
+	static const FieldParse myFieldParse[] =
 		{
 			{ "ResourceGatherersEasy",				INI::parseInt,						NULL, offsetof( AISideInfo, m_easy ) },
 			{ "ResourceGatherersNormal",			INI::parseInt,						NULL, offsetof( AISideInfo, m_normal ) },
@@ -235,7 +235,7 @@ void AI::parseSideInfo(INI *ini, void *instance, void* /*store*/, const void* /*
 		}
 		resourceInfo = resourceInfo->m_next;
 	}
-	if (resourceInfo==NULL) 
+	if (resourceInfo==NULL)
 	{
 		resourceInfo = newInstance(AISideInfo);
 		((TAiData*)instance)->addSideInfo(resourceInfo);
@@ -247,7 +247,7 @@ void AI::parseSideInfo(INI *ini, void *instance, void* /*store*/, const void* /*
 
 void AI::parseSkillSet(INI *ini, void *instance, void* store, const void* /*userData*/)
 {
-	static const FieldParse myFieldParse[] = 
+	static const FieldParse myFieldParse[] =
 		{
 			{ "Science",											AI::parseScience,					NULL, NULL },
 			{ NULL,							NULL,											NULL, 0 }  // keep this last
@@ -273,7 +273,7 @@ void AI::parseScience(INI *ini, void *instance, void* /*store*/, const void* /*u
 	ScienceType science = skillset->m_skills[skillset->m_numSkills];
 	if (science != SCIENCE_INVALID) {
 		if (TheScienceStore->getSciencePurchaseCost(science)==0) {
-			DEBUG_CRASH(("Science %s is not purchaseable, can't be bought.", 
+			DEBUG_CRASH(("Science %s is not purchaseable, can't be bought.",
 				TheScienceStore->getInternalNameForScience(science).str()));
 			return;
 		}
@@ -286,13 +286,13 @@ void AI::parseSkirmishBuildList(INI *ini, void *instance, void* /*store*/, const
 	const char* c = ini->getNextToken();
 	AsciiString faction(c);
 
-	static const FieldParse myFieldParse[] = 
+	static const FieldParse myFieldParse[] =
 		{
 			{ "Structure",			BuildListInfo::parseStructure,			NULL, NULL },
 			{ NULL,							NULL,											NULL, 0 }  // keep this last
 		};
 
-	AISideBuildList *build = newInstance(AISideBuildList)(faction);	
+	AISideBuildList *build = newInstance(AISideBuildList)(faction);
 	ini->initFromINI(build, myFieldParse);
 	((TAiData*)instance)->addFactionBuildList(build);
 
@@ -374,7 +374,7 @@ AI::~AI()
 		delete m_pathfinder;
 	}
 	m_pathfinder = NULL;
-	while (m_aiData) 
+	while (m_aiData)
 	{
 		TAiData *cur = m_aiData;
 		m_aiData = m_aiData->m_next;
@@ -396,7 +396,7 @@ void AI::newOverride(void)
 		newInfo->m_next = NULL;
 		addSideInfo(newInfo);
 		info = info->m_next;
-	}									
+	}
 	m_aiData->m_sideBuildLists = NULL;
 	AISideBuildList *build = cur->m_sideBuildLists;
 	while (build) {
@@ -423,7 +423,7 @@ void AI::parseAiDataDefinition( INI* ini )
 	if( TheAI )
 	{
 
-		// 
+		//
 		// if the type of loading we're doing creates override data, we need to
 		// be loading into a new override item
 		//
@@ -563,7 +563,7 @@ public:
 };
 
 
-typedef struct 
+typedef struct
 {
 	Int priority;
 	const AttackPriorityInfo *info;
@@ -584,7 +584,7 @@ static void priorityFunc(Object *obj, void *userData)
 /**
  * Return the closest enemy, according to the qualifiers.
  */
-Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifiers, 
+Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifiers,
 														 const AttackPriorityInfo *info, PartitionFilter *optionalFilter)
 {
 
@@ -623,7 +623,7 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 
 	// (optional) only stuff that is significant
 	PartitionFilterInsignificantBuildings filterInsignificant(true, false);
-	
+
 	// (optional) only stuff clear of fog
 	PartitionFilterFreeOfFog filterFogged(me->getControllingPlayer()->getPlayerIndex());
 
@@ -643,7 +643,7 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 	// -- filterStealth is BY FAR the least common to be useful, so it goes last.
 	// GS Fog check used to be inside can attack, so it feels right to be right after it
 
-	filters[numFilters++] = &filterObvious;	
+	filters[numFilters++] = &filterObvious;
 
 	if( !(qualifiers & ATTACK_BUILDINGS) )
 		filters[numFilters++] = &filterBldgs;
@@ -665,14 +665,14 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 
 	filters[numFilters++] = &filterStealth;
 
-	if (optionalFilter) 
+	if (optionalFilter)
 	{
 		filters[numFilters++] = optionalFilter;
 	}
 
 	filters[numFilters] = NULL;
 
-	if (info == NULL || info == TheScriptEngine->getDefaultAttackInfo()) 
+	if (info == NULL || info == TheScriptEngine->getDefaultAttackInfo())
 	{
 		// No additional attack info, so just return the closest one.
 		Object* o = ThePartitionManager->getClosestObject( me, range, FROM_BOUNDINGSPHERE_2D, filters );
@@ -684,10 +684,10 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 	Int			actualPriority=0;
 	ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(me, range, FROM_BOUNDINGSPHERE_2D, filters, ITER_SORTED_NEAR_TO_FAR);
 	MemoryPoolObjectHolder holder(iter);
-	for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next()) 
+	for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next())
 	{
 		Int curPriority = info->getPriority(theEnemy->getTemplate());
-		if (curPriority == 0) 
+		if (curPriority == 0)
 			continue; // don't attack 0 priority targets.
 
 		/* check for garrisoned buildings/vehicles & see if a higher priority unit is inside. */
@@ -706,23 +706,23 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 		Real dist = sqrt(distSqr);
 		Int modifier = dist/TheAI->getAiData()->m_attackPriorityDistanceModifier;
 		Int modPriority = curPriority-modifier;
-		if (modPriority < 1) 
+		if (modPriority < 1)
 			modPriority = 1;
-		if (modPriority > effectivePriority) 
+		if (modPriority > effectivePriority)
 		{
 			effectivePriority = modPriority;
 			actualPriority = curPriority;
 			bestEnemy = theEnemy;
 		}
-		if (modPriority == effectivePriority && curPriority > actualPriority) 
+		if (modPriority == effectivePriority && curPriority > actualPriority)
 		{
 			effectivePriority = modPriority;
 			actualPriority = curPriority;
 			bestEnemy = theEnemy;
 		}
-	}	
+	}
 	if (bestEnemy) {
-		//DEBUG_LOG(("Find closest found %s, hunter %s, info %s\n", bestEnemy->getTemplate()->getName().str(), 
+		//DEBUG_LOG(("Find closest found %s, hunter %s, info %s\n", bestEnemy->getTemplate()->getName().str(),
 		//	me->getTemplate()->getName().str(), info->getName().str()));
 	}
 	return bestEnemy;
@@ -787,7 +787,7 @@ Object *AI::findClosestRepulsor( const Object *me, Real range)
 
 	// and only stuff that isn't stealthed (and not detected)
 	// (note that stealthed allies aren't hidden from us, but that's ok. jba.)
-	PartitionFilterRejectByObjectStatus filterStealth( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_STEALTHED ), 
+	PartitionFilterRejectByObjectStatus filterStealth( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_STEALTHED ),
 																										 MAKE_OBJECT_STATUS_MASK2( OBJECT_STATUS_DETECTED, OBJECT_STATUS_DISGUISED ) );
 
 	PartitionFilter *filters[16];
@@ -807,26 +807,26 @@ Real AI::getAdjustedVisionRangeForObject(const Object *object, Int factorsToCons
 	const AIUpdateInterface *ai = object->getAI();
 	const TAiData *aiData = TheAI->getAiData();
 
-	if (!ai) 
+	if (!ai)
 	{
 		DEBUG_CRASH(("Unit without AI ('%s') calling AI::getAdjustedVisionRangeForObject. Notify jkmcd.", object->getTemplate()->getName().str()));
 		return 0.0f;
 	}
-	
+
 	UnsignedInt moodMatrixVal = ai->getMoodMatrixValue();
 
-	if (factorsToConsider & AI_VISIONFACTOR_OWNERTYPE) 
+	if (factorsToConsider & AI_VISIONFACTOR_OWNERTYPE)
 	{
 		Bool playerIsHuman = (moodMatrixVal & MM_Controller_Player) != 0;
 
-		if (playerIsHuman) 
+		if (playerIsHuman)
 		{
-			if (factorsToConsider & AI_VISIONFACTOR_GUARDINNER) 
+			if (factorsToConsider & AI_VISIONFACTOR_GUARDINNER)
 				originalRange *= aiData->m_guardInnerModifierHuman;
 			else
 				originalRange *= aiData->m_guardOuterModifierHuman;
-		} 
-		else 
+		}
+		else
 		{
 			if (factorsToConsider & AI_VISIONFACTOR_GUARDINNER)
 				originalRange *= aiData->m_guardInnerModifierAI;
@@ -835,13 +835,13 @@ Real AI::getAdjustedVisionRangeForObject(const Object *object, Int factorsToCons
 		}
 	}
 
-	if (object->getContainedBy() != NULL) 
+	if (object->getContainedBy() != NULL)
 	{
 		originalRange = object->getLargestWeaponRange();
-	} 
-	else 
+	}
+	else
 	{
-		if ((factorsToConsider & AI_VISIONFACTOR_MOOD) && ((moodMatrixVal & MM_Controller_Player) == 0) ) 
+		if ((factorsToConsider & AI_VISIONFACTOR_MOOD) && ((moodMatrixVal & MM_Controller_Player) == 0) )
 		{
 			switch(moodMatrixVal & MM_Mood_Bitmask)
 			{
@@ -849,10 +849,10 @@ Real AI::getAdjustedVisionRangeForObject(const Object *object, Int factorsToCons
 					return 0.0f;
 
 				case MM_Mood_Passive:
-				case MM_Mood_Normal: 
+				case MM_Mood_Normal:
 					break;
-				
-				case MM_Mood_Alert: 
+
+				case MM_Mood_Alert:
 					originalRange *= TheAI->getAiData()->m_alertRangeModifier;
 					break;
 
@@ -864,30 +864,30 @@ Real AI::getAdjustedVisionRangeForObject(const Object *object, Int factorsToCons
 	}
 
 #if defined(_DEBUG) || defined(_INTERNAL)
-	if (TheGlobalData->m_debugVisibility) 
+	if (TheGlobalData->m_debugVisibility)
 	{
 		// ICK. This really nasty statement is used so that we only initialize this color once.
 		// It should be exactly double the intensity of its targettable brother.
 		static RGBColor theAdjustedVisionColor = {
-			(TheGlobalData->m_debugVisibilityTargettableColor.red * 2 <= 1.0f ? 
+			(TheGlobalData->m_debugVisibilityTargettableColor.red * 2 <= 1.0f ?
 				TheGlobalData->m_debugVisibilityTargettableColor.red * 2 :
 				1.0f),
-			(TheGlobalData->m_debugVisibilityTargettableColor.green * 2 <= 1.0f ? 
+			(TheGlobalData->m_debugVisibilityTargettableColor.green * 2 <= 1.0f ?
 				TheGlobalData->m_debugVisibilityTargettableColor.green * 2 :
 				1.0f),
-			(TheGlobalData->m_debugVisibilityTargettableColor.blue * 2 <= 1.0f ? 
+			(TheGlobalData->m_debugVisibilityTargettableColor.blue * 2 <= 1.0f ?
 				TheGlobalData->m_debugVisibilityTargettableColor.blue * 2 :
 				1.0f)
 		};
 
 		Vector3 pos(originalRange, 0, 0);
-		for (int i = 0; i < TheGlobalData->m_debugVisibilityTileCount; ++i) 
+		for (int i = 0; i < TheGlobalData->m_debugVisibilityTileCount; ++i)
 		{
 			pos.Rotate_Z(1.0f * i / TheGlobalData->m_debugVisibilityTileCount * 2 * PI);
 			Coord3D coord = { pos.X + object->getPosition()->x, pos.Y + object->getPosition()->y, pos.Z + object->getPosition()->z };
 
-			addIcon(&coord, TheGlobalData->m_debugVisibilityTileWidth, 
-											TheGlobalData->m_debugVisibilityTileDuration, 
+			addIcon(&coord, TheGlobalData->m_debugVisibilityTileWidth,
+											TheGlobalData->m_debugVisibilityTileDuration,
 											theAdjustedVisionColor);
 		}
 	}
@@ -896,15 +896,15 @@ Real AI::getAdjustedVisionRangeForObject(const Object *object, Int factorsToCons
 }
 
 //-------------------------------------------------------------------------------------------------
-TAiData::TAiData() : 
-m_next(NULL), 
-m_sideInfo(NULL), 
+TAiData::TAiData() :
+m_next(NULL),
+m_sideInfo(NULL),
 m_attackIgnoreInsignificantBuildings(false),
 m_skirmishGroupFudgeValue(0.0f),
-m_structureSeconds(0), 
-m_teamSeconds(0), 
-m_resourcesWealthy(0), 
-m_resourcesPoor(0), 
+m_structureSeconds(0),
+m_teamSeconds(0),
+m_resourcesWealthy(0),
+m_resourcesPoor(0),
 m_forceIdleFramesCount(1),
 m_structuresWealthyMod(0),
 m_teamPoorMod(0),
@@ -942,8 +942,8 @@ m_sideBuildLists(NULL),
 m_structuresPoorMod(0.0f),
 m_teamWealthyMod(0.0f),
 m_aiDozerBoredRadiusModifier(2.0),
-m_aiCrushesInfantry(true), 
-m_maxRetaliateDistance(210.0f), 
+m_aiCrushesInfantry(true),
+m_maxRetaliateDistance(210.0f),
 m_retaliateFriendsRadius(120.0f)
 //
 {

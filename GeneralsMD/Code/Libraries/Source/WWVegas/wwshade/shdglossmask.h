@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdglossmask.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 8/01/02 11:39a                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -59,7 +59,7 @@ public:
 	ShdGlossMaskDefClass();
 	ShdGlossMaskDefClass(const ShdGlossMaskDefClass& that);
 	virtual ~ShdGlossMaskDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdGlossMaskDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)
@@ -111,7 +111,7 @@ class Shd6GlossMaskClass : public ShdInterfaceClass
 public:
 	Shd6GlossMaskClass(const ShdDefClass* def);
 	virtual ~Shd6GlossMaskClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -129,9 +129,9 @@ public:
 
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

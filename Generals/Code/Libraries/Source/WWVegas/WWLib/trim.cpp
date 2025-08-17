@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /VSS_Sync/wwlib/trim.cpp                                    $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /VSS_Sync/wwlib/trim.cpp                                    $*
+ *                                                                                             *
  *                      $Author:: Vss_sync                                                    $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 8/29/01 10:24p                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 3                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -44,20 +44,20 @@
 #include	<wctype.h>
 #endif // _UNIX
 
-/*********************************************************************************************** 
- * strtrim -- Trim leading and trailing white space off of string.                             * 
- *                                                                                             * 
- *    This routine will remove the leading and trailing whitespace from the string specifed.   * 
- *    The string is modified in place.                                                         * 
- *                                                                                             * 
- * INPUT:   buffer   -- Pointer to the string to be trimmed.                                   * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   02/06/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * strtrim -- Trim leading and trailing white space off of string.                             *
+ *                                                                                             *
+ *    This routine will remove the leading and trailing whitespace from the string specifed.   *
+ *    The string is modified in place.                                                         *
+ *                                                                                             *
+ * INPUT:   buffer   -- Pointer to the string to be trimmed.                                   *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/06/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 char * strtrim(char * buffer)
 {

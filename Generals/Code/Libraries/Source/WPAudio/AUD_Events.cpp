@@ -408,7 +408,7 @@ static AudioSample*	eventFirstSample ( AudioEvent *event )
 
 	if ( event->eclass->minDelay < EVENT_MIN_DELAY )
 	{
-		
+
 		if ( event->eclass->control & AUDIO_EVENT_CTRL_ATTACK )
 		{
 			j++;
@@ -419,23 +419,23 @@ static AudioSample*	eventFirstSample ( AudioEvent *event )
 		{
 			event->currentItem = -1;
 		}
-		
+
 		if ( event->eclass->control & AUDIO_EVENT_CTRL_DECAY )
 		{
 			event->numSequence--;
 		}
-		
+
 		if ( event->numSequence <= 0 )
 		{
 			event->eclass->valid = FALSE;
 			return NULL;
 		}
-		
+
 		for ( i=0 ; i < event->numSequence; i++, j++ )
 		{
 			event->sequence[ i ] = j;
 		}
-		
+
 		if ( event->flags & mAUDIO_EVENT_NO_ATTACK || !(event->eclass->control & AUDIO_EVENT_CTRL_ATTACK) )
 		{
 			return eventNextSample ( event );
@@ -460,7 +460,7 @@ static AudioSample*	eventNextSample ( AudioEvent *event )
 	control = event->eclass->control;
 
  	if ( event->eclass->minDelay >= EVENT_MIN_DELAY && !(event->flags & mAUDIO_EVENT_END) )
- 	{	
+ 	{
  			return NULL;
  	}
 
@@ -523,7 +523,7 @@ static int todAdjustStart( AudioEvent *event )
 	if (event->timeOfDay == 1) {
 		// morning
 		return 0;
-	} 
+	}
 
 	if (event->timeOfDay == 2) {
 		// afternoon
@@ -560,8 +560,8 @@ static int todAdjustEnd( AudioEvent *event )
 		// morning
 		if (event->eclass->morningCount != 0) {
 			return afternoonCount + event->eclass->eveningCount + event->eclass->nightCount;
-		} 
-	} 
+		}
+	}
 
 	if (event->timeOfDay == 2) {
 		// afternoon
@@ -651,7 +651,7 @@ static int eventLoadSchedule( AudioEvent *event )
 
 	// carry out the existing schedule
 
-	if ( control & AUDIO_EVENT_CTRL_RANDOM && 
+	if ( control & AUDIO_EVENT_CTRL_RANDOM &&
 				( (!eclass->attackCount || (event->flags & mAUDIO_EVENT_NO_ATTACK)) || event->loadNdx > 0 ))
 	{
 		int ndx, currentSampleIndex;
@@ -1291,9 +1291,9 @@ static int		audioEventPrep ( AudioEvent *event )
 		if ( !(eclass->control & (AUDIO_EVENT_CTRL_POSTDELAY)))
 		{
 			int	delay;
-		
+
 			delay = AudioRandomPick(  (eclass->control&AUDIO_EVENT_CTRL_AMBIENT) ? EVENT_MIN_DELAY : eclass->minDelay, eclass->maxDelay );
-		
+
 			if ( delay >= EVENT_MIN_DELAY )
 			{
 				eventWait ( event, MSECONDS(delay), AUDIO_EVENT_START_PLAYING );
@@ -1452,7 +1452,7 @@ void AudioEventCloseDown( void )
 			{
 				// allocated with strdup
 				free( eclass->sampleName[i] );
-			}	
+			}
 		}
 		MEM_Free ( eclass );
 	}
@@ -1498,7 +1498,7 @@ void				AudioServiceAllEvents ( void )
 	#ifndef IG_FINAL_RELEASE
 	{
 		static int lastFrame = 0;
-	
+
 		if ( lastFrame != AudioGameFrame )
 		{
 			if ( audioCache )
@@ -1507,7 +1507,7 @@ void				AudioServiceAllEvents ( void )
 			}
 			lastFrame = AudioGameFrame;
 		}
-	
+
 	}
 	#endif
 
@@ -2991,7 +2991,7 @@ void	AudioEventClassSetVolumeShift ( AudioEventClass *eclass, int VShift)
 }
 
 //============================================================================
-// AudioEventClassSetVolumeCompression 
+// AudioEventClassSetVolumeCompression
 //============================================================================
 
 void	AudioEventClassSetVolumeCompression ( AudioEventClass *eclass, int on)
@@ -3039,7 +3039,7 @@ void	AudioEventClassReset ( AudioEventClass *eclass )
 	eclass->format_same = TRUE;
 	AudioFormatInit ( &eclass->format );
 	#endif
-	
+
 }
 
 /******************************************************************/

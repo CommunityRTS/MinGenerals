@@ -228,7 +228,7 @@ static void enableOptionsGadgets(Bool doIt)
 	}
 }
 
-enum 
+enum
 {
 	MAX_DISCONNECTS_ANY = 0,
 	MAX_DISCONNECTS_5 = 5,
@@ -238,10 +238,10 @@ enum
 };
 enum{ MAX_DISCONNECTS_COUNT = 5 };
 
-static Int MAX_DISCONNECTS[MAX_DISCONNECTS_COUNT] = {MAX_DISCONNECTS_ANY, MAX_DISCONNECTS_5, 
+static Int MAX_DISCONNECTS[MAX_DISCONNECTS_COUNT] = {MAX_DISCONNECTS_ANY, MAX_DISCONNECTS_5,
 																											MAX_DISCONNECTS_10, MAX_DISCONNECTS_25,
 																											MAX_DISCONNECTS_50};
-																										
+
 
 void UpdateStartButton(void)
 {
@@ -311,7 +311,7 @@ static void populateQMSideComboBox(Int favSide, const LadderInfo *li = NULL)
 	GadgetComboBoxSetItemData(comboBoxSide, newIndex, (void *)PLAYERTEMPLATE_RANDOM);
 
 	std::set<AsciiString> seenSides;
-	
+
 	Int entryToSelect = 0; // select Random by default
 
 	for (Int c=0; c<numPlayerTemplates; ++c)
@@ -621,7 +621,7 @@ static void populateQuickMatchMapSelectListbox( QuickMatchPreferences& pref )
 			#if VARIABLE_NUMBER_OF_MAPS
 			mapListboxIndex.push_back(index);
 			#endif
-		} 
+		}
 		else
 		{
 			#if VARIABLE_NUMBER_OF_MAPS
@@ -1038,7 +1038,7 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
 		SignalUIInteraction(SHELL_SCRIPT_HOOK_GENERALS_ONLINE_ENTERED_FROM_GAME);
 	}
 
-	// We'll only be successful if we've requested to 
+	// We'll only be successful if we've requested to
 	if(isShuttingDown && TheShell->isAnimFinished()&& TheTransitionHandler->isFinished())
 		shutdownComplete(layout);
 
@@ -1047,7 +1047,7 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
 		RaiseGSMessageBox();
 		raiseMessageBoxes = false;
 	}
-	
+
 	/// @todo: MDC handle disconnects in-game the same way as Custom Match!
 
 	if (TheShell->isAnimFinished() && !buttonPushed && TheGameSpyPeerMessageQueue)
@@ -1407,7 +1407,7 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
 WindowMsgHandledType WOLQuickMatchMenuInput( GameWindow *window, UnsignedInt msg,
 																			 WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -1424,7 +1424,7 @@ WindowMsgHandledType WOLQuickMatchMenuInput( GameWindow *window, UnsignedInt msg
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
@@ -1432,7 +1432,7 @@ WindowMsgHandledType WOLQuickMatchMenuInput( GameWindow *window, UnsignedInt msg
 					if( BitTest( state, KEY_STATE_UP ) )
 					{
 						if(!buttonBack->winIsHidden())
-							TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+							TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																							(WindowMsgData)buttonBack, buttonBackID );
 
 					}  // end if
@@ -1454,18 +1454,18 @@ WindowMsgHandledType WOLQuickMatchMenuInput( GameWindow *window, UnsignedInt msg
 //-------------------------------------------------------------------------------------------------
 /** WOL Quick Match Menu window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt msg,
 														 WindowMsgData mData1, WindowMsgData mData2 )
 {
 	UnicodeString txtInput;
 
 	switch( msg )
 	{
-		
-		
+
+
 		case GWM_CREATE:
 			{
-				
+
 				break;
 			} // case GWM_DESTROY:
 
@@ -1475,7 +1475,7 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 			} // case GWM_DESTROY:
 
 		case GWM_INPUT_FOCUS:
-			{	
+			{
 				// if we're givin the opportunity to take the keyboard focus we must say we want it
 				if( mData1 == TRUE )
 					*(Bool *)mData2 = TRUE;
@@ -1589,20 +1589,20 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 						if (index >= 0)
 						{
 							req.qmMaps.push_back(GadgetListBoxGetItemData(listboxMapSelect, index, 0));
-						} 
+						}
 						else
 						{
 							req.qmMaps.push_back(false);
 						}
 					}
-					#else 
+					#else
 					Int numMaps = GadgetListBoxGetNumEntries(listboxMapSelect);
 					for ( Int i=0; i<numMaps; ++i )
 					{
 						req.qmMaps.push_back(GadgetListBoxGetItemData(listboxMapSelect, i, 0));
 					}
 					#endif
-					
+
 					UnicodeString u;
 					AsciiString a;
 //					u = GadgetTextEntryGetText(textEntryMaxDisconnects);
@@ -1630,7 +1630,7 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 						val = 0;
 					if( val >= maxPingEntries - 1)
 					{
-						req.QM.maxPing = TheGameSpyConfig->getPingTimeoutInMs();	
+						req.QM.maxPing = TheGameSpyConfig->getPingTimeoutInMs();
 					}
 					else
 						req.QM.maxPing = (val+1)*100;
@@ -1727,7 +1727,7 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 
 					strncpy(req.QM.pings, TheGameSpyInfo->getPingString().str(), 17);
 					req.QM.pings[16] = 0;
-					
+
 					req.QM.botID = TheGameSpyConfig->getQMBotID();
 					req.QM.roomID = TheGameSpyConfig->getQMChannel();
 
@@ -1787,7 +1787,7 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 				} //if ( controlID == buttonSelectNoMapsID )
 				break;
 			}// case GBM_SELECTED:
-	
+
 		case GLM_SELECTED:
 			{
 				GameWindow *control = (GameWindow *)mData1;

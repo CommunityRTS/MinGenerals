@@ -112,8 +112,8 @@ class TextureClass : public W3DMPO, public RefCountClass
 
 		// Create texture with desired height, width and format.
 		TextureClass(
-			unsigned width, 
-			unsigned height, 
+			unsigned width,
+			unsigned height,
 			WW3DFormat format,
 			MipCountType mip_level_count=MIP_LEVELS_ALL,
 			PoolType pool=POOL_MANAGED,
@@ -131,8 +131,8 @@ class TextureClass : public W3DMPO, public RefCountClass
 
 		// Create texture from a surface.
 		TextureClass(
-			SurfaceClass *surface, 
-			MipCountType mip_level_count=MIP_LEVELS_ALL);		
+			SurfaceClass *surface,
+			MipCountType mip_level_count=MIP_LEVELS_ALL);
 
 		TextureClass(IDirect3DTexture8* d3d_texture);
 

@@ -88,7 +88,7 @@ JetSlowDeathBehaviorModuleData::JetSlowDeathBehaviorModuleData( void )
 {
   SlowDeathBehaviorModuleData::buildFieldParse( p );
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 
 		{ "FXOnGroundDeath",	INI::parseFXList,	NULL, offsetof( JetSlowDeathBehaviorModuleData, m_fxOnGroundDeath ) },
@@ -157,7 +157,7 @@ void JetSlowDeathBehavior::onDie( const DamageInfo *damageInfo )
 	if( us->isSignificantlyAboveTerrain() == FALSE )
 	{
 		const JetSlowDeathBehaviorModuleData *modData = getJetSlowDeathBehaviorModuleData();
-		
+
 		// execute fx
 		FXList::doFXObj( modData->m_fxOnGroundDeath, us );
 
@@ -248,7 +248,7 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 	// do effects for death while in the air
 	if( m_timerOnGroundFrame == 0 )
 	{
-		
+
 		PathfindLayerEnum layer = TheTerrainLogic->getLayerForDestination(us->getPosition());
 		us->setLayer(layer);
 		Real height;
@@ -267,7 +267,7 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 				height = 0.0f;
 		}
 
-		
+
 
 		Bool hitATree = FALSE;
 		// Here we want to make sure we crash if we collide with a tree on the way down
@@ -306,7 +306,7 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 		}  // end if
 
 		// timers for the secondary effect
-		if( m_timerDeathFrame != 0 && 
+		if( m_timerDeathFrame != 0 &&
 				TheGameLogic->getFrame() - m_timerDeathFrame >= modData->m_delaySecondaryFromInitialDeath )
 		{
 
@@ -347,7 +347,7 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 void JetSlowDeathBehavior::crc( Xfer *xfer )
 {
 
-	// extend base class 
+	// extend base class
 	SlowDeathBehavior::crc( xfer );
 
 }  // end crc

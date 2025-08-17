@@ -40,10 +40,10 @@ void UpgradeModule::crc( Xfer *xfer )
 
 	// extend base class
 	BehaviorModule::crc( xfer );
-	
+
 	// extned base class
 	UpgradeMux::upgradeMuxCRC( xfer );
-	
+
 }  // end crc
 
 // ------------------------------------------------------------------------------------------------
@@ -88,9 +88,9 @@ UpgradeMux::UpgradeMux() : m_upgradeExecuted(false)
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
-Bool UpgradeMux::isAlreadyUpgraded() const 
-{ 
-	return m_upgradeExecuted; 
+Bool UpgradeMux::isAlreadyUpgraded() const
+{
+	return m_upgradeExecuted;
 }
 
 // ------------------------------------------------------------------------------------------------

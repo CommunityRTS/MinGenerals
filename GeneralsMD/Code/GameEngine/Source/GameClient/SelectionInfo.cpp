@@ -85,10 +85,10 @@ PickDrawableStruct::PickDrawableStruct() : drawableListToFill(NULL)
 
 //-------------------------------------------------------------------------------------------------
 /**
- * Given a list of currently selected things and a list of things that are currently under 
+ * Given a list of currently selected things and a list of things that are currently under
  * the selection (pointer or drag), generate some useful information about each.
  */
-extern Bool contextCommandForNewSelection(const DrawableList *currentlySelectedDrawables, 
+extern Bool contextCommandForNewSelection(const DrawableList *currentlySelectedDrawables,
 																					const DrawableList *newlySelectedDrawables,
 																					SelectionInfo *outSelectionInfo,
 																					Bool selectionIsPoint)
@@ -158,7 +158,7 @@ extern Bool contextCommandForNewSelection(const DrawableList *currentlySelectedD
 		}
 
 		if (obj->isLocallyControlled()) {
-			++outSelectionInfo->newCountMine;	
+			++outSelectionInfo->newCountMine;
 			newMine = *it;
 			if (obj->isKindOf(KINDOF_STRUCTURE)) {
 				++outSelectionInfo->newCountMineBuildings;
@@ -315,7 +315,7 @@ UnsignedInt getPickTypesForCurrentSelection( Bool forceAttackMode )
 	}
 
 	return retVal;
-		
+
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -335,7 +335,7 @@ void translatePickTypesToKindof(UnsignedInt pickTypes, KindOfMaskType& outMask)
 
 	if (BitTest(pickTypes, PICK_TYPE_FORCEATTACKABLE)) {
 		outMask.set(KINDOF_FORCEATTACKABLE);
-	}	
+	}
 }
 
 //-------------------------------------------------------------------------------------------------

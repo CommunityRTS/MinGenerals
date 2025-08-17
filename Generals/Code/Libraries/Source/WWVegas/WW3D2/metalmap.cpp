@@ -128,14 +128,14 @@ MetalMapManagerClass::MetalMapManagerClass(INIClass &ini) :
 		assert(0);
 	}
 
-	for (int i = 0; i < lp; i++) {		
+	for (int i = 0; i < lp; i++) {
 		// Create texture. NOTE: we should add code here to ensure we use a native texture format
 		Textures[i]=NEW_REF(TextureClass,(METALMAP_SIZE,METALMAP_SIZE,WW3D_FORMAT_A8R8G8B8,TextureClass::MIP_LEVELS_1));
 		Textures[i]->Set_U_Addr_Mode(TextureClass::TEXTURE_ADDRESS_CLAMP);
 		Textures[i]->Set_V_Addr_Mode(TextureClass::TEXTURE_ADDRESS_CLAMP);
 		StringClass tex_name;
-		tex_name.Format("!m%02d.tga", i);		
-		Textures[i]->Set_Texture_Name(tex_name);		
+		tex_name.Format("!m%02d.tga", i);
+		Textures[i]->Set_Texture_Name(tex_name);
 	}
 }
 
@@ -251,7 +251,7 @@ void MetalMapManagerClass::Update_Textures(void)
 	Vector3 &v = CurrentCameraDir;
 
 	// Calculate halfway vector
-	Vector3 h = l+v;	
+	Vector3 h = l+v;
 	h.Normalize();
 
 	// NOTE: when our lighting equation gets more complicated we might want to do some testing to
@@ -259,15 +259,15 @@ void MetalMapManagerClass::Update_Textures(void)
 
 	// Calculate quantities which are the same for all metal maps
 	float n_dot_l[METALMAP_SIZE_2];
-	float n_dot_h[METALMAP_SIZE_2];	
-	
-	VectorProcessorClass::DotProduct(n_dot_l,l,_NormalTable,METALMAP_SIZE_2);	
-	VectorProcessorClass::ClampMin(n_dot_l, n_dot_l, 0.0f, METALMAP_SIZE_2);					
+	float n_dot_h[METALMAP_SIZE_2];
+
+	VectorProcessorClass::DotProduct(n_dot_l,l,_NormalTable,METALMAP_SIZE_2);
+	VectorProcessorClass::ClampMin(n_dot_l, n_dot_l, 0.0f, METALMAP_SIZE_2);
 	VectorProcessorClass::DotProduct(n_dot_h,h,_NormalTable, METALMAP_SIZE_2);
-	VectorProcessorClass::ClampMin(n_dot_h, n_dot_h, 0.0f, METALMAP_SIZE_2);					
+	VectorProcessorClass::ClampMin(n_dot_h, n_dot_h, 0.0f, METALMAP_SIZE_2);
 
 	// Loop over each metal map and update it
-	for (int i = 0; i < MapCount; i++) {		
+	for (int i = 0; i < MapCount; i++) {
 		MetalParams &cur_params = MetalParameters[i];
 
 		// If shinyness > 1, apply it to specular value array
@@ -290,18 +290,18 @@ void MetalMapManagerClass::Update_Textures(void)
 			cur_params.DiffuseColor.Z * CurrentMainLightColor.Z);
 		Vector3 ambient_color(cur_params.AmbientColor.X * CurrentAmbient.X,
 			cur_params.AmbientColor.Y * CurrentAmbient.Y,
-			cur_params.AmbientColor.Z * CurrentAmbient.Z);		
+			cur_params.AmbientColor.Z * CurrentAmbient.Z);
 		Vector3 white(1.0f, 1.0f, 1.0f);
 
 		SurfaceClass * metal_map_surface = Textures[i]->Get_Surface_Level(0);
 		int pitch;
 		unsigned char *map=(unsigned char *) metal_map_surface->Lock(&pitch);
 		int idx=0;
-		for (int y = 0; y < METALMAP_SIZE; y++) {			
-			for (int x = 0; x < METALMAP_SIZE; x++) {				
+		for (int y = 0; y < METALMAP_SIZE; y++) {
+			for (int x = 0; x < METALMAP_SIZE; x++) {
 				Vector3 result = ambient_color + (diffuse_color * n_dot_l[idx]) + (specular_color * specular[idx]);
 				result.Update_Min(white);	// Clamp to white
-				
+
 				map[4*x] = (unsigned char)floor(result.Z * 255.99f);	// B
 				map[4*x+1] = (unsigned char)floor(result.Y * 255.99f);	// G
 				map[4*x+2] = (unsigned char)floor(result.X * 255.99f);	// R
@@ -372,7 +372,7 @@ void MetalMapManagerClass::initialize_normal_table(void)
  *=============================================================================================*/
 void MetalMapManagerClass::initialize_metal_params(int map_count, MetalParams *metal_params)
 {
-	MapCount = map_count;	
+	MapCount = map_count;
 	if (MapCount > 0) {
 		Textures = W3DNEWARRAY TextureClass *[MapCount];
 		MetalParameters = W3DNEWARRAY MetalParams[MapCount];

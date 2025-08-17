@@ -46,7 +46,7 @@ class CopyProtect
 		static Bool validate(void);
 		static void shutdown(void);
 
-	private:	
+	private:
 		static LPVOID s_protectedData;
 	};
 

@@ -19,11 +19,11 @@
 //vertex shader for grass..
 // v0   - Vertex Position
 // v1   - Normal vector - used for other fun stuff.
-//      - v1.x = index for the motion wave data 
+//      - v1.x = index for the motion wave data
 //      - v1.y = color scale factor for darkening.
 //      - v1.z = z coordinate value of the base of the tree/grass/bush.
 // v2   - Diffuse color
-// v7   - Vertex Texture Data u,v 
+// v7   - Vertex Texture Data u,v
 // c4-7  - Composite World-View-Projection Matrix
 // c8  - Tilt vector.
 // c32  - offset for shroud texture mapping
@@ -44,4 +44,4 @@ mul  oD0, v2,r2 	  ; Scale and move diffuse color into color register.
 mov  oT0, v7			  ; Move texture coords into texture register.
 
 add  r1, v0, c32    ; offset coordinate
-mul  oT1, r1, c33    ; 
+mul  oT1, r1, c33    ;

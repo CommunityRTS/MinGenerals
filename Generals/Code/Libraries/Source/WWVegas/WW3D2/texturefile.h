@@ -168,7 +168,7 @@ private:
 	bool ReductionEnabled;
 
 	// The current reduction factor reflects the texture size currently used
-	// in rendering. 
+	// in rendering.
 	unsigned int CurrentReductionFactor;
 
 	// The desired reduction factor is a fractional non-negative value. It

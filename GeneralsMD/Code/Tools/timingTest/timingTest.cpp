@@ -33,8 +33,8 @@ char buffer[1024];
 //-------------------------------------------------------------------------------------------------
 void GetPrecisionTimer(INT64* t)
 {
-	// CPUID is needed to force serialization of any previous instructions. 
-	__asm 
+	// CPUID is needed to force serialization of any previous instructions.
+	__asm
 	{
 		RDTSC
 		MOV ECX,[t]
@@ -51,8 +51,8 @@ void InitPrecisionTimer()
 	static int TESTS = 10;
 
 	cout << "Starting tests..." << flush;
-	
-	for (int i = 0; i < TESTS; ++i) 
+
+	for (int i = 0; i < TESTS; ++i)
 	{
 		int            TimeStart;
 		int            TimeStop;
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 	InitPrecisionTimer();
 	FILE *out = fopen("output.txt", "w");
 	cout << "Beginning Looping tests: " << endl;
-	
+
 	const int TESTCOUNT = 60;
 
 	while (1) {
@@ -100,12 +100,12 @@ int main(int argc, char* argv[])
 			GetPrecisionTimer(&startTime);
 			Sleep(5);
 			GetPrecisionTimer(&endTime);
-			totalTime += (endTime - startTime);	
+			totalTime += (endTime - startTime);
 		}
 
 		double avgPerFrame = 1.0 * totalTime / TESTCOUNT;
 
-		sprintf(buffer, "%.8f,\t", avgPerFrame / s_ticksPerMSec );	
+		sprintf(buffer, "%.8f,\t", avgPerFrame / s_ticksPerMSec );
 		fwrite(buffer, strlen(buffer), 1, out);
 		fflush(out);
 		cout << buffer << endl;

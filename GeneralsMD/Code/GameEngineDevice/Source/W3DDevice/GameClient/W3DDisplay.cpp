@@ -169,7 +169,7 @@ StatDumpClass::StatDumpClass( const char *fname )
 }
 
 //=============================================================================
-//Close the file at the end of the application 
+//Close the file at the end of the application
 //=============================================================================
 StatDumpClass::~StatDumpClass()
 {
@@ -201,7 +201,7 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
 		return;
 	}
 
-  
+
   Bool beBrief = brief & s_notFirstDump;
   s_notFirstDump = TRUE;
 
@@ -299,7 +299,7 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
   	fprintf( m_fp, "                                                                      ON_SCREEN_PARTICLES OUT OF TOLERANCE(CAP-10)\n" );
 
 
-	// polygons this frame	
+	// polygons this frame
 	Int polyPerFrame = Debug_Statistics::Get_DX8_Polygons();
 	Int polyPerSecond = (Int)(polyPerFrame * fps);
 	fprintf( m_fp, "  Polygons: %d per frame (%d per second)\n", polyPerFrame, polyPerSecond );
@@ -308,7 +308,7 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
 	fprintf( m_fp, "  Vertices: %d\n", Debug_Statistics::Get_DX8_Vertices() );
 
 	//
-	// I'm adjusting the texture memory usage counter by subtracting 
+	// I'm adjusting the texture memory usage counter by subtracting
 	// out the terrain alpha texture (since it's really == terrain texture).
 	//
 	fprintf( m_fp, "  Video RAM: %d\n", Debug_Statistics::Get_Record_Texture_Size() - 1376256 );
@@ -329,7 +329,7 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
 	  fprintf( m_fp, "\n" );
   }
 #endif
-	
+
 #ifdef MEMORYPOOL_DEBUG
 	//Report memory usage.
 	TheMemoryPoolFactory->debugMemoryReport( REPORT_FACTORYINFO | REPORT_POOLINFO, 0, 0, m_fp );
@@ -476,10 +476,10 @@ Bool IS_FOUR_BY_THREE_ASPECT( Real x, Real y )
 {
   if ( y == 0 )
     return FALSE;
-  
-  Real aspectRatio = fabs( x / y ); 
+
+  Real aspectRatio = fabs( x / y );
   return (( aspectRatio > 1.332f) && ( aspectRatio < 1.334f));
-  
+
 }
 
 
@@ -493,7 +493,7 @@ Int W3DDisplay::getDisplayModeCount(void)
 /*	Bool needStencil=false;
 	Bool needDestinationAlpha=false;
 	Int minBitDepth=16;
-	
+
 	//Walk through all resolutions and determine which ones are compatible with other settings
 	//chosen by user.  For example, 32-bit may be required for shadows, occlusion, soft water edge, etc.
 	if (TheGlobalData->m_useShadowVolumes || (TheGlobalData->m_enableBehindBuildingMarkers && TheGameLogic->getShowBehindBuildingMarkers()))
@@ -506,9 +506,9 @@ Int W3DDisplay::getDisplayModeCount(void)
 	for (int res = 0; res < resolutions.Count ();  res ++)
 	{
 		// Is this the resolution we are looking for?
-		if (resolutions[res].BitDepth >= 24 && resolutions[res].Width >= MIN_DISPLAY_RESOLUTION_X 
+		if (resolutions[res].BitDepth >= 24 && resolutions[res].Width >= MIN_DISPLAY_RESOLUTION_X
       && IS_FOUR_BY_THREE_ASPECT( (Real)resolutions[res].Width, (Real)resolutions[res].Height ) )	//only accept 4:3 aspect ratio modes.
-		{	
+		{
 			numResolutions++;
 		}
 	}
@@ -525,9 +525,9 @@ void W3DDisplay::getDisplayModeDescription(Int modeIndex, Int *xres, Int *yres, 
 	for (int res = 0; res < resolutions.Count ();  res ++)
 	{
 		// Is this the resolution we are looking for?
-		if ( resolutions[res].BitDepth >= 24 && resolutions[res].Width >= MIN_DISPLAY_RESOLUTION_X 
+		if ( resolutions[res].BitDepth >= 24 && resolutions[res].Width >= MIN_DISPLAY_RESOLUTION_X
       && IS_FOUR_BY_THREE_ASPECT( (Real)resolutions[res].Width, (Real)resolutions[res].Height ) )	//only accept 4:3 aspect ratio modes.
-		{	
+		{
 			if (numResolutions == modeIndex)
 			{	//found the mode
 				*xres=resolutions[res].Width;
@@ -554,7 +554,7 @@ void Reset_D3D_Device(bool active)
 	if (TheDisplay && WW3D::Is_Initted() && !TheDisplay->getWindowed())
 	{
 		if (active)
-		{	
+		{
 			//switch back to desired mode when user alt-tabs back into game
 			WW3D::Set_Render_Device( WW3D::Get_Render_Device(),TheDisplay->getWidth(),TheDisplay->getHeight(),TheDisplay->getBitDepth(),TheDisplay->getWindowed(),true, true);
 			OSVERSIONINFO	osvi;
@@ -693,13 +693,13 @@ void W3DDisplay::init( void )
 	// m_myLight = NEW_REF
 //============================================================================
 	Int lindex;
-	for (lindex=0; lindex<TheGlobalData->m_numGlobalLights; lindex++) 
+	for (lindex=0; lindex<TheGlobalData->m_numGlobalLights; lindex++)
 	{	m_myLight[lindex] = NEW_REF( LightClass, (LightClass::DIRECTIONAL) );
 	}
 
 	setTimeOfDay( TheGlobalData->m_timeOfDay );	//set each light to correct values for given time
 
-	for (lindex=0; lindex<TheGlobalData->m_numGlobalLights; lindex++) 
+	for (lindex=0; lindex<TheGlobalData->m_numGlobalLights; lindex++)
 	{	m_3DScene->setGlobalLight( m_myLight[lindex], lindex );
 	}
 
@@ -715,12 +715,12 @@ void W3DDisplay::init( void )
 	theDynamicLight->Set_Diffuse( Vector3( red, green, blue) );
 	theDynamicLight->Set_Position(Vector3(0, 0, 4));
 	theDynamicLight->Set_Far_Attenuation_Range(1, 8);
-	// Note: Don't Add_Render_Object dynamic lights. 
+	// Note: Don't Add_Render_Object dynamic lights.
 	m_3DScene->addDynamicLight( theDynamicLight );
 #endif
 
 	// create a new asset manager
-	m_assetManager = NEW W3DAssetManager;	
+	m_assetManager = NEW W3DAssetManager;
 	m_assetManager->Register_Prototype_Loader(&_ParticleEmitterLoader );
 	m_assetManager->Register_Prototype_Loader(&_AggregateLoader);
 	m_assetManager->Set_WW3D_Load_On_Demand( true );
@@ -739,7 +739,7 @@ void W3DDisplay::init( void )
 	WW3D::Set_Thumbnail_Enabled(false);
 	WW3D::Set_Screen_UV_Bias( TRUE );  ///< this makes text look good :)
 	WW3D::Set_Texture_Bitdepth(32);
-			
+
 	setWindowed( TheGlobalData->m_windowed );
 
 	// create a 2D renderer helper
@@ -752,22 +752,22 @@ void W3DDisplay::init( void )
 	setHeight( TheGlobalData->m_yResolution );
 	setBitDepth( W3D_DISPLAY_DEFAULT_BIT_DEPTH );
 
-	if( WW3D::Set_Render_Device( 0, 
-															 getWidth(), 
-															 getHeight(), 
-															 getBitDepth(), 
-															 getWindowed(), 
-															 true ) != WW3D_ERROR_OK ) 
+	if( WW3D::Set_Render_Device( 0,
+															 getWidth(),
+															 getHeight(),
+															 getBitDepth(),
+															 getWindowed(),
+															 true ) != WW3D_ERROR_OK )
 	{
 		// Getting the device at the default bit depth (32) didn't work, so try
 		// getting a 16 bit display.  (Voodoo 1-3 only supported 16 bit.) jba.
 		setBitDepth( 16 );
-		if( WW3D::Set_Render_Device( 0, 
-																 getWidth(), 
-																 getHeight(), 
-																 getBitDepth(), 
-																 getWindowed(), 
-																 true ) != WW3D_ERROR_OK ) 
+		if( WW3D::Set_Render_Device( 0,
+																 getWidth(),
+																 getHeight(),
+																 getBitDepth(),
+																 getWindowed(),
+																 true ) != WW3D_ERROR_OK )
 		{
 
 			WW3D::Shutdown();
@@ -902,7 +902,7 @@ void W3DDisplay::updateAverageFPS(void)
 		if (historyOffset >= FPS_HISTORY_SIZE)
 			historyOffset = 0;
 
-		double currentFPS = 1.0/elapsedSeconds; 
+		double currentFPS = 1.0/elapsedSeconds;
 		fpsHistory[historyOffset++] = currentFPS;
 		numSamples++;
 		if (numSamples > FPS_HISTORY_SIZE)
@@ -910,7 +910,7 @@ void W3DDisplay::updateAverageFPS(void)
 	}
 
 	if (numSamples)
-	{	
+	{
 		// determine average frame rate over our past history.
 		Real average=0;
 		for (Int i=0,j=historyOffset-1; i<numSamples; i++,j--)
@@ -1002,14 +1002,14 @@ void W3DDisplay::gatherDebugStats( void )
 	// we update stats on a delay
 	const Real UPDATE_RATE_SECS = 2.0;
 	if( s_timeSinceLastUpdateInSecs >= UPDATE_RATE_SECS || TheGlobalData->m_constantDebugUpdate )
-	{	
+	{
 		UnicodeString unibuffer, unibuffer2;
 		UnicodeString fpsString;
-			
+
 		// setup texture stats
 		Debug_Statistics::Record_Texture_Mode(Debug_Statistics::RECORD_TEXTURE_SIMPLE/*RECORD_TEXTURE_NONE*/);
 
-		// frames per second	
+		// frames per second
 		double fps = (Real)s_framesRenderedSinceLastUpdate / s_timeSinceLastUpdateInSecs;
 		double drawsPerFrame = Debug_Statistics::Get_Draw_Calls(); //(Real)s_drawCallsSinceLastUpdate / (Real)s_framesRenderedSinceLastUpdate;
 		double sortPolysPerFrame = Debug_Statistics::Get_Sorting_Polygons();  //(Real)s_sortedPolysSinceLastUpdate / (Real)s_framesRenderedSinceLastUpdate;
@@ -1029,7 +1029,7 @@ void W3DDisplay::gatherDebugStats( void )
 
 		Int LOD = TheGlobalData->m_terrainLOD;
 		//unibuffer.format( L"FPS: %.2f, %.2fms mapLOD=%d [cumu FPS=%.2f] draws: %.2f sort: %.2f", fps, ms, LOD, cumuFPS, drawsPerFrame,sortPolysPerFrame);
-		if (TheGlobalData->m_useFpsLimit) 
+		if (TheGlobalData->m_useFpsLimit)
 				unibuffer.format( L"%.2f/%d FPS, ", fps, TheGameEngine->getFramesPerSecondLimit());
 		else
 				unibuffer.format( L"%.2f FPS, ", fps);
@@ -1040,7 +1040,7 @@ void W3DDisplay::gatherDebugStats( void )
 		//Int LOD = TheGlobalData->m_terrainLOD;
 		//unibuffer.format( L"FPS: %.2f, %.2fms mapLOD=%d draws: %.2f sort %.2f", fps, ms, LOD, drawsPerFrame,sortPolysPerFrame);
 		unibuffer.format( L"FPS: %.2f, %.2fms draws: %.2f skins: %.2f sort %.2f", fps, ms, drawsPerFrame,skinDrawsPerFrame,sortPolysPerFrame);
-		if (TheGlobalData->m_useFpsLimit) 
+		if (TheGlobalData->m_useFpsLimit)
 		{
 			unibuffer2.format(L", FPSLock %d",TheGlobalData->m_framesPerSecondLimit);
 			unibuffer.concat(unibuffer2);
@@ -1084,7 +1084,7 @@ void W3DDisplay::gatherDebugStats( void )
 			DX8Wrapper::stats.m_disableObjects = true;
 			DX8Wrapper::stats.m_disableConsole = true;
 			DX8Wrapper::stats.m_debugLinesToShow = 1;
-		} else if (statMode == threeDOverhead) {				 
+		} else if (statMode == threeDOverhead) {
 			threeDOverheadMS = ms;
 			statMode = terrain;
 			DX8Wrapper::stats.m_disableTerrain = false;
@@ -1131,7 +1131,7 @@ void W3DDisplay::gatherDebugStats( void )
 			DX8Wrapper::stats.m_disableConsole = false;
 			DX8Wrapper::stats.m_debugLinesToShow = -1;
 		} else if (!DX8Wrapper::stats.m_showingStats) {
-			// start collecting extended info. 
+			// start collecting extended info.
 			DX8Wrapper::stats.m_showingStats = true;
 			DX8Wrapper::stats.m_disableOverhead = false;
 			DX8Wrapper::stats.m_disableTerrain = true;
@@ -1149,35 +1149,35 @@ void W3DDisplay::gatherDebugStats( void )
 			unibuffer.format(L"FPS: %.2f, %.2fms - Collecting extended stats.", fps, ms);
 		} else if (extendedStats>0) {
 			extendedStats--;
-			unibuffer.format( L"FPS: %.2f, %.2fms - OH %.2fms, Console %.2fms, 3D OH %.2fms, Terrain %.2fms, Obs %.2fms, CPU %.2fms", 
+			unibuffer.format( L"FPS: %.2f, %.2fms - OH %.2fms, Console %.2fms, 3D OH %.2fms, Terrain %.2fms, Obs %.2fms, CPU %.2fms",
 				fps, ms, gameOverheadMS, consoleMS, threeDOverheadMS, terrainMS, objectMS, overlapMS);
 			if (extendedStats==SHOW_STATS_TIME-2) {
 				char bufferA[ 256 ];
-				sprintf( bufferA, "FPS: %.2f, %.2fms - OH %.2fms, Console %.2fms, 3D OH %.2fms, Terrain %.2fms, Obs %.2fms, CPU %.2fms\n", 
+				sprintf( bufferA, "FPS: %.2f, %.2fms - OH %.2fms, Console %.2fms, 3D OH %.2fms, Terrain %.2fms, Obs %.2fms, CPU %.2fms\n",
 					fps, ms, gameOverheadMS, consoleMS, threeDOverheadMS, terrainMS, objectMS, overlapMS);
 				::OutputDebugString(bufferA);
 				if (pListFile) {
 					fprintf(pListFile, "\n%s", bufferA);
-				}				
+				}
 				sprintf( bufferA, "Polygons: per frame %d, per second %d\n", polyPerFrame,
 						(Int)(polyPerFrame*fps));
 				::OutputDebugString(bufferA);
 				if (pListFile) {
 					fprintf(pListFile, "%s", bufferA);
 					fflush(pListFile);
-				}				
+				}
 			}
-		} 
+		}
  		if (pListFile) {
 			fprintf(pListFile, "\nFPS: %.2f, %.2fms\n", fps, ms);
 			fflush(pListFile);
-		}				
+		}
 		if (pListFile) {
 			samples = 0;
 			if (statMode != disabled) {
 				fprintf(pListFile, "Stat%d-", statMode);
-			} 
-		}				
+			}
+		}
 
 #endif
 		// check for debug D3D
@@ -1201,17 +1201,17 @@ void W3DDisplay::gatherDebugStats( void )
 		unibuffer.format(L"Frame: %d", TheGameLogic->getFrame());
 		m_displayStrings[Frame]->setText( unibuffer );
 
-		// polygons this frame	
+		// polygons this frame
 		unibuffer.format( L"Polygons: per frame %d, per second %d", polyPerFrame,
 				(Int)(polyPerFrame*fps));
 		m_displayStrings[Polygons]->setText( unibuffer );
 
 		// vertices this frame
 		unibuffer.format( L"Vertices: %d", Debug_Statistics::Get_DX8_Vertices() );
-		m_displayStrings[Vertices]->setText( unibuffer );		
+		m_displayStrings[Vertices]->setText( unibuffer );
 
 		//
-		// I'm adjusting the texture memory usage counter by subtracting 
+		// I'm adjusting the texture memory usage counter by subtracting
 		// out the terrain alpha texture (since it's really == terrain texture).
 		//
 		unibuffer.format( L"Video RAM: %d", Debug_Statistics::Get_Record_Texture_Size() - 1376256 );
@@ -1334,7 +1334,7 @@ void W3DDisplay::gatherDebugStats( void )
 		{
 			unibuffer.concat( L"Moused over object: TERRAIN " );
 		}
-		
+
 		m_displayStrings[ KEY_MOUSE_STATES ]->setText( unibuffer );
 
 		//display the x and y mouse coordinates
@@ -1344,7 +1344,7 @@ void W3DDisplay::gatherDebugStats( void )
 		unibuffer.format( L"Mouse position: screen: (%d, %d), world: (%g, %g, %g)", mouseIO->pos.x, mouseIO->pos.y,
 			worldPos.x, worldPos.y, worldPos.z);
 		m_displayStrings[MousePosition]->setText( unibuffer );
-		
+
 		//display the number of particles in the world and being displayed on screen
 		Int totalParticles = TheParticleSystemManager->getParticleCount();
 		Int onScreenParticleCount = TheParticleSystemManager->getOnScreenParticleCount();
@@ -1400,7 +1400,7 @@ void W3DDisplay::gatherDebugStats( void )
 
 		// selected object info stats
 		unibuffer.format( L"Select Info: '%d' drawables selected", TheInGameUI->getSelectCount() );
-		
+
 
 
 		//Sorry, guys. I need a special kluge here to get constantdebug results for angry mob.
@@ -1442,17 +1442,17 @@ void W3DDisplay::gatherDebugStats( void )
 
 
 
-		
-			
+
+
 
 			// (gth) compute some stats about the rendering cost of this drawable
-#if defined(_DEBUG) || defined(_INTERNAL)	
+#if defined(_DEBUG) || defined(_INTERNAL)
 			RenderCost rcost;
 			for (DrawModule** dm = draw->getDrawModules(); *dm; ++dm)
 			{
 				(*dm)->getRenderCost(rcost);
 			}
-			if (rcost.getDrawCallCount() > 0) 
+			if (rcost.getDrawCallCount() > 0)
 			{
 				unibuffer2.format( L"\ndraw calls: %d(+%d) sort meshes: %d skins: %d  bones: %d",rcost.getDrawCallCount(),rcost.getShadowDrawCount(),rcost.getSortedMeshCount(),rcost.getSkinMeshCount(),rcost.getBoneCount());
 				unibuffer.concat( unibuffer2 );
@@ -1500,7 +1500,7 @@ void W3DDisplay::drawDebugStats( void )
 
 	int linesOfStrings = DisplayStringCount;
 #ifdef EXTENDED_STATS
-	if (DX8Wrapper::stats.m_debugLinesToShow > -1) 
+	if (DX8Wrapper::stats.m_debugLinesToShow > -1)
 	{
 		linesOfStrings = DX8Wrapper::stats.m_debugLinesToShow;
 	}
@@ -1569,7 +1569,7 @@ void W3DDisplay::calculateTerrainLOD( void )
 {
 	const Int NUM_SAMPLES=20;
 	const Int NUM_TO_DISCARD=5;
-	
+
 	Int64 freq64 = getPerformanceCounterFrequency();
 
 	char buf[_MAX_PATH];
@@ -1618,7 +1618,7 @@ void W3DDisplay::calculateTerrainLOD( void )
 			::OutputDebugString(buf);
 			if (i>=NUM_TO_DISCARD) {
 				frameTime += timeForFrame;
-				if (i>NUM_TO_DISCARD+1 && 
+				if (i>NUM_TO_DISCARD+1 &&
 					(timeForFrame / ((i+1)-NUM_TO_DISCARD)) > 2*maxTimeLimit) {
 					i++;
 					break;
@@ -1683,7 +1683,7 @@ void W3DDisplay::draw( void )
 		TheGameLODManager->setDynamicLODLevel(DYNAMIC_GAME_LOD_VERY_HIGH);
 	}
 
-	if (TheGlobalData->m_terrainLOD == TERRAIN_LOD_AUTOMATIC && TheTerrainRenderObject) 
+	if (TheGlobalData->m_terrainLOD == TERRAIN_LOD_AUTOMATIC && TheTerrainRenderObject)
 	{
 		calculateTerrainLOD();
 	}
@@ -1714,7 +1714,7 @@ AGAIN:
 #endif
 
 	// compute debug statistics for display later
-	if ( m_debugDisplayCallback == StatDebugDisplay 
+	if ( m_debugDisplayCallback == StatDebugDisplay
 #if defined(_DEBUG) || defined(_INTERNAL)
 				|| TheGlobalData->m_benchmarkTimer > 0
 #endif
@@ -1723,7 +1723,7 @@ AGAIN:
 		gatherDebugStats();
 	}
 #ifdef EXTENDED_STATS
-	else 
+	else
 	{
 		DX8Wrapper::stats.m_showingStats = false;
 	}
@@ -1746,7 +1746,7 @@ AGAIN:
 
 	///@todo: Ask Vegas why the LOD optimizer hangs particle system.
  	//
-  	// Predictive LOD optimizer optimizes the mesh LOD levels to match 
+  	// Predictive LOD optimizer optimizes the mesh LOD levels to match
   	// the given polygon budget
   	//
 	//PredictiveLODOptimizerClass::Optimize_LODs( 5000 );
@@ -1782,7 +1782,7 @@ AGAIN:
 
 		//Shroud data is needed to render all other views, so handle this first.
 		if (TheTerrainRenderObject)
-		{	
+		{
 			//update the shroud surface here since it may be needed by reflections
 			if (TheTerrainRenderObject->getMap())	//make sure a valid map is loaded into terrain.
 			{
@@ -1794,7 +1794,7 @@ AGAIN:
 		}
 	}
 
-	if (!freezeTime) 
+	if (!freezeTime)
 	{
 		/// @todo Decouple framerate from timestep
 		// for now, use constant time steps to avoid animations running independent of framerate
@@ -1806,31 +1806,31 @@ AGAIN:
 
 	// Fast & Frozen time limits the time to 33 fps.
 	Int minTime = 30;
-	static Int prevTime = timeGetTime(), now;	
+	static Int prevTime = timeGetTime(), now;
 
 	now=timeGetTime();
-	if (TheTacticalView->getTimeMultiplier()>1) 
+	if (TheTacticalView->getTimeMultiplier()>1)
 	{
 		static Int timeMultiplierCounter = 1;
 		timeMultiplierCounter--;
-		if (timeMultiplierCounter>1) 
+		if (timeMultiplierCounter>1)
 			return;
 		timeMultiplierCounter = TheTacticalView->getTimeMultiplier();
 		// limit the framerate, because while fast time is on, the game logic is running as fast as it can.
-	}	
-	else 
+	}
+	else
 	{
 		now = timeGetTime();
 		prevTime = now - minTime;		 // do the first frame immediately.
-	} 
+	}
 
 
 	do {
-		
+
 		{
 			if(TheGlobalData->m_loadScreenRender != TRUE)
 			{
-			
+
 				// limit the framerate
 				while(TheGlobalData->m_useFpsLimit && (now - prevTime) < minTime-1)
 				{
@@ -1880,15 +1880,15 @@ AGAIN:
 		{
 			//USE_PERF_TIMER(BigAssRenderLoop)
 			static Bool couldRender = true;
-			if ((TheGlobalData->m_breakTheMovie == FALSE) && (TheGlobalData->m_disableRender == false) && WW3D::Begin_Render( true, true, Vector3( 0.0f, 0.0f, 0.0f ), TheWaterTransparency->m_minWaterOpacity ) == WW3D_ERROR_OK)		
+			if ((TheGlobalData->m_breakTheMovie == FALSE) && (TheGlobalData->m_disableRender == false) && WW3D::Begin_Render( true, true, Vector3( 0.0f, 0.0f, 0.0f ), TheWaterTransparency->m_minWaterOpacity ) == WW3D_ERROR_OK)
 			{
-				
+
 				if(TheGlobalData->m_loadScreenRender == TRUE)
-				{	
+				{
 					TheInGameUI->draw();
 					if( TheMouse )
 						TheMouse->draw();	//keep applying the current cursor style so it remains hidden if needed.
-					WW3D::End_Render();	
+					WW3D::End_Render();
 					continue;
 				}
 				couldRender = true;
@@ -1978,7 +1978,7 @@ AGAIN:
 				TheGraphDraw->clear();
 #endif
 				// render is all done!
-				WW3D::End_Render();	
+				WW3D::End_Render();
 			}
 			else
 			{
@@ -1989,8 +1989,8 @@ AGAIN:
 				}
 			}
 		}
-					
-		if (TheScriptEngine->isTimeFrozenDebug() || TheScriptEngine->isTimeFrozenScript() || TheGameLogic->isGamePaused())	
+
+		if (TheScriptEngine->isTimeFrozenDebug() || TheScriptEngine->isTimeFrozenScript() || TheGameLogic->isGamePaused())
 		{
 			freezeTime = false; // We're frozen for debug or for pause, and need to continue out of the loop.
 		}
@@ -2073,12 +2073,12 @@ Bool W3DDisplay::isLetterBoxed(void)
 }
 
 // W3DDisplay::createLightPulse ===============================================
-/** Create a "light pulse" which is a dynamic light that grows, decays 
+/** Create a "light pulse" which is a dynamic light that grows, decays
 	* and vanishes over several frames */
 //=============================================================================
-void W3DDisplay::createLightPulse( const Coord3D *pos, const RGBColor *color, 
-																	 Real innerRadius, Real attenuationWidth, 
-																	 UnsignedInt increaseFrameTime, 
+void W3DDisplay::createLightPulse( const Coord3D *pos, const RGBColor *color,
+																	 Real innerRadius, Real attenuationWidth,
+																	 UnsignedInt increaseFrameTime,
 																	 UnsignedInt decayFrameTime//, Bool donut
 																	 )
 {
@@ -2110,7 +2110,7 @@ void W3DDisplay::toggleLetterBox(void)
 	if( TheTacticalView )
 	{
 		TheTacticalView->setZoomLimited( !m_letterBoxEnabled );
-	}  
+	}
 }
 
 void W3DDisplay::enableLetterBox(Bool enable)
@@ -2126,7 +2126,7 @@ void W3DDisplay::enableLetterBox(Bool enable)
 			if( TheTacticalView )
 			{
 				TheTacticalView->setZoomLimited( 0 );
-			}  
+			}
 		}
 	}
 	else
@@ -2180,16 +2180,16 @@ void W3DDisplay::setTimeOfDay( TimeOfDay tod )
 // W3DDisplay::drawLine =======================================================
 /** draw a line on the display in pixel coordinates with the specified color */
 //=============================================================================
-void W3DDisplay::drawLine( Int startX, Int startY, 
-													 Int endX, Int endY, 
+void W3DDisplay::drawLine( Int startX, Int startY,
+													 Int endX, Int endY,
 													 Real lineWidth,
 													 UnsignedInt lineColor )
 {
-	
+
 	/// @todo we need to consider the efficiency of the 2D renderer
 	m_2DRender->Reset();
 	m_2DRender->Enable_Texturing( FALSE );
-	m_2DRender->Add_Line( Vector2( startX, startY ), Vector2( endX, endY ), 
+	m_2DRender->Add_Line( Vector2( startX, startY ), Vector2( endX, endY ),
 												lineWidth, lineColor );
 	m_2DRender->Render();
 
@@ -2198,16 +2198,16 @@ void W3DDisplay::drawLine( Int startX, Int startY,
 // W3DDisplay::drawLine =======================================================
 /** draw a line on the display in pixel coordinates with the specified color */
 //=============================================================================
-void W3DDisplay::drawLine( Int startX, Int startY, 
-													 Int endX, Int endY, 
+void W3DDisplay::drawLine( Int startX, Int startY,
+													 Int endX, Int endY,
 													 Real lineWidth,
 													 UnsignedInt lineColor1,UnsignedInt lineColor2 )
 {
-	
+
 	/// @todo we need to consider the efficiency of the 2D renderer
 	m_2DRender->Reset();
 	m_2DRender->Enable_Texturing( FALSE );
-	m_2DRender->Add_Line( Vector2( startX, startY ), Vector2( endX, endY ), 
+	m_2DRender->Add_Line( Vector2( startX, startY ), Vector2( endX, endY ),
 												lineWidth, lineColor1, lineColor2 );
 	m_2DRender->Render();
 
@@ -2219,7 +2219,7 @@ void W3DDisplay::drawLine( Int startX, Int startY,
 void W3DDisplay::drawOpenRect( Int startX, Int startY, Int width, Int height,
 															 Real lineWidth, UnsignedInt lineColor )
 {
-	
+
 	if (m_isClippedEnabled)
 	{
 		ICoord2D start, end, returnStart, returnEnd;
@@ -2230,7 +2230,7 @@ void W3DDisplay::drawOpenRect( Int startX, Int startY, Int width, Int height,
 		end.y = start.y + height;
 		if(ClipLine2D(&start, &end, &returnStart, &returnEnd, &m_clipRegion ))
 			drawLine( returnStart.x, returnStart.y, returnEnd.x, returnEnd.y, lineWidth, lineColor);
-			
+
 		end.x = start.x + width;
 		end.y = start.y;
 		if(ClipLine2D(&start, &end, &returnStart, &returnEnd, &m_clipRegion ))
@@ -2253,11 +2253,11 @@ void W3DDisplay::drawOpenRect( Int startX, Int startY, Int width, Int height,
 	else
 	{
 		/// @todo we need to consider the efficiency of the 2D renderer
-		m_2DRender->Reset();		
+		m_2DRender->Reset();
 		m_2DRender->Enable_Texturing( FALSE );
-		
-		m_2DRender->Add_Outline( RectClass( startX, startY, 
-																				startX + width, startY + height ), 
+
+		m_2DRender->Add_Outline( RectClass( startX, startY,
+																				startX + width, startY + height ),
 														 lineWidth, lineColor );
 
 		// render it now!
@@ -2273,10 +2273,10 @@ void W3DDisplay::drawFillRect( Int startX, Int startY, Int width, Int height,
 {
 
 	/// @todo we need to consider the efficiency of the 2D renderer
-	m_2DRender->Reset();		
+	m_2DRender->Reset();
 	m_2DRender->Enable_Texturing( FALSE );
-	m_2DRender->Add_Rect( RectClass( startX, startY, 
-																	 startX + width, startY + height ), 
+	m_2DRender->Add_Rect( RectClass( startX, startY,
+																	 startX + width, startY + height ),
 												0, 0, color );
 
 	// render it now!
@@ -2290,7 +2290,7 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 	if(percent < 1 || percent > 100)
 		return;
 
-	m_2DRender->Reset();		
+	m_2DRender->Reset();
 	m_2DRender->Enable_Texturing( FALSE );
 
 // The rectanges are numberd as follows
@@ -2299,34 +2299,34 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 //			|----+----|
 //			| 3  | 2  |
 //			|---------| (x + width, y + width)
-//	
+//
 	// we're done, lets just draw one rectangle for it all.
 	if(percent == 100)
 	{
-		m_2DRender->Add_Rect(RectClass( startX, startY, 
+		m_2DRender->Add_Rect(RectClass( startX, startY,
 																		startX + width, startY + height), 0,0, color);
 	}
 	else if( percent> 75)
 	{
 		//rectangle #1 & 2
-		m_2DRender->Add_Rect(RectClass( startX + width/2, startY, 
+		m_2DRender->Add_Rect(RectClass( startX + width/2, startY,
 																		startX + width, startY + height), 0,0, color);
 		// rectangle #3
-		m_2DRender->Add_Rect(RectClass( startX, startY + height/2, 
+		m_2DRender->Add_Rect(RectClass( startX, startY + height/2,
 																		startX + width/2, startY + height), 0,0, color);
 		// draw the part of rectangle 4
 		Real remain = percent - 75;
 		if(remain > 12)
 		{
 			//draw the full triangle
-			m_2DRender->Add_Tri(Vector2(startX, startY), 
+			m_2DRender->Add_Tri(Vector2(startX, startY),
 													Vector2(startX, startY + height/2),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
-			
+
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain - 12)/ 13;
-			m_2DRender->Add_Tri(Vector2(startX, startY), 
+			m_2DRender->Add_Tri(Vector2(startX, startY),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + (width/2 * percentDraw), startY),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2335,7 +2335,7 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 		{
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain)/ 12;
-			m_2DRender->Add_Tri(Vector2(startX, startY + height/2 - (height/2 * percentDraw)), 
+			m_2DRender->Add_Tri(Vector2(startX, startY + height/2 - (height/2 * percentDraw)),
 													Vector2(startX, startY + height/2),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2345,21 +2345,21 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 	else if( percent > 50)
 	{
 		//rectangle #1 & 2
-		m_2DRender->Add_Rect(RectClass( startX + width/2, startY, 
+		m_2DRender->Add_Rect(RectClass( startX + width/2, startY,
 																		startX + width, startY + height), 0,0, color);
 		// draw the part of rectangle 3
 		Real remain = percent - 50;
 		if(remain > 12)
 		{
 			//draw the full triangle
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2), 
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2),
 													Vector2(startX, startY + height),
 													Vector2(startX + width/2, startY + height),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
-			
+
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain - 12)/ 13;
-			m_2DRender->Add_Tri(Vector2(startX, startY + height - (height/2 * percentDraw)), 
+			m_2DRender->Add_Tri(Vector2(startX, startY + height - (height/2 * percentDraw)),
 													Vector2(startX, startY + height),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2368,7 +2368,7 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 		{
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain)/ 12;
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height),  
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width/2 - ( width/2 * percentDraw), startY + height),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2377,21 +2377,21 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 	else if(percent > 25)
 	{
 		// rectangel #1
-		m_2DRender->Add_Rect(RectClass( startX + width/2, startY, 
+		m_2DRender->Add_Rect(RectClass( startX + width/2, startY,
 																		startX + width, startY + height/2), 0,0, color);
 		// draw the part of rectangle 2
 		Real remain = percent - 25;
 		if(remain > 12)
 		{
 			//draw the full triangle
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2), 
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width, startY + height),
 													Vector2(startX + width, startY + height/2),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
-			
+
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain - 12)/ 13;
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2), 
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width - (width/2 * percentDraw), startY + height),
 													Vector2(startX + width, startY + height),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2400,7 +2400,7 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 		{
 			// draw the part of triangle
 			Real percentDraw = (Real)(remain)/ 12;
-			m_2DRender->Add_Tri(Vector2(startX + width, startY + height/2),  
+			m_2DRender->Add_Tri(Vector2(startX + width, startY + height/2),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width, startY + height/2 + ( height/2 * percentDraw)),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2409,19 +2409,19 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 	else
 	{
 				// draw the part of rectangle 1
-		
+
 		if(percent > 12)
 		{
 			//draw the full triangle
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY), 
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width, startY),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
-			
+
 			// draw the part of triangle
 			Real percentDraw = (Real)(percent - 12)/ 13;
 			m_2DRender->Add_Tri(Vector2(startX + width, startY),
-													Vector2(startX + width/2, startY + height/2), 
+													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width, startY + (height/2 * percentDraw)),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
 		}
@@ -2429,7 +2429,7 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 		{
 			// draw the part of triangle
 			Real percentDraw = (Real)(percent)/ 12;
-			m_2DRender->Add_Tri(Vector2(startX + width/2, startY),  
+			m_2DRender->Add_Tri(Vector2(startX + width/2, startY),
 													Vector2(startX + width/2, startY + height/2),
 													Vector2(startX + width/2 + (width/2 * percentDraw), startY ),
 													Vector2(0,0),Vector2(0,0),Vector2(0,0),color);
@@ -2454,7 +2454,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 	if( percent < 0 || percent > 99 )
 		return;
 
-	m_2DRender->Reset();		
+	m_2DRender->Reset();
 	m_2DRender->Enable_Texturing( FALSE );
 
 // The rectanges are numbered as follows
@@ -2463,7 +2463,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 //			|----+----|
 //			| 3  | 2  |
 //			|---------| (x + width, y + width)
-//	
+//
 
 	Int midX = startX + width/2;
 	Int midY = startY + height/2;
@@ -2485,7 +2485,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 
 		//Rectangle #3 & 4
 		m_2DRender->Add_Rect( RectClass( startX, startY, midX, endY ), 0, 0, color );
-		
+
 		//Rectangle #2
 		m_2DRender->Add_Rect( RectClass( midX, midY, endX, endY ), 0, 0, color );
 
@@ -2496,12 +2496,12 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
   		//-----
 
 			//Draw the 2nd half of rectangle #1
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, midY ), Vector2( endX, startY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, midY ), Vector2( endX, startY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 
 			//Draw the last part of the 1st portion of rectangle #1
 			Real percentDraw = (Real)( 13 - percent ) / 13;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, startY ), Vector2( endX - halfWidth * percentDraw, startY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, startY ), Vector2( endX - halfWidth * percentDraw, startY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 		else
@@ -2511,7 +2511,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 
 			//Draw the last part of the 2nd half of rectangle #1
 			Real percentDraw = (Real)( percent - 13 ) / 12;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, midY ), Vector2( endX, startY + halfHeight * percentDraw ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, midY ), Vector2( endX, startY + halfHeight * percentDraw ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 	}
@@ -2530,12 +2530,12 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
   		//-----
 
 			//Draw the 2nd half of rectangle #2
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, endY ), Vector2( endX, endY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, endY ), Vector2( endX, endY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 
 			//Draw the last part of the 1st portion of rectangle #2
 			Real percentDraw = (Real)( percent - 25 ) / 13;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, endY ), Vector2( endX, midY + halfHeight * percentDraw ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( endX, endY ), Vector2( endX, midY + halfHeight * percentDraw ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 		else
@@ -2545,7 +2545,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 
 			//Draw the last part of the 2nd half of rectangle #1
 			Real percentDraw = (Real)( percent - 38 ) / 12;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, endY ), Vector2( endX - halfWidth * percentDraw, endY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, endY ), Vector2( endX - halfWidth * percentDraw, endY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 	}
@@ -2564,12 +2564,12 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
   		//-----
 
 			//Draw the 2nd half of rectangle #3
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, midY ), Vector2( startX, endY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, midY ), Vector2( startX, endY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 
 			//Draw the last part of the 1st portion of rectangle #3
 			Real percentDraw = (Real)( percent - 50 ) / 13;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, endY ), Vector2( midX - halfWidth * percentDraw, endY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, endY ), Vector2( midX - halfWidth * percentDraw, endY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 		else
@@ -2579,7 +2579,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 
 			//Draw the last part of the 2nd half of rectangle #3
 			Real percentDraw = (Real)( percent - 62 ) / 12;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, midY ), Vector2( startX, endY - halfHeight * percentDraw ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, midY ), Vector2( startX, endY - halfHeight * percentDraw ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 	}
@@ -2587,7 +2587,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 	{
 		//75-99%
 		//------
-		
+
 		//Handle rectangle #4 that needs partial rendering.
 		if( percent < 87 )
 		{
@@ -2595,12 +2595,12 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
   		//-----
 
 			//Draw the 2nd half of rectangle #4
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, startY ), Vector2( startX, startY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, startY ), Vector2( startX, startY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 
 			//Draw the last part of the 1st portion of rectangle #4
 			Real percentDraw = (Real)( percent - 75 ) / 13;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, startY ), Vector2( startX, midY - halfHeight * percentDraw ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( startX, startY ), Vector2( startX, midY - halfHeight * percentDraw ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 		else
@@ -2610,7 +2610,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 
 			//Draw the last part of the 2nd half of rectangle #4
 			Real percentDraw = (Real)( percent - 88 ) / 12;
-			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, startY ), Vector2( startX + halfWidth * percentDraw, startY ), 
+			m_2DRender->Add_Tri( Vector2( midX, midY ), Vector2( midX, startY ), Vector2( startX + halfWidth * percentDraw, startY ),
 													 Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), color );
 		}
 	}
@@ -2624,7 +2624,7 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 /** Draws an images at the screen coordinates and keeps it within the end
 	* screen coords specified */
 //=============================================================================
-void W3DDisplay::drawImage( const Image *image, Int startX, Int startY, 
+void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 														Int endX, Int endY, Color color, DrawImageMode mode)
 {
 
@@ -2691,11 +2691,11 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 			if( BitTest( image->getStatus(), IMAGE_STATUS_ROTATED_90_CLOCKWISE ) )
 			{
 
-	
+
 				//
 				//	Clip the polygons to the specified area
 				//
-				
+
 				clipped_rect.Left		= __max (screen_rect.Left, m_clipRegion.lo.x);
 				clipped_rect.Right	= __min (screen_rect.Right, m_clipRegion.hi.x);
 				clipped_rect.Top		= __max (screen_rect.Top, m_clipRegion.lo.y);
@@ -2704,7 +2704,7 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 				//
 				//	Clip the texture to the specified area
 				//
-				
+
 				float percent				= ((clipped_rect.Left - screen_rect.Left) / screen_rect.Width ());
 				clipped_uv_rect.Top		= uv_rect.Top + (uv_rect.Height () * percent);
 
@@ -2720,11 +2720,11 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 			else
 
 			{
-			
+
 				//
 				//	Clip the polygons to the specified area
 				//
-				
+
 				clipped_rect.Left		= __max (screen_rect.Left, m_clipRegion.lo.x);
 				clipped_rect.Right	= __min (screen_rect.Right, m_clipRegion.hi.x);
 				clipped_rect.Top		= __max (screen_rect.Top, m_clipRegion.lo.y);
@@ -2733,7 +2733,7 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 				//
 				//	Clip the texture to the specified area
 				//
-				
+
 				float percent				= ((clipped_rect.Left - screen_rect.Left) / screen_rect.Width ());
 				clipped_uv_rect.Left		= uv_rect.Left + (uv_rect.Width () * percent);
 
@@ -2759,7 +2759,7 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 	if( BitTest( image->getStatus(), IMAGE_STATUS_ROTATED_90_CLOCKWISE ) )
 	{
 
-		m_2DRender->Add_Tri( Vector2( screen_rect.Left, screen_rect.Top ), 
+		m_2DRender->Add_Tri( Vector2( screen_rect.Left, screen_rect.Top ),
 												 Vector2( screen_rect.Left, screen_rect.Bottom ),
 												 Vector2( screen_rect.Right, screen_rect.Top ),
 												 Vector2( uv_rect.Right, uv_rect.Top),
@@ -2907,86 +2907,86 @@ void W3DDisplay::setShroudLevel( Int x, Int y, CellShroudStatus setting )
 			TheTerrainRenderObject->getShroud()->setShroudLevel(x, y, (W3DShroudLevel)TheGlobalData->m_fogAlpha );///< @todo placeholder to get feedback on logic work while graphic side being decided
 		else
 			TheTerrainRenderObject->getShroud()->setShroudLevel(x, y, (W3DShroudLevel)TheGlobalData->m_clearAlpha );
-		//Logic is saying shroud.  We can add alpha levels here in client if needed.  
+		//Logic is saying shroud.  We can add alpha levels here in client if needed.
 		// W3DShroud is a 0-255 alpha byte.  Logic shroud is a double reference count.
 
 		TheTerrainRenderObject->notifyShroudChanged();
-	
+
 	}
 }
 
 //=============================================================================
 ///Utility function to dump data into a .BMP file
 static void CreateBMPFile(LPTSTR pszFile, char *image, Int width, Int height)
-{ 
-     HANDLE hf;                 // file handle 
-    BITMAPFILEHEADER hdr;       // bitmap file-header 
-    PBITMAPINFOHEADER pbih;     // bitmap info-header 
-    LPBYTE lpBits;              // memory pointer 
-    DWORD dwTotal;              // total count of bytes 
-    DWORD cb;                   // incremental count of bytes 
-    BYTE *hp;                   // byte pointer 
-    DWORD dwTmp; 
+{
+     HANDLE hf;                 // file handle
+    BITMAPFILEHEADER hdr;       // bitmap file-header
+    PBITMAPINFOHEADER pbih;     // bitmap info-header
+    LPBYTE lpBits;              // memory pointer
+    DWORD dwTotal;              // total count of bytes
+    DWORD cb;                   // incremental count of bytes
+    BYTE *hp;                   // byte pointer
+    DWORD dwTmp;
 
-    PBITMAPINFO pbmi; 
+    PBITMAPINFO pbmi;
 
     pbmi = (PBITMAPINFO) LocalAlloc(LPTR,sizeof(BITMAPINFOHEADER));
-    pbmi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER); 
-    pbmi->bmiHeader.biWidth = width; 
-    pbmi->bmiHeader.biHeight = height; 
-    pbmi->bmiHeader.biPlanes = 1; 
+    pbmi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    pbmi->bmiHeader.biWidth = width;
+    pbmi->bmiHeader.biHeight = height;
+    pbmi->bmiHeader.biPlanes = 1;
     pbmi->bmiHeader.biBitCount = 24;
     pbmi->bmiHeader.biCompression = BI_RGB;
     pbmi->bmiHeader.biSizeImage = (pbmi->bmiHeader.biWidth + 7) /8 * pbmi->bmiHeader.biHeight * 24;
-    pbmi->bmiHeader.biClrImportant = 0; 
+    pbmi->bmiHeader.biClrImportant = 0;
 
 
-    pbih = (PBITMAPINFOHEADER) pbmi; 
+    pbih = (PBITMAPINFOHEADER) pbmi;
     lpBits = (LPBYTE) image;
 
-    // Create the .BMP file. 
-    hf = CreateFile(pszFile, 
-                   GENERIC_READ | GENERIC_WRITE, 
-                   (DWORD) 0, 
-                    NULL, 
-                   CREATE_ALWAYS, 
-                   FILE_ATTRIBUTE_NORMAL, 
-                   (HANDLE) NULL); 
-    if (hf == INVALID_HANDLE_VALUE) 
+    // Create the .BMP file.
+    hf = CreateFile(pszFile,
+                   GENERIC_READ | GENERIC_WRITE,
+                   (DWORD) 0,
+                    NULL,
+                   CREATE_ALWAYS,
+                   FILE_ATTRIBUTE_NORMAL,
+                   (HANDLE) NULL);
+    if (hf == INVALID_HANDLE_VALUE)
 		return;
-    hdr.bfType = 0x4d42;        // 0x42 = "B" 0x4d = "M" 
-    // Compute the size of the entire file. 
-    hdr.bfSize = (DWORD) (sizeof(BITMAPFILEHEADER) + 
-                 pbih->biSize + pbih->biClrUsed 
-                 * sizeof(RGBQUAD) + pbih->biSizeImage); 
-    hdr.bfReserved1 = 0; 
-    hdr.bfReserved2 = 0; 
+    hdr.bfType = 0x4d42;        // 0x42 = "B" 0x4d = "M"
+    // Compute the size of the entire file.
+    hdr.bfSize = (DWORD) (sizeof(BITMAPFILEHEADER) +
+                 pbih->biSize + pbih->biClrUsed
+                 * sizeof(RGBQUAD) + pbih->biSizeImage);
+    hdr.bfReserved1 = 0;
+    hdr.bfReserved2 = 0;
 
-    // Compute the offset to the array of color indices. 
-    hdr.bfOffBits = (DWORD) sizeof(BITMAPFILEHEADER) + 
-                    pbih->biSize + pbih->biClrUsed 
-                    * sizeof (RGBQUAD); 
+    // Compute the offset to the array of color indices.
+    hdr.bfOffBits = (DWORD) sizeof(BITMAPFILEHEADER) +
+                    pbih->biSize + pbih->biClrUsed
+                    * sizeof (RGBQUAD);
 
-    // Copy the BITMAPFILEHEADER into the .BMP file. 
-    if (!WriteFile(hf, (LPVOID) &hdr, sizeof(BITMAPFILEHEADER), 
-        (LPDWORD) &dwTmp,  NULL)) 
-		return;
-
-    // Copy the BITMAPINFOHEADER and RGBQUAD array into the file. 
-    if (!WriteFile(hf, (LPVOID) pbih, sizeof(BITMAPINFOHEADER) + pbih->biClrUsed * sizeof (RGBQUAD),(LPDWORD) &dwTmp, NULL)) 
+    // Copy the BITMAPFILEHEADER into the .BMP file.
+    if (!WriteFile(hf, (LPVOID) &hdr, sizeof(BITMAPFILEHEADER),
+        (LPDWORD) &dwTmp,  NULL))
 		return;
 
-    // Copy the array of color indices into the .BMP file. 
-    dwTotal = cb = pbih->biSizeImage; 
-    hp = lpBits; 
-    if (!WriteFile(hf, (LPSTR) hp, (int) cb, (LPDWORD) &dwTmp,NULL)) 
+    // Copy the BITMAPINFOHEADER and RGBQUAD array into the file.
+    if (!WriteFile(hf, (LPVOID) pbih, sizeof(BITMAPINFOHEADER) + pbih->biClrUsed * sizeof (RGBQUAD),(LPDWORD) &dwTmp, NULL))
 		return;
 
-    // Close the .BMP file. 
+    // Copy the array of color indices into the .BMP file.
+    dwTotal = cb = pbih->biSizeImage;
+    hp = lpBits;
+    if (!WriteFile(hf, (LPSTR) hp, (int) cb, (LPDWORD) &dwTmp,NULL))
+		return;
+
+    // Close the .BMP file.
      if (!CloseHandle(hf))
 		 return;
 
-    // Free memory. 
+    // Free memory.
 	LocalFree( (HLOCAL) pbmi);
 }
 
@@ -3024,11 +3024,11 @@ void W3DDisplay::takeScreenShot(void)
 	GetClientRect(ApplicationHWnd,&bounds);
 	point.x=bounds.left; point.y=bounds.top;
 	ClientToScreen(ApplicationHWnd, &point);
-	bounds.left=point.x; bounds.top=point.y; 
+	bounds.left=point.x; bounds.top=point.y;
 	point.x=bounds.right; point.y=bounds.bottom;
 	ClientToScreen(ApplicationHWnd, &point);
 	bounds.right=point.x; bounds.bottom=point.y;
- 
+
 	D3DLOCKED_RECT lrect;
 
 	DX8_ErrorCode(fb->LockRect(&lrect,&bounds,D3DLOCK_READONLY));
@@ -3139,7 +3139,7 @@ void dumpMeshAssets(MeshClass *mesh)
 		MeshModelClass *model=mesh->Get_Model();
 		for (int stage=0;stage<MeshMatDescClass::MAX_TEX_STAGES;++stage)
 		{
-			for (int pass=0;pass<model->Get_Pass_Count();++pass) 
+			for (int pass=0;pass<model->Get_Pass_Count();++pass)
 			{
 				if (model->Has_Texture_Array(pass,stage))
 				{
@@ -3186,7 +3186,7 @@ void dumpHLODAssets(HLodClass *hlod)
 void W3DDisplay::dumpModelAssets(const char *path)
 {
 	if (m_3DScene)
-	{	
+	{
 		AssetDumpFile=fopen(path,"w");
 		if (AssetDumpFile)
 		{
@@ -3303,11 +3303,11 @@ void W3DDisplay::dumpAssetUsage(const char* mapname)
 			break;	// it exists, we're good
 		++idx;
 	}
-	
+
 	FILE *fp = fopen(buf, "w");
 	if (fp)
 	{
-		for (int i=0; i<names.Count(); i++) 
+		for (int i=0; i<names.Count(); i++)
 		{
 			const char* n = names[i];
 			fprintf(fp, "%s\n", n);
@@ -3329,9 +3329,9 @@ static void drawFramerateBar(void)
 	else if (percTime < 0.0f)
 		percTime = 0.0f;
 	Int width = REAL_TO_INT(percTime * TheDisplay->getWidth());
-	UnsignedInt colorToUse = GameMakeColor( REAL_TO_UNSIGNEDBYTE((1.0f - percTime) * 255), 
-																					REAL_TO_UNSIGNEDBYTE(percTime * 255), 
-																					0, 
+	UnsignedInt colorToUse = GameMakeColor( REAL_TO_UNSIGNEDBYTE((1.0f - percTime) * 255),
+																					REAL_TO_UNSIGNEDBYTE(percTime * 255),
+																					0,
 																					0x7F);
 
 	TheDisplay->drawFillRect(1, 1, width, 15, colorToUse);

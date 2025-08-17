@@ -71,7 +71,7 @@ void parseFactionObjectCreationList( INI *ini, void *instance, void *store, cons
 	// Insert the info into the ocl hashmap
 	OCLUpdateModuleData::FactionOCLList * theList = (OCLUpdateModuleData::FactionOCLList*)store;
 	theList->push_back(info);
-	
+
 }  // end parseFactionObjectCreationList
 
 //-------------------------------------------------------------------------------------------------
@@ -86,11 +86,11 @@ OCLUpdateModuleData::OCLUpdateModuleData()
 }
 
 //-------------------------------------------------------------------------------------------------
-/*static*/ void OCLUpdateModuleData::buildFieldParse(MultiIniFieldParse& p) 
+/*static*/ void OCLUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpdateModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "OCL",					INI::parseObjectCreationList,		NULL, offsetof( OCLUpdateModuleData, m_ocl ) },
 		{ "FactionOCL",		parseFactionObjectCreationList,	NULL, offsetof( OCLUpdateModuleData, m_factionOCL ) },
@@ -192,7 +192,7 @@ UpdateSleepTime OCLUpdate::update( void )
 
 			Player *player = getObject()->getControllingPlayer();
 			if (!player) return UPDATE_SLEEP_NONE;
-			
+
 			const PlayerTemplate *playerT = player->getPlayerTemplate();
 			if (!playerT) return UPDATE_SLEEP_NONE;
 
@@ -242,7 +242,7 @@ Bool OCLUpdate::shouldCreate()
 // ------------------------------------------------------------------------------------------------
 void OCLUpdate::setNextCreationFrame()
 {
-	UnsignedInt delay = GameLogicRandomValue( getOCLUpdateModuleData()->m_minDelay, 
+	UnsignedInt delay = GameLogicRandomValue( getOCLUpdateModuleData()->m_minDelay,
 																						getOCLUpdateModuleData()->m_maxDelay );
 	m_timerStartedFrame = TheGameLogic->getFrame();
 	m_nextCreationFrame = m_timerStartedFrame + delay;
@@ -302,7 +302,7 @@ void OCLUpdate::xfer( Xfer *xfer )
 
 	// faction status
 	xfer->xferBool( &m_isFactionNeutral );
-	
+
 	// current owning player color
 	xfer->xferInt( &m_currentPlayerColor );
 

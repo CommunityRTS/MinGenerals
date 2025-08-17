@@ -24,12 +24,12 @@
 
 // FILE: CampaignManager.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	Jul 2002
@@ -37,7 +37,7 @@
 //	Filename: 	CampaignManager.cpp
 //
 //	author:		Chris Huybregts
-//	
+//
 //	purpose:	The flow of the campaigns are stored up in here!
 //
 //-----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ CampaignManager *TheCampaignManager = NULL;
 #endif
 
 
-const FieldParse CampaignManager::m_campaignFieldParseTable[] = 
+const FieldParse CampaignManager::m_campaignFieldParseTable[] =
 {
 
 	{ "Mission",						CampaignManager::parseMissionPart,	NULL, NULL },
@@ -99,7 +99,7 @@ void INI::parseCampaignDefinition( INI *ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	// find existing item if present
 	DEBUG_ASSERTCRASH( TheCampaignManager, ("parseCampaignDefinition: Unable to Get TheCampaignManager\n") );
@@ -163,7 +163,7 @@ Mission *Campaign::newMission( AsciiString name )
 		else
 			++it;
 	}
-	Mission *newMission = newInstance(Mission);	
+	Mission *newMission = newInstance(Mission);
 	newMission->m_name.set(name);
 	m_missions.push_back(newMission);
 	return newMission;
@@ -175,7 +175,7 @@ Mission *Campaign::getMission( AsciiString missionName )
 	if(missionName.isEmpty())
 		return NULL;
 	MissionListIt it;
-	it = m_missions.begin();	
+	it = m_missions.begin();
 	// we've reached the end of the campaign
 	while(it != m_missions.end())
 	{
@@ -201,7 +201,7 @@ Mission *Campaign::getNextMission( Mission *current)
 		name = current->m_nextMission;
 	name.toLower();
 	MissionListIt it;
-	it = m_missions.begin();	
+	it = m_missions.begin();
 	// we've reached the end of the campaign
 	if(name.isEmpty())
 		return NULL;
@@ -273,7 +273,7 @@ Mission *CampaignManager::gotoNextMission( void )
 		return NULL;
 	m_currentMission = m_currentCampaign->getNextMission(m_currentMission);
 	return m_currentMission;
-	
+
 }
 
 //-----------------------------------------------------------------------------
@@ -298,7 +298,7 @@ void CampaignManager::setCampaignAndMission( AsciiString campaign, AsciiString m
 		}
 		++it;
 	}
-}	
+}
 
 //-----------------------------------------------------------------------------
 void CampaignManager::setCampaign( AsciiString campaign )
@@ -329,7 +329,7 @@ AsciiString CampaignManager::getCurrentMap( void )
 {
 	if(!m_currentMission)
 		return AsciiString::TheEmptyString;
-	
+
 	return m_currentMission->m_mapName;
 }
 
@@ -344,8 +344,8 @@ Int CampaignManager::getCurrentMissionNumber( void )
 	{
 		Campaign::MissionListIt it;
 
-		for( it = m_currentCampaign->m_missions.begin(); 
-				 it != m_currentCampaign->m_missions.end(); 
+		for( it = m_currentCampaign->m_missions.begin();
+				 it != m_currentCampaign->m_missions.end();
 				 ++it )
 		{
 
@@ -353,9 +353,9 @@ Int CampaignManager::getCurrentMissionNumber( void )
 			if( *it == m_currentMission )
 				return number;
 		}
-		
+
 	}
-	
+
 	return number;
 
 }
@@ -363,7 +363,7 @@ Int CampaignManager::getCurrentMissionNumber( void )
 //-----------------------------------------------------------------------------
 void CampaignManager::parseMissionPart( INI* ini, void *instance, void *store, const void *userData )
 {
-	static const FieldParse myFieldParse[] = 
+	static const FieldParse myFieldParse[] =
 		{
 			{ "Map",							INI::parseAsciiString,				NULL, offsetof( Mission, m_mapName ) },
 			{ "NextMission",			INI::parseAsciiString,				NULL, offsetof( Mission, m_nextMission ) },
@@ -385,12 +385,12 @@ void CampaignManager::parseMissionPart( INI* ini, void *instance, void *store, c
 		};
 	AsciiString name;
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	Mission *mission = ((Campaign*)instance)->newMission(name );
 	ini->initFromINI(mission, myFieldParse);
 }
-	
+
 
 //-----------------------------------------------------------------------------
 Campaign *CampaignManager::newCampaign(AsciiString name)
@@ -419,7 +419,7 @@ Campaign *CampaignManager::newCampaign(AsciiString name)
 // ------------------------------------------------------------------------------------------------
 /** Xfer method
 	* Version Info
-	* 1: Initial version 
+	* 1: Initial version
 	* 2: Added RankPoints Saving
 	* 4: Need to have Challenge info in Mission saves as well as normal saves
 */
@@ -437,7 +437,7 @@ void CampaignManager::xfer( Xfer *xfer )
 	if( m_currentCampaign )
 		currentCampaign = m_currentCampaign->m_name;
 	xfer->xferAsciiString( &currentCampaign );
-	
+
 	// current mission
 	AsciiString currentMission;
 	if( m_currentMission )
@@ -465,20 +465,20 @@ void CampaignManager::xfer( Xfer *xfer )
 		Bool isChallengeCampaign = m_currentCampaign ? m_currentCampaign->m_isChallengeCampaign : FALSE;
 		xfer->xferBool(&isChallengeCampaign);
 
-		if( isChallengeCampaign ) 
+		if( isChallengeCampaign )
 		{
-			if( TheChallengeGameInfo==NULL ) 
+			if( TheChallengeGameInfo==NULL )
 			{
 				TheChallengeGameInfo = NEW SkirmishGameInfo;
-				TheChallengeGameInfo->init();  
+				TheChallengeGameInfo->init();
 				TheChallengeGameInfo->clearSlotList();
 				TheChallengeGameInfo->reset();
 			}
 			xfer->xferSnapshot(TheChallengeGameInfo);
-		} 
-		else 
+		}
+		else
 		{
-			if( TheChallengeGameInfo ) 
+			if( TheChallengeGameInfo )
 			{
 				delete TheChallengeGameInfo;
 				TheChallengeGameInfo = NULL;
@@ -526,4 +526,4 @@ Mission::~Mission( void )
 {
 
 }
-	
+

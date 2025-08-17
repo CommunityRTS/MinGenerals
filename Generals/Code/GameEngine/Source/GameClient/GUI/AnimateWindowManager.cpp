@@ -24,12 +24,12 @@
 
 // FILE: AnimateWindowManager.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	Mar 2002
@@ -37,8 +37,8 @@
 //	Filename: 	AnimateWindowManager.cpp
 //
 //	author:		Chris Huybregts
-//	
-//	purpose:	This will contain the logic behind the different animations that 
+//
+//	purpose:	This will contain the logic behind the different animations that
 //						can happen to a window.
 //
 //-----------------------------------------------------------------------------
@@ -85,7 +85,7 @@ AnimateWindow::~AnimateWindow( void )
 	m_win = NULL;
 }
 
-void AnimateWindow::setAnimData( 	ICoord2D startPos, ICoord2D endPos, 
+void AnimateWindow::setAnimData( 	ICoord2D startPos, ICoord2D endPos,
 																	ICoord2D curPos, ICoord2D restPos,
 																	Coord2D vel, UnsignedInt startTime,
 																	UnsignedInt endTime )
@@ -159,7 +159,7 @@ AnimateWindowManager::~AnimateWindowManager( void )
 	clearWinList(m_winMustFinishList);
 }
 
-	
+
 void AnimateWindowManager::init( void )
 {
 	clearWinList(m_winList);
@@ -179,7 +179,7 @@ void AnimateWindowManager::reset( void )
 
 void AnimateWindowManager::update( void )
 {
-	
+
 	ProcessAnimateWindow *processAnim = NULL;
 
 	// if we need to update the windows that need to finish, update that list
@@ -187,7 +187,7 @@ void AnimateWindowManager::update( void )
 	{
 		AnimateWindowList::iterator it = m_winMustFinishList.begin();
 		m_needsUpdate = FALSE;
-		
+
 		while (it != m_winMustFinishList.end())
 		{
 			AnimateWindow *animWin = *it;
@@ -210,13 +210,13 @@ void AnimateWindowManager::update( void )
 						m_needsUpdate = TRUE;
 				}
 			}
-			
+
 			it ++;
 		}
 	}
 
 	AnimateWindowList::iterator it = m_winList.begin();
-		
+
 	while (it != m_winList.end())
 	{
 		AnimateWindow *animWin = *it;
@@ -229,7 +229,7 @@ void AnimateWindowManager::update( void )
 		if(m_reverse)
 		{
 			if(processAnim)
-				processAnim->reverseAnimateWindow(animWin);			
+				processAnim->reverseAnimateWindow(animWin);
 		}
 		else
 		{
@@ -244,7 +244,7 @@ void AnimateWindowManager::update( void )
 void AnimateWindowManager::registerGameWindow(GameWindow *win, AnimTypes animType, Bool needsToFinish, UnsignedInt ms, UnsignedInt delayMs)
 {
 	if(!win)
-	{	
+	{
 		DEBUG_CRASH(("Win was NULL as it was passed into registerGameWindow... not good indeed"));
 		return;
 	}
@@ -255,7 +255,7 @@ void AnimateWindowManager::registerGameWindow(GameWindow *win, AnimTypes animTyp
 	}
 
 	// Create a new AnimateWindow class and fill in it's data.
-	AnimateWindow *animWin = newInstance(AnimateWindow);	
+	AnimateWindow *animWin = newInstance(AnimateWindow);
 	animWin->setGameWindow(win);
 	animWin->setAnimType(animType);
 	animWin->setNeedsToFinish(needsToFinish);
@@ -268,7 +268,7 @@ void AnimateWindowManager::registerGameWindow(GameWindow *win, AnimTypes animTyp
 		processAnim->setMaxDuration(ms);
 		processAnim->initAnimateWindow( animWin );
 	}
-	
+
 	// Add the Window to the proper list
 	if(needsToFinish)
 	{
@@ -321,11 +321,11 @@ ProcessAnimateWindow *AnimateWindowManager::getProcessAnimate( AnimTypes animTyp
 
 void AnimateWindowManager::reverseAnimateWindow( void )
 {
-	
+
 	m_reverse = TRUE;
 	m_needsUpdate = TRUE;
 	ProcessAnimateWindow *processAnim = NULL;
-	
+
 	UnsignedInt maxDelay = 0;
 	AnimateWindowList::iterator it = m_winMustFinishList.begin();
 	while (it != m_winMustFinishList.end())
@@ -356,13 +356,13 @@ void AnimateWindowManager::reverseAnimateWindow( void )
 		{
 			processAnim->initReverseAnimateWindow( animWin, maxDelay );
 		}
-		
+
 		animWin->setFinished(FALSE);
 		it ++;
 	}
-	
+
 	it = m_winList.begin();
-		
+
 	while (it != m_winList.end())
 	{
 		AnimateWindow *animWin = *it;
@@ -372,7 +372,7 @@ void AnimateWindowManager::reverseAnimateWindow( void )
 			return;
 		}
 		processAnim = getProcessAnimate( animWin->getAnimType() );
-		
+
 		if(processAnim)
 			processAnim->initReverseAnimateWindow(animWin);
 		animWin->setFinished(FALSE);
@@ -383,10 +383,10 @@ void AnimateWindowManager::reverseAnimateWindow( void )
 
 void AnimateWindowManager::resetToRestPosition( void )
 {
-	
+
 	m_reverse = TRUE;
 	m_needsUpdate = TRUE;
-	
+
 	AnimateWindowList::iterator it = m_winMustFinishList.begin();
 	while (it != m_winMustFinishList.end())
 	{
@@ -418,7 +418,7 @@ void AnimateWindowManager::resetToRestPosition( void )
 		it ++;
 	}
 
-	
+
 }
 
 //-----------------------------------------------------------------------------

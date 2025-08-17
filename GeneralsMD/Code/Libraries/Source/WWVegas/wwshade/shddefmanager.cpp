@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddefmanager.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 5/20/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -53,12 +53,12 @@ ShdDefFactoryClass *ShdDefManagerClass::_FactoryListHead = NULL;
 
 
 //**********************************************************************************************
-//! Used to look up the ShdDefFactory for a given class id 
+//! Used to look up the ShdDefFactory for a given class id
 /*!
 	@param class_id - class id to look up the factory for
 	@returns	the factory if it is found or NULL
 */
-ShdDefFactoryClass * 
+ShdDefFactoryClass *
 ShdDefManagerClass::Find_Factory (uint32 class_id)
 {
 	ShdDefFactoryClass *factory = 0;
@@ -69,7 +69,7 @@ ShdDefManagerClass::Find_Factory (uint32 class_id)
 	//
 	for (	ShdDefFactoryClass *curr_factory = _FactoryListHead;
 			(factory == 0) && (curr_factory != 0);
-			curr_factory = curr_factory->NextFactory) 
+			curr_factory = curr_factory->NextFactory)
 	{
 		//
 		//	Is this the factory we were looking for?
@@ -163,7 +163,7 @@ void ShdDefManagerClass::Link_Factory (ShdDefFactoryClass *factory)
 
 	// Adding this factory in front of the current head of the list
 	factory->NextFactory = _FactoryListHead;
-	
+
 	// If the list wasn't empty, link the next factory back to this factory
 	if (factory->NextFactory != 0) {
 		factory->NextFactory->PrevFactory = factory;
@@ -184,7 +184,7 @@ void ShdDefManagerClass::Unlink_Factory (ShdDefFactoryClass *factory)
 		// this factory is the head
 		WWASSERT (_FactoryListHead == factory);
 		_FactoryListHead = factory->NextFactory;
-	
+
 	} else {
 
 		// link it's prev with it's next
@@ -194,7 +194,7 @@ void ShdDefManagerClass::Unlink_Factory (ShdDefFactoryClass *factory)
 
 	// Handle the factory's next pointer if its not at the end of the list:
 	if (factory->NextFactory != 0) {
-		
+
 		factory->NextFactory->PrevFactory = factory->PrevFactory;
 
 	}
@@ -210,11 +210,11 @@ ShdDefClass* ShdDefManagerClass::Create_ShdDefClass_Instance(uint32 class_id)
 	// first look up the factory for this classid
 	ShdDefFactoryClass * factory = Find_Factory (class_id);
 
-	if (factory != NULL) 
+	if (factory != NULL)
 	{
 		return factory->Create();
 	}
-	else 
+	else
 	{
 		return NULL;
 	}

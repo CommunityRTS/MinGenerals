@@ -26,7 +26,7 @@ class TextTextureClass {
 	public:
 		TextTextureClass(void);
 		~TextTextureClass(void);
-	
+
 		// function to rebuild the texture with the new parameters
 		bool Build_Texture(FontClass &font, const char *str, int fore, int back, ConvertClass &conv);
 
@@ -52,7 +52,7 @@ class TextTextureClass {
 
 		// the size of the texture we created (created textures are square)
 		int				TextureSize;
-	
+
 };
 
 #endif

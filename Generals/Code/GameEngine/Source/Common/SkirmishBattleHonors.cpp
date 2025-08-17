@@ -74,7 +74,7 @@
 
 
 //-----------------------------------------------------------------------------
-// SkirmishBattleHonors base class 
+// SkirmishBattleHonors base class
 //-----------------------------------------------------------------------------
 
 SkirmishBattleHonors::SkirmishBattleHonors()

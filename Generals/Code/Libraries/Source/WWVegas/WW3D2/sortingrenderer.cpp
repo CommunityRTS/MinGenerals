@@ -123,7 +123,7 @@ void QuickSort (
 	do {
 		do { i++; } while (i<r && keys[i]<v);
 		do { j--; } while (j>0 && keys[j]>v);
-		
+
 		WWASSERT(j>=0);
 		WWASSERT(i<=r);
 
@@ -137,7 +137,7 @@ void QuickSort (
 	keys[j]=keys[i];
 	keys[i]=keys[r];
 	keys[r]=t;
-	
+
 	if (i-1>l) QuickSort(array,keys,l,i-1);
 	if (r>i+1) QuickSort(array,keys,i+1,r);
 }
@@ -319,7 +319,7 @@ static ShortVectorIStruct* Get_Polygon_Index_Array(unsigned count)
 
 void SortingRendererClass::Insert_Triangles(
 	const SphereClass& bounding_sphere,
-	unsigned short start_index, 
+	unsigned short start_index,
 	unsigned short polygon_count,
 	unsigned short min_vertex_index,
 	unsigned short vertex_count)
@@ -357,10 +357,10 @@ void SortingRendererClass::Insert_Triangles(
 	D3DXVec3Transform(
 		&transformed_vec,
 		&vec,
-		&mtx); 
+		&mtx);
 	state->transformed_center=Vector3(transformed_vec[0],transformed_vec[1],transformed_vec[2]);
 
-	
+
 	/// @todo lorenzen sez use a bucket sort here... and stop copying so much data so many times
 
 	SortingNodeStruct* node=sorted_list.Head();
@@ -403,7 +403,7 @@ void SortingRendererClass::Insert_Triangles(
 // ----------------------------------------------------------------------------
 
 void SortingRendererClass::Insert_Triangles(
-	unsigned short start_index, 
+	unsigned short start_index,
 	unsigned short polygon_count,
 	unsigned short min_vertex_index,
 	unsigned short vertex_count)
@@ -702,7 +702,7 @@ void SortingRendererClass::Flush()
 
 	while (SortingNodeStruct* state=sorted_list.Head()) {
 		state->Remove();
-		
+
 		if ((state->sorting_state.index_buffer_type==BUFFER_TYPE_SORTING || state->sorting_state.index_buffer_type==BUFFER_TYPE_DYNAMIC_SORTING) &&
 			(state->sorting_state.vertex_buffer_type==BUFFER_TYPE_SORTING || state->sorting_state.vertex_buffer_type==BUFFER_TYPE_DYNAMIC_SORTING)) {
 			Insert_To_Sorting_Pool(state);
@@ -782,7 +782,7 @@ void SortingRendererClass::Deinit()
 
 void SortingRendererClass::Insert_VolumeParticle(
 	const SphereClass& bounding_sphere,
-	unsigned short start_index, 
+	unsigned short start_index,
 	unsigned short polygon_count,
 	unsigned short min_vertex_index,
 	unsigned short vertex_count,
@@ -821,14 +821,14 @@ void SortingRendererClass::Insert_VolumeParticle(
 	D3DXVec3Transform(
 		&transformed_vec,
 		&vec,
-		&mtx); 
+		&mtx);
 	state->transformed_center=Vector3(transformed_vec[0],transformed_vec[1],transformed_vec[2]);
 
 
 	// BUT WHAT IS THE DEAL WITH THE VERTCOUNT AND POLYCOUNT BEING N BUT TRANSFORMED CENTER COUNT == 1
 
 	//THE TRANSFORMED CENTER[2] IS THE ZBUFFER DEPTH
-	
+
 	/// @todo lorenzen sez use a bucket sort here... and stop copying so much data so many times
 
 	SortingNodeStruct* node=sorted_list.Head();

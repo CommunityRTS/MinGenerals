@@ -24,12 +24,12 @@
 
 // FILE: Color.cpp ////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:    RTS3
@@ -69,9 +69,9 @@
 // GameMakeColor ==============================================================
 /** Create a color representation given red, green, blue, and
 	* alpha components
-	* 
+	*
 	* NOTE: pure solid white (255, 255, 255, 255) will translate
-	* intoa -1 which is GAME_COLOR_UNDEFINED 
+	* intoa -1 which is GAME_COLOR_UNDEFINED
 	*/
 //=============================================================================
 
@@ -89,7 +89,7 @@ void GameGetColorComponents( Color color,
 	*red		= (color & 0x00FF0000) >> 16;
 	*green	= (color & 0x0000FF00) >> 8;
 	*blue		= (color & 0x000000FF);
-	
+
 }  // end GameGetColorComponents
 
 void GameGetColorComponentsReal( Color color, Real *red, Real *green, Real *blue, Real *alpha )
@@ -99,7 +99,7 @@ void GameGetColorComponentsReal( Color color, Real *red, Real *green, Real *blue
 	*green	= ((color & 0x0000FF00) >> 8) / 255.0f;
 	*blue		= (color & 0x000000FF) / 255.0f;
 }
-															
+
 
 Color GameDarkenColor( Color color, Int percent )
 {

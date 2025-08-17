@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*************************************************************************** 
- ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     *** 
- *************************************************************************** 
- *                                                                         * 
- *                 Project Name : Commando                                 * 
- *                                                                         * 
- *                     $Archive:: /VSS_Sync/ww3d2/dynamesh.cpp            $* 
- *                                                                         * 
- *                      $Author:: Vss_sync                                $* 
- *                                                                         * 
- *                     $Modtime:: 8/29/01 7:29p                           $* 
- *                                                                         * 
- *                    $Revision:: 23                                      $* 
- *                                                                         * 
- *-------------------------------------------------------------------------* 
- * Functions:                                                              * 
+/***************************************************************************
+ ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     ***
+ ***************************************************************************
+ *                                                                         *
+ *                 Project Name : Commando                                 *
+ *                                                                         *
+ *                     $Archive:: /VSS_Sync/ww3d2/dynamesh.cpp            $*
+ *                                                                         *
+ *                      $Author:: Vss_sync                                $*
+ *                                                                         *
+ *                     $Modtime:: 8/29/01 7:29p                           $*
+ *                                                                         *
+ *                    $Revision:: 23                                      $*
+ *                                                                         *
+ *-------------------------------------------------------------------------*
+ * Functions:                                                              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "dynamesh.h"
@@ -186,11 +186,11 @@ void DynamicMeshModel::Render(RenderInfoClass & rinfo)
 	*/
 	DynamicVBAccessClass dynamic_vb(buffer_type,dynamic_fvf_type,DynamicMeshVNum);
 	const FVFInfoClass &fvf_info = dynamic_vb.FVF_Info();
-	
+
 	{ // scope for lock
 
 		DynamicVBAccessClass::WriteLockClass lock(&dynamic_vb);
-		unsigned char *vertices = (unsigned char*)lock.Get_Formatted_Vertex_Array();			
+		unsigned char *vertices = (unsigned char*)lock.Get_Formatted_Vertex_Array();
 		const Vector3 *locs = Get_Vertex_Array();
 		const Vector3 *normals = Get_Vertex_Normal_Array();
 		const Vector2 *uvs = MatDesc->Get_UV_Array_By_Index(0, false);
@@ -213,7 +213,7 @@ void DynamicMeshModel::Render(RenderInfoClass & rinfo)
 				*(unsigned int *)(vertices + fvf_info.Get_Diffuse_Offset()) = default_color;
 			}
 			vertices += fvf_info.Get_FVF_Size();
-		}			
+		}
 
 	} // end scope for lock
 
@@ -298,7 +298,7 @@ void DynamicMeshModel::Render(RenderInfoClass & rinfo)
 		}
 
 		SphereClass sphere(Vector3(0.0f,0.0f,0.0f),0.0f);
-		Get_Bounding_Sphere(&sphere); 
+		Get_Bounding_Sphere(&sphere);
 
 		// If no texture, shader or material arrays for this pass just draw and go to next pass
 		if (!texture_array && !material_array && !shader_array) {
@@ -339,15 +339,15 @@ void DynamicMeshModel::Render(RenderInfoClass & rinfo)
 					SortingRendererClass::Insert_Triangles(
 						sphere,
 						(start_tri_idx * 3),
-						(1 + cur_tri_idx - start_tri_idx), 
-						min_vert_idx, 
+						(1 + cur_tri_idx - start_tri_idx),
+						min_vert_idx,
 						1 + max_vert_idx - min_vert_idx);
 				}
 				else {
 					DX8Wrapper::Draw_Triangles(
 						(start_tri_idx * 3),
-						(1 + cur_tri_idx - start_tri_idx), 
-						min_vert_idx, 
+						(1 + cur_tri_idx - start_tri_idx),
+						min_vert_idx,
 						1 + max_vert_idx - min_vert_idx);
 				}
 				start_tri_idx = next_tri_idx;
@@ -384,7 +384,7 @@ void DynamicMeshModel::Initialize_Material_Array(int pass, VertexMaterialClass *
 
 void DynamicMeshClass::Render(RenderInfoClass & rinfo)
 {
-	if (Is_Not_Hidden_At_All() == false)	return;	
+	if (Is_Not_Hidden_At_All() == false)	return;
 
 	// test for an empty mesh..
 	if (PolyCount == 0 ) return;
@@ -442,7 +442,7 @@ bool DynamicMeshClass::End_Vertex()
 
 	// if we have 3 or more vertices, add a new poly
 	if (TriVertexCount >= 3) {
-	
+
 		// check that we have room for a new poly
 		WWASSERT(PolyCount < Model->Get_Polygon_Count());
 
@@ -587,7 +587,7 @@ void DynamicMeshClass::Resize(int max_polys, int max_verts)
 }
 
 DynamicMeshClass::~DynamicMeshClass()
-{	
+{
 	REF_PTR_RELEASE(Model);
 }
 
@@ -616,7 +616,7 @@ void DynamicMeshClass::Move_Vertex(int index, float x, float y, float z)
 	loc[index][0] = x;
 	loc[index][1] = y;
 	loc[index][2] = z;
-}	 
+}
 
 /*
 ** Get a vertex value.
@@ -643,7 +643,7 @@ void DynamicMeshClass::Translate_Vertices(const Vector3 & offset)
 		loc[i].Y += offset.Y;
 		loc[i].Z += offset.Z;
 	}
-	
+
 	Set_Dirty_Bounds();
 	Set_Dirty_Planes();
 }
@@ -681,7 +681,7 @@ int DynamicMeshClass::Set_Vertex_Material(VertexMaterialClass *material, bool do
 		MultiVertexMaterial[pass] = true;
 	}
 
-	// add the material to the material info class if we cant find it in the 
+	// add the material to the material info class if we cant find it in the
 	// list.  if we are not supposed to search the list for it then just add
 	// it.
 	if (!dont_search) {
@@ -742,7 +742,7 @@ int DynamicMeshClass::Set_Texture(TextureClass *texture, bool dont_search, int p
 		MultiTexture[pass] = true;
 	}
 
-	// add the material to the material info class if we cant find it in the 
+	// add the material to the material info class if we cant find it in the
 	// list.  if we are not supposed to search the list for it then just add
 	// it.
 	if (!dont_search) {
@@ -777,27 +777,27 @@ int DynamicMeshClass::Set_Texture(TextureClass *texture, bool dont_search, int p
 **
 */
 // Remap locations to match a screen
-void DynamicScreenMeshClass::Location( float x, float y, float z)	
-{	
-	DynamicMeshClass::Location( (x * 2) - 1, Aspect - (y * 2 * Aspect), 0); 
+void DynamicScreenMeshClass::Location( float x, float y, float z)
+{
+	DynamicMeshClass::Location( (x * 2) - 1, Aspect - (y * 2 * Aspect), 0);
 }
 
 // For moving a vertex after the DynaMesh has already been created.
-void DynamicScreenMeshClass::Move_Vertex(int index, float x, float y, float z)	
-{	
-	DynamicMeshClass::Move_Vertex( index, (x * 2) - 1, Aspect - (y * 2 * Aspect), 0); 
+void DynamicScreenMeshClass::Move_Vertex(int index, float x, float y, float z)
+{
+	DynamicMeshClass::Move_Vertex( index, (x * 2) - 1, Aspect - (y * 2 * Aspect), 0);
 }
 
 // Set position
-void DynamicScreenMeshClass::Set_Position(const Vector3 &v)	
-{ 
-	DynamicMeshClass::Set_Position(Vector3(v.X * 2, -(v.Y * 2 * Aspect), 0)); 
+void DynamicScreenMeshClass::Set_Position(const Vector3 &v)
+{
+	DynamicMeshClass::Set_Position(Vector3(v.X * 2, -(v.Y * 2 * Aspect), 0));
 }
 
-void DynamicScreenMeshClass::Reset( void )		
-{	
-	Reset_Flags();	
-	Reset_Mesh_Counters();	
+void DynamicScreenMeshClass::Reset( void )
+{
+	Reset_Flags();
+	Reset_Mesh_Counters();
 }
 
 

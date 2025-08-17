@@ -43,7 +43,7 @@ BEGIN
     LTEXT           "",IDC_BYTESLEFT,7,83,119,11
     CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,
                     99,276,16
-    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | 
+    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE |
                     SS_SUNKEN,30,7,229,70
 END
 
@@ -54,7 +54,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO DISCARDABLE
 BEGIN
     IDD_CONNECTING, DIALOG
     BEGIN
@@ -142,7 +142,7 @@ IDI_ICON1               ICON    DISCARDABLE     "Generals.ico"
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_ABORT_DOWNLOAD      "Sind Sie sicher, daß Sie das Download abbrechen möchten?"
     TXT_ABORT               "Abbrechen"
@@ -161,7 +161,7 @@ BEGIN
     TXT_CONNECTING          "Verbinde ..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_INSTALL_PROBLEM     "Das Spiel ist nicht korrekt installiert. Möglicherweise müssen Sie erneut installieren."
     TXT_TITLE               "Electronic Arts Auto-Patch"
@@ -187,7 +187,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDD_CONNECTING DIALOG DISCARDABLE  0, 0, 117, 21
-STYLE DS_ABSALIGN | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+STYLE DS_ABSALIGN | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU |
     WS_THICKFRAME
 FONT 18, "MS Sans Serif"
 BEGIN
@@ -204,7 +204,7 @@ BEGIN
     LTEXT           "",IDC_BYTESLEFT,7,83,119,11
     CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,
                     99,276,16
-    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | 
+    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE |
                     SS_SUNKEN,30,7,229,70
 END
 
@@ -215,7 +215,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO DISCARDABLE
 BEGIN
     IDD_CONNECTING, DIALOG
     BEGIN
@@ -295,18 +295,18 @@ IDB_BITMAP              BITMAP  DISCARDABLE     "GeneralsEnglish.bmp"
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE DISCARDABLE
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE DISCARDABLE
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE DISCARDABLE
 BEGIN
     "\r\n"
     "\0"
@@ -329,7 +329,7 @@ IDI_ICON1               ICON    DISCARDABLE     "Generals.ico"
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_ABORT_DOWNLOAD      "Are you sure you want to abort the download?"
     TXT_ABORT               "Abort"
@@ -348,7 +348,7 @@ BEGIN
     TXT_CONNECTING          "Connecting..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_INSTALL_PROBLEM     "The game does not appear to be installed properly.  You may need to re-install."
     TXT_TITLE               "Electronic Arts Auto-Patch"
@@ -367,7 +367,7 @@ BEGIN
     FTP_StatusLoggingIn     "Logging in..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     FTP_StatusFindingFile   "Finding file..."
     FTP_StatusQueryingResume "Attempting to resume download..."
@@ -412,7 +412,7 @@ BEGIN
     LTEXT           "",IDC_BYTESLEFT,7,83,119,11
     CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,
                     99,276,16
-    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | 
+    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE |
                     SS_SUNKEN,30,7,229,70
 END
 
@@ -423,7 +423,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO DISCARDABLE
 BEGIN
     IDD_CONNECTING, DIALOG
     BEGIN
@@ -511,7 +511,7 @@ IDI_ICON1               ICON    DISCARDABLE     "Generals.ico"
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_ABORT_DOWNLOAD      "Confirmer abandon du téléchargement ?"
     TXT_ABORT               "Abandon"
@@ -530,7 +530,7 @@ BEGIN
     TXT_CONNECTING          "Connexion..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_INSTALL_PROBLEM     "L'installation du jeu a échoué. Il est préférable de recommencer l'opération."
     TXT_TITLE               "Patch automatique de Electronic Arts"
@@ -573,7 +573,7 @@ BEGIN
     LTEXT           "",IDC_BYTESLEFT,7,83,119,11
     CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,
                     99,276,16
-    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE | 
+    CONTROL         103,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE |
                     SS_SUNKEN,30,7,229,70
 END
 
@@ -584,7 +584,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO DISCARDABLE
 BEGIN
     IDD_CONNECTING, DIALOG
     BEGIN
@@ -626,7 +626,7 @@ IDI_ICON1               ICON    DISCARDABLE     "Generals.ico"
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_ABORT_DOWNLOAD      "¿Seguro que quieres abortar la descarga?"
     TXT_ABORT               "Abortar"
@@ -645,7 +645,7 @@ BEGIN
     TXT_CONNECTING          "Conectando..."
 END
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE DISCARDABLE
 BEGIN
     TXT_INSTALL_PROBLEM     "El juego parece no estar correctamente instalado. Puedes necesitar reinstalarlo."
     TXT_TITLE               "Auto-Parche Electronic Arts"

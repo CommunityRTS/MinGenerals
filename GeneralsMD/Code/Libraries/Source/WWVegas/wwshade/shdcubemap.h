@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdcubemap.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 8/01/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -59,7 +59,7 @@ public:
 	ShdCubeMapDefClass();
 	ShdCubeMapDefClass(const ShdCubeMapDefClass& that);
 	virtual ~ShdCubeMapDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdCubeMapDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)
@@ -111,7 +111,7 @@ class Shd6CubeMapClass : public ShdInterfaceClass
 public:
 	Shd6CubeMapClass(const ShdDefClass* def);
 	virtual ~Shd6CubeMapClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -129,9 +129,9 @@ public:
 
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

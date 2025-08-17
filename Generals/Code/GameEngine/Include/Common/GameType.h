@@ -93,12 +93,12 @@ enum Scorches
 {
 	SCORCH_1 = 0,
 	SCORCH_2 = 1,
-	SCORCH_3 = 2, 
-	SCORCH_4 = 3, 
+	SCORCH_3 = 2,
+	SCORCH_4 = 3,
 	SHADOW_SCORCH = 4,
-/*	SCORCH_6 = 5, 
-	SCORCH_7 = 6, 
-	SCORCH_8 = 7, 
+/*	SCORCH_6 = 5,
+	SCORCH_7 = 6,
+	SCORCH_8 = 7,
 
 	CRATER_1 = 8,
 	CRATER_2 = 9,
@@ -109,7 +109,7 @@ enum Scorches
 	CRATER_7 = 14,
 	CRATER_8 = 15,
 
-	
+
 	MISC_DECAL_1 = 16,
 	MISC_DECAL_2 = 17,
 	MISC_DECAL_3 = 18,
@@ -181,7 +181,7 @@ enum WeaponSlotType
 // Pathfind layers - ground is the first layer, each bridge is another. jba.
 // Layer 1 is the ground.
 // Layer 2 is the top layer - bridge if one is present, ground otherwise.
-// Layer 2 - LAYER_LAST -1 are bridges. 
+// Layer 2 - LAYER_LAST -1 are bridges.
 // Layer_WALL is a special "wall" layer for letting units run aroound on top of a wall
 // made of structures.
 // Note that the bridges just index in the pathfinder, so you don't actually

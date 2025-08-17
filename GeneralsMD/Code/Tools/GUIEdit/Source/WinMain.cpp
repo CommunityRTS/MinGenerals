@@ -24,12 +24,12 @@
 
 // FILE: WinMain.cpp //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:    RTS3
@@ -149,7 +149,7 @@ static ATOM registerClass(HINSTANCE hInstance)
 {
 	WNDCLASSEX wcex;
 
-	wcex.cbSize = sizeof( WNDCLASSEX ); 
+	wcex.cbSize = sizeof( WNDCLASSEX );
 
 	wcex.style					= CS_HREDRAW | CS_VREDRAW;
 	wcex.lpfnWndProc		= (WNDPROC)WndProc;
@@ -188,9 +188,9 @@ Int APIENTRY WinMain(HINSTANCE hInstance,
 	Char buffer[ _MAX_PATH ];
 	GetModuleFileName( NULL, buffer, sizeof( buffer ) );
 	Char *pEnd = buffer + strlen( buffer );
-	while( pEnd != buffer ) 
+	while( pEnd != buffer )
 	{
-		if( *pEnd == '\\' ) 
+		if( *pEnd == '\\' )
 		{
 			*pEnd = 0;
 			break;
@@ -207,7 +207,7 @@ Int APIENTRY WinMain(HINSTANCE hInstance,
 	registerClass( hInstance );
 
 	// Perform application initialization:
-	if( !initInstance( hInstance, nCmdShow ) ) 
+	if( !initInstance( hInstance, nCmdShow ) )
 		return FALSE;
 
 	// load accellerator table
@@ -223,7 +223,7 @@ Int APIENTRY WinMain(HINSTANCE hInstance,
 	TheEditor = new GUIEdit;
 	if( TheEditor == NULL )
 		return FALSE;
-	TheEditor->init();	
+	TheEditor->init();
 
 	//
 	// see if we have any messages to process, a NULL window handle tells the
@@ -268,7 +268,7 @@ Int APIENTRY WinMain(HINSTANCE hInstance,
 			Sleep(1);
 
 		}  // end else
-						
+
 	}  // end while
 
 	// shutdown GUIEdit data
@@ -294,11 +294,11 @@ Int APIENTRY WinMain(HINSTANCE hInstance,
 //  WM_DESTROY	- post a quit message and return
 //
 //=============================================================================
-LRESULT CALLBACK WndProc( HWND hWnd, UINT message, 
+LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 													WPARAM wParam, LPARAM lParam )
 {
 
-	switch( message ) 
+	switch( message )
 	{
 
 		// ------------------------------------------------------------------------
@@ -383,7 +383,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 				case MENU_SHOW_SEE_THRU_OUTLINES:
 					TheEditor->setShowSeeThruOutlines( !TheEditor->getShowSeeThruOutlines() );
 					break;
-														
+
 				// --------------------------------------------------------------------
 				case MENU_TEST_MODE:
 
@@ -398,11 +398,11 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							TheEditor->setMode( MODE_EDIT );
 
 					}  // end if
-					break;				
-					
+					break;
+
 				// --------------------------------------------------------------------
 				case MENU_BACKGROUND_COLOR:
-					
+
 					if( TheEditWindow )
 					{
 						RGBColorReal color = TheEditWindow->getBackgroundColor();
@@ -420,7 +420,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 																		mouse.x, mouse.y );
 						if( newColor )
 						{
-							
+
 							color.red   = (Real)newColor->red / 255.0f;
 							color.green = (Real)newColor->green / 255.0f;
 							color.blue  = (Real)newColor->blue / 255.0f;
@@ -448,7 +448,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 				case MENU_ABOUT:
 				{
 
-					DialogBox( ApplicationHInstance, (LPCTSTR)ABOUT_DIALOG, 
+					DialogBox( ApplicationHInstance, (LPCTSTR)ABOUT_DIALOG,
 										 hWnd, (DLGPROC)AboutCallback );
 					break;
 
@@ -483,7 +483,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 		case WM_KEYDOWN:
 		{
 			Int virtualKey = wParam;
-//			Int keyData = lParam;	
+//			Int keyData = lParam;
 			Bool controlDown = BitTest( GetKeyState( VK_CONTROL ), 0x1000 );
 
 			switch( virtualKey )
@@ -523,14 +523,14 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 					{
 						if(TheEditor->getMode() == MODE_EDIT)
 						{
-					
+
 							if(TheEditor->selectionCount() <= 0 )
 								break;
 							ICoord2D zero;
 							zero.x = zero.y = 0;
 							TheEditWindow->setDragMoveOrigin(&zero);
 							TheEditWindow->setDragMoveDest(&zero);
-							
+
 							TheEditor->setMode(MODE_KEYBOARD_MOVE);
 						}
 						if(TheEditor->getMode() == MODE_KEYBOARD_MOVE)
@@ -545,7 +545,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							}
 							else
 							{
-								temp.x--;	
+								temp.x--;
 							}
 							TheEditWindow->setDragMoveDest(&temp);
 						}
@@ -563,20 +563,20 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 					{
 						if(TheEditor->getMode() == MODE_EDIT)
 						{
-					
+
 							if(TheEditor->selectionCount() <= 0 )
 								break;
 							ICoord2D zero;
 							zero.x = zero.y = 0;
 							TheEditWindow->setDragMoveOrigin(&zero);
 							TheEditWindow->setDragMoveDest(&zero);
-							
+
 							TheEditor->setMode(MODE_KEYBOARD_MOVE);
 						}
 						if(TheEditor->getMode() == MODE_KEYBOARD_MOVE)
 						{
 							ICoord2D temp;
-							
+
 							temp = TheEditWindow->getDragMoveDest();
 							if(!controlDown && TheEditor->isGridSnapOn())
 							{
@@ -585,7 +585,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							}
 							else
 							{
-								temp.x++;	
+								temp.x++;
 							}
 							TheEditWindow->setDragMoveDest(&temp);
 						}
@@ -603,14 +603,14 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 					{
 						if(TheEditor->getMode() == MODE_EDIT)
 						{
-					
+
 							if(TheEditor->selectionCount() <= 0 )
 								break;
 							ICoord2D zero;
 							zero.x = zero.y = 0;
 							TheEditWindow->setDragMoveOrigin(&zero);
 							TheEditWindow->setDragMoveDest(&zero);
-							
+
 							TheEditor->setMode(MODE_KEYBOARD_MOVE);
 						}
 						if(TheEditor->getMode() == MODE_KEYBOARD_MOVE)
@@ -618,7 +618,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							ICoord2D temp;
 
 							temp = TheEditWindow->getDragMoveDest();
-							
+
 							if(!controlDown && TheEditor->isGridSnapOn())
 							{
 								temp.y -= TheEditor->getGridResolution();
@@ -626,7 +626,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							}
 							else
 							{
-								temp.y--;	
+								temp.y--;
 							}
 							TheEditWindow->setDragMoveDest(&temp);
 						}
@@ -644,14 +644,14 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 					{
 						if(TheEditor->getMode() == MODE_EDIT)
 						{
-					
+
 							if(TheEditor->selectionCount() <= 0 )
 								break;
 							ICoord2D zero;
 							zero.x = zero.y = 0;
 							TheEditWindow->setDragMoveOrigin(&zero);
 							TheEditWindow->setDragMoveDest(&zero);
-							
+
 							TheEditor->setMode(MODE_KEYBOARD_MOVE);
 						}
 						if(TheEditor->getMode() == MODE_KEYBOARD_MOVE)
@@ -666,7 +666,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 							}
 							else
 							{
-								temp.y++;	
+								temp.y++;
 							}
 							TheEditWindow->setDragMoveDest(&temp);
 						}
@@ -675,7 +675,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 					break;
 
 				}  // end Down
-				
+
 				// --------------------------------------------------------------------
 				case VK_RETURN:
 				{
@@ -772,7 +772,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 // AboutCallback ==============================================================
 /** Mesage handler for about box. */
 //=============================================================================
-LRESULT CALLBACK AboutCallback( HWND hDlg, UINT message, 
+LRESULT CALLBACK AboutCallback( HWND hDlg, UINT message,
 																WPARAM wParam, LPARAM lParam )
 {
 
@@ -782,7 +782,7 @@ LRESULT CALLBACK AboutCallback( HWND hDlg, UINT message,
 				return TRUE;
 
 		case WM_COMMAND:
-			if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL) 
+			if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
 			{
 				EndDialog(hDlg, LOWORD(wParam));
 				return TRUE;

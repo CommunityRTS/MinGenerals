@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdinterface.h                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/05/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -68,12 +68,12 @@ struct VertexStreamStruct
 		DiffuseInt(0),
 		DiffuseFloat(0)
 	{
-		for (int i=0;i<MAX_TEXTURE_STAGES;++i) 
+		for (int i=0;i<MAX_TEXTURE_STAGES;++i)
 		{
 			UV[i]=0;
 		}
 	}
-		
+
 	const Vector3* Locations;
 	const Vector3* Normals;
 	const Vector2* UV[MAX_TEXTURE_STAGES];
@@ -86,8 +86,8 @@ struct VertexStreamStruct
 
 
 /**
-** ShdInterfaceClass - This class is the virtual interface for all shaders.  A derived shader's job is to 
-** set up the D3D render states for a particular rendering operation.  Instances of shaders are 
+** ShdInterfaceClass - This class is the virtual interface for all shaders.  A derived shader's job is to
+** set up the D3D render states for a particular rendering operation.  Instances of shaders are
 ** are created by an associated ShdDefClass.
 */
 class ShdInterfaceClass : public RefCountClass
@@ -95,8 +95,8 @@ class ShdInterfaceClass : public RefCountClass
 public:
 	ShdInterfaceClass(const ShdDefClass * def,int class_id);
 	virtual ~ShdInterfaceClass(void);
-	
-	const ShdDefClass *		Peek_Definition(void);	
+
+	const ShdDefClass *		Peek_Definition(void);
 
 	WWINLINE int			Get_Class_ID() const { return ClassID; }
 

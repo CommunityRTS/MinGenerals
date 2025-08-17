@@ -69,7 +69,7 @@ int	RegistryClass::Get_Int( const char * name, int def_value )
 {
 	assert( IsValid );
 	DWORD type, data = 0, data_len = sizeof( data );
-	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)&data, &data_len ) == 
+	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)&data, &data_len ) ==
 		ERROR_SUCCESS ) && ( type == REG_DWORD )) {
 	} else {
 		data = def_value;
@@ -80,7 +80,7 @@ int	RegistryClass::Get_Int( const char * name, int def_value )
 void	RegistryClass::Set_Int( const char * name, int value )
 {
 	assert( IsValid );
-	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_DWORD, (LPBYTE)&value, sizeof( DWORD ) ) != 
+	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_DWORD, (LPBYTE)&value, sizeof( DWORD ) ) !=
 			ERROR_SUCCESS) {
 	}
 }
@@ -102,7 +102,7 @@ float	RegistryClass::Get_Float( const char * name, float def_value )
 	assert( IsValid );
 	float data = 0;
 	DWORD type, data_len = sizeof( data );
-	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)&data, &data_len ) == 
+	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)&data, &data_len ) ==
 		ERROR_SUCCESS ) && ( type == REG_DWORD )) {
 	} else {
 		data = def_value;
@@ -113,7 +113,7 @@ float	RegistryClass::Get_Float( const char * name, float def_value )
 void	RegistryClass::Set_Float( const char * name, float value )
 {
 	assert( IsValid );
-	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_DWORD, (LPBYTE)&value, sizeof( DWORD ) ) != 
+	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_DWORD, (LPBYTE)&value, sizeof( DWORD ) ) !=
 			ERROR_SUCCESS) {
 	}
 }
@@ -123,7 +123,7 @@ int RegistryClass::Get_Bin_Size( const char * name )
 	assert( IsValid );
 
 	unsigned long size = 0;
-	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, NULL, &size );	
+	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, NULL, &size );
 	return size;
 }
 
@@ -135,7 +135,7 @@ void RegistryClass::Get_Bin( const char * name, void *buffer, int buffer_size )
 	assert( buffer_size > 0 );
 
 	unsigned long size = buffer_size;
-	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, (LPBYTE)buffer, &size );	
+	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, (LPBYTE)buffer, &size );
 	return ;
 }
 
@@ -145,7 +145,7 @@ void	RegistryClass::Set_Bin( const char * name, const void *buffer, int buffer_s
 	assert( buffer != NULL );
 	assert( buffer_size > 0 );
 
-	::RegSetValueEx( (HKEY)Key, name, 0, REG_BINARY, (LPBYTE)buffer, buffer_size );	
+	::RegSetValueEx( (HKEY)Key, name, 0, REG_BINARY, (LPBYTE)buffer, buffer_size );
 	return ;
 }
 
@@ -168,7 +168,7 @@ void	RegistryClass::Get_String( const char * name, StringClass &string, const ch
 		::RegQueryValueEx ((HKEY)Key, name, NULL, &type,
 			(LPBYTE)string.Get_Buffer (data_size), &data_size);
 	}
-			
+
 	return ;
 }
 
@@ -178,7 +178,7 @@ char *RegistryClass::Get_String( const char * name, char *value, int value_size,
 {
 	assert( IsValid );
 	DWORD type = 0;
-	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)value, (DWORD*)&value_size ) == 
+	if (( ::RegQueryValueEx( (HKEY)Key, name, NULL, &type, (LPBYTE)value, (DWORD*)&value_size ) ==
 			ERROR_SUCCESS ) && ( type == REG_SZ )) {
 	} else {
 		//*value = 0;
@@ -197,7 +197,7 @@ void	RegistryClass::Set_String( const char * name, const char *value )
 {
 	assert( IsValid );
    int size = strlen( value ) + 1; // must include NULL
-	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_SZ, (LPBYTE)value, size ) != 
+	if (::RegSetValueEx( (HKEY)Key, name, 0, REG_SZ, (LPBYTE)value, size ) !=
 		ERROR_SUCCESS ) {
 	}
 }
@@ -269,7 +269,7 @@ void	RegistryClass::Get_String( const WCHAR * name, WideStringClass &string, con
 		::RegQueryValueExW ((HKEY)Key, name, NULL, &type,
 			(LPBYTE)string.Get_Buffer ((data_size / 2) + 1), &data_size);
 	}
-			
+
 	return ;
 }
 
@@ -283,7 +283,7 @@ void	RegistryClass::Set_String( const WCHAR * name, const WCHAR *value )
 	//
 	int size = wcslen( value ) + 1;
 	size		= size * 2;
-	
+
 	//
 	//	Set the registry key
 	//

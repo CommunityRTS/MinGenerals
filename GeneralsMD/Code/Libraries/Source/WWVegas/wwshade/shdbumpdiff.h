@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shdbumpdiff.h                           $*
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 6/03/02 8:12a                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -53,7 +53,7 @@ public:
 	ShdBumpDiffDefClass();
 	ShdBumpDiffDefClass(const ShdBumpDiffDefClass& that);
 	virtual ~ShdBumpDiffDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdBumpDiffDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)

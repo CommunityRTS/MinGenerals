@@ -73,7 +73,7 @@ inline void WWProfile_Get_Ticks(_int64 * ticks)
 {
 #ifdef _UNIX
 	*ticks = 0;
-#else 
+#else
 	__asm
 	{
 		push edx;
@@ -108,13 +108,13 @@ inline float WWProfile_Get_Tick_Rate(void)
 	return(0);
 #else
 	static float _CPUFrequency = -1.0f;
-	
+
 	if (_CPUFrequency == -1.0f) {
 		__int64 curr_rate = 0;
 		::QueryPerformanceFrequency ((LARGE_INTEGER *)&curr_rate);
 		_CPUFrequency = (float)curr_rate;
-	} 
-	
+	}
+
 	return _CPUFrequency;
 #endif
 }
@@ -268,7 +268,7 @@ bool	WWProfileHierachyNodeClass::Return( void )
 {
 	if (--RecursionCounter == 0) {
 		if ( TotalCalls != 0 ) {
-			
+
 			__int64 time;
 			WWProfile_Get_Ticks(&time);
 			time-=StartTime;
@@ -325,8 +325,8 @@ void	WWProfileManager::Start_Profile( const char * name )
 //	int current_thread = ::GetCurrentThreadId();
 	if (name != CurrentNode->Get_Name()) {
 		CurrentNode = CurrentNode->Get_Sub_Node( name );
-	} 
-	
+	}
+
 	CurrentNode->Call();
 }
 
@@ -373,10 +373,10 @@ void	WWProfileManager::Stop_Profile( void )
  *   9/24/2000  gth : Created.                                                                 *
  *=============================================================================================*/
 void	WWProfileManager::Reset( void )
-{ 
+{
 	ThreadID = ::GetCurrentThreadId();
 
-	Root.Reset(); 
+	Root.Reset();
 	FrameCounter = 0;
 	WWProfile_Get_Ticks(&ResetTime);
 }
@@ -596,20 +596,20 @@ bool	WWProfileInOrderIterator::Is_Done(void)
 /*
 **
 */
-WWTimeItClass::WWTimeItClass( const char * name ) 
-{ 
-	Name = name; 
-	WWProfile_Get_Ticks( &Time ); 
+WWTimeItClass::WWTimeItClass( const char * name )
+{
+	Name = name;
+	WWProfile_Get_Ticks( &Time );
 }
 
-WWTimeItClass::~WWTimeItClass( void ) 
-{ 
-	__int64 End; 
-	WWProfile_Get_Ticks( &End );	
-	End -= Time; 
+WWTimeItClass::~WWTimeItClass( void )
+{
+	__int64 End;
+	WWProfile_Get_Ticks( &End );
+	End -= Time;
 #ifdef WWDEBUG
-	float time = End / WWProfile_Get_Tick_Rate(); 
-	WWDEBUG_SAY(( "*** WWTIMEIT *** %s took %1.9f\n", Name, time )); 
+	float time = End / WWProfile_Get_Tick_Rate();
+	WWDEBUG_SAY(( "*** WWTIMEIT *** %s took %1.9f\n", Name, time ));
 #endif
 }
 
@@ -617,18 +617,18 @@ WWTimeItClass::~WWTimeItClass( void )
 /*
 **
 */
-WWMeasureItClass::WWMeasureItClass( float * p_result ) 
-{ 
+WWMeasureItClass::WWMeasureItClass( float * p_result )
+{
 	WWASSERT(p_result != NULL);
 	PResult = p_result;
-	WWProfile_Get_Ticks( &Time ); 
+	WWProfile_Get_Ticks( &Time );
 }
 
-WWMeasureItClass::~WWMeasureItClass( void ) 
-{ 
-	__int64 End; 
-	WWProfile_Get_Ticks( &End );	
-	End -= Time; 
+WWMeasureItClass::~WWMeasureItClass( void )
+{
+	__int64 End;
+	WWProfile_Get_Ticks( &End );
+	End -= Time;
 	WWASSERT(PResult != NULL);
-	*PResult = End / WWProfile_Get_Tick_Rate(); 
+	*PResult = End / WWProfile_Get_Tick_Rate();
 }

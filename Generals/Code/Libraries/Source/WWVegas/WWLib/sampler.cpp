@@ -56,7 +56,7 @@ Random4Class Random;
 
 RandomSamplingClass::RandomSamplingClass(unsigned int dimensions,unsigned char divisions):
 	SamplingClass(dimensions,divisions)
-{		
+{
 }
 
 /***********************************************************************************************
@@ -123,9 +123,9 @@ void RegularSamplingClass::Sample(float *target)
 	for (i=0; i<Dimensions; i++)
 	{
 		// minus one because we want to get 1.0f also
-		target[i]=(float) index[i]/(Divisions-1.0f);				
+		target[i]=(float) index[i]/(Divisions-1.0f);
 	}
-	
+
 	// index[i] will always be 0..Divisons-1
 	// add 1 and carry mod Divisions
 	// e.g. increase x until x reaches Divisions
@@ -140,8 +140,8 @@ void RegularSamplingClass::Sample(float *target)
 }
 
 StratifiedSamplingClass::StratifiedSamplingClass(unsigned int dimensions,unsigned char divisions):
-	SamplingClass(dimensions,divisions)	
-{	
+	SamplingClass(dimensions,divisions)
+{
 	index=W3DNEWARRAY unsigned char[Dimensions];
 	Reset();
 }
@@ -179,7 +179,7 @@ void StratifiedSamplingClass::Sample(float *target)
 	{
 		target[i]=(index[i]+Random.Get_Float())/(float) Divisions;
 	}
-	
+
 	// index[i] will always be 0..Divisons-1
 	// add 1 and carry mod Divisions
 	// e.g. increase x until x reaches Divisions
@@ -197,22 +197,22 @@ void StratifiedSamplingClass::Sample(float *target)
 
 const static int primes[]=
 {
-   2,  3,  5,  7, 11, 13, 17, 19, 23, 29 
-, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71 
-, 73, 79, 83, 89, 97,101,103,107,109,113 
-,127,131,137,139,149,151,157,163,167,173 
-,179,181,191,193,197,199,211,223,227,229 
-,233,239,241,251,257,263,269,271,277,281 
-,283,293,307,311,313,317,331,337,347,349 
-,353,359,367,373,379,383,389,397,401,409 
-,419,421,431,433,439,443,449,457,461,463 
+   2,  3,  5,  7, 11, 13, 17, 19, 23, 29
+, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71
+, 73, 79, 83, 89, 97,101,103,107,109,113
+,127,131,137,139,149,151,157,163,167,173
+,179,181,191,193,197,199,211,223,227,229
+,233,239,241,251,257,263,269,271,277,281
+,283,293,307,311,313,317,331,337,347,349
+,353,359,367,373,379,383,389,397,401,409
+,419,421,431,433,439,443,449,457,461,463
 ,467,479,487,491,499,503,509,521,523,541
 };
 
 inline float RadInv(int i,int base)
 // returns the radical inverse of i in base b
 // basically write a number in base b and reverse it over the decimal point
-// e.g. RadInv(1) base 2 = 0.1 base 2 = 0.5 
+// e.g. RadInv(1) base 2 = 0.1 base 2 = 0.5
 {
 	float sum=0;
 	int residue;
@@ -232,7 +232,7 @@ inline float RadInv(int i,int base)
 QMCSamplingClass::QMCSamplingClass(unsigned int dimensions,unsigned char divisions):
 	SamplingClass(dimensions,divisions),
 	index(0)
-{	
+{
 	assert(Dimensions<100);
 }
 

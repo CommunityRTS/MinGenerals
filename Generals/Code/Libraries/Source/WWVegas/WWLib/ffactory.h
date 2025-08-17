@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/ffactory.h                     $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/ffactory.h                     $*
+ *                                                                                             *
  *                      $Author:: Jani_p                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 8/24/01 11:50a                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 13                                                          $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #if _MSC_VER >= 1000
@@ -72,7 +72,7 @@ public:
 //
 // Handy auto pointer class.  Prevents you from having to call Return_File manually
 //
-class file_auto_ptr 
+class file_auto_ptr
 {
 public:
 	explicit	file_auto_ptr(FileFactoryClass *fac, const char *filename);
@@ -81,7 +81,7 @@ public:
 	operator FileClass*(void) const
 		{return (get()); }
 
-	FileClass& operator*() const 
+	FileClass& operator*() const
 		{return (*get()); }
 
 	FileClass *operator->() const

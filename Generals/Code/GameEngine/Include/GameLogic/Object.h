@@ -140,8 +140,8 @@ struct TTriggerInfo
 
 enum CrushSquishTestType
 {
-	TEST_CRUSH_ONLY, 
-	TEST_SQUISH_ONLY, 
+	TEST_CRUSH_ONLY,
+	TEST_SQUISH_ONLY,
 	TEST_CRUSH_OR_SQUISH
 };
 
@@ -154,7 +154,7 @@ enum CrushSquishTestType
 class Object : public Thing, public Snapshot
 {
 
-	MEMORY_POOL_GLUE_WITH_USERLOOKUP_CREATE(Object, "ObjectPool" )		
+	MEMORY_POOL_GLUE_WITH_USERLOOKUP_CREATE(Object, "ObjectPool" )
 	/// destructor is non-public in order to require the use of TheGameLogic->destroyObject()
 	MEMORY_POOL_DELETEINSTANCE_VISIBILITY(protected)
 
@@ -214,7 +214,7 @@ public:
 	void kill();																			///< do max health amount of kill damage to object
 	void healCompletely();														///< Restore max health to this Object
 
-	void scoreTheKill( const Object *victim );						///< I just killed this object.  
+	void scoreTheKill( const Object *victim );						///< I just killed this object.
 	void onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel newLevel );	///< I just achieved this level right this moment
 	ExperienceTracker* getExperienceTracker() {return m_experienceTracker;}
 	const ExperienceTracker* getExperienceTracker() const {return m_experienceTracker;}
@@ -242,7 +242,7 @@ public:
 
 	Bool isLocallyControlled() const;
 	Bool isNeutralControlled() const;
-	
+
 	Bool getIsUndetectedDefector(void) const { return BitTest(m_privateStatus, UNDETECTED_DEFECTOR); }
 	void friend_setUndetectedDefector(Bool status);
 
@@ -256,10 +256,10 @@ public:
 	void setGeometryInfoZ( Real newZ );
 
 	void onCollide( Object *other, const Coord3D *loc, const Coord3D *normal );
-	
+
 	// access to modules
 	//-----------------------------------------------------------------------------
-	
+
 	//This is a good creation inspector. There's been multitudes of issues with conflicts of
 	//Objects getting constructed causing crashes either because the modules aren't created
 	//yet, and there's stuff being done inside of setTeam() that cares.
@@ -294,7 +294,7 @@ public:
 	//
 	ProductionUpdateInterface* getProductionUpdateInterface( void );
 
-	// 
+	//
 	// Find us our dock update interface if we have one.  Again, this method exists simple
 	// because we want to do this in a lot of places throughout the code
 	//
@@ -314,10 +314,10 @@ public:
 	Int64 getObjectCompletedUpgradeMask() const { return m_objectUpgradesCompleted; } ///< Upgrades I complete locally
 
 	//This function sucks.
-	//It was added for objects that can disguise as other objects and contain upgraded subobject overrides. 
+	//It was added for objects that can disguise as other objects and contain upgraded subobject overrides.
 	//A concrete example is the bomb truck. Different payloads are displayed based on which upgrades have been
 	//made. When the bomb truck disguises as something else, these subobjects are lost because the vector is
-	//stored in W3DDrawModule. When we revert back to the original bomb truck, we call this function to 
+	//stored in W3DDrawModule. When we revert back to the original bomb truck, we call this function to
 	//recalculate those upgraded subobjects.
 	void forceRefreshSubObjectUpgradeStatus();
 
@@ -327,12 +327,12 @@ public:
 	inline void clearScriptStatus( ObjectScriptStatusBit bit ) { setScriptStatus(bit, false); }
 
 	// Selectable is individually controlled on an object by object basis for design now.
-	// It defaults to the thingTemplate->isKindof(KINDOF_SELECTABLE), however, it can be overridden on an 
-	// object by object basis.  Finally, it can be temporarily overriden by the OBJECT_STATUS_UNSELECTABLE. 
+	// It defaults to the thingTemplate->isKindof(KINDOF_SELECTABLE), however, it can be overridden on an
+	// object by object basis.  Finally, it can be temporarily overriden by the OBJECT_STATUS_UNSELECTABLE.
 	// jba.
 	void setSelectable(Bool selectable);
 	Bool isSelectable() const;
-	
+
 	Bool isMassSelectable() const;
 
 	// User specified formation.
@@ -340,7 +340,7 @@ public:
 	enum FormationID getFormationID(void) const {return m_formationID;}
 	void setFormationOffset(const Coord2D& offset) {m_formationOffset = offset;}
 	void getFormationOffset(Coord2D* offset) const {*offset = m_formationOffset;}
-		
+
 
 //THIS FUNCTION BELONGS AT THE OBJECT LEVEL BECAUSE THERE IS AT LEAST ONE SPECIAL UNIT
 //(ANGRY MOB) WHICH NEEDS LOGIC-SIDE POSITION CALC'S...
@@ -354,8 +354,8 @@ public:
 
 	void markSingleUseCommandUsed() { m_singleUseCommandUsed = true; }
 	Bool hasSingleUseCommandBeenUsed() const { return m_singleUseCommandUsed; }
-	
-	/// returns true iff the object can run over the other object. 
+
+	/// returns true iff the object can run over the other object.
 	Bool canCrushOrSquish(Object *otherObj, CrushSquishTestType testType = TEST_CRUSH_OR_SQUISH) const;
 	UnsignedByte getCrusherLevel() const;
 	UnsignedByte getCrushableLevel() const;
@@ -427,7 +427,7 @@ public:
 	void doCommandButton( const CommandButton *commandButton, CommandSourceType cmdSource );
 	void doCommandButtonAtObject( const CommandButton *commandButton, Object *obj, CommandSourceType cmdSource );
 	void doCommandButtonAtPosition( const CommandButton *commandButton, const Coord3D *pos, CommandSourceType cmdSource );
-	
+
 	/**
 		 For Object specific dynamic command sets.  Different from the Science specific ones handled in ThingTemplate
 	*/
@@ -453,7 +453,7 @@ public:
 	Weapon* getCurrentWeapon(WeaponSlotType* wslot = NULL);
 	const Weapon* getCurrentWeapon(WeaponSlotType* wslot = NULL) const;
 	void setFiringConditionForCurrentWeapon() const;
-	void adjustModelConditionForWeaponStatus();	///< Check to see if I should change my model condition. 
+	void adjustModelConditionForWeaponStatus();	///< Check to see if I should change my model condition.
 	void fireCurrentWeapon(Object *target);
 	void fireCurrentWeapon(const Coord3D* pos);
 	void preFireCurrentWeapon( const Object *victim );
@@ -464,12 +464,12 @@ public:
 
 	/**
 		Determines if the unit has any weapon that could conceivably
-		harm the victim. this does not take range, ammo, etc. into 
+		harm the victim. this does not take range, ammo, etc. into
 		account, but immutable weapon properties, such as "can you
 		target airborne victims".
 	*/
 	/*
-		NOTE: getAbleToAttackSpecificObject NO LONGER internally calls isAbleToAttack(), 
+		NOTE: getAbleToAttackSpecificObject NO LONGER internally calls isAbleToAttack(),
 		since that isn't an incredibly fast call, and this is called repeatedly in some inner loops
 		where we already know that isAbleToAttack() == true. so you should always
 		call isAbleToAttack prior to calling this! (srj)
@@ -524,7 +524,7 @@ public:
 	Bool getSingleLogicalBonePosition(const char* boneName, Coord3D* position, Matrix3D* transform) const;
 	Bool getSingleLogicalBonePositionOnTurret(WhichTurretType whichTurret, const char* boneName, Coord3D* position, Matrix3D* transform) const;
 	Int getMultiLogicalBonePosition(const char* boneNamePrefix, Int maxBones, Coord3D* positions, Matrix3D* transforms, Bool convertToWorld = TRUE ) const;
-	
+
 	// Entered & exited.
 	Bool didEnter(const PolygonTrigger *pTrigger) const;
 	Bool didExit(const PolygonTrigger *pTrigger) const;
@@ -544,29 +544,29 @@ public:
 	void setDisabledUntil( DisabledType type, UnsignedInt frame );
 	Bool isDisabledByType( DisabledType type ) const { return TEST_DISABLEDMASK( m_disabledMask, type ); }
 
-	void pauseAllSpecialPowers( const Bool disabling ) const;	
-	
+	void pauseAllSpecialPowers( const Bool disabling ) const;
+
 	//Checks any timers and clears disabled statii that have expired.
 	void checkDisabledStatus();
-	
+
 	//When an AIAttackState is over, it needs to clean up any weapons that might be in leech range mode
 	//or else those weapons will have unlimited range!
 	void clearLeechRangeModeForAllWeapons();
-	
+
 	Int getNumConsecutiveShotsFiredAtTarget( const Object *victim) const;
 
 	void setHealthBoxOffset( const Coord3D& offset ) { m_healthBoxOffset = offset; } ///< for special amorphous like angry mob
 
 	void defect( Team *newTeam, UnsignedInt detectionTime );
 	void goInvulnerable( UnsignedInt time );
-	
+
 	// This is public, since there is no Thing level master setting of Turret stuff.  It is all done in a sleepy hamlet
 	// of a module called TurretAI.
 	virtual void reactToTurretChange( WhichTurretType turret, Real oldRotation, Real oldPitch );
 
 	// Convenience function for checking certain kindof bits
 	Bool isStructure(void) const;
-	
+
 	// Convenience function for checking certain kindof bits
 	Bool isFactionStructure(void) const;
 
@@ -577,7 +577,7 @@ public:
 	void setReceivingDifficultyBonus(Bool receive);
 
 	inline UnsignedInt getSafeOcclusionFrame(void) { return m_safeOcclusionFrame; }	//< this is an object specific frame at which it's safe to enable building occlusion.
-	inline void	setSafeOcclusionFrame(UnsignedInt frame) { m_safeOcclusionFrame = frame;} 
+	inline void	setSafeOcclusionFrame(UnsignedInt frame) { m_safeOcclusionFrame = frame;}
 
 	// All of our cheating for radars and power go here.
 	// This is the function that we now call in becomingTeamMember to adjust our power.
@@ -619,7 +619,7 @@ protected:
 
 	void updateTriggerAreaFlags(void);
 	void setTriggerAreaFlagsForChangeInPosition(void);
-	
+
 	/// Look and unlook are protected.  They should be called from Object::reasonToLook.  Like Capture, or death.
 	void look();
 	void unlook();
@@ -710,7 +710,7 @@ private:
 	Color													m_indicatorColor;			///< if nonzero, use this instead of controlling player's color
 
 	Coord3D												m_healthBoxOffset; ///< generally zero, except for special amorphous ones like angry mob
-	
+
 	/// @todo srj -- convert to non-DLINK list, after it is once again possible to test the change
 	MAKE_DLINK(Object, TeamMemberList)			///< other Things that are members of the same team
 
@@ -732,7 +732,7 @@ private:
 	TTriggerInfo									m_triggerInfo[MAX_TRIGGER_AREA_INFOS];
 	UnsignedInt										m_enteredOrExitedFrame;
 	ICoord3D											m_iPos;
-	
+
 	PathfindLayerEnum							m_layer;							// Layer object is pathing on.
 	PathfindLayerEnum							m_destinationLayer;		// Layer of current path goal.
 
@@ -741,7 +741,7 @@ private:
 	Coord2D												m_formationOffset;
 
 	AsciiString										m_commandSetStringOverride;///< To allow specific object to switch command sets
-	
+
 	UnsignedInt										m_safeOcclusionFrame;	///<flag used by occlusion renderer so it knows when objects have exited their production building.
 
 	// --------- BYTE-SIZED THINGS GO HERE

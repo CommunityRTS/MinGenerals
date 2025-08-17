@@ -66,7 +66,7 @@ while (<STR>)
 				$labels{$strline} = $line;
 				$lastFileName = $strline;
 				$lastFileNameLine = $line;
-				$strcount = 0;			
+				$strcount = 0;
 				$ignoreErrors = 0;
 				$state = 1;
 			}
@@ -80,7 +80,7 @@ while (<STR>)
 			}
 			elsif ($strline =~ /^END$/i)
 			{
-				$state = 0;				
+				$state = 0;
 			}
 			elsif ($strline =~ /\/n/i)
 			{

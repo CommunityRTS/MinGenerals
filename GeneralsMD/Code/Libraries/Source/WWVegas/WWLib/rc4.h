@@ -30,7 +30,7 @@
 //
 //	If you can't re-exchange a secret key before every message you could keep a
 //		partial secret key and then include the other part of the key in plaintext.
-//		The key would be the concatenation of the two parts of the key.	
+//		The key would be the concatenation of the two parts of the key.
 //
 
 class RC4Class
@@ -66,9 +66,9 @@ private:
 	void Prepare_Key_8bytes(const unsigned char *key_data_ptr);
 
 	struct RC4Key
-	{      
-		unsigned char State[256];       
-		unsigned char X;        
+	{
+		unsigned char State[256];
+		unsigned char X;
 		unsigned char Y;
 	};
 

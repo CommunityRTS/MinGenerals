@@ -27,7 +27,7 @@
  *                  $Org Author:: Kenny_m
  *                                                                                             *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 07/07/02 11:18p                                               $*
  *                                                                                             *
  *                    $Revision:: 3                                                          $*
@@ -86,13 +86,13 @@ public:
 
 	DWORD Create
 	(
-		char* file_name, 
+		char* file_name,
 		DWORD* vertex_shader_declaration
 	);
 
 	DWORD Create
 	(
-		DWORD* shader_code, 
+		DWORD* shader_code,
 		DWORD* vertex_shader_declaration
 	);
 

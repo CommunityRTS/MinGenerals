@@ -177,11 +177,11 @@ template<typename Event> class Notifier
 	virtual void AddObserver(Observer<Event>& observer) \
 		{Notifier<Event>::AddObserver(observer);} \
 	virtual void RemoveObserver(Observer<Event>& observer) \
-		{Notifier<Event>::RemoveObserver(observer);} 
+		{Notifier<Event>::RemoveObserver(observer);}
 
 
 /* The following template is useful for defining unique types to use as Events
- * from types such as strings or integers. 
+ * from types such as strings or integers.
  *
  * The first type must be a class or other unique type. This need not be a
  * "real" class.  It could be a forward declared class, which is enough to

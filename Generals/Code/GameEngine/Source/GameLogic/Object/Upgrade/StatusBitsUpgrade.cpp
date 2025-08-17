@@ -24,12 +24,12 @@
 
 // FILE: StatusBitsUpgrade.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	May 2002
@@ -37,8 +37,8 @@
 //	Filename: 	StatusBitsUpgrade.cpp
 //
 //	author:		Steven Johnson
-//	
-//	purpose:	
+//
+//	purpose:
 //
 //-----------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////
@@ -73,11 +73,11 @@
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-void StatusBitsUpgradeModuleData::buildFieldParse(MultiIniFieldParse& p) 
+void StatusBitsUpgradeModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpgradeModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "StatusToSet",	INI::parseBitString32,	TheObjectStatusBitNames, offsetof( StatusBitsUpgradeModuleData, m_statusToSet ) },
 		{ "StatusToClear",	INI::parseBitString32,	TheObjectStatusBitNames, offsetof( StatusBitsUpgradeModuleData, m_statusToClear ) },
@@ -102,7 +102,7 @@ StatusBitsUpgrade::~StatusBitsUpgrade( void )
 //-------------------------------------------------------------------------------------------------
 void StatusBitsUpgrade::upgradeImplementation( )
 {
-	Object *obj = getObject();	
+	Object *obj = getObject();
 	obj->setStatus((ObjectStatusBits)getStatusBitsUpgradeModuleData()->m_statusToSet);
 	obj->clearStatus((ObjectStatusBits)getStatusBitsUpgradeModuleData()->m_statusToClear);
 }

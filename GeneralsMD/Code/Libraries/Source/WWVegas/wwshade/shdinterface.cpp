@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdinterface.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/05/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -46,13 +46,13 @@
 /*!
 	Base class constructor for shaders.  Saves a pointer to the definition for this shader.
 
-	@param 
+	@param
 */
-ShdInterfaceClass::ShdInterfaceClass(const ShdDefClass * def, int class_id) : 
+ShdInterfaceClass::ShdInterfaceClass(const ShdDefClass * def, int class_id) :
 	Definition(NULL),
 	ClassID(class_id)
-{ 
-	REF_PTR_SET(Definition,def); 
+{
+	REF_PTR_SET(Definition,def);
 }
 
 
@@ -61,16 +61,16 @@ ShdInterfaceClass::ShdInterfaceClass(const ShdDefClass * def, int class_id) :
 /*!
 	Destructor for ShdInterfaceClass, releases the definition.
 */
-ShdInterfaceClass::~ShdInterfaceClass(void) 
-{ 
-	REF_PTR_RELEASE(Definition); 
+ShdInterfaceClass::~ShdInterfaceClass(void)
+{
+	REF_PTR_RELEASE(Definition);
 }
 
 
 //**********************************************************************************************
 //! returns a pointer to the definition for this shader
 /*!
-	@returns	
+	@returns
 */
 const ShdDefClass * ShdInterfaceClass::Peek_Definition(void)
 {

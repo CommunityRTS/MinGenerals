@@ -175,7 +175,7 @@ struct RenderStateStruct
 	RenderStateStruct& operator= (const RenderStateStruct& src);
 };
 
-/** 
+/**
 ** DX8Wrapper
 **
 ** DX8 interface wrapper class.  This encapsulates the DX8 interface; adding redundant state
@@ -211,14 +211,14 @@ class DX8Wrapper
 
 	static void Draw_Sorting_IB_VB(
 		unsigned primitive_type,
-		unsigned short start_index, 
+		unsigned short start_index,
 		unsigned short polygon_count,
 		unsigned short min_vertex_index,
 		unsigned short vertex_count);
 
 	static void Draw(
 		unsigned primitive_type,
-		unsigned short start_index, 
+		unsigned short start_index,
 		unsigned short polygon_count,
 		unsigned short min_vertex_index=0,
 		unsigned short vertex_count=0);
@@ -227,7 +227,7 @@ public:
 #ifdef EXTENDED_STATS
 	static DX8_Stats stats;
 #endif
-	
+
 	static bool Init(void * hwnd);
 	static void Shutdown(void);
 
@@ -263,7 +263,7 @@ public:
 	static void Get_Render_State(RenderStateStruct& state);
 	static void Set_Render_State(const RenderStateStruct& state);
 	static void Release_Render_State();
-	
+
 	static void Set_DX8_Material(const D3DMATERIAL8* mat);
 
 	static void Set_Gamma(float gamma,float bright,float contrast,bool calibrate=true,bool uselimit=true);
@@ -303,24 +303,24 @@ public:
 	static void Get_Shader(ShaderClass& shader);
 	static void Set_Texture(unsigned stage,TextureClass* texture);
 	static void Set_Material(const VertexMaterialClass* material);
-	static void Set_Light(unsigned index,const D3DLIGHT8* light);	
+	static void Set_Light(unsigned index,const D3DLIGHT8* light);
 	static void Set_Light(unsigned index,const LightClass &light);
 
 	static void Apply_Render_State_Changes();	// Apply deferred render state changes (will be called automatically by Draw...)
 
 	static void Draw_Triangles(
 		unsigned buffer_type,
-		unsigned short start_index, 
+		unsigned short start_index,
 		unsigned short polygon_count,
 		unsigned short min_vertex_index,
 		unsigned short vertex_count);
 	static void Draw_Triangles(
-		unsigned short start_index, 
+		unsigned short start_index,
 		unsigned short polygon_count,
 		unsigned short min_vertex_index,
 		unsigned short vertex_count);
 	static void Draw_Strip(
-		unsigned short start_index, 
+		unsigned short start_index,
 		unsigned short index_count,
 		unsigned short min_vertex_index,
 		unsigned short vertex_count);
@@ -329,9 +329,9 @@ public:
 	** Resources
 	*/
 	static IDirect3DTexture8 * _Create_DX8_Texture(
-		unsigned int width, 
-		unsigned int height, 
-		WW3DFormat format, 
+		unsigned int width,
+		unsigned int height,
+		WW3DFormat format,
 		TextureClass::MipCountType mip_level_count,
 		D3DPOOL pool=D3DPOOL_MANAGED,
 		bool rendertarget=false);
@@ -377,7 +377,7 @@ public:
 
 	// Needed by shader class
 	static bool						Get_Fog_Enable() { return FogEnable; }
-	static D3DCOLOR				Get_Fog_Color() { return FogColor; }	
+	static D3DCOLOR				Get_Fog_Color() { return FogColor; }
 
 	// Utilities
 	static Vector4 Convert_Color(unsigned color);
@@ -415,7 +415,7 @@ public:
 	** Render target interface
 	*/
 	static TextureClass *	Create_Render_Target (int width, int height, bool alpha=false);
-	
+
 	static void					Set_Render_Target (TextureClass * texture);
 	static void					Set_Render_Target (IDirect3DSurface8 *render_target);
 	static void					Set_Render_Target (IDirect3DSwapChain8 *swap_chain);
@@ -438,7 +438,7 @@ protected:
 	static void Set_Default_Global_Render_States(void);
 
 	/*
-	** Device Selection Code.  
+	** Device Selection Code.
 	** For backward compatibility, the public interface for these functions is in the ww3d.
 	** header file.  These functions are protected so that we aren't exposing two interfaces.
 	*/
@@ -463,7 +463,7 @@ protected:
 	static bool Registry_Load_Render_Device( const char * sub_key, bool resize_window );
 	static bool Registry_Load_Render_Device( const char * sub_key, char *device, int device_len, int &width, int &height, int &depth, int &windowed, int &texture_depth);
 	static bool Is_Windowed(void) { return IsWindowed; }
-	
+
 	static void	Set_Texture_Bitdepth(int depth)	{ WWASSERT(depth==16 || depth==32); TextureBitDepth = depth; }
 	static int	Get_Texture_Bitdepth(void)			{ return TextureBitDepth; }
 
@@ -502,7 +502,7 @@ protected:
 	static int								TextureBitDepth;
 	static bool								IsWindowed;
 	static D3DFORMAT					DisplayFormat;
-	
+
 	static D3DMATRIX						old_world;
 	static D3DMATRIX						old_view;
 	static D3DMATRIX						old_prj;
@@ -532,7 +532,7 @@ protected:
 	static D3DADAPTER_IDENTIFIER8		CurrentAdapterIdentifier;
 
 	static IDirect3D8 *					D3DInterface;			//d3d8;
-	static IDirect3DDevice8 *			D3DDevice;				//d3ddevice8;	
+	static IDirect3DDevice8 *			D3DDevice;				//d3ddevice8;
 
 	static IDirect3DSurface8 *			CurrentRenderTarget;
 	static IDirect3DSurface8 *			DefaultRenderTarget;
@@ -801,7 +801,7 @@ skip:
 		or		eax,ecx					// (a << 24) | b
 		or		eax,ebx					// (a << 24) | (r << 16) | b
 		or		eax,edx					// (a << 24) | (r << 16) | (g << 8) | b
-		
+
 		fstp	st(0)
 
 		// Restore fpu rounding mode
@@ -954,7 +954,7 @@ WWINLINE void DX8Wrapper::Set_Transform(D3DTRANSFORMSTATETYPE transform,const Ma
 	default:
 		DX8_RECORD_MATRIX_CHANGE();
 		Matrix4 m2=m.Transpose();
-		DX8CALL(SetTransform(transform,(D3DMATRIX*)&m2));	
+		DX8CALL(SetTransform(transform,(D3DMATRIX*)&m2));
 		break;
 	}
 }
@@ -1072,7 +1072,7 @@ WWINLINE void DX8Wrapper::Set_Render_State(const RenderStateStruct& state)
 }
 
 WWINLINE void DX8Wrapper::Release_Render_State()
-{	
+{
 	if (render_state.index_buffer) {
 		render_state.index_buffer->Release_Engine_Ref();
 	}

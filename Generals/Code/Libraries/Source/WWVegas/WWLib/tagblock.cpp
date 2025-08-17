@@ -17,38 +17,38 @@
 */
 
 /* $Header: /G/wwlib/tagblock.cpp 5     11/30/99 3:46p Scott_b $ */
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : WWLib                                                        * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/tagblock.cpp                                       $* 
- *                                                                                             * 
- *                      $Author:: Scott_b                                                     $* 
- *                                                                                             * 
- *                     $Modtime:: 11/29/99 6:42p                                              $* 
- *                                                                                             * 
- *                    $Revision:: 5                                                           $* 
- *                                                                                             * 
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : WWLib                                                        *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/tagblock.cpp                                       $*
+ *                                                                                             *
+ *                      $Author:: Scott_b                                                     $*
+ *                                                                                             *
+ *                     $Modtime:: 11/29/99 6:42p                                              $*
+ *                                                                                             *
+ *                    $Revision:: 5                                                           $*
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  *   TagBlockFile::TagBlockFile -- Create/open tag file													  *
- *   TagBlockFile::~TagBlockFile -- Close down the tag file.                                   * 
- *   TagBlockFile::Create_Index -- Create a index into the IndexList sorted by CRC.            * 
- *   TagBlockFile::Find_Block -- Find block assocated with name.                               * 
- *   TagBlockFile::Open_Tag -- Open an existing tag block.                                     * 
- *   TagBlockFile::Create_Tag -- Create a new tag at the end of the block.                     * 
- *   TagBlockFile::Close_Tag -- Close the handle that Create or Open made.                     * 
- *   TagBlockFile::Destroy_Handle -- Shut down a handle.                                       * 
- *   TagBlockFile::End_Write_Access -- Stop write access for handle - flushes data bug keeps ha* 
- *   TagBlockFile::Reset_File -- Clear file so no blocks exist.                                * 
- *   TagBlockFile::Empty_Index_List -- Clear out tag block list in memory                      * 
- *---------------------------------------------------------------------------------------------* 
- *   TagBlockHandle::Write -- Write data to the block.                                         * 
- *   TagBlockHandle::Read -- Read from a tag block.                                            * 
- *   TagBlockHandle::Seek -- Seek within the file.                                             * 
- *   TagBlockHandle::~TagBlockHandle -- Destroy handle.                                        * 
+ *   TagBlockFile::~TagBlockFile -- Close down the tag file.                                   *
+ *   TagBlockFile::Create_Index -- Create a index into the IndexList sorted by CRC.            *
+ *   TagBlockFile::Find_Block -- Find block assocated with name.                               *
+ *   TagBlockFile::Open_Tag -- Open an existing tag block.                                     *
+ *   TagBlockFile::Create_Tag -- Create a new tag at the end of the block.                     *
+ *   TagBlockFile::Close_Tag -- Close the handle that Create or Open made.                     *
+ *   TagBlockFile::Destroy_Handle -- Shut down a handle.                                       *
+ *   TagBlockFile::End_Write_Access -- Stop write access for handle - flushes data bug keeps ha*
+ *   TagBlockFile::Reset_File -- Clear file so no blocks exist.                                *
+ *   TagBlockFile::Empty_Index_List -- Clear out tag block list in memory                      *
+ *---------------------------------------------------------------------------------------------*
+ *   TagBlockHandle::Write -- Write data to the block.                                         *
+ *   TagBlockHandle::Read -- Read from a tag block.                                            *
+ *   TagBlockHandle::Seek -- Seek within the file.                                             *
+ *   TagBlockHandle::~TagBlockHandle -- Destroy handle.                                        *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -93,8 +93,8 @@ private:
 
 	// Start of the block - this is the start of TagBlockFile::BlockHeader.
 	int				BlockOffset;
-						
-	// Offset of block inside of TagFile.  
+
+	// Offset of block inside of TagFile.
 	// This is first byte after header and TagName.
 	// It is actual data used by external methods.
 	int 				DataOffset;
@@ -105,20 +105,20 @@ private:
 /////////////////////////////////// Start of TagBlockHandle/////////////////////////////////////////
 
 
-/*********************************************************************************************** 
- * RawFileClass -- Open up the tag file (it may not exist).                                    * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *        const char *fname - name of file that is or wants to be a TagBlockFile.              * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *        Will assume a file that has invalid data to be corrupt and will write over it.       * 
- *        So don't pass in a file that is not a tag file.                                      * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * RawFileClass -- Open up the tag file (it may not exist).                                    *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *        const char *fname - name of file that is or wants to be a TagBlockFile.              *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *        Will assume a file that has invalid data to be corrupt and will write over it.       *
+ *        So don't pass in a file that is not a tag file.                                      *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockFile::TagBlockFile(const char *fname):
 	RawFileClass(),
@@ -130,7 +130,7 @@ TagBlockFile::TagBlockFile(const char *fname):
 	// Open file up, create it if it does not exist.
 	// Pass in name to Open function so that the file name will be strdup'd.
 	Open(fname, READ|WRITE);
-	
+
 	FileTime = RawFileClass::Get_Date_Time();
 
 	// Read in header so we can tell if it is proper file.
@@ -175,74 +175,74 @@ TagBlockFile::TagBlockFile(const char *fname):
 			// Start at begining of file and write out our new header.
 			Seek(0, SEEK_SET);
 			Write(&Header, sizeof(Header));
-		} 
+		}
 
 	} else {
 		Reset_File();
 	}
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockFile::~TagBlockFile -- Close down the tag file.                                     * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *       Any TagBlockHandles that have not been deleted are now invalide but cannot be deleted.* 
- *       You must delete any handles associated with this before closing the TagFile.          * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockFile::~TagBlockFile -- Close down the tag file.                                     *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *       Any TagBlockHandles that have not been deleted are now invalide but cannot be deleted.*
+ *       You must delete any handles associated with this before closing the TagFile.          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockFile::~TagBlockFile()
 {
 	Empty_Index_List();
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockFile::Reset_File -- Clear file so no blocks exist.                                  * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   11/29/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockFile::Reset_File -- Clear file so no blocks exist.                                  *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/29/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 void TagBlockFile::Reset_File()
 {
 	Empty_Index_List();
-												  
+
 	// Save a clean header out.
 	Header.Version = FILE_VERSION;
 	Header.NumBlocks = 0;
 	Header.FileSize = sizeof(Header);
 
 	Save_Header();
-			
-	// Close, then open file so we get a new time stamp on it.									 
+
+	// Close, then open file so we get a new time stamp on it.
 	Close();
 	Open(READ|WRITE);
 
 	// Reget file creation time.
 	FileTime = RawFileClass::Get_Date_Time();
-}	
+}
 
-/*********************************************************************************************** 
- * *TagBlockFile::Open_Tag -- Open an existing tag block.                                      * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * *TagBlockFile::Open_Tag -- Open an existing tag block.                                      *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockHandle *TagBlockFile::Open_Tag(const char *tagname)
 {
@@ -257,7 +257,7 @@ TagBlockHandle *TagBlockFile::Open_Tag(const char *tagname)
 	Seek(index->Get_BlockOffset(), SEEK_SET);
 	Read(blockheader, sizeof(*blockheader));
 
-	// Now that we have all that we need, create the 
+	// Now that we have all that we need, create the
 	TagBlockHandle *handle = W3DNEW TagBlockHandle(this, index, blockheader);
 
 	// Keep track of how many handles there are so we can assert if they are not all shut down.
@@ -265,19 +265,19 @@ TagBlockHandle *TagBlockFile::Open_Tag(const char *tagname)
 
 	// Return with our new handle.
 	return(handle);
-}	
+}
 
-/*********************************************************************************************** 
- * *TagBlockFile::Create_Tag -- Create a new tag at the end of the block.                      * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * *TagBlockFile::Create_Tag -- Create a new tag at the end of the block.                      *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockHandle *TagBlockFile::Create_Tag(const char *tagname)
 {
@@ -303,43 +303,43 @@ TagBlockHandle *TagBlockFile::Create_Tag(const char *tagname)
 	Write(blockheader, sizeof(*blockheader));
 	Write(tagname, strlen(tagname) + 1);
 
-	// Now that we have all that we need, create the 
+	// Now that we have all that we need, create the
 	CreateHandle = W3DNEW TagBlockHandle(this, index, blockheader);
 
 	// Keep track of how many handles there are so we can assert if they are not all shut down.
 	NumOpenHandles++;
 
 	return(CreateHandle);
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockFile::Close_Tag -- Close the handle that Create or Open made.                       * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockFile::Close_Tag -- Close the handle that Create or Open made.                       *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 void TagBlockFile::Close_Tag(TagBlockHandle *handle)
 {
 	delete handle;
 }
 
-/*********************************************************************************************** 
- * TagBlockFile::Destroy_Handle -- Shut down a handle.                                         * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockFile::Destroy_Handle -- Shut down a handle.                                         *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 void TagBlockFile::Destroy_Handle(TagBlockHandle *handle)
 {
@@ -354,19 +354,19 @@ void TagBlockFile::Destroy_Handle(TagBlockHandle *handle)
 
 	// Keep track of how many handles there are so we can assert if they are not all shut down.
 	NumOpenHandles--;
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockFile::End_Write_Access -- Stop write access for handle - flushes data bug keeps han * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   06/02/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockFile::End_Write_Access -- Stop write access for handle - flushes data bug keeps han *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/02/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 int TagBlockFile::End_Write_Access(TagBlockHandle *handle)
 {
@@ -388,20 +388,20 @@ int TagBlockFile::End_Write_Access(TagBlockHandle *handle)
 		return(true);
 	}
 	return(false);
-}	
+}
 
 
-/*********************************************************************************************** 
- * *TagBlockFile::Create_Index -- Create a index into the IndexList sorted by CRC.             * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * *TagBlockFile::Create_Index -- Create a index into the IndexList sorted by CRC.             *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockIndex *TagBlockFile::Create_Index(const char *tagname, int blockoffset)
 {
@@ -433,19 +433,19 @@ TagBlockIndex *TagBlockFile::Create_Index(const char *tagname, int blockoffset)
 		}
 	}
 	return (index);
-}	
+}
 
-/*********************************************************************************************** 
- * *TagBlockFile::Find_Block -- Find block assocated with name.                                * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/11/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * *TagBlockFile::Find_Block -- Find block assocated with name.                                *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/11/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockIndex *TagBlockFile::Find_Block(const char *tagname)
 {
@@ -486,49 +486,49 @@ TagBlockIndex *TagBlockFile::Find_Block(const char *tagname)
 	}
 
 	return(NULL);
-}	
+}
 
-						  
-/*********************************************************************************************** 
- * TagBlockFile::Empty_Index_List -- Clear out tag block list in memory                      * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   11/29/1999 SKB : Created.                                                                 * 
+
+/***********************************************************************************************
+ * TagBlockFile::Empty_Index_List -- Clear out tag block list in memory                      *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   11/29/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 void TagBlockFile::Empty_Index_List()
-{	
-	assert(!NumOpenHandles);	
+{
+	assert(!NumOpenHandles);
 
 	// Get rid of index list in memory.
 	while (!IndexList.Is_Empty()) {
 		TagBlockIndex *index = IndexList.Remove_Head();
 		delete index;
 	}
-	
-}	
+
+}
 
 
 ///////////////////////////////////////// End of TagBlockFile /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Start of TagBlockHandle/////////////////////////////////////
 
-/*********************************************************************************************** 
- * Position -- Create a handle for user to access the TagBlock.                                * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * Position -- Create a handle for user to access the TagBlock.                                *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockHandle::TagBlockHandle(TagBlockFile *tagfile, TagBlockIndex *tagindex, TagBlockFile::BlockHeader *blockheader):
 	File(tagfile),
@@ -536,38 +536,38 @@ TagBlockHandle::TagBlockHandle(TagBlockFile *tagfile, TagBlockIndex *tagindex, T
 	BlockHeader(blockheader),
 	Position(0)
 {
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockHandle::~TagBlockHandle -- Destroy handle.                                          * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockHandle::~TagBlockHandle -- Destroy handle.                                          *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 TagBlockHandle::~TagBlockHandle()
 {
 	_InDestructor++;
 	File->Destroy_Handle(this);
 	_InDestructor--;
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockHandle::Write -- Write data to the block.                                           * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockHandle::Write -- Write data to the block.                                           *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 int TagBlockHandle::Write(const void *buf, int nbytes)
 {
@@ -588,19 +588,19 @@ int TagBlockHandle::Write(const void *buf, int nbytes)
 
 	// Return about written out.
 	return(nbytes);
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockHandle::Read -- Read from a tag block.                                              * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockHandle::Read -- Read from a tag block.                                              *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 int TagBlockHandle::Read(void *buf, int nbytes)
 {
@@ -618,19 +618,19 @@ int TagBlockHandle::Read(void *buf, int nbytes)
 
 	// Tell user how much was read from the file.
 	return(nbytes);
-}	
+}
 
-/*********************************************************************************************** 
- * TagBlockHandle::Seek -- Seek within the file.                                               * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/12/1999 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * TagBlockHandle::Seek -- Seek within the file.                                               *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/12/1999 SKB : Created.                                                                 *
  *=============================================================================================*/
 int TagBlockHandle::Seek(int pos, int dir)
 {
@@ -646,6 +646,6 @@ int TagBlockHandle::Seek(int pos, int dir)
 			break;
 	}
 	return(Position);
-}	
-		
+}
+
 // EOF

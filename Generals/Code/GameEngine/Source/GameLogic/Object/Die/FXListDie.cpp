@@ -67,7 +67,7 @@ void FXListDie::onDie( const DamageInfo *damageInfo )
 	{
 		// if the object has any ambient sound(s), kill 'em now.
 		TheAudio->stopAllAmbientsBy(getObject());
-		
+
 		if (d->m_orientToObject)
 		{
 			Object *damageDealer = TheGameLogic->findObjectByID( damageInfo->in.m_sourceID );

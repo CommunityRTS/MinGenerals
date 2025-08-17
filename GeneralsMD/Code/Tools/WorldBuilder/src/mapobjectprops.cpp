@@ -59,24 +59,24 @@ void MapObjectProps::makeMain()
 }
 
 
-MapObjectProps::MapObjectProps(Dict* dictToEdit, const char* title, CWnd* pParent /*=NULL*/) : 
+MapObjectProps::MapObjectProps(Dict* dictToEdit, const char* title, CWnd* pParent /*=NULL*/) :
 	COptionsPanel(MapObjectProps::IDD, pParent),
 	m_dictToEdit(dictToEdit),
 	m_title(title),
 	m_selectedObject(NULL),
   m_dictSource(NULL),
-  m_scale( 1.0f ), 
+  m_scale( 1.0f ),
   m_height( 0 ),
-  m_posUndoable( NULL ), 
+  m_posUndoable( NULL ),
   m_angle( 0 ),
-  m_defaultEntryIndex(0), 
+  m_defaultEntryIndex(0),
   m_defaultIsNone(true)
 {
 
 
   //{{AFX_DATA_INIT(MapObjectProps)
 		// NOTE: the ClassWizard will add member initialization here
-	//}}AFX_DATA_INIT	
+	//}}AFX_DATA_INIT
 }
 
 MapObjectProps::~MapObjectProps()
@@ -198,7 +198,7 @@ int MapObjectProps::getSel()
 void MapObjectProps::_DictToTeam(void)
 {
   int i;
-  
+
   AsciiString name;
   CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Team);
   owner->ResetContent();
@@ -232,9 +232,9 @@ void MapObjectProps::_DictToName(void)
   {
     name = m_dictToEdit->getAsciiString(TheKey_objectName, &exists);
   }
-  
+
   CWnd* pItem = GetDlgItem(IDC_MAPOBJECT_Name);
-  if (pItem) 
+  if (pItem)
   {
     pItem->SetWindowText(name.str());
   }
@@ -243,18 +243,18 @@ void MapObjectProps::_DictToName(void)
 /// Move data from object to dialog controls
 void MapObjectProps::_DictToScript(void)
 {
-  if (!m_dictToEdit) 
+  if (!m_dictToEdit)
   {
     return;
   }
-  
+
   Bool exists;
   CComboBox *pCombo = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Script);
   // Load the subroutine scripts into the combo box.
   EditParameter::loadScripts(pCombo, true);
   /*Int stringNdx =*/ pCombo->AddString("<none>");
   AsciiString script = m_dictToEdit->getAsciiString(TheKey_objectScriptAttachment, &exists);
-  
+
   if (script.isEmpty()) {
     pCombo->SelectString(-1, "<none>");
   } else {
@@ -266,13 +266,13 @@ void MapObjectProps::_DictToScript(void)
 void MapObjectProps::_TeamToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Team);
   static char buf[1024];
   owner->GetWindowText(buf, sizeof(buf)-2);
   if (strcmp(buf, NEUTRAL_TEAM_UI_STR)==0)
     strcpy(buf, NEUTRAL_TEAM_INTERNAL_STR);
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc )
   {
@@ -289,11 +289,11 @@ void MapObjectProps::_TeamToDict(void)
 void MapObjectProps::_NameToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CWnd *owner = GetDlgItem(IDC_MAPOBJECT_Name);
   CString cstr;
   owner->GetWindowText(cstr);
-  
+
   // Note: when starting up, this is called before a document exists. Just ignore such
   // calls, since there can't be an object to affect.
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
@@ -304,7 +304,7 @@ void MapObjectProps::_NameToDict(void)
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size());
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-    // Update is called by Do																																																						
+    // Update is called by Do
   }
 }
 
@@ -312,11 +312,11 @@ void MapObjectProps::_NameToDict(void)
 void MapObjectProps::_ScriptToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Script);
   static char buf[1024];
   owner->GetWindowText(buf, sizeof(buf)-2);
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc )
   {
@@ -325,7 +325,7 @@ void MapObjectProps::_ScriptToDict(void)
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size());
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-    // Update is called by Do	
+    // Update is called by Do
   }
 }
 
@@ -343,12 +343,12 @@ void MapObjectProps::_DictToScale(void)
   if (!exists) {
     m_scale = 1;
   }
-  
+
   CWnd* edit = GetDlgItem(IDC_MAPOBJECT_Scale);
   CString cstr;
   cstr.Format("%.2f", m_scale);
   edit->SetWindowText(cstr);
-  
+
   CButton *off = (CButton*) GetDlgItem(IDC_SCALE_OFF);
   CButton *on = (CButton*) GetDlgItem(IDC_SCALE_ON);
   if (!exists) {
@@ -363,7 +363,7 @@ void MapObjectProps::_DictToScale(void)
     GetDlgItem(IDC_SCALE_POPUP)->EnableWindow(true);
   }
 #endif
-  
+
 }
 
 /// Move data from object to dialog controls
@@ -376,7 +376,7 @@ void MapObjectProps::_DictToWeather(void)
     if (!exists)
       value = 0;
   }
-  
+
   CComboBox* pItem = (CComboBox*) GetDlgItem(IDC_MAPOBJECT_Weather);
   pItem->SetCurSel(value);
 }
@@ -391,7 +391,7 @@ void MapObjectProps::_DictToTime(void)
     if (!exists)
       value = 0;
   }
-  
+
   CComboBox* pItem = (CComboBox*) GetDlgItem(IDC_MAPOBJECT_Time);
   pItem->SetCurSel(value);
 }
@@ -400,11 +400,11 @@ void MapObjectProps::_DictToTime(void)
 void MapObjectProps::_WeatherToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Weather);
   static char buf[1024];
   int curSel = owner->GetCurSel();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc )
   {
@@ -413,19 +413,19 @@ void MapObjectProps::_WeatherToDict(void)
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-    // Update is called by Do	
-  }  
+    // Update is called by Do
+  }
 }
 
 /// Move data from dialog controls to object
 void MapObjectProps::_TimeToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Time);
   static char buf[1024];
   int curSel = owner->GetCurSel();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc )
   {
@@ -434,8 +434,8 @@ void MapObjectProps::_TimeToDict(void)
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-    // Update is called by Do	
-  }  
+    // Update is called by Do
+  }
 }
 
 /// Move data from dialog controls to object
@@ -444,7 +444,7 @@ void MapObjectProps::_ScaleToDict(void)
 // Currently not in mission disk.
 #if 0
   getAllSelectedDicts();
-  
+
   Real value = 0.0f;
   CWnd* edit = GetDlgItem(IDC_MAPOBJECT_Scale);
   CString cstr;
@@ -453,9 +453,9 @@ void MapObjectProps::_ScaleToDict(void)
     value = atof(cstr);
   }
   m_scale = value;
-  
+
   CButton *off = (CButton*) GetDlgItem(IDC_SCALE_OFF);
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc )
   {
@@ -538,7 +538,7 @@ void MapObjectProps::SetAngle(void)
     angle = atof(cstr);
   }
   if (m_selectedObject==NULL) return;
-  if (m_angle!=angle) 
+  if (m_angle!=angle)
   {
     m_angle = angle;
     CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
@@ -691,43 +691,43 @@ void MapObjectProps::PopSliderFinished(const long sliderID, long theVal)
 void MapObjectProps::_PrebuiltUpgradesToDict(void)
 {
   getAllSelectedDicts();
-  
+
   CListBox *pBox = (CListBox *) GetDlgItem(IDC_MAPOBJECT_BuildWithUpgrades);
   if (!pBox) {
     return;
   }
-  
+
   // We only work for single selections
   if (m_allSelectedDicts.size() != 1) {
     return;
   }
-  
+
   if (m_selectedObject)	{
     if ( !m_selectedObject->getThingTemplate() ) {
       return;
     }
   }
-  
+
   Bool exists;
   int upgradeNum = 0;
   AsciiString upgradeString;
-  
+
   // We're going to sub this entire dict for the existing entire dict.
   Dict newDict = *m_allSelectedDicts[0];
-  
+
   // First, clear out any existing notions of what we should upgrade.
   do {
     AsciiString keyName;
     keyName.format("%s%d", TheNameKeyGenerator->keyToName(TheKey_objectGrantUpgrade).str(), upgradeNum);
     upgradeString = newDict.getAsciiString(NAMEKEY(keyName), &exists);
-    
+
     if (exists) {
       newDict.remove(NAMEKEY(keyName));
     }
-    
+
     ++upgradeNum;
   } while (!upgradeString.isEmpty());
-  
+
   upgradeNum = 0;
   // We've now removed them, so lets add the ones that are selected now.
   Int countOfItems = pBox->GetCount();
@@ -736,14 +736,14 @@ void MapObjectProps::_PrebuiltUpgradesToDict(void)
       CString selTxt;
       // This thing is selected. Get its text, and add it to the dict.
       pBox->GetText(i, selTxt);
-      
+
       AsciiString keyName;
       keyName.format("%s%d", TheNameKeyGenerator->keyToName(TheKey_objectGrantUpgrade).str(), upgradeNum);
       newDict.setAsciiString(NAMEKEY(keyName), AsciiString(selTxt.GetBuffer(0)));
       ++upgradeNum;
     }
   }
-  
+
   // Now, do the Undoable
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
@@ -758,36 +758,36 @@ void MapObjectProps::_PrebuiltUpgradesToDict(void)
 void MapObjectProps::_DictToPrebuiltUpgrades(void)
 {
   getAllSelectedDicts();
-  
+
   CListBox *pBox = (CListBox*) GetDlgItem(IDC_MAPOBJECT_BuildWithUpgrades);
   if (!pBox) {
     return;
   }
-  
+
   // First, clear out the list
   pBox->ResetContent();
   CString cstr;
-  
+
   // Then, if there's multiple units selected, add the Single Selection Only string
   if (m_allSelectedDicts.size() > 1) {
     cstr.LoadString(IDS_SINGLE_SELECTION_ONLY);
     pBox->AddString(cstr);
     return;
   }
-  
+
   if (m_selectedObject == NULL) {
     return;
   }
-  
+
   // Otherwise, fill it with the upgrades available for this unit
   const ThingTemplate *tt = m_selectedObject->getThingTemplate();
   if (tt == NULL) {
     // This is valid. For instance, Scorch marks do not have thing templates.
     return;
   }
-  
+
   Bool noUpgrades = false;
-  
+
   // Now do any behaviors that are also upgrades.
   const ModuleInfo& mi = tt->getBehaviorModuleInfo();
   if (mi.getCount() == 0) {
@@ -798,9 +798,9 @@ void MapObjectProps::_DictToPrebuiltUpgrades(void)
     }
   } else {
     Int numBehaviorModules = mi.getCount();
-    
+
     Int numBehaviorsWithUpgrades = 0;
-    
+
     for (int i = 0; i < numBehaviorModules; ++i) {
       if (mi.getNthName(i).compareNoCase("GenerateMinefieldBehavior") == 0) {
         const GenerateMinefieldBehaviorModuleData *gmbmd = (const GenerateMinefieldBehaviorModuleData *)mi.getNthData(i);
@@ -816,7 +816,7 @@ void MapObjectProps::_DictToPrebuiltUpgrades(void)
         }
       }
     }
-    
+
     if (numBehaviorsWithUpgrades == 0) {
       if (noUpgrades) {
         cstr.LoadString(IDS_NO_UPGRADES);
@@ -825,19 +825,19 @@ void MapObjectProps::_DictToPrebuiltUpgrades(void)
       }
     }
   }
-  
+
   // Finally, walk through the upgrades that he already has, and select the appropriate members
   // from the list
-  
+
   Bool exists;
   int upgradeNum = 0;
   AsciiString upgradeString;
-  
+
   do {
     AsciiString keyName;
     keyName.format("%s%d", TheNameKeyGenerator->keyToName(TheKey_objectGrantUpgrade).str(), upgradeNum);
     upgradeString = m_dictToEdit->getAsciiString(NAMEKEY(keyName), &exists);
-    
+
     if (exists) {
       Int selNdx = pBox->FindStringExact(-1, upgradeString.str());
       if (selNdx == LB_ERR) {
@@ -846,11 +846,11 @@ void MapObjectProps::_DictToPrebuiltUpgrades(void)
         continue;
       }
       pBox->SetSel(selNdx);
-      
+
     } else {
       upgradeString.clear();
     }
-    
+
     ++upgradeNum;
   } while (!upgradeString.isEmpty());
 }
@@ -936,7 +936,7 @@ void MapObjectProps::_DictToEnabled(void)
 	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_Enabled);
 	if (pItem) {
 		pItem->SetCheck(enabled);
-	}	
+	}
 }
 
 
@@ -952,7 +952,7 @@ void MapObjectProps::_DictToDestructible(void)
 	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_Indestructible);
 	if (pItem) {
 		pItem->SetCheck(destructible);
-	}	
+	}
 }
 
 /// Move data from object to dialog controls
@@ -967,7 +967,7 @@ void MapObjectProps::_DictToUnsellable(void)
 	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_Unsellable);
 	if (pItem) {
 		pItem->SetCheck(unsellable);
-	}	
+	}
 }
 
 /// Move data from object to dialog controls
@@ -975,16 +975,16 @@ void MapObjectProps::_DictToTargetable()
 {
 	Bool targetable = false;
 	Bool exists;
-	if( m_dictToEdit ) 
+	if( m_dictToEdit )
 	{
 		targetable = m_dictToEdit->getBool( TheKey_objectTargetable, &exists );
 	}
 
 	CButton* pItem = (CButton*) GetDlgItem( IDC_MAPOBJECT_Targetable );
-	if( pItem ) 
+	if( pItem )
 	{
 		pItem->SetCheck( targetable );
-	}	
+	}
 }
 
 /// Move data from object to dialog controls
@@ -999,8 +999,8 @@ void MapObjectProps::_DictToPowered(void)
 	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_Powered);
 	if (pItem) {
 		pItem->SetCheck(powered);
-	}	
-	
+	}
+
 }
 
 /// Move data from object to dialog controls
@@ -1042,7 +1042,7 @@ void MapObjectProps::_DictToVisibilityRange(void)
 		static char buff[12];
 		sprintf(buff, "%d", distance);
 		if (distance == 0) {
-			pItem->SetWindowText(""); 
+			pItem->SetWindowText("");
 		} else {
 			pItem->SetWindowText(buff);
 		}
@@ -1078,7 +1078,7 @@ void MapObjectProps::_DictToShroudClearingDistance(void)
 		static char buff[12];
 		sprintf(buff, "%d", distance);
 		if (distance == 0) {
-			pItem->SetWindowText(""); 
+			pItem->SetWindowText("");
 		} else {
 			pItem->SetWindowText(buff);
 		}
@@ -1093,11 +1093,11 @@ void MapObjectProps::_DictToRecruitableAI(void)
  	if (m_dictToEdit) {
 		recruitableAI  = m_dictToEdit->getBool(TheKey_objectRecruitableAI, &exists);
  	}
-	
+
  	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_RecruitableAI);
  	if (pItem) {
 		pItem->SetCheck(recruitableAI);
-	}	
+	}
 }
 
 /// Move data from object to dialog controls
@@ -1115,7 +1115,7 @@ void MapObjectProps::_DictToSelectable(void)
 	CButton* pItem = (CButton*) GetDlgItem(IDC_MAPOBJECT_Selectable);
 	if (pItem) {
 		pItem->SetCheck(selectable);
-	}	
+	}
 }
 
 /// Move data from object to dialog controls
@@ -1132,7 +1132,7 @@ void MapObjectProps::_DictToStoppingDistance(void)
 		static char buff[12];
 		sprintf(buff, "%g", stoppingDistance);
 		pItem->SetWindowText(buff);
-	}	
+	}
 }
 
 
@@ -1215,7 +1215,7 @@ void MapObjectProps::_IndestructibleToDict(void)
 	  DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size());
 	  pDoc->AddAndDoUndoable(pUndo);
 	  REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-	  // Update is called by Do	
+	  // Update is called by Do
   }
 }
 
@@ -1236,7 +1236,7 @@ void MapObjectProps::_UnsellableToDict(void)
 	  pDoc->AddAndDoUndoable(pUndo);
 	  REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
 	  // Update is called by Do
-  }	
+  }
 }
 
 /// Move data from dialog controls to object
@@ -1289,7 +1289,7 @@ void MapObjectProps::_AggressivenessToDict(void)
 	static char buf[1024];
 	owner->GetWindowText(buf, sizeof(buf)-2);
 	int value = 0;
-	
+
 	if (strcmp(buf, "Sleep") == 0) {
 		value = -2;
 	} else if (strcmp(buf, "Passive") == 0) {
@@ -1310,7 +1310,7 @@ void MapObjectProps::_AggressivenessToDict(void)
 	  DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size());
 	  pDoc->AddAndDoUndoable(pUndo);
 	  REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-	  // Update is called by Do		
+	  // Update is called by Do
   }
 }
 
@@ -1350,7 +1350,7 @@ void MapObjectProps::_VeterancyToDict(void)
 	CComboBox *owner = (CComboBox*)GetDlgItem(IDC_MAPOBJECT_Veterancy);
 	static char buf[1024];
 	int curSel = owner->GetCurSel();
-	int value = 0;	
+	int value = 0;
 	if (curSel >= 0) {
 		value=curSel;
 	}
@@ -1363,7 +1363,7 @@ void MapObjectProps::_VeterancyToDict(void)
 	  DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
 	  pDoc->AddAndDoUndoable(pUndo);
 	  REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-	  // Update is called by Do	
+	  // Update is called by Do
   }
 }
 
@@ -1371,7 +1371,7 @@ void MapObjectProps::_VeterancyToDict(void)
 void MapObjectProps::_ShroudClearingDistanceToDict(void)
 {
 	getAllSelectedDicts();
-	
+
 	int value = -1;
 	CWnd* edit = GetDlgItem(IDC_MAPOBJECT_ShroudClearingDistance);
 	edit->EnableWindow(TRUE);
@@ -1399,10 +1399,10 @@ void MapObjectProps::_ShroudClearingDistanceToDict(void)
 void MapObjectProps::_RecruitableAIToDict(void)
 {
 	getAllSelectedDicts();
-	
+
 	CButton *owner = (CButton*) GetDlgItem(IDC_MAPOBJECT_RecruitableAI);
 	Bool isChecked = (owner->GetCheck() != 0);
-	
+
 	CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
@@ -1441,10 +1441,10 @@ void MapObjectProps::_SelectableToDict(void)
 }
 
 /// Move data from dialog controls to object
-void MapObjectProps::_HPsToDict() 
+void MapObjectProps::_HPsToDict()
 {
 	getAllSelectedDicts();
-	
+
 	Int value;
 	static char buf[1024];
 
@@ -1495,7 +1495,7 @@ void MapObjectProps::_StoppingDistanceToDict(void)
 }
 
 
-void MapObjectProps::OnEditprop() 
+void MapObjectProps::OnEditprop()
 {
 	int sel = getSel();
 	if (sel == -1 || !m_dictToEdit)
@@ -1506,8 +1506,8 @@ void MapObjectProps::OnEditprop()
 	AsciiString vstr = getNthValueStr(m_dictToEdit, sel, &enquote);
 	Dict::DataType type = m_dictToEdit->getNthType(sel);
 
-	PropEdit propDlg(&kstr, &type, &vstr, true, this);	
-	if (propDlg.DoModal() == IDOK) 
+	PropEdit propDlg(&kstr, &type, &vstr, true, this);
+	if (propDlg.DoModal() == IDOK)
 	{
 		Dict newDict = DictItemUndoable::buildSingleItemDict(kstr, type, vstr);
 		if (this == TheMapObjectProps)
@@ -1517,8 +1517,8 @@ void MapObjectProps::OnEditprop()
 			DictItemUndoable *pUndo = new DictItemUndoable(&m_dictToEdit, newDict, newDict.getNthKey(0));
 			pDoc->AddAndDoUndoable(pUndo);
 			REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
-		} 
-		else 
+		}
+		else
 		{
 			// we're running modal; just slam it in the dict
 			m_dictToEdit->copyPairFrom(newDict, newDict.getNthKey(0));
@@ -1527,7 +1527,7 @@ void MapObjectProps::OnEditprop()
 	}
 }
 
-void MapObjectProps::OnNewprop() 
+void MapObjectProps::OnNewprop()
 {
 	if (!m_dictToEdit)
 		return;
@@ -1536,8 +1536,8 @@ void MapObjectProps::OnNewprop()
 	static Dict::DataType lastNewType = Dict::DICT_BOOL;
 	AsciiString key, value;
 
-	PropEdit propDlg(&key, &lastNewType, &value, false, this);	
-	if (propDlg.DoModal() == IDOK) 
+	PropEdit propDlg(&key, &lastNewType, &value, false, this);
+	if (propDlg.DoModal() == IDOK)
 	{
 		Dict newDict = DictItemUndoable::buildSingleItemDict(key, lastNewType, value);
 		if (this == TheMapObjectProps)
@@ -1548,7 +1548,7 @@ void MapObjectProps::OnNewprop()
 			pDoc->AddAndDoUndoable(pUndo);
 			REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
 		}
-		else 
+		else
 		{
 			// we're running modal; just slam it in the dict
 			m_dictToEdit->copyPairFrom(newDict, newDict.getNthKey(0));
@@ -1557,12 +1557,12 @@ void MapObjectProps::OnNewprop()
 	}
 }
 
-void MapObjectProps::OnRemoveprop() 
+void MapObjectProps::OnRemoveprop()
 {
 	int sel = getSel();
 	if (sel == -1)
 		return;
-	
+
 	NameKeyType k = m_dictToEdit->getNthKey(sel);
 	if (this == TheMapObjectProps)
 	{
@@ -1581,7 +1581,7 @@ void MapObjectProps::OnRemoveprop()
 	updateTheUI();
 }
 
-void MapObjectProps::OnDblclkProperties() 
+void MapObjectProps::OnDblclkProperties()
 {
 	OnEditprop();
 }
@@ -1590,9 +1590,9 @@ void MapObjectProps::OnDblclkProperties()
 static const Char NO_SOUND_STRING[] = "(None)";
 static const Char BASE_DEFAULT_STRING[] = "Default";
 
-void MapObjectProps::OnSelchangeProperties() 
+void MapObjectProps::OnSelchangeProperties()
 {
-	
+
 }
 
 /// Initialize dialog, especially drop down lists
@@ -1609,7 +1609,7 @@ BOOL MapObjectProps::OnInitDialog()
 	m_posUndoable = NULL;
 	m_angle = 0;
 	m_height = 0;
-	m_scale = 1.0f; 
+	m_scale = 1.0f;
 
 	InitSound();
 	updateTheUI();
@@ -1618,15 +1618,15 @@ BOOL MapObjectProps::OnInitDialog()
 }
 
 //---------------------------------------------------------------------------------------------------
-/*static*/ void MapObjectProps::update(void) 
+/*static*/ void MapObjectProps::update(void)
 {
-	if (TheMapObjectProps) 
+	if (TheMapObjectProps)
 	{
 		TheMapObjectProps->updateTheUI();
 	}
 }
 
-void MapObjectProps::updateTheUI(void) 
+void MapObjectProps::updateTheUI(void)
 {
 	if (this != TheMapObjectProps) {
 		return;
@@ -1670,14 +1670,14 @@ void MapObjectProps::updateTheUI(MapObject *pMapObj)
   _DictToSelectable();
   _DictToStoppingDistance();
   _DictToUnsellable();
-  _DictToTargetable();    
+  _DictToTargetable();
 	ShowZOffset(pMapObj);
   ShowAngle(pMapObj);
   ShowPosition(pMapObj);
 
   // Warning: order is important. dictToAttachedSound() must come before dictToCustomize(),
-  // dictToCustomize() must come before any of the customization controls, dictToLooping() 
-  // must come before dictToLoopCount(), and dictToLooping() and dictToLoopCount() must 
+  // dictToCustomize() must come before any of the customization controls, dictToLooping()
+  // must come before dictToLoopCount(), and dictToLooping() and dictToLoopCount() must
   // come before dictToEnabled().
   dictToAttachedSound();
   dictToCustomize();
@@ -1712,14 +1712,14 @@ void MapObjectProps::InitSound(void)
   DEBUG_ASSERTCRASH( soundComboBox != NULL, ("Cannot find sound combobox" ) );
   m_defaultEntryIndex = 0;
   m_defaultIsNone = true;
-  
+
   // Load up combobox
   if ( soundComboBox != NULL )
   {
     // Add all the sound names in order. Since the combobox has the SORTED style,
     // we can just add the strings in and let the combo box sort them
     const AudioEventInfoHash & audioEventHash = TheAudio->getAllAudioEvents();
-       
+
     AudioEventInfoHash::const_iterator it;
     for ( it = audioEventHash.begin(); it != audioEventHash.end(); it++ )
     {
@@ -1733,15 +1733,15 @@ void MapObjectProps::InitSound(void)
     m_defaultEntryIndex = soundComboBox->InsertString( 0, BASE_DEFAULT_STRING );
     m_defaultEntryName = NO_SOUND_STRING;
     m_defaultIsNone = true;
-    
+
     soundComboBox->InsertString( 1, NO_SOUND_STRING );
   }
-	
+
 } // end InitSound
 
 
 // Adds a series of Undoable's to the given MultipleUndoable which clears the
-// objectSoundAmbientCustomized flag and all the customization flags out of 
+// objectSoundAmbientCustomized flag and all the customization flags out of
 // all the selected dictionaries.
 // NOTE: assumes getAllSelectedDicts() has already been called
 void MapObjectProps::clearCustomizeFlag( CWorldBuilderDoc* pDoc, MultipleUndoable * ownerUndoable )
@@ -1757,15 +1757,15 @@ void MapObjectProps::clearCustomizeFlag( CWorldBuilderDoc* pDoc, MultipleUndoabl
   pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), empty, TheKey_objectSoundAmbientMaxRange, m_allSelectedDicts.size(), pDoc, false);
   ownerUndoable->addUndoable(pUndo);
   REF_PTR_RELEASE(pUndo); // belongs to ownerUndoable now.
-  
+
   pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), empty, TheKey_objectSoundAmbientMinVolume, m_allSelectedDicts.size(), pDoc, false);
   ownerUndoable->addUndoable(pUndo);
   REF_PTR_RELEASE(pUndo); // belongs to ownerUndoable now.
-  
+
   pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), empty, TheKey_objectSoundAmbientVolume, m_allSelectedDicts.size(), pDoc, false);
   ownerUndoable->addUndoable(pUndo);
   REF_PTR_RELEASE(pUndo); // belongs to ownerUndoable now.
-  
+
   pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), empty, TheKey_objectSoundAmbientMinRange, m_allSelectedDicts.size(), pDoc, false);
   ownerUndoable->addUndoable(pUndo);
   REF_PTR_RELEASE(pUndo); // belongs to ownerUndoable now.
@@ -1791,7 +1791,7 @@ void MapObjectProps::attachedSoundToDict(void)
     return;
 
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
@@ -1836,14 +1836,14 @@ void MapObjectProps::customizeToDict(void)
   CButton * customizeCheckbox = (CButton *)GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
- 
+
     // For space reasons, erase key instead of added "false" key. Should be treated the same
     if ( customizeCheckbox->GetCheck() == 1 )
     {
@@ -1860,7 +1860,7 @@ void MapObjectProps::customizeToDict(void)
       pDoc->AddAndDoUndoable( pUndo );
       REF_PTR_RELEASE( pUndo ); // belongs to pDoc now.
       // Update is called by Doc
-    }    
+    }
   }
 }
 
@@ -1870,16 +1870,16 @@ void MapObjectProps::enabledToDict(void)
   CButton * enabledCheckbox = (CButton *)GetDlgItem(IDC_ENABLED_CHECKBOX);
   if ( enabledCheckbox == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     newDict.setBool( TheKey_objectSoundAmbientEnabled, enabledCheckbox->GetCheck() != 0 );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -1893,16 +1893,16 @@ void MapObjectProps::loopingToDict(void)
   CButton * loopingCheckbox = (CButton *)GetDlgItem(IDC_LOOPING_CHECKBOX);
   if ( loopingCheckbox == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     newDict.setBool( TheKey_objectSoundAmbientLooping, loopingCheckbox->GetCheck() != 0 );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -1916,9 +1916,9 @@ void MapObjectProps::loopCountToDict(void)
   CEdit * loopCountEdit = (CEdit *)GetDlgItem(IDC_LOOPCOUNT_EDIT);
   if ( loopCountEdit == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
@@ -1926,9 +1926,9 @@ void MapObjectProps::loopCountToDict(void)
 
     CString loopCountString;
     loopCountEdit->GetWindowText(loopCountString);
-    
+
     newDict.setInt( TheKey_objectSoundAmbientLoopCount, atoi( loopCountString ) );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -1942,20 +1942,20 @@ void MapObjectProps::minVolumeToDict(void)
   CEdit * minVolumeEdit = (CEdit *)GetDlgItem(IDC_MIN_VOLUME_EDIT);
   if ( minVolumeEdit == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     CString minVolumeString;
     minVolumeEdit->GetWindowText(minVolumeString);
-    
+
     // Note: min volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
     newDict.setReal( TheKey_objectSoundAmbientMinVolume, INT_TO_REAL( atoi( minVolumeString ) ) / 100.0f );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -1969,20 +1969,20 @@ void MapObjectProps::volumeToDict(void)
   CEdit * volumeEdit = (CEdit *)GetDlgItem(IDC_VOLUME_EDIT);
   if ( volumeEdit == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     CString volumeString;
     volumeEdit->GetWindowText(volumeString);
-  
+
     // Note: volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
     newDict.setReal( TheKey_objectSoundAmbientVolume, INT_TO_REAL( atoi( volumeString ) ) / 100.0f );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -1997,19 +1997,19 @@ void MapObjectProps::minRangeToDict(void)
   CEdit * minRangeEdit = (CEdit *)GetDlgItem(IDC_MIN_RANGE_EDIT);
   if ( minRangeEdit == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     CString minRangeString;
     minRangeEdit->GetWindowText(minRangeString);
-    
+
     newDict.setReal( TheKey_objectSoundAmbientMinRange, INT_TO_REAL( atoi( minRangeString ) ) );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -2023,19 +2023,19 @@ void MapObjectProps::maxRangeToDict(void)
   CEdit * maxRangeEdit = (CEdit *)GetDlgItem(IDC_MAX_RANGE_EDIT);
   if ( maxRangeEdit == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     CString maxRangeString;
     maxRangeEdit->GetWindowText(maxRangeString);
-    
+
     newDict.setReal( TheKey_objectSoundAmbientMaxRange, INT_TO_REAL( atoi( maxRangeString ) ) );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -2049,16 +2049,16 @@ void MapObjectProps::priorityToDict(void)
   CComboBox * priorityComboBox = (CComboBox *)GetDlgItem(IDC_PRIORITY_COMBO);
   if ( priorityComboBox == NULL )
     return;
-  
+
   getAllSelectedDicts();
-  
+
   CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
   if ( pDoc != NULL )
   {
     Dict newDict;
-    
+
     newDict.setInt( TheKey_objectSoundAmbientPriority, priorityComboBox->GetCurSel() );
-    
+
     DictItemUndoable *pUndo = new DictItemUndoable(m_allSelectedDicts.begin(), newDict, newDict.getNthKey(0), m_allSelectedDicts.size(), pDoc, true);
     pDoc->AddAndDoUndoable(pUndo);
     REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
@@ -2073,7 +2073,7 @@ void MapObjectProps::dictToAttachedSound()
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
     return;
-  
+
   // Update the string for the "default" entry
   m_defaultIsNone = true;
   m_defaultEntryName = NO_SOUND_STRING;
@@ -2089,7 +2089,7 @@ void MapObjectProps::dictToAttachedSound()
     AsciiString string( BASE_DEFAULT_STRING );
 
     const AudioEventRTS * defaultAudioEvent;
-    
+
     // Note: getSoundAmbient will return a non-NULL pointer even if there is no real sound attached to the object
     if ( thingTemplate->hasSoundAmbient() )
     {
@@ -2122,7 +2122,7 @@ void MapObjectProps::dictToAttachedSound()
   // Now select the correct entry in the list box
   AsciiString sound;
   Bool exists = false;
-  if (m_dictToEdit) 
+  if (m_dictToEdit)
   {
     sound = m_dictToEdit->getAsciiString(TheKey_objectSoundAmbient, &exists);
   }
@@ -2134,7 +2134,7 @@ void MapObjectProps::dictToAttachedSound()
     return;
   }
 
-  if ( sound.isEmpty() )  
+  if ( sound.isEmpty() )
   {
     // Use the entry "(None)"
     sound = NO_SOUND_STRING;
@@ -2181,12 +2181,12 @@ void MapObjectProps::dictToCustomize()
 
   Bool exists = false;
   Bool customized = false;
-  if (m_dictToEdit) 
+  if (m_dictToEdit)
   {
     customized = m_dictToEdit->getBool(TheKey_objectSoundAmbientCustomized, &exists);
   }
 
-  customizeCheckbox->SetCheck( exists && customized ? 1 : 0 ); 
+  customizeCheckbox->SetCheck( exists && customized ? 1 : 0 );
 }
 
 
@@ -2206,27 +2206,27 @@ void MapObjectProps::dictToLooping()
   else
   {
     loopingCheckbox->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the looping flag has already been
     // customized
     Bool exists = false;
     Bool looping = false;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       looping = m_dictToEdit->getBool(TheKey_objectSoundAmbientLooping, &exists);
     }
-    
+
     if ( exists )
     {
       loopingCheckbox->SetCheck( looping ? 1 : 0 );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
 
   // If we get here, we need the default for the looping checkbox
-  
+
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
   {
@@ -2234,7 +2234,7 @@ void MapObjectProps::dictToLooping()
     return;
   }
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2248,9 +2248,9 @@ void MapObjectProps::dictToLooping()
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   loopingCheckbox->SetCheck( ( audioEventInfo && ( audioEventInfo->m_control & AC_LOOP ) ) ? 1 : 0 );
 }
 
@@ -2260,7 +2260,7 @@ void MapObjectProps::dictToLoopCount()
   CEdit * loopCountEdit = ( CEdit * )GetDlgItem(IDC_LOOPCOUNT_EDIT);
   if ( loopCountEdit == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   // If the looping checkbox is off, the loop count control is disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
@@ -2273,29 +2273,29 @@ void MapObjectProps::dictToLoopCount()
   else
   {
     loopCountEdit->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the loop count has already been
     // customized
     Bool exists = false;
     Int loopCount = 0;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       loopCount = m_dictToEdit->getInt(TheKey_objectSoundAmbientLoopCount, &exists);
     }
-    
+
     if ( exists )
     {
       CString loopCountText;
       loopCountText.Format( "%d", loopCount );
       loopCountEdit->SetWindowText( loopCountText );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the loop count
-  
+
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
   {
@@ -2304,7 +2304,7 @@ void MapObjectProps::dictToLoopCount()
   }
 
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2312,13 +2312,13 @@ void MapObjectProps::dictToLoopCount()
     loopCountEdit->SetWindowText( "0" );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
 
   if ( audioEventInfo == NULL )
@@ -2326,7 +2326,7 @@ void MapObjectProps::dictToLoopCount()
     loopCountEdit->SetWindowText( "0" );
     return;
   }
-  
+
   CString loopCountText;
   loopCountText.Format( "%d", audioEventInfo->m_loopCount );
   loopCountEdit->SetWindowText( loopCountText );
@@ -2366,7 +2366,7 @@ void MapObjectProps::dictToEnabled()
     // Look to see if the enabled flag has already been customized
     Bool exists = false;
     Bool enabled = false;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       enabled = m_dictToEdit->getBool(TheKey_objectSoundAmbientEnabled, &exists);
     }
@@ -2376,14 +2376,14 @@ void MapObjectProps::dictToEnabled()
       enableCheckbox->SetCheck( enabled ? 1 : 0 );
 
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
 
   // If we get here, we need the default for the enabled checkbox
 
   // Look up sound and see if it's looping. Looping-forever sounds start enabled;
-  // non-looping ones don't. 
+  // non-looping ones don't.
   // Actually, by now, dictToLooping and dictToLoopCount will have looked up the
   // info we need for us
   // NOTE: This test should match the tests done in Object::updateObjValuesFromMapProperties()
@@ -2412,7 +2412,7 @@ void MapObjectProps::dictToMinVolume()
   CEdit * minVolumeEdit = ( CEdit * )GetDlgItem(IDC_MIN_VOLUME_EDIT);
   if ( minVolumeEdit == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL || customizeCheckbox->GetCheck() == 0 )
@@ -2422,28 +2422,28 @@ void MapObjectProps::dictToMinVolume()
   else
   {
     minVolumeEdit->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the minimum volume has already been
     // customized
     Bool exists = false;
     Real minVolume = 0.0f;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       minVolume = m_dictToEdit->getReal(TheKey_objectSoundAmbientMinVolume, &exists);
     }
-    
+
     if ( exists )
     {
       // Note: min volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
       CString minVolumeText;
       minVolumeText.Format( "%d", REAL_TO_INT( ( minVolume * 100.0f ) + 0.5 ) );
       minVolumeEdit->SetWindowText( minVolumeText );
-            
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the minimum volume
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
@@ -2451,9 +2451,9 @@ void MapObjectProps::dictToMinVolume()
     minVolumeEdit->SetWindowText( "40" );
     return;
   }
-  
+
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2461,21 +2461,21 @@ void MapObjectProps::dictToMinVolume()
     minVolumeEdit->SetWindowText( "40" );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   if ( audioEventInfo == NULL )
   {
     minVolumeEdit->SetWindowText( "40" );
     return;
   }
-  
+
   // Note: min volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
   CString minVolumeText;
   minVolumeText.Format( "%d", REAL_TO_INT( ( audioEventInfo->m_minVolume * 100.0f ) + 0.5 ) );
@@ -2488,7 +2488,7 @@ void MapObjectProps::dictToVolume()
   CEdit * volumeEdit = ( CEdit * )GetDlgItem(IDC_VOLUME_EDIT);
   if ( volumeEdit == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL || customizeCheckbox->GetCheck() == 0 )
@@ -2498,28 +2498,28 @@ void MapObjectProps::dictToVolume()
   else
   {
     volumeEdit->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the volume has already been
     // customized
     Bool exists = false;
     Real volume = 0.0f;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       volume = m_dictToEdit->getReal(TheKey_objectSoundAmbientVolume, &exists);
     }
-    
+
     if ( exists )
     {
       // Note: min volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
       CString volumeText;
       volumeText.Format( "%d", REAL_TO_INT( ( volume * 100.0f ) + 0.5 ) );
       volumeEdit->SetWindowText( volumeText );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the volume
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
@@ -2527,9 +2527,9 @@ void MapObjectProps::dictToVolume()
     volumeEdit->SetWindowText( "100" );
     return;
   }
-  
+
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2537,7 +2537,7 @@ void MapObjectProps::dictToVolume()
     volumeEdit->SetWindowText( "100" );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
@@ -2545,13 +2545,13 @@ void MapObjectProps::dictToVolume()
   }
 
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   if ( audioEventInfo == NULL )
   {
     volumeEdit->SetWindowText( "100" );
     return;
   }
-  
+
   // Note: volume is stored as Real between 0.0 and 1.0, but displayed as a percentage from 0 to 100
   CString volumeText;
   volumeText.Format( "%d", REAL_TO_INT( ( audioEventInfo->m_volume * 100.0f ) + 0.5 ) );
@@ -2565,7 +2565,7 @@ void MapObjectProps::dictToMinRange()
   CEdit * minRangeEdit = ( CEdit * )GetDlgItem(IDC_MIN_RANGE_EDIT);
   if ( minRangeEdit == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL || customizeCheckbox->GetCheck() == 0 )
@@ -2575,27 +2575,27 @@ void MapObjectProps::dictToMinRange()
   else
   {
     minRangeEdit->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the minimum range has already been
     // customized
     Bool exists = false;
     Real minRange = 0.0f;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       minRange = m_dictToEdit->getReal(TheKey_objectSoundAmbientMinRange, &exists);
     }
-    
+
     if ( exists )
     {
       CString minRangeText;
       minRangeText.Format( "%d", REAL_TO_INT(minRange) );
       minRangeEdit->SetWindowText( minRangeText );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the minimum range
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
@@ -2603,9 +2603,9 @@ void MapObjectProps::dictToMinRange()
     minRangeEdit->SetWindowText( "175" );
     return;
   }
-  
+
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2613,21 +2613,21 @@ void MapObjectProps::dictToMinRange()
     minRangeEdit->SetWindowText( "175" );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   if ( audioEventInfo == NULL )
   {
     minRangeEdit->SetWindowText( "175" );
     return;
   }
-  
+
   CString minRangeText;
   minRangeText.Format( "%d", REAL_TO_INT( audioEventInfo->m_minDistance ) );
   minRangeEdit->SetWindowText( minRangeText );
@@ -2640,7 +2640,7 @@ void MapObjectProps::dictToMaxRange()
   CEdit * maxRangeEdit = ( CEdit * )GetDlgItem(IDC_MAX_RANGE_EDIT);
   if ( maxRangeEdit == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL || customizeCheckbox->GetCheck() == 0 )
@@ -2650,27 +2650,27 @@ void MapObjectProps::dictToMaxRange()
   else
   {
     maxRangeEdit->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the maximum range has already been
     // customized
     Bool exists = false;
     Real maxRange = 0.0f;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       maxRange = m_dictToEdit->getReal(TheKey_objectSoundAmbientMaxRange, &exists);
     }
-    
+
     if ( exists )
     {
       CString maxRangeText;
       maxRangeText.Format( "%d", REAL_TO_INT( maxRange ) );
       maxRangeEdit->SetWindowText( maxRangeText );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the minimum range
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
@@ -2678,9 +2678,9 @@ void MapObjectProps::dictToMaxRange()
     maxRangeEdit->SetWindowText( "600" );
     return;
   }
-  
+
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2688,21 +2688,21 @@ void MapObjectProps::dictToMaxRange()
     maxRangeEdit->SetWindowText( "600" );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   if ( audioEventInfo == NULL )
   {
     maxRangeEdit->SetWindowText( "600" );
     return;
   }
-  
+
   CString maxRangeText;
   maxRangeText.Format( "%d", REAL_TO_INT( audioEventInfo->m_maxDistance ) );
   maxRangeEdit->SetWindowText( maxRangeText );
@@ -2714,7 +2714,7 @@ void MapObjectProps::dictToPriority()
   CComboBox * priorityComboBox = ( CComboBox * )GetDlgItem(IDC_PRIORITY_COMBO);
   if ( priorityComboBox == NULL )
     return;
-  
+
   // If the customized checkbox is off, all customization controls are disabled
   CButton * customizeCheckbox = ( CButton * )GetDlgItem(IDC_CUSTOMIZE_CHECKBOX);
   if ( customizeCheckbox == NULL || customizeCheckbox->GetCheck() == 0 )
@@ -2724,16 +2724,16 @@ void MapObjectProps::dictToPriority()
   else
   {
     priorityComboBox->EnableWindow( true );
-    
+
     // If customization is enabled, look to see if the maximum range has already been
     // customized
     Bool exists = false;
     Int priorityEnum = AP_LOWEST;
-    if (m_dictToEdit) 
+    if (m_dictToEdit)
     {
       priorityEnum = m_dictToEdit->getInt(TheKey_objectSoundAmbientPriority, &exists);
     }
-    
+
     if ( exists )
     {
       if ( priorityEnum < 0 || priorityEnum > AP_CRITICAL )
@@ -2744,12 +2744,12 @@ void MapObjectProps::dictToPriority()
 
       // Note: indexes of priority combobox map to priority enum
       priorityComboBox->SetCurSel( priorityEnum );
-      
+
       // Don't use defaults, just return
-      return; 
+      return;
     }
   }
-  
+
   // If we get here, we need the default for the priority
   CComboBox * soundComboBox = (CComboBox *)GetDlgItem(IDC_SOUND_COMBO);
   if ( soundComboBox == NULL )
@@ -2757,9 +2757,9 @@ void MapObjectProps::dictToPriority()
     priorityComboBox->SetCurSel( AP_LOWEST );
     return;
   }
-  
+
   Int index = soundComboBox->GetCurSel();
-  
+
   CString currentString;
   soundComboBox->GetLBText( index, currentString );
   if ( currentString == NO_SOUND_STRING || ( index == m_defaultEntryIndex && m_defaultIsNone ) )
@@ -2767,21 +2767,21 @@ void MapObjectProps::dictToPriority()
     priorityComboBox->SetCurSel( AP_LOWEST );
     return;
   }
-  
+
   if ( index == m_defaultEntryIndex )
   {
     // Correct the current string e.g. remove "Default <" and ">"
     currentString = m_defaultEntryName.str();
   }
-  
+
   AudioEventInfo * audioEventInfo = TheAudio->findAudioEventInfo(static_cast< const char * >( currentString ) );
-  
+
   if ( audioEventInfo == NULL )
   {
     priorityComboBox->SetCurSel( AP_LOWEST );
     return;
   }
-  
+
   priorityComboBox->SetCurSel( audioEventInfo->m_priority );
 }
 
@@ -2804,13 +2804,13 @@ void MapObjectProps::enableButtons()
 
 /*static*/ MapObject *MapObjectProps::getSingleSelectedMapObject(void)
 {
-	MapObject *pMapObj; 
-	MapObject *theMapObj = NULL; 
+	MapObject *pMapObj;
+	MapObject *theMapObj = NULL;
 //	Bool found = false;
 	Int selCount=0;
 	for (pMapObj = MapObject::getFirstMapObject(); pMapObj; pMapObj = pMapObj->getNext()) {
 		if (pMapObj->isSelected()) {
-			if (!pMapObj->isWaypoint() && !pMapObj->isLight()) 
+			if (!pMapObj->isWaypoint() && !pMapObj->isLight())
 			{
 				theMapObj = pMapObj;
 			}
@@ -2870,19 +2870,19 @@ void MapObjectProps::getAllSelectedDicts(void)
 
 
 /// Move data from dialog controls to object
-void MapObjectProps::OnScaleOn() 
+void MapObjectProps::OnScaleOn()
 {
   _ScaleToDict();
 }
 
 /// Move data from dialog controls to object
-void MapObjectProps::OnScaleOff() 
+void MapObjectProps::OnScaleOff()
 {
   _ScaleToDict();
 }
 
 /// Move data from dialog controls to object
-void MapObjectProps::OnKillfocusMAPOBJECTXYPosition() 
+void MapObjectProps::OnKillfocusMAPOBJECTXYPosition()
 {
   SetPosition();
 }

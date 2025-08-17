@@ -47,7 +47,7 @@ void INI::parseMusicTrackDefinition( INI* ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	track = TheAudio->newAudioEventInfo( name );
 	if (!track) {
@@ -75,7 +75,7 @@ void INI::parseAudioEventDefinition( INI* ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	track = TheAudio->newAudioEventInfo( name );
 	if (!track) {
@@ -102,7 +102,7 @@ void INI::parseDialogDefinition( INI* ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	track = TheAudio->newAudioEventInfo( name );
 	if (!track) {
@@ -127,7 +127,7 @@ static void parseDelay( INI* ini, void *instance, void *store, const void* /*use
 static void parsePitchShift( INI* ini, void *instance, void *store, const void* /*userData*/ );
 
 //-------------------------------------------------------------------------------------------------
-const FieldParse AudioEventInfo::m_audioEventInfo[] = 
+const FieldParse AudioEventInfo::m_audioEventInfo[] =
 {
 	{ "Filename",							INI::parseAsciiString,		NULL,								offsetof( AudioEventInfo, m_filename) },
 	{ "Volume",								INI::parsePercentToReal,	NULL,								offsetof( AudioEventInfo, m_volume ) },
@@ -179,7 +179,7 @@ static void parsePitchShift( INI* ini, void *instance, void *store, const void* 
 
 // STATIC DEFINIITIONS ////////////////////////////////////////////////////////////////////////////
 
-char *theAudioPriorityNames[] = 
+char *theAudioPriorityNames[] =
 {
 	"LOWEST",
 	"LOW",
@@ -189,8 +189,8 @@ char *theAudioPriorityNames[] =
 	NULL
 };
 
-char *theSoundTypeNames[] = 
-{ 
+char *theSoundTypeNames[] =
+{
 	"UI",
 	"WORLD",
 	"SHROUDED",
@@ -203,7 +203,7 @@ char *theSoundTypeNames[] =
 	NULL
 };
 
-char *theAudioControlNames[] = 
+char *theAudioControlNames[] =
 {
 	"LOOP",
 	"RANDOM",

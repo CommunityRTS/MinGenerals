@@ -78,7 +78,7 @@ class TextureClass;
 class DecalMeshClass : public RefCountClass
 {
 public:
-	
+
 	DecalMeshClass(MeshClass * parent,DecalSystemClass * system);
 	virtual ~DecalMeshClass(void);
 
@@ -105,7 +105,7 @@ public:
 	void														Set_Next_Visible(DecalMeshClass * mesh) { NextVisible = mesh; }
 
 protected:
-	
+
 	/*
 	** Members
 	*/
@@ -123,7 +123,7 @@ protected:
 class RigidDecalMeshClass : public DecalMeshClass
 {
 public:
-	
+
 	RigidDecalMeshClass(MeshClass * parent,DecalSystemClass * system);
 	virtual ~RigidDecalMeshClass(void);
 
@@ -168,14 +168,14 @@ protected:
 	** Decal Organization
 	*/
 	struct DecalStruct
-	{	
+	{
 		uint32	DecalID;
 		uint16	VertexStartIndex;
 		uint16	VertexCount;
 		uint16	FaceStartIndex;
 		uint16	FaceCount;
 	};
-	
+
 	SimpleDynVecClass<DecalStruct>					Decals;
 };
 
@@ -188,7 +188,7 @@ protected:
 class SkinDecalMeshClass : public DecalMeshClass
 {
 public:
-	
+
 	SkinDecalMeshClass(MeshClass * parent,DecalSystemClass * system);
 	virtual ~SkinDecalMeshClass(void);
 
@@ -232,14 +232,14 @@ protected:
 	** Decal Organization
 	*/
 	struct DecalStruct
-	{	
+	{
 		uint32	DecalID;
 		uint16	VertexStartIndex;
 		uint16	VertexCount;
 		uint16	FaceStartIndex;
 		uint16	FaceCount;
 	};
-	
+
 	SimpleDynVecClass<DecalStruct>					Decals;
 };
 

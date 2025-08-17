@@ -98,7 +98,7 @@ StringClass::Get_String (int length, bool is_temp)
 			unsigned mask=1<<index;
 			if (!(ReservedMask&mask)) {
 				ReservedMask|=mask;
-				
+
 				//
 				//	Grab this unused buffer for our string
 				//
@@ -163,7 +163,7 @@ StringClass::Uninitialised_Grow (int new_len)
 
 	int allocated_len = Get_Allocated_Length ();
 	if (new_len > allocated_len) {
-		
+
 		//
 		//	Switch to a newly allocated buffer
 		//
@@ -240,10 +240,10 @@ StringClass::Format_Args (const TCHAR *format, const va_list & arg_list )
 	#else
 		retval = _vsnprintf (temp_buffer, 512, format, arg_list);
 	#endif
-	
+
 	//
 	//	Copy the string into our buffer
-	//	
+	//
 	(*this) = temp_buffer;
 
 	return retval;
@@ -275,10 +275,10 @@ StringClass::Format (const TCHAR *format, ...)
 	#else
 		retval = _vsnprintf (temp_buffer, 512, format, arg_list);
 	#endif
-	
+
 	//
 	//	Copy the string into our buffer
-	//	
+	//
 	(*this) = temp_buffer;
 
 	va_end (arg_list);

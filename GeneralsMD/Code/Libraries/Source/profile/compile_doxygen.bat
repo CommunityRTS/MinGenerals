@@ -2,7 +2,7 @@
 
 rem
 rem This batch file generates DoxyGen info and compiles the separate
-rem HTML files into CHMs. 
+rem HTML files into CHMs.
 rem
 rem Assumptions:
 rem ------------

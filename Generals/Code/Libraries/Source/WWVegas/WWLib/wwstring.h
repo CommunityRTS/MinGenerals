@@ -82,7 +82,7 @@ public:
 
 	////////////////////////////////////////////////////////////
 	//	Public operators
-	////////////////////////////////////////////////////////////	
+	////////////////////////////////////////////////////////////
 	bool operator== (const TCHAR *rvalue) const;
 	bool operator!= (const TCHAR *rvalue) const;
 
@@ -112,7 +112,7 @@ public:
 	////////////////////////////////////////////////////////////
 	int			Compare (const TCHAR *string) const;
 	int			Compare_No_Case (const TCHAR *string) const;
-	
+
 	inline int	Get_Length (void) const;
 	bool			Is_Empty (void) const;
 
@@ -190,14 +190,14 @@ private:
 ///////////////////////////////////////////////////////////////////
 inline const StringClass &
 StringClass::operator= (const StringClass &string)
-{	
+{
 //	return operator= ((const TCHAR *)string);
 
 	int len = string.Get_Length();
 	Uninitialised_Grow(len+1);
 	Store_Length(len);
 
-	::memcpy (m_Buffer, string.m_Buffer, (len+1) * sizeof (TCHAR));		
+	::memcpy (m_Buffer, string.m_Buffer, (len+1) * sizeof (TCHAR));
 	return (*this);
 
 }
@@ -214,7 +214,7 @@ StringClass::operator= (const TCHAR *string)
 		Uninitialised_Grow (len+1);
 		Store_Length (len);
 
-		::memcpy (m_Buffer, string, (len + 1) * sizeof (TCHAR));		
+		::memcpy (m_Buffer, string, (len + 1) * sizeof (TCHAR));
 	}
 
 	return (*this);
@@ -435,7 +435,7 @@ StringClass::Erase (int start_index, int char_count)
 	int len = Get_Length ();
 
 	if (start_index < len) {
-		
+
 		if (start_index + char_count > len) {
 			char_count = len - start_index;
 		}
@@ -486,7 +486,7 @@ StringClass::operator+= (TCHAR ch)
 
 	m_Buffer[cur_len]			= ch;
 	m_Buffer[cur_len + 1]	= m_NullChar;
-	
+
 	if (ch != m_NullChar) {
 		Store_Length (cur_len + 1);
 	}
@@ -543,7 +543,7 @@ StringClass::operator+= (const StringClass &string)
 		//
 		//	Copy the new string onto our the end of our existing buffer
 		//
-		::memcpy (&m_Buffer[cur_len], (const TCHAR *)string, (src_len + 1) * sizeof (TCHAR));				
+		::memcpy (&m_Buffer[cur_len], (const TCHAR *)string, (src_len + 1) * sizeof (TCHAR));
 	}
 
 	return (*this);
@@ -595,9 +595,9 @@ StringClass::Get_Allocated_Length (void) const
 	//
 	//	Read the allocated length from the header
 	//
-	if (m_Buffer != m_EmptyString) {		
+	if (m_Buffer != m_EmptyString) {
 		HEADER *header		= Get_Header ();
-		allocated_length	= header->allocated_length;		
+		allocated_length	= header->allocated_length;
 	}
 
 	return allocated_length;
@@ -617,13 +617,13 @@ StringClass::Get_Length (void) const
 	int length = 0;
 
 	if (m_Buffer != m_EmptyString) {
-		
+
 		//
 		//	Read the length from the header
 		//
 		HEADER *header	= Get_Header ();
 		length			= header->length;
-		
+
 		//
 		//	Hmmm, a zero length was stored in the header,
 		// we better manually get the string length.
@@ -654,7 +654,7 @@ StringClass::Set_Buffer_And_Allocated_Length (TCHAR *buffer, int length)
 	//
 	if (m_Buffer != m_EmptyString) {
 		Store_Allocated_Length (length);
-		Store_Length (0);		
+		Store_Length (0);
 	} else {
 		WWASSERT (length == 0);
 	}
@@ -673,7 +673,7 @@ StringClass::Allocate_Buffer (int length)
 	// bytes required to hold the header.
 	//
 	char *buffer = W3DNEWARRAY char[(sizeof (TCHAR) * length) + sizeof (StringClass::_HEADER)];
-	
+
 	//
 	//	Fill in the fields of the header
 	//

@@ -216,7 +216,7 @@ void	AudioLevelSetDuration ( AudioLevel *level, TimeStamp time, int range )
 int		AudioLevelUpdate ( AudioLevel *level )
 {
 	int	dif;
-	int	delta;	//  amount to move by this update 
+	int	delta;	//  amount to move by this update
 	TimeStamp	time, thisTime;
 
 
@@ -231,17 +231,17 @@ int		AudioLevelUpdate ( AudioLevel *level )
 		else
 		{
 
-			//  calculate what the delta change is for this update 
+			//  calculate what the delta change is for this update
 			thisTime = AudioGetTime ( ) ;
 			time = thisTime - level->lastTime;
-			level->lastTime = thisTime;	//  remember time of this update 
-			
-			//  the next check avoid overflowing the delta 
+			level->lastTime = thisTime;	//  remember time of this update
+
+			//  the next check avoid overflowing the delta
 			if (time > level->duration)
 			{
 				time = level->duration;
 			}
-			
+
 			delta = level->change * (uint) time;
 
 			if (dif<0)
@@ -267,12 +267,12 @@ int		AudioLevelUpdate ( AudioLevel *level )
 				}
 			}
 		}
-		//  there was a change in the level 
+		//  there was a change in the level
 		level->flags |= AUDIO_LEVEL_CHANGED;
 		return TRUE;
 	}
 
-	//  there has been no change this update 
+	//  there has been no change this update
 	return FALSE;
 }
 

@@ -43,7 +43,7 @@
 **            Includes                                                      **
 *****************************************************************************/
 
-#include <wpaudio/altypes.h>						
+#include <wpaudio/altypes.h>
 #include <wpaudio/level.h>
 #include <wpaudio/attributes.h>
 
@@ -162,7 +162,7 @@ void			AudioAttribsApply ( AudioAttribs *attr, AudioAttribs *mod )
 	AudioLevelUpdate ( &attr->VolumeLevel );
 
 	{
-		//  apply pitch 
+		//  apply pitch
 		int	level;
 		int	change;
 
@@ -178,7 +178,7 @@ void			AudioAttribsApply ( AudioAttribs *attr, AudioAttribs *mod )
 	}
 
 	{
-		//  apply pan 
+		//  apply pan
 		int	pos;
 
 		if ( (pos = AudioAttribsGetPan ( mod ) - AUDIO_PAN_CENTER) != 0 )

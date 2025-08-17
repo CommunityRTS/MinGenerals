@@ -176,7 +176,7 @@ static Int getTotalDisconnectsFromFile(Int playerID)
 		retval += atoi(pref.find("5")->second.str());
 	}
 
-	return retval;	
+	return retval;
 }
 
 Int GetAdditionalDisconnectsFromUserFile(Int playerID)
@@ -451,7 +451,7 @@ void BattleHonorTooltip(GameWindow *window,
 		else if(BitTest(battleHonor, BATTLE_HONOR_CHALLENGE))
 			TheMouse->setCursorTooltip( TheGameText->fetch("TOOLTIP:BattleHonorChallenge"), -1, NULL, tooltipWidth );
 	}
-	
+
 }
 
 static Int rowsToSkip = 0;
@@ -471,7 +471,7 @@ void InsertBattleHonor(GameWindow *list, const Image *image, Bool enabled, Int i
 		color = enabledColor;
 	else
 		color = disabledColor;
-	
+
 	if (!enabled)
 		itemData |= BATTLE_HONOR_NOT_GAINED;
 
@@ -681,7 +681,7 @@ Int GetFavoriteSide( const PSPlayerStats& stats )
 
 Int CalculateRank( const PSPlayerStats& stats )
 {
-	if(stats.id == 0 || !TheRankPointValues)	
+	if(stats.id == 0 || !TheRankPointValues)
 		return 0;
 	PerGeneralMap::const_iterator it;
 	Int rankPoints = 0;
@@ -692,7 +692,7 @@ Int CalculateRank( const PSPlayerStats& stats )
 		numGames += it->second;
 	}
 	rankPoints += (numGames * TheRankPointValues->m_winMultiplier);
-	
+
 	numGames = 0;
 	for(it =stats.losses.begin(); it != stats.losses.end(); ++it)
 	{
@@ -760,7 +760,7 @@ void PopulatePlayerInfoWindows( AsciiString parentWindowName )
 
 		weHaveStats = TRUE;
 	}
-	
+
 	Int currentRank = 0;
 	Int rankPoints = CalculateRank(stats);
 	Int i = 0;
@@ -793,7 +793,7 @@ void PopulatePlayerInfoWindows( AsciiString parentWindowName )
 	numDiscons += GetAdditionalDisconnectsFromUserFile(lookupID);
 
 	numGames = numWins + numLosses + numDiscons;
-	
+
 	GameWindow *win = NULL;
 	UnicodeString uStr;
 	win = findWindow(NULL, parentWindowName, "StaticTextPlayerStatisticsLabel");
@@ -871,17 +871,17 @@ void PopulatePlayerInfoWindows( AsciiString parentWindowName )
 			}
 		}
 		if(numGames == 0)
-			GadgetStaticTextSetText(win, TheGameText->fetch("GUI:None"));	
+			GadgetStaticTextSetText(win, TheGameText->fetch("GUI:None"));
 		else if( stats.gamesAsRandom >= numGames )
-			GadgetStaticTextSetText(win, TheGameText->fetch("GUI:Random"));	
+			GadgetStaticTextSetText(win, TheGameText->fetch("GUI:Random"));
 		else
-		{		
+		{
 			const PlayerTemplate *fac = ThePlayerTemplateStore->getNthPlayerTemplate(favorite);
 			if (fac)
 			{
 				AsciiString side;
 				side.format("SIDE:%s", fac->getSide().str());
-				
+
 				GadgetStaticTextSetText(win, TheGameText->fetch(side));
 
 				favoriteSide = fac->getSide();
@@ -1005,7 +1005,7 @@ void PopulatePlayerInfoWindows( AsciiString parentWindowName )
 			GadgetStaticTextSetText(win, TheGameText->fetch("GUI:FetchingPlayerInfo"));
 		}
 	}
-	
+
 	win = findWindow(NULL, parentWindowName, "ListboxInfo");
 	if(win)
 	{
@@ -1109,7 +1109,7 @@ void HandlePersistentStorageResponses( void )
 					DEBUG_LOG(("PopulatePlayerInfoWindows() - lookAtPlayerID is %d, got %d\n", lookAtPlayerID, resp.player.id));
 					PopulatePlayerInfoWindows("PopupPlayerInfo.wnd");
 					//GadgetListBoxAddEntryText(listboxInfo, UnicodeString(L"Got info!"), GameSpyColor[GSCOLOR_DEFAULT], -1);
-					
+
 					// also update info for player list in lobby
 					PlayerInfoMap::iterator it = TheGameSpyInfo->getPlayerInfoMap()->begin();
 					while (it != TheGameSpyInfo->getPlayerInfoMap()->end())
@@ -1281,7 +1281,7 @@ void GameSpyPlayerInfoOverlayUpdate( WindowLayout * layout, void *userData)
 WindowMsgHandledType GameSpyPlayerInfoOverlayInput( GameWindow *window, UnsignedInt msg,
 																			 WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -1296,14 +1296,14 @@ WindowMsgHandledType GameSpyPlayerInfoOverlayInput( GameWindow *window, Unsigned
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
 					//
 					if( BitTest( state, KEY_STATE_UP ) )
 					{
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																							(WindowMsgData)buttonClose, buttonCloseID );
 
 					}  // end if
@@ -1325,18 +1325,18 @@ void messageBoxYes( void );
 //-------------------------------------------------------------------------------------------------
 /** Overlay window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, UnsignedInt msg,
 														 WindowMsgData mData1, WindowMsgData mData2 )
 {
 	UnicodeString txtInput;
 
 	switch( msg )
 	{
-		
-		
+
+
 		case GWM_CREATE:
 			{
-				
+
 				break;
 			} // case GWM_DESTROY:
 
@@ -1346,7 +1346,7 @@ WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, Unsigne
 			} // case GWM_DESTROY:
 
 		case GWM_INPUT_FOCUS:
-			{	
+			{
 				// if we're givin the opportunity to take the keyboard focus we must say we want it
 				if( mData1 == TRUE )
 					*(Bool *)mData2 = TRUE;
@@ -1413,7 +1413,7 @@ WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, Unsigne
 					Bool isChecked = !GadgetCheckBoxIsChecked(control);
 					CustomMatchPreferences pref;
 					pref.setDisallowNonAsianText(isChecked);
-					pref.write();				
+					pref.write();
 					if(TheGameSpyInfo)
 						TheGameSpyInfo->setDisallowNonAsianText(isChecked);
 					if(isChecked && !GadgetCheckBoxIsChecked(checkBoxAsianFont))
@@ -1429,7 +1429,7 @@ WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, Unsigne
 
 				break;
 			}// case GBM_SELECTED:
-	
+
 		default:
 			return MSG_IGNORED;
 
@@ -1444,5 +1444,5 @@ static void messageBoxYes( void )
 	breq.buddyRequestType = BuddyRequest::BUDDYREQUEST_DELETEACCT;
 	TheGameSpyBuddyMessageQueue->addRequest( breq );
 	TheGameSpyInfo->setLocalProfileID(0);
-	
+
 }

@@ -134,7 +134,7 @@ static TimeStamp failsafeGetTime( void )
 					unsigned int					now, lw, hw, called;
 	static	volatile unsigned int	calls = 0;
 
-		
+
 	calls++;
 
 retry:
@@ -144,7 +144,7 @@ retry:
 	hw = *ph;	// read high word of time stamp
 	lw = *pl;	// read low word of time stamp
 
-	if ( called != calls)	
+	if ( called != calls)
 	{
 		// AudioGetTime() has been re-entered. Cannot trust lw and lh values
 		goto retry;

@@ -310,8 +310,8 @@ const Vector2 DazzleINIClass::Get_Vector2(char const *section, char const *entry
 	}
 	return defvalue;
 }
-	
-const Vector3 DazzleINIClass::Get_Vector3(char const *section, char const * entry, const Vector3 & defvalue ) 
+
+const Vector3 DazzleINIClass::Get_Vector3(char const *section, char const * entry, const Vector3 & defvalue )
 {
 	if (section != NULL && entry != NULL) {
 		INIEntry * entryptr = Find_Entry(section, entry);
@@ -493,8 +493,8 @@ TextureClass* DazzleTypeClass::Get_Halo_Texture()
 // ----------------------------------------------------------------------------
 
 void DazzleTypeClass::Calculate_Intensities(
-	float& dazzle_intensity, 
-	float& dazzle_size, 
+	float& dazzle_intensity,
+	float& dazzle_size,
 	float& halo_intensity,
 	const Vector3& camera_dir,
 	const Vector3& dazzle_dir,
@@ -555,7 +555,7 @@ void DazzleRenderObjClass::Init_From_INI(const INIClass* ini)
 	for ( entry = 0; entry < count; entry++ )	{
 		char	section_name[80];
 		ini->Get_String(
-			LENSFLARE_LIST_STRING, 
+			LENSFLARE_LIST_STRING,
 			ini->Get_Entry( LENSFLARE_LIST_STRING, entry),
 			"",
 			section_name,
@@ -604,7 +604,7 @@ void DazzleRenderObjClass::Init_From_INI(const INIClass* ini)
 	for ( entry = 0; entry < count; entry++ )	{
 		char	section_name[80];
 		ini->Get_String(
-			DAZZLE_LIST_STRING, 
+			DAZZLE_LIST_STRING,
 			ini->Get_Entry( DAZZLE_LIST_STRING, entry),
 			"",
 			section_name,
@@ -863,7 +863,7 @@ void DazzleRenderObjClass::Set_Current_Dazzle_Layer(DazzleLayerClass *layer)
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// Render Object Interface 
+// Render Object Interface
 /////////////////////////////////////////////////////////////////////////////
 
 RenderObjClass* DazzleRenderObjClass::Clone(void) const
@@ -896,7 +896,7 @@ void DazzleRenderObjClass::Render(RenderInfoClass & rinfo)
 				is_on = false;
 			}
 		}
-		
+
 		// Next, check visibility
 		visibility = 1.0f;
 
@@ -957,7 +957,7 @@ void DazzleRenderObjClass::Render(RenderInfoClass & rinfo)
 				float s=dazzle_size*(1.0f-weight)+current_dazzle_size*weight;
 				current_dazzle_size=s;
 				dazzle_size=s;
-			
+
 			} else {
 				current_dazzle_intensity = dazzle_intensity;
 				current_dazzle_size = dazzle_size;
@@ -1237,7 +1237,7 @@ unsigned DazzleRenderObjClass::Get_Type_ID(const char* name)
 // ----------------------------------------------------------------------------
 //
 // Return the type name of a dazzle class with given id. If the id is out
-// of range, return "DEFAULT" which by convention is always defined and is 
+// of range, return "DEFAULT" which by convention is always defined and is
 // id 0.
 //
 // ----------------------------------------------------------------------------
@@ -1331,7 +1331,7 @@ class DazzlePersistFactoryClass : public PersistFactoryClass
 	virtual PersistClass *	Load(ChunkLoadClass & cload) const;
 	virtual void				Save(ChunkSaveClass & csave,PersistClass * obj)	const;
 
-	enum 
+	enum
 	{
 		DAZZLEFACTORY_CHUNKID_VARIABLES		= 1212000336,
 		DAZZLEFACTORY_VARIABLE_OBJPOINTER	= 0x00,
@@ -1362,14 +1362,14 @@ PersistClass *	DazzlePersistFactoryClass::Load(ChunkLoadClass & cload) const
 		switch (cload.Cur_Chunk_ID()) {
 
 			case DAZZLEFACTORY_CHUNKID_VARIABLES:
-			
+
 				while (cload.Open_Micro_Chunk()) {
 					switch(cload.Cur_Micro_Chunk_ID()) {
 						READ_MICRO_CHUNK(cload,DAZZLEFACTORY_VARIABLE_OBJPOINTER,old_obj);
 						READ_MICRO_CHUNK(cload,DAZZLEFACTORY_VARIABLE_TRANSFORM,tm);
 						READ_MICRO_CHUNK_STRING(cload,DAZZLEFACTORY_VARIABLE_TYPENAME,dazzle_type,sizeof(dazzle_type));
 					}
-					cload.Close_Micro_Chunk();	
+					cload.Close_Micro_Chunk();
 				}
 				break;
 
@@ -1379,7 +1379,7 @@ PersistClass *	DazzlePersistFactoryClass::Load(ChunkLoadClass & cload) const
 		};
 		cload.Close_Chunk();
 	}
-	
+
 	/*
 	** Create a new dazzle object
 	*/
@@ -1388,7 +1388,7 @@ PersistClass *	DazzlePersistFactoryClass::Load(ChunkLoadClass & cload) const
 		type_index = DazzleRenderObjClass::Get_Type_ID(dazzle_type);
 	}
 	RenderObjClass * new_obj = NEW_REF(DazzleRenderObjClass,(dazzle_type));
-	
+
 	/*
 	** If we failed to create it, replace it with a NULL
 	*/
@@ -1405,7 +1405,7 @@ PersistClass *	DazzlePersistFactoryClass::Load(ChunkLoadClass & cload) const
 	if (new_obj) {
 		new_obj->Set_Transform(tm);
 	}
-	
+
 	/*
 	** Register the old pointer for re-mapping to the new pointer
 	*/
@@ -1430,11 +1430,11 @@ void DazzlePersistFactoryClass::Save(ChunkSaveClass & csave,PersistClass * obj)	
 
 
 /*
-** DazzleRenderObj save-load. 
+** DazzleRenderObj save-load.
 */
 const PersistFactoryClass & DazzleRenderObjClass::Get_Factory (void) const
 {
-	return _DazzleFactory;	
+	return _DazzleFactory;
 }
 
 
@@ -1540,12 +1540,12 @@ void DazzleLayerClass::Clear_Visible_List(unsigned int type)
 **
 ** DazzleVisibilityClass Implementation
 ** The default dazzle visibility handler asks the scene to determine whether the dazzle
-** is occluded.  
+** is occluded.
 **
 **********************************************************************************************/
 
 float DazzleVisibilityClass::Compute_Dazzle_Visibility
-(	
+(
 	RenderInfoClass & rinfo,
 	DazzleRenderObjClass * dazzle,
 	const Vector3 & point
@@ -1560,7 +1560,7 @@ float DazzleVisibilityClass::Compute_Dazzle_Visibility
 		scene = container->Get_Scene();
 		container = container->Get_Container();
 	}
-	
+
 	/*
 	** If we found the scene (we SHOULD!) then ask it to compute the visibility
 	*/
@@ -1591,7 +1591,7 @@ WW3DErrorType DazzlePrototypeClass::Load_W3D(ChunkLoadClass & cload)
 	StringClass dazzle_type;
 
 	while (cload.Open_Chunk()) {
-		switch (cload.Cur_Chunk_ID()) 
+		switch (cload.Cur_Chunk_ID())
 		{
 			READ_WWSTRING_CHUNK(cload,W3D_CHUNK_DAZZLE_NAME,Name);
 			READ_WWSTRING_CHUNK(cload,W3D_CHUNK_DAZZLE_TYPENAME,dazzle_type);
@@ -1600,7 +1600,7 @@ WW3DErrorType DazzlePrototypeClass::Load_W3D(ChunkLoadClass & cload)
 		}
 		cload.Close_Chunk();
 	}
-	
+
 	DazzleType = DazzleRenderObjClass::Get_Type_ID(dazzle_type);
 	if (DazzleType == UINT_MAX) {
 		DazzleType = 0;

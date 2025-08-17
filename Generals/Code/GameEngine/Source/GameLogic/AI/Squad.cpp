@@ -22,7 +22,7 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-// FILE: Squad.cpp 
+// FILE: Squad.cpp
 /*---------------------------------------------------------------------------*/
 /* EA Pacific                                                                */
 /* Confidential Information	                                                 */
@@ -105,19 +105,19 @@ const VecObjectPtr& Squad::getAllObjects(void) // Not a const function cause we 
 }
 
 // getLiveObjects /////////////////////////////////////////////////////////////////////////////////
-const VecObjectPtr& Squad::getLiveObjects(void) 
+const VecObjectPtr& Squad::getLiveObjects(void)
 {
 	// first get all the objects.
 	// cheat, since we are a member function, and just use m_objectsCached
 	getAllObjects();
 	for (VecObjectPtrIt it = m_objectsCached.begin(); it != m_objectsCached.end(); ) {
 		if (!(*it)->isSelectable()) {
-			it = m_objectsCached.erase(it);		
+			it = m_objectsCached.erase(it);
 		} else {
 			++it;
 		}
 	}
-	
+
 	return m_objectsCached;
 }
 
@@ -142,8 +142,8 @@ Bool Squad::isOnSquad(const Object *objToTest) const
 }
 
 /**
- * There should never be a TeamFromSqaud as Teams are entirely a construct to work with the AI. 
- * Since things can only be on one Team at a time, creating a Team from an arbitrary Squad will 
+ * There should never be a TeamFromSqaud as Teams are entirely a construct to work with the AI.
+ * Since things can only be on one Team at a time, creating a Team from an arbitrary Squad will
  * cause weird, difficult to reproduce bugs. Please don't do it.
  */
 
@@ -184,7 +184,7 @@ void Squad::aiGroupFromSquad(AIGroup* aiGroupToFill)
 	if (!aiGroupToFill) {
 		return;
 	}
-	
+
 	// cheat, since we are a member function, and just use m_objectsCached
 	getLiveObjects();
 	for (VecObjectPtr::iterator it = m_objectsCached.begin(); it != m_objectsCached.end(); ++it) {
@@ -236,7 +236,7 @@ void Squad::xfer( Xfer *xfer )
 	}  // end if, save
 	else
 	{
-		
+
 		// the cached objects list should be empty
 		if( m_objectsCached.size() != 0 )
 		{

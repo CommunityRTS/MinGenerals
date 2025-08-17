@@ -106,12 +106,12 @@ CBCommandStatus ControlBar::processCommandTransitionUI( GameWindow *control, Gad
 {
 	// sanity, we won't process messages if we have no source object
 	if( m_currContext != CB_CONTEXT_MULTI_SELECT &&
-			(m_currentSelectedDrawable == NULL || 
+			(m_currentSelectedDrawable == NULL ||
 			 m_currentSelectedDrawable->getObject() == NULL) )
 	{
 
-		if( m_currContext != CB_CONTEXT_NONE && 
-				m_currContext != CB_CONTEXT_OBSERVER_INFO && 
+		if( m_currContext != CB_CONTEXT_NONE &&
+				m_currContext != CB_CONTEXT_OBSERVER_INFO &&
 				m_currContext != CB_CONTEXT_OBSERVER_LIST)
 			switchToContext( CB_CONTEXT_NONE, NULL );
 		return CBC_COMMAND_NOT_USED;
@@ -126,7 +126,7 @@ CBCommandStatus ControlBar::processCommandTransitionUI( GameWindow *control, Gad
 /** Process a button selected message from the window system that should be for one of
 	* our GUI commands */
 //-------------------------------------------------------------------------------------------------
-CBCommandStatus ControlBar::processCommandUI( GameWindow *control, 
+CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 																							GadgetGameMessage gadgetMessage )
 {
 	// get the command pointer from the control user data we put in the button
@@ -137,13 +137,13 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 		return CBC_COMMAND_NOT_USED;
 	}
 
-	// sanity, we won't process messages if we have no source object, 
+	// sanity, we won't process messages if we have no source object,
 	// unless we're CB_CONTEXT_PURCHASE_SCIENCE or GUI_COMMAND_SPECIAL_POWER_FROM_SHORTCUT
 	if( m_currContext != CB_CONTEXT_MULTI_SELECT &&
 			commandButton->getCommandType() != GUI_COMMAND_PURCHASE_SCIENCE &&
 			commandButton->getCommandType() != GUI_COMMAND_SPECIAL_POWER_FROM_SHORTCUT &&
 			commandButton->getCommandType() != GUI_COMMAND_SPECIAL_POWER_CONSTRUCT_FROM_SHORTCUT &&
-			commandButton->getCommandType() != GUI_COMMAND_SELECT_ALL_UNITS_OF_TYPE && 
+			commandButton->getCommandType() != GUI_COMMAND_SELECT_ALL_UNITS_OF_TYPE &&
 			(m_currentSelectedDrawable == NULL || m_currentSelectedDrawable->getObject() == NULL) )
 	{
 
@@ -161,7 +161,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 	if( control->winGetInputFunc() != GadgetPushButtonInput )
 		return CBC_COMMAND_NOT_USED;
 
-	
+
 	if( commandButton == NULL )
 		return CBC_COMMAND_NOT_USED;
 
@@ -173,15 +173,15 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 	{
 		GadgetButtonSetEnabledImage( control, commandButton->getButtonImage() );
 	}
-	
+
 	//
 	// get the object that is driving the context sensitive UI if we're not in a multi
 	// select context
 	//
 	Object *obj = NULL;
-	if( m_currContext != CB_CONTEXT_MULTI_SELECT && 
+	if( m_currContext != CB_CONTEXT_MULTI_SELECT &&
 			commandButton->getCommandType() != GUI_COMMAND_PURCHASE_SCIENCE &&
-			commandButton->getCommandType() != GUI_COMMAND_SPECIAL_POWER_FROM_SHORTCUT && 
+			commandButton->getCommandType() != GUI_COMMAND_SPECIAL_POWER_FROM_SHORTCUT &&
 			commandButton->getCommandType() != GUI_COMMAND_SPECIAL_POWER_CONSTRUCT_FROM_SHORTCUT &&
 			commandButton->getCommandType() != GUI_COMMAND_SELECT_ALL_UNITS_OF_TYPE )
 		obj = m_currentSelectedDrawable->getObject();
@@ -224,11 +224,11 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 		//I've added support for specific context sensitive commands which need targets just like
 		//other options may need. When we need a target, the user must move the cursor to a position
 		//where he wants the GUI command to take place. Older commands such as napalm strikes or daisy
-		//cutter drops simply needed the user to click anywhere he desired. 
+		//cutter drops simply needed the user to click anywhere he desired.
 		//
-		//Now, we have new commands that will only work when the user clicks on valid targets to interact 
-		//with. For example, the terrorist can jack a car and convert it into a carbomb, but he has to 
-		//click on a valid car. In this case the doCommandOrHint code will determine if the mode is valid 
+		//Now, we have new commands that will only work when the user clicks on valid targets to interact
+		//with. For example, the terrorist can jack a car and convert it into a carbomb, but he has to
+		//click on a valid car. In this case the doCommandOrHint code will determine if the mode is valid
 		//or not and the cursor modes will be set appropriately.
 		TheInGameUI->setGUICommand( commandButton );
 	}
@@ -253,7 +253,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				TheEva->setShouldPlay(EVA_InsufficientFunds);
 				TheInGameUI->message( "GUI:NotEnoughMoneyToBuild" );
 				break;
-			} 
+			}
 			else if (cmt == CANMAKE_QUEUE_FULL)
 			{
 				TheInGameUI->message( "GUI:ProductionQueueFull" );
@@ -268,7 +268,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			{
 				TheInGameUI->message( "GUI:UnitMaxedOut" );
 				break;
-			} 
+			}
 
 			// tell the UI that we want to build something so we get a building at the cursor
 			TheInGameUI->placeBuildAvailable( commandButton->getThingTemplate(), m_currentSelectedDrawable );
@@ -296,7 +296,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				TheEva->setShouldPlay(EVA_InsufficientFunds);
 				TheInGameUI->message( "GUI:NotEnoughMoneyToBuild" );
 				break;
-			} 
+			}
 			else if (cmt == CANMAKE_QUEUE_FULL)
 			{
 				TheInGameUI->message( "GUI:ProductionQueueFull" );
@@ -311,11 +311,11 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			{
 				TheInGameUI->message( "GUI:UnitMaxedOut" );
 				break;
-			} 
+			}
 
 			// tell the UI that we want to build something so we get a building at the cursor
 			TheInGameUI->placeBuildAvailable( commandButton->getThingTemplate(), draw );
-		
+
 			ProductionUpdateInterface* pu = obj->getProductionUpdateInterface();
 			if( pu )
 			{
@@ -338,7 +338,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				TheEva->setShouldPlay(EVA_InsufficientFunds);
 				TheInGameUI->message( "GUI:NotEnoughMoneyToBuild" );
 				break;
-			} 
+			}
 			else if (cmt == CANMAKE_QUEUE_FULL)
 			{
 				TheInGameUI->message( "GUI:ProductionQueueFull" );
@@ -353,7 +353,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			{
 				TheInGameUI->message( "GUI:UnitMaxedOut" );
 				break;
-			} 
+			}
 
 			// tell the UI that we want to build something so we get a building at the cursor
 			TheInGameUI->placeBuildAvailable( commandButton->getThingTemplate(), m_currentSelectedDrawable );
@@ -402,9 +402,9 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				break;
 
 			// sanity, we must have something to build
-			DEBUG_ASSERTCRASH( whatToBuild, ("Undefined BUILD command for object '%s'\n", 
+			DEBUG_ASSERTCRASH( whatToBuild, ("Undefined BUILD command for object '%s'\n",
 												 commandButton->getThingTemplate()->getName().str()) );
-			
+
 			CanMakeType cmt = TheBuildAssistant->canMakeUnit(factory, whatToBuild);
 
 			if (cmt == CANMAKE_NO_MONEY)
@@ -412,7 +412,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				TheEva->setShouldPlay(EVA_InsufficientFunds);
 				TheInGameUI->message( "GUI:NotEnoughMoneyToBuild" );
 				break;
-			} 
+			}
 			else if (cmt == CANMAKE_QUEUE_FULL)
 			{
 				TheInGameUI->message( "GUI:ProductionQueueFull" );
@@ -427,11 +427,11 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			{
 				TheInGameUI->message( "GUI:UnitMaxedOut" );
 				break;
-			} 
+			}
 			else if (cmt != CANMAKE_OK)
 			{
-				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s' because the factory object '%s' returns false for canMakeUnit\n", 
-																whatToBuild->getName().str(), 
+				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s' because the factory object '%s' returns false for canMakeUnit\n",
+																whatToBuild->getName().str(),
 																factory->getTemplate()->getName().str()) );
 				break;
 			}
@@ -443,13 +443,13 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			if( pu == NULL )
 			{
 
-				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s' because the factory object '%s' is not capable of producting units\n", 
-																whatToBuild->getName().str(), 
+				DEBUG_ASSERTCRASH( 0, ("Cannot create '%s' because the factory object '%s' is not capable of producting units\n",
+																whatToBuild->getName().str(),
 																factory->getTemplate()->getName().str()) );
 				break;
 
 			}  // end if
-			
+
 			// get a new production id to assign to this
 			ProductionID productionID = pu->requestUniqueUnitID();
 
@@ -462,7 +462,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			break;
 
 		}  // end build unit
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GUI_COMMAND_CANCEL_UNIT_BUILD:
 		{
@@ -672,7 +672,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GUI_COMMAND_WAYPOINTS:
 			break;
@@ -693,7 +693,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 
 			// get the actual object
 			Object *objWantingExit = TheGameLogic->findObjectByID( objID );
-			
+
 			// if object is not found remove inventory entry and exit
 			if( objWantingExit == NULL )
 			{
@@ -729,7 +729,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				pickAndPlayUnitVoiceResponse( TheInGameUI->getAllSelectedDrawables(), GameMessage::MSG_EVACUATE );
 				TheMessageStream->appendMessage( GameMessage::MSG_EVACUATE );
 			}
-			
+
 			break;
 		}  // end evacuate
 
@@ -867,7 +867,7 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 
 			// loop through all the sciences on the button and select the one we don't have
 
-			ScienceType	st = SCIENCE_INVALID; 
+			ScienceType	st = SCIENCE_INVALID;
 			Player *player = ThePlayerList->getLocalPlayer();
 			for(Int i = 0; i < commandButton->getScienceVec().size(); ++i)
 			{
@@ -877,17 +877,17 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 					break;
 				}
 			}
-			
+
 			if( st == SCIENCE_INVALID)
 			{
 				switchToContext( CB_CONTEXT_NONE, NULL );
 				break;
 			}
-			
-		
+
+
 			GameMessage *msg = TheMessageStream->appendMessage( GameMessage::MSG_PURCHASE_SCIENCE );
 			msg->appendIntegerArgument( st );
-			
+
 			markUIDirty();
 
 			break;

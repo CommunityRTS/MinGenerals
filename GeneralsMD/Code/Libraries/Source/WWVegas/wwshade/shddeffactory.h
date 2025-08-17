@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddeffactory.h                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/01/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -52,10 +52,10 @@ class ShdDefClass;
 /**
 ** ShdDefFactoryClass - An instance of this class is used to automatically register
 ** each unique type of ShdDefClass with the system.  This object is responsible for
-** creating shader definitions.  All existing 'DefFactories' can be iterated over 
+** creating shader definitions.  All existing 'DefFactories' can be iterated over
 ** and presented to the user in a menu.
 */
-class ShdDefFactoryClass 
+class ShdDefFactoryClass
 {
 public:
 	ShdDefFactoryClass (void);
@@ -81,7 +81,7 @@ protected:
 
 
 /**
-** SimpleShdDefFactoryClass - This template automates the process of creating a ShdDefFactory. 
+** SimpleShdDefFactoryClass - This template automates the process of creating a ShdDefFactory.
 ** For complete ease of use, the associated REGISTER_SHDDEF macro can be used in the cpp file
 ** of your shader definition.
 ** Macro useage example (in the cpp file for your shader definition):

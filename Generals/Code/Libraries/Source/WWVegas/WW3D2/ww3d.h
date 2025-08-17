@@ -69,8 +69,8 @@ class		MaterialPassClass;
 /**
 ** WW3D
 **
-** This is the collection of static functions and data which initialize and 
-** control the behavior of the WW3D library.  
+** This is the collection of static functions and data which initialize and
+** control the behavior of the WW3D library.
 */
 class WW3D
 {
@@ -111,15 +111,15 @@ public:
 
 	static WW3DErrorType		Init(void * hwnd, char *defaultpal = NULL);
 	static WW3DErrorType		Shutdown(void);
-	static bool					Is_Initted(void)								{ return IsInitted; }	
+	static bool					Is_Initted(void)								{ return IsInitted; }
 
 	static const int			Get_Render_Device_Count(void);
 	static const char *		Get_Render_Device_Name(int device_index);
 	static const RenderDeviceDescClass &								Get_Render_Device_Desc(int device = -1);
 
-	static int					Get_Render_Device(void);	
+	static int					Get_Render_Device(void);
 	static WW3DErrorType		Set_Render_Device( int dev=-1, int resx=-1, int resy=-1, int bits=-1, int windowed=-1, bool resize_window = false, bool reset_device=false, bool restore_assets=true);
-	static WW3DErrorType		Set_Render_Device( const char *dev_name, int resx=-1, int resy=-1, int bits=-1, int windowed=-1, bool resize_window = false  );	
+	static WW3DErrorType		Set_Render_Device( const char *dev_name, int resx=-1, int resy=-1, int bits=-1, int windowed=-1, bool resize_window = false  );
 	static WW3DErrorType		Set_Next_Render_Device(void);
 	static WW3DErrorType		Set_Any_Render_Device( void );
 
@@ -139,7 +139,7 @@ public:
 	static WW3DErrorType		Registry_Save_Render_Device( const char * sub_key );
 	static WW3DErrorType		Registry_Save_Render_Device( const char * sub_key, int device, int width, int height, int depth, bool windowed, int texture_depth );
 	static WW3DErrorType		Registry_Load_Render_Device( const char * sub_key, bool resize_window = false );
-	static bool					Registry_Load_Render_Device( const char * sub_key, char *device, int device_len, int &width, int &height, int &depth, int &windowed, int& texture_depth);		
+	static bool					Registry_Load_Render_Device( const char * sub_key, char *device, int device_len, int &width, int &height, int &depth, int &windowed, int& texture_depth);
 
 	/*
 	** Rendering functions
@@ -172,7 +172,7 @@ public:
    static unsigned int     Get_Frame_Count(void) { return FrameCount; }
 	static unsigned int		Get_Last_Frame_Poly_Count(void);
 	static unsigned int		Get_Last_Frame_Vertex_Count(void);
-	
+
 	/*
 	** Screen/Movie capturing
 	** These functions allow you to create screenshots and movies.
@@ -187,8 +187,8 @@ public:
 	static float				Get_Movie_Capture_Frame_Rate( void);
 	static void					Pause_Movie(bool mode);
 	static bool					Is_Movie_Paused();
-	static bool					Is_Recording_Next_Frame(); 
-	static bool					Is_Movie_Ready(); 
+	static bool					Is_Recording_Next_Frame();
+	static bool					Is_Movie_Ready();
 
    /*
 	** Set_Ext_Swap_Interval - how many vertical retraces to wait before flipping frames
@@ -200,7 +200,7 @@ public:
 	/*
 	** Texture Reduction - all currently loaded textures can be de-resed on the fly
 	** by passing in a non-unit value to Set_Texture_Reduction.  Passing in 2 causes
-	** all textures to be half their normal resolution.  Passing in 3 causes them to 
+	** all textures to be half their normal resolution.  Passing in 3 causes them to
 	** be cut in half twice, etc
 	*/
 	static void					Set_Texture_Reduction( int value, int min_mip_levels=1 );
@@ -211,7 +211,7 @@ public:
 
 	static void					Enable_Sorting(bool onoff);
 	static bool					Is_Sorting_Enabled(void)					{ return IsSortingEnabled; }
-	
+
 	static void					Set_Screen_UV_Bias( bool onoff )			{ IsScreenUVBiased = onoff; }
 	static bool					Is_Screen_UV_Biased( void )				{ return IsScreenUVBiased; }
 
@@ -235,7 +235,7 @@ public:
 	static bool					Expose_Prelit ()										{ return (ExposePrelit); }
 
 	static void					Set_Texture_Bitdepth(int bitdepth);
-	static int					Get_Texture_Bitdepth(); 
+	static int					Get_Texture_Bitdepth();
 
 	static void					Set_Mesh_Draw_Mode (MeshDrawModeEnum mode)	{ MeshDrawMode = mode; }
 	static MeshDrawModeEnum Get_Mesh_Draw_Mode ()								{ return (MeshDrawMode); }
@@ -296,8 +296,8 @@ public:
    static long             UserStat2;
 
 private:
-	
-	enum 
+
+	enum
 	{
 		DEFAULT_RESOLUTION_WIDTH =			640,
 		DEFAULT_RESOLUTION_HEIGHT =		480,
@@ -415,7 +415,7 @@ struct RenderStatistics
 		double	TrianglesClipRemoved;
 		double	TrianglesClipCreated;
 		double	DeviceDriverCalls;
-		
+
 		// Rendering device statistics
 		double	TextureTransfers;
 		double	PixelsDrawn;

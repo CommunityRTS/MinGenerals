@@ -64,16 +64,16 @@ template <class T> inline void Quick_Sort (T* a, int l, int r)
 	T			v = a[r];
 	int			i = l-1;
 	int			j = r;
-	do 
+	do
 	{
 		do { i++; } while (i < r && a[i] < v);
 		do { j--; } while (j > 0 && a[j] > v);
 		swap(a[i],a[j]);
 	} while (j > i);
-	
+
 	T t     = a[j];
-	a[j]	= a[i];	  
-	a[i]	= a[r];		
+	a[j]	= a[i];
+	a[i]	= a[r];
 	a[r]	= t;
 	if ((i-1) > l)
 		Quick_Sort (a,l,i-1);
@@ -116,7 +116,7 @@ int StripOptimizerClass::Get_Strip_Index_Count (const int* strips, int strip_cou
  *
  * Function:		StripOptimizerClass::optimizeStripOrder()
  *
- * Description:		
+ * Description:
  *
  * Parameters:
  *
@@ -158,7 +158,7 @@ void StripOptimizerClass::Optimize_Strip_Order (int* strips, int strip_count)
 	if (strip_count <= 0)
 		return;
 //	WWASSERT(strips);
-	
+
 	int**	ss = W3DNEWARRAY int*[strip_count];							// pointers to beginning of strips
 	int* s = strips;
 	for (int i = 0; i < strip_count; i++)
@@ -168,7 +168,7 @@ void StripOptimizerClass::Optimize_Strip_Order (int* strips, int strip_count)
 		s+=len;					// skip
 	}
 	int outSize = Get_Strip_Index_Count(strips, strip_count)+strip_count;	// output memory alloc size
-	int* out	= W3DNEWARRAY int[outSize];	
+	int* out	= W3DNEWARRAY int[outSize];
 	int* o		= out;											// output pointer
 
 	const int* prev = ss[0];								// previous strip
@@ -212,7 +212,7 @@ void StripOptimizerClass::Optimize_Strip_Order (int* strips, int strip_count)
  *
  * Function:		StripOptimizerClass::optimizeTriangleOrder()
  *
- * Description:		
+ * Description:
  *
  * Parameters:
  *
@@ -281,7 +281,7 @@ void StripOptimizerClass::Optimize_Triangle_Order (int *tris, int triangle_count
 			break;
 
 		*o++ = *t[bestIndex];
-		prev = t[bestIndex];								
+		prev = t[bestIndex];
 		t[bestIndex] = NULL;
 	}
 
@@ -328,7 +328,7 @@ int* StripOptimizerClass::Combine_Strips (const int* strips, int strip_count)
 		if (i != 0)
 		{
 			*o++ = *strips;						// duplicate first
-		
+
 			if (!prevEven)
 				*o++ = *strips;
 		}
@@ -358,7 +358,7 @@ namespace Strip
 /*****************************************************************************
  *
  * Struct:			Vector3i
- * 
+ *
  * Description:		Internal class for representing an edge
  *
  *****************************************************************************/
@@ -377,7 +377,7 @@ struct Vector3i
 /*****************************************************************************
  *
  * Struct:			Edge
- * 
+ *
  * Description:		Internal class for representing an edge
  *
  *****************************************************************************/
@@ -395,16 +395,16 @@ struct Edge
 /*****************************************************************************
  *
  * Struct:			Triangle
- * 
- * Description:		Internal class for representing a triangle and 
+ *
+ * Description:		Internal class for representing a triangle and
  *					associated connectivity information
  *
  *****************************************************************************/
 
 struct Triangle
 {
-	Triangle (void)					
-	{ 
+	Triangle (void)
+	{
 		m_neighbors[0] = 0;
 		m_neighbors[1] = 0;
 		m_neighbors[2] = 0;
@@ -431,7 +431,7 @@ struct Triangle
 /*****************************************************************************
  *
  * Class:			TriangleQueue
- * 
+ *
  * Description:		Internal class for maintaining triangles sorted by
  *					connectivity
  *
@@ -458,7 +458,7 @@ private:
 /*****************************************************************************
  *
  * Class:			Stripify
- * 
+ *
  * Description:		Class for performing stripification
  *
  *****************************************************************************/
@@ -520,10 +520,10 @@ inline Triangle* TriangleQueue::getTop	(void) const
  *
  *****************************************************************************/
 
-inline int	TriangleQueue::getVertexConnectivity (int i)  const  
-{ 
-	WWASSERT(i>=0 && i< m_vertexCount); 
-	return m_nodeConnectivity[i]; 
+inline int	TriangleQueue::getVertexConnectivity (int i)  const
+{
+	WWASSERT(i>=0 && i< m_vertexCount);
+	return m_nodeConnectivity[i];
 }
 
 /*****************************************************************************
@@ -566,7 +566,7 @@ inline void TriangleQueue::reinsert (Triangle* t)
 	}
 
 	if (t->m_next)
-		t->m_next->m_prev = t->m_prev;			
+		t->m_next->m_prev = t->m_prev;
 
 	t->m_prev = 0;
 	t->m_next = m_bin[w];
@@ -600,7 +600,7 @@ inline void TriangleQueue::removeTriangle	(Triangle* t)
 	}
 
 	if (t->m_next)
-		t->m_next->m_prev = t->m_prev;			
+		t->m_next->m_prev = t->m_prev;
 	t->m_bin = -1;
 
 	// update connectivity of t's neighbors
@@ -667,7 +667,7 @@ inline TriangleQueue::TriangleQueue	(Triangle* tris, int N)
 	}
 
 	m_vertexCount	   = largestIndex+1;
-	m_nodeConnectivity = W3DNEWARRAY int[m_vertexCount];			// 
+	m_nodeConnectivity = W3DNEWARRAY int[m_vertexCount];			//
 	for (i = 0; i < m_vertexCount; i++)
 		m_nodeConnectivity[i]  = 0;
 
@@ -675,7 +675,7 @@ inline TriangleQueue::TriangleQueue	(Triangle* tris, int N)
 	for (i = 0; i < N; i++)
 	{
 		Triangle* t = tris+i;
-		int w = t->getConnectivity();			
+		int w = t->getConnectivity();
 		WWASSERT(w>=0 && w <=3);
 		WWASSERT(!t->m_prev && !t->m_next && t->m_bin==-1);	// must not be in a bin
 		t->m_prev = 0;
@@ -719,7 +719,7 @@ inline Vector3i Stripify::getTriangleNodeConnectivityWeights (const TriangleQueu
 	for (i = 0; i < 3; i++) {
 		if (weight[0] == highestVal) v[i] = +1;
 	}
-		
+
 	return v;
 }
 
@@ -746,10 +746,10 @@ Triangle* Stripify::generateTriangleList (const Vector3i* inTris, int N)
 	int			i;
 
 	//--------------------------------------------------------------------
-	// Copy triangle vertex data 
+	// Copy triangle vertex data
 	//--------------------------------------------------------------------
 
-	for (i = 0; i < N; i++)				
+	for (i = 0; i < N; i++)
 	{
 		//--------------------------------------------------------------------
 		// We could perform random rotation here (this way we don't need random
@@ -776,7 +776,7 @@ Triangle* Stripify::generateTriangleList (const Vector3i* inTris, int N)
 			Edge	edge	= tris[i].getEdge(j);
 			Edge	e		= edge;
 			e.sort();													// sort vertices (smaller first)
-			
+
 			Triangle* n = hash.Get(e);
 			if (n)														// if edge is already in the hash...
 			{
@@ -866,7 +866,7 @@ int* Stripify::stripify  (const Vector3i* inTris, int N)
 		int		bestWeight	= 0x7fffffff;								// initialize to maximum width
 
 		Vector3i nodeWeights = getTriangleNodeConnectivityWeights(queue, *t);
-		
+
 		for (int i = 0; i < 3; i++)
 		if (t->m_neighbors[i])											// if triangle has a neighbor in this direction
 		{
@@ -891,7 +891,7 @@ int* Stripify::stripify  (const Vector3i* inTris, int N)
 		for (;;)
 		{
 			Triangle* next = 0;											// find next triangle
-		
+
 			int i;
 			for (i = 0; i < 3; i++)
 			if (t->m_neighbors[i])
@@ -918,13 +918,13 @@ int* Stripify::stripify  (const Vector3i* inTris, int N)
 			//--------------------------------------------------------------------
 			// Find out where we want to continue...
 			//--------------------------------------------------------------------
-	
+
 			int		bestEdge	= -1;
 			int		bestWeight	= 0x7fffffff;
 			bool	bestSwap	= false;
 
 			Vector3i nodeWeights = getTriangleNodeConnectivityWeights(queue, *next);
-			
+
 			for (i = 0; i < 3; i++)
 			if (next->m_neighbors[i])									// is there a neighbor?
 			{
@@ -940,7 +940,7 @@ int* Stripify::stripify  (const Vector3i* inTris, int N)
 				w += nodeWeights[getMod3(i+1)];							// add vertex weight
 
 				w += (swap) ? 1 : -1;									// add swap penalty
-							
+
 				if (w <= bestWeight)
 				{
 					bestWeight = w;
@@ -975,7 +975,7 @@ int* Stripify::stripify  (const Vector3i* inTris, int N)
 			len++;														// increase strip length
 			t = next;													// move to next triangle
 		}
-		
+
 		*pLen = len;													// patch final length
 		strip_count++;														// increase strip count
 

@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shd7bumpspec.h                           $*
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 5/27/02 2:48p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -51,7 +51,7 @@ class Shd7BumpSpecClass : public ShdInterfaceClass
 public:
 	Shd7BumpSpecClass(const ShdDefClass* def);
 	virtual ~Shd7BumpSpecClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -68,9 +68,9 @@ public:
 	virtual bool						Use_HW_Vertex_Processing() const { return Pass_0_Vertex_Shader.Is_Using_Hardware(); }
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

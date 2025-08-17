@@ -27,18 +27,18 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE DISCARDABLE
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE DISCARDABLE
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE DISCARDABLE
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -108,24 +108,24 @@ END
 //
 
 IDD_PSEd DIALOGEX 0, 0, 215, 441
-STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | 
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP |
     WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_CONTROLPARENT
 CAPTION "Particle Editor"
 MENU IDR_FileMenu
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    COMBOBOX        IDC_PSEd_ParticleSystem,38,19,137,419,CBS_DROPDOWN | 
+    COMBOBOX        IDC_PSEd_ParticleSystem,38,19,137,419,CBS_DROPDOWN |
                     CBS_SORT | WS_VSCROLL | WS_GROUP | WS_TABSTOP
-    COMBOBOX        IDC_PSEd_ParentSystem,38,35,137,403,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_ParentSystem,38,35,137,403,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_PSEd_EmissionType,77,78,103,189,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_EmissionType,77,78,103,189,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_PSEd_VelocityType,77,94,103,206,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_VelocityType,77,94,103,206,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_PSEd_ParticleType,77,110,103,205,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_ParticleType,77,110,103,205,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_PSEd_ShaderType,77,126,103,186,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_ShaderType,77,126,103,186,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_PSEd_AngleXMin,25,161,26,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_PSEd_AngleXMax,53,161,26,14,ES_AUTOHSCROLL
@@ -144,11 +144,11 @@ BEGIN
     EDITTEXT        IDC_PSEd_AngleDampingMax,46,230,26,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_PSEd_VelocityDampingMin,93,230,26,14,ES_AUTOHSCROLL
     EDITTEXT        IDC_PSEd_VelocityDampingMax,121,230,26,14,ES_AUTOHSCROLL
-    CONTROL         "",IDC_PSEd_EmissionPanel,"Static",SS_BLACKRECT | 
+    CONTROL         "",IDC_PSEd_EmissionPanel,"Static",SS_BLACKRECT |
                     WS_TABSTOP,12,258,186,55
-    CONTROL         "",IDC_PSEd_VelocityPanel,"Static",SS_BLACKRECT | 
+    CONTROL         "",IDC_PSEd_VelocityPanel,"Static",SS_BLACKRECT |
                     WS_TABSTOP,12,317,186,55
-    CONTROL         "",IDC_PSEd_ParticlePanel,"Static",SS_BLACKRECT | 
+    CONTROL         "",IDC_PSEd_ParticlePanel,"Static",SS_BLACKRECT |
                     WS_TABSTOP,12,376,186,39
     CONTROL         "Colors/Alpha",IDC_PSEd_EditColorButton,"Button",
                     BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,12,421,50,14
@@ -182,14 +182,14 @@ BEGIN
     GROUPBOX        "Velocity Damping",IDC_STATIC,85,212,70,35
     GROUPBOX        "Gravity",IDC_STATIC,158,145,39,27
     LTEXT           "Particle Cap:",IDC_STATIC,7,5,41,8
-    EDITTEXT        IDC_PSEd_CurrentParticleCap,50,2,25,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_PSEd_CurrentParticleCap,50,2,25,14,ES_AUTOHSCROLL |
                     ES_NUMBER
     LTEXT           "Current Count:",IDC_STATIC,133,5,46,8
-    EDITTEXT        IDC_PSEd_CurrentParticleCount,182,2,25,14,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_PSEd_CurrentParticleCount,182,2,25,14,ES_AUTOHSCROLL |
                     ES_READONLY | ES_NUMBER
     CONTROL         "Switches",IDC_PSEd_EditSwitchesButton,"Button",
                     BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,92,421,50,14
-    COMBOBOX        IDC_PSEd_Priority,77,63,103,198,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_Priority,77,63,103,198,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "Priority",IDC_STATIC,19,67,22,8
     PUSHBUTTON      "Kill All",IDC_PSEd_KillAll,181,36,27,14
@@ -413,7 +413,7 @@ IDD_PSEd_ParticlePanelDrawable DIALOG DISCARDABLE  0, 0, 186, 39
 STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD
 FONT 8, "MS Sans Serif"
 BEGIN
-    COMBOBOX        IDC_PSEd_ParticleTypeDrawable,44,14,130,409,CBS_DROPDOWN | 
+    COMBOBOX        IDC_PSEd_ParticleTypeDrawable,44,14,130,409,CBS_DROPDOWN |
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Particle:",IDC_STATIC,12,16,26,8
     GROUPBOX        "3-D Particle Parameters",IDC_STATIC,0,0,185,38
@@ -450,7 +450,7 @@ BEGIN
     LTEXT           "Min",IDC_STATIC,12,12,12,8
     LTEXT           "Max",IDC_STATIC,40,12,14,8
     GROUPBOX        "Initial Delay",IDC_STATIC,3,3,60,33
-    EDITTEXT        IDC_PSEd_BurstCountMin,129,56,26,12,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_PSEd_BurstCountMin,129,56,26,12,ES_AUTOHSCROLL |
                     WS_GROUP
     EDITTEXT        IDC_PSEd_BurstCountMax,157,56,26,12,ES_AUTOHSCROLL
     LTEXT           "Min",IDC_STATIC,135,48,12,8
@@ -468,7 +468,7 @@ BEGIN
     LTEXT           "Min",IDC_STATIC,75,48,12,8
     LTEXT           "Max",IDC_STATIC,100,48,14,8
     GROUPBOX        "Color Scale",IDC_STATIC,66,39,57,33
-    COMBOBOX        IDC_PSEd_SlaveSystem,136,117,111,263,CBS_DROPDOWN | 
+    COMBOBOX        IDC_PSEd_SlaveSystem,136,117,111,263,CBS_DROPDOWN |
                     CBS_SORT | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_PSEd_PerParticleSystem,136,131,111,245,
                     CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
@@ -519,7 +519,7 @@ BEGIN
                     ES_AUTOHSCROLL
     EDITTEXT        IDC_PSEd_WindPingPongEndAngleMax,227,177,27,12,
                     ES_AUTOHSCROLL
-    COMBOBOX        IDC_PSEd_WindMotion,30,156,48,141,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_PSEd_WindMotion,30,156,48,141,CBS_DROPDOWNLIST |
                     WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "Systems",IDC_STATIC,93,111,156,36
     LTEXT           "Motion",IDC_STATIC,6,159,22,8
@@ -563,7 +563,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO DISCARDABLE
 BEGIN
     IDD_PSEd, DIALOG
     BEGIN
@@ -605,7 +605,7 @@ END
 // Menu
 //
 
-IDR_FileMenu MENU DISCARDABLE 
+IDR_FileMenu MENU DISCARDABLE
 BEGIN
     POPUP "File"
     BEGIN

@@ -53,7 +53,7 @@ static void RTSFlagsToOSFlags(UnsignedInt buttonFlags, UnsignedInt otherFlags, U
 	if (BitTest(buttonFlags, OSDBT_OK)) {
 		outWindowsFlags |= MB_OK;
 	}
-	
+
 	if (BitTest(buttonFlags, OSDBT_CANCEL)) {
 		outWindowsFlags |= MB_OKCANCEL;
 	}
@@ -101,17 +101,17 @@ OSDisplayButtonType OSDisplayWarningBox(AsciiString p, AsciiString m, UnsignedIn
 
 	UnsignedInt windowsOptionsFlags = 0;
 	RTSFlagsToOSFlags(buttonFlags, otherFlags, windowsOptionsFlags);
-	
+
 	// @todo Make this return more than just ok/cancel - jkmcd
 	// (we need a function to translate back the other way.)
 	Int returnResult = 0;
-	if (TheSystemIsUnicode) 
+	if (TheSystemIsUnicode)
 	{
 		returnResult = ::MessageBoxW(NULL, mesgStr.str(), promptStr.str(), windowsOptionsFlags);
-	} 
-	else 
+	}
+	else
 	{
-		// However, if we're using the default version of the message box, we need to 
+		// However, if we're using the default version of the message box, we need to
 		// translate the string into an AsciiString
 		AsciiString promptA, mesgA;
 		promptA.translate(promptStr);
@@ -123,7 +123,7 @@ OSDisplayButtonType OSDisplayWarningBox(AsciiString p, AsciiString m, UnsignedIn
 
 	if (returnResult == IDOK) {
 		return OSDBT_OK;
-	} 
+	}
 
 	return OSDBT_CANCEL;
 }

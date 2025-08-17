@@ -41,9 +41,9 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-DisconnectManager::DisconnectManager() 
+DisconnectManager::DisconnectManager()
 {
-	// Added By Sadullah Nader	
+	// Added By Sadullah Nader
 	// Initializations missing and needed
 	Int i;
 	m_currentPacketRouterIndex = 0;
@@ -56,7 +56,7 @@ DisconnectManager::DisconnectManager()
 	for( i = 0; i < MAX_SLOTS; ++i) {
 		m_packetRouterFallback[i] = 0;
 	}
-	
+
 	m_packetRouterTimeout = 0;
 	for( i = 0; i < MAX_SLOTS -1; ++i) {
 		m_playerTimeouts[i] = 0;
@@ -93,7 +93,7 @@ void DisconnectManager::init() {
 		m_disconnectFrames[i] = 0;
 		m_disconnectFramesReceived[i] = FALSE;
 	}
-	
+
 	m_pingFrame = 0;
 	m_pingsSent = 0;
 	m_pingsRecieved = 0;
@@ -701,7 +701,7 @@ Bool DisconnectManager::hasPlayerTimedOut(Int slot) {
 	return FALSE;
 }
 
-// this function assumes that we are the packet router. (or at least that 
+// this function assumes that we are the packet router. (or at least that
 // we will be after everyone is getting disconnected)
 void DisconnectManager::sendPlayerDestruct(Int slot, ConnectionManager *conMgr) {
 	UnsignedShort currentID = 0;
@@ -713,7 +713,7 @@ void DisconnectManager::sendPlayerDestruct(Int slot, ConnectionManager *conMgr) 
 	DEBUG_LOG(("Queueing DestroyPlayer %d for frame %d on frame %d as command %d\n",
 		slot, TheNetwork->getExecutionFrame()+1, TheGameLogic->getFrame(), currentID));
 
-	NetDestroyPlayerCommandMsg *netmsg = newInstance(NetDestroyPlayerCommandMsg);	
+	NetDestroyPlayerCommandMsg *netmsg = newInstance(NetDestroyPlayerCommandMsg);
 	netmsg->setExecutionFrame(TheNetwork->getExecutionFrame()+1);
 	netmsg->setPlayerID(conMgr->getLocalPlayerID());
 	netmsg->setID(currentID);
@@ -753,11 +753,11 @@ Bool DisconnectManager::isPlayerInGame(Int slot, ConnectionManager *conMgr) {
 	if (((transSlot < 0) || (transSlot >= MAX_SLOTS)) || conMgr->isPlayerConnected(transSlot) == FALSE) {
 		return FALSE;
 	}
-	
+
 	if (isPlayerVotedOut(slot, conMgr) == TRUE) {
 		return FALSE;
 	}
-	
+
 	if (hasPlayerTimedOut(slot) == TRUE) {
 		return FALSE;
 	}

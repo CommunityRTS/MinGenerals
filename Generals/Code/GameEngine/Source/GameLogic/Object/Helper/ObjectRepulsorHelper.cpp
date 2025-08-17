@@ -48,7 +48,7 @@ UpdateSleepTime ObjectRepulsorHelper::update()
 	getObject()->setStatus(OBJECT_STATUS_REPULSOR, FALSE);
 
 	// then go back to sleep until we are forcibly awakened.
-	return UPDATE_SLEEP_FOREVER; 
+	return UPDATE_SLEEP_FOREVER;
 }
 
 // ------------------------------------------------------------------------------------------------

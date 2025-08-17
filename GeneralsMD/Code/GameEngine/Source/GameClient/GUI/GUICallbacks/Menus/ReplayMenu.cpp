@@ -110,7 +110,7 @@ void PopulateReplayFileListbox(GameWindow *listbox)
 {
 	if (!TheMapCache)
 		return;
-	
+
 	GadgetListBoxReset(listbox);
 
 	enum {
@@ -253,7 +253,7 @@ void PopulateReplayFileListbox(GameWindow *listbox)
 						color = colors[COLOR_SP_CRC_MISMATCH];
 					}
 				}
-				
+
 				Int insertionIndex = GadgetListBoxAddEntryText(listbox, replayNameToShow, color, -1, 0);
 				GadgetListBoxAddEntryText(listbox, displayTimeBuffer, color, insertionIndex, 1);
 				GadgetListBoxAddEntryText(listbox, header.versionString, color, insertionIndex, 2);
@@ -297,10 +297,10 @@ void ReplayMenuInit( WindowLayout *layout, void *userData )
 	BitSet( instData.m_style, GWS_PUSH_BUTTON | GWS_MOUSE_TRACK );
 	instData.m_textLabelString = "Debug: Analyze Replay";
 	instData.setTooltipText(UnicodeString(L"Only Used in Debug and Internal!"));
-	buttonAnalyzeReplay = TheWindowManager->gogoGadgetPushButton( parentReplayMenu, 
-																									 WIN_STATUS_ENABLED | WIN_STATUS_IMAGE, 
-																									 4, 4, 
-																									 180, 26, 
+	buttonAnalyzeReplay = TheWindowManager->gogoGadgetPushButton( parentReplayMenu,
+																									 WIN_STATUS_ENABLED | WIN_STATUS_IMAGE,
+																									 4, 4,
+																									 180, 26,
 																									 &instData, NULL, TRUE );
 #endif
 
@@ -361,7 +361,7 @@ void ReplayMenuUpdate( WindowLayout *layout, void *userData )
 		copyReplay();
 	if(callDelete)
 		deleteReplay();
-		// We'll only be successful if we've requested to 
+		// We'll only be successful if we've requested to
 	if(isShuttingDown && TheShell->isAnimFinished()&& TheTransitionHandler->isFinished())
 		TheShell->shutdownComplete( layout );
 
@@ -374,7 +374,7 @@ WindowMsgHandledType ReplayMenuInput( GameWindow *window, UnsignedInt msg,
 																						WindowMsgData mData1, WindowMsgData mData2 )
 {
 
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -389,7 +389,7 @@ WindowMsgHandledType ReplayMenuInput( GameWindow *window, UnsignedInt msg,
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
@@ -397,7 +397,7 @@ WindowMsgHandledType ReplayMenuInput( GameWindow *window, UnsignedInt msg,
 					if( BitTest( state, KEY_STATE_UP ) )
 					{
 
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																								(WindowMsgData)buttonBack, buttonBackID );
 
 					}  // end if
@@ -438,24 +438,24 @@ void reallyLoadReplay(void)
 	if(parentReplayMenu != NULL)
 	{
 		parentReplayMenu->winHide(TRUE);
-	}	
+	}
 }
 
 //-------------------------------------------------------------------------------------------------
 /** single player menu window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg,
 														 WindowMsgData mData1, WindowMsgData mData2 )
 {
-	
-	switch( msg ) 
+
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
 		case GWM_CREATE:
 		{
 
-			
+
 			break;
 
 		}  // end create
@@ -484,10 +484,10 @@ WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg,
 			{
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-				if( controlID == listboxReplayFilesID ) 
+				if( controlID == listboxReplayFilesID )
 				{
 					int rowSelected = mData2;
-				
+
 					if (rowSelected >= 0)
 					{
 						UnicodeString filename;
@@ -538,7 +538,7 @@ WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg,
 					}
 				}
 			}
-			else 
+			else
 #endif
 			if( controlID == buttonLoadID )
 			{
@@ -568,10 +568,10 @@ WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg,
 						if(parentReplayMenu != NULL)
 						{
 							parentReplayMenu->winHide(TRUE);
-						}	
+						}
 					}
-					
-				}				
+
+				}
 			}  // end else if
 			else if( controlID == buttonBackID )
 			{
@@ -657,7 +657,7 @@ void copyReplay( void )
 	filename = TheRecorder->getReplayDir();
 	translate.translate(GetReplayFilenameFromListbox(listboxReplayFiles, selected));
 	filename.concat(translate);
-	
+
 	char path[1024];
 	LPITEMIDLIST pidl;
 	SHGetSpecialFolderLocation(NULL, CSIDL_DESKTOPDIRECTORY, &pidl);

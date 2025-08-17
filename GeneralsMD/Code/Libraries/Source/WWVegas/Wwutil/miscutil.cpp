@@ -21,7 +21,7 @@
 // Project:      wwutil
 // Author:       Tom Spencer-Smith
 // Date:         June 1998
-// Description:  
+// Description:
 //
 //-----------------------------------------------------------------------------
 #include "miscutil.h" // I WANNA BE FIRST!
@@ -35,7 +35,7 @@
 #include "ffactory.h"
 
 //
-// cMiscUtil statics 
+// cMiscUtil statics
 //
 
 //---------------------------------------------------------------------------
@@ -50,7 +50,7 @@ LPCSTR cMiscUtil::Get_Text_Time(void)
 	long time_now = ::time(NULL);
    char * time_str = ::ctime(&time_now);
    time_str[::strlen(time_str) - 1] = 0; // remove \n
-   return time_str; 
+   return time_str;
 }
 
 //---------------------------------------------------------------------------
@@ -97,7 +97,7 @@ bool cMiscUtil::File_Exists(LPCSTR filename)
 
 	WIN32_FIND_DATA find_info;
    HANDLE file_handle = ::FindFirstFile(filename, &find_info);
-	
+
 	if (file_handle != INVALID_HANDLE_VALUE) {
 		::FindClose(file_handle);
 		return true;
@@ -149,7 +149,7 @@ bool cMiscUtil::Is_Whitespace(char c)
 
 //-----------------------------------------------------------------------------
 void cMiscUtil::Trim_Trailing_Whitespace(char * text)
-{	
+{
    WWASSERT(text != NULL);
 
 	int length = ::strlen(text);
@@ -173,7 +173,7 @@ void cMiscUtil::Get_File_Id_String(LPCSTR filename, StringClass & str)
 	//WWASSERT(filesize > 0);
 	if (filesize <= 0)
 	{
-		WWDEBUG_SAY(("Error: cMiscUtil::Get_File_Id_String for %s: filesize = %d\n", 
+		WWDEBUG_SAY(("Error: cMiscUtil::Get_File_Id_String for %s: filesize = %d\n",
 			filename, filesize));
 		//W3D_DIE;
 	}
@@ -256,7 +256,7 @@ int cMiscUtil::Get_Exe_Key(void)
 	succeeded = ::GetModuleFileName(NULL, filename, sizeof(filename));
 	::strupr(filename);
 	WWASSERT(succeeded);
-      
+
    //
    // Get size
    //
@@ -312,7 +312,7 @@ int cMiscUtil::Get_Exe_Key(void)
 	succeeded = ::GetModuleFileName(NULL, filename, sizeof(filename));
 	::strupr(filename);
 	WWASSERT(succeeded);
-      
+
 	StringClass string;
 	Get_File_Id_String(filename, string);
 

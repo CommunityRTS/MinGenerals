@@ -77,7 +77,7 @@ bool TextTextureClass::Build_Texture(FontClass &font, const char *str, int fore,
 		BackgroundColor	= back;
 		ForegroundColor	= fore;
 	}
-	
+
 
 	default_font_palette[0] = back;
 	default_font_palette[1] = fore;
@@ -98,16 +98,16 @@ bool TextTextureClass::Build_Texture(FontClass &font, const char *str, int fore,
 	font.Print(str, bsurf, rect, TPoint2D<int>(0,0), conv, (unsigned char *)default_font_palette);
 
 	// figure out the size of the best texture which can hold the
-	// text we wrote.  Since textures need to be assumed to be square 
-	// the best size should be found by finding the  rectangular surface 
-	// area of the text, and creating a Power of Two sized square which 
+	// text we wrote.  Since textures need to be assumed to be square
+	// the best size should be found by finding the  rectangular surface
+	// area of the text, and creating a Power of Two sized square which
 	// can hold the data in the ractangular surface area.
    float fsize = sqrt(fw * fh);
 	TextureSize = Find_POT(ceil(fsize));
 	// If this is still not enough, quadruple area:
 	if ((TextureSize / fh) * TextureSize < fw) {
 		TextureSize *= 2;
-	}	
+	}
 
 	// we now need to create a westwood style surface out of the surrender surface
 	// so we can use all the westwood drawing primitives.  Clear this surface to

@@ -24,12 +24,12 @@
 
 // FILE: W3DPropBuffer.cpp ////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -43,7 +43,7 @@
 //-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //-----------------------------------------------------------------------------
 #include "W3DDevice/GameClient/W3DPropBuffer.h"
 
@@ -74,7 +74,7 @@
 
 
 //-----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Functions
 //-----------------------------------------------------------------------------
 
 //=============================================================================
@@ -96,7 +96,7 @@ void W3DPropBuffer::cull(CameraClass * camera)
 
 
 //-----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Public Functions
 //-----------------------------------------------------------------------------
 
 //=============================================================================
@@ -158,7 +158,7 @@ void W3DPropBuffer::clearAllProps(void)
 Int W3DPropBuffer::addPropType(const AsciiString &modelName)
 {
 	if (m_numPropTypes>=MAX_TYPES) {
-		DEBUG_CRASH(("Too many kinds of props in map.  Reduce kinds of props, or raise prop limit. jba.")); 
+		DEBUG_CRASH(("Too many kinds of props in map.  Reduce kinds of props, or raise prop limit. jba."));
 		return 0;
 	}
 
@@ -168,7 +168,7 @@ Int W3DPropBuffer::addPropType(const AsciiString &modelName)
 		return -1;
 	}
 	m_propTypes[m_numPropTypes].m_robjName = modelName;
-	
+
 	SphereClass bounds = m_propTypes[m_numPropTypes].m_robj->Get_Bounding_Sphere();
 	m_propTypes[m_numPropTypes].m_bounds = bounds;
 	m_numPropTypes++;
@@ -184,10 +184,10 @@ ALPINE, DECIDUOUS and SHRUB. */
 void W3DPropBuffer::addProp(Int id, Coord3D location, Real angle,Real scale, const AsciiString &modelName)
 {
 	if (m_numProps >= MAX_PROPS) {
-		return;  
+		return;
 	}
 	if (!m_initialized) {
-		return;  
+		return;
 	}
 	Int propType = -1;
 	Int i;
@@ -282,7 +282,7 @@ void W3DPropBuffer::removePropsForConstruction(const Coord3D* pos, const Geometr
 {
 	// Just iterate all trees, as even non-collidable ones get removed. jba. [7/11/2003]
 	Int i;
-	for (i=0; i<m_numProps; i++) {				
+	for (i=0; i<m_numProps; i++) {
 		if (m_props[i].m_robj == NULL) {
 			continue; // already deleted.
 		}
@@ -297,7 +297,7 @@ void W3DPropBuffer::removePropsForConstruction(const Coord3D* pos, const Geometr
 			m_props[i].bounds.Center = Vector3(0,0,0);
 			m_props[i].bounds.Radius = 1;
 			m_anythingChanged = true;
-		} 
+		}
 	}
 }
 
@@ -355,7 +355,7 @@ void W3DPropBuffer::drawProps(RenderInfoClass &rinfo)
 			m_light->Set_Transform(mtx);
 			lightEnv.Add_Light(*m_light);
 	}
-	
+
 	rinfo.light_environment = &lightEnv;
 	for	(i=0; i<m_numProps; i++) {
 		if (!m_props[i].visible) {
@@ -396,7 +396,7 @@ void W3DPropBuffer::drawProps(RenderInfoClass &rinfo)
 // ------------------------------------------------------------------------------------------------
 void W3DPropBuffer::crc( Xfer *xfer )
 {
-	// empty. jba [8/11/2003]	
+	// empty. jba [8/11/2003]
 }  // end CRC
 
 // ------------------------------------------------------------------------------------------------
@@ -420,6 +420,6 @@ void W3DPropBuffer::xfer( Xfer *xfer )
 // ------------------------------------------------------------------------------------------------
 void W3DPropBuffer::loadPostProcess( void )
 {
-	// empty. jba [8/11/2003]	
+	// empty. jba [8/11/2003]
 }  // end loadPostProcess
 

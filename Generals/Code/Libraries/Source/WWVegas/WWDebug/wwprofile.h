@@ -45,8 +45,8 @@
 typedef signed long long __int64;
 typedef signed long long _int64;
 #endif
-	
-			
+
+
 /*
 ** A node in the WWProfile Hierarchy Tree
 */
@@ -107,7 +107,7 @@ public:
 	const char *	Get_Current_Parent_Name( void )			{ return CurrentParent->Get_Name(); }
 	int				Get_Current_Parent_Total_Calls( void )	{ return CurrentParent->Get_Total_Calls(); }
 	float				Get_Current_Parent_Total_Time( void )	{ return CurrentParent->Get_Total_Time(); }
-	
+
 protected:
 	WWProfileHierachyNodeClass *	CurrentParent;
 	WWProfileHierachyNodeClass *	CurrentChild;
@@ -174,14 +174,14 @@ private:
 */
 class	WWProfileSampleClass {
 public:
-	WWProfileSampleClass( const char * name )		
-	{ 
-		WWProfileManager::Start_Profile( name ); 
+	WWProfileSampleClass( const char * name )
+	{
+		WWProfileManager::Start_Profile( name );
 	}
-	
-	~WWProfileSampleClass( void )					
-	{ 
-		WWProfileManager::Stop_Profile(); 
+
+	~WWProfileSampleClass( void )
+	{
+		WWProfileManager::Stop_Profile();
 	}
 };
 
@@ -214,7 +214,7 @@ private:
 
 /*
 ** TSS 06/27/01
-** WWMeasureItClass is like WWTimeItClass, but it pokes the result into the given float, 
+** WWMeasureItClass is like WWTimeItClass, but it pokes the result into the given float,
 ** and can be used in the release build.
 */
 class	WWMeasureItClass {

@@ -23,13 +23,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//	
-// FILE: SabotagePowerPlantCrateCollide.cpp 
+//
+// FILE: SabotagePowerPlantCrateCollide.cpp
 // Author: Kris Morness, June 2003
 // Desc:   A crate (actually a saboteur - mobile crate) that makes the target powerplant lose power
-//	
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
- 
+
 
 
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
@@ -67,13 +67,13 @@
 //-------------------------------------------------------------------------------------------------
 SabotagePowerPlantCrateCollide::SabotagePowerPlantCrateCollide( Thing *thing, const ModuleData* moduleData ) : CrateCollide( thing, moduleData )
 {
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 SabotagePowerPlantCrateCollide::~SabotagePowerPlantCrateCollide( void )
 {
-}  
+}
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -145,7 +145,7 @@ Bool SabotagePowerPlantCrateCollide::executeCrateBehavior( Object *other )
 
 		//Note: Player::update() will check to turn it back on again once the timer expires.
 	}
-	
+
 	return TRUE;
 }
 

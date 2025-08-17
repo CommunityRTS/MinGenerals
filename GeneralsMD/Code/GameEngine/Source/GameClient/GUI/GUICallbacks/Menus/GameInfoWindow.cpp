@@ -73,7 +73,7 @@ void CreateLANGameInfoWindow( GameWindow *sizeAndPosWin )
 {
 	if( !gameInfoWindowLayout )
 		gameInfoWindowLayout = TheWindowManager->winCreateLayout( AsciiString( "Menus/GameInfoWindow.wnd" ) );
-	
+
 	gameInfoWindowLayout->runInit();
 	gameInfoWindowLayout->bringForward();
 	gameInfoWindowLayout->hide( TRUE );
@@ -95,7 +95,7 @@ void DestroyGameInfoWindow(void)
 	{
 		gameInfoWindowLayout->destroyWindows();
 		gameInfoWindowLayout->deleteInstance();
-		gameInfoWindowLayout = NULL;		
+		gameInfoWindowLayout = NULL;
 	}
 }
 
@@ -124,7 +124,7 @@ void RefreshGameInfoWindow(GameInfo *gameInfo, UnicodeString gameName)
 	{
 		// can happen if the map will have to be transferred... so use the leaf name (srj)
 		const char *noPath = gameInfo->getMap().reverseFind('\\');
-		if (noPath) 
+		if (noPath)
 		{
 			++noPath;
 		}
@@ -201,7 +201,7 @@ void RefreshGameInfoWindow(GameInfo *gameInfo, UnicodeString gameName)
 			GadgetListBoxAddEntryImage(listBoxPlayers, fact->getSideIconImage(),addedRow, 0, 22,25);
 			//GadgetListBoxAddEntryText(listBoxPlayers,fact->getDisplayName(),playerColor,addedRow, 0);
 		}
-	
+
 	}
 }
 
@@ -226,7 +226,7 @@ void GameInfoWindowInit( WindowLayout *layout, void *userData )
 	winCratesID = TheNameKeyGenerator->nameToKey( "GameInfoWindow.wnd:WinCrates" );
 	winSuperWeaponsID = TheNameKeyGenerator->nameToKey( "GameInfoWindow.wnd:WinSuperWeapons" );
 	winFreeForAllID = TheNameKeyGenerator->nameToKey( "GameInfoWindow.wnd:WinFreeForAll" );
-	
+
 	parent = TheWindowManager->winGetWindowFromId( NULL, parentID );
 	staticTextGameName = TheWindowManager->winGetWindowFromId( parent, staticTextGameNameID );
 	staticTextMapName = TheWindowManager->winGetWindowFromId( parent, staticTextMapNameID );
@@ -238,17 +238,17 @@ void GameInfoWindowInit( WindowLayout *layout, void *userData )
 	GadgetStaticTextSetText(staticTextGameName,UnicodeString.TheEmptyString);
 	GadgetStaticTextSetText(staticTextMapName,UnicodeString.TheEmptyString);
 	GadgetListBoxReset(listBoxPlayers);
-	
+
 }  // end MapSelectMenuInit
 
 
 //-------------------------------------------------------------------------------------------------
 /** GameInfo window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType GameInfoWindowSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType GameInfoWindowSystem( GameWindow *window, UnsignedInt msg,
 																				  WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 // might use these later
 //			GameWindow *control = (GameWindow *)mData1;

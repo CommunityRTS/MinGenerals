@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------=
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information					                  
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:    WSYS Library
@@ -49,7 +49,7 @@
 
 
 //----------------------------------------------------------------------------
-//           Includes                                                      
+//           Includes
 //----------------------------------------------------------------------------
 
 #include "lib/basetype.h"
@@ -86,10 +86,10 @@ class File : public MemoryPoolObject
 //	friend class FileSystem;
 
 	public:
-	
+
 		enum access
 		{
-			NONE			= 0x00000000,				
+			NONE			= 0x00000000,
 			READ			= 0x00000001,				///< Access file for reading
 			WRITE			= 0x00000002,				///< Access file for writing
 			APPEND		= 0x00000004,				///< Seek to end of file on open
@@ -99,7 +99,7 @@ class File : public MemoryPoolObject
 			BINARY		= 0x00000040,				///< Access file as binary data
 			READWRITE = (READ | WRITE),
 			ONLYNEW		= 0x00000080,				///< Only create file if it does not exist
-			
+
 			// NOTE: STREAMING is Mutually exclusive with WRITE
 			STREAMING = 0x00000100				///< Do not read this file into a ram file, read it as requested.
 		};
@@ -117,23 +117,23 @@ class File : public MemoryPoolObject
 		Int					m_access;									///< How the file was opened
 		Bool				m_open;										///< Has the file been opened
 		Bool				m_deleteOnClose;					///< delete File object on close()
-		
-		
+
+
 		File();											///< This class can only used as a base class
 		//virtual				~File();
 
 	public:
-		
+
 
 						Bool	eof();
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
 		virtual void	close( void );																			///< Close the file !!! File object no longer valid after this call !!!
 
-		virtual Int		read( void *buffer, Int bytes ) = NULL ;						/**< Read the specified number of bytes from the file in to the 
+		virtual Int		read( void *buffer, Int bytes ) = NULL ;						/**< Read the specified number of bytes from the file in to the
 																																			  *  memory pointed at by buffer. Returns the number of bytes read.
 																																			  *  Returns -1 if an error occured.
 																																			  */
-		virtual Int		write( const void *buffer, Int bytes ) = NULL ;						/**< Write the specified number of bytes from the    
+		virtual Int		write( const void *buffer, Int bytes ) = NULL ;						/**< Write the specified number of bytes from the
 																																			  *	 memory pointed at by buffer to the file. Returns the number of bytes written.
 																																			  *	 Returns -1 if an error occured.
 																																			  */
@@ -165,7 +165,7 @@ class File : public MemoryPoolObject
 		void					deleteOnClose ( void );															///< Causes the File object to delete itself when it closes
 
 		/**
-			Allocate a buffer large enough to hold entire file, read 
+			Allocate a buffer large enough to hold entire file, read
 			the entire file into the buffer, then close the file.
 			the buffer is owned by the caller, who is responsible
 			for freeing is (via delete[]). This is a Good Thing to
@@ -179,7 +179,7 @@ class File : public MemoryPoolObject
 
 
 //----------------------------------------------------------------------------
-//           Inlining                                                       
+//           Inlining
 //----------------------------------------------------------------------------
 
 inline const char* File::getName( void ) const { return m_nameStr.str(); }

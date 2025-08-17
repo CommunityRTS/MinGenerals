@@ -158,7 +158,7 @@ RTS3DScene::RTS3DScene()
     m_potentialOccluders = NEW RenderObjClass* [TheGlobalData->m_maxVisibleOccluderObjects];
 	m_potentialOccludees = NEW RenderObjClass* [TheGlobalData->m_maxVisibleOccludeeObjects];
 	m_nonOccludersOrOccludees = NEW RenderObjClass* [TheGlobalData->m_maxVisibleNonOccluderOrOccludeeObjects];
-#ifdef USE_NON_STENCIL_OCCLUSION	
+#ifdef USE_NON_STENCIL_OCCLUSION
 		for (i=0; i<MAX_PLAYER_COUNT; i++)
 		{	m_occludedMaterialPass[i]=NEW_REF(MaterialPassClass,());
 			VertexMaterialClass * vmtl = NEW_REF(VertexMaterialClass,());
@@ -247,7 +247,7 @@ void RTS3DScene::flagOccludedObjects(CameraClass * camera)
 	m_occludedObjectsCount=0;
 
 	for (Int i=0; i<m_numPotentialOccludees; i++,occludee++)
-	{	
+	{
 		raytest.Ray.Set(camPosition,(*occludee)->Get_Position());
 
 		RenderObjClass **occluder=m_potentialOccluders;
@@ -262,7 +262,7 @@ void RTS3DScene::flagOccludedObjects(CameraClass * camera)
 
 			// make a vector from the ray origin to the sphere center
 			Vector3 sphere_vector(sphere->Center - raytest.Ray.Get_P0());
-			
+
 			// get the dot product between the sphere_vector and the ray vector
 			Real Alpha = Vector3::Dot_Product(sphere_vector, raytest.Ray.Get_Dir());
 
@@ -270,7 +270,7 @@ void RTS3DScene::flagOccludedObjects(CameraClass * camera)
 
 			if(Beta < 0.0f)
 				continue;	//no intersection
-				
+
 			//Do a more accurate test against object geometry
 			if (robj->Cast_Ray(raytest))
 			{
@@ -338,7 +338,7 @@ Bool RTS3DScene::castRay(RayCollisionTestClass & raytest, Bool testAll, Int coll
 
 			// make a vector from the ray origin to the sphere center
 			Vector3 sphere_vector(sphere->Center - tempRayTest.Ray.Get_P0());
-		
+
 			// get the dot product between the sphere_vector and the ray vector
 			Real Alpha = Vector3::Dot_Product(sphere_vector, tempRayTest.Ray.Get_Dir());
 
@@ -346,7 +346,7 @@ Bool RTS3DScene::castRay(RayCollisionTestClass & raytest, Bool testAll, Int coll
 
 			if(Beta < 0.0f)
 				continue;	//no intersection
-			
+
 			//Do a more accurate test against object geometry
 			if (robj->Cast_Ray(tempRayTest))
 			{
@@ -396,7 +396,7 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 		currentFrame = TheGlobalData->m_defaultOcclusionDelay+1;	//make sure occlusion is enabled when game starts (frame 0).
 
 
-	if (ShaderClass::Is_Backface_Culling_Inverted()) 
+	if (ShaderClass::Is_Backface_Culling_Inverted())
 	{	//we are rendering reflections
 		///@todo: Have better flag to detect reflection pass
 
@@ -516,9 +516,9 @@ void RTS3DScene::renderSpecificDrawables(RenderInfoClass &rinfo, Int numDrawable
 	StDrawableDirtyStuffLocker lockDirtyStuff;
 #endif
 	Int localPlayerIndex = ThePlayerList ? ThePlayerList->getLocalPlayer()->getPlayerIndex() : 0;
-	RefRenderObjListIterator it(&UpdateList);	
+	RefRenderObjListIterator it(&UpdateList);
 	// loop through all render objects in the list:
-	for (it.First(&RenderList); !it.Is_Done();) 
+	for (it.First(&RenderList); !it.Is_Done();)
 	{
 		RenderObjClass *robj;
 		// get the render object
@@ -592,8 +592,8 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		obj = draw->getObject();
 		if (obj) {
 			ss = obj->getShroudedStatus(localPlayerIndex);
-			// For objects like planes, that pop out of the shroud, fire, then head back, 
-			// we keep drawing them for 2 seconds after they return to the fogged area, 
+			// For objects like planes, that pop out of the shroud, fire, then head back,
+			// we keep drawing them for 2 seconds after they return to the fogged area,
 			// so the player can see them and missiles chasing them.  jba.
 			if (ss == OBJECTSHROUD_CLEAR) {
 				draw->setShroudClearFrame(TheGameLogic->getFrame());
@@ -641,9 +641,9 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		if ( tintColor || selectionColor )
 		{
 			Vector3 sumTint, temp, restore;
-			
-			sumTint.Set(0,0,0); 
-			
+
+			sumTint.Set(0,0,0);
+
 			if (tintColor)
 				Vector3::Add(sumTint, *tintColor, &sumTint);
 			if (selectionColor)
@@ -661,7 +661,7 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 				sceneLights[globalLightIndex]->Set_Diffuse( restore );
 
 			} // next light
-			
+
 			temp = lightEnv.Get_Equivalent_Ambient();
 			Vector3::Add(sumTint, temp, &temp );
 
@@ -677,7 +677,7 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		}
 
 		//Apply custom render pass for any drawables with heatvision enabled
-		if (draw->getHeatVisionOpacity() != 0 ) 
+		if (draw->getHeatVisionOpacity() != 0 )
 		{
 			rinfo.materialPassEmissiveOverride = draw->getHeatVisionOpacity();
 			if (draw->getStealthLook() == STEALTHLOOK_VISIBLE_DETECTED )
@@ -719,9 +719,9 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 	if (!drawableHidden)
 	{
 		//standard scene lights
-		RefRenderObjListIterator it2(&LightList);	
+		RefRenderObjListIterator it2(&LightList);
 		for (it2.First(); !it2.Is_Done(); it2.Next())
-		{	
+		{
 			LightClass *pLight = (LightClass*)it2.Peek_Obj();
 			SphereClass lSph = pLight->Get_Bounding_Sphere();
 			Bool cull = (pLight->Get_Type() == LightClass::POINT && !Spheres_Intersect(sph, lSph));
@@ -731,9 +731,9 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		}
 
 		// dynamic lights
-		RefRenderObjListIterator dynaLightIt(&m_dynamicLightList);	
+		RefRenderObjListIterator dynaLightIt(&m_dynamicLightList);
 		for (dynaLightIt.First(); !dynaLightIt.Is_Done(); dynaLightIt.Next())
-		{	
+		{
 			W3DDynamicLight* pDyna = (W3DDynamicLight*)dynaLightIt.Peek_Obj();
 			if (!pDyna->isEnabled()) {
 				continue;
@@ -744,7 +744,7 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 			}
 			lightEnv.Add_Light(*(LightClass*)dynaLightIt.Peek_Obj());
 		}
-		
+
 		lightEnv.Pre_Render_Update(rinfo.Camera.Get_Transform());
 		rinfo.light_environment = &lightEnv;
 
@@ -754,13 +754,13 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 			if (!TheGlobalData->m_shroudOn)
 				ss = OBJECTSHROUD_CLEAR;
 #endif
-			
-			if (m_customPassMode == SCENE_PASS_DEFAULT)	
+
+			if (m_customPassMode == SCENE_PASS_DEFAULT)
 			{
 				if (ss <= OBJECTSHROUD_CLEAR)
 					robj->Render(rinfo);
 				else
-				{	
+				{
 						rinfo.Push_Material_Pass(m_shroudMaterialPass);
 						robj->Render(rinfo);
 						rinfo.Pop_Material_Pass();
@@ -840,7 +840,7 @@ void RTS3DScene::updateFixedLightEnvironments(RenderInfoClass & rinfo)
 		infantryLightScale = TheGlobalData->m_scriptOverrideInfantryLightScale;
 	else
 		infantryLightScale = TheGlobalData->m_infantryLightScale[TheGlobalData->m_timeOfDay];
-	
+
 	//Generate the default light environment
 	m_defaultLightEnv.Reset(Vector3(0,0,0), Get_Ambient_Light());
 	m_foggedLightEnv.Reset(Vector3(0,0,0), Get_Ambient_Light()*foggedLightFrac);
@@ -949,7 +949,7 @@ void RTS3DScene::Render(RenderInfoClass & rinfo)
 			DX8Wrapper::Clear(true, false, Vector3(0.0f,0.0f,0.0f),1.0f);	// Clear color but not z
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_COLORWRITEENABLE,D3DCOLORWRITEENABLE_ALPHA);
 			DX8Wrapper::Set_DX8_Render_State (D3DRS_ZBIAS, 0);
-			
+
 			//We're only filling the z-buffer so ignore normal textures and state changes to speed things up.
 			m_customPassMode = SCENE_PASS_ALPHA_MASK;
 			m_maskMaterialPass->setAllowUninstall(FALSE);
@@ -959,7 +959,7 @@ void RTS3DScene::Render(RenderInfoClass & rinfo)
 
 			m_maskMaterialPass->setAllowUninstall(TRUE);
 			m_maskMaterialPass->UnInstall_Materials();
-			
+
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_COLORWRITEENABLE,D3DCOLORWRITEENABLE_BLUE|D3DCOLORWRITEENABLE_GREEN|D3DCOLORWRITEENABLE_RED);
 			WW3D::Enable_Coloring(0xff008000);
 			WW3D::Enable_Texturing(false);
@@ -1050,17 +1050,17 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 	   flagOccludedObjects(&rinfo.Camera);
 #endif
    }
-   Visibility_Checked = false;	
-	
+   Visibility_Checked = false;
 
-	RefRenderObjListIterator it(&UpdateList);	
+
+	RefRenderObjListIterator it(&UpdateList);
 	// allow all objects in the update list to do their "every frame" processing
 	for (it.First(); !it.Is_Done(); it.Next()) {
 		RenderObjClass * robj = it.Peek_Obj();
 		if (robj->Class_ID() == RenderObjClass::CLASSID_TILEMAP)
 			terrainObject=robj;	//found terrain object, store for later.
 		if (!ShaderClass::Is_Backface_Culling_Inverted()) {
-			// If we are doing water mirror, we draw with backface culling inverted.  In this case, 
+			// If we are doing water mirror, we draw with backface culling inverted.  In this case,
 			// we only want to call On_Frame_Update if we aren't drawing water, as otherwise
 			// we get 2 frame updates per frame, and it screws up the particle emitters.
 			it.Peek_Obj()->On_Frame_Update();
@@ -1069,7 +1069,7 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 
 	//terrain needs to be rendered first
 	if (terrainObject)	// Don't check visibility - terrain is always visible. jba.
-	{		
+	{
 		robj=terrainObject;
 		rinfo.light_environment = NULL;		// Terrain is self lit.
 		rinfo.Camera.Set_User_Data(this);	//pass the scene to terrain via user data.
@@ -1094,13 +1094,13 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 		return;
 	}
 #ifdef EXTENDED_STATS
-	if (DX8Wrapper::stats.m_disableObjects) { 
+	if (DX8Wrapper::stats.m_disableObjects) {
 		return;
 	}
 #endif
 
 	// loop through all render objects in the list:
-	for (it.First(&RenderList); !it.Is_Done();) 
+	for (it.First(&RenderList); !it.Is_Done();)
 	{
 
 		// get the render object
@@ -1133,7 +1133,7 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 		TheGrannyRenderObjSystem->Flush();
 	}
 #endif
-	
+
 	//Tell shadow manager to render shadows at the end of this frame
 	//Don't draw shadows if there is no terrain present.
 	if (TheW3DShadowManager && terrainObject && !ShaderClass::Is_Backface_Culling_Inverted() &&
@@ -1182,7 +1182,7 @@ void renderStenciledPlayerColor( UnsignedInt color, UnsignedInt stencilRef, Bool
 {
 	struct _TRANSLITVERTEX {
 	    Vector4 p;
-		DWORD color;   // diffuse color    
+		DWORD color;   // diffuse color
 	} v[4];
 
 	Int xpos, ypos, width, height;
@@ -1226,7 +1226,7 @@ void renderStenciledPlayerColor( UnsignedInt color, UnsignedInt stencilRef, Bool
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILMASK,     occludedMask );	//isolate bits containing occluder|playerIndex
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILWRITEMASK,0xffffffff );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFUNC,  D3DCMP_LESS );	//only draw to pixels that match the reference value
-		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILZFAIL, D3DSTENCILOP_REPLACE );	
+		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILZFAIL, D3DSTENCILOP_REPLACE );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILPASS,  D3DSTENCILOP_REPLACE );	//pixels which had occluded player colors, get MSB set.
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFAIL,  D3DSTENCILOP_ZERO );	//pixels which had no occluded player colors are cleared.
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_ZFUNC, D3DCMP_NEVER  );	//fail all access to the frame buffer to improve memory bandwidth
@@ -1246,7 +1246,7 @@ void renderStenciledPlayerColor( UnsignedInt color, UnsignedInt stencilRef, Bool
 	else
 	{	DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILREF,      stencilRef );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILMASK,     0xffffffff );
-		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILWRITEMASK,0xffffffff );	
+		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILWRITEMASK,0xffffffff );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFUNC,  D3DCMP_EQUAL );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILZFAIL, D3DSTENCILOP_KEEP );
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILPASS,  D3DSTENCILOP_KEEP );
@@ -1341,7 +1341,7 @@ void RTS3DScene::flushOccludedObjectsIntoStencil(RenderInfoClass & rinfo)
 		for (i=0; i<MAX_PLAYER_COUNT; i++)
 		{
 			if ((numObjects=lastPlayerObject[i]-&playerObjects[i][0]) != 0)
-			{	
+			{
 				//this player has some objects so draw them using his color index.
 				if (playerColorIndex[i]==-1)	//color index not assigned yet?
 				{	//assign a new color index to this player
@@ -1614,7 +1614,7 @@ W3DDynamicLight * RTS3DScene::getADynamicLight(void)
 		RefRenderObjListIterator dynaLightIt(&m_dynamicLightList);
 		W3DDynamicLight *pLight;
 		for (dynaLightIt.First(); !dynaLightIt.Is_Done(); dynaLightIt.Next())
-		{		
+		{
 			pLight = (W3DDynamicLight*)dynaLightIt.Peek_Obj();
 			if (!pLight->isEnabled()) {
 				pLight->setEnabled(true);

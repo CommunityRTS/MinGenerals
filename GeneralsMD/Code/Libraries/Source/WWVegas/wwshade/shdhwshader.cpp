@@ -27,7 +27,7 @@
  *                  $Org Author:: Kenny_m
  *                                                                                             *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 07/07/02 12:18p                                               $*
  *                                                                                             *
  *                    $Revision:: 3                                                          $*
@@ -74,11 +74,11 @@ void ShdHWShader::Shell_Run(char* cmd)
 
 	result=CreateProcess(0,cmd,0,0,0,0,0,work_dir,&si,&pi);
 
-	if (result) 
+	if (result)
 	{
 		WaitForSingleObject(pi.hThread,  INFINITE);
 
-		// Close process and thread handles. 
+		// Close process and thread handles.
 		CloseHandle(pi.hProcess);
 		CloseHandle(pi.hThread);
 
@@ -108,9 +108,9 @@ void ShdHWShader::Shell_Run(char* cmd)
 /*! 5/27/02 5:39p KJM Created
 */
 void ShdHWShader::Preprocess_And_Assemble_Shader_From_File
-(	
-	char*				file_name,	
-	LPD3DXBUFFER*	constants,	
+(
+	char*				file_name,
+	LPD3DXBUFFER*	constants,
 	LPD3DXBUFFER*	shader_code
 )
 {
@@ -124,10 +124,10 @@ void ShdHWShader::Preprocess_And_Assemble_Shader_From_File
 
 	_snprintf
 	(
-		shell_command, 
-		sizeof(shell_command), 
-		"shaders\\rspp %s %s", 
-		file_name, 
+		shell_command,
+		sizeof(shell_command),
+		"shaders\\rspp %s %s",
+		file_name,
 		temp_file
 	);
 
@@ -137,10 +137,10 @@ void ShdHWShader::Preprocess_And_Assemble_Shader_From_File
 
 	HRESULT result=D3DXAssembleShaderFromFile
 	(
-		temp_file, 
-		NULL, 
-		constants, 
-		shader_code, 
+		temp_file,
+		NULL,
+		constants,
+		shader_code,
 		errors
 	);
 	WWASSERT_PRINT(result==D3D_OK,"Failed to assemble shader from file");
@@ -164,7 +164,7 @@ ShdHWVertexShader::~ShdHWVertexShader()
 */
 void ShdHWVertexShader::Destroy()
 {
-	if (Shader) 
+	if (Shader)
 	{
 		DX8Wrapper::_Get_D3D_Device8()->SetVertexShader(D3DFVF_XYZ|D3DFVF_DIFFUSE);
 		DX8Wrapper::_Get_D3D_Device8()->DeleteVertexShader(Shader);
@@ -179,7 +179,7 @@ void ShdHWVertexShader::Destroy()
 */
 DWORD ShdHWVertexShader::Create
 (
-	char* file_name, 
+	char* file_name,
 	DWORD* vertex_shader_declaration
 )
 {
@@ -228,7 +228,7 @@ DWORD ShdHWVertexShader::Create
 */
 DWORD ShdHWVertexShader::Create
 (
-	DWORD* shader_code_str, 
+	DWORD* shader_code_str,
 	DWORD* vertex_shader_declaration
 )
 {
@@ -296,7 +296,7 @@ ShdHWPixelShader::~ShdHWPixelShader()
 */
 void ShdHWPixelShader::Destroy()
 {
-	if (Shader) 
+	if (Shader)
 	{
 		DX8Wrapper::_Get_D3D_Device8()->SetPixelShader(0);
 		DX8Wrapper::_Get_D3D_Device8()->DeletePixelShader(Shader);
@@ -322,7 +322,7 @@ DWORD ShdHWPixelShader::Create(char* file_name)
 
 	HRESULT result=DX8Wrapper::_Get_D3D_Device8()->CreatePixelShader
 	(
-		(DWORD*)shader_code->GetBufferPointer(), 
+		(DWORD*)shader_code->GetBufferPointer(),
 		(DWORD*)&Shader
 	);
 	WWASSERT_PRINT(result==D3D_OK,"Failed to create pixel shader");
@@ -332,7 +332,7 @@ DWORD ShdHWPixelShader::Create(char* file_name)
 
 
 //**********************************************************************************************
-//! Create Pixel Shader from a dword constant 
+//! Create Pixel Shader from a dword constant
 /*! 07/19/02 3:39p KJM Created
 */
 DWORD ShdHWPixelShader::Create(DWORD* shader_code_str)
@@ -358,7 +358,7 @@ DWORD ShdHWPixelShader::Create(DWORD* shader_code_str)
 
 	result=DX8Wrapper::_Get_D3D_Device8()->CreatePixelShader
 	(
-		(DWORD*)shader_code->GetBufferPointer(), 
+		(DWORD*)shader_code->GetBufferPointer(),
 		(DWORD*)&Shader
 	);
 	WWASSERT_PRINT(result==D3D_OK,"Failed to create pixel shader");
@@ -386,7 +386,7 @@ void ShdHWVertexShader::Light
 	if (lenv)
 	{
 		int num_lights=lenv->Get_Light_Count();
-		
+
 		// most cases set up and use the light environment
 		if (num_lights)
 		{
@@ -399,7 +399,7 @@ void ShdHWVertexShader::Light
 				0
 			);
 			int i;
-			
+
 			int max=LightEnvironmentClass::Get_Max_Lights();
 
 			if (num_lights>max) num_lights=max;

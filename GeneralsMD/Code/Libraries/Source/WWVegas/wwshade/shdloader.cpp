@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Kenny Mitchell                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 06/27/02 3:51p                                              $*
  *                                                                                             *
  *                    $Revision:: 1                                                           $*
@@ -58,12 +58,12 @@ PrototypeClass* ShdMeshLoaderClass::Load_W3D(ChunkLoadClass& cload)
 {
 	ShdMeshClass* mesh=NEW_REF(ShdMeshClass, ());
 
-	if (mesh==NULL) 
+	if (mesh==NULL)
 	{
 		return NULL;
 	}
 
-	if (mesh->Load_W3D(cload)!=WW3D_ERROR_OK) 
+	if (mesh->Load_W3D(cload)!=WW3D_ERROR_OK)
 	{
 		// if the load failed, delete the mesh
 		assert(mesh->Num_Refs() == 1);
@@ -103,6 +103,6 @@ PrototypeClass * ShdMeshLegacyLoaderClass::Load_W3D(ChunkLoadClass & cload)
 		PrimitivePrototypeClass * newproto = W3DNEW PrimitivePrototypeClass(shdmesh);
 		shdmesh->Release_Ref();
 		return newproto;
-	
+
 	}
 }

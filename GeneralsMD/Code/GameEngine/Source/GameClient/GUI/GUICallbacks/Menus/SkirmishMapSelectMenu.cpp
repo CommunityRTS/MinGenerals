@@ -125,7 +125,7 @@ void positionStartSpots( AsciiString mapName, GameWindow *buttonMapStartPosition
 void skirmishPositionStartSpots( void );
 void skirmishUpdateSlotList( void );
 void showSkirmishGameOptionsUnderlyingGUIElements( Bool show )
-{                          
+{
 	AsciiString parentName( "SkirmishGameOptionsMenu.wnd:SkirmishGameOptionsMenuParent" );
 	NameKeyType parentID = TheNameKeyGenerator->nameToKey( parentName );
 	GameWindow *parent = TheWindowManager->winGetWindowFromId( NULL, parentID );
@@ -323,9 +323,9 @@ void SkirmishMapSelectMenuShutdown( WindowLayout *layout, void *userData )
 
 	// hide menu
 	layout->hide( TRUE );
-	
+
 	NullifyControls();
-	
+
 	// our shutdown is complete
 	TheShell->shutdownComplete( layout );
 
@@ -346,7 +346,7 @@ WindowMsgHandledType SkirmishMapSelectMenuInput( GameWindow *window, UnsignedInt
 																				 WindowMsgData mData1, WindowMsgData mData2 )
 {
 
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -361,7 +361,7 @@ WindowMsgHandledType SkirmishMapSelectMenuInput( GameWindow *window, UnsignedInt
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
@@ -372,7 +372,7 @@ WindowMsgHandledType SkirmishMapSelectMenuInput( GameWindow *window, UnsignedInt
 						NameKeyType buttonID = TheNameKeyGenerator->nameToKey( buttonName );
 						GameWindow *button = TheWindowManager->winGetWindowFromId( window, buttonID );
 
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																								(WindowMsgData)button, buttonID );
 
 					}  // end if
@@ -395,11 +395,11 @@ WindowMsgHandledType SkirmishMapSelectMenuInput( GameWindow *window, UnsignedInt
 //-------------------------------------------------------------------------------------------------
 /** MapSelect menu window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType SkirmishMapSelectMenuSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType SkirmishMapSelectMenuSystem( GameWindow *window, UnsignedInt msg,
 																				  WindowMsgData mData1, WindowMsgData mData2 )
 {
-	
-	switch( msg ) 
+
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -434,16 +434,16 @@ WindowMsgHandledType SkirmishMapSelectMenuSystem( GameWindow *window, UnsignedIn
 			{
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-				if( controlID == listboxMap ) 
+				if( controlID == listboxMap )
 				{
 					int rowSelected = mData2;
-				
+
 					if (rowSelected >= 0)
 					{
 						GadgetListBoxSetSelected( control, rowSelected );
 						GameWindow *button = TheWindowManager->winGetWindowFromId( window, buttonOK );
 
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																								(WindowMsgData)button, buttonOK );
 					}
 				}
@@ -456,7 +456,7 @@ WindowMsgHandledType SkirmishMapSelectMenuSystem( GameWindow *window, UnsignedIn
 
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-				if( controlID == listboxMap ) 
+				if( controlID == listboxMap )
 				{
 					int rowSelected = mData2;
 					if( rowSelected < 0 )

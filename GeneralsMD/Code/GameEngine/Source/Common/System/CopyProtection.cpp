@@ -130,7 +130,7 @@ Bool CopyProtect::notifyLauncher(void)
 		CloseHandle(event);
 		DEBUG_LOG(("Launcher notified.\n"));
 		DEBUG_LOG(("Waiting for message from launcher.\n"));
-		
+
 		unsigned long endTime = (timeGetTime() + 10000);
 
 		while (timeGetTime() <= endTime)
@@ -163,7 +163,7 @@ Bool CopyProtect::notifyLauncher(void)
 
 		DEBUG_LOG(("***** Failed to notify launcher!\n"));
 		return FALSE;
-		
+
 	}
 	else
 	{

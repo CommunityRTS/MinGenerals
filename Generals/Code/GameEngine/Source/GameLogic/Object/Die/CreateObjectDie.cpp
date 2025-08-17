@@ -52,7 +52,7 @@ CreateObjectDieModuleData::CreateObjectDieModuleData()
 {
 	DieModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "CreationList",	INI::parseObjectCreationList,		NULL,											offsetof( CreateObjectDieModuleData, m_ocl ) },
 		{ 0, 0, 0, 0 }

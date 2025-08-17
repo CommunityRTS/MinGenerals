@@ -32,7 +32,7 @@
 #ifndef DEBUG_H // Include guard
 #define DEBUG_H
 
-/** 
+/**
   \page lib_var Library variants
 
   Generally speaking there are four different library variants:
@@ -88,7 +88,7 @@
 	#error "Only either _DEBUG or _INTERNAL should ever be defined"
 #endif
 
-// Define which libraries to use. 
+// Define which libraries to use.
 #if defined(_INTERNAL)
 #  pragma comment (lib,"debuginternal.lib")
 #  define HAS_ASSERTS

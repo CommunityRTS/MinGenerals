@@ -48,7 +48,7 @@
 #endif
 
 //-------------------------------------------------------------------------------------------------
-SpecialPowerUpdateModule::SpecialPowerUpdateModule( Thing *thing, const ModuleData* moduleData ) : UpdateModule( thing, moduleData ) 
+SpecialPowerUpdateModule::SpecialPowerUpdateModule( Thing *thing, const ModuleData* moduleData ) : UpdateModule( thing, moduleData )
 {
 }
 
@@ -61,9 +61,9 @@ SpecialPowerUpdateModule::~SpecialPowerUpdateModule()
 Bool SpecialPowerUpdateModule::doesSpecialPowerUpdatePassScienceTest() const
 {
 	//Kris: July 24, 2003 -- Added an additional optional check for objects with multiple SpecialPowerModules referencing
-	//the same SpecialPowerTemplate but with special ScienceType checks. An example of this is the three 
+	//the same SpecialPowerTemplate but with special ScienceType checks. An example of this is the three
 	//SpectreGunshipDeploymentUpdate modules inside AirF_AmericaCommandCenter. Each one has a different duration which
-	//is hooked into different objects. This sucked and became necessary because the way the stackable changable icon system 
+	//is hooked into different objects. This sucked and became necessary because the way the stackable changable icon system
 	//for multilevel buttons.
 	ScienceType science = getExtraRequiredScience();
 	if( science != SCIENCE_INVALID )
@@ -87,7 +87,7 @@ Bool SpecialPowerUpdateModule::doesSpecialPowerUpdatePassScienceTest() const
 void SpecialPowerUpdateModule::crc( Xfer *xfer )
 {
 
-	// extend base class 
+	// extend base class
 	UpdateModule::crc( xfer );
 
 }  // end crc

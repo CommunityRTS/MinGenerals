@@ -66,7 +66,7 @@ public:
 protected:
 	void getAllSelectedDicts(void);
 
-	static MapObjectProps *TheMapObjectProps; 
+	static MapObjectProps *TheMapObjectProps;
 
 	Dict* m_dictToEdit;
 	std::vector<Dict*> m_allSelectedDicts;
@@ -127,7 +127,7 @@ protected:
 	void _DictToDestructible(void);
 	void _DictToUnsellable(void);
 	void _DictToTargetable(void);
-	
+
 	void _DictToPowered(void);
 	void _DictToAggressiveness(void);
 	void _DictToVisibilityRange(void);

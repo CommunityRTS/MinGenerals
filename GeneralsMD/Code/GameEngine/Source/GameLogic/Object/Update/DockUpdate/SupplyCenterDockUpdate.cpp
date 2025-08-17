@@ -57,7 +57,7 @@ SupplyCenterDockUpdateModuleData::SupplyCenterDockUpdateModuleData( void )
 
 	DockUpdateModuleData::buildFieldParse( p );
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "GrantTemporaryStealth",		INI::parseDurationUnsignedInt,  NULL, offsetof( SupplyCenterDockUpdateModuleData, m_grantTemporaryStealthFrames ) },
 		{ 0, 0, 0, 0 }
@@ -102,7 +102,7 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 	Player *ownerPlayer = getObject()->getControllingPlayer();
 	while( supplyTruckAI->loseOneBox() )
 		value += ownerPlayer->getSupplyBoxValue();
-	
+
 	// Add money boost from upgrades that give extra money
 	value += supplyTruckAI->getUpgradedSupplyBoost();
 
@@ -117,7 +117,7 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 		{
 			StealthUpdate *stealth = docker->getStealth();
 			//Only grant temporary stealth to the default stealth update. It's
-			//possible that another type of stealth was granted... like the 
+			//possible that another type of stealth was granted... like the
 			//GPS scrambler. We want that to take precendence.
 			if( getObject()->testStatus( OBJECT_STATUS_STEALTHED ) )
 			{
@@ -132,7 +132,7 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 			}
 		}
 	}
-	
+
 	Bool displayMoney = value > 0 ? TRUE : FALSE;
 	if( getObject()->testStatus(OBJECT_STATUS_STEALTHED) )
 	{
@@ -142,7 +142,7 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 			displayMoney = FALSE;
 		}
 	}
-		
+
 	if( displayMoney )
 	{
 		// OY LOOK!  I AM USING LOCAL PLAYER.  Do not put anything other than TheInGameUI->addFloatingText in the block this controls!!!
@@ -156,11 +156,11 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 		pos.y = dockerPos->y;
 		pos.z = TheTerrainLogic->getGroundHeight(pos.x, pos.y);//dockerPos->z + docker->getGeometryInfo().getHeight();
 		Color color = ownerPlayer->getPlayerColor() | GameMakeColor( 0, 0, 0, 230 );
-		
+
 		TheInGameUI->addFloatingText(moneys, &pos, color);
 	}
 
-		
+
 	return FALSE;
 }
 
@@ -176,7 +176,7 @@ UpdateSleepTime SupplyCenterDockUpdate::update()
 	SupplyCenterCreate* create = (SupplyCenterCreate*)getObject()->findCreateModule(key_SupplyCenterCreate);
 	DEBUG_ASSERTCRASH( create && ! create->shouldDoOnBuildComplete(), ("A Supply center did not call onBuildComplete.") );
 #endif
-	
+
 	return result;
 }
 

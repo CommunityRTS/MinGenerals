@@ -63,12 +63,12 @@ DeployStyleAIUpdate::DeployStyleAIUpdate( Thing *thing, const ModuleData* module
 	m_state = READY_TO_MOVE;
 	m_frameToWakeForDeploy = 0;
 	reset();
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 DeployStyleAIUpdate::~DeployStyleAIUpdate( void )
 {
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 Bool DeployStyleAIUpdate::isIdle() const
@@ -112,13 +112,13 @@ void DeployStyleAIUpdate::aiDoCommand( const AICommandParms* parms )
 			m_lastOutsideCommand.store( *parms );
 			m_hasOutsideCommand = TRUE;
 		}
-		
+
 		if( m_state != DEPLOY && m_state != UNDEPLOY )
 		{
 			//Only issue the command if we're not in the process of deploying/undeploying.
 			AIUpdateInterface::aiDoCommand( parms );
 		}
-		switch( parms->m_cmd ) 
+		switch( parms->m_cmd )
 		{
 			case AICMD_GUARD_POSITION:
 				m_position.set( &parms->m_pos );
@@ -226,12 +226,12 @@ UpdateSleepTime DeployStyleAIUpdate::update( void )
 						m_overriddenAttack = TRUE;
 						m_designatedTargetID = designatedTarget->getID();
 					}
-					else 
+					else
 					{
 						designatedTarget = NULL;
 					}
 				}
-				else 
+				else
 				{
 					designatedTarget = NULL;
 				}
@@ -321,7 +321,7 @@ UpdateSleepTime DeployStyleAIUpdate::update( void )
 			break;
 		}
 	}
-	
+
 	UpdateSleepTime mine = UPDATE_SLEEP_FOREVER;
 	switch( m_state )
 	{
@@ -356,7 +356,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID )
 		{
 			//Tell our object to deploy (so it can continue the same attack later).
 			aiIdle( CMD_FROM_AI );
-			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_PACKING ), 
+			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_PACKING ),
 																						 MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ) );
 			m_frameToWakeForDeploy = getUnpackTime(); //In frames
 			//Make sure the animation matches the length of unpacking
@@ -372,7 +372,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID )
 				soundToPlay.setObjectID( self->getID() );
 				TheAudio->addAudioEvent( &soundToPlay );
 			}
-			
+
 			break;
 		}
 		case UNDEPLOY:
@@ -394,7 +394,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID )
 					setTurretEnabled( tur, false );
 				}
 			}
-			
+
 			//Play undeploy sound
 			const ThingTemplate *thing = self->getTemplate();
 			const AudioEventRTS* soundToPlayPtr = thing->getPerUnitSound( "Undeploy" );
@@ -434,7 +434,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID )
  				aiDoCommand(&parms);
 			}
 
-			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ), 
+			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ),
 																						 MAKE_MODELCONDITION_MASK( MODELCONDITION_DEPLOYED) );
 
 			if( doTurretsFunctionOnlyWhenDeployed() )
@@ -475,7 +475,7 @@ void DeployStyleAIUpdate::crc( Xfer *xfer )
 // ------------------------------------------------------------------------------------------------
 /** Xfer method
 	* Version Info:
-	* 1: Initial version 
+	* 1: Initial version
 	* 2: Added support for attack move
 	* 3: Added improved support for guard, and support for hunt AI
  **/
@@ -486,7 +486,7 @@ void DeployStyleAIUpdate::xfer( Xfer *xfer )
   XferVersion currentVersion = 3;
   XferVersion version = currentVersion;
   xfer->xferVersion( &version, currentVersion );
- 
+
  // extend base class
 	AIUpdateInterface::xfer(xfer);
 

@@ -93,7 +93,7 @@ void LookAtTranslator::stopScrolling( void )
 	TheTacticalView->setMouseLock( FALSE );
 	TheMouse->setCursor(prevCursor);
 	m_scrollType = SCROLL_NONE;
-		
+
 	// if we have a stats collectore increment the stats
 	if(TheStatsCollector)
 		TheStatsCollector->endScrollTime();
@@ -175,7 +175,7 @@ GameMessageDisposition LookAtTranslator::translateGameMessage(const GameMessage 
 			UnsignedByte key		= msg->getArgument( 0 )->integer;
 			UnsignedByte state	= msg->getArgument( 1 )->integer;
 			Bool isPressed = !(BitTest( state, KEY_STATE_UP ));
-			
+
 			if (TheShell && TheShell->isShellActive())
 				break;
 
@@ -287,7 +287,7 @@ GameMessageDisposition LookAtTranslator::translateGameMessage(const GameMessage 
 				m_lastMouseMoveFrame = TheGameLogic->getFrame();
 
 			m_currentPos = msg->getArgument( 0 )->pixel;
-			
+
 			UnsignedInt height = TheDisplay->getHeight();
 			UnsignedInt width  = TheDisplay->getWidth();
 
@@ -371,13 +371,13 @@ GameMessageDisposition LookAtTranslator::translateGameMessage(const GameMessage 
 					TheTacticalView->zoomOut();
 			}
 		}
-		
+
 		//-----------------------------------------------------------------------------
 		case GameMessage::MSG_META_OPTIONS:
 		{
 			// stop the scrolling
 			stopScrolling();
-			// let the message drop through, cause we need to process this message for 
+			// let the message drop through, cause we need to process this message for
 			// selection as well.
 			break;
 		}
@@ -528,7 +528,7 @@ GameMessageDisposition LookAtTranslator::translateGameMessage(const GameMessage 
 
 		// ------------------------------------------------------------------------
 #if defined(_ALLOW_DEBUG_CHEATS_IN_RELEASE)
-		case GameMessage::MSG_CHEAT_DESHROUD: 
+		case GameMessage::MSG_CHEAT_DESHROUD:
 		{
 			if (!TheGameLogic->isInMultiplayerGame())
 			{

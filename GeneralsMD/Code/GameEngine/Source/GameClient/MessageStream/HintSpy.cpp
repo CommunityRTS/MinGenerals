@@ -23,7 +23,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // HintSpy.cpp
-// The HintSpy sits on the message stream and watches for certain messages, 
+// The HintSpy sits on the message stream and watches for certain messages,
 // for which it then generates visual "hints".
 // Author: Michael S. Booth, March 2001
 
@@ -135,6 +135,6 @@ GameMessageDisposition HintSpyTranslator::translateGameMessage(const GameMessage
 			TheInGameUI->createGarrisonHint( msg );
 			break;
 
-	}	
+	}
 	return disp;
 }

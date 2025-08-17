@@ -69,7 +69,7 @@ public:
 	SamplingClass(unsigned int dimensions, unsigned char divisions):
 		Dimensions(dimensions),
 		Divisions(divisions)
-		{};	
+		{};
 	virtual void Reset() {};
 	virtual void Sample(float *target)=0;
 	virtual ~SamplingClass() {};
@@ -86,7 +86,7 @@ class RandomSamplingClass : public SamplingClass
 public:
 	RandomSamplingClass(unsigned int dimensions, unsigned char divisions=0);
 	virtual void Reset() {};
-	virtual void Sample(float *target);	
+	virtual void Sample(float *target);
 };
 
 // samples over a regular hypergrid

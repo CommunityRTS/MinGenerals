@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdclassids.h                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 8/01/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 4                                                          $*
@@ -60,7 +60,7 @@ enum
 ** ClassID's for actual Shader Implementations (typically there will be several for each "type", one
 ** for each hardware configuration...)
 */
-enum 
+enum
 {
 	SHD_CLASSID_DUMMY = 0,
 	SHD_CLASSID_LAST,

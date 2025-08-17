@@ -43,7 +43,7 @@
 
 D3DCAPS8 DX8Caps::hwVPCaps;
 D3DCAPS8 DX8Caps::swVPCaps;
-bool DX8Caps::UseTnL;	
+bool DX8Caps::UseTnL;
 bool DX8Caps::SupportDOT3;
 bool DX8Caps::SupportDXTC;
 bool DX8Caps::supportGamma;
@@ -75,9 +75,9 @@ void DX8Caps::Init_Caps(IDirect3DDevice8* D3DDevice)
 		UseTnL=true;
 
 		D3DDevice->SetRenderState(D3DRS_SOFTWAREVERTEXPROCESSING,FALSE);
-		DX8CALL(GetDeviceCaps(&hwVPCaps));	
+		DX8CALL(GetDeviceCaps(&hwVPCaps));
 	} else {
-		UseTnL=false;			
+		UseTnL=false;
 	}
 }
 

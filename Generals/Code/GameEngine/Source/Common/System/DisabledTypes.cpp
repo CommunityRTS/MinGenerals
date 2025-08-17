@@ -30,7 +30,7 @@
 #include "Common/DisabledTypes.h"
 #include "Common/BitFlagsIO.h"
 
-const char* DisabledMaskType::s_bitNameList[] = 
+const char* DisabledMaskType::s_bitNameList[] =
 {
 	"DEFAULT",
 	"DISABLED_HACKED",
@@ -40,7 +40,7 @@ const char* DisabledMaskType::s_bitNameList[] =
 	"DISABLED_UNMANNED",
 	"DISABLED_UNDERPOWERED",
 	"DISABLED_FREEFALL",
-	
+
 	"DISABLED_SCRIPT_DISABLED",
 	"DISABLED_SCRIPT_UNDERPOWERED",
 

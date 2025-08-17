@@ -17,12 +17,12 @@
 */
 
 //----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:   WPAudio
@@ -36,7 +36,7 @@
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //----------------------------------------------------------------------------
 
 #define WIN32_LEAN_AND_MEAN
@@ -57,19 +57,19 @@
 
 
 //----------------------------------------------------------------------------
-//         Externals                                                     
+//         Externals
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Defines                                                         
+//         Defines
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Types                                                     
+//         Private Types
 //----------------------------------------------------------------------------
 
 struct _aud_thread
@@ -95,26 +95,26 @@ DBG_DECLARE_TYPE ( AUD_Thread )
 
 
 //----------------------------------------------------------------------------
-//         Private Data                                                     
+//         Private Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Data                                                      
+//         Public Data
 //----------------------------------------------------------------------------
 
 static HWND audioMainWindowHandle = NULL;
 
 //----------------------------------------------------------------------------
-//         Private Prototypes                                               
+//         Private Prototypes
 //----------------------------------------------------------------------------
 
 static DWORD		WINAPI		AUD_service_thread ( VOID *data );
 
 
 //----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Functions
 //----------------------------------------------------------------------------
 
 static DWORD		WINAPI		AUD_service_thread ( VOID *data )
@@ -156,7 +156,7 @@ static DWORD		WINAPI		AUD_service_thread ( VOID *data )
 
 
 //----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Public Functions
 //----------------------------------------------------------------------------
 
 AUD_Thread*	AUD_ThreadCreate ( const char *name, AUD_ThreadPriority pri, AUD_ThreadCB *code )
@@ -225,7 +225,7 @@ AUD_Thread*	AUD_ThreadCreate ( const char *name, AUD_ThreadPriority pri, AUD_Thr
 }
 
 //============================================================================
-// AUD_ThreadDestroy 
+// AUD_ThreadDestroy
 //============================================================================
 
 void				AUD_ThreadDestroy ( AUD_Thread *thread )
@@ -245,7 +245,7 @@ void				AUD_ThreadDestroy ( AUD_Thread *thread )
 }
 
 //============================================================================
-// AUD_ThreadBeginCriticalSection 
+// AUD_ThreadBeginCriticalSection
 //============================================================================
 
 void				AUD_ThreadBeginCriticalSection ( AUD_Thread *thread)
@@ -255,7 +255,7 @@ void				AUD_ThreadBeginCriticalSection ( AUD_Thread *thread)
 }
 
 //============================================================================
-// AUD_ThreadEndCriticalSection 
+// AUD_ThreadEndCriticalSection
 //============================================================================
 
 void				AUD_ThreadEndCriticalSection ( AUD_Thread *thread )
@@ -265,7 +265,7 @@ void				AUD_ThreadEndCriticalSection ( AUD_Thread *thread )
 }
 
 //============================================================================
-// AUD_ThreadSetData 
+// AUD_ThreadSetData
 //============================================================================
 
 void				AUD_ThreadSetData ( AUD_Thread *thread, void *data )
@@ -278,7 +278,7 @@ void				AUD_ThreadSetData ( AUD_Thread *thread, void *data )
 }
 
 //============================================================================
-// AUD_ThreadSetInterval 
+// AUD_ThreadSetInterval
 //============================================================================
 
 void				AUD_ThreadSetInterval ( AUD_Thread *thread, TimeStamp interval )
@@ -294,7 +294,7 @@ void				AUD_ThreadSetInterval ( AUD_Thread *thread, TimeStamp interval )
 }
 
 //============================================================================
-// AUD_ThreadGetInterval 
+// AUD_ThreadGetInterval
 //============================================================================
 
 TimeStamp				AUD_ThreadGetInterval ( AUD_Thread *thread )
@@ -336,7 +336,7 @@ AudioServiceInfo*		AUD_ThreadServiceInfo( AUD_Thread *thread )
 }
 
 //============================================================================
-// AudioFormatReadWaveFile 
+// AudioFormatReadWaveFile
 //============================================================================
 
 int AudioFormatReadWaveFile ( File *file, AudioFormat *format, int *bytes )
@@ -402,7 +402,7 @@ int AudioFormatReadWaveFile ( File *file, AudioFormat *format, int *bytes )
 			case vDATA:
 				*bytes = chunk.length;
 				goto got_data;
-			default: 
+			default:
 				file->seek ( chunk.length, File::CURRENT );
 				break;
 		}
@@ -452,7 +452,7 @@ got_data:
 		result =  AudioFormatReadMP3File ( file, format, NULL );
 		goto done;
 	}
-	else 
+	else
 	{
 		goto done;
 	}
@@ -473,7 +473,7 @@ done:
 	{
 		free ( wformat );
 	}
-		
+
 	return result;
 
 }
@@ -488,7 +488,7 @@ void	WindowsDebugPrint( const char * lpOutputString )
 }
 
 //============================================================================
-// AudioSetWindowsHandle 
+// AudioSetWindowsHandle
 //============================================================================
 
 void AudioSetWindowsHandle ( HWND hwnd )
@@ -498,7 +498,7 @@ void AudioSetWindowsHandle ( HWND hwnd )
 }
 
 //============================================================================
-// AudioGetWindowsHandle 
+// AudioGetWindowsHandle
 //============================================================================
 
 HWND AudioGetWindowsHandle ( void )

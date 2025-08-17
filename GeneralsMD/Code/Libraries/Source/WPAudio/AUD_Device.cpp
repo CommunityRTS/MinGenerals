@@ -214,18 +214,18 @@ static 	AudioDevice*      audioCreateDevice ( AudioSystem *system, int unit, Aud
 	AudioSystemMaster *master = system->master;
 
 
-	//  create and initialise dev struct 
+	//  create and initialise dev struct
 
 	ALLOC_STRUCT ( dev, AudioDevice );
 
-	//  initialise driver structure 
+	//  initialise driver structure
 	DBG_SET_TYPE ( dev, AudioDevice );
 
   ListNodeInit ( &dev->nd );
   dev->systemUnit = unit;
   dev->system = system;
 	LockInit ( &dev->lock );
-	LockAcquire ( &system->lock );				//  mark system as being used 
+	LockAcquire ( &system->lock );				//  mark system as being used
   system->unit[unit] = dev;
 	dev->driver = master->driver;
 	ListInit ( &dev->channelList);
@@ -239,7 +239,7 @@ static 	AudioDevice*      audioCreateDevice ( AudioSystem *system, int unit, Aud
 	AudioServiceSetResetInterval ( &dev->attribsUpdate, AUDIO_DEFAULT_SERVICE_INTERVAL*5 );
 	AudioServiceInfoInit ( & dev->mixerUpdate );
 	AudioServiceSetInterval ( &dev->mixerUpdate, AUDIO_DEFAULT_SERVICE_INTERVAL );
-	AudioFormatInit ( &dev->DefaultFormat );	//  default sample sormat 
+	AudioFormatInit ( &dev->DefaultFormat );	//  default sample sormat
 	AudioFormatInit ( &dev->Format );
 
 	if ( format )
@@ -247,7 +247,7 @@ static 	AudioDevice*      audioCreateDevice ( AudioSystem *system, int unit, Aud
 		AudioDeviceSetDefaultFormat ( dev, format );
 	}
 
-  //  initialise device driver 
+  //  initialise device driver
   if ( master->open ( dev ) != vNO_ERROR )
   {
   	goto error;
@@ -256,7 +256,7 @@ static 	AudioDevice*      audioCreateDevice ( AudioSystem *system, int unit, Aud
   return dev;
 
 
-error:    
+error:
 
 	if (dev)
 	{
@@ -448,11 +448,11 @@ static		void		audioMapDeviceUnit ( int unit, AudioSystem **pSystem, int *pUnit )
 
 	if ( (*pSystem = system) )
 	{
-		*pUnit = unit;	//  we found it 
+		*pUnit = unit;	//  we found it
 	}
 	else
 	{
-		*pUnit = -1;	//  no such unit 
+		*pUnit = -1;	//  no such unit
 	}
 }
 
@@ -471,7 +471,7 @@ static		int	audioDeviceHandler ( AudioDevice *dev )
 
 	if (!NotLocked(&dev->channelAccess ))
 	{
-		//  channel lists are being accessed so we can do nothing at this time 
+		//  channel lists are being accessed so we can do nothing at this time
 		return ERROR_CODE_IN_USE;
 	}
 
@@ -503,7 +503,7 @@ static		int	audioDeviceHandler ( AudioDevice *dev )
 
 		if ( ( chan->Control.Status & mAUDIO_CTRL_PLAYING ))
 		{
-			//  update channel attributes 
+			//  update channel attributes
 
 			if ( chan->sample )
 			{
@@ -542,7 +542,7 @@ int       AudioSetUp ( void )
 {
 
 
-	DBG_ASSERT ( !audioInitialized ); 	//  audio system was already initialized 
+	DBG_ASSERT ( !audioInitialized ); 	//  audio system was already initialized
 
 	DBGPRINTF (("Initializing audio module\n"));
 
@@ -550,7 +550,7 @@ int       AudioSetUp ( void )
 
 	InitAudioTimer();
 
-	//  Initialize lists 
+	//  Initialize lists
   ListInit ( &audioData->systemList );
   ListInit ( &audioData->devList );
 	LockInit ( &audioData->devListAccess );
@@ -558,7 +558,7 @@ int       AudioSetUp ( void )
 	audioStdChannelAttribs = &audioData->stdChannelAttribs;
 	AudioAttribsInit ( audioStdChannelAttribs );
 
-    //  Process tags 
+    //  Process tags
 
   audioInitialized = TRUE;
 
@@ -629,11 +629,11 @@ AudioSystem*		AudioLoadSystem ( AudioSystemMaster *master )
 	AudioSystem		*system;
 
 
-	DBG_ASSERT ( audioInitialized );		//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );		//  AudioSetUp() was not called
 	DBG_ASSERT ( master != NULL );
 	DBG_ASSERT ( master->stamp == AUDIO_STAMP_SYSTEM_MASTER );
 
-	DBG_ASSERT ( ! (master->flags & mAUDIO_SYSTEM_MASTER_LOADED ));	//  master was already loaded 
+	DBG_ASSERT ( ! (master->flags & mAUDIO_SYSTEM_MASTER_LOADED ));	//  master was already loaded
 
 	DBG_ASSERT ( !audioExclusiveSystemLoaded);
 
@@ -673,11 +673,11 @@ void			AudioUnloadSystem ( AudioSystem *system )
 {
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	DBG_ASSERT_TYPE  ( system, AudioSystem );
 
-	DBG_ASSERT ( !Locked ( &system->lock ));	//  trying to unload a system while it is still being used 
+	DBG_ASSERT ( !Locked ( &system->lock ));	//  trying to unload a system while it is still being used
 
 	audioRemoveSystem ( system );
 	audioDestroySystem ( system );
@@ -698,7 +698,7 @@ void			AudioUnloadAllSystems ( void )
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	sys = AudioFirstSystem ( &sh );
 
@@ -722,7 +722,7 @@ AudioSystem*		AudioFirstSystem ( AudioSearch *sh )
 {
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	DBG_SET_TYPE ( sh, AudioSearchStruct );
 	sh->item = ListFirstItem ( &audioData->systemList );
@@ -747,7 +747,7 @@ AudioSystem*		AudioNextSystem ( AudioSearch *sh )
 {
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( sh, AudioSearchStruct );
 
 	if ( sh->item )
@@ -779,7 +779,7 @@ int			AudioNumberOfDevices ( void )
 	AudioSearch	sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	system = AudioFirstSystem ( &sh );
 
@@ -806,17 +806,17 @@ AudioDevice*		AudioOpenDevice ( int unit, AudioFormat *format )
 	int		systemUnit;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	if ( unit == AUDIO_DEVICE_DEFAULT )
 	{
 		unit = 0;
 	}
 
-	//  map  unit number to system and system unit number 
+	//  map  unit number to system and system unit number
 	audioMapDeviceUnit ( unit, &system, &systemUnit );
 
-	if ( !system )		//  there is no such unit 
+	if ( !system )		//  there is no such unit
 	{
 		DBGPRINTF (("No such unit\n"));
 		goto error;
@@ -824,21 +824,21 @@ AudioDevice*		AudioOpenDevice ( int unit, AudioFormat *format )
 
     if ( !( dev = system->unit[systemUnit]))
     {
-		//  first time opening this device 
+		//  first time opening this device
 
 		if ( ! (dev = audioCreateDevice ( system, systemUnit, format )))
 		{
 			DBGPRINTF (("Unable to create device\n"));
-        	goto error;		//  failed to open the device driver 
+        	goto error;		//  failed to open the device driver
 		}
 
 		dev->Unit = unit;
 
-		audioAddDevice ( dev );		//  add it to the device list 
+		audioAddDevice ( dev );		//  add it to the device list
 
     }
 
-    LockAcquire (&dev->lock);       //  mark as being used 
+    LockAcquire (&dev->lock);       //  mark as being used
 
 
 
@@ -863,7 +863,7 @@ error:
 void	AudioDeviceSetDefaultFormat ( AudioDevice *dev, AudioFormat *format )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 	DBG_ASSERT ( format != NULL );
 
@@ -880,7 +880,7 @@ AudioDevice*		AudioFirstDevice ( AudioSearch *sh )
 {
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 	DBG_SET_TYPE ( sh, AudioSearchStruct );
 	sh->item = ListFirstItem ( &audioData->devList  );
@@ -906,7 +906,7 @@ AudioDevice*		AudioNextDevice ( AudioSearch *sh )
 {
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( sh, AudioSearchStruct );
 
 	if ( sh->item )
@@ -936,7 +936,7 @@ void			AudioDestroyAllDevices ( void )
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 
 
 	LockAcquire ( &audioData->devListAccess);
@@ -964,7 +964,7 @@ void			AudioDestroyAllDevices ( void )
 void			AudioDeviceClose ( AudioDevice *dev )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	LockRelease ( &dev->lock );
@@ -984,7 +984,7 @@ void			AudioDeviceClose ( AudioDevice *dev )
 void			AudioDeviceDestroy ( AudioDevice *dev )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	audioRemoveDevice ( dev );
@@ -1000,7 +1000,7 @@ void			AudioDeviceDestroy ( AudioDevice *dev )
 int		AudioDeviceSetFormat ( AudioDevice *dev, AudioFormat *format)
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 	DBG_ASSERT ( format );
 
@@ -1016,7 +1016,7 @@ int		AudioDeviceSetFormat ( AudioDevice *dev, AudioFormat *format)
 void			AudioDeviceSetVolume ( AudioDevice *dev, int newVolume )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	AudioAttribsSetVolume ( &dev->Attribs, newVolume );
@@ -1031,7 +1031,7 @@ void			AudioDeviceSetVolume ( AudioDevice *dev, int newVolume )
 void			AudioDeviceAdjustVolume ( AudioDevice *dev, int newVolume )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	AudioAttribsAdjustVolume ( &dev->Attribs, newVolume );
@@ -1045,7 +1045,7 @@ void			AudioDeviceAdjustVolume ( AudioDevice *dev, int newVolume )
 int			AudioDeviceMaxChannels ( AudioDevice *dev )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	return dev->maxChannels;
@@ -1060,7 +1060,7 @@ int			AudioDeviceMaxChannels ( AudioDevice *dev )
 int			AudioDeviceChannels ( AudioDevice *dev )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 
@@ -1077,7 +1077,7 @@ AudioChannel*	AudioDeviceCreateChannel ( AudioDevice *dev )
 	AudioChannel	*channel = NULL;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	if ( dev->channels >= dev->maxChannels )
@@ -1117,7 +1117,7 @@ int		AudioDeviceCreateChannels ( AudioDevice *dev, int num )
 	int	count = 0;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	DBG_ASSERT ( num != 0);
@@ -1143,7 +1143,7 @@ int		AudioDeviceCreateChannels ( AudioDevice *dev, int num )
 AudioChannel*	AudioDeviceFirstChannel ( AudioDevice *dev, AudioSearch *sh )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 	DBG_ASSERT ( sh != NULL );
 
@@ -1169,7 +1169,7 @@ AudioChannel*	AudioDeviceFirstChannel ( AudioDevice *dev, AudioSearch *sh )
 AudioChannel*	AudioDeviceNextChannel ( AudioSearch *sh )
 {
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( sh, AudioSearchStruct );
 
 	if ( sh->item )
@@ -1202,7 +1202,7 @@ AudioChannel*	AudioDeviceGetChannel ( AudioDevice *dev, AudioChannelType type )
 	uint				lowestPlayingVolume;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	if ( type == AUDIO_CHANNEL_TYPE_ANY)
@@ -1234,7 +1234,7 @@ AudioChannel*	AudioDeviceGetChannel ( AudioDevice *dev, AudioChannelType type )
 		{
 			if ( !(FLAGS_CHECK (channel->Control.Status, mAUDIO_CTRL_ACTIVE | mAUDIO_CTRL_INUSE )))
 			{
-				break;	//  we found a free channel 
+				break;	//  we found a free channel
 			}
 			if ( (FLAGS_CHECK (channel->Control.Status, mAUDIO_CTRL_PLAYING )))
 			{
@@ -1271,7 +1271,7 @@ AudioChannel*	AudioDeviceGetChannel ( AudioDevice *dev, AudioChannelType type )
 		channel = AudioDeviceNextChannel ( &sh );
 	}
 
-	if ( !channel )	//  we did not find a free channel 
+	if ( !channel )	//  we did not find a free channel
 	{
 		if ( !( channel = lowestPaused) || (lowestPriorityPaused > lowestPriorityPlaying) )
 		{
@@ -1293,11 +1293,11 @@ AudioChannel*	AudioDeviceReserveChannel ( AudioDevice *dev, AudioChannelType new
 	AudioChannel	*chan;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
-	DBG_ASSERT ( newType != AUDIO_CHANNEL_TYPE_ALL );	//  this does not make sense, think about it 
-	DBG_ASSERT ( newType != AUDIO_CHANNEL_TYPE_STD );	//  illegal value 
+	DBG_ASSERT ( newType != AUDIO_CHANNEL_TYPE_ALL );	//  this does not make sense, think about it
+	DBG_ASSERT ( newType != AUDIO_CHANNEL_TYPE_STD );	//  illegal value
 
 	chan = AudioDeviceGetChannel ( dev, AUDIO_CHANNEL_TYPE_STD );
 
@@ -1320,7 +1320,7 @@ int		AudioDeviceDestroyAllChannels ( AudioDevice *dev, AudioChannelType type )
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 
@@ -1352,7 +1352,7 @@ void			AudioDeviceStopAllChannels ( AudioDevice *dev, AudioChannelType type)
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 
@@ -1383,7 +1383,7 @@ void			AudioDevicePauseAllChannels ( AudioDevice *dev, AudioChannelType type )
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 
@@ -1414,7 +1414,7 @@ void			AudioDeviceResumeAllChannels ( AudioDevice *dev, AudioChannelType type )
 	AudioSearch		sh;
 
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	channel = AudioDeviceFirstChannel ( dev, &sh );
@@ -1443,7 +1443,7 @@ int		AudioDeviceService ( AudioDevice *dev)
 {
 	int result;
 
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	result =  dev->deviceHandler ( dev );
@@ -1454,7 +1454,7 @@ int		AudioDeviceService ( AudioDevice *dev)
 
 void	AudioDeviceAttribsAdd ( AudioDevice *dev, AudioAttribs *attribs )
 {
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	if ( !attribs )
@@ -1486,7 +1486,7 @@ void	AudioDeviceAttribsAdd ( AudioDevice *dev, AudioAttribs *attribs )
 
 void	AudioDeviceAttribsRemove ( AudioDevice *dev, AudioAttribs *attribs )
 {
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 
 	AudioAttribsNode *node = audioDeviceAttribsListFind ( dev, attribs );
@@ -1510,7 +1510,7 @@ void	AudioDeviceAttribsRemove ( AudioDevice *dev, AudioAttribs *attribs )
 
 void	AudioDeviceAttribsRemoveAll ( AudioDevice *dev )
 {
-	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized );	//  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
 	AudioAttribsNode *node;
 
@@ -1638,7 +1638,7 @@ void AudioServicePerform ( AudioServiceInfo *asi, TimeStamp now )
 
 	if ( asi->longestInterval > asi->longestReset )
 	{
-			asi->longestInterval = 0;	//  reset the longest count if it is extremely long 
+			asi->longestInterval = 0;	//  reset the longest count if it is extremely long
 	}
 
 	if ( interval > asi->longestInterval )
@@ -1796,10 +1796,10 @@ void		AudioDeviceDump ( AudioDevice *dev, void (*print) ( char *), int names  )
 			sprintf ( temp, "%2d", format->Compression == AUDIO_COMPRESS_NONE ? format->SampleWidth *8 : 4 );
 		}
 
-		sprintf ( fstr, "%02d-%s-%c%c%c", 
-							format->Rate / 1000, 
+		sprintf ( fstr, "%02d-%s-%c%c%c",
+							format->Rate / 1000,
 							temp,
-							format->Channels == 1 ? 'm' : 's', 
+							format->Channels == 1 ? 'm' : 's',
 							chan->format_changed ? '*' : ' ',
 							chan->drv_format_changed ? '+' : ' ' );
 

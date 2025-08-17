@@ -26,7 +26,7 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-char *TimeOfDayNames[] = 
+char *TimeOfDayNames[] =
 {
 	"NONE",
 	"MORNING",
@@ -37,7 +37,7 @@ char *TimeOfDayNames[] =
 	NULL
 };
 
-char *WeatherNames[] = 
+char *WeatherNames[] =
 {
 	"NORMAL",
 	"SNOWY",

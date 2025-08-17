@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:   WSYS Library
@@ -42,7 +42,7 @@
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //----------------------------------------------------------------------------
 
 #include "PreRTS.h"
@@ -59,7 +59,7 @@
 #include "Common/RAMFile.h"
 #include "Lib/BaseType.h"
 #include "Common/PerfTimer.h"
-			
+
 
 #ifdef _INTERNAL
 // for occasional debugging...
@@ -68,43 +68,43 @@
 #endif
 
 //----------------------------------------------------------------------------
-//         Externals                                                     
+//         Externals
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Defines                                                         
+//         Defines
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Types                                                     
+//         Private Types
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Data                                                     
+//         Private Data
 //----------------------------------------------------------------------------
 
 static Int s_totalOpen = 0;
 
 //----------------------------------------------------------------------------
-//         Public Data                                                      
+//         Public Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Prototypes                                               
+//         Private Prototypes
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Functions
 //----------------------------------------------------------------------------
 
 //=================================================================
@@ -122,12 +122,12 @@ LocalFile::LocalFile()
 
 
 //----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Public Functions
 //----------------------------------------------------------------------------
 
 
 //=================================================================
-// LocalFile::~LocalFile	
+// LocalFile::~LocalFile
 //=================================================================
 
 LocalFile::~LocalFile()
@@ -153,7 +153,7 @@ LocalFile::~LocalFile()
 }
 
 //=================================================================
-// LocalFile::open	
+// LocalFile::open
 //=================================================================
 /**
   *	This function opens a file using the standard C open() call. Access flags
@@ -225,7 +225,7 @@ Bool LocalFile::open( const Char *filename, Int access )
 	{
 		goto error;
 	}
-	
+
 	//setvbuf(m_file, m_vbuf, _IOFBF, sizeof(BUF_SIZE));
 
 #else
@@ -296,7 +296,7 @@ error:
 }
 
 //=================================================================
-// LocalFile::close 	
+// LocalFile::close
 //=================================================================
 /**
 	* Closes the current file if it is open.
@@ -310,7 +310,7 @@ void LocalFile::close( void )
 }
 
 //=================================================================
-// LocalFile::read 
+// LocalFile::read
 //=================================================================
 
 Int LocalFile::read( void *buffer, Int bytes )
@@ -321,7 +321,7 @@ Int LocalFile::read( void *buffer, Int bytes )
 		return -1;
 	}
 
-	if (buffer == NULL) 
+	if (buffer == NULL)
 	{
 #ifdef USE_BUFFERED_IO
 		fseek(m_file, bytes, SEEK_CUR);
@@ -341,7 +341,7 @@ Int LocalFile::read( void *buffer, Int bytes )
 }
 
 //=================================================================
-// LocalFile::write 
+// LocalFile::write
 //=================================================================
 
 Int LocalFile::write( const void *buffer, Int bytes )
@@ -361,7 +361,7 @@ Int LocalFile::write( const void *buffer, Int bytes )
 }
 
 //=================================================================
-// LocalFile::seek 
+// LocalFile::seek
 //=================================================================
 
 Int LocalFile::seek( Int pos, seekMode mode)
@@ -449,7 +449,7 @@ Bool LocalFile::scanInt(Int &newInt)
 //=================================================================
 // skips preceding whitespace and stops at the first non-number
 // or at EOF
-Bool LocalFile::scanReal(Real &newReal) 
+Bool LocalFile::scanReal(Real &newReal)
 {
 	newReal = 0.0;
 	AsciiString tempstr;
@@ -499,7 +499,7 @@ Bool LocalFile::scanReal(Real &newReal)
 //=================================================================
 // skips preceding whitespace and stops at the first whitespace
 // or at EOF
-Bool LocalFile::scanString(AsciiString &newString) 
+Bool LocalFile::scanString(AsciiString &newString)
 {
 	Char c;
 	Int val;
@@ -543,7 +543,7 @@ Bool LocalFile::scanString(AsciiString &newString)
 // LocalFile::nextLine
 //=================================================================
 // scans to the first character after a new-line or at EOF
-void LocalFile::nextLine(Char *buf, Int bufSize) 
+void LocalFile::nextLine(Char *buf, Int bufSize)
 {
 	Char c = 0;
 	Int val;
@@ -582,7 +582,7 @@ void LocalFile::nextLine(Char *buf, Int bufSize)
 File* LocalFile::convertToRAMFile()
 {
 	RAMFile *ramFile = newInstance( RAMFile );
-	if (ramFile->open(this)) 
+	if (ramFile->open(this))
 	{
 		if (this->m_deleteOnClose)
 		{
@@ -595,8 +595,8 @@ File* LocalFile::convertToRAMFile()
 			this->deleteInstance();
 		}
 		return ramFile;
-	}	
-	else 
+	}
+	else
 	{
 		ramFile->close();
 		ramFile->deleteInstance();
@@ -608,7 +608,7 @@ File* LocalFile::convertToRAMFile()
 // LocalFile::readEntireAndClose
 //=================================================================
 /**
-	Allocate a buffer large enough to hold entire file, read 
+	Allocate a buffer large enough to hold entire file, read
 	the entire file into the buffer, then close the file.
 	the buffer is owned by the caller, who is responsible
 	for freeing is (via delete[]). This is a Good Thing to

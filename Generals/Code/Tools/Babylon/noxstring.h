@@ -59,7 +59,7 @@ public:
 
 int ExcelRunning( void );
 extern TransDB				*NoxstrDB;
-extern TransDB				*MainDB; 
+extern TransDB				*MainDB;
 extern char						NoxstrFilename[];
 extern char						MainXLSFilename[];
 extern char						RootPath[];

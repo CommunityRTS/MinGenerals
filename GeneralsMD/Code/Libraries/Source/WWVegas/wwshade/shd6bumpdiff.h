@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shd6bumpdiff.h													$*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 7/11/02 10:36p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -53,7 +53,7 @@ class Shd6BumpDiffClass : public ShdInterfaceClass
 public:
 	Shd6BumpDiffClass(const ShdDefClass* def);
 	virtual ~Shd6BumpDiffClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -70,9 +70,9 @@ public:
 	virtual bool						Use_HW_Vertex_Processing() const { return Vertex_Shader.Is_Using_Hardware(); }
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

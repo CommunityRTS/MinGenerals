@@ -65,7 +65,7 @@ public:
 	RGBAColorInt m_vertex01Diffuse;
 	RGBAColorInt m_waterDiffuseColor;
 	RGBAColorInt m_transparentWaterDiffuse;
-	Real m_uScrollPerMs;		
+	Real m_uScrollPerMs;
 	Real m_vScrollPerMs;
 
 };
@@ -81,7 +81,7 @@ class WaterTransparencySetting : public Overridable
 	public:
 		Real m_transparentWaterDepth;
 		Real m_minWaterOpacity;
-		
+
 		AsciiString m_skyboxTextureN;
 		AsciiString m_skyboxTextureE;
 		AsciiString m_skyboxTextureS;

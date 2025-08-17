@@ -105,12 +105,12 @@ typedef struct AudioStreamerTag
 						int								data_start;
 						int								bytes_left;
 						int								frame_size;
-						
+
 						int								stream_pos;
 						int								max_volume;
-						
+
 						char							stream_name[80];
-						
+
 						#ifndef IG_FINAL_RELEASE
 						char							name[200];
 						#endif
@@ -168,7 +168,7 @@ static int	streamNextFrame ( AudioChannel *channel )
 		as->stream_pos %= as->total_bytes;
 	}
 
-	STM_AccessGetBlock ( as->out );		
+	STM_AccessGetBlock ( as->out );
 
 	if ( as->frame_size > as->out->Block.Bytes )
 	{
@@ -178,7 +178,7 @@ static int	streamNextFrame ( AudioChannel *channel )
 	{
 		as->pending_bytes = as->frame_size;
 	}
-	
+
 	channel->bytesInFrame = as->pending_bytes;
 	channel->bytesRemaining = channel->bytesInFrame;
 	channel->frameData = (char *) as->out->Block.Data;
@@ -308,11 +308,11 @@ static int service_streams ( AUD_Thread *thread, void *data )
 	if ( list )
 	{
 		as = (AudioStreamer*) ListFirstItem ( list );
-			
+
 		while ( as )
 		{
 			service_stream ( as );
-		
+
 			as = (AudioStreamer*) ListNextItem ( &as->nd );
 		}
 	}
@@ -558,7 +558,7 @@ void					AudioStreamerSetAttribs ( AudioStreamer *as, AudioAttribs *attribs )
 {
 
 	DBG_ASSERT_TYPE ( as, AudioStreamer );
-	
+
 	as->channel->GroupAttribs = attribs;
 }
 
@@ -571,7 +571,7 @@ void					AudioStreamerSetFadeAttribs ( AudioStreamer *as, AudioAttribs *attribs 
 {
 
 	DBG_ASSERT_TYPE ( as, AudioStreamer );
-	
+
 	as->channel->FadeAttribs = attribs;
 }
 
@@ -582,7 +582,7 @@ void					AudioStreamerSetFadeAttribs ( AudioStreamer *as, AudioAttribs *attribs 
 
 int						AudioStreamerOpen ( AudioStreamer *as, File *file)
 {
-	
+
 	DBG_ASSERT_TYPE ( as, AudioStreamer );
 
 	if ( Locked ( &as->lock ) || !file )
@@ -665,7 +665,7 @@ int						AudioStreamerOpen ( AudioStreamer *as, const char *filename )
 int						AudioStreamerStart ( AudioStreamer *as )
 {
 	TimeStamp time;
-	
+
 	DBG_ASSERT_TYPE ( as, AudioStreamer );
 
 	if ( Locked ( &as->lock ) || !(as->flags & AS_OPEN ))
@@ -1020,7 +1020,7 @@ void AudioStreamerStarve ( void )
 	}
 
 	as = (AudioStreamer*) ListFirstItem ( &streams );
-	
+
 	AUD_ThreadBeginCriticalSection ( thread );
 
 	while ( as )
@@ -1409,7 +1409,7 @@ int						AudioStreamerGetMaxVolume ( AudioStreamer *as )
 void					AudioStreamerSetLooping ( AudioStreamer *as, int loop )
 {
 	DBG_ASSERT_TYPE ( as, AudioStreamer );
-	
+
 	AUD_ThreadBeginCriticalSection ( thread );
 
 	if ( loop )
@@ -1479,7 +1479,7 @@ static void streamDump ( AudioStreamer *as, int index, void (*print) ( char *tex
 		sprintf ( buffer, "%02d: Invalid Stream\n", index);
 		print ( buffer );
 		return;
-	}	
+	}
 
 	total = STM_StreamTotalBytes ( as->stream );
 	in = 0;
@@ -1588,10 +1588,10 @@ static void streamDump ( AudioStreamer *as, int index, void (*print) ( char *tex
 	sprintf ( buffer, "%.12s %4d Kb %.31s \n", AudioStreamerName( as ), total/1024, name);
 	print ( buffer );
 
-	sprintf ( buffer, " Status: %s %s %s %d:%02d:%03d \n",  
+	sprintf ( buffer, " Status: %s %s %s %d:%02d:%03d \n",
 					as->flags & AS_PLAYING ? "Play  " : (as->flags & AS_PAUSED ? "Paused" : "Stop  ") ,
-					as->flags & AS_FILL ? "Fill" : "    ", 
-					Locked( &as->lock ) ? "Locked" : "      ", 
+					as->flags & AS_FILL ? "Fill" : "    ",
+					Locked( &as->lock ) ? "Locked" : "      ",
 					minutes, seconds, time );
 	print ( buffer );
 
@@ -1611,7 +1611,7 @@ void	AudioStreamerDump ( void (*print) ( char *text ))
 	char buffer[200];
 	char temp[100];
 	int index = 0;
-	
+
 	if ( !initialized )
 	{
 		print ("\nAudio Streamer not initialized\n" );

@@ -22,14 +22,14 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-// FILE: Debug.cpp 
+// FILE: Debug.cpp
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -42,11 +42,11 @@
 //
 // ----------------------------------------------------------------------------
 
-// SYSTEM INCLUDES 
+// SYSTEM INCLUDES
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 
-// USER INCLUDES 
+// USER INCLUDES
 #define DEBUG_THREADSAFE
 #ifdef DEBUG_THREADSAFE
 #include "Common/CriticalSection.h"
@@ -72,7 +72,7 @@ extern char *gAppPrefix; /// So WB can have a different log file name.
 #endif
 
 // ----------------------------------------------------------------------------
-// DEFINES 
+// DEFINES
 // ----------------------------------------------------------------------------
 
 #ifdef DEBUG_LOGGING
@@ -91,11 +91,11 @@ extern char *gAppPrefix; /// So WB can have a different log file name.
 #endif
 
 // ----------------------------------------------------------------------------
-// PRIVATE TYPES 
+// PRIVATE TYPES
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// PRIVATE DATA 
+// PRIVATE DATA
 // ----------------------------------------------------------------------------
 #ifdef DEBUG_LOGGING
 static FILE *theLogFile = NULL;
@@ -105,7 +105,7 @@ static char theBuffer[ LARGE_BUFFER ];	// make it big to avoid weird overflow bu
 static int theDebugFlags = 0;
 static DWORD theMainThreadID = 0;
 // ----------------------------------------------------------------------------
-// PUBLIC DATA 
+// PUBLIC DATA
 // ----------------------------------------------------------------------------
 
 char* TheCurrentIgnoreCrashPtr = NULL;
@@ -117,7 +117,7 @@ const char *TheDebugLevels[DEBUG_LEVEL_MAX] = {
 #endif
 
 // ----------------------------------------------------------------------------
-// PRIVATE PROTOTYPES 
+// PRIVATE PROTOTYPES
 // ----------------------------------------------------------------------------
 static const char *getCurrentTimeString(void);
 static const char *getCurrentTickString(void);
@@ -132,7 +132,7 @@ static void doStackDump();
 #endif
 
 // ----------------------------------------------------------------------------
-// PRIVATE FUNCTIONS 
+// PRIVATE FUNCTIONS
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
@@ -163,8 +163,8 @@ int MessageBoxWrapper( LPCSTR lpText, LPCSTR lpCaption, UINT uType )
 }
 
 // ----------------------------------------------------------------------------
-// getCurrentTimeString 
-/** 
+// getCurrentTimeString
+/**
 	Return the current time in string form
 */
 // ----------------------------------------------------------------------------
@@ -177,8 +177,8 @@ static const char *getCurrentTimeString(void)
 }
 
 // ----------------------------------------------------------------------------
-// getCurrentTickString 
-/** 
+// getCurrentTickString
+/**
 	Return the current TickCount in string form
 */
 // ----------------------------------------------------------------------------
@@ -212,7 +212,7 @@ static const char *prepBuffer(const char* format, char *buffer)
 
 // ----------------------------------------------------------------------------
 // doLogOutput
-/** 
+/**
 	send a string directly to the log file and/or console without further processing.
 */
 // ----------------------------------------------------------------------------
@@ -241,7 +241,7 @@ static void doLogOutput(const char *buffer)
 // doCrashBox
 /*
 	present a messagebox with the given message. Depending on user selection,
-	we exit the app, break into debugger, or continue execution. 
+	we exit the app, break into debugger, or continue execution.
 */
 // ----------------------------------------------------------------------------
 static int doCrashBox(const char *buffer, Bool logResult)
@@ -300,8 +300,8 @@ static void doStackDump()
 #endif
 
 // ----------------------------------------------------------------------------
-// whackFunnyCharacters 
-/** 
+// whackFunnyCharacters
+/**
 	Eliminates any undesirable nonprinting characters, aside from newline,
 	replacing them with spaces.
 */
@@ -310,22 +310,22 @@ static void whackFunnyCharacters(char *buf)
 {
 	for (char *p = buf + strlen(buf) - 1; p >= buf; --p)
 	{
-		// ok, these are naughty magic numbers, but I'm guessing you know ASCII.... 
+		// ok, these are naughty magic numbers, but I'm guessing you know ASCII....
 		if (*p >= 0 && *p < 32 && *p != 10 && *p != 13)
 			*p = 32;
 	}
 }
 
 // ----------------------------------------------------------------------------
-// PUBLIC FUNCTIONS 
+// PUBLIC FUNCTIONS
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
-// DebugInit 
+// DebugInit
 // ----------------------------------------------------------------------------
 #ifdef ALLOW_DEBUG_UTILS
 /**
-	Initialize the debug utilities. This should be called once, as near to the 
+	Initialize the debug utilities. This should be called once, as near to the
 	start of the app as possible, before anything else (since other code will
 	probably want to make use of it).
 */
@@ -335,7 +335,7 @@ void DebugInit(int flags)
 //		::MessageBox(NULL, "Debug already inited", "", MB_OK|MB_APPLMODAL);
 
 	// just quietly allow multiple calls to this, so that static ctors can call it.
-	if (theDebugFlags == 0 && strcmp(gAppPrefix, "wb_") != 0) 
+	if (theDebugFlags == 0 && strcmp(gAppPrefix, "wb_") != 0)
 	{
 		theDebugFlags = flags;
 
@@ -346,9 +346,9 @@ void DebugInit(int flags)
 		char dirbuf[ _MAX_PATH ];
 		::GetModuleFileName( NULL, dirbuf, sizeof( dirbuf ) );
 		char *pEnd = dirbuf + strlen( dirbuf );
-		while( pEnd != dirbuf ) 
+		while( pEnd != dirbuf )
 		{
-			if( *pEnd == '\\' ) 
+			if( *pEnd == '\\' )
 			{
 				*(pEnd + 1) = 0;
 				break;
@@ -372,15 +372,15 @@ void DebugInit(int flags)
 		if (theLogFile != NULL)
 		{
 			DebugLog("Log %s opened: %s\n", curbuf, getCurrentTimeString());
-		} 
+		}
 	#endif
 	}
 
-}  
+}
 #endif
 
 // ----------------------------------------------------------------------------
-// DebugLog 
+// DebugLog
 // ----------------------------------------------------------------------------
 #ifdef DEBUG_LOGGING
 /**
@@ -407,7 +407,7 @@ void DebugLog(const char *format, ...)
 
 	whackFunnyCharacters(theBuffer);
 	doLogOutput(theBuffer);
-} 
+}
 #endif
 
 // ----------------------------------------------------------------------------
@@ -421,12 +421,12 @@ void DebugLog(const char *format, ...)
 */
 void DebugCrash(const char *format, ...)
 {
-	// Note: You might want to make this thread safe, but we cannot. The reason is that 
+	// Note: You might want to make this thread safe, but we cannot. The reason is that
 	// there is an implicit requirement on other threads that the message loop be running.
 
 	// make it not static so that it'll be thread-safe.
 	// make it big to avoid weird overflow bugs in debug mode
-	char theCrashBuffer[ LARGE_BUFFER ];	
+	char theCrashBuffer[ LARGE_BUFFER ];
 	if (theDebugFlags == 0)
 	{
 		if (!DX8Wrapper_IsWindowed) {
@@ -456,7 +456,7 @@ void DebugCrash(const char *format, ...)
 	}
 
 #ifdef DEBUG_LOGGING
-	if (ignoringAsserts()) 
+	if (ignoringAsserts())
 	{
 		doLogOutput("**** CRASH IN FULL SCREEN - Auto-ignored, CHECK THIS LOG!\n");
 	}
@@ -474,14 +474,14 @@ void DebugCrash(const char *format, ...)
 
 	int result = doCrashBox(theCrashBuffer, true);
 
-	if (result == IDIGNORE && TheCurrentIgnoreCrashPtr != NULL) 
+	if (result == IDIGNORE && TheCurrentIgnoreCrashPtr != NULL)
 	{
 		int yn;
-		if (!ignoringAsserts()) 
+		if (!ignoringAsserts())
 		{
 			yn = MessageBoxWrapper("Ignore this crash from now on?", "", MB_YESNO|MB_TASKMODAL);
-		}	
-		else 
+		}
+		else
 		{
 			yn = IDYES;
 		}
@@ -493,15 +493,15 @@ void DebugCrash(const char *format, ...)
 			TheMouse->reset();
 	}
 
-}  
+}
 #endif
 
 // ----------------------------------------------------------------------------
-// DebugShutdown 
+// DebugShutdown
 // ----------------------------------------------------------------------------
 #ifdef ALLOW_DEBUG_UTILS
 /**
-	Shut down the debug utilities. This should be called once, as near to the 
+	Shut down the debug utilities. This should be called once, as near to the
 	end of the app as possible, after everything else (since other code will
 	probably want to make use of it).
 */
@@ -516,10 +516,10 @@ void DebugShutdown()
 	theLogFile = NULL;
 #endif
 	theDebugFlags = 0;
-}  
+}
 
 // ----------------------------------------------------------------------------
-// DebugGetFlags 
+// DebugGetFlags
 // ----------------------------------------------------------------------------
 /**
 	Get the current values for the flags passed to DebugInit. Most code will never
@@ -532,7 +532,7 @@ int DebugGetFlags()
 }
 
 // ----------------------------------------------------------------------------
-// DebugSetFlags 
+// DebugSetFlags
 // ----------------------------------------------------------------------------
 /**
 	Set the current values for the flags passed to DebugInit. Most code will never
@@ -567,7 +567,7 @@ void SimpleProfiler::start()
 // ----------------------------------------------------------------------------
 void SimpleProfiler::stop()
 {
-	if (m_startThisSession != 0) 
+	if (m_startThisSession != 0)
 	{
 		__int64 stop;
 		QueryPerformanceCounter((LARGE_INTEGER*)&stop);
@@ -701,7 +701,7 @@ void ReleaseCrash(const char *reason)
 	if (!GetRegistryLanguage().compareNoCase("german2") || !GetRegistryLanguage().compareNoCase("german") )
 	{
 		::MessageBox(NULL, "Es ist ein gravierender Fehler aufgetreten. Solche Fehler können durch viele verschiedene Dinge wie Viren, überhitzte Hardware und Hardware, die den Mindestanforderungen des Spiels nicht entspricht, ausgelöst werden. Tipps zur Vorgehensweise findest du in den Foren unter www.generals.ea.com, Informationen zum Technischen Kundendienst im Handbuch zum Spiel.", "Fehler...", MB_OK|MB_TASKMODAL|MB_ICONERROR);
-	} 
+	}
 	else
 	{
 		::MessageBox(NULL, "You have encountered a serious error.  Serious errors can be caused by many things including viruses, overheated hardware and hardware that does not meet the minimum specifications for the game. Please visit the forums at www.generals.ea.com for suggested courses of action or consult your manual for Technical Support contact information.", "Technical Difficulties...", MB_OK|MB_TASKMODAL|MB_ICONERROR);
@@ -710,7 +710,7 @@ void ReleaseCrash(const char *reason)
 #endif
 
 	_exit(1);
-}  
+}
 
 void ReleaseCrashLocalized(const AsciiString& p, const AsciiString& m)
 {
@@ -732,13 +732,13 @@ void ReleaseCrashLocalized(const AsciiString& p, const AsciiString& m)
 		}
 	}
 
-	if (TheSystemIsUnicode) 
+	if (TheSystemIsUnicode)
 	{
 		::MessageBoxW(NULL, mesg.str(), prompt.str(), MB_OK|MB_SYSTEMMODAL|MB_ICONERROR);
-	} 
-	else 
+	}
+	else
 	{
-		// However, if we're using the default version of the message box, we need to 
+		// However, if we're using the default version of the message box, we need to
 		// translate the string into an AsciiString
 		AsciiString promptA, mesgA;
 		promptA.translate(prompt);

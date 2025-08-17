@@ -120,7 +120,7 @@ DefinitionMgrClass::Find_Definition (uint32 id, bool twiddle)
 	//	Binary search the list until we've found the definition
 	//
 	while (keep_going) {
-		
+
 		DefinitionClass *curr_def = _SortedDefinitionArray[index];
 		WWASSERT (curr_def != NULL);
 
@@ -130,7 +130,7 @@ DefinitionMgrClass::Find_Definition (uint32 id, bool twiddle)
 		if (curr_def->Get_ID () == id) {
 			definition	= _SortedDefinitionArray[index];
 			keep_going	= false;
-		} else if (upper_index <= lower_index + 1) {			
+		} else if (upper_index <= lower_index + 1) {
 
 			//
 			//	When the window get's too small, our divide by two won't catch
@@ -142,7 +142,7 @@ DefinitionMgrClass::Find_Definition (uint32 id, bool twiddle)
 			} else if (_SortedDefinitionArray[upper_index]->Get_ID () == id) {
 				definition = _SortedDefinitionArray[upper_index];
 			}
-			
+
 		} else {
 
 			//
@@ -153,7 +153,7 @@ DefinitionMgrClass::Find_Definition (uint32 id, bool twiddle)
 				index += (upper_index - index) / 2;
 			} else {
 				upper_index = index;
-				index -= (index - lower_index) / 2;				
+				index -= (index - lower_index) / 2;
 			}
 		}
 	}
@@ -189,7 +189,7 @@ DefinitionMgrClass::Find_Named_Definition (const char *name, bool twiddle)
 	//
 	for (int index = 0; index < _DefinitionCount; index ++) {
 		DefinitionClass *curr_def = _SortedDefinitionArray[index];
-		
+
 		//
 		//	Is this the definition we were looking for?
 		//
@@ -289,7 +289,7 @@ DefinitionMgrClass::Find_Typed_Definition (const char *name, uint32 class_id, bo
 						break;
 					}
 				}
-			}				
+			}
 		}
 	}
 
@@ -321,7 +321,7 @@ DefinitionMgrClass::List_Available_Definitions (void)
 	//
 	WWDEBUG_SAY(("Available definitions:\n"));
 	for (int index = 0; index < _DefinitionCount; index ++) {
-		DefinitionClass *curr_def = _SortedDefinitionArray[index];		
+		DefinitionClass *curr_def = _SortedDefinitionArray[index];
 		if (curr_def != NULL) {
 			WWDEBUG_SAY(("  >%s<\n", curr_def->Get_Name ()));
 		}
@@ -373,7 +373,7 @@ DefinitionMgrClass::Get_First (uint32 id, ID_TYPE type)
 			(definition == NULL) && (index < _DefinitionCount);
 			index ++)
 	{
-		DefinitionClass *curr_def = _SortedDefinitionArray[index];		
+		DefinitionClass *curr_def = _SortedDefinitionArray[index];
 		if (curr_def != NULL) {
 
 			//
@@ -415,7 +415,7 @@ DefinitionMgrClass::Get_Next
 	for (	int index = curr_def->m_DefinitionMgrLink + 1;
 			(definition == NULL) && (index < _DefinitionCount);
 			index ++)
-	{		
+	{
 		DefinitionClass *curr_def = _SortedDefinitionArray[index];
 		if (curr_def != NULL) {
 
@@ -479,7 +479,7 @@ DefinitionMgrClass::Free_Definitions (void)
 
 	//
 	//	Free each of the definition objects
-	//	
+	//
 	for (int index = 0; index < _DefinitionCount; index ++) {
 		DefinitionClass *definition = _SortedDefinitionArray[index];
 		if (definition != NULL) {
@@ -529,7 +529,7 @@ DefinitionMgrClass::Prepare_Definition_Array (void)
 			delete [] _SortedDefinitionArray;
 		}
 		_SortedDefinitionArray	= new_array;
-		_MaxDefinitionCount		= new_size;		
+		_MaxDefinitionCount		= new_size;
 	}
 	if (!DefinitionHash) DefinitionHash=W3DNEW HashTemplateClass<StringClass, DynamicVectorClass<DefinitionClass*>*>;
 
@@ -564,7 +564,7 @@ DefinitionMgrClass::Register_Definition (DefinitionClass *definition)
 		bool is_valid		= true;
 
 		while (keep_going) {
-			
+
 			DefinitionClass *curr_def = _SortedDefinitionArray[index];
 			WWASSERT (curr_def != NULL);
 
@@ -586,7 +586,7 @@ DefinitionMgrClass::Register_Definition (DefinitionClass *definition)
 					index += (upper_index - index) / 2;
 				} else {
 					upper_index = index;
-					index -= (index - lower_index) / 2;				
+					index -= (index - lower_index) / 2;
 				}
 
 				//
@@ -650,12 +650,12 @@ DefinitionMgrClass::Unregister_Definition (DefinitionClass *definition)
 			_SortedDefinitionArray[index] = _SortedDefinitionArray[index + 1];
 			_SortedDefinitionArray[index]->m_DefinitionMgrLink = index;
 		}
-		
+
 		_SortedDefinitionArray[_DefinitionCount - 1] = NULL;
 		definition->m_DefinitionMgrLink = -1;
 		_DefinitionCount --;
 	}
-	
+
 	return ;
 }
 
@@ -672,16 +672,16 @@ DefinitionMgrClass::Save
 )
 {
 	WWMEMLOG(MEM_GAMEDATA);
-	
+
 	bool retval = true;
 
 	//
 	//	Create a chunk to contain the class variables we need to serialize.
 	//
-	csave.Begin_Chunk (CHUNKID_VARIABLES);	
+	csave.Begin_Chunk (CHUNKID_VARIABLES);
 	Save_Variables (csave);
 	csave.End_Chunk ();
-	
+
 	//
 	//	Have the base class write the objects to their own chunk.
 	//
@@ -706,7 +706,7 @@ DefinitionMgrClass::Load (ChunkLoadClass &cload)
 
 	while (cload.Open_Chunk ()) {
 		switch (cload.Cur_Chunk_ID ()) {
-			
+
 			//
 			//	If this is the chunk that contains the class variables, then
 			// loop through and read each microchunk
@@ -797,15 +797,15 @@ DefinitionMgrClass::Load_Objects (ChunkLoadClass &cload)
 		//
 		PersistFactoryClass *factory = SaveLoadSystemClass::Find_Persist_Factory (cload.Cur_Chunk_ID ());
 		if (factory != NULL) {
-			
+
 			DefinitionClass *definition = (DefinitionClass *)factory->Load (cload);
 			if (definition != NULL) {
 
 				//
 				//	Add this definition to our array
-				//				
+				//
 				Prepare_Definition_Array ();
-				_SortedDefinitionArray[_DefinitionCount ++] = definition;				
+				_SortedDefinitionArray[_DefinitionCount ++] = definition;
 			}
 		}
 
@@ -845,7 +845,7 @@ DefinitionMgrClass::Load_Variables (ChunkLoadClass &cload)
 	//
 	while (cload.Open_Micro_Chunk ()) {
 		switch (cload.Cur_Micro_Chunk_ID ()) {
-			
+
 			case VARID_NEXTDEFID:
 				break;
 		}
@@ -886,7 +886,7 @@ DefinitionMgrClass::Get_New_ID (uint32 class_id)
 			//	Is this id in the range we are looking for?
 			//
 			if (curr_id >= idrange_start && curr_id < idrange_end) {
-				
+
 				//
 				//	Take the largest ID in the range
 				//
@@ -894,7 +894,7 @@ DefinitionMgrClass::Get_New_ID (uint32 class_id)
 			}
 		}
 	}
-	
+
 	new_id ++;
 	return new_id;
 }

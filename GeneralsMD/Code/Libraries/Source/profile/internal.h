@@ -76,7 +76,7 @@ class ProfileFastCS
 
 public:
 	ProfileFastCS(void):
-    m_Flag(0) 
+    m_Flag(0)
   {
   }
 
@@ -88,7 +88,7 @@ public:
 		ProfileFastCS& CriticalSection;
 
 	public:
-		Lock(ProfileFastCS& cs): 
+		Lock(ProfileFastCS& cs):
       CriticalSection(cs)
 		{
 			CriticalSection.ThreadSafeSetFlag();

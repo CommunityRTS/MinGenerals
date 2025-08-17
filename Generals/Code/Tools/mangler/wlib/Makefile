@@ -3,7 +3,7 @@
 ##########################################################################
 
 #Define cc to be your C compiler
-CC = g++ 
+CC = g++
 
 #This tells make how to go from a .cpp to a .o
 .SUFFIXES: .cpp

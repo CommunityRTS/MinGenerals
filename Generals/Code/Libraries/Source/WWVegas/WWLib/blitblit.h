@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Library/blitblit.h                                $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Library/blitblit.h                                $*
+ *                                                                                             *
  *                      $Author:: Greg_h                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 7/22/97 11:37a                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 1                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #ifndef BLITBLIT_H
@@ -47,13 +47,13 @@
 **	The large variety of blitter objects is necessary because there is a rich
 **	set of pixel operations required by the game engine. Complicating this is that
 **	the game engine must support both 16 bit and 8 bit pixel formats. Some of these
-**	blitter objects are templates (this reduces the need for both 8 and 16 bit 
+**	blitter objects are templates (this reduces the need for both 8 and 16 bit
 **	counterparts if the algorithm is constant between pixel formats). Also note
 **	that there are some assembly implementations where it seems appropriate.
 **
 **	If the blitter object has "Xlat" in the name, then this means that the source
-**	pixel is 8 bit and the destination pixel is 16 bit (probably). This hybrid system 
-**	allows the game artwork to be shared between the two pixel format displays. To 
+**	pixel is 8 bit and the destination pixel is 16 bit (probably). This hybrid system
+**	allows the game artwork to be shared between the two pixel format displays. To
 **	accomplish this, a translation table is supplied to the blit operation so that
 **	the 8 bit pixel can be converted into the appropriate 16 bit destination pixel.
 **	If the destination surface is also 8 bit, then the translation table converts
@@ -445,9 +445,9 @@ class BlitTransLucent75 : public Blitter {
 
 
 /*
-**	Assembly versions of some of the templated blitter object functions. Borland and 
+**	Assembly versions of some of the templated blitter object functions. Borland and
 **	Visual C++ support a compatible inline-assembly formats. However, Borland compiler
-**	does not allow inline-assembly to be part of an inline function -- go figure. 
+**	does not allow inline-assembly to be part of an inline function -- go figure.
 **	It will still compile, it just generates warning messages.
 */
 #if defined(_MSC_VER)

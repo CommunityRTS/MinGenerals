@@ -99,7 +99,7 @@ void SupplyCenterProductionExitUpdate::exitObjectViaDoor( Object *newObj, ExitDo
 		for objects in general */
 		// tell the AI about it
 		TheAI->pathfinder()->addObjectToPathfindMap( newObj );
-		
+
 		Vector3 p;
 
 		//
@@ -134,12 +134,12 @@ void SupplyCenterProductionExitUpdate::exitObjectViaDoor( Object *newObj, ExitDo
 			if( supplyTruckAI )
 				supplyTruckAI->setForceWantingState(true);
 		}
-		
+
 		if( md->m_grantTemporaryStealthFrames )
 		{
 			StealthUpdate *stealth = newObj->getStealth();
 			//Only grant temporary stealth to the default stealth update. It's
-			//possible that another type of stealth was granted... like the 
+			//possible that another type of stealth was granted... like the
 			//GPS scrambler. We want that to take precendence.
 			if( getObject()->testStatus( OBJECT_STATUS_STEALTHED ) )
 			{
@@ -171,7 +171,7 @@ Bool SupplyCenterProductionExitUpdate::getExitPosition( Coord3D& exitPosition ) 
 	exitPosition.x = loc.X;
 	exitPosition.y = loc.Y;
 	exitPosition.z = loc.Z;
-	
+
 	return TRUE;
 
 }

@@ -71,8 +71,8 @@ __forceinline void GetPrecisionTimer(Int64* t)
 #ifdef USE_QPF
 	QueryPerformanceCounter((LARGE_INTEGER*)t);
 #else
-	// CPUID is needed to force serialization of any previous instructions. 
-	__asm 
+	// CPUID is needed to force serialization of any previous instructions.
+	__asm
 	{
 		// for now, I am commenting this out. It throws the timings off a bit more (up to .001%) jkmcd
 		//		CPUID
@@ -238,8 +238,8 @@ AutoPerfGatherIgnore::~AutoPerfGatherIgnore()
 }
 
 //-------------------------------------------------------------------------------------------------
-#define DECLARE_TOTAL_PERF_TIMER(id)					static PerfGather s_##id(#id, false); 
-#define DECLARE_PERF_TIMER(id)					static PerfGather s_##id(#id); 
+#define DECLARE_TOTAL_PERF_TIMER(id)					static PerfGather s_##id(#id, false);
+#define DECLARE_PERF_TIMER(id)					static PerfGather s_##id(#id);
 #define USE_PERF_TIMER(id)							AutoPerfGather a_##id(s_##id);
 #define IGNORE_PERF_TIMER(id)						AutoPerfGatherIgnore a_##id(s_##id);
 
@@ -255,7 +255,7 @@ public:
 	virtual ~PerfTimer( );
 	__forceinline void startTimer( void );
 	__forceinline void stopTimer( void );
-	
+
 protected:
 	Int64 m_startTime;
 
@@ -283,7 +283,7 @@ protected:
 void PerfTimer::startTimer( void )
 {
 	UnsignedInt frm = (TheGameLogic ? TheGameLogic->getFrame() : m_startFrame);
-	if (frm >= m_startFrame && (m_endFrame == -1 || frm <= m_endFrame)) 
+	if (frm >= m_startFrame && (m_endFrame == -1 || frm <= m_endFrame))
 	{
 		GetPrecisionTimer(&m_startTime);
 	}
@@ -293,7 +293,7 @@ void PerfTimer::startTimer( void )
 void PerfTimer::stopTimer( void )
 {
 	UnsignedInt frm = (TheGameLogic ? TheGameLogic->getFrame() : m_startFrame);
-	if (frm >= m_startFrame && (m_endFrame == -1 || frm <= m_endFrame)) 
+	if (frm >= m_startFrame && (m_endFrame == -1 || frm <= m_endFrame))
 	{
 		Int64 tmp;
 		GetPrecisionTimer(&tmp);
@@ -301,7 +301,7 @@ void PerfTimer::stopTimer( void )
 		++m_callCount;
 		m_lastFrame = frm;
 	}
-	
+
 
 	if (TheGlobalData && TheGlobalData->m_showMetrics && m_endFrame > m_startFrame + PERFMETRICS_BETWEEN_METRICS) {
 		m_endFrame = m_startFrame + PERFMETRICS_BETWEEN_METRICS;
@@ -322,10 +322,10 @@ extern void StatMetricsDisplay( DebugDisplayInterface *dd, void *, FILE *fp );
 
 #else		// PERF_TIMERS
 
-	#define DECLARE_PERF_TIMER(id)					
-	#define  DECLARE_TOTAL_PERF_TIMER(id)					
+	#define DECLARE_PERF_TIMER(id)
+	#define  DECLARE_TOTAL_PERF_TIMER(id)
 	#define USE_PERF_TIMER(id)
-	#define IGNORE_PERF_TIMER(id)	
+	#define IGNORE_PERF_TIMER(id)
 
 #endif	// PERF_TIMERS
 

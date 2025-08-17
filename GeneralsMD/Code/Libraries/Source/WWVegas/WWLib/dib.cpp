@@ -16,42 +16,42 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/dib.cpp                                            $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/dib.cpp                                            $*
+ *                                                                                             *
  *                      $Author:: Eric_c                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 3/29/99 5:11p                                               $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 3                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   DIB8C::DIB8Class -- constructor                                                           * 
- *   DIB8C::~DIB8Class -- destructor                                                           * 
- *   DIB8C::Clear -- clears the DIB                                                            * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   DIB8C::DIB8Class -- constructor                                                           *
+ *   DIB8C::~DIB8Class -- destructor                                                           *
+ *   DIB8C::Clear -- clears the DIB                                                            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
 #include "dib.h"
 #include <math.h>
 
-/*********************************************************************************************** 
- * DIB8C::DIB8Class -- constructor                                                             * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/18/1997 GH  : Created.                                                                 * 
+/***********************************************************************************************
+ * DIB8C::DIB8Class -- constructor                                                             *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 DIB8Class::DIB8Class(HWND hwnd,int width,int height,PaletteClass & pal):
 	IsZombie(false),
@@ -92,7 +92,7 @@ DIB8Class::DIB8Class(HWND hwnd,int width,int height,PaletteClass & pal):
 		Info->bmiColors[i].rgbRed =		(unsigned char)pal[i].Get_Red();
 		Info->bmiColors[i].rgbReserved =	0;
 	}
-	
+
 	// Create the DIB.
 	HDC hdc = GetDC(hwnd);
 	Handle = CreateDIBSection(hdc, Info, DIB_RGB_COLORS,(void**)&Pixels, NULL, 0);
@@ -113,13 +113,13 @@ DIB8Class::DIB8Class(HWND hwnd,int width,int height,PaletteClass & pal):
 
 		// bottom-up DIB
         PixelBase = (Pixels + (Height - 1) * Width);
-        Pitch = -Pitch; 
+        Pitch = -Pitch;
 
     } else {
 
 		// top-down DIB
         PixelBase = Pixels;
-        Pitch = Pitch;    
+        Pitch = Pitch;
     }
 
 	// Now, wrap a BSurface around the DIB.
@@ -133,17 +133,17 @@ DIB8Class::DIB8Class(HWND hwnd,int width,int height,PaletteClass & pal):
 }
 
 
-/*********************************************************************************************** 
- * DIB8C::~DIB8Class -- destructor                                                             * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/18/1997 GH  : Created.                                                                 * 
+/***********************************************************************************************
+ * DIB8C::~DIB8Class -- destructor                                                             *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 DIB8Class::~DIB8Class(void)
 {
@@ -153,17 +153,17 @@ DIB8Class::~DIB8Class(void)
 }
 
 
-/*********************************************************************************************** 
- * DIB8C::Clear -- clears the DIB                                                              * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/18/1997 GH  : Created.                                                                 * 
+/***********************************************************************************************
+ * DIB8C::Clear -- clears the DIB                                                              *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/18/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 void DIB8Class::Clear(unsigned char color)
 {

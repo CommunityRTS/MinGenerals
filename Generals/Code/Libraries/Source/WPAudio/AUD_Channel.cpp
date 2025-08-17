@@ -118,7 +118,7 @@ AudioChannel*		audioChannelCreate ( AudioDevice *dev )
 	ListNodeInit ( &chan->nd );
 	AudioControlInit ( &chan->Control );
 	AudioAttribsInit ( &chan->attribs );
-	audioChannelMakeStandard ( chan );		//  set up for standard processing 
+	audioChannelMakeStandard ( chan );		//  set up for standard processing
 
 	chan->Device = dev;
 	chan->driver = dev->driver;
@@ -175,7 +175,7 @@ void			audioChannelMakeStandard ( AudioChannel *chan )
 
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
-	//  reset callbacks 
+	//  reset callbacks
 	chan->drvCBNextFrame = (AudioChannelCB *) audioChannelNextFrame;
 	chan->drvCBNextSample = (AudioChannelCB *) audioChannelNextSample;
 	chan->drvCBSampleDone = (AudioChannelCB *) audioChannelSampleDone;
@@ -186,20 +186,20 @@ void			audioChannelMakeStandard ( AudioChannel *chan )
 	chan->Data = NULL;
 	chan->Type = AUDIO_CHANNEL_TYPE_STD;
 
-	//  reset control 
+	//  reset control
 	AudioControlInit ( &chan->Control );
 	chan->Control.Priority = AUD_NORMAL_PRIORITY;
 
-	//  reset attribs 
+	//  reset attribs
 	chan->GroupAttribs = audioStdChannelAttribs;
 	chan->SfxAttribs = NULL;
 	chan->CompAttribs = NULL;
 	chan->FadeAttribs = NULL;
 	AudioAttribsInit ( &chan->ChannelAttribs );
 
-	//  reset sequencer 
+	//  reset sequencer
 
-	//  clear audio 
+	//  clear audio
 	chan->sample = NULL;
 }
 
@@ -268,10 +268,10 @@ static		int		audioChannelNextFrame ( AudioChannel *chan )
 
 	if ( chan->CB_NextFrame )
 	{
-		//  user is controlling frame access 
+		//  user is controlling frame access
 		if ( (err = chan->CB_NextFrame ( chan )) != vNO_ERROR )
 		{
-			//  there was an error 
+			//  there was an error
 			DBGPRINTF(("Frame error:\n"));
 			chan->bytesInFrame = 0;
 			chan->bytesRemaining = 0;
@@ -286,15 +286,15 @@ static		int		audioChannelNextFrame ( AudioChannel *chan )
 
 	}
 
-	//  user is not controlling frame access so we handle the default behaviour 
+	//  user is not controlling frame access so we handle the default behaviour
 
-	DBG_ASSERT ( chan->bytesRemaining >= 0 );	//  something corrupted this field 
+	DBG_ASSERT ( chan->bytesRemaining >= 0 );	//  something corrupted this field
 
 	if ( chan->frame )
 	{
 		if (  ( chan->frame = (AudioFrame*) ListNodeNext ( &chan->frame->nd )) )
 		{
-			//  there is more data to be got 
+			//  there is more data to be got
 			chan->frameData = (char *) chan->frame->Data;
 			chan->bytesInFrame = chan->frame->Bytes;
 			chan->bytesRemaining = chan->bytesInFrame;
@@ -304,9 +304,9 @@ static		int		audioChannelNextFrame ( AudioChannel *chan )
 
 	}
 
-	//  data has been exhausted 
+	//  data has been exhausted
 
-	chan->bytesInFrame = 0;		//  no more frames, drvCBNextSample() will be called 
+	chan->bytesInFrame = 0;		//  no more frames, drvCBNextSample() will be called
 
 	return vNO_ERROR;
 
@@ -358,7 +358,7 @@ static		int		audioChannelNextSample ( AudioChannel *chan )
 static		int		audioChannelSampleDone ( AudioChannel *chan )
 {
 
-	//  reset channel back to default 
+	//  reset channel back to default
 	chan->sample = NULL;
 	FLAGS_CLEAR ( chan->Control.Status, mAUDIO_CTRL_PLAYING|mAUDIO_CTRL_PAUSED );
 	chan->Control.LoopCount = 0;
@@ -389,7 +389,7 @@ static		int		audioChannelSampleDone ( AudioChannel *chan )
 int			AudioChannelTaken ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	return chan->Control.Status & mAUDIO_CTRL_ALLOCATED;
@@ -404,10 +404,10 @@ int			AudioChannelTaken ( AudioChannel *chan )
 void		AudioChannelReserve ( AudioChannel *chan, AudioChannelType type )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
-	DBG_ASSERT ( chan->Type == AUDIO_CHANNEL_TYPE_STD ); 	//  you can only reserve standard channels 
+	DBG_ASSERT ( chan->Type == AUDIO_CHANNEL_TYPE_STD ); 	//  you can only reserve standard channels
 
 	chan->Type = type;
 
@@ -423,7 +423,7 @@ void		AudioChannelReserve ( AudioChannel *chan, AudioChannelType type )
 void			AudioChannelRelease ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	if ( chan->Control.Status & mAUDIO_CTRL_ALLOCATED)
@@ -443,10 +443,10 @@ void			AudioChannelRelease ( AudioChannel *chan )
 void			AudioChannelDestroy ( AudioChannel *chan)
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
-	AudioChannelStop ( chan ); //  stop anything that is playing 
+	AudioChannelStop ( chan ); //  stop anything that is playing
 
 	audioRemoveChannel ( chan );
 
@@ -464,7 +464,7 @@ void		AudioChannelStop ( AudioChannel *chan )
 
 
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan);
@@ -491,7 +491,7 @@ void		AudioChannelStop ( AudioChannel *chan )
 void			AudioChannelPause ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan );
@@ -513,7 +513,7 @@ void			AudioChannelPause ( AudioChannel *chan )
 void			AudioChannelResume ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan );
@@ -534,7 +534,7 @@ void			AudioChannelResume ( AudioChannel *chan )
 void			AudioChannelLock ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan );
@@ -548,7 +548,7 @@ void			AudioChannelLock ( AudioChannel *chan )
 void			AudioChannelUnlock ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->unlock ( chan );
@@ -562,7 +562,7 @@ void			AudioChannelUnlock ( AudioChannel *chan )
 void				AudioChannelUse ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan );
@@ -579,7 +579,7 @@ void				AudioChannelUse ( AudioChannel *chan )
 void				AudioChannelNoUse ( AudioChannel *chan )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	chan->driver->lock ( chan );
@@ -600,7 +600,7 @@ int		AudioChannelStart ( AudioChannel *chan )
 
 
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	if ( (chan->Control.Status & (mAUDIO_CTRL_PAUSED | mAUDIO_CTRL_PLAYING)))
@@ -635,7 +635,7 @@ int		AudioChannelStart ( AudioChannel *chan )
 void			AudioChannelSetSample ( AudioChannel *chan, AudioSample *sample )
 {
 
-	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called 
+	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	if ( (chan->sample = sample) )
@@ -645,7 +645,7 @@ void			AudioChannelSetSample ( AudioChannel *chan, AudioSample *sample )
 		#ifndef IG_FINAL_RELEASE
 			strncpy ( chan->sample_name, sample->name, sizeof(chan->sample_name));
 			chan->sample_name[ sizeof(chan->sample_name) -1 ] = 0;
-		#endif											  
+		#endif
 
 		if ( chan->frame = AudioSampleFirstFrame ( sample ) )
 		{

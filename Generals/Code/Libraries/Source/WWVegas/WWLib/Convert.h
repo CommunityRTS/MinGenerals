@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/Convert.h                                          $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/Convert.h                                          $*
+ *                                                                                             *
  *                      $Author:: Eric_c                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 4/02/99 11:59a                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #if _MSC_VER >= 1000
 #pragma once
@@ -67,19 +67,19 @@ typedef enum {
 /*
 **	This class is the data that represents the marriage between a source art
 **	palette and a destination palette/pixel-format. Facilities provied by this
-**	class allow conversion from the source 8 bit pixel format to the correct 
+**	class allow conversion from the source 8 bit pixel format to the correct
 **	screen pixel format.
 **
 **	Although this class can convert one pixel at a time through the conversion
 **	function, the preferred way to convert pixels is through the translation
-**	table provided. This table consists of 256 entries. Each entry is either 
-**	an 8 bit or 16 bit pixel in the correct screen-space format. Use the 
+**	table provided. This table consists of 256 entries. Each entry is either
+**	an 8 bit or 16 bit pixel in the correct screen-space format. Use the
 **	Bytes_Per_Pixel() function to determine how to index into this translation
 **	table.
 **
 **	Expected use of this class would be to create separate objects of this class for
 **	every source art palette. For an 8 bit display, an additional object will be
-**	required for every additional palette set to the video DAC registers. It is 
+**	required for every additional palette set to the video DAC registers. It is
 **	presumed that one general best-case palette will be used.
 */
 class ConvertClass
@@ -87,7 +87,7 @@ class ConvertClass
 	public:
 		ConvertClass(PaletteClass const & artpalette, PaletteClass const & screenpalette, Surface const & typicalsurface);
 		~ConvertClass(void);
-		
+
 		/*
 		**	Convert from source pixel to dest screen pixel.
 		*/

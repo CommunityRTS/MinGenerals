@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shdbumpspec.h                           $*
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 5/27/02 2:21p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -52,7 +52,7 @@ public:
 	ShdBumpSpecDefClass();
 	ShdBumpSpecDefClass(const ShdBumpSpecDefClass& that);
 	virtual ~ShdBumpSpecDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdBumpSpecDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)

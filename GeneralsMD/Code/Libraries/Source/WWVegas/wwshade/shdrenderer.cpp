@@ -27,7 +27,7 @@
  *                    Org Author:: Jani_p
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 7/29/02 1:50p                                               $*
  *                                                                                             *
  *                    $Revision:: 3                                                          $*
@@ -158,7 +158,7 @@ void RendererListContainerClass::Unregister_All()
 void RendererListContainerClass::Flush()
 {
 	ShdRendererNodeClass* prev_node=NULL;
-	while (!VisibleNodes.Is_Empty()) 
+	while (!VisibleNodes.Is_Empty())
 	{
 		ShdRendererNodeClass* node=VisibleNodes.Remove_Head();
 		node->Apply_Shared_Shader_Settings(prev_node,Pass);
@@ -218,7 +218,7 @@ private:
 ShdDX8RendererClass::ShdDX8RendererClass()
 {
 	MeshCategories=new MeshContainerClass*[SHDDEF_CLASSID_LAST];
-	for (int i=0;i<SHDDEF_CLASSID_LAST;++i) 
+	for (int i=0;i<SHDDEF_CLASSID_LAST;++i)
 	{
 		MeshCategories[i]=0;
 	}
@@ -226,9 +226,9 @@ ShdDX8RendererClass::ShdDX8RendererClass()
 
 ShdDX8RendererClass::~ShdDX8RendererClass()
 {
-	for (int i=0;i<SHDDEF_CLASSID_LAST;++i) 
+	for (int i=0;i<SHDDEF_CLASSID_LAST;++i)
 	{
-		if (MeshCategories[i]) 
+		if (MeshCategories[i])
 		{
 			REF_PTR_RELEASE(MeshCategories[i]);
 			delete MeshCategories[i];
@@ -271,7 +271,7 @@ ShdRendererNodeClass* ShdDX8RendererClass::Register_Mesh
 	const ShdDefClass* def=shd->Peek_Definition();
 	uint32 class_id=def->Get_Class_ID();
 	WWASSERT(class_id<SHDDEF_CLASSID_LAST);
-	if (!MeshCategories[class_id]) 
+	if (!MeshCategories[class_id])
 	{
 		MeshCategories[class_id]=new MeshContainerClass();
 	}
@@ -290,9 +290,9 @@ void ShdDX8RendererClass::Flush()
 	DX8Wrapper::Apply_Default_State();
 
 	SNAPSHOT_SAY(("ShdDX8RendererClass::Flush()\n"));
-	for (int i=0;i<SHDDEF_CLASSID_LAST;++i) 
+	for (int i=0;i<SHDDEF_CLASSID_LAST;++i)
 	{
-		if (MeshCategories[i]) 
+		if (MeshCategories[i])
 		{
 			MeshCategories[i]->Flush();
 		}
@@ -314,7 +314,7 @@ ShdDX8RendererClass::MeshContainerClass::MeshContainerClass()
 
 ShdDX8RendererClass::MeshContainerClass::~MeshContainerClass()
 {
-	for (int pass=0; pass<SHD_MAX_PASSES; pass++) 
+	for (int pass=0; pass<SHD_MAX_PASSES; pass++)
 	{
 		while (!RendererListContainers[pass].Is_Empty()) {
 			RendererListContainerClass* cont=RendererListContainers[pass].Remove_Head();
@@ -337,7 +337,7 @@ ShdRendererNodeClass* ShdDX8RendererClass::MeshContainerClass::Register_Mesh
 	ShdDX8RendererNodeClass* node=new ShdDX8RendererNodeClass(this,mesh,sub_mesh);
 	ShdInterfaceClass* shdi=sub_mesh->Peek_Shader();
 	WWASSERT(shdi);
-	for (int pass=0; pass<shdi->Get_Pass_Count(); pass++) 
+	for (int pass=0; pass<shdi->Get_Pass_Count(); pass++)
 	{
 		RendererListContainerIterator ite(&RendererListContainers[pass]);
 		ite.Last();
@@ -349,7 +349,7 @@ ShdRendererNodeClass* ShdDX8RendererClass::MeshContainerClass::Register_Mesh
 				// Container should delete itself when the last node is removed, so we must
 				// never have an empty node.
 				WWASSERT(!ite2.Is_Done());
-				
+
 				ShdRendererNodeClass* obj=ite2.Peek_Obj();
 				if (obj) {
 					if (node->Greater_Than(*obj,pass)) {
@@ -384,8 +384,8 @@ ShdRendererNodeClass* ShdDX8RendererClass::MeshContainerClass::Register_Mesh
 void ShdDX8RendererClass::MeshContainerClass::Flush()
 {
 	SNAPSHOT_SAY(("ShdDX8RendererClass::MeshContainerClass::Flush()\n"));
-	
-	for (int pass=0; pass<SHD_MAX_PASSES; pass++) 
+
+	for (int pass=0; pass<SHD_MAX_PASSES; pass++)
 	{
 		RendererListContainerIterator ite(&RendererListContainers[pass]);
 		ite.First();
@@ -399,7 +399,7 @@ void ShdDX8RendererClass::MeshContainerClass::Flush()
 
 
 /***********************************************************************************************
- * ShdDX8RendererNodeClass::ShdDX8RendererNodeClass -- 
+ * ShdDX8RendererNodeClass::ShdDX8RendererNodeClass --
  * Init the mesh for rendering... this node is used for all subsequent rendering of
  * the particular mesh.
  * INPUT:                                                                                      *
@@ -451,7 +451,7 @@ ShdDX8RendererNodeClass::ShdDX8RendererNodeClass
 	const TriIndex* indices=SubMesh->Get_Polygon_Array();
 	int i;
 	int j=0;
-	for (i=SubMesh->Get_First_Visible_Polygon();i<count+SubMesh->Get_First_Visible_Polygon();++i) 
+	for (i=SubMesh->Get_First_Visible_Polygon();i<count+SubMesh->Get_First_Visible_Polygon();++i)
 	{
 		ilock.Get_Index_Array()[j++]=indices[i][0];
 		ilock.Get_Index_Array()[j++]=indices[i][1];
@@ -467,7 +467,7 @@ ShdDX8RendererNodeClass::ShdDX8RendererNodeClass
 	VertexStreamStruct vss;
 	vss.Locations=SubMesh->Get_Vertex_Array();
 	vss.Normals=SubMesh->Get_Vertex_Normal_Array();
-	for (unsigned stage=0;stage<MAX_TEXTURE_STAGES;++stage) 
+	for (unsigned stage=0;stage<MAX_TEXTURE_STAGES;++stage)
 	{
 		vss.UV[stage]=SubMesh->Get_UV_Array(stage);
 	}
@@ -490,7 +490,7 @@ ShdDX8RendererNodeClass::ShdDX8RendererNodeClass
 
 	VertexBuffers=new VertexBufferClass*[stream_count];
 	unsigned n;
-	for (n=0;n<stream_count;++n) 
+	for (n=0;n<stream_count;++n)
 	{
 		unsigned vertex_size=SubMesh->Peek_Shader()->Get_Vertex_Size(n);
 
@@ -524,7 +524,7 @@ ShdDX8RendererNodeClass::~ShdDX8RendererNodeClass()
 {
 	unsigned stream_count=SubMesh->Peek_Shader()->Get_Vertex_Stream_Count();
 	unsigned n;
-	for (n=0;n<stream_count;++n) 
+	for (n=0;n<stream_count;++n)
 	{
 		REF_PTR_RELEASE(VertexBuffers[n]);
 	}
@@ -539,7 +539,7 @@ ShdDX8RendererNodeClass::~ShdDX8RendererNodeClass()
 
 /***********************************************************************************************
  * ShdDX8RendererNodeClass::Render -- Render node
- * 
+ *
  * INPUT:                                                                                      *
  *                                                                                             *
  * OUTPUT:                                                                                     *
@@ -596,7 +596,7 @@ void ShdDX8RendererNodeClass::Flush(int cur_pass)
 			vertex_count);
 		SNAPSHOT_SAY(("DynamicVBAccess - %s - %d vertices\n",SubMesh->Is_Sorting() ? "sorting" : "non-sorting",vertex_count));
 
-		if (_TempVertexBuffer.Length() < (int)vertex_count) _TempVertexBuffer.Resize(vertex_count); 
+		if (_TempVertexBuffer.Length() < (int)vertex_count) _TempVertexBuffer.Resize(vertex_count);
 		if (_TempNormalBuffer.Length() < (int)vertex_count) _TempNormalBuffer.Resize(vertex_count);
 		Vector3* loc=&(_TempVertexBuffer[0]);
 		Vector3* norm=&(_TempNormalBuffer[0]);
@@ -607,7 +607,7 @@ void ShdDX8RendererNodeClass::Flush(int cur_pass)
 		VertexStreamStruct vss;
 		vss.Locations=loc;
 		vss.Normals=norm;
-		for (unsigned stage=0;stage<MAX_TEXTURE_STAGES;++stage) 
+		for (unsigned stage=0;stage<MAX_TEXTURE_STAGES;++stage)
 		{
 			vss.UV[stage]=SubMesh->Get_UV_Array(stage);
 		}
@@ -660,7 +660,7 @@ void ShdDX8RendererNodeClass::Flush(int cur_pass)
 	// END OF SKIN CODE
 
 
-	for (unsigned n=0;n<SubMesh->Peek_Shader()->Get_Vertex_Stream_Count();++n) 
+	for (unsigned n=0;n<SubMesh->Peek_Shader()->Get_Vertex_Stream_Count();++n)
 	{
 		DX8Wrapper::Set_Vertex_Buffer(VertexBuffers[n],n);
 	}

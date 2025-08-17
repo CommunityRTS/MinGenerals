@@ -640,7 +640,7 @@ Int parsePreload( char *args[], int num )
 #endif
 
 
-#if defined(_DEBUG) || defined(_INTERNAL) 
+#if defined(_DEBUG) || defined(_INTERNAL)
 Int parseDisplayDebug(char *args[], int)
 {
 	if (TheWritableGlobalData)
@@ -1155,7 +1155,7 @@ static CommandLineParam params[] =
 	{ "-FPUPreserve", parseFPUPreserve },
 	{ "-benchmark", parseBenchmark },
 #ifdef DUMP_PERF_STATS
-	{ "-stats", parseStats }, 
+	{ "-stats", parseStats },
 #endif
   { "-saveStats", parseSaveStats },
 	{ "-localMOTD", parseLocalMOTD },
@@ -1197,9 +1197,9 @@ static CommandLineParam params[] =
 	{ "-munkee", parseMunkee },
 	{ "-displayDebug", parseDisplayDebug },
 	{ "-file", parseFile },
-  
+
 //	{ "-preload", parsePreload },
-	
+
   { "-preloadEverything", parsePreloadEverything },
 	{ "-logAssets", parseLogAssets },
 	{ "-netMinPlayers", parseNetMinPlayers },

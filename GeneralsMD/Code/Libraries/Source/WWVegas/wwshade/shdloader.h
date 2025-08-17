@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Kenny Mitchell                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 06/27/02 3:51p                                              $*
  *                                                                                             *
  *                    $Revision:: 1                                                           $*

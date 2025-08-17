@@ -19,7 +19,7 @@
 #include "process.h"
 
 Process::Process()
-{ 
+{
   directory[0]=0;
   command[0]=0;
   args[0]=0;
@@ -35,7 +35,7 @@ bit8 Create_Process(Process &process)
     PROCESS_INFORMATION      piProcess;
     ZeroMemory(&si,sizeof(si));
     si.cb=sizeof(si);
- 
+
     char cmdargs[513];
     memset(cmdargs,0,513);
     strcpy(cmdargs,process.command);

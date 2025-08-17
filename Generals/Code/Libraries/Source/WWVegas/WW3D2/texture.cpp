@@ -32,7 +32,7 @@
  *                                                                                             *
  *---------------------------------------------------------------------------------------------*
  * Functions:                                                                                  *
- *   FileListTextureClass::Load_Frame_Surface -- Load source texture                           * 
+ *   FileListTextureClass::Load_Frame_Surface -- Load source texture                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "texture.h"
@@ -119,7 +119,7 @@ TextureClass::TextureClass(unsigned width, unsigned height, WW3DFormat format, M
 	switch(pool)
 	{
 	case POOL_DEFAULT:
-		d3dpool=D3DPOOL_DEFAULT;		
+		d3dpool=D3DPOOL_DEFAULT;
 		break;
 	case POOL_MANAGED:
 		d3dpool=D3DPOOL_MANAGED;
@@ -128,7 +128,7 @@ TextureClass::TextureClass(unsigned width, unsigned height, WW3DFormat format, M
 		d3dpool=D3DPOOL_SYSTEMMEM;
 		break;
 	default:
-		WWASSERT(0);		
+		WWASSERT(0);
 	}
 	D3DTexture = DX8Wrapper::_Create_DX8_Texture(width, height, format, mip_level_count,d3dpool,rendertarget);
 	if (pool==POOL_DEFAULT)
@@ -145,8 +145,8 @@ TextureClass::TextureClass(unsigned width, unsigned height, WW3DFormat format, M
 // ----------------------------------------------------------------------------
 
 TextureClass::TextureClass(
-	const char *name, 
-	const char *full_path, 
+	const char *name,
+	const char *full_path,
 	MipCountType mip_level_count,
 	WW3DFormat texture_format,
 	bool allow_compression)
@@ -267,7 +267,7 @@ TextureClass::TextureClass(SurfaceClass *surface, MipCountType mip_level_count)
 	default:
 		break;
 	}
-	
+
 	D3DTexture = DX8Wrapper::_Create_DX8_Texture(surface->Peek_D3D_Surface(), mip_level_count);
 	LastAccessed=WW3D::Get_Sync_Time();
 }
@@ -311,7 +311,7 @@ TextureClass::TextureClass(IDirect3DTexture8* d3d_texture)
 	default:
 		break;
 	}
-	
+
 	LastAccessed=WW3D::Get_Sync_Time();
 }
 
@@ -389,7 +389,7 @@ bool TextureClass::Is_Missing_Texture()
 {
 	bool flag = false;
 	IDirect3DTexture8 *missing_texture = MissingTexture::_Get_Missing_Texture();
-	
+
 	if(D3DTexture == missing_texture)
 		flag = true;
 
@@ -429,7 +429,7 @@ void TextureClass::Get_Level_Description(SurfaceClass::SurfaceDescription &surfa
 	D3DSURFACE_DESC d3d_surf_desc;
 	DX8_ErrorCode(D3DTexture->GetLevelDesc(level, &d3d_surf_desc));
 	surface_desc.Format = D3DFormat_To_WW3DFormat(d3d_surf_desc.Format);
-	surface_desc.Height = d3d_surf_desc.Height; 
+	surface_desc.Height = d3d_surf_desc.Height;
 	surface_desc.Width = d3d_surf_desc.Width;
 }
 
@@ -830,11 +830,11 @@ TextureClass *Load_Texture(ChunkLoadClass & cload)
 		** Get the texture from the asset manager
 		*/
 		if (hastexinfo) {
-			
+
 			TextureClass::MipCountType mipcount;
 
 			bool no_lod = ((texinfo.Attributes & W3DTEXTURE_NO_LOD) == W3DTEXTURE_NO_LOD);
-			
+
 			if (no_lod) {
 				mipcount = TextureClass::MIP_LEVELS_1;
 			} else {
@@ -874,7 +874,7 @@ TextureClass *Load_Texture(ChunkLoadClass & cload)
 
 			switch (texinfo.Attributes & W3DTEXTURE_TYPE_MASK) {
 
-				case W3DTEXTURE_TYPE_COLORMAP: 
+				case W3DTEXTURE_TYPE_COLORMAP:
 					// Do nothing.
 					break;
 
@@ -900,7 +900,7 @@ TextureClass *Load_Texture(ChunkLoadClass & cload)
 		WWASSERT(newtex);
 	}
 
-	// Return a pointer to the new texture	
+	// Return a pointer to the new texture
 	return newtex;
 }
 

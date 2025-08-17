@@ -57,11 +57,11 @@
 #endif
 
 //-------------------------------------------------------------------------------------------------
-void StealthDetectorUpdateModuleData::buildFieldParse(MultiIniFieldParse& p) 
+void StealthDetectorUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpdateModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "DetectionRate",							INI::parseDurationUnsignedInt,			NULL, offsetof( StealthDetectorUpdateModuleData, m_updateRate ) },
 		{ "DetectionRange",							INI::parseReal,											NULL, offsetof( StealthDetectorUpdateModuleData, m_detectionRange ) },
@@ -91,7 +91,7 @@ StealthDetectorUpdate::StealthDetectorUpdate( Thing *thing, const ModuleData* mo
 	// start these guys with random phasings so that we don't
 	// have all of 'em check on the same frame.
 	setWakeFrame(getObject(), m_enabled ? UPDATE_SLEEP(GameLogicRandomValue(1, data->m_updateRate)) : UPDATE_SLEEP_FOREVER);
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -101,9 +101,9 @@ StealthDetectorUpdate::~StealthDetectorUpdate( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-void StealthDetectorUpdate::setSDEnabled( Bool enabled ) 
-{ 
-	m_enabled = enabled; 
+void StealthDetectorUpdate::setSDEnabled( Bool enabled )
+{
+	m_enabled = enabled;
 	setWakeFrame(getObject(), m_enabled ? UPDATE_SLEEP_NONE : UPDATE_SLEEP_FOREVER);
 }
 
@@ -116,7 +116,7 @@ void StealthDetectorUpdate::setSDEnabled( Bool enabled )
 class PartitionFilterStealthedOrStealthGarrisoned : public PartitionFilter
 {
 public:
-	PartitionFilterStealthedOrStealthGarrisoned() { } 
+	PartitionFilterStealthedOrStealthGarrisoned() { }
 
 	virtual Bool allow(Object *objOther);
 
@@ -149,8 +149,8 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 	Object* self = getObject();
 
 	if (self->isEffectivelyDead())
-		return UPDATE_SLEEP_FOREVER; 
-	
+		return UPDATE_SLEEP_FOREVER;
+
 	// We have to wait until we are fully constructed, but we will detect the moment we finish
 	if( self->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION) )
 		return UPDATE_SLEEP_NONE;
@@ -179,7 +179,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 			else if( !data->m_canDetectWhileTransported )
 			{
 				//We are in a normal container and can't detect!
-				return UPDATE_SLEEP(data->m_updateRate);	
+				return UPDATE_SLEEP(data->m_updateRate);
 			}
 		}
 	}
@@ -200,7 +200,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 	Bool foundSomeone = FALSE;
 
 	SimpleObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(
-								self, visionRange, FROM_CENTER_2D, filters); 
+								self, visionRange, FROM_CENTER_2D, filters);
 	MemoryPoolObjectHolder hold(iter);
 	for (Object *them = iter->first(); them; them = iter->next())
 	{
@@ -209,7 +209,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 
 		static NameKeyType key_StealthUpdate = NAMEKEY("StealthUpdate");
 		StealthUpdate* stealth = (StealthUpdate *)them->findUpdateModule(key_StealthUpdate);
-		if ( stealth ) 
+		if ( stealth )
 		{
 
 			// we have found someone
@@ -248,7 +248,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
  						// ui msg
  						TheInGameUI->message( TheGameText->fetch( "MESSAGE:StealthDiscovered" ) );
 
-					}  // end if				 
+					}  // end if
 
 				}  // end if
 
@@ -266,7 +266,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 						doFeedback = TheRadar->tryEvent( RADAR_EVENT_STEALTH_NEUTRALIZED, them->getPosition() );
 					else
  						TheRadar->createEvent( them->getPosition(), RADAR_EVENT_STEALTH_NEUTRALIZED );
-					
+
 					// do audio and UI message if we need to do feedback
 					if( doFeedback )
 					{
@@ -279,14 +279,14 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
  						TheInGameUI->message( TheGameText->fetch( "MESSAGE:StealthNeutralized" ) );
 
 					}  // end if
-				
+
 				}  // end if
-					 
+
 			}  // end if, them was not previously detected
 
 			// updateRate PLUS 1 is necessary to ensure it stays detected 'till we are called again...
 			stealth->markAsDetected(data->m_updateRate + 1);
-			
+
 			/** @todo srj -- evil hack here... this whole heat-vision thing is fucked.
 				don't want it on mines but no good way to do that. hack for now. */
 			Drawable *theirDraw = them->getDrawable();
@@ -326,7 +326,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 
 					static NameKeyType key_StealthUpdate = NAMEKEY("StealthUpdate");
 					StealthUpdate* stealth = (StealthUpdate *)rider->findUpdateModule(key_StealthUpdate);
-					if ( stealth ) 
+					if ( stealth )
 					{
 						// we have found someone
 						foundSomeone = TRUE;
@@ -381,7 +381,7 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 					sys->attachToObject( self );
 
 				sys->setPosition( &bonePosition );
-				
+
 			}
 		}
 

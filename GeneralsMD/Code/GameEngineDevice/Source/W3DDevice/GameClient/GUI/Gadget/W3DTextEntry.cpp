@@ -24,12 +24,12 @@
 
 // FILE: W3DTextEntry.cpp /////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -75,7 +75,7 @@
 
 // drawTextEntryText ==========================================================
 //=============================================================================
-static void drawTextEntryText( GameWindow *window, WinInstanceData *instData,	
+static void drawTextEntryText( GameWindow *window, WinInstanceData *instData,
 															 Color textColor, Color textDropColor,
 															 Color compositeColor, Color compositeDropColor,
 															 Int x, Int y, Int width, Int fontHeight )
@@ -162,7 +162,7 @@ static void drawTextEntryText( GameWindow *window, WinInstanceData *instData,
 			cursorPos = textWidth + x;
 		}
 		else
-		{	
+		{
 			Int div = textWidth / (width / 2) - 1;
 			text->draw(x - (div * (width/2)), y, textColor, textDropColor);
 			cursorPos = textWidth - (div * (width/2)) + x;
@@ -204,10 +204,10 @@ static void drawTextEntryText( GameWindow *window, WinInstanceData *instData,
 		parent = NULL;
 
 	if( (window == TheWindowManager->winGetFocus() || (parent && parent == TheWindowManager->winGetFocus())) && ((drawCnt++ >> 3) & 0x1) )
-		TheWindowManager->winFillRect( textColor, WIN_DRAW_LINE_WIDTH, 
-																	 cursorPos, origin.y + 3, 
+		TheWindowManager->winFillRect( textColor, WIN_DRAW_LINE_WIDTH,
+																	 cursorPos, origin.y + 3,
 																	 cursorPos + 2, origin.y + size.y - 3 );
-	window->winSetCursorPosition( cursorPos + 2 - origin.x, 0 ); 
+	window->winSetCursorPosition( cursorPos + 2 - origin.x, 0 );
 
 }  // end drawTextEntryText
 
@@ -222,7 +222,7 @@ void W3DGadgetTextEntryDraw( GameWindow *window, WinInstanceData *instData )
 {
 	EntryData *e = (EntryData *)window->winGetUserData();
 	ICoord2D origin, size, start, end;
-	Color backBorder, backColor, textColor, textBorder, 
+	Color backBorder, backColor, textColor, textBorder,
 			compositeColor, compositeBorder;
 
 	// cancel unichar flag
@@ -309,7 +309,7 @@ void W3DGadgetTextEntryDraw( GameWindow *window, WinInstanceData *instData )
 	drawTextEntryText( window, instData, textColor, textBorder, compositeColor, compositeBorder,
 										 start.x, start.y, width, fontHeight );
 
-	
+
 
 }  // end W3DGadgetTextEntryDraw
 
@@ -409,7 +409,7 @@ void W3DGadgetTextEntryImageDraw( GameWindow *window, WinInstanceData *instData 
 	{
 
 		end.x = start.x + centerImage->getImageWidth();
-		TheWindowManager->winDrawImage( centerImage, 
+		TheWindowManager->winDrawImage( centerImage,
 																		start.x, start.y,
 																		end.x, end.y );
 		start.x += centerImage->getImageWidth();
@@ -463,6 +463,6 @@ void W3DGadgetTextEntryImageDraw( GameWindow *window, WinInstanceData *instData 
 	drawTextEntryText( window, instData, textColor, textBorder, compositeColor, compositeBorder,
 										 start.x, start.y, width, fontHeight );
 
-	
+
 
 }  // end W3DGadgetTextEntryImageDraw

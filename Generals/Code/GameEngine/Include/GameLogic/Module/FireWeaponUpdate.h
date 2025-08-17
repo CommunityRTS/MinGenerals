@@ -65,7 +65,7 @@ public:
 	virtual UpdateSleepTime update();
 
 protected:
-	
+
 	Weapon* m_weapon;
 
 };

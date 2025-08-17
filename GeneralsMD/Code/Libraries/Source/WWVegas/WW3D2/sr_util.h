@@ -17,22 +17,22 @@
 */
 
 /* $Header: /Commando/Code/ww3d/sr_util.h 16    5/09/00 1:10p Jani_p $ */
-/*********************************************************************************************** 
- ***                            Confidential - Westwood Studios                              *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Commando / G 3D Library                                      * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/ww3d/sr_util.h                               $* 
- *                                                                                             * 
- *                      $Author:: Jani_p                                                      $* 
- *                                                                                             * 
- *                     $Modtime:: 5/09/00 10:23a                                              $* 
- *                                                                                             * 
- *                    $Revision:: 16                                                          $* 
- *                                                                                             * 
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+/***********************************************************************************************
+ ***                            Confidential - Westwood Studios                              ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Commando / G 3D Library                                      *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/ww3d/sr_util.h                               $*
+ *                                                                                             *
+ *                      $Author:: Jani_p                                                      $*
+ *                                                                                             *
+ *                     $Modtime:: 5/09/00 10:23a                                              $*
+ *                                                                                             *
+ *                    $Revision:: 16                                                          $*
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -60,7 +60,7 @@ class CameraClass;
 
 
 /*
-** Macros for setting and clearing a pointer to a surrender object.  There are 
+** Macros for setting and clearing a pointer to a surrender object.  There are
 ** similar macros for our ref-counting system in refcount.h...
 */
 #define SR_REF_PTR_SET(dst,src)	{ if (dst) dst->release(); dst = src; if(dst) dst->addReference(); }
@@ -76,11 +76,11 @@ class CameraClass;
 	srMatrix4x3 srtm;\
 	Convert_Westwood_Matrix(tm,&srtm); \
 	renderinfo.Gerd.matrixMode(srGERD::MODELVIEW); \
-	renderinfo.Gerd.pushMultMatrix(srtm); 
+	renderinfo.Gerd.pushMultMatrix(srtm);
 
 #define POP_TRANSFORM(renderinfo) \
 	renderinfo.Gerd.matrixMode(srGERD::MODELVIEW); \
-	renderinfo.Gerd.popMatrix(); 
+	renderinfo.Gerd.popMatrix();
 
 
 /*
@@ -117,7 +117,7 @@ void Multiply_Westwood_And_Surrender_Matrix(const Matrix3D& w3d_tm,const srMatri
 /*
 ** This function will "convert" a pointer to an srVector3 into a pointer to a Vector3.
 ** Yes, this sucks.  In places where we are dealing with surrender vectors a lot,
-** we should probably just use the surrender math functions. 
+** we should probably just use the surrender math functions.
 */
 
 
@@ -176,10 +176,10 @@ bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 	Vector3 points[8], float minz, float maxz);
 
 
-// the SRMeshClass is used to store all the information neccessary to perform intersection 
+// the SRMeshClass is used to store all the information neccessary to perform intersection
 // testing on a particular mesh. It is used by the Intersection class within WW3D, and
 // elsewhere within G's planet mode.
-// feel free to extend this to store other srTriMesh data members as needed 
+// feel free to extend this to store other srTriMesh data members as needed
 class RenderObjClass;
 typedef unsigned short POLYGONINDEX;
 

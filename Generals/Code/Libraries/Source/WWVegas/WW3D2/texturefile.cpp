@@ -323,7 +323,7 @@ void TextureFileClass::invalidate(void)
 {
 	Release_Temp_Surface();
 	invalidateFrameHandle(TextureFrameHandle);
-	flags.clear(GENERATESURFACE_FAILURE);	
+	flags.clear(GENERATESURFACE_FAILURE);
 }
 
 void TextureFileClass::setupDefaultValues(void)
@@ -411,7 +411,7 @@ void TextureFileClass::Request_Reduction(float reduction_factor)
 // This is used during rendering - if a textures desired reduction level is "different enough"
 // from its current one, we fix it: either by updating from the locked surface (if the reduction
 // factor is equal or greater to that of the locked surface) or by asking the texture loader to
-// load a new reduction level of the texture in the background. 
+// load a new reduction level of the texture in the background.
 // NOTE - if there is no locked surface, we do nothing (since textures without locked surfaces do
 // not perform reduction).
 void TextureFileClass::Process_Reduction(void)
@@ -440,7 +440,7 @@ void TextureFileClass::Process_Reduction(void)
 
 		// Update time stamp
 		TimeStampOfLastProcessReductionCall = _CurrentTimeStamp;
-	
+
 	}
 }
 
@@ -458,7 +458,7 @@ float TextureFileClass::_Get_Switch_Threshold(void)
 void TextureFileClass::Load_Temp_Surface(void)
 {
 	if (TempSurfacePtr) invalidate();
-	
+
 	if (!FileName) return;
 
 	TempSurfacePtr = 0;
@@ -567,7 +567,7 @@ void TextureFileClass::Update_Texture_Flash()
 			n->invalidateFrameHandle(n->TextureFrameHandle);
 			n->Release_Temp_Surface();
 			if (s) {
-				n->TempSurfacePtr=s; 
+				n->TempSurfacePtr=s;
 				s->addReference(); // Surface will be release after the use
 			}
 			else {

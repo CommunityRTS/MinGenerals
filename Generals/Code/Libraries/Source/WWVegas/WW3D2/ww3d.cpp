@@ -229,7 +229,7 @@ int														WW3D::LastFrameMemoryFrees;
 void WW3D::Set_Texture_Compression_Mode(TextureCompressionModeEnum mode)
 {
 	if (TextureCompressionMode!=mode) {
-		TextureCompressionMode = mode; 
+		TextureCompressionMode = mode;
 		_Invalidate_Textures();
 	}
 }
@@ -248,7 +248,7 @@ void WW3D::Set_NPatches_Level(unsigned level)
 	if (level<1) level=1;
 	if (NPatchesLevel==1 && level>1) TheDX8MeshRenderer.Invalidate();
 	if (NPatchesLevel>1 && level==1) TheDX8MeshRenderer.Invalidate();
-	NPatchesLevel = level; 
+	NPatchesLevel = level;
 }
 
 void WW3D::Set_Texture_Thumbnail_Mode (TextureThumbnailModeEnum mode)

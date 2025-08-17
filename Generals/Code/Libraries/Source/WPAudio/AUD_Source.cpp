@@ -251,17 +251,17 @@ void AudioSampleSetName ( AudioSample *sample, const char *orig_name )
 		{
 			*ptr = 0;
 		}
-		
+
 		ptr  = strrchr ( name, '\\' );
 
 		if ( ptr )
 		{
 			name = ptr + 1;
 		}
-		
+
 		if ( ( diff = (strlen ( name ) - (sizeof(sample->name) - 1))) > 0 )
 		{
-			strcpy ( sample->name, "...");	
+			strcpy ( sample->name, "...");
 			name = name + diff + 3;
 			strcat ( sample->name, name );
 		}
@@ -387,10 +387,10 @@ void		AudioFormatUpdate ( AudioFormat *format )
 	if ( format->Compression != AUDIO_COMPRESS_MP3 )
 	{
 		format->BytesPerSecond = format->Channels*format->SampleWidth*format->Rate;
-		if ( format->Compression == AUDIO_COMPRESS_IMA_ADPCM 
+		if ( format->Compression == AUDIO_COMPRESS_IMA_ADPCM
 				|| format->Compression == AUDIO_COMPRESS_MS_ADPCM )
 		{
-			format->BytesPerSecond >>= 2;	//  4:1 compression 
+			format->BytesPerSecond >>= 2;	//  4:1 compression
 		}
 	}
 	else
@@ -398,7 +398,7 @@ void		AudioFormatUpdate ( AudioFormat *format )
 		int mpeg1 =   (W_BitsGet ( format->cdata.mp3.Header, 1, 19 ));
 		int bitrateindex = W_BitsGet ( format->cdata.mp3.Header, 4, 12 );
 		format->BytesPerSecond = bit_rate[mpeg1][bitrateindex] / 8;
-	}	
+	}
 }
 
 /******************************************************************/
@@ -441,7 +441,7 @@ void				AudioFrameDeinit ( AudioFrame *frame )
 /*                                                                */
 /******************************************************************/
 
-#define MAX_SYNC_SEARCH (10*1024)		// max bytes that will be searched for the sync 
+#define MAX_SYNC_SEARCH (10*1024)		// max bytes that will be searched for the sync
 
 int AudioFormatReadMP3File ( File *file, AudioFormat *format, int *datasize )
 {
@@ -455,7 +455,7 @@ int AudioFormatReadMP3File ( File *file, AudioFormat *format, int *datasize )
 
 	int data_start = file->position ();
 
-	
+
 	bytes = file->read ( buffer, sizeof (buffer ));
 
 	pos = 0;
@@ -542,14 +542,14 @@ int			AudioFormatSeekToPos ( File *file, const AudioFormat *format, int pos, int
 		int block_size = 0;
 
 		if ( format->Compression == AUDIO_COMPRESS_MP3 )
-		{	
+		{
 			AudioFormat tformat;
 			file->seek ( pos+data_start, File::START );
 
 			AudioFormatInit ( &tformat );
-			
+
 			int found = FALSE;
-			 
+
 			while ( !found )
 			{
 				if ( !AudioFormatReadMP3File ( file, &tformat, NULL ) )
@@ -619,12 +619,12 @@ int AudioFormatSame ( const AudioFormat *f1, const AudioFormat *f2 )
 
 	if ( f1->Compression == AUDIO_COMPRESS_IMA_ADPCM && (f1->cdata.adpcm.BlockSize != f2->cdata.adpcm.BlockSize))
 	{
-		return FALSE;		
+		return FALSE;
 	}
 
 	if ( f1->Compression == AUDIO_COMPRESS_MP3 && (f1->cdata.mp3.Header != f2->cdata.mp3.Header))
 	{
-		return FALSE;		
+		return FALSE;
 	}
 
 

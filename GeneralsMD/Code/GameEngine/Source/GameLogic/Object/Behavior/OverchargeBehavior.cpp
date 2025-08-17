@@ -61,12 +61,12 @@ OverchargeBehaviorModuleData::OverchargeBehaviorModuleData( void )
 
 //-------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
-/*static*/ void OverchargeBehaviorModuleData::buildFieldParse( MultiIniFieldParse &p ) 
+/*static*/ void OverchargeBehaviorModuleData::buildFieldParse( MultiIniFieldParse &p )
 {
 
   UpdateModuleData::buildFieldParse( p );
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "HealthPercentToDrainPerSecond", INI::parsePercentToReal,	NULL, offsetof( OverchargeBehaviorModuleData, m_healthPercentToDrainPerSecond ) },
 		{ "NotAllowedWhenHealthBelowPercent", INI::parsePercentToReal, NULL, offsetof( OverchargeBehaviorModuleData, m_notAllowedWhenHealthBelowPercent ) },
@@ -83,7 +83,7 @@ OverchargeBehaviorModuleData::OverchargeBehaviorModuleData( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-OverchargeBehavior::OverchargeBehavior( Thing *thing, const ModuleData* moduleData ) 
+OverchargeBehavior::OverchargeBehavior( Thing *thing, const ModuleData* moduleData )
 									 : UpdateModule( thing, moduleData )
 {
 
@@ -200,7 +200,7 @@ void OverchargeBehavior::enable( Bool enable )
 
 			// we are no longer active
 			m_overchargeActive = FALSE;
-			
+
 			// sleep forever
 			setWakeFrame( us, UPDATE_SLEEP_FOREVER );
 
@@ -267,7 +267,7 @@ void OverchargeBehavior::onCapture( Player *oldOwner, Player *newOwner )
 	if( m_overchargeActive == FALSE )
 		return;
 
-	if (getObject()->isDisabled()) 
+	if (getObject()->isDisabled())
 		return;
 
 	// remove power bonus from old owner
@@ -320,7 +320,7 @@ void OverchargeBehavior::loadPostProcess( void )
 
 	// extend base class
 	UpdateModule::loadPostProcess();
-	
+
 	// Our effect is a fire and forget effect, not an upgrade state that is itself saved, so need to re-fire.
 	if( m_overchargeActive && getObject()->getControllingPlayer() )
 		getObject()->getControllingPlayer()->addPowerBonus( getObject() );

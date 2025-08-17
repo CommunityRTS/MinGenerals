@@ -69,7 +69,7 @@ public:
 protected:
 	void getAllSelectedDicts(void);
 
-	static MapObjectProps *TheMapObjectProps; 
+	static MapObjectProps *TheMapObjectProps;
 
 	// Data common to all property pages
 	Dict* m_dictToEdit;
@@ -199,7 +199,7 @@ protected:
 public:
 	static MapObject *getSingleSelectedMapObject(void);
 	static void update(void);
-  
+
 private:
   /// Disallow copying: Object is not set up to be copied
   MapObjectProps( const MapObjectProps & other ); // Deliberately undefined

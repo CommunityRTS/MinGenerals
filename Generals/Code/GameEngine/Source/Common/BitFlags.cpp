@@ -32,13 +32,13 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file in the GameEngine
 
-#include "Common/BitFlags.h" 
+#include "Common/BitFlags.h"
 #include "Common/BitFlagsIO.h"
 #include "Common/ModelState.h"
 #include "GameLogic/ArmorSet.h"
 
-const char* ModelConditionFlags::s_bitNameList[] = 
-{	
+const char* ModelConditionFlags::s_bitNameList[] =
+{
 	"TOPPLED",
 	"FRONTCRUSHED",
 	"BACKCRUSHED",
@@ -125,7 +125,7 @@ const char* ModelConditionFlags::s_bitNameList[] =
 	"RAPPELLING",
 	"ARMED",
 	"POWER_PLANT_UPGRADING",
-	
+
 	"SPECIAL_CHEERING",
 
 	"CONTINUOUS_FIRE_SLOW",
@@ -147,8 +147,8 @@ const char* ModelConditionFlags::s_bitNameList[] =
 
 	NULL
 };
- 
-const char* ArmorSetFlags::s_bitNameList[] = 
+
+const char* ArmorSetFlags::s_bitNameList[] =
 {
 	"VETERAN",
 	"ELITE",

@@ -53,14 +53,14 @@ DECLARE_FORCE_LINK(cardinalspline);
 SimplePersistFactoryClass<CardinalSpline3DClass,WWMATH_CHUNKID_CARDINALSPLINE3D>	_CardinalSpline3DFactory;
 SimplePersistFactoryClass<CardinalSpline1DClass,WWMATH_CHUNKID_CARDINALSPLINE1D>	_CardinalSpline1DFactory;
 
-enum 
+enum
 {
 	// ID's used by CardinalSpline3D
-	CARDINAL3D_CHUNK_HERMITE3D					= 0x02070957,	
-	CARDINAL3D_CHUNK_TIGHTNESSKEYS,			
+	CARDINAL3D_CHUNK_HERMITE3D					= 0x02070957,
+	CARDINAL3D_CHUNK_TIGHTNESSKEYS,
 
 	// ID's used by CardinalSpline1D
-	CARDINAL1D_CHUNK_HERMITE1D					= 0x02070959,	
+	CARDINAL1D_CHUNK_HERMITE1D					= 0x02070959,
 	CARDINAL1D_CHUNK_TIGHTNESSKEYS
 };
 
@@ -110,7 +110,7 @@ void CardinalSpline3DClass::Update_Tangents(void)
 		}
 	}
 
-	// First and Last Key: 
+	// First and Last Key:
 	// Only need to compute the OutTangent for key[0] and the InTangent for key[end]
 	int end = Keys.Count() - 1;
 	Tangents[0].InTangent.Set(0,0,0);
@@ -119,20 +119,20 @@ void CardinalSpline3DClass::Update_Tangents(void)
 	if (IsLooping) {
 
 		// This really only works if the start and end points have the same position...
-		Tangents[0].OutTangent.X = (1.0f - Tightness[0])*(Keys[1].Point.X - Keys[end-1].Point.X); 			
-		Tangents[0].OutTangent.Y = (1.0f - Tightness[0])*(Keys[1].Point.Y - Keys[end-1].Point.Y); 			
-		Tangents[0].OutTangent.Z = (1.0f - Tightness[0])*(Keys[1].Point.Z - Keys[end-1].Point.Z); 			
+		Tangents[0].OutTangent.X = (1.0f - Tightness[0])*(Keys[1].Point.X - Keys[end-1].Point.X);
+		Tangents[0].OutTangent.Y = (1.0f - Tightness[0])*(Keys[1].Point.Y - Keys[end-1].Point.Y);
+		Tangents[0].OutTangent.Z = (1.0f - Tightness[0])*(Keys[1].Point.Z - Keys[end-1].Point.Z);
 		Tangents[end].InTangent = Tangents[0].OutTangent;
 
 	} else {
-		
-		Tangents[0].OutTangent.X = (1.0f - Tightness[0])*(Keys[1].Point.X - Keys[0].Point.X); 			
-		Tangents[0].OutTangent.Y = (1.0f - Tightness[0])*(Keys[1].Point.Y - Keys[0].Point.Y); 			
-		Tangents[0].OutTangent.Z = (1.0f - Tightness[0])*(Keys[1].Point.Z - Keys[0].Point.Z); 			
 
-		Tangents[end].InTangent.X = (1.0f - Tightness[0])*(Keys[end].Point.X - Keys[end-1].Point.X); 			
-		Tangents[end].InTangent.Y = (1.0f - Tightness[0])*(Keys[end].Point.Y - Keys[end-1].Point.Y); 			
-		Tangents[end].InTangent.Z = (1.0f - Tightness[0])*(Keys[end].Point.Z - Keys[end-1].Point.Z); 			
+		Tangents[0].OutTangent.X = (1.0f - Tightness[0])*(Keys[1].Point.X - Keys[0].Point.X);
+		Tangents[0].OutTangent.Y = (1.0f - Tightness[0])*(Keys[1].Point.Y - Keys[0].Point.Y);
+		Tangents[0].OutTangent.Z = (1.0f - Tightness[0])*(Keys[1].Point.Z - Keys[0].Point.Z);
+
+		Tangents[end].InTangent.X = (1.0f - Tightness[0])*(Keys[end].Point.X - Keys[end-1].Point.X);
+		Tangents[end].InTangent.Y = (1.0f - Tightness[0])*(Keys[end].Point.Y - Keys[end-1].Point.Y);
+		Tangents[end].InTangent.Z = (1.0f - Tightness[0])*(Keys[end].Point.Z - Keys[end-1].Point.Z);
 
 	}
 
@@ -152,7 +152,7 @@ void CardinalSpline3DClass::Update_Tangents(void)
 
 		float in_factor = 2.0f * (Keys[i].Time - Keys[i-1].Time) / (Keys[i+1].Time - Keys[i-1].Time);
 		float out_factor = 2.0f * (Keys[i+1].Time - Keys[i].Time) / (Keys[i+1].Time - Keys[i-1].Time);
-		
+
 		Tangents[i].InTangent *= in_factor;			// compensating for the un-even keys
 		Tangents[i].OutTangent *= out_factor;
 	}
@@ -169,7 +169,7 @@ bool CardinalSpline3DClass::Save(ChunkSaveClass &csave)
 	csave.Begin_Chunk(CARDINAL3D_CHUNK_HERMITE3D);
 	HermiteSpline3DClass::Save(csave);
 	csave.End_Chunk();
-	
+
 	csave.Begin_Chunk(CARDINAL3D_CHUNK_TIGHTNESSKEYS);
 	for (int i=0; i<Tightness.Count(); i++) {
 		float tightness = Tightness[i];
@@ -189,8 +189,8 @@ bool CardinalSpline3DClass::Load(ChunkLoadClass &cload)
 
 	// read in the chunks
 	while (cload.Open_Chunk()) {
-		
-		switch(cload.Cur_Chunk_ID()) 
+
+		switch(cload.Cur_Chunk_ID())
 		{
 			case CARDINAL3D_CHUNK_HERMITE3D:
 				HermiteSpline3DClass::Load(cload);
@@ -259,7 +259,7 @@ void CardinalSpline1DClass::Update_Tangents(void)
 		}
 	}
 
-	// First and Last Key: 
+	// First and Last Key:
 	// Only need to compute the OutTangent for key[0] and the InTangent for key[end]
 	int end = Keys.Count() - 1;
 	Tangents[0].InTangent = 0;
@@ -268,13 +268,13 @@ void CardinalSpline1DClass::Update_Tangents(void)
 	if (IsLooping) {
 
 		// This really only works if the start and end points have the same position...
-		Tangents[0].OutTangent = (1.0f - Tightness[0])*(Keys[1].Point - Keys[end-1].Point); 			
+		Tangents[0].OutTangent = (1.0f - Tightness[0])*(Keys[1].Point - Keys[end-1].Point);
 		Tangents[end].InTangent = Tangents[0].OutTangent;
 
 	} else {
-		
-		Tangents[0].OutTangent = (1.0f - Tightness[0])*(Keys[1].Point - Keys[0].Point); 			
-		Tangents[end].InTangent = (1.0f - Tightness[0])*(Keys[end].Point - Keys[end-1].Point); 			
+
+		Tangents[0].OutTangent = (1.0f - Tightness[0])*(Keys[1].Point - Keys[0].Point);
+		Tangents[end].InTangent = (1.0f - Tightness[0])*(Keys[end].Point - Keys[end-1].Point);
 	}
 
 	float total_time = (Keys[1].Time - Keys[0].Time) + (Keys[end].Time - Keys[end-1].Time);
@@ -291,7 +291,7 @@ void CardinalSpline1DClass::Update_Tangents(void)
 
 		float in_factor = 2.0f * (Keys[i].Time - Keys[i-1].Time) / (Keys[i+1].Time - Keys[i-1].Time);
 		float out_factor = 2.0f * (Keys[i+1].Time - Keys[i].Time) / (Keys[i+1].Time - Keys[i-1].Time);
-		
+
 		Tangents[i].InTangent *= in_factor;			// compensating for the un-even keys
 		Tangents[i].OutTangent *= out_factor;
 	}
@@ -308,7 +308,7 @@ bool CardinalSpline1DClass::Save(ChunkSaveClass &csave)
 	csave.Begin_Chunk(CARDINAL1D_CHUNK_HERMITE1D);
 	HermiteSpline1DClass::Save(csave);
 	csave.End_Chunk();
-	
+
 	csave.Begin_Chunk(CARDINAL1D_CHUNK_TIGHTNESSKEYS);
 	for (int i=0; i<Tightness.Count(); i++) {
 		float tightness = Tightness[i];
@@ -328,8 +328,8 @@ bool CardinalSpline1DClass::Load(ChunkLoadClass &cload)
 
 	// read in the chunks
 	while (cload.Open_Chunk()) {
-		
-		switch(cload.Cur_Chunk_ID()) 
+
+		switch(cload.Cur_Chunk_ID())
 		{
 			case CARDINAL1D_CHUNK_HERMITE1D:
 				HermiteSpline1DClass::Load(cload);

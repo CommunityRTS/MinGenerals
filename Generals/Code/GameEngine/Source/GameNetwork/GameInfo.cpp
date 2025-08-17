@@ -312,7 +312,7 @@ void GameInfo::reset( void )
 	m_surrendered = FALSE;
 	// Added By Sadullah Nader
 	// Initializations missing and needed
-//	m_localIP = 0; // BGC - actually we don't want this to be reset since the m_localIP is 
+//	m_localIP = 0; // BGC - actually we don't want this to be reset since the m_localIP is
 										// set properly in the constructor of LANGameInfo which uses this as a base class.
 	m_mapCRC = 0;
 	m_mapSize = 0;
@@ -922,7 +922,7 @@ AsciiString GameInfoToAsciiString( const GameInfo *game )
 		if (slot && slot->isHuman())
 		{
 			AsciiString name = WideCharStringToMultiByte(slot->getName().str()).c_str();
-			
+
 			str.format( "H%s,%X,%d,%c%c,%d,%d,%d,%d,%d:",
 				name.str(), slot->getIP(), slot->getPort(),
 				(slot->isAccepted()?'T':'F'),
@@ -964,7 +964,7 @@ AsciiString GameInfoToAsciiString( const GameInfo *game )
 	DEBUG_ASSERTCRASH(!TheLAN || (optionsString.getLength() < m_lanMaxOptionsLength),
 		("WARNING: options string is longer than expected!  Length is %d, but max is %d!\n",
 		optionsString.getLength(), m_lanMaxOptionsLength));
-	
+
 	return optionsString;
 }
 
@@ -1091,7 +1091,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 						{
 //							DEBUG_LOG(("ParseAsciiStringToGameInfo - Human player\n"));
 							char *slotPos = NULL;
-							//Parse out the Name																
+							//Parse out the Name
 							AsciiString slotValue(strtok_r((char *)rawSlot.str(),",",&slotPos));
 							if(slotValue.isEmpty())
 							{
@@ -1103,7 +1103,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
               name.set(MultiByteToWideCharSingleLine(slotValue.str() +1).c_str());
 
 							//DEBUG_LOG(("ParseAsciiStringToGameInfo - name is %s\n", slotValue.str()+1));
-							
+
 							//Parse out the IP
 							slotValue = strtok_r(NULL,",",&slotPos);
 							if(slotValue.isEmpty())
@@ -1115,7 +1115,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 							UnsignedInt playerIP = 0;
 							sscanf(slotValue.str(),"%x", &playerIP);
 							//DEBUG_LOG(("ParseAsciiStringToGameInfo - IP address is %x\n", playerIP));
-							
+
 							//set the state of the slot
 							newSlot[i].setState(SLOT_PLAYER, name, playerIP);
 
@@ -1252,7 +1252,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 						{
             	DEBUG_LOG(("ParseAsciiStringToGameInfo - AI player\n"));
 							char *slotPos = NULL;
-							//Parse out the Name																
+							//Parse out the Name
 							AsciiString slotValue(strtok_r((char *)rawSlot.str(),",",&slotPos));
 							if(slotValue.isEmpty())
 							{
@@ -1260,7 +1260,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 								DEBUG_LOG(("ParseAsciiStringToGameInfo - slotValue AI Type is empty, quitting\n"));
 								break;
 							}
-              
+
 							switch(*(slotValue.str() + 1))
 							{
 								case 'E':
@@ -1288,7 +1288,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 								}
 								break;
 							}//switch(*rawSlot.str()+1)
-              
+
 							//Read color index
 							slotValue = strtok_r(NULL,",",&slotPos);
 							if(slotValue.isEmpty())
@@ -1388,7 +1388,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 						}// case 'X':
 						break;
 						default:
-						{								
+						{
 							optionsOk = false;
 							DEBUG_LOG(("ParseAsciiStringToGameInfo - unrecognized slot entry, quitting\n"));
 						}
@@ -1410,7 +1410,7 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 	//DEBUG_LOG(("Options were ok == %d\n", optionsOk));
 	if (optionsOk && sawMap && sawMapCRC && sawMapSize && sawSeed && sawSlotlist && sawCRC)
 	{
-		// We were setting the Global Data directly here, but Instead, I'm now 
+		// We were setting the Global Data directly here, but Instead, I'm now
 		// first setting the data in game.  We'll set the global data when
 		// we start a game.
 		if (!game)
@@ -1453,8 +1453,8 @@ void SkirmishGameInfo::crc( Xfer *xfer )
 // ------------------------------------------------------------------------------------------------
 void SkirmishGameInfo::xfer( Xfer *xfer )
 {
-	const XferVersion currentVersion = 2;	
-	XferVersion version = currentVersion; 
+	const XferVersion currentVersion = 2;
+	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
 
 
@@ -1469,12 +1469,12 @@ void SkirmishGameInfo::xfer( Xfer *xfer )
 	xfer->xferInt(&slot);
 	DEBUG_ASSERTCRASH(slot==MAX_SLOTS, ("MAX_SLOTS changed, need to change version. jba."));
 
-	for (slot = 0; slot < MAX_SLOTS; slot++) 
+	for (slot = 0; slot < MAX_SLOTS; slot++)
 	{
 		Int state = m_slot[slot]->getState();
 		xfer->xferInt(&state);
 
-		UnicodeString name=m_slot[slot]->getName();	
+		UnicodeString name=m_slot[slot]->getName();
 		if (version >= 2)
 		{
 			xfer->xferUnicodeString(&name);

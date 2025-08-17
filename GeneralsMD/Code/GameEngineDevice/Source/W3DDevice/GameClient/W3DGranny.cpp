@@ -24,12 +24,12 @@
 
 // FILE: W3DGranny.cpp ////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -62,7 +62,7 @@ static granny_pnt332_vertex g_blendingBuffer[4096];	///<temporary workspace for 
 static int FindTrackGroupFor(granny_animation *Animation, granny_model_instance *ModelInstance)
 {
     if(Animation && ModelInstance)
-    {        
+    {
         {for(Int TrackGroupIndex = 0;
              TrackGroupIndex < Animation->TrackGroupCount;
              ++TrackGroupIndex)
@@ -74,7 +74,7 @@ static int FindTrackGroupFor(granny_animation *Animation, granny_model_instance 
             }
         }}
     }
-    
+
     return(-1);
 }
 
@@ -85,7 +85,7 @@ static void	TransformFile(granny_file_info *FileInfo)
     float RightVector[] = {1, 0, 0}; //x
     float UpVector[] = {0, 0, 1};	//y
     float BackVector[] = {0, -1, 0};//z
-            
+
 	return;
 
     float Affine3[3];
@@ -158,7 +158,7 @@ GrannyRenderObjClass::GrannyRenderObjClass(const GrannyPrototypeClass &proto)
 	}
 }
 
-/** Set scaling factor applied to prototype during rendering */ 
+/** Set scaling factor applied to prototype during rendering */
 void GrannyRenderObjClass::Set_ObjectScale(float scale)
 {
 	ObjectScale=scale;
@@ -337,7 +337,7 @@ void GrannyRenderObjClass::Render(RenderInfoClass & rinfo)
             Vertices = g_blendingBuffer;
         }
 
-        int GroupCount = GrannyGetMeshTriangleGroupCount(Mesh);        
+        int GroupCount = GrannyGetMeshTriangleGroupCount(Mesh);
         {for(Int GroupIndex = 0;
              GroupIndex < GroupCount;
              ++GroupIndex)
@@ -403,7 +403,7 @@ void GrannyRenderObjClass::Render(RenderInfoClass & rinfo)
 				}
 			}
 
-			
+
 			Matrix3D tm(Transform);
 			DX8Wrapper::Set_Light_Environment(rinfo.light_environment);
 			DX8Wrapper::Set_Material(m_prototype.m_vertexMaterial);
@@ -438,7 +438,7 @@ PrototypeClass * GrannyLoaderClass::Load_W3D(const char *filename)
 		{
 
             TransformFile(fileInfo);
-            
+
             for(int TextureIndex = 0; TextureIndex < fileInfo->TextureCount; ++TextureIndex)
             {
 				_splitpath(fileInfo->Textures[TextureIndex]->FromFileName, drive, dir, fname, ext );
@@ -446,7 +446,7 @@ PrototypeClass * GrannyLoaderClass::Load_W3D(const char *filename)
 			    granny_texture_instance *TextureInstance =  GrannyInstantiateTexture(fileInfo->Textures[TextureIndex]);
 				GrannySetTextureCookie(TextureInstance, (granny_uint32)TextureHandle);
                 GrannyAddTextureToLibrary(TextureLibrary,TextureInstance);
-            }            
+            }
 
 			//Calculate bounding box and find maximum number of vertices needed to render mesh.
 			for (Int modelIndex=0; modelIndex<fileInfo->ModelCount; modelIndex++)
@@ -515,7 +515,7 @@ PrototypeClass * GrannyLoaderClass::Load_W3D(const char *filename)
 //				GrannyAutoBindAllMaterialTextures(MaterialInstance,TextureLibrary);
 //                GrannyAddMaterialToLibrary(MaterialLibrary,MaterialInstance);
 //            }
-			
+
 
             GrannyAutoBindAllMaterials(MaterialLibrary, fileInfo,TextureLibrary);
 
@@ -525,7 +525,7 @@ PrototypeClass * GrannyLoaderClass::Load_W3D(const char *filename)
 			return NULL;
 		}
 
-		// ok, accept this model! 
+		// ok, accept this model!
 		GrannyPrototypeClass * hproto = NEW GrannyPrototypeClass(File);
 		_splitpath(filename, drive, dir, fname, ext );
 		hproto->Set_Name(strcat(fname,ext));
@@ -557,7 +557,7 @@ GrannyLoaderClass::~GrannyLoaderClass(void)
 	MaterialLibrary=NULL;
 }
 
-GrannyAnimManagerClass::GrannyAnimManagerClass(void) 
+GrannyAnimManagerClass::GrannyAnimManagerClass(void)
 {
 	// Create the hash tables
 	AnimPtrTable = NEW HashTableClass( 2048 );
@@ -597,7 +597,7 @@ GrannyAnimClass * GrannyAnimManagerClass::Peek_Anim(const char * name)
 
 /** Get animation from cache and increment its reference count */
 GrannyAnimClass * GrannyAnimManagerClass::Get_Anim(const char * name)
-{	
+{
 	GrannyAnimClass * anim = Peek_Anim( name );
 	if ( anim != NULL ) {
 		anim->Add_Ref();
@@ -667,9 +667,9 @@ Error:
 /*
 ** Iterator converter from HashableClass to GrannyAnimClass
 */
-GrannyAnimClass * GrannyAnimManagerIterator::Get_Current_Anim( void )	
-{ 
-	return (GrannyAnimClass *)Get_Current(); 
+GrannyAnimClass * GrannyAnimManagerIterator::Get_Current_Anim( void )
+{
+	return (GrannyAnimClass *)Get_Current();
 }
 
 
@@ -683,7 +683,7 @@ GrannyAnimClass::GrannyAnimClass(void) :
 }
 
 
-/** GrannyAnimClass::~GrannyAnimClass -- Destructor */ 
+/** GrannyAnimClass::~GrannyAnimClass -- Destructor */
 GrannyAnimClass::~GrannyAnimClass(void)
 {
 	GrannyFreeFile(File);
@@ -821,7 +821,7 @@ void GrannyRenderObjSystem::Flush(void)
 					Vertices = g_blendingBuffer;
 				}
 
-				int GroupCount = GrannyGetMeshTriangleGroupCount(Mesh);        
+				int GroupCount = GrannyGetMeshTriangleGroupCount(Mesh);
 				for(Int GroupIndex = 0;	 GroupIndex < GroupCount; ++GroupIndex)
 				{
 					granny_material_instance *Material = (granny_material_instance *)
@@ -892,7 +892,7 @@ void GrannyRenderObjSystem::Flush(void)
 						setMaterial=false;	//don't set material again unless it changes.
 						DX8Wrapper::Set_Index_Buffer(ib_access,0);
 					}
-					
+
 					Matrix3D tm(robj->Transform);
 					DX8Wrapper::Set_Light_Environment(&m_renderLocalLightEnv[modelCount]);
 					DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);

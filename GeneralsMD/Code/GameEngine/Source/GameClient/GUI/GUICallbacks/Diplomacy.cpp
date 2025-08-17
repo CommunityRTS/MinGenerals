@@ -94,7 +94,7 @@ static Int slotNumInRow[MAX_SLOTS];
 static WindowLayout *theLayout = NULL;
 static GameWindow *theWindow = NULL;
 static AnimateWindowManager *theAnimateWindowManager = NULL;
-WindowMsgHandledType BuddyControlSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType BuddyControlSystem( GameWindow *window, UnsignedInt msg,
 														 WindowMsgData mData1, WindowMsgData mData2);
 void InitBuddyControls(Int type);
 void updateBuddyInfo( void );
@@ -198,10 +198,10 @@ void UpdateDiplomacyBriefingText(AsciiString newText, Bool clear)
 // ------------------------------------------------------------------------------------------------
 void ShowDiplomacy( Bool immediate )
 {
-	if (!TheInGameUI->getInputEnabled() || TheGameLogic->isIntroMoviePlaying() || 
+	if (!TheInGameUI->getInputEnabled() || TheGameLogic->isIntroMoviePlaying() ||
 			TheGameLogic->isLoadingMap())
 		return;
-	
+
 
 	if (TheInGameUI->isQuitMenuVisible())
 		return;
@@ -279,7 +279,7 @@ void ShowDiplomacy( Bool immediate )
 		PopulateOldBuddyMessages();
 		updateBuddyInfo();
 	}
-	
+
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -348,7 +348,7 @@ WindowMsgHandledType DiplomacyInput( GameWindow *window, UnsignedInt msg,
 																			WindowMsgData mData1, WindowMsgData mData2 )
 {
 
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -381,14 +381,14 @@ WindowMsgHandledType DiplomacyInput( GameWindow *window, UnsignedInt msg,
 }  // end DiplomacyInput
 
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType DiplomacySystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType DiplomacySystem( GameWindow *window, UnsignedInt msg,
 																			 WindowMsgData mData1, WindowMsgData mData2 )
 {
 	if(BuddyControlSystem(window, msg, mData1, mData2) == MSG_HANDLED)
 	{
 		return MSG_HANDLED;
 	}
-	switch( msg ) 
+	switch( msg )
 	{
 		//---------------------------------------------------------------------------------------------
 		case GGM_FOCUS_CHANGE:
@@ -401,7 +401,7 @@ WindowMsgHandledType DiplomacySystem( GameWindow *window, UnsignedInt msg,
 
 		//---------------------------------------------------------------------------------------------
 		case GWM_INPUT_FOCUS:
-		{	
+		{
 			// if we're given the opportunity to take the keyboard focus we must say we don't want it
 			if( mData1 == TRUE )
 				*(Bool *)mData2 = FALSE;

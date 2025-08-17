@@ -32,21 +32,21 @@
 #include "Common/ObjectStatusTypes.h"
 #include "Common/BitFlagsIO.h"
 
-const char* ObjectStatusMaskType::s_bitNameList[] = 
+const char* ObjectStatusMaskType::s_bitNameList[] =
 {
 	"NONE",
 	"DESTROYED",
-	"CAN_ATTACK",					
-	"UNDER_CONSTRUCTION",	
-	"UNSELECTABLE",				
-	"NO_COLLISIONS",				
-	"NO_ATTACK",						
-	"AIRBORNE_TARGET",			
-	"PARACHUTING",	
+	"CAN_ATTACK",
+	"UNDER_CONSTRUCTION",
+	"UNSELECTABLE",
+	"NO_COLLISIONS",
+	"NO_ATTACK",
+	"AIRBORNE_TARGET",
+	"PARACHUTING",
 	"REPULSOR",
-	"HIJACKED",					
-	"AFLAME",							
-	"BURNED",							
+	"HIJACKED",
+	"AFLAME",
+	"BURNED",
 	"WET",
 	"IS_FIRING_WEAPON",
 	"IS_BRAKING",

@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddump.h                           $*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 8/05/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*

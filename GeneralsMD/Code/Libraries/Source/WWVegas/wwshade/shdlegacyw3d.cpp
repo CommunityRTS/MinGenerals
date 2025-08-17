@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdlegacyw3d.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Jani_p
- *																																	
+ *
  *							  $Modtime:: 7/12/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -60,7 +60,7 @@ REGISTER_SHDDEF(ShdLegacyW3DDefClass,SHDDEF_CLASSID_LEGACYW3D,"LegacyW3D");
 
 
 // Save-Load methods for ShdDefClass
-enum 
+enum
 {
 	SHDLEGACY_CHUNKID_VARIABLES =		0x11070958,
 
@@ -72,7 +72,7 @@ enum
 	SHDLEGACY_CHUNKID_TEXTURE_NAME21,
 	SHDLEGACY_CHUNKID_TEXTURE_NAME30,
 	SHDLEGACY_CHUNKID_TEXTURE_NAME31,
-		
+
 	SHDLEGACY_CHUNKID_MAPPERARGS00,
 	SHDLEGACY_CHUNKID_MAPPERARGS01,
 	SHDLEGACY_CHUNKID_MAPPERARGS10,
@@ -117,7 +117,7 @@ enum
 };
 
 
-ShdLegacyW3DDefClass::ShdLegacyW3DDefClass() 
+ShdLegacyW3DDefClass::ShdLegacyW3DDefClass()
 :	ShdDefClass(SHDDEF_CLASSID_LEGACYW3D),
 	PassCount(0)
 {
@@ -184,18 +184,18 @@ bool ShdLegacyW3DDefClass::Save(ChunkSaveClass &csave)
 	ShdDefClass::Save(csave);
 
 	// Save our variables
-	csave.Begin_Chunk(SHDLEGACY_CHUNKID_VARIABLES);	
-	Save_Variables(csave);	
+	csave.Begin_Chunk(SHDLEGACY_CHUNKID_VARIABLES);
+	Save_Variables(csave);
 	csave.End_Chunk();
 
 	// Save any mapper args and texture names present
 	for (int pass_index=0; pass_index<PassCount; pass_index++) {
 		for (int stage_index=0; stage_index<2; stage_index++) {
-	
+
 			// Write the texture name
 			if (!TextureNames[pass_index][stage_index].Is_Empty()) {
 
-/* (gth) need to save entire path for Max to work properly right???  
+/* (gth) need to save entire path for Max to work properly right???
 				char fname[_MAX_PATH];
 				char extension[_MAX_PATH];
 				_splitpath(TextureNames[pass_index][stage_index].Peek_Buffer(),NULL,NULL,fname,extension);
@@ -205,7 +205,7 @@ bool ShdLegacyW3DDefClass::Save(ChunkSaveClass &csave)
 				WRITE_WWSTRING_CHUNK(csave,chunk_id,TextureNames[pass_index][stage_index]);
 			}
 
-			// Write the mapper args			
+			// Write the mapper args
 			if (!MapperArgs[pass_index][stage_index].Is_Empty()) {
 				int chunk_id = SHDLEGACY_CHUNKID_MAPPERARGS00 + pass_index * 2 + stage_index;
 				WRITE_WWSTRING_CHUNK(csave,chunk_id,MapperArgs[pass_index][stage_index])
@@ -217,14 +217,14 @@ bool ShdLegacyW3DDefClass::Save(ChunkSaveClass &csave)
 }
 
 bool ShdLegacyW3DDefClass::Load(ChunkLoadClass &cload)
-{	
+{
 	int offset = 0;
 	int pass = 0;
 	int stage = 0;
 
 	// Call parent class
 	ShdDefClass::Load(cload);
-	
+
 	//	Read in the chunks
 	while (cload.Open_Chunk()) {
 		switch (cload.Cur_Chunk_ID())
@@ -232,7 +232,7 @@ bool ShdLegacyW3DDefClass::Load(ChunkLoadClass &cload)
 		case SHDLEGACY_CHUNKID_VARIABLES:
 			Load_Variables(cload);
 			break;
-		
+
 		case SHDLEGACY_CHUNKID_TEXTURE_NAME00:
 		case SHDLEGACY_CHUNKID_TEXTURE_NAME01:
 		case SHDLEGACY_CHUNKID_TEXTURE_NAME10:
@@ -276,7 +276,7 @@ bool ShdLegacyW3DDefClass::Save_Variables(ChunkSaveClass &csave)
 	WRITE_MICRO_CHUNK(csave, VARID_PASS_COUNT, PassCount);
 
 	for (int pass_index=0; pass_index<PassCount; pass_index++) {
-		
+
 		// Write the shader and vertex material
 		WRITE_MICRO_CHUNK(csave, VARID_SHADER0 + pass_index, Shaders[pass_index]);
 		WRITE_MICRO_CHUNK(csave, VARID_MATERIAL0 + pass_index, Materials[pass_index]);
@@ -304,9 +304,9 @@ bool ShdLegacyW3DDefClass::Load_Variables(ChunkLoadClass &cload)
 	int pass = 0;
 	int stage = 0;
 
-	while (cload.Open_Micro_Chunk()) 
+	while (cload.Open_Micro_Chunk())
 	{
-		switch (cload.Cur_Micro_Chunk_ID()) 
+		switch (cload.Cur_Micro_Chunk_ID())
 		{
 			READ_MICRO_CHUNK(cload, VARID_PASS_COUNT, PassCount);
 
@@ -391,9 +391,9 @@ Shd6LegacyW3DClass::Shd6LegacyW3DClass(const ShdDefClass* def)
 
 	ShdLegacyW3DDefClass* Definition=(ShdLegacyW3DDefClass*)def;
 	PassCount=Definition->Get_Pass_Count();
-	
+
 	for (pass=0;pass<PassCount;++pass) {
-		
+
 		// Set up the shaders
 		W3dUtilityClass::Convert_Shader(Definition->Get_Shader(pass),&(Shaders[pass]));
 
@@ -460,17 +460,17 @@ bool Shd6LegacyW3DClass::Greater_Than(const ShdInterfaceClass& s,int pass) const
 	if (src->Textures[pass][0]!=Textures[pass][0]) {
 		return src->Textures[pass][0]>Textures[pass][0];
 	}
-	
+
 	// If same texture, sort by materials
 	if (src->Materials[pass]!=Materials[pass]) {
 		return src->Materials[pass]>Materials[pass];
 	}
-	
+
 	// If same material, sort by shaders
 	if (src->Shaders[pass].Get_Bits()!=(unsigned)Shaders[pass].Get_Bits()) {
 		return src->Shaders[pass].Get_Bits()>Shaders[pass].Get_Bits();
 	}
-	
+
 	return false;
 }
 
@@ -488,7 +488,7 @@ void Shd6LegacyW3DClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
 }
 
 //**********************************************************************************************
-//! Apply per instance states for 1 pass DX6 
+//! Apply per instance states for 1 pass DX6
 /*! 7/10/02 5:39p KJM Created
 */
 void Shd6LegacyW3DClass::Apply_Instance(int cur_pass, RenderInfoClass& rinfo)
@@ -524,9 +524,9 @@ unsigned Shd6LegacyW3DClass::Get_Vertex_Size(unsigned stream) const
 
 void Shd6LegacyW3DClass::Copy_Vertex_Stream
 (
-	unsigned stream, 
-	void* dest_buffer, 
-	const VertexStreamStruct& vss, 
+	unsigned stream,
+	void* dest_buffer,
+	const VertexStreamStruct& vss,
 	unsigned vertex_count
 )
 {
@@ -563,42 +563,42 @@ void Shd6LegacyW3DClass::Copy_Vertex_Stream
 
 	unsigned char* vb=(unsigned char*)dest_buffer;
 
-	for (unsigned i=0; i<vertex_count; ++i) 
+	for (unsigned i=0; i<vertex_count; ++i)
 	{
 		if ((FVF&D3DFVF_XYZ)==D3DFVF_XYZ) {
-			if (vss.Locations) 
+			if (vss.Locations)
 			{
 				*(Vector3*)(vb+fi.Get_Location_Offset())=vss.Locations[i];
 			}
-			else 
+			else
 			{
 				*(Vector3*)(vb+fi.Get_Location_Offset())=Vector3(0.0f,0.0f,0.0f);
 			}
 		}
 
 		if ((FVF&D3DFVF_DIFFUSE)==D3DFVF_DIFFUSE) {
-			if (vss.DiffuseInt) 
+			if (vss.DiffuseInt)
 			{
 				*(unsigned int*)(vb+fi.Get_Diffuse_Offset())=vss.DiffuseInt[i];
 			}
-			else 
+			else
 			{
 				*(unsigned int*)(vb+fi.Get_Diffuse_Offset())=0xffffffff;
 			}
 		}
-	
+
 		if ((FVF&D3DFVF_NORMAL)==D3DFVF_NORMAL) {
-			if (vss.Normals) 
+			if (vss.Normals)
 			{
 				*(Vector3*)(vb+fi.Get_Normal_Offset())=vss.Normals[i];
 			}
-			else 
+			else
 			{
 				*(Vector3*)(vb+fi.Get_Normal_Offset())=Vector3(0.0f,0.0f,0.0f);
 			}
 		}
 
-		
+
 		for (int j=0; j<uvcount; j++) {
 			const Vector2*uvs=vss.UV[j];
 			if (uvs) {

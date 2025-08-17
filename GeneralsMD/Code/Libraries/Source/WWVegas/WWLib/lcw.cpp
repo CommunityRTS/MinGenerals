@@ -16,23 +16,23 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/lcw.cpp                                            $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/lcw.cpp                                            $*
+ *                                                                                             *
  *                      $Author:: Neal_k                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 10/04/99 10:25a                                             $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 4                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   LCW_Comp -- Performes LCW compression on a block of data.                                 * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   LCW_Comp -- Performes LCW compression on a block of data.                                 *
  *   LCW_Uncomp -- Decompress an LCW encoded data block.                                       *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -171,28 +171,28 @@ int LCW_Uncomp(void const * source, void * dest, unsigned long )
 #if defined(_MSC_VER)
 
 
-/*********************************************************************************************** 
- * LCW_Comp -- Performes LCW compression on a block of data.                                   * 
- *                                                                                             * 
- *    This routine will compress a block of data using the LCW compression method. LCW has     * 
- *    the primary characteristic of very fast uncompression at the expense of very slow        * 
- *    compression times.                                                                       * 
- *                                                                                             * 
- * INPUT:   source   -- Pointer to the source data to compress.                                * 
- *                                                                                             * 
- *          dest     -- Pointer to the destination location to store the compressed data       * 
- *                      to.                                                                    * 
- *                                                                                             * 
- *          datasize -- The size (in bytes) of the source data to compress.                    * 
- *                                                                                             * 
- * OUTPUT:  Returns with the number of bytes of output data stored into the destination        * 
- *          buffer.                                                                            * 
- *                                                                                             * 
- * WARNINGS:   Be sure that the destination buffer is big enough. The maximum size required    * 
- *             for the destination buffer is (datasize + datasize/128).                        * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/20/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * LCW_Comp -- Performes LCW compression on a block of data.                                   *
+ *                                                                                             *
+ *    This routine will compress a block of data using the LCW compression method. LCW has     *
+ *    the primary characteristic of very fast uncompression at the expense of very slow        *
+ *    compression times.                                                                       *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the source data to compress.                                *
+ *                                                                                             *
+ *          dest     -- Pointer to the destination location to store the compressed data       *
+ *                      to.                                                                    *
+ *                                                                                             *
+ *          datasize -- The size (in bytes) of the source data to compress.                    *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes of output data stored into the destination        *
+ *          buffer.                                                                            *
+ *                                                                                             *
+ * WARNINGS:   Be sure that the destination buffer is big enough. The maximum size required    *
+ *             for the destination buffer is (datasize + datasize/128).                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/20/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 /*ARGSUSED*/
 int LCW_Comp(void const * source, void * dest, int datasize)

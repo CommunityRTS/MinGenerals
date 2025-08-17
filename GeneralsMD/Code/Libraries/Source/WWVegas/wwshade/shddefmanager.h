@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddefmanager.h                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 5/20/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -50,15 +50,15 @@ class ChunkLoadClass;
 
 
 /**
-** ShdDefManagerClass - This class contains a list of all constructed ShdDefFactories.  
+** ShdDefManagerClass - This class contains a list of all constructed ShdDefFactories.
 ** This class is used to iterate through the shader definition factories in the material
-** editor for example.  
+** editor for example.
 */
 class ShdDefManagerClass
 {
 public:
 
-	static ShdDefFactoryClass *		Find_Factory (uint32 class_id);	
+	static ShdDefFactoryClass *		Find_Factory (uint32 class_id);
 	static ShdDefFactoryClass *		Find_Factory (const char *name);
 	static void								Register_Factory (ShdDefFactoryClass *factory);
 	static void								Unregister_Factory (ShdDefFactoryClass *factory);
@@ -70,7 +70,7 @@ public:
 	// Factory enumeration
 	static ShdDefFactoryClass *		Get_First (void);
 	static ShdDefFactoryClass *		Get_Next (ShdDefFactoryClass *current);
-	
+
 	// Construction
 	static ShdDefClass *					Create_ShdDefClass_Instance(uint32 class_id);
 

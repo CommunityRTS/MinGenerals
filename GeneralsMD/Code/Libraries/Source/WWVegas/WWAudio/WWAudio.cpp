@@ -2753,7 +2753,7 @@ WWAudioClass::File_Open_Callback (char const *filename, U32 *file_handle)
 	U32 retval = false;
 
 	if (Get_Instance () != NULL) {
-		
+
 		//
 		//	Open the file
 		//
@@ -2763,7 +2763,7 @@ WWAudioClass::File_Open_Callback (char const *filename, U32 *file_handle)
 			retval = true;
 		}
 	}
-	
+
 	return retval;
 }
 
@@ -2810,7 +2810,7 @@ WWAudioClass::File_Seek_Callback (U32 file_handle, S32 offset, U32 type)
 		//
 		//	Convert the Miles seek type to one of our own
 		//
-		int seek_type = SEEK_CUR;		
+		int seek_type = SEEK_CUR;
 		switch (type)
 		{
 			case AIL_FILE_SEEK_BEGIN:
@@ -2851,7 +2851,7 @@ WWAudioClass::File_Read_Callback (U32 file_handle, void *buffer, U32 bytes)
 	//
 	FileClass *file = reinterpret_cast<FileClass *> (file_handle);
 	if (file != NULL) {
-		
+
 		//
 		//	Read the bytes from the file
 		//

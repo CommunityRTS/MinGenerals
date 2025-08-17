@@ -46,7 +46,7 @@
 // Public keys:
 //	n = product of two primes, p & q (p & q must remain secret)
 //	e = relatively prime to (p-1)(q-1)
-// 
+//
 // Private keys:
 //	d = e^-1 mod ((p-1)(q-1))		// e^-1 = inverse of e
 //
@@ -69,7 +69,7 @@ class RSACrypt
 		~RSACrypt()	{}
 
 		void Set_Public_Keys(const Integer &pub_n, const Integer &pub_e);
-		void Set_Keys(const Integer &pub_n, const Integer &pub_e, 
+		void Set_Keys(const Integer &pub_n, const Integer &pub_e,
 			const Integer &priv_d, const Integer &keygen_p, const Integer &keygen_q);
 
 		void Get_Public_Keys(Integer &pub_n, Integer &pub_e) const;
@@ -116,7 +116,7 @@ void RSACrypt<PRECISION>::Set_Public_Keys(const Integer &pub_n, const Integer &p
 // Set the public & private keys: n, e & d
 //
 template <int PRECISION>
-void RSACrypt<PRECISION>::Set_Keys(const Integer &pub_n, const Integer &pub_e, 
+void RSACrypt<PRECISION>::Set_Keys(const Integer &pub_n, const Integer &pub_e,
 	const Integer &priv_d, const Integer &keygen_p, const Integer &keygen_q)
 {
 	PublicN=pub_n;
@@ -143,7 +143,7 @@ void RSACrypt<PRECISION>::Get_Public_Keys(Integer &pub_n, Integer &pub_e) const
 // Get the private key
 //
 template <int PRECISION>
-void RSACrypt<PRECISION>::Get_Private_Key(Integer &priv_d) const 
+void RSACrypt<PRECISION>::Get_Private_Key(Integer &priv_d) const
 {
 	priv_d=PrivateD;
 }
@@ -268,7 +268,7 @@ void RSACrypt<PRECISION>::Decryption_Setup(void)
 // RSA Encryption		c = m^e mod n
 //
 template <int PRECISION>
-void RSACrypt<PRECISION>::Encrypt(const Integer &plaintext, Integer &cyphertext) const 
+void RSACrypt<PRECISION>::Encrypt(const Integer &plaintext, Integer &cyphertext) const
 {
 	Integer m(plaintext);
 	cyphertext=m.exp_b_mod_c(PublicE, PublicN);
@@ -279,7 +279,7 @@ void RSACrypt<PRECISION>::Encrypt(const Integer &plaintext, Integer &cyphertext)
 // RSA Decryption		m = c^d mod n
 //
 template <int PRECISION>
-void RSACrypt<PRECISION>::Decrypt(const Integer &cyphertext, Integer &plaintext) const 
+void RSACrypt<PRECISION>::Decrypt(const Integer &cyphertext, Integer &plaintext) const
 {
 #ifdef SIMPLE_AND_SLOW_RSA
 	Integer c(cyphertext);

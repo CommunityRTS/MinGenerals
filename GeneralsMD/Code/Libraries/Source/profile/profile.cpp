@@ -34,7 +34,7 @@
 
 // yuk, I'm doing this so weird because the destructor
 // of cmd must never be called...
-static ProfileCmdInterface &cmd=*(ProfileCmdInterface *)new 
+static ProfileCmdInterface &cmd=*(ProfileCmdInterface *)new
                   (ProfileAllocMemory(sizeof(ProfileCmdInterface))) ProfileCmdInterface();
 
 // we have this here so that our command interface will always
@@ -96,9 +96,9 @@ static _int64 GetClockCyclesFast(void)
   Profile::AddResultFunction(ProfileResultFileCSV::Create,
                               "file_dot",
                               "[ file [ frame_name [ fold_threshold ] ] ]");
-  
+
   // this must not take a very huge CPU hit...
-  
+
   // measure clock cycles 3 times for 20 msec each
   // then take the 2 counts that are closest, average
   _int64 n[3];
@@ -357,7 +357,7 @@ bool Profile::SimpleMatch(const char *str, const char *pattern)
           return true;
       return *str==*pattern;
     }
-    else 
+    else
     {
       if (*str++!=*pattern++)
         return false;

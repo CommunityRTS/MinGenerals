@@ -27,7 +27,7 @@
  *                    Org Author:: Jani_p
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 6/06/02 3:04p                                               $*
  *                                                                                             *
  *                    $Revision:: 3                                                          $*
@@ -134,7 +134,7 @@ class ShdRendererClass
 protected:
 	ShdRendererClass();
 	virtual ~ShdRendererClass();
-public:	
+public:
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	// Init must be called before any objects can be rendered and Release() must be called

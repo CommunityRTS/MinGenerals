@@ -11,7 +11,7 @@ library Babylon
 
 
 	//  Primary dispatch interface for CBabylonDoc
-	
+
 	[ uuid(2BF31248-3BA1-11D3-B9DA-006097B90D93) ]
 	dispinterface IBabylon
 	{
@@ -20,7 +20,7 @@ library Babylon
 			//    Use extreme caution when editing this section.
 			//{{AFX_ODL_PROP(CBabylonDlgAutoProxy)
 			//}}AFX_ODL_PROP
-			
+
 		methods:
 			// NOTE - ClassWizard will maintain method information here.
 			//    Use extreme caution when editing this section.
@@ -30,7 +30,7 @@ library Babylon
 	};
 
 	//  Class information for CBabylonDoc
-	
+
 	[ uuid(2BF31246-3BA1-11D3-B9DA-006097B90D93) ]
 	coclass Babylon
 	{

@@ -17,22 +17,22 @@
 */
 
 /* $Header: /Commando/Code/ww3d2/hanim.h 2     6/29/01 6:41p Jani_p $ */
-/*********************************************************************************************** 
- ***                            Confidential - Westwood Studios                              *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Commando / G 3D Library                                      * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/ww3d2/hanim.h                                $* 
- *                                                                                             * 
- *                       Author:: Greg_h                                                       * 
- *                                                                                             * 
- *                     $Modtime:: 6/27/01 7:35p                                               $* 
- *                                                                                             * 
- *                    $Revision:: 2                                                           $* 
- *                                                                                             * 
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+/***********************************************************************************************
+ ***                            Confidential - Westwood Studios                              ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Commando / G 3D Library                                      *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/ww3d2/hanim.h                                $*
+ *                                                                                             *
+ *                       Author:: Greg_h                                                       *
+ *                                                                                             *
+ *                     $Modtime:: 6/27/01 7:35p                                               $*
+ *                                                                                             *
+ *                    $Revision:: 2                                                           $*
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -70,12 +70,12 @@ class HTreeClass;
 
 	This is the base class for all animation formats used in W3D.  It
 	contains the virtual interface that all animations must support.
-	
+
 **********************************************************************************/
 class HAnimClass : public RefCountClass, public	HashableClass
 {
 public:
-	enum 
+	enum
 	{
 		CLASSID_UNKNOWNANIM	= 0xFFFFFFFF,
 		CLASSID_HRAWANIM		= 0,
@@ -154,7 +154,7 @@ private:
 	// This info is packaged into a struct to minimize DynamicVectorClass overhead
 	struct WeightInfoStruct {
 		WeightInfoStruct() : Name(0) {}
-		~WeightInfoStruct() { if(Name) delete [] Name; } 
+		~WeightInfoStruct() { if(Name) delete [] Name; }
 
 		char *Name;
 		float Weight;
@@ -188,7 +188,7 @@ class HAnimComboDataClass : public AutoPoolClass<HAnimComboDataClass,256> {
 		void Set_Frame(float frame)		{ Frame = frame; }
 		void Set_Weight(float weight)		{ Weight = weight; }
 		void Set_Pivot_Map(PivotMapClass *map);
-		
+
 
 		HAnimClass * Peek_HAnim(void)				const { return HAnim; }	// note: does not add reference
 		HAnimClass * Get_HAnim(void)				const { if(HAnim) HAnim->Add_Ref(); return HAnim; }	// note: does not add reference
@@ -242,12 +242,12 @@ public:
 	PivotMapClass	* Peek_Pivot_Weight_Map( int indx );
 
 
-	// add an entry to the dynamic vector 
+	// add an entry to the dynamic vector
 	void Append_Anim_Combo_Data(HAnimComboDataClass * AnimComboData);
 
 	// remove an entry from the vector
 	void Remove_Anim_Combo_Data(HAnimComboDataClass * AnimComboData);
-	
+
 	// retrieve a specific combo data
 	HAnimComboDataClass * Peek_Anim_Combo_Data(int index) { return HAnimComboData[index]; }
 
@@ -257,4 +257,4 @@ protected:
 
 };
 
-#endif 
+#endif

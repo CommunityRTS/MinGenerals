@@ -93,7 +93,7 @@ int Get_Last_System_Error()
  *   2/19/98    GTH : Created.                                                                 *
  *=============================================================================================*/
 PrintFunc WWDebug_Install_Message_Handler(PrintFunc func)
-{	
+{
 	PrintFunc tmp = _CurMessageHandler;
 	_CurMessageHandler = func;
 	return tmp;
@@ -196,7 +196,7 @@ ProfileFunc	WWDebug_Install_Profile_Stop_Handler(ProfileFunc func)
 void WWDebug_Printf(const char * format,...)
 {
 	if (_CurMessageHandler != NULL) {
-		
+
 		va_list	va;
 		char buffer[1024];
 
@@ -227,7 +227,7 @@ void WWDebug_Printf(const char * format,...)
 void WWDebug_Printf_Warning(const char * format,...)
 {
 	if (_CurMessageHandler != NULL) {
-		
+
 		va_list	va;
 		char buffer[1024];
 
@@ -258,7 +258,7 @@ void WWDebug_Printf_Warning(const char * format,...)
 void WWDebug_Printf_Error(const char * format,...)
 {
 	if (_CurMessageHandler != NULL) {
-		
+
 		va_list	va;
 		char buffer[1024];
 
@@ -289,7 +289,7 @@ void WWDebug_Printf_Error(const char * format,...)
 void WWDebug_Assert_Fail(const char * expr,const char * file, int line)
 {
 	if (_CurAssertHandler != NULL) {
-	
+
 		char buffer[1024];
 		sprintf(buffer,"%s (%d) Assert: %s\n",file,line,expr);
 		_CurAssertHandler(buffer);
@@ -327,7 +327,7 @@ void WWDebug_Assert_Fail_Print(const char * expr,const char * file, int line,con
 	} else {
 
 		assert(0);
-	
+
 	}
 }
 #endif
@@ -422,7 +422,7 @@ void WWDebug_DBWin32_Message_Handler( const char * str )
     if ( !heventDBWIN )
     {
         //MessageBox(NULL, "DBWIN_BUFFER_READY nonexistent", NULL, MB_OK);
-        return;            
+        return;
     }
 
     /* get a handle to the data synch object */
@@ -431,11 +431,11 @@ void WWDebug_DBWin32_Message_Handler( const char * str )
     {
         // MessageBox(NULL, "DBWIN_DATA_READY nonexistent", NULL, MB_OK);
         CloseHandle(heventDBWIN);
-        return;            
+        return;
     }
-    
+
     hSharedFile = CreateFileMapping((HANDLE)-1, NULL, PAGE_READWRITE, 0, 4096, "DBWIN_BUFFER");
-    if (!hSharedFile) 
+    if (!hSharedFile)
     {
         //MessageBox(NULL, "DebugTrace: Unable to create file mapping object DBWIN_BUFFER", "Error", MB_OK);
         CloseHandle(heventDBWIN);
@@ -444,7 +444,7 @@ void WWDebug_DBWin32_Message_Handler( const char * str )
     }
 
     lpszSharedMem = (LPSTR)MapViewOfFile(hSharedFile, FILE_MAP_WRITE, 0, 0, 512);
-    if (!lpszSharedMem) 
+    if (!lpszSharedMem)
     {
         //MessageBox(NULL, "DebugTrace: Unable to map shared memory", "Error", MB_OK);
         CloseHandle(heventDBWIN);

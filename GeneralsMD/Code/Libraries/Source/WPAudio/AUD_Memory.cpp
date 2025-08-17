@@ -113,7 +113,7 @@ AudioMemoryPool*		MemoryPoolCreate( uint items, uint size )
 	MemoryItem 	*item;
 	uint		i;
 
-	
+
 	DBG_ASSERT ( items > 0 );
 	DBG_ASSERT ( size > 0 );
 
@@ -123,7 +123,7 @@ AudioMemoryPool*		MemoryPoolCreate( uint items, uint size )
 	{
 
 		item = (MemoryItem *)( (uint)pool + (uint) sizeof(AudioMemoryPool));
-		
+
 		pool->next = item;
 		DBG_CODE ( pool->itemsOut = 0;)
 		DBG_CODE ( pool->numItems = items;)
@@ -154,7 +154,7 @@ void			MemoryPoolDestroy ( AudioMemoryPool *pool )
 {
 
 	DBG_ASSERT_TYPE ( pool, AudioMemoryPool );
-	
+
 	DBG_CODE
 	(
 	   	if ( pool->itemsOut > 0 )
@@ -162,7 +162,7 @@ void			MemoryPoolDestroy ( AudioMemoryPool *pool )
 		   	DBGPRINTF ( ( "Destroying memory pool with %d items still out\n", pool->itemsOut) );
 		}
 	)
-	
+
 	AudioMemFree ( pool );
 }
 
@@ -182,15 +182,15 @@ void 		  *MemoryPoolGetItem ( AudioMemoryPool *pool )
 	{
 		return NULL;
 	}
-	
+
 	DBG_CODE ( pool->itemsOut++;)
-	
+
 	DBG_MSGASSERT ( pool->itemsOut <= pool->numItems,( "pool overflow" ));
 
 	DBG_ASSERT_TYPE ( item, MemoryItem ); //  !!! Memory corruption !!!
-	
+
 	pool->next = item->next;
-	
+
 	return (void *) ( (uint) item + (uint) sizeof(MemoryItem));
 
 }
@@ -209,14 +209,14 @@ void			MemoryPoolReturnItem ( AudioMemoryPool *pool, void *data )
 	DBG_ASSERT_PTR ( data );
 
 	item = (MemoryItem *) ( (uint) data - (uint) sizeof(MemoryItem));
-	
-	DBG_ASSERT_TYPE ( item, MemoryItem ); //  returning invalid item to pool 
-	
+
+	DBG_ASSERT_TYPE ( item, MemoryItem ); //  returning invalid item to pool
+
 	item->next = pool->next;
 	pool->next = item;
-	
-	DBG_MSGASSERT ( pool->itemsOut > 0,( "Pool underflow" )); //  returning more items than were taken 
-	
+
+	DBG_MSGASSERT ( pool->itemsOut > 0,( "Pool underflow" )); //  returning more items than were taken
+
 	DBG_CODE ( pool->itemsOut--; )
 }
 
@@ -241,7 +241,7 @@ int 		  MemoryPoolCount ( AudioMemoryPool *pool )
 		    item = item->next;
 		}
 	}
-	
+
 	return count;
 }
 

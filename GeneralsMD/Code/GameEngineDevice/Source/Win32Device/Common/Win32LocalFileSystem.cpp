@@ -34,7 +34,7 @@
 #include "Win32Device/Common/Win32LocalFile.h"
 #include <io.h>
 
-Win32LocalFileSystem::Win32LocalFileSystem() : LocalFileSystem() 
+Win32LocalFileSystem::Win32LocalFileSystem() : LocalFileSystem()
 {
 }
 
@@ -42,10 +42,10 @@ Win32LocalFileSystem::~Win32LocalFileSystem() {
 }
 
 //DECLARE_PERF_TIMER(Win32LocalFileSystem_openFile)
-File * Win32LocalFileSystem::openFile(const Char *filename, Int access /* = 0 */) 
+File * Win32LocalFileSystem::openFile(const Char *filename, Int access /* = 0 */)
 {
 	//USE_PERF_TIMER(Win32LocalFileSystem_openFile)
-	Win32LocalFile *file = newInstance( Win32LocalFile );	
+	Win32LocalFile *file = newInstance( Win32LocalFile );
 
 	// sanity check
 	if (strlen(filename) <= 0) {
@@ -79,7 +79,7 @@ File * Win32LocalFileSystem::openFile(const Char *filename, Int access /* = 0 */
 
 // this will also need to play nice with the STREAMING type that I added, if we ever enable this
 
-// srj sez: this speeds up INI loading, but makes BIG files unusable. 
+// srj sez: this speeds up INI loading, but makes BIG files unusable.
 // don't enable it without further tweaking.
 //
 // unless you like running really slowly.
@@ -99,15 +99,15 @@ File * Win32LocalFileSystem::openFile(const Char *filename, Int access /* = 0 */
 	return file;
 }
 
-void Win32LocalFileSystem::update() 
+void Win32LocalFileSystem::update()
 {
 }
 
-void Win32LocalFileSystem::init() 
+void Win32LocalFileSystem::init()
 {
 }
 
-void Win32LocalFileSystem::reset() 
+void Win32LocalFileSystem::reset()
 {
 }
 
@@ -172,7 +172,7 @@ void Win32LocalFileSystem::getFileListInDirectory(const AsciiString& currentDire
 					tempsearchstr.concat(currentDirectory);
 					tempsearchstr.concat(findData.cFileName);
 					tempsearchstr.concat('\\');
-					
+
 					// recursively add files in subdirectories if required.
 					getFileListInDirectory(tempsearchstr, originalDirectory, searchName, filenameList, searchSubdirectories);
 			}
@@ -185,7 +185,7 @@ void Win32LocalFileSystem::getFileListInDirectory(const AsciiString& currentDire
 
 }
 
-Bool Win32LocalFileSystem::getFileInfo(const AsciiString& filename, FileInfo *fileInfo) const 
+Bool Win32LocalFileSystem::getFileInfo(const AsciiString& filename, FileInfo *fileInfo) const
 {
 	WIN32_FIND_DATA findData;
 	HANDLE findHandle = NULL;
@@ -205,7 +205,7 @@ Bool Win32LocalFileSystem::getFileInfo(const AsciiString& filename, FileInfo *fi
 	return TRUE;
 }
 
-Bool Win32LocalFileSystem::createDirectory(AsciiString directory) 
+Bool Win32LocalFileSystem::createDirectory(AsciiString directory)
 {
 	if ((directory.getLength() > 0) && (directory.getLength() < _MAX_DIR)) {
 		return (CreateDirectory(directory.str(), NULL) != 0);

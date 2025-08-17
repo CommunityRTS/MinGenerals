@@ -56,7 +56,7 @@ void ControlBar::parseCommandButtonDefinition( INI *ini )
 	{
 		// allocate a new item
 		button = TheControlBar->newCommandButton( name );
-		if (ini->getLoadType() == INI_LOAD_CREATE_OVERRIDES) 
+		if (ini->getLoadType() == INI_LOAD_CREATE_OVERRIDES)
 		{
 			button->markAsOverride();
 		}

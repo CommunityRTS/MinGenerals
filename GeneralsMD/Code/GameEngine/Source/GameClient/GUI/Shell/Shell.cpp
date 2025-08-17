@@ -147,7 +147,7 @@ void Shell::init( void )
 	// Read from INI all the ShellMenuScheme
 	ini.load( AsciiString( "Data\\INI\\Default\\ShellMenuScheme.ini" ), INI_LOAD_OVERWRITE, NULL );
 	ini.load( AsciiString( "Data\\INI\\ShellMenuScheme.ini" ), INI_LOAD_OVERWRITE, NULL );
-	
+
 	if( m_schemeManager )
 		m_schemeManager->init();
 
@@ -159,7 +159,7 @@ void Shell::init( void )
 //-------------------------------------------------------------------------------------------------
 void Shell::reset( void )
 {
-	
+
 	if (TheIMEManager)
 		TheIMEManager->detatch();
 
@@ -180,7 +180,7 @@ void Shell::update( void )
 	static Int lastUpdate = timeGetTime();
 	static const Int shellUpdateDelay = 30;  // try to update 30 frames a second
 	Int now = timeGetTime();
-	
+
 	//
 	// we keep the shell updates fixed in time so that we can write consitent animation
 	// speeds during the screen update functions
@@ -198,13 +198,13 @@ void Shell::update( void )
 		}  // end for i
 		if(TheGlobalData->m_shellMapOn && m_shellMapOn &&m_background)
 		{
-			
+
 			m_background->destroyWindows();
 			m_background->deleteInstance();
 			m_background = NULL;
-			
+
 		}
-		
+
 		// Update the animate window manager
 		m_animateWindowManager->update();
 
@@ -282,7 +282,7 @@ void Shell::push( AsciiString filename, Bool shutdownImmediate )
 	// make sure we have an available spot for another screen
 	if( m_screenCount >= MAX_SHELL_STACK )
 	{
-	
+
 		DEBUG_LOG(( "Unable to load screen '%s', max '%d' reached\n",
 								filename, MAX_SHELL_STACK ));
 		return;
@@ -414,8 +414,8 @@ void Shell::showShell( Bool runInit )
 	{
 		return;
 	}
-	
-	// runInit is used if we want show shell to run 
+
+	// runInit is used if we want show shell to run
 	if(runInit)
 	{
 		WindowLayout *layout = top();
@@ -447,16 +447,16 @@ void Shell::showShell( Bool runInit )
 	//	}
 	//	else
 	//	{
-	//		
+	//
 	//		m_background = TheWindowManager->winCreateLayout("Menus/BlankWindow.wnd");
-	//		
+	//
 	//		DEBUG_ASSERTCRASH(m_background,("We Couldn't Load Menus/BlankWindow.wnd"));
 	//		m_background->hide(FALSE);
 	//		if (top())
 	//			top()->bringForward();
-	//		
+	//
 	//	}
-	
+
 
 	if (!TheGlobalData->m_shellMapOn && m_screenCount == 0)
   {
@@ -500,7 +500,7 @@ void Shell::showShellMap(Bool useShellMap )
 			return;
 		if(!m_background)
 			m_background = TheWindowManager->winCreateLayout("Menus/BlankWindow.wnd");
-		
+
 		DEBUG_ASSERTCRASH(m_background,("We Couldn't Load Menus/BlankWindow.wnd"));
 		m_background->getFirstWindow()->winSetStatus(WIN_STATUS_IMAGE);
 		m_background->hide(FALSE);
@@ -587,12 +587,12 @@ void Shell::linkScreen( WindowLayout *screen )
 //-------------------------------------------------------------------------------------------------
 void Shell::unlinkScreen( WindowLayout *screen )
 {
-	
+
 	// sanity
 	if( screen == NULL )
 		return;
 
-	DEBUG_ASSERTCRASH( m_screenStack[ m_screenCount - 1 ] == screen, 
+	DEBUG_ASSERTCRASH( m_screenStack[ m_screenCount - 1 ] == screen,
 										 ("Screen not on top of stack\n") );
 
 	// remove reference to screen and decrease count
@@ -609,7 +609,7 @@ void Shell::doPush( AsciiString layoutFile )
 	if(TheGameSpyInfo)
 			GameSpyCloseAllOverlays();
 	WindowLayout *newScreen;
-	
+
 	// create new layout and load from window manager
 	newScreen = TheWindowManager->winCreateLayout( layoutFile );
 	DEBUG_ASSERTCRASH( newScreen != NULL, ("Shell unable to load pending push layout\n") );
@@ -636,7 +636,7 @@ void Shell::doPop( Bool impendingPush )
 
 	// there better be a top of the stack since we're popping
 	DEBUG_ASSERTCRASH( currentTop, ("Shell: No top of stack and we want to pop!\n") );
-		
+
 	// remove this screen from our list
 	unlinkScreen( currentTop );
 
@@ -674,7 +674,7 @@ void Shell::shutdownComplete( WindowLayout *screen, Bool impendingPush )
 
 	// there should never be a pending push AND pop operation
 	DEBUG_ASSERTCRASH( m_pendingPush == FALSE || m_pendingPop == FALSE,
-										 ("There is a pending push AND pop in the shell.  Not allowed!\n") );	
+										 ("There is a pending push AND pop in the shell.  Not allowed!\n") );
 
 	// Reset the AnimateWindowManager
 	m_animateWindowManager->reset();
@@ -696,12 +696,12 @@ void Shell::shutdownComplete( WindowLayout *screen, Bool impendingPush )
 
 		// do the pop
 		doPop( impendingPush );
-				
+
 		// no more pending pop for you!
 		m_pendingPop = FALSE;
 
 	}  // end else if
-	
+
 	if(m_clearBackground)
 	{
 		if(m_background)
@@ -711,7 +711,7 @@ void Shell::shutdownComplete( WindowLayout *screen, Bool impendingPush )
 			m_background = NULL;
 			m_clearBackground = FALSE;
 		}
-			
+
 	}
 
 }  // end shutdownComplete
@@ -782,7 +782,7 @@ void Shell::loadScheme( AsciiString name )
 // ------------------------------------------------------------------------------------------------
 WindowLayout *Shell::getSaveLoadMenuLayout( void )
 {
-	
+
 	// if layout has not been created, create it now
 	if( m_saveLoadMenuLayout == NULL )
    m_saveLoadMenuLayout = TheWindowManager->winCreateLayout( AsciiString( "Menus/PopupSaveLoad.wnd" ) );
@@ -799,7 +799,7 @@ WindowLayout *Shell::getSaveLoadMenuLayout( void )
 // ------------------------------------------------------------------------------------------------
 WindowLayout *Shell::getPopupReplayLayout( void )
 {
-	
+
 	// if layout has not been created, create it now
 	if( m_popupReplayLayout == NULL )
    m_popupReplayLayout = TheWindowManager->winCreateLayout( AsciiString( "Menus/PopupReplay.wnd" ) );

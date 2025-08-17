@@ -24,7 +24,7 @@
 
 // FILE: BitFlags.h /////////////////////////////////////////////////////////////////////////
 // Author: Steven Johnson, March 2002
-// Desc:   
+// Desc:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -56,7 +56,7 @@ private:
 	static const char*					s_bitNameList[];
 
 public:
-	
+
 	/*
 		just a little syntactic sugar so that there is no "foo = 0" compatible constructor
 	*/
@@ -104,11 +104,11 @@ public:
 		m_bits.set(idx5);
 	}
 
-	inline BitFlags(BogusInitType k, 
-										Int idx1, 
-										Int idx2, 
-										Int idx3, 
-										Int idx4, 
+	inline BitFlags(BogusInitType k,
+										Int idx1,
+										Int idx2,
+										Int idx3,
+										Int idx4,
 										Int idx5,
 										Int idx6,
 										Int idx7,
@@ -183,7 +183,7 @@ public:
 		BitFlags tmp = *this;
 		tmp.m_bits &= that.m_bits;
 		return tmp.m_bits.count();
-	} 
+	}
 
 	inline Int countInverseIntersection(const BitFlags& that) const
 	{
@@ -191,7 +191,7 @@ public:
 		tmp.m_bits.flip();
 		tmp.m_bits &= that.m_bits;
 		return tmp.m_bits.count();
-	} 
+	}
 
 	inline Bool anyIntersectionWith(const BitFlags& that) const
 	{
@@ -222,13 +222,13 @@ public:
 		/// @todo srj -- improve me.
 		BitFlags tmp = *this;
 		tmp.m_bits &= mustBeClear.m_bits;
-		if (tmp.m_bits.any()) 
+		if (tmp.m_bits.any())
 			return false;
 
 		tmp = *this;
 		tmp.m_bits.flip();
 		tmp.m_bits &= mustBeSet.m_bits;
-		if (tmp.m_bits.any()) 
+		if (tmp.m_bits.any())
 			return false;
 
 		return true;
@@ -262,13 +262,13 @@ public:
     return test(i) ? s_bitNameList[i] : NULL;
   }
 
-  Bool setBitByName(const char* token) 
+  Bool setBitByName(const char* token)
   {
     Int i = getSingleBitFromName(token);
 		if (i >= 0)
 		{
       set(i);
-			return true; 
+			return true;
 		}
 		else
 		{
@@ -294,8 +294,8 @@ public:
 				str->concat( bitName );
 				str->concat( ",\n");
 			}
-		}  
-	} 
+		}
+	}
 
 
 };

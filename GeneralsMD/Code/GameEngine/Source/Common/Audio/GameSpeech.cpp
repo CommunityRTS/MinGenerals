@@ -17,12 +17,12 @@
 */
 
 //----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -34,7 +34,7 @@
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //----------------------------------------------------------------------------
 
 #include "wpaudio/attributes.h"
@@ -55,13 +55,13 @@
 
 
 //----------------------------------------------------------------------------
-//         Externals                                                     
+//         Externals
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Defines                                                         
+//         Defines
 //----------------------------------------------------------------------------
 #define		BASE_DLG_ID		((ID) 5000)
 #define		BASE_DLG_DIR	"Data\\Audio\\Sounds"
@@ -69,14 +69,14 @@
 #define		NUM_DLG_PRIORITIES	5
 
 //----------------------------------------------------------------------------
-//         Private Types                                                     
+//         Private Types
 //----------------------------------------------------------------------------
 
 //===============================
 // Speech
 //===============================
 /**
-  *	The Speech struct holds all information about a line of dialog. While Speech itself is not 
+  *	The Speech struct holds all information about a line of dialog. While Speech itself is not
 	* accessible from outside SpeechInterface, the embedded struct SpeechInfo is accessible to the game code.
 	* Place data in SpeechInfo that is useful to the game code in determining what speech to play.
 	*/
@@ -87,7 +87,7 @@ struct Speech
 
 		Speech();
 		~Speech();
-		
+
 		ID					id;											///< Unquie GDI id
 		Int					index;									///< Speech index
 		AsciiString	name;										///< Logical name for line of speech
@@ -104,10 +104,10 @@ static void speechFromInfo(SpeechInfo* pInSpeechInfo, Speech* pOutSpeech);
 static AsciiString getNextFilenameFromSpeech(Speech* pSpeechToGetFilenameFrom);
 
 //===============================
-// SpeechRequest 
+// SpeechRequest
 //===============================
 /**
-  *	This is an internal structure used by the SpeechManager. It holds information 
+  *	This is an internal structure used by the SpeechManager. It holds information
 	* about the playback of a line of dialog.
 	*/
 //===============================
@@ -129,7 +129,7 @@ struct SpeechItem
 };
 
 //===============================
-// Speaker 
+// Speaker
 //===============================
 /**
   * Actual implementation of SpeakerInterface
@@ -161,14 +161,14 @@ class Speaker : public SpeakerInterface
 		~Speaker();
 
 		virtual void			destroy( void );												///< Delete and free speaker
-		/// Submits speech to play																
+		/// Submits speech to play
 		virtual void			say (	Speech *speech,										// speech to say
-														Int priority,											// priority 
+														Int priority,											// priority
 														Int timeout,											// time in which to say this line, 0 = infinite
 														Int interrupt);										// whether to interrupt current line
-																															
+
 		virtual void			say (	Char *speechName,									// name ofspeech to say
-														Int priority,											// priority 
+														Int priority,											// priority
 														Int timeout,											// time in which to say this line, 0 = infinite
 														Int interrupt );									// whether to interrupt current line
 
@@ -202,7 +202,7 @@ typedef std::vector<Speech> VecSpeech;
 typedef std::hash_map<const char*, Speech, std::hash<const char*>, rts::equal_to<const char*> > HashSpeech;
 
 //===============================
-// SpeechManager: 
+// SpeechManager:
 //===============================
 /**
   *	Actual implementation od SpeechInterface
@@ -219,14 +219,14 @@ class SpeechManager: public SpeechInterface
 		Real										m_volume;													///< Current speech volume
 		Bool										m_on;															///< Is speech turned on?
 		Int											m_count;													///< Number of speeches in the table
-																															
+
 		struct AudioDeviceTag		*m_device;												///< The audio device we were initilaized with
 
 		LList										m_speakers;												///< list of speakers created by this manager
 		HashSpeech							m_speech;													///< This is a hash table of all speeches we currently have loaded.
 		VecAsciiString					m_speechNames;										///< The purpose of this is to return to someone asking for the name of some element.
 		VecSpeech								m_temporarySpeeches;							///< This is a vector of speeches that are _like_ something in the hash, but differ by priority.
-	
+
 		AsciiString getFilenameForPlay( Speech *speech );			///< Return the filename corresponding to this speech
 
 	public:
@@ -240,7 +240,7 @@ class SpeechManager: public SpeechInterface
 		virtual void					reset( void );											///< Resets the speech system
 		virtual void					loseFocus( void );									///< Called when application loses focus
 		virtual void					regainFocus( void );								///< Called when application regains focus
-	
+
 			// speech info access
 		virtual Int						numSpeeches( void );								///< Returns the number of speechs defined
 		virtual SpeechInfo*		getSpeechInfo( Speech *speech );		///< Returns speech info by speech
@@ -261,14 +261,14 @@ class SpeechManager: public SpeechInterface
 		virtual Real					getVolume( void );									///< Return current volume level for all speech
 
 		/// Speaker factory
-		virtual SpeakerInterface*			createSpeaker (	Char *name, 
-																	Int priority, 
+		virtual SpeakerInterface*			createSpeaker (	Char *name,
+																	Int priority,
 																	Int buffer_time,
 																	Int delay);
 
 		virtual Speech*				addNewSpeech( SpeechInfo* pSpeechToAdd);	///< Create a speech specified by pSpeechToAdd
-		virtual Speech*				addTemporaryDialog( Speech& temporarySpeech );	///< Speech to be taken over by 
-		// playback control																
+		virtual Speech*				addTemporaryDialog( Speech& temporarySpeech );	///< Speech to be taken over by
+		// playback control
 		virtual void					stop( void );												///< Stops all speech that's currently playing.
 		virtual void					pause( void );											///< Pauses all speech
 		virtual void					resume( void );											///< Resumes all paused speech
@@ -277,8 +277,8 @@ class SpeechManager: public SpeechInterface
 		virtual Bool					waitToStop( Int milliseconds );			///< Returns when all speech has completely stopped playing
 		virtual Bool					say( Speech* pSpeechToSay);					///< Attempts to add a speech to the speach queue.
 		virtual Bool					say( AsciiString speechName);				///< Attempts to find and add a speech to the speech queue
-																											
-		// info																						
+
+		// info
 		virtual Bool					isOn( void );												///< Returns whether or not speech is turned on at present
 		virtual struct AudioAttribs* getMasterAttribs( void );		///< Returns the master attribute control for all speech
 		virtual struct AudioAttribs* getMasterFadeAttribs( void );///< Returns the master fade control for all speech
@@ -293,30 +293,30 @@ class SpeechManager: public SpeechInterface
 };
 
 //----------------------------------------------------------------------------
-//         Private Data                                                     
+//         Private Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Data                                                      
+//         Public Data
 //----------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------
-//         Private Prototypes                                               
-//----------------------------------------------------------------------------
-
-
-
-//----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Prototypes
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Private Functions
+//----------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------
+//         Public Functions
 //----------------------------------------------------------------------------
 
 //============================================================================
@@ -408,7 +408,7 @@ Bool SpeechManager::init( void )
 	for (int i = 0; i < NUM_DLG_PRIORITIES; ++i) {
 		createSpeaker(dlgPriorityNames[i], (i + 1), 3000, 300);
 	}
-	
+
 	m_on = TRUE;
 
 	return TRUE;
@@ -423,7 +423,7 @@ void SpeechManager::deinit( void )
 	m_count = 0;
 	m_speech.clear();
 	m_speechNames.clear();
-	
+
 	for (int i = 0; i < NUM_DLG_PRIORITIES && m_speakers.firstNode(); ++i) {
 		((Speaker*) m_speakers.firstNode()->item())->destroy();
 	}
@@ -773,16 +773,16 @@ Bool SpeechManager::say( Speech* pSpeechToSay)
 	if (m_speakers.isEmpty() || !pSpeechToSay) {
 		return false;
 	}
-	
+
 	LListNode *node = m_speakers.firstNode();
 	for (int i = 0; i < pSpeechToSay->priority && node; ++i) {
 		node = node->next();
 	}
-	
+
 	if (!node) {
 		return false;
 	}
-	
+
 	Speaker* currentSpeaker = (Speaker*) node->item();
 	currentSpeaker->say(pSpeechToSay, pSpeechToSay->priority, pSpeechToSay->timeout, pSpeechToSay->interrupt);
 	return true;
@@ -807,12 +807,12 @@ Bool SpeechManager::say( AsciiString speechName)
 //============================================================================
 
 Bool SpeechManager::isOn( void )
-{ 
+{
 	return m_on;
 }
 
 //============================================================================
-// SpeechManager::removeSpeaker 
+// SpeechManager::removeSpeaker
 //============================================================================
 
 void SpeechManager::removeSpeaker ( Speaker *speaker )
@@ -827,18 +827,18 @@ void SpeechManager::removeSpeaker ( Speaker *speaker )
 }
 
 //============================================================================
-// SpeechManager::addSpeaker 
+// SpeechManager::addSpeaker
 //============================================================================
 
 void SpeechManager::addSpeaker ( Speaker *speaker )
 {
 	// remove it if it is already in the list
-	removeSpeaker( speaker );	
+	removeSpeaker( speaker );
 	m_speakers.addItem( speaker->getPriority(), speaker );
 }
 
 //============================================================================
-// SpeechManager::CreateSpeaker 
+// SpeechManager::CreateSpeaker
 //============================================================================
 
 SpeakerInterface* SpeechManager::createSpeaker (	Char *name, Int priority, Int btime, Int delay )
@@ -893,7 +893,7 @@ Speech* SpeechManager::addTemporaryDialog( Speech& temporarySpeech )
 //============================================================================
 
 struct AudioAttribs* SpeechManager::getMasterAttribs( void )
-{ 
+{
 	return m_masterAttribs;
 };
 
@@ -902,7 +902,7 @@ struct AudioAttribs* SpeechManager::getMasterAttribs( void )
 //============================================================================
 
 struct AudioAttribs* SpeechManager::getMasterFadeAttribs( void )
-{ 
+{
 	return m_masterFadeAttribs;
 };
 
@@ -920,12 +920,12 @@ void SpeechManager::addDialogEvent(const AudioEventRTS *eventRTS, Speech* speech
 	if (!useSpeech) {
 		useSpeech = getSpeech(eventRTS->m_eventName.str());
 	}
-	
+
 	if (!useSpeech) {
 		return;
 	}
-	
-	if (1 || (eventRTS->m_priorityBoost == 0 && 
+
+	if (1 || (eventRTS->m_priorityBoost == 0 &&
 			eventRTS->m_overrideLoopingBehavior == 0 &&
 			eventRTS->m_timeOfDay == useSpeech->info.m_timeOfDay)) {
 		// We can use the default sound, so no need to create and add a new one.
@@ -975,7 +975,7 @@ void SpeechManager::removeDialogEvent(const AudioEventRTS *eventRTS, AudioEventR
 	if (!useSpeech) {
 		useSpeech = getSpeech(eventRTS->m_eventName.str());
 	}
-	
+
 	if (!useSpeech) {
 		return;
 	}
@@ -988,13 +988,13 @@ void SpeechManager::removeDialogEvent(const AudioEventRTS *eventRTS, AudioEventR
 	Bool isPlaying = true;
 	LListNode *node = m_speakers.firstNode();
 	while (node && isPlaying) {
-		Speaker *pCurrSpeaker = (Speaker*) node->item();		
+		Speaker *pCurrSpeaker = (Speaker*) node->item();
 		if (pCurrSpeaker->saying() == useSpeech || pCurrSpeaker->isGoingToSay(useSpeech)) {
 			pCurrSpeaker->cancel(useSpeech);
 			isPlaying = false;
 		}
 	}
-	
+
 	if (eventToUse) {
 		(*eventToUse).m_isCurrentlyPlaying = isPlaying;
 	}
@@ -1028,7 +1028,7 @@ AsciiString SpeechManager::getFilenameForPlay( Speech *speech )
 	}
 
 	SpeechInfo* speechInfo = getSpeechInfo(speech);
-	
+
 	if (!speechInfo) {
 		return AsciiString::TheEmptyString;
 	}
@@ -1038,7 +1038,7 @@ AsciiString SpeechManager::getFilenameForPlay( Speech *speech )
 	Int morningSamples = speechInfo->m_dialogFilesMorning.size();
 	Int nightSamples = speechInfo->m_dialogFilesNight.size();
 	Int numSamples = regularSamples + eveningSamples + morningSamples + nightSamples;
-	
+
 	// using a random number generator, select a random sample from all the samples
 	// that correspond to this sound name
 	Int soundToPlay = GameClientRandomValue(0, numSamples - 1);
@@ -1057,7 +1057,7 @@ AsciiString SpeechManager::getFilenameForPlay( Speech *speech )
 	}
 
 
-	
+
 	// @todo this should all go into a function "generateLocalizedSoundName"
 	Bool localized = FALSE;
 	if ( name[0] == '$' )
@@ -1117,7 +1117,7 @@ Speaker::~Speaker()
 }
 
 //============================================================================
-// Speaker::init 
+// Speaker::init
 //============================================================================
 
 void Speaker::init( char *name, Int priority, Int btime, Int delay )
@@ -1183,7 +1183,7 @@ SpeechItem* Speaker::firstItem( TimeStamp now )
 }
 
 //============================================================================
-// Speaker::nextItem 
+// Speaker::nextItem
 //============================================================================
 
 SpeechItem* Speaker::nextItem ( SpeechItem *item, TimeStamp now )
@@ -1267,7 +1267,7 @@ void Speaker::destroy( void )
 }
 
 //============================================================================
-// Speaker::say 
+// Speaker::say
 //============================================================================
 
 void Speaker::say (	char *speechName, Int priority,	Int timeout, Int interrupt)
@@ -1277,12 +1277,12 @@ void Speaker::say (	char *speechName, Int priority,	Int timeout, Int interrupt)
 }
 
 //============================================================================
-// Speaker::say 
+// Speaker::say
 //============================================================================
 
 void Speaker::say (	Speech *speech, Int priority,	Int timeout, Int interrupt)
 {
-	
+
 	if ( speech == NULL || !m_stream || !speech->valid || !m_manager->isOn())
 	{
 		return;
@@ -1387,7 +1387,7 @@ void Speaker::update( void )
 /*
 // REMOVE_GDF --> this must be converted to INI or something
 			GDI_Asset *asset = TheGameData->openAsset( next->speech->handle );
-			
+
 			if( asset )
 			{
 				if ( (m_file = asset->open()))
@@ -1408,7 +1408,7 @@ void Speaker::update( void )
 }
 
 //============================================================================
-// Speaker::setPriority 
+// Speaker::setPriority
 //============================================================================
 
 void Speaker::setPriority ( Int priority )
@@ -1427,7 +1427,7 @@ void Speaker::setPriority ( Int priority )
 }
 
 //============================================================================
-// Speaker::getPriority 
+// Speaker::getPriority
 //============================================================================
 
 Int Speaker::getPriority ( void )
@@ -1436,7 +1436,7 @@ Int Speaker::getPriority ( void )
 }
 
 //============================================================================
-// Speaker::setDelay 
+// Speaker::setDelay
 //============================================================================
 
 void Speaker::setDelay ( Int delay )
@@ -1445,7 +1445,7 @@ void Speaker::setDelay ( Int delay )
 }
 
 //============================================================================
-// Speaker::getDelay 
+// Speaker::getDelay
 //============================================================================
 
 Int Speaker::getDelay ( void )
@@ -1454,7 +1454,7 @@ Int Speaker::getDelay ( void )
 }
 
 //============================================================================
-// Speaker::setBuffering 
+// Speaker::setBuffering
 //============================================================================
 
 void Speaker::setBuffering ( Int buffer_time )
@@ -1463,7 +1463,7 @@ void Speaker::setBuffering ( Int buffer_time )
 }
 
 //===============================
-// Speaker::getBuffering 
+// Speaker::getBuffering
 //===============================
 
 Int Speaker::getBuffering ( void )
@@ -1473,7 +1473,7 @@ Int Speaker::getBuffering ( void )
 }
 
 //============================================================================
-// Speaker::pause 
+// Speaker::pause
 //============================================================================
 
 void Speaker::pause ( void )
@@ -1508,7 +1508,7 @@ void Speaker::pause ( void )
 }
 
 //============================================================================
-// Speaker::resume 
+// Speaker::resume
 //============================================================================
 
 void Speaker::resume ( void )
@@ -1518,7 +1518,7 @@ void Speaker::resume ( void )
 		TimeStamp now = AudioGetTime();
 
 		SpeechItem *item = firstItem ( now );
-	
+
 		while ( item )
 		{
 			if ( ( item->flags & SpeechItem::PAUSED ))
@@ -1547,7 +1547,7 @@ void Speaker::resume ( void )
 }
 
 //============================================================================
-// Speaker::stop 
+// Speaker::stop
 //============================================================================
 
 void Speaker::stop ( void )
@@ -1573,7 +1573,7 @@ void Speaker::stop ( void )
 }
 
 //============================================================================
-// Speaker::cancel 
+// Speaker::cancel
 //============================================================================
 
 void Speaker::cancel ( Speech *speech )
@@ -1589,7 +1589,7 @@ void Speaker::cancel ( Speech *speech )
 }
 
 //============================================================================
-// Speaker::hasSaid 
+// Speaker::hasSaid
 //============================================================================
 
 Bool Speaker::hasSaid ( Speech *speech )
@@ -1598,7 +1598,7 @@ Bool Speaker::hasSaid ( Speech *speech )
 }
 
 //============================================================================
-// Speaker::isGoingToSay 
+// Speaker::isGoingToSay
 //============================================================================
 
 Bool Speaker::isGoingToSay ( Speech *speech )
@@ -1607,7 +1607,7 @@ Bool Speaker::isGoingToSay ( Speech *speech )
 }
 
 //============================================================================
-// Speaker::isTalking 
+// Speaker::isTalking
 //============================================================================
 
 Bool Speaker::isTalking ( void )
@@ -1616,7 +1616,7 @@ Bool Speaker::isTalking ( void )
 }
 
 //============================================================================
-// Speaker::saying 
+// Speaker::saying
 //============================================================================
 
 Speech*	Speaker::saying ( void )
@@ -1635,23 +1635,23 @@ static void speechFromInfo(SpeechInfo *pInSpeechInfo, Speech *pOutSpeech)
 	if (!pInSpeechInfo || !pOutSpeech) {
 		return;
 	}
-	
+
 	// TBD: Do we need these fields:
 	// index? info?
 
 	pOutSpeech->name = pInSpeechInfo->m_dialogEvent;
-	pOutSpeech->id = (ID) 1;	
+	pOutSpeech->id = (ID) 1;
 	pOutSpeech->volume = pInSpeechInfo->m_volume;
 	pOutSpeech->timeout = 65000;
 	pOutSpeech->interrupt = pInSpeechInfo->m_interruptable;
 	pOutSpeech->valid = true;
 	pOutSpeech->priority = pInSpeechInfo->m_priority;
-	
+
 	// Some housekeeping for pInSpeechInfo
 	pInSpeechInfo->m_internalPlayCount = 0;
 
 	pOutSpeech->info = *pInSpeechInfo;
-	
+
 
 }
 
@@ -1661,7 +1661,7 @@ static AsciiString getNextFilenameFromSpeech(Speech *pSpeechToPlay)
 	if (!pSpeechToPlay) {
 		return returnString;
 	}
-	
+
 	++pSpeechToPlay->info.m_internalPlayCount;
 
 	Int indexToPlay = 0;
@@ -1677,7 +1677,7 @@ static AsciiString getNextFilenameFromSpeech(Speech *pSpeechToPlay)
 		returnString.concat('.');
 		returnString.concat(BASE_DLG_EXT);
 	}
-	
+
 
 	return returnString;
 }

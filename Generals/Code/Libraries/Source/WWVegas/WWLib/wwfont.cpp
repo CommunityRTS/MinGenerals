@@ -16,33 +16,33 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /VSS_Sync/wwlib/wwfont.cpp                                  $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /VSS_Sync/wwlib/wwfont.cpp                                  $*
+ *                                                                                             *
  *                      $Author:: Vss_sync                                                    $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 10/16/00 11:42a                                             $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 5                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   WWFontClass::Print -- Print text to the surface specified.                                * 
- *   WWFontClass::WWFontClass -- Constructor for a font class object.                          * 
- *   WWFontClass::Char_Pixel_Width -- Fetch the pixel width of the character specified.        * 
- *   WWFontClass::String_Pixel_Width -- Determines the width of the string in pixels.          * 
- *   WWFontClass::Raw_Width -- Fetch the raw width of a character.                             * 
- *   WWFontClass::Raw_Height -- Fetch the height of the font.                                  * 
- *   WWFontClass::Get_Width -- Get normalized width of the nominal font character.             * 
- *   WWFontClass::Get_Height -- Fetch the normalized height of the nominal font character.     * 
- *   WWFontClass::Set_XSpacing -- Set the X spacing override value.                            * 
- *   WWFontClass::Set_YSpacing -- Set the vertical (Y) spacing override value.                 * 
- *   Set_Font_Data -- Allow font data to be set after construction.                            * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   WWFontClass::Print -- Print text to the surface specified.                                *
+ *   WWFontClass::WWFontClass -- Constructor for a font class object.                          *
+ *   WWFontClass::Char_Pixel_Width -- Fetch the pixel width of the character specified.        *
+ *   WWFontClass::String_Pixel_Width -- Determines the width of the string in pixels.          *
+ *   WWFontClass::Raw_Width -- Fetch the raw width of a character.                             *
+ *   WWFontClass::Raw_Height -- Fetch the height of the font.                                  *
+ *   WWFontClass::Get_Width -- Get normalized width of the nominal font character.             *
+ *   WWFontClass::Get_Height -- Fetch the normalized height of the nominal font character.     *
+ *   WWFontClass::Set_XSpacing -- Set the X spacing override value.                            *
+ *   WWFontClass::Set_YSpacing -- Set the vertical (Y) spacing override value.                 *
+ *   Set_Font_Data -- Allow font data to be set after construction.                            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -57,47 +57,47 @@
 #define	FUDGEDIV		16
 
 
-/*********************************************************************************************** 
- * WWFontClass::WWFontClass -- Constructor for a font class object.                            * 
- *                                                                                             * 
- *    This constructs a font object as it is based upon the font data output by the legacy     * 
- *    FONTMAKE.EXE utility.                                                                    * 
- *                                                                                             * 
- * INPUT:   fontdata -- Pointer to the data as output by the fontmake utility.                 * 
- *                                                                                             * 
- *          isoutlined  -- Is this font data available with outline pixels embedded?           * 
- *                                                                                             * 
- *          shadow   -- Does the font data have shadow pixels embedded?                        * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::WWFontClass -- Constructor for a font class object.                            *
+ *                                                                                             *
+ *    This constructs a font object as it is based upon the font data output by the legacy     *
+ *    FONTMAKE.EXE utility.                                                                    *
+ *                                                                                             *
+ * INPUT:   fontdata -- Pointer to the data as output by the fontmake utility.                 *
+ *                                                                                             *
+ *          isoutlined  -- Is this font data available with outline pixels embedded?           *
+ *                                                                                             *
+ *          shadow   -- Does the font data have shadow pixels embedded?                        *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-WWFontClass::WWFontClass(void const * fontdata, bool isoutlined, int shadow, ConvertClass *convert, unsigned char *remap) : 
-	IsOutlinedData(isoutlined), 
+WWFontClass::WWFontClass(void const * fontdata, bool isoutlined, int shadow, ConvertClass *convert, unsigned char *remap) :
+	IsOutlinedData(isoutlined),
 	Shadow(shadow),
 	Converter(convert),
 	RemapPalette(remap),
-	FontXSpacing(0), 
+	FontXSpacing(0),
 	FontYSpacing(0)
 {
 	Set_Font_Data(fontdata);
 }
 
-/*********************************************************************************************** 
- * Set_Font_Data -- Allow font data to be set after construction.                              * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   01/24/2000 SKB : Created.                                                                 * 
+/***********************************************************************************************
+ * Set_Font_Data -- Allow font data to be set after construction.                              *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/24/2000 SKB : Created.                                                                 *
  *=============================================================================================*/
 void *WWFontClass::Set_Font_Data(void const * fontdata)
 {
@@ -112,21 +112,21 @@ void *WWFontClass::Set_Font_Data(void const * fontdata)
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Char_Pixel_Width -- Fetch the pixel width of the character specified.          * 
- *                                                                                             * 
- *    This will return with the pixel width of the character specified.                        * 
- *                                                                                             * 
- * INPUT:   c  -- The character to determine the pixel width for.                              * 
- *                                                                                             * 
- * OUTPUT:  Returns with the pixel width of the character.                                     * 
- *                                                                                             * 
- * WARNINGS:   The return width is the screen real estate width which may differ from the      * 
- *             actual pixels of the character. This difference is controlled by the font       * 
- *             X spacing.                                                                      * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Char_Pixel_Width -- Fetch the pixel width of the character specified.          *
+ *                                                                                             *
+ *    This will return with the pixel width of the character specified.                        *
+ *                                                                                             *
+ * INPUT:   c  -- The character to determine the pixel width for.                              *
+ *                                                                                             *
+ * OUTPUT:  Returns with the pixel width of the character.                                     *
+ *                                                                                             *
+ * WARNINGS:   The return width is the screen real estate width which may differ from the      *
+ *             actual pixels of the character. This difference is controlled by the font       *
+ *             X spacing.                                                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Char_Pixel_Width(char c) const
 {
@@ -136,20 +136,20 @@ int WWFontClass::Char_Pixel_Width(char c) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::String_Pixel_Width -- Determines the width of the string in pixels.            * 
- *                                                                                             * 
- *    This routine is used to determine how many pixels wide the string will be if it were     * 
- *    printed.                                                                                 * 
- *                                                                                             * 
- * INPUT:   string   -- The string to convert into its pixel width.                            * 
- *                                                                                             * 
- * OUTPUT:  Returns with the number of pixels the string would span if it were printed.        * 
- *                                                                                             * 
- * WARNINGS:   This routine does not take into account clipping.                               * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::String_Pixel_Width -- Determines the width of the string in pixels.            *
+ *                                                                                             *
+ *    This routine is used to determine how many pixels wide the string will be if it were     *
+ *    printed.                                                                                 *
+ *                                                                                             *
+ * INPUT:   string   -- The string to convert into its pixel width.                            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of pixels the string would span if it were printed.        *
+ *                                                                                             *
+ * WARNINGS:   This routine does not take into account clipping.                               *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::String_Pixel_Width(char const * string) const
 {
@@ -172,20 +172,20 @@ int WWFontClass::String_Pixel_Width(char const * string) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Raw_Width -- Fetch the raw width of a character.                               * 
- *                                                                                             * 
- *    This routine returns the nominal width of the font. This width is basically the width of * 
- *    the widest character in the font.                                                        * 
- *                                                                                             * 
- * INPUT:   none                                                                               * 
- *                                                                                             * 
- * OUTPUT:  Returns with the width of the widest character in the font.                        * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Raw_Width -- Fetch the raw width of a character.                               *
+ *                                                                                             *
+ *    This routine returns the nominal width of the font. This width is basically the width of *
+ *    the widest character in the font.                                                        *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the width of the widest character in the font.                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Raw_Width(void) const
 {
@@ -193,20 +193,20 @@ int WWFontClass::Raw_Width(void) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Raw_Height -- Fetch the height of the font.                                    * 
- *                                                                                             * 
- *    This returns the height of the font without regard for any Y spacing offsets.            * 
- *                                                                                             * 
- * INPUT:   none                                                                               * 
- *                                                                                             * 
- * OUTPUT:  Returns with the height of the font.                                               * 
- *                                                                                             * 
- * WARNINGS:   All characters in the font have the same logical height even if they actually   * 
- *             consume less pixels.                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Raw_Height -- Fetch the height of the font.                                    *
+ *                                                                                             *
+ *    This returns the height of the font without regard for any Y spacing offsets.            *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the height of the font.                                               *
+ *                                                                                             *
+ * WARNINGS:   All characters in the font have the same logical height even if they actually   *
+ *             consume less pixels.                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Raw_Height(void) const
 {
@@ -214,20 +214,20 @@ int WWFontClass::Raw_Height(void) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Get_Width -- Get normalized width of the nominal font character.               * 
- *                                                                                             * 
- *    This routine is used to fetch the width of the widest character in the font but the      * 
- *    width has been biased according to any X spacing override present.                       * 
- *                                                                                             * 
- * INPUT:   none                                                                               * 
- *                                                                                             * 
- * OUTPUT:  Returns with the normalized width of the widest character in the font.             * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Get_Width -- Get normalized width of the nominal font character.               *
+ *                                                                                             *
+ *    This routine is used to fetch the width of the widest character in the font but the      *
+ *    width has been biased according to any X spacing override present.                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the normalized width of the widest character in the font.             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Get_Width(void) const
 {
@@ -235,20 +235,20 @@ int WWFontClass::Get_Width(void) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Get_Height -- Fetch the normalized height of the nominal font character.       * 
- *                                                                                             * 
- *    This will return the height of the font but the returned height will be adjusted by any  * 
- *    Y spacing override present.                                                              * 
- *                                                                                             * 
- * INPUT:   none                                                                               * 
- *                                                                                             * 
- * OUTPUT:  Returns with the height of the font normalized by any spacing overrides.           * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Get_Height -- Fetch the normalized height of the nominal font character.       *
+ *                                                                                             *
+ *    This will return the height of the font but the returned height will be adjusted by any  *
+ *    Y spacing override present.                                                              *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the height of the font normalized by any spacing overrides.           *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Get_Height(void) const
 {
@@ -256,21 +256,21 @@ int WWFontClass::Get_Height(void) const
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Set_XSpacing -- Set the X spacing override value.                              * 
- *                                                                                             * 
- *    Use this routine to control the horizontal spacing override for this font. If the value  * 
- *    is negative, the font becomes compressed. If the value is positive, then the font        * 
- *    becomes expanded.                                                                        * 
- *                                                                                             * 
- * INPUT:   x  -- The X spacing override to use for this font.                                 * 
- *                                                                                             * 
- * OUTPUT:  Returns with the old X spacing override value.                                     * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Set_XSpacing -- Set the X spacing override value.                              *
+ *                                                                                             *
+ *    Use this routine to control the horizontal spacing override for this font. If the value  *
+ *    is negative, the font becomes compressed. If the value is positive, then the font        *
+ *    becomes expanded.                                                                        *
+ *                                                                                             *
+ * INPUT:   x  -- The X spacing override to use for this font.                                 *
+ *                                                                                             *
+ * OUTPUT:  Returns with the old X spacing override value.                                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Set_XSpacing(int x)
 {
@@ -296,21 +296,21 @@ int WWFontClass::Set_XSpacing(int x)
 }
 
 
-/*********************************************************************************************** 
- * WWFontClass::Set_YSpacing -- Set the vertical (Y) spacing override value.                   * 
- *                                                                                             * 
- *    Use this routine to control the "line spacing" of a font. If the Y spacing is negative   * 
- *    then the font becomes closer to the line above it. If value is positive, then more       * 
- *    space occurs between lines.                                                              * 
- *                                                                                             * 
- * INPUT:   y  -- The Y spacing override to use for this font.                                 * 
- *                                                                                             * 
- * OUTPUT:  Returns with the old Y spacing override value.                                     * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * WWFontClass::Set_YSpacing -- Set the vertical (Y) spacing override value.                   *
+ *                                                                                             *
+ *    Use this routine to control the "line spacing" of a font. If the Y spacing is negative   *
+ *    then the font becomes closer to the line above it. If value is positive, then more       *
+ *    space occurs between lines.                                                              *
+ *                                                                                             *
+ * INPUT:   y  -- The Y spacing override to use for this font.                                 *
+ *                                                                                             *
+ * OUTPUT:  Returns with the old Y spacing override value.                                     *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int WWFontClass::Set_YSpacing(int y)
 {
@@ -335,38 +335,38 @@ int WWFontClass::Set_YSpacing(int y)
 	return(old);
 }
 
-		
-/*********************************************************************************************** 
- * WWFontClass::Print -- Print text to the surface specified.                                  * 
- *                                                                                             * 
- *    This displays text to the surface specified and with the attributes specified.           * 
- *                                                                                             * 
- * INPUT:   string   -- The string to display to the surface.                                  * 
- *                                                                                             * 
- *          surface  -- The surface to display the text upon.                                  * 
- *                                                                                             * 
- *          cliprect -- The clipping rectangle that both clips the text and biases the print   * 
- *                      location to.                                                           * 
- *                                                                                             * 
- *          point    -- The draw position for the upper left corner of the first character.    * 
- *                                                                                             * 
- *          convert  -- The pixel convert object that is used to draw the correct colors to    * 
- *                      the destination surface.                                               * 
- *                                                                                             * 
- *          remap    -- Auxiliary remap table for font colors.                                 * 
- *                                                                                             * 
- * OUTPUT:  Returns with the point where the next print should begin if it is to smoothly      * 
- *          continue where this print operation left off.                                      * 
- *                                                                                             * 
- * WARNINGS:   There are two separate drawing routines; one for old fonts and one for new      * 
+
+/***********************************************************************************************
+ * WWFontClass::Print -- Print text to the surface specified.                                  *
+ *                                                                                             *
+ *    This displays text to the surface specified and with the attributes specified.           *
+ *                                                                                             *
+ * INPUT:   string   -- The string to display to the surface.                                  *
+ *                                                                                             *
+ *          surface  -- The surface to display the text upon.                                  *
+ *                                                                                             *
+ *          cliprect -- The clipping rectangle that both clips the text and biases the print   *
+ *                      location to.                                                           *
+ *                                                                                             *
+ *          point    -- The draw position for the upper left corner of the first character.    *
+ *                                                                                             *
+ *          convert  -- The pixel convert object that is used to draw the correct colors to    *
+ *                      the destination surface.                                               *
+ *                                                                                             *
+ *          remap    -- Auxiliary remap table for font colors.                                 *
+ *                                                                                             *
+ * OUTPUT:  Returns with the point where the next print should begin if it is to smoothly      *
+ *          continue where this print operation left off.                                      *
+ *                                                                                             *
+ * WARNINGS:   There are two separate drawing routines; one for old fonts and one for new      *
  *                fonts.                                                                       *
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/26/1997 JLB : Created.                                                                 * 
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/26/1997 JLB : Created.                                                                 *
  *   06/20/1887 BNA : Modified to handle new fonts.                                            *
- *   01/24/2000 SKB : Updated from C&C to include BNA code.                                    * 
- *   01/24/2000 SKB : put in call for Get_Remap_Palette                                        * 
- *   01/24/2000 SKB : Put in call for get converer.                                            * 
+ *   01/24/2000 SKB : Updated from C&C to include BNA code.                                    *
+ *   01/24/2000 SKB : put in call for Get_Remap_Palette                                        *
+ *   01/24/2000 SKB : Put in call for get converer.                                            *
  *=============================================================================================*/
 Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & cliprect, Point2D const & drawpoint, ConvertClass const & convertref, unsigned char const * remap) const
 {
@@ -383,15 +383,15 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 
 	int xspacing = FontXSpacing + Raw_Width()/FUDGEDIV;
 	int yspacing = FontYSpacing + Raw_Width()/FUDGEDIV;
-		
+
 	// This font palette assumes that the font will be used as defined by converter.
 	static unsigned char const fontpalette[16] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 	if (RemapPalette) {
 		remap = RemapPalette;
 	} else if (!remap) {
 		remap = &fontpalette[0];
-	}				  
-			
+	}
+
 	// If there is a convert supplied with the font, use it as priority.
 	ConvertClass const *converter = Converter;
 	if (!converter) {
@@ -453,7 +453,7 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 			int dheight = fontheight[c] >> 8;
 			int firstrow = fontheight[c] & 0xFF;
 //			int height = dheight+firstrow;
-			
+
 			/*
 			**	Build the character rectangle (surface relative coordinates).
 			*/
@@ -465,7 +465,7 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 			*/
 			crect = crect.Intersect(cliprect);
 			if (crect.Is_Valid()) {
-				
+
 				/*
 				**	Fill the background of the character if the background
 				**	color is not transparent.
@@ -514,9 +514,9 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 								*/
 								int c1 = remap[*dataptr & 0x0F];
 								int c2 = remap[(*dataptr++ & 0xF0) >> 4];
-							
+
 								/*
-								**	Draw the first pixel if it falls within the clipping 
+								**	Draw the first pixel if it falls within the clipping
 								**	rectangle and is not transparent.
 								*/
 								if (dx >= cliprect.X && dx < cliprect.X+cliprect.Width) {
@@ -532,9 +532,9 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 								drawbuff = ((char*)drawbuff) + bbp;
 								workwidth -= 1;
 								if (workwidth == 0) break;
-							
+
 								/*
-								**	Draw the second pixel if it falls within the clipping 
+								**	Draw the second pixel if it falls within the clipping
 								**	rectangle and is not transparent.
 								*/
 								if (dx >= cliprect.X && dx < cliprect.X+cliprect.Width) {
@@ -590,12 +590,12 @@ Point2D WWFontClass::Print(char const * string, Surface & surface, Rect const & 
 							while (workwidth > 0) {
 
 								/*
-								**	Fetch the next pixel value. 
+								**	Fetch the next pixel value.
 								*/
 								int c1 = remap[*dataptr++];	// no remapping
-							
+
 								/*
-								**	Draw the pixel if it falls within the clipping 
+								**	Draw the pixel if it falls within the clipping
 								**	rectangle and is not transparent.
 								*/
 								if (dx >= cliprect.X && dx < cliprect.X+cliprect.Width) {

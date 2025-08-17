@@ -100,7 +100,7 @@ UnicodeString LANPreferences::getUserName(void)
 		ret.translate(IPs.getMachineName());
 		return ret;
 	}
-	
+
 	return ret;
 }
 
@@ -174,7 +174,7 @@ AsciiString LANPreferences::getPreferredMap(void)
 		ret = getDefaultMap(TRUE);
 		return ret;
 	}
-	
+
 	return ret;
 }
 
@@ -346,7 +346,7 @@ void LanLobbyMenuInit( WindowLayout *layout, void *userData )
 	// Init LAN API Singleton
 	if (!TheLAN)
 	{
-		TheLAN = NEW LANAPI();	/// @todo clh delete TheLAN and 
+		TheLAN = NEW LANAPI();	/// @todo clh delete TheLAN and
 		useFpsLimit = TheGlobalData->m_useFpsLimit;
 	}
 	else
@@ -441,7 +441,7 @@ void LanLobbyMenuInit( WindowLayout *layout, void *userData )
 	//shellmapOn = FALSE;
 	// coming out of a game, re-load the shell map
 	TheShell->showShellMap(TRUE);
-		
+
 	// check for MOTD
 	TheLAN->checkMOTD();
 	layout->hide(FALSE);
@@ -453,7 +453,7 @@ void LanLobbyMenuInit( WindowLayout *layout, void *userData )
 	if(win)
 		win->winHide(TRUE);
 
-	
+
 	// animate controls
 	//TheShell->registerWithAnimateManager(parentLanLobby, WIN_ANIMATION_SLIDE_TOP, TRUE);
 //	TheShell->registerWithAnimateManager(buttonHost, WIN_ANIMATION_SLIDE_LEFT, TRUE, 600);
@@ -569,7 +569,7 @@ void LanLobbyMenuUpdate( WindowLayout * layout, void *userData)
 																			 (WindowMsgData)buttonBack, buttonBackID);
 	}
 
-	
+
 }// LanLobbyMenuUpdate
 
 //-------------------------------------------------------------------------------------------------
@@ -578,7 +578,7 @@ void LanLobbyMenuUpdate( WindowLayout * layout, void *userData)
 WindowMsgHandledType LanLobbyMenuInput( GameWindow *window, UnsignedInt msg,
 																			 WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -595,14 +595,14 @@ WindowMsgHandledType LanLobbyMenuInput( GameWindow *window, UnsignedInt msg,
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
 					//
 					if( BitTest( state, KEY_STATE_UP ) )
 					{
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																							(WindowMsgData)buttonBack, buttonBackID );
 
 					}  // end if
@@ -624,15 +624,15 @@ WindowMsgHandledType LanLobbyMenuInput( GameWindow *window, UnsignedInt msg,
 //-------------------------------------------------------------------------------------------------
 /** Lan Lobby menu window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 														 WindowMsgData mData1, WindowMsgData mData2 )
 {
 	UnicodeString txtInput;
 
 	switch( msg )
 	{
-		
-		
+
+
 		case GWM_CREATE:
 			{
 				SignalUIInteraction(SHELL_SCRIPT_HOOK_LAN_OPENED);
@@ -646,7 +646,7 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 			} // case GWM_DESTROY:
 
 		case GWM_INPUT_FOCUS:
-			{	
+			{
 				// if we're givin the opportunity to take the keyboard focus we must say we want it
 				if( mData1 == TRUE )
 					*(Bool *)mData2 = TRUE;
@@ -659,10 +659,10 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 					break;
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-				if( controlID == listboxGamesID ) 
+				if( controlID == listboxGamesID )
 				{
 					int rowSelected = mData2;
-				
+
 					if (rowSelected >= 0)
 					{
 						LANGameInfo * theGame = TheLAN->LookupGameByListOffset(rowSelected);
@@ -680,7 +680,7 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 					break;
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-				if( controlID == listboxGamesID ) 
+				if( controlID == listboxGamesID )
 				{
 					int rowSelected = mData2;
 					if( rowSelected < 0 )
@@ -718,14 +718,14 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 				else if ( controlID == buttonHostID )
 				{
 					TheLAN->RequestGameCreate( UnicodeString(L""), FALSE);
-					
+
 				}//else if ( controlID == buttonHostID )
 				else if ( controlID == buttonClearID )
 				{
 					GadgetTextEntrySetText(textEntryPlayerName, UnicodeString::TheEmptyString);
-					TheWindowManager->winSendSystemMsg( window, 
+					TheWindowManager->winSendSystemMsg( window,
 																						GEM_UPDATE_TEXT,
-																						(WindowMsgData)textEntryPlayerName, 
+																						(WindowMsgData)textEntryPlayerName,
 																						0 );
 
 				}
@@ -770,10 +770,10 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 					TheLAN->RequestLobbyLeave( false );
 					TheShell->push(AsciiString("Menus/NetworkDirectConnect.wnd"));
 				}
-				
+
 				break;
 			}// case GBM_SELECTED:
-	
+
 		case GEM_UPDATE_TEXT:
 			{
 				if (LANbuttonPushed)
@@ -798,7 +798,7 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 
 					while (txtInput.getLength() > g_lanPlayerNameLength)
 						txtInput.removeLastChar();
-					
+
 					if (!txtInput.isEmpty() && txtInput.getCharAt(txtInput.getLength()-1) == L',')
 						txtInput.removeLastChar(); // we use , for strtok's so we can't allow them in names.  :(
 
@@ -833,7 +833,7 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 				// send it to the other clients on the lan
 				if ( controlID == textEntryChatID )
 				{
-					
+
 					// read the user's input
 					txtInput.set(GadgetTextEntryGetText( textEntryChat ));
 					// Clear the text entry line

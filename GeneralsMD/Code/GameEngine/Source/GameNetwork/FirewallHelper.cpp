@@ -64,7 +64,7 @@
 
 FirewallHelperClass *TheFirewallHelper = NULL;
 
-FirewallHelperClass * createFirewallHelper() 
+FirewallHelperClass * createFirewallHelper()
 {
 	return NEW FirewallHelperClass();
 }
@@ -113,7 +113,7 @@ FirewallHelperClass::FirewallHelperClass(void)
 	{
 		m_manglers[i] = 0;
 	}
-	
+
 	m_currentState = DETECTIONSTATE_IDLE;
 
 	m_sourcePortPool = 4096 + ((timeGetTime() / 1000) % 1000); // do this to make sure we don't use the same source
@@ -1183,7 +1183,7 @@ Bool FirewallHelperClass::detectionTest4Stage2Update() {
 	}
 
 	m_currentState = DETECTIONSTATE_TEST5;
-	
+
 	return detectionTest5Update();
 }
 

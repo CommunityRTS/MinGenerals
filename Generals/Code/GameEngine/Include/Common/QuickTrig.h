@@ -67,17 +67,17 @@ inline Real QMag(Real x, Real y, Real z)
       sMaxV = sMedV;
       sMedV = sTempV;
    }
-   
+
    if (sMaxV < sMinV)
    {
       sTempV = sMaxV;
       sMaxV = sMinV;
       sMinV = sTempV;
    }
-   
+
    sMedV += sMinV;
-   sMaxV += (sMedV*0.25f); 
-   
+   sMaxV += (sMedV*0.25f);
+
    return sMaxV;
 }
 
@@ -87,7 +87,7 @@ inline Real QMag(Real x, Real y, Real z)
 
 //-----------------------------------------------------------------------------
 inline Real QSin(Real a)
-{  
+{
    register Real angle = a;
    register long sgn = 1;
 
@@ -96,13 +96,13 @@ inline Real QSin(Real a)
       sgn = -1;
       angle = -angle;
    }
-   
+
    while ( angle > (PI)) // MODULATE ANGLE INTO RANGE OF PI
    {
       angle -= PI;
-      sgn = -sgn;   
+      sgn = -sgn;
    }
-    
+
    if (angle > PI/2)
    {
       angle = PI - angle; // FLIP
@@ -126,31 +126,31 @@ inline Real QSin(Real a)
 
 //-----------------------------------------------------------------------------
 inline Real QCos(Real angle)
-{  
+{
    return QSin((QUARTER_CIRCLE) - angle);
 }
 
 //-----------------------------------------------------------------------------
 inline Real QTan(Real angle)
-{  
+{
    return TheQuickTanTable[REAL_TO_INT(angle * TheQuickSinTableCount)];
 }
 
 //-----------------------------------------------------------------------------
 inline Real QCsc(Real angle)
-{  
+{
    return 1.0f / QSin(angle);
 }
 
 //-----------------------------------------------------------------------------
 inline Real QSec(Real angle)
-{  
+{
    return 1.0f / QCos(angle);
 }
 
 //-----------------------------------------------------------------------------
 inline Real QCot(Real angle)
-{  
+{
    return 1.0f / QTan(angle);
 }
 

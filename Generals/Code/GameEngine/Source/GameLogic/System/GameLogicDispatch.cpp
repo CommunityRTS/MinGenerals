@@ -180,7 +180,7 @@ static void doSetRallyPoint( Object *obj, const Coord3D& pos )
 
 		// print a message to the user
 		UnicodeString info;
-		info.format( TheGameText->fetch( "GUI:RallyPointSet" ), 
+		info.format( TheGameText->fetch( "GUI:RallyPointSet" ),
 								 obj->getTemplate()->getDisplayName().str() );
 		TheInGameUI->message( info );
 
@@ -231,13 +231,13 @@ void GameLogic::closeWindows( void )
 	TheControlBar->hidePurchaseScience();
 	TheControlBar->hideSpecialPowerShortcut();
 	HideQuitMenu();
-	
+
 	// hide the options menu
 	NameKeyType buttonID = TheNameKeyGenerator->nameToKey( "OptionsMenu.wnd:ButtonBack" );
 	GameWindow *button = TheWindowManager->winGetWindowFromId( NULL, buttonID );
 	GameWindow *window = TheWindowManager->winGetWindowFromId( NULL, TheNameKeyGenerator->nameToKey("OptionsMenu.wnd:OptionsMenuParent") );
 	if(window)
-		TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+		TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																			(WindowMsgData)button, buttonID );
 }
 
@@ -277,7 +277,7 @@ void GameLogic::clearGameData( Bool showScoreScreen )
 //	m_background->bringForward();
 //	if(shellGame)
 
-	
+
 	if (TheGlobalData->m_initialFile.isEmpty() == FALSE)
 	{
 		TheGameEngine->setQuitting(TRUE);
@@ -294,7 +294,7 @@ void GameLogic::clearGameData( Bool showScoreScreen )
 		m_background->deleteInstance();
 		m_background = NULL;
 	}
-	
+
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -347,9 +347,9 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 #endif
 
 	Player *thisPlayer = ThePlayerList->getNthPlayer( msg->getPlayerIndex() );
-	DEBUG_ASSERTCRASH( thisPlayer, ("logicMessageDispatcher: Processing message from unknown player (player index '%d')\n", 
+	DEBUG_ASSERTCRASH( thisPlayer, ("logicMessageDispatcher: Processing message from unknown player (player index '%d')\n",
 																	msg->getPlayerIndex()) );
-	
+
 	AIGroup *currentlySelectedGroup = NULL;
 
 	if (isInGame())
@@ -362,7 +362,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				CRCGEN_LOG(( "Creating AIGroup %d in GameLogic::logicMessageDispatcher()\n", (currentlySelectedGroup)?currentlySelectedGroup->getID():0 ));
 				thisPlayer->getCurrentSelectionAsAIGroup(currentlySelectedGroup);
 
-				// We can't issue commands to groups that contain units that don't belong the issuing player, so pretend like 
+				// We can't issue commands to groups that contain units that don't belong the issuing player, so pretend like
 				// there's nothing selected. Also, if currentlySelectedGroup is empty, go ahead and delete it, so that we can skip
 				// any processing on it.
 				if (currentlySelectedGroup->isEmpty())
@@ -418,7 +418,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				diff = (GameDifficulty)msg->getArgument( 1 )->integer;
 			if ( msg->getArgumentCount() >= 3 )
 				rankPoints = msg->getArgument( 2 )->integer;
-			
+
 			if ( msg->getArgumentCount() >= 4 )
 			{
 				Int maxFPS = msg->getArgument( 3 )->integer;
@@ -510,7 +510,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 		{
 			WeaponSlotType weaponSlot = (WeaponSlotType)msg->getArgument( 0 )->integer;
 			Int maxShotsToFire = msg->getArgument( 1 )->integer;
-			
+
 			// lock it just till the weapon is empty or the attack is "done"
 			if( currentlySelectedGroup && currentlySelectedGroup->setWeaponLockForGroup( weaponSlot, LOCKED_TEMPORARILY ))
 			{
@@ -518,7 +518,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			}
 
 			break;
-		}  
+		}
 
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_COMBATDROP_AT_OBJECT:
@@ -527,8 +527,8 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			// issue command for either single object or for selected group
 			if( currentlySelectedGroup )
-				currentlySelectedGroup->groupCombatDrop( targetObject, 
-																								 *targetObject->getPosition(), 
+				currentlySelectedGroup->groupCombatDrop( targetObject,
+																								 *targetObject->getPosition(),
 																								 CMD_FROM_PLAYER );
 
 /*
@@ -581,7 +581,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			// sanity
 			if( targetObject == NULL )
 				break;
-			
+
 
 			// issue command for either single object or for selected group
 			if( currentlySelectedGroup )
@@ -604,7 +604,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				currentlySelectedGroup->setWeaponLockForGroup( weaponSlot, LOCKED_PERMANENTLY );
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_SET_MINE_CLEARING_DETAIL:
 		{
@@ -666,7 +666,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			}
 			break;
 
-		}  // end do special 
+		}  // end do special
 
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_SPECIAL_POWER_AT_LOCATION:
@@ -722,7 +722,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			// Command button options -- special power may care about variance options
 			UnsignedInt options = msg->getArgument( 2 )->integer;
-			
+
 			// check for possible specific source, ignoring selection.
 			ObjectID sourceID = msg->getArgument(3)->objectID;
 			Object* source = TheGameLogic->findObjectByID(sourceID);
@@ -743,7 +743,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			break;
 
 		}  // end do special at object
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_ATTACKMOVETO:
 		{
@@ -757,7 +757,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_FORCEMOVETO:
 		{
@@ -771,7 +771,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		// MSG_DO_SALVAGE is intentionally set up to mimic the moveto.
 		case GameMessage::MSG_DO_SALVAGE:
@@ -803,7 +803,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_GUARD_POSITION:
 		{
@@ -843,7 +843,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_SCATTER:
 		{
@@ -854,7 +854,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_CREATE_FORMATION:
 		{
@@ -865,11 +865,11 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			break;
 		}
-		
+
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_CLEAR_INGAME_POPUP_MESSAGE:
 		{
-		
+
 			if( TheInGameUI )
 			{
 				TheInGameUI->clearPopupMessageData();
@@ -887,7 +887,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			}
 			break;
 		}
-		
+
 #if defined(_DEBUG) || defined(_INTERNAL)
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DEBUG_KILL_SELECTION:
@@ -986,7 +986,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			// sanity, the player must actually control this object
 			if( objectWantingToExit->getControllingPlayer() != thisPlayer )
 				break;
-			
+
 			objectWantingToExit->releaseWeaponLock(LOCKED_TEMPORARILY);	// release any temporary locks.
 
 			// exit whatever objectWantingToExit is INSIDE of
@@ -1035,7 +1035,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_EXECUTE_RAILED_TRANSPORT:
 		{
-		
+
 			// issue command to currently selected objects
 			if( currentlySelectedGroup )
 				currentlySelectedGroup->groupExecuteRailedTransport( CMD_FROM_PLAYER );
@@ -1150,7 +1150,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			break;
 
 		}  // end resume construction
-		
+
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DO_SPECIAL_POWER_OVERRIDE_DESTINATION:
 		{
@@ -1181,7 +1181,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			Object *enemy = TheGameLogic->findObjectByID( msg->getArgument( 0 )->objectID );
 
 			// Check enemy, as it is possible that he died this frame.
-			if (enemy) 
+			if (enemy)
 			{
 				if (currentlySelectedGroup)
 				{
@@ -1203,7 +1203,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			Object *enemy = TheGameLogic->findObjectByID( msg->getArgument( 0 )->objectID );
 
 			// Check enemy, as it is possible that he died this frame.
-			if (enemy) 
+			if (enemy)
 			{
 				if (currentlySelectedGroup)
 				{
@@ -1230,7 +1230,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				//Kris: This code was added to allow the toxin tractor to force attack
 				//      while contaminating. When this change was made, it was causing
 				//      rangers and scud launchers to reset to primary weapon mode whenever
-				//      force attacking while not idle. I fixed this by enforcing the 
+				//      force attacking while not idle. I fixed this by enforcing the
 				//      temporary and permanent modes that are already set when attempting
 				//      the new lock. In this case, the temp lock attempt will fail whenever
 				//      a permanent lock is in effect, thus fixing the ranger and scud and
@@ -1249,7 +1249,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 					currentlySelectedGroup->groupAttackPosition( pos, NO_MAX_SHOTS_LIMIT, CMD_FROM_PLAYER );
 				}
 
-			
+
 			}
 
 			break;
@@ -1316,7 +1316,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			if( pu == NULL )
 			{
 
-				DEBUG_ASSERTCRASH( 0, ("MSG_QUEUE_UNIT_CREATE: Producer '%s' doesn't have a unit production interface\n", 
+				DEBUG_ASSERTCRASH( 0, ("MSG_QUEUE_UNIT_CREATE: Producer '%s' doesn't have a unit production interface\n",
 															producer->getTemplate()->getName().str()) );
 				break;
 
@@ -1334,12 +1334,12 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 		{
 			Object *producer = getSingleObjectFromSelection(currentlySelectedGroup);
 			ProductionID productionID = (ProductionID)msg->getArgument( 0 )->integer;
-			
+
 			// sanity
 			if( producer == NULL )
 				break;
-				
-			// sanity, the player must control the producer			
+
+			// sanity, the player must control the producer
 			if( producer->getControllingPlayer() != thisPlayer )
 				break;
 
@@ -1375,7 +1375,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			if( msg->getType() == GameMessage::MSG_DOZER_CONSTRUCT )
 			{
 
-				TheBuildAssistant->buildObjectNow( constructorObject, place, &loc, angle, 
+				TheBuildAssistant->buildObjectNow( constructorObject, place, &loc, angle,
 																					 constructorObject->getControllingPlayer() );
 
 			}  // end if
@@ -1387,7 +1387,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				locEnd = msg->getArgument( 3 )->location;
 
 				// place the line of structures, the end location being present will make it happen
-				TheBuildAssistant->buildObjectLineNow( constructorObject, place, &loc, &locEnd, angle, 
+				TheBuildAssistant->buildObjectLineNow( constructorObject, place, &loc, &locEnd, angle,
 																							 constructorObject->getControllingPlayer() );
 
 			}  // end else
@@ -1418,7 +1418,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			// the player sending this message must actually control this building
 			if( building->getControllingPlayer() != thisPlayer )
 				break;
-			
+
 			// Check to make sure it is actually under construction
 			if( !building->testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION) )
 				break;
@@ -1433,7 +1433,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 			//
 			// Destroy the building ... killing the
-			// building will automatically cause the dozer also cancel its own building 
+			// building will automatically cause the dozer also cancel its own building
 			// behavior and it will go on its merry way doing other assigned tasks
 			//
 			building->kill();
@@ -1524,7 +1524,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				TheGameLogic->selectObject(obj, createNewGroup && firstObject, player->getPlayerMask());
 				firstObject = FALSE;
 			}
-			
+
 			break;
 
 		}  // end build start
@@ -1545,7 +1545,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 				if (!objToRemove) {
 					continue;
 				}
-				
+
 				TheGameLogic->deselectObject(objToRemove, player->getPlayerMask());
 			}
 
@@ -1573,7 +1573,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			break;
 
 		}  // end selected group command
-		
+
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_PLACE_BEACON:
 		{
@@ -1624,7 +1624,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 
 					// beacons are a rare event; play a nifty radar event thingie
 					TheRadar->createEvent( object->getPosition(), RADAR_EVENT_INFORMATION );
-					
+
 					if (ThePlayerList->getLocalPlayer()->getRelationship(thisPlayer->getDefaultTeam()) == ALLIES)
 						TheEva->setShouldPlay(EVA_BeaconDetected);
 
@@ -1670,7 +1670,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_REMOVE_BEACON:
 		{
-	
+
 			AIGroup *allSelectedObjects = NULL;
 			allSelectedObjects = TheAI->createGroup();
 			thisPlayer->getCurrentSelectionAsAIGroup(allSelectedObjects); // need to act on all objects, so we can hide teammates' beacons.
@@ -1953,7 +1953,7 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			// sanity
 			if( science == SCIENCE_INVALID || thisPlayer == NULL )
 				break;
-			
+
 			thisPlayer->attemptToPurchaseScience(science);
 
 			break;

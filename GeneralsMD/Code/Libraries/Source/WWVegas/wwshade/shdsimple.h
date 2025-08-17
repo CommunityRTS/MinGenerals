@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdsimple.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 7/12/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -58,7 +58,7 @@ public:
 	ShdSimpleDefClass();
 	ShdSimpleDefClass(const ShdSimpleDefClass& that);
 	virtual ~ShdSimpleDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdSimpleDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)
@@ -106,7 +106,7 @@ class Shd6SimpleClass : public ShdInterfaceClass
 public:
 	Shd6SimpleClass(const ShdDefClass* def);
 	virtual ~Shd6SimpleClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -124,9 +124,9 @@ public:
 
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

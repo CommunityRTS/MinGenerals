@@ -60,7 +60,7 @@ enum ObjectStatusBits
 	OBJECT_STATUS_MASKED								= (1 << 21),	///< Masked objects are not selectable and targetable by players or AI
 	OBJECT_STATUS_IS_ATTACKING					= (1 << 22),  ///< Object is in the general Attack state (incl. aim, approach, etc.). Note that IS_FIRING_WEAPON and IS_AIMING_WEAPON is a subset of this!
 	OBJECT_STATUS_IS_USING_ABILITY			= (1 << 23),	///< Object is in the process of preparing or firing a special ability.
-	OBJECT_STATUS_IS_AIMING_WEAPON			= (1 << 24),  ///< Object is aiming a weapon, now. Not true for special attacks. 
+	OBJECT_STATUS_IS_AIMING_WEAPON			= (1 << 24),  ///< Object is aiming a weapon, now. Not true for special attacks.
 	OBJECT_STATUS_NO_ATTACK_FROM_AI			= (1 << 25),  ///< attacking this object may not be done from commandSource == CMD_FROM_AI
 	OBJECT_STATUS_IGNORING_STEALTH			= (1 << 26),	///< temporarily ignoring all stealth bits. (used only for some special-case mine clearing stuff.)
 	OBJECT_STATUS_IS_CARBOMB						= (1 << 27),  ///< Object is now a carbomb.
@@ -69,20 +69,20 @@ enum ObjectStatusBits
 
 };
 #ifdef DEFINE_OBJECT_STATUS_NAMES
-static const char *TheObjectStatusBitNames[] = 
+static const char *TheObjectStatusBitNames[] =
 {
 	"DESTROYED",
-	"CAN_ATTACK",					
-	"UNDER_CONSTRUCTION",	
-	"UNSELECTABLE",				
-	"NO_COLLISIONS",				
-	"NO_ATTACK",						
-	"AIRBORNE_TARGET",			
-	"PARACHUTING",	
+	"CAN_ATTACK",
+	"UNDER_CONSTRUCTION",
+	"UNSELECTABLE",
+	"NO_COLLISIONS",
+	"NO_ATTACK",
+	"AIRBORNE_TARGET",
+	"PARACHUTING",
 	"REPULSOR",
-	"HIJACKED",					
-	"AFLAME",							
-	"BURNED",							
+	"HIJACKED",
+	"AFLAME",
+	"BURNED",
 	"WET",
 	"IS_FIRING_WEAPON",
 	"IS_BRAKING",

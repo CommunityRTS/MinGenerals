@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/mono.cpp                                           $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/mono.cpp                                           $*
+ *                                                                                             *
  *                      $Author:: Neal_k                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 10/04/99 10:25a                                             $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 3                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  *   MonoClass::Clear -- Clears the monochrome screen object.                                  *
  *   MonoClass::Draw_Box -- Draws a box using the IBM linedraw characters.                     *
  *   MonoClass::Fill_Attrib -- Fill a block with specified attribute.                          *
@@ -56,7 +56,7 @@
  *   Mono_Text_Print -- Prints text to location specified.                                     *
  *   Mono_X -- Fetches the X cursor position for current visible mono page.                    *
  *   Mono_Y -- Fetches the Y cursor position for current mono page.                            *
- *   MonoClass::Set_Default_Attribute -- Set the default attribute for this window.            * 
+ *   MonoClass::Set_Default_Attribute -- Set the default attribute for this window.            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -95,7 +95,7 @@ MonoClass * MonoClass::Current;
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 MonoClass::MonoClass(void) :
 	Handle(INVALID_HANDLE_VALUE)
@@ -122,7 +122,7 @@ MonoClass::MonoClass(void) :
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 MonoClass::~MonoClass(void)
 {
@@ -153,7 +153,7 @@ MonoClass::~MonoClass(void)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   06/05/1996 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Pan(int )
 {
@@ -183,7 +183,7 @@ void MonoClass::Pan(int )
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   06/05/1996 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Sub_Window(int x, int y, int w, int h)
 {
@@ -220,7 +220,7 @@ void MonoClass::Sub_Window(int x, int y, int w, int h)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Set_Cursor(int x, int y)
 {
@@ -254,7 +254,7 @@ void MonoClass::Set_Cursor(int x, int y)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Clear(void)
 {
@@ -287,7 +287,7 @@ void MonoClass::Clear(void)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   06/04/1996 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Fill_Attrib(int x, int y, int w, int h, MonoAttribute attrib)
 {
@@ -326,7 +326,7 @@ void MonoClass::Fill_Attrib(int x, int y, int w, int h, MonoAttribute attrib)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Scroll(int )
 {
@@ -436,7 +436,7 @@ void MonoClass::Printf(int text, ...)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Print(char const * ptr)
 {
@@ -449,20 +449,20 @@ void MonoClass::Print(char const * ptr)
 }
 
 
-/*********************************************************************************************** 
- * MonoClass::Set_Default_Attribute -- Set the default attribute for this window.              * 
- *                                                                                             * 
- *    This will change the default attribute to that specified. All future text will use       * 
- *    this new attribute.                                                                      * 
- *                                                                                             * 
- * INPUT:   attrib   -- The attribute to make the current default.                             * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   01/06/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * MonoClass::Set_Default_Attribute -- Set the default attribute for this window.              *
+ *                                                                                             *
+ *    This will change the default attribute to that specified. All future text will use       *
+ *    this new attribute.                                                                      *
+ *                                                                                             *
+ * INPUT:   attrib   -- The attribute to make the current default.                             *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/06/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void MonoClass::Set_Default_Attribute(MonoAttribute attrib)
 {
@@ -472,7 +472,7 @@ void MonoClass::Set_Default_Attribute(MonoAttribute attrib)
 		DeviceIoControl(Handle, (DWORD)IOCTL_MONO_SET_ATTRIBUTE, &attrib, 1, NULL, 0, &retval, 0);
 	}
 #endif
-}	
+}
 
 
 /***********************************************************************************************
@@ -493,7 +493,7 @@ void MonoClass::Set_Default_Attribute(MonoAttribute attrib)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::Text_Print(char const *text, int x, int y, MonoAttribute attrib)
 {
@@ -572,7 +572,7 @@ void MonoClass::Print(int text)
  *                                                                                             *
  * HISTORY:                                                                                    *
  *   10/17/1994 JLB : Created.                                                                 *
- *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               * 
+ *   01/06/1997 JLB : Updated to WindowsNT style of mono output.                               *
  *=============================================================================================*/
 void MonoClass::View(void)
 {

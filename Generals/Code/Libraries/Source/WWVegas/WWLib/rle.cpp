@@ -16,26 +16,26 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/Library/RLE.cpp                              $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/Library/RLE.cpp                              $*
+ *                                                                                             *
  *                      $Author:: Greg_h                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 9/24/98 10:05a                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   RLEEngine::Compress -- Compresses a sequence of bytes.                                    * 
- *   RLEEngine::Decompress -- Decompress a sequence of RLE compressed bytes.                   * 
- *   RLEEngine::Line_Compress -- Compress a line of data.                                      * 
- *   RLEEngine::Line_Decompress -- Decompresses a line-compressed RLE data sequence.           * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   RLEEngine::Compress -- Compresses a sequence of bytes.                                    *
+ *   RLEEngine::Decompress -- Decompress a sequence of RLE compressed bytes.                   *
+ *   RLEEngine::Line_Compress -- Compress a line of data.                                      *
+ *   RLEEngine::Line_Decompress -- Decompresses a line-compressed RLE data sequence.           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -44,25 +44,25 @@
 #include	<stdlib.h>
 
 
-/*********************************************************************************************** 
- * RLEEngine::Compress -- Compresses a sequence of bytes.                                      * 
- *                                                                                             * 
- *    This routine will compress the sequence of bytes specified by using RLE compression.     * 
- *                                                                                             * 
- * INPUT:   source  -- Pointer to the data to be compressed.                                   * 
- *                                                                                             * 
- *          dest    -- Pointer to the buffer that will hold the compressed data.               * 
- *                                                                                             * 
- *          length  -- The length of the data to compress.                                     * 
- *                                                                                             * 
- * OUTPUT:  Returns with the number of bytes long for the compressed data.                     * 
- *                                                                                             * 
- * WARNINGS:    The compressed data may, in rare instances, be larger than the data it was     * 
- *              compressing. The worst case is 33% larger. Keep that in mind when supplying    * 
- *              the destination buffer to this routine.                                        * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * RLEEngine::Compress -- Compresses a sequence of bytes.                                      *
+ *                                                                                             *
+ *    This routine will compress the sequence of bytes specified by using RLE compression.     *
+ *                                                                                             *
+ * INPUT:   source  -- Pointer to the data to be compressed.                                   *
+ *                                                                                             *
+ *          dest    -- Pointer to the buffer that will hold the compressed data.               *
+ *                                                                                             *
+ *          length  -- The length of the data to compress.                                     *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes long for the compressed data.                     *
+ *                                                                                             *
+ * WARNINGS:    The compressed data may, in rare instances, be larger than the data it was     *
+ *              compressing. The worst case is 33% larger. Keep that in mind when supplying    *
+ *              the destination buffer to this routine.                                        *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int RLEEngine::Compress(void const * source, void * dest, int length) const
 {
@@ -122,27 +122,27 @@ int RLEEngine::Compress(void const * source, void * dest, int length) const
 }
 
 
-/*********************************************************************************************** 
- * RLEEngine::Line_Compress -- Compress a line of data.                                        * 
- *                                                                                             * 
- *    This routine will compress a sequence of bytes and store the length of the compressed    * 
- *    data at the beginning of the output buffer. By encoding the compressed size in this      * 
- *    fashion, it is possible to build a sequence of compressed bytes (such as with a sprite)  * 
- *    so that each sequence can be quickly traversed.                                          * 
- *                                                                                             * 
- * INPUT:   source   -- Pointer to the source data to be compressed.                           * 
- *                                                                                             * 
- *          dest     -- Pointer to the destination buffer that will hold the length value and  * 
- *                      the compressed data.                                                   * 
- *                                                                                             * 
- *          length   -- The number of source bytes to compress.                                * 
- *                                                                                             * 
- * OUTPUT:  Returns with the number of bytes stored into the output buffer.                    * 
- *                                                                                             * 
- * WARNINGS:   The output data could be larger than the source data by as much as 33% + 2      * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * RLEEngine::Line_Compress -- Compress a line of data.                                        *
+ *                                                                                             *
+ *    This routine will compress a sequence of bytes and store the length of the compressed    *
+ *    data at the beginning of the output buffer. By encoding the compressed size in this      *
+ *    fashion, it is possible to build a sequence of compressed bytes (such as with a sprite)  *
+ *    so that each sequence can be quickly traversed.                                          *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the source data to be compressed.                           *
+ *                                                                                             *
+ *          dest     -- Pointer to the destination buffer that will hold the length value and  *
+ *                      the compressed data.                                                   *
+ *                                                                                             *
+ *          length   -- The number of source bytes to compress.                                *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes stored into the output buffer.                    *
+ *                                                                                             *
+ * WARNINGS:   The output data could be larger than the source data by as much as 33% + 2      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int RLEEngine::Line_Compress(void const * source, void * dest, int length) const
 {
@@ -168,24 +168,24 @@ int RLEEngine::Line_Compress(void const * source, void * dest, int length) const
 }
 
 
-/*********************************************************************************************** 
- * RLEEngine::Decompress -- Decompress a sequence of RLE compressed bytes.                     * 
- *                                                                                             * 
- *    This will decompress a sequence of RLE compressed bytes.                                 * 
- *                                                                                             * 
- * INPUT:   source   -- Pointer to the RLE compressed data.                                    * 
- *                                                                                             * 
- *          dest     -- Pointer to the buffer that will hold the uncompressed data.            * 
- *                                                                                             * 
- *          length   -- The length of the source RLE data to process.                          * 
- *                                                                                             * 
- * OUTPUT:  Returns with the actual number of bytes stored into the output buffer.             * 
- *                                                                                             * 
- * WARNINGS:   The output buffer must be large enough to hold the decompressed data. This      * 
- *             could be as much as 128 times larger than the source RLE data.                  * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * RLEEngine::Decompress -- Decompress a sequence of RLE compressed bytes.                     *
+ *                                                                                             *
+ *    This will decompress a sequence of RLE compressed bytes.                                 *
+ *                                                                                             *
+ * INPUT:   source   -- Pointer to the RLE compressed data.                                    *
+ *                                                                                             *
+ *          dest     -- Pointer to the buffer that will hold the uncompressed data.            *
+ *                                                                                             *
+ *          length   -- The length of the source RLE data to process.                          *
+ *                                                                                             *
+ * OUTPUT:  Returns with the actual number of bytes stored into the output buffer.             *
+ *                                                                                             *
+ * WARNINGS:   The output buffer must be large enough to hold the decompressed data. This      *
+ *             could be as much as 128 times larger than the source RLE data.                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int RLEEngine::Decompress(void const * source, void * dest, int length) const
 {
@@ -219,7 +219,7 @@ int RLEEngine::Decompress(void const * source, void * dest, int length) const
 			*dptr++ = value;
 		}
 	}
-	
+
 	/*
 	**	Return with the number of bytes stored into the output buffer.
 	*/
@@ -227,23 +227,23 @@ int RLEEngine::Decompress(void const * source, void * dest, int length) const
 }
 
 
-/*********************************************************************************************** 
- * RLEEngine::Line_Decompress -- Decompresses a line-compressed RLE data sequence.             * 
- *                                                                                             * 
- *    This routine is the counterpart to Line_Compress. It will take a compressed line and     * 
- *    fully decompress it into the destination buffer.                                         * 
- *                                                                                             * 
- * INPUT:   source   -- The pointer to the line compressed RLE data.                           * 
- *                                                                                             * 
- *          dest     -- Pointer to the destination buffer that will hold the decompressed      * 
- *                      data.                                                                  * 
- *                                                                                             * 
- * OUTPUT:  Returns with the number of bytes stored into the destination buffer.               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   04/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * RLEEngine::Line_Decompress -- Decompresses a line-compressed RLE data sequence.             *
+ *                                                                                             *
+ *    This routine is the counterpart to Line_Compress. It will take a compressed line and     *
+ *    fully decompress it into the destination buffer.                                         *
+ *                                                                                             *
+ * INPUT:   source   -- The pointer to the line compressed RLE data.                           *
+ *                                                                                             *
+ *          dest     -- Pointer to the destination buffer that will hold the decompressed      *
+ *                      data.                                                                  *
+ *                                                                                             *
+ * OUTPUT:  Returns with the number of bytes stored into the destination buffer.               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 int RLEEngine::Line_Decompress(void const * source, void * dest) const
 {

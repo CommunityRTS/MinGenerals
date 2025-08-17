@@ -126,7 +126,7 @@ int		ListAddNodeSortAscending( ListHead *head, ListNode *new_node )
 	ListNode	*node;
 	Priority	pri;
 	int index;
-	
+
 	index = 0;
 	pri = new_node->pri;
 	node = (ListNode*) head;
@@ -207,19 +207,19 @@ void		ListMerge( ListHead *from, ListHead *to )
 
 	first = from->next;
 	last = from->prev;
-	
+
 	if ( first == (ListNode*) from )
 	{
 		/* the from list is empty so there is nothing to do */
 	   	return;
 	}
-	
+
 	node = to->prev;
 	node->next = first;
 	first->prev = node;
 	last->next = (ListNode*) to;
 	to->prev = last;
-	
+
 	ListInit ( from );	/* make the from list empty now */
 }
 

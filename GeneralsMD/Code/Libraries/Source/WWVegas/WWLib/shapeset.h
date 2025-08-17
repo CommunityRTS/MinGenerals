@@ -16,25 +16,25 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/shapeset.h                             $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/shapeset.h                             $*
+ *                                                                                             *
  *                      $Author:: Byon_g                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 11/28/00 2:44p                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   ShapeSet::Fetch_Data -- Fetches pointer to raw shape data.                                * 
- *   ShapeSet::Fetch_Rect -- Fetch the sub-rectangle of a shape.                               * 
- *   ShapeSet::Is_Transparent -- Is the specified shape containing transparent pixels?         * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   ShapeSet::Fetch_Data -- Fetches pointer to raw shape data.                                *
+ *   ShapeSet::Fetch_Rect -- Fetch the sub-rectangle of a shape.                               *
+ *   ShapeSet::Is_Transparent -- Is the specified shape containing transparent pixels?         *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #ifndef SHAPESET_H
@@ -113,7 +113,7 @@ class ShapeSet
 		**	Each shape is represented by this structure. It appears in a linear array near the
 		**	beginning of the file.
 		*/
-		class ShapeRecord 
+		class ShapeRecord
 		{
 			public:
 				/*
@@ -160,8 +160,8 @@ class ShapeSet
 		};
 
 		bool Is_Shape_Index_Valid(int index) const {return(unsigned(index) < unsigned(Count));}
-		
-		ShapeRecord const * Fetch_Record_Pointer(int shape) const 
+
+		ShapeRecord const * Fetch_Record_Pointer(int shape) const
 		{
 			if (Is_Shape_Index_Valid(shape)) {
 				return((ShapeRecord const *)(((char *)this) + sizeof(ShapeSet) + sizeof(ShapeRecord) * shape));
@@ -178,24 +178,24 @@ class ShapeSet
 };
 
 
-/*********************************************************************************************** 
- * ShapeSet::Get_Data -- Fetches pointer to raw shape data.                                    * 
- *                                                                                             * 
- *    This routine will return a pointer to the shape data. The data is actually a sub-        * 
- *    rectangle within the logical shape rectangle. The sub-rectangle holds the non-           * 
- *    transparent pixels. This fact, as retrieved by the Fetch_Rect function must be used      * 
- *    for proper rendering of the shape.                                                       * 
- *                                                                                             * 
- * INPUT:   shape -- The shape number to extract the pointer for.                              * 
- *                                                                                             * 
- * OUTPUT:  Returns with a pointer to the raw shape data. If the shape does not exist in the   * 
- *          data file, the returned value will be NULL. If the shape contains no pixels, then  * 
- *          NULL is also returned.                                                             * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   02/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * ShapeSet::Get_Data -- Fetches pointer to raw shape data.                                    *
+ *                                                                                             *
+ *    This routine will return a pointer to the shape data. The data is actually a sub-        *
+ *    rectangle within the logical shape rectangle. The sub-rectangle holds the non-           *
+ *    transparent pixels. This fact, as retrieved by the Fetch_Rect function must be used      *
+ *    for proper rendering of the shape.                                                       *
+ *                                                                                             *
+ * INPUT:   shape -- The shape number to extract the pointer for.                              *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the raw shape data. If the shape does not exist in the   *
+ *          data file, the returned value will be NULL. If the shape contains no pixels, then  *
+ *          NULL is also returned.                                                             *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 inline void * ShapeSet::Get_Data(int shape) const
 {
@@ -205,21 +205,21 @@ inline void * ShapeSet::Get_Data(int shape) const
 }
 
 
-/*********************************************************************************************** 
- * ShapeSet::Get_Rect -- Fetch the sub-rectangle of a shape.                                   * 
- *                                                                                             * 
- *    This routine will fetch the sub-rectangle for a particular shape. This rectangle is      * 
- *    used to properly position the shape when rendering.                                      * 
- *                                                                                             * 
- * INPUT:   shape -- The shape number to fetch the rectangle for.                              * 
- *                                                                                             * 
- * OUTPUT:  Returns with the rectangle of the shape number specified.                          * 
- *                                                                                             * 
- * WARNINGS:   If the shape number is invalid or the shape has no pixels, the returned         * 
- *             rectangle will not pass the Is_Valid() test.                                    * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   02/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * ShapeSet::Get_Rect -- Fetch the sub-rectangle of a shape.                                   *
+ *                                                                                             *
+ *    This routine will fetch the sub-rectangle for a particular shape. This rectangle is      *
+ *    used to properly position the shape when rendering.                                      *
+ *                                                                                             *
+ * INPUT:   shape -- The shape number to fetch the rectangle for.                              *
+ *                                                                                             *
+ * OUTPUT:  Returns with the rectangle of the shape number specified.                          *
+ *                                                                                             *
+ * WARNINGS:   If the shape number is invalid or the shape has no pixels, the returned         *
+ *             rectangle will not pass the Is_Valid() test.                                    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 inline Rect ShapeSet::Get_Rect(int shape) const
 {
@@ -231,21 +231,21 @@ inline Rect ShapeSet::Get_Rect(int shape) const
 }
 
 
-/*********************************************************************************************** 
- * ShapeSet::Is_Transparent -- Is the specified shape containing transparent pixels?           * 
- *                                                                                             * 
- *    This routine will check to see if the specified shape has any transparent pixels. If it  * 
- *    doesn't, then faster blitting code can be used.                                          * 
- *                                                                                             * 
- * INPUT:   shape -- The shape to examine.                                                     * 
- *                                                                                             * 
- * OUTPUT:  bool; Does the shape contain any transparent pixels? The answer is also false if   * 
- *                the shape number is invalid.                                                 * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   02/26/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * ShapeSet::Is_Transparent -- Is the specified shape containing transparent pixels?           *
+ *                                                                                             *
+ *    This routine will check to see if the specified shape has any transparent pixels. If it  *
+ *    doesn't, then faster blitting code can be used.                                          *
+ *                                                                                             *
+ * INPUT:   shape -- The shape to examine.                                                     *
+ *                                                                                             *
+ * OUTPUT:  bool; Does the shape contain any transparent pixels? The answer is also false if   *
+ *                the shape number is invalid.                                                 *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   02/26/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 inline bool ShapeSet::Is_Transparent(int shape) const
 {

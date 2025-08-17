@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddeffactory.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/01/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -52,10 +52,10 @@
 /*!
 	Automatically registers this instance of the ShdDefFactory with the manager.
 */
-ShdDefFactoryClass::ShdDefFactoryClass (void) : 
-	NextFactory(NULL), 
-	PrevFactory(NULL) 
-{ 
+ShdDefFactoryClass::ShdDefFactoryClass (void) :
+	NextFactory(NULL),
+	PrevFactory(NULL)
+{
 	ShdDefManagerClass::Register_Factory (this);
 }
 
@@ -65,7 +65,7 @@ ShdDefFactoryClass::ShdDefFactoryClass (void) :
 /*!
 	Automatically un-registers this instance of a ShdDefFactory from the manager.
 */
-ShdDefFactoryClass::~ShdDefFactoryClass (void) 
+ShdDefFactoryClass::~ShdDefFactoryClass (void)
 {
 	ShdDefManagerClass::Unregister_Factory (this);
 }

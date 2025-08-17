@@ -51,7 +51,7 @@ class DX8Caps
 {
 public:
 	static void Compute_Caps(D3DFORMAT display_format, D3DFORMAT depth_stencil_format, IDirect3DDevice8* D3DDevice);
-	static bool Use_TnL() { return UseTnL; };	
+	static bool Use_TnL() { return UseTnL; };
 	static bool Support_DXTC() { return SupportDXTC; }
 	static bool Support_Gamma() { return supportGamma; }
 	static bool Support_NPatches() { return SupportNPatches; }
@@ -89,7 +89,7 @@ private:
 
 	static D3DCAPS8 hwVPCaps;
 	static D3DCAPS8 swVPCaps;
-	static bool UseTnL;	
+	static bool UseTnL;
 	static bool SupportDXTC;
 	static bool supportGamma;
 	static bool SupportNPatches;

@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:   WSYS Library
@@ -42,7 +42,7 @@
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //----------------------------------------------------------------------------
 
 #include "PreRTS.h"
@@ -57,46 +57,46 @@
 #include "Common/FileSystem.h"
 #include "Common/RAMFile.h"
 #include "Common/PerfTimer.h"
-									
-
-//----------------------------------------------------------------------------
-//         Externals                                                     
-//----------------------------------------------------------------------------
-
 
 
 //----------------------------------------------------------------------------
-//         Defines                                                         
+//         Externals
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Types                                                     
+//         Defines
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Data                                                     
+//         Private Types
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Data                                                      
+//         Private Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Prototypes                                               
+//         Public Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Prototypes
+//----------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------
+//         Private Functions
 //----------------------------------------------------------------------------
 
 //=================================================================
@@ -116,12 +116,12 @@ RAMFile::RAMFile()
 
 
 //----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Public Functions
 //----------------------------------------------------------------------------
 
 
 //=================================================================
-// RAMFile::~RAMFile	
+// RAMFile::~RAMFile
 //=================================================================
 
 RAMFile::~RAMFile()
@@ -135,7 +135,7 @@ RAMFile::~RAMFile()
 }
 
 //=================================================================
-// RAMFile::open	
+// RAMFile::open
 //=================================================================
 /**
   *	This function opens a file using the standard C open() call. Access flags
@@ -153,7 +153,7 @@ Bool RAMFile::open( const Char *filename, Int access )
 	if ( file == NULL )
 	{
 		return FALSE;
-	}	
+	}
 
 	Bool result = open( file );
 
@@ -207,7 +207,7 @@ Bool RAMFile::open( File *file )
 //============================================================================
 // RAMFile::openFromArchive
 //============================================================================
-Bool RAMFile::openFromArchive(File *archiveFile, const AsciiString& filename, Int offset, Int size) 
+Bool RAMFile::openFromArchive(File *archiveFile, const AsciiString& filename, Int offset, Int size)
 {
 	//USE_PERF_TIMER(RAMFile)
 	if (archiveFile == NULL) {
@@ -237,7 +237,7 @@ Bool RAMFile::openFromArchive(File *archiveFile, const AsciiString& filename, In
 }
 
 //=================================================================
-// RAMFile::close 	
+// RAMFile::close
 //=================================================================
 /**
 	* Closes the current file if it is open.
@@ -257,7 +257,7 @@ void RAMFile::close( void )
 }
 
 //=================================================================
-// RAMFile::read 
+// RAMFile::read
 //=================================================================
 // if buffer is null, just advance the current position by 'bytes'
 Int RAMFile::read( void *buffer, Int bytes )
@@ -285,7 +285,7 @@ Int RAMFile::read( void *buffer, Int bytes )
 }
 
 //=================================================================
-// RAMFile::write 
+// RAMFile::write
 //=================================================================
 
 Int RAMFile::write( const void *buffer, Int bytes )
@@ -294,7 +294,7 @@ Int RAMFile::write( const void *buffer, Int bytes )
 }
 
 //=================================================================
-// RAMFile::seek 
+// RAMFile::seek
 //=================================================================
 
 Int RAMFile::seek( Int pos, seekMode mode)
@@ -336,7 +336,7 @@ Int RAMFile::seek( Int pos, seekMode mode)
 //=================================================================
 // RAMFile::scanInt
 //=================================================================
-Bool RAMFile::scanInt(Int &newInt) 
+Bool RAMFile::scanInt(Int &newInt)
 {
 	newInt = 0;
 	AsciiString tempstr;
@@ -366,7 +366,7 @@ Bool RAMFile::scanInt(Int &newInt)
 //=================================================================
 // RAMFile::scanInt
 //=================================================================
-Bool RAMFile::scanReal(Real &newReal) 
+Bool RAMFile::scanReal(Real &newReal)
 {
 	newReal = 0.0;
 	AsciiString tempstr;
@@ -400,7 +400,7 @@ Bool RAMFile::scanReal(Real &newReal)
 //=================================================================
 // RAMFile::scanString
 //=================================================================
-Bool RAMFile::scanString(AsciiString &newString) 
+Bool RAMFile::scanString(AsciiString &newString)
 {
 	newString.clear();
 
@@ -424,7 +424,7 @@ Bool RAMFile::scanString(AsciiString &newString)
 //=================================================================
 // RAMFile::nextLine
 //=================================================================
-void RAMFile::nextLine(Char *buf, Int bufSize) 
+void RAMFile::nextLine(Char *buf, Int bufSize)
 {
 	Int i = 0;
 	// seek to the next new-line character
@@ -459,7 +459,7 @@ void RAMFile::nextLine(Char *buf, Int bufSize)
 //=================================================================
 // RAMFile::nextLine
 //=================================================================
-Bool RAMFile::copyDataToFile(File *localFile) 
+Bool RAMFile::copyDataToFile(File *localFile)
 {
 	if (localFile == NULL) {
 		return FALSE;
@@ -484,7 +484,7 @@ File* RAMFile::convertToRAMFile()
 // RAMFile::readEntireAndClose
 //=================================================================
 /**
-	Allocate a buffer large enough to hold entire file, read 
+	Allocate a buffer large enough to hold entire file, read
 	the entire file into the buffer, then close the file.
 	the buffer is owned by the caller, who is responsible
 	for freeing is (via delete[]). This is a Good Thing to

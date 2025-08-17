@@ -93,15 +93,15 @@ StealthUpdateModuleData::StealthUpdateModuleData()
 
 
 //-------------------------------------------------------------------------------------------------
-void StealthUpdateModuleData::buildFieldParse(MultiIniFieldParse& p) 
+void StealthUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpdateModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "StealthDelay",									INI::parseDurationUnsignedInt,	NULL, offsetof( StealthUpdateModuleData, m_stealthDelay ) },
 		{ "MoveThresholdSpeed",						INI::parseVelocityReal,					NULL, offsetof( StealthUpdateModuleData, m_stealthSpeed ) },
-		{ "StealthForbiddenConditions",		INI::parseBitString32,					TheStealthLevelNames, offsetof( StealthUpdateModuleData, m_stealthLevel) }, 
+		{ "StealthForbiddenConditions",		INI::parseBitString32,					TheStealthLevelNames, offsetof( StealthUpdateModuleData, m_stealthLevel) },
 		{ "HintDetectableConditions",	  	ObjectStatusMaskType::parseFromINI,	NULL, offsetof( StealthUpdateModuleData, m_hintDetectableStates) },
 		{ "RequiredStatus",								ObjectStatusMaskType::parseFromINI,	NULL, offsetof( StealthUpdateModuleData, m_requiredStatus ) },
 		{ "ForbiddenStatus",							ObjectStatusMaskType::parseFromINI,	NULL, offsetof( StealthUpdateModuleData, m_forbiddenStatus ) },
@@ -152,7 +152,7 @@ StealthUpdate::StealthUpdate( Thing *thing, const ModuleData* moduleData ) : Upd
 	m_disguiseHalfpointReached  = false;
 	m_nextBlackMarketCheckFrame = 0;
 	m_framesGranted = 0;
-	
+
 	if( data->m_innateStealth )
 	{
 		//Giving innate stealth units this status bit allows other code to easily check the status bit.
@@ -168,7 +168,7 @@ StealthUpdate::StealthUpdate( Thing *thing, const ModuleData* moduleData ) : Upd
 	// we do not need to restore a disguise
 	m_xferRestoreDisguise = FALSE;
 
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -240,7 +240,7 @@ void StealthUpdate::receiveGrant( Bool active, UnsignedInt frames )
   const ContainModuleInterface *contain = obj->getContain();
   if ( contain && contain->isRiderChangeContain() )
   {
-    const Object *rider = contain->friend_getRider(); 
+    const Object *rider = contain->friend_getRider();
     if ( rider )
     {
       StealthUpdate *riderStealth = rider->getStealth();
@@ -294,18 +294,18 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 		//Doesn't stealth while aggressive (includes approaching).
 		return FALSE;
 	}
-	
+
 	if( flags & STEALTH_NOT_WHILE_USING_ABILITY && self->getStatusBits().test( OBJECT_STATUS_IS_USING_ABILITY ) )
 	{
 		//Doesn't stealth while using a special ability (starting with preparation, which takes place after unpacking).
 		return FALSE;
 	}
-	
+
 	if( flags & STEALTH_ONLY_WITH_BLACK_MARKET && m_nextBlackMarketCheckFrame < now )
 	{
 		//randomize timer a little incase we have a whole bunch on the same frame.
-		m_nextBlackMarketCheckFrame += data->m_blackMarketCheckFrames + GameLogicRandomValue( 0, 10 ); 
-		
+		m_nextBlackMarketCheckFrame += data->m_blackMarketCheckFrames + GameLogicRandomValue( 0, 10 );
+
 		//If we can't find an active black market, then we can't stealth.
 		Bool blackMarket = FALSE;
 		self->getControllingPlayer()->iterateObjects( isBlackMarket, &blackMarket );
@@ -319,7 +319,7 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 	{
 		return FALSE;
 	}
-	
+
 	if( flags & STEALTH_NOT_WHILE_TAKING_DAMAGE && self->getBodyModule()->getLastDamageTimestamp() >= now - 1 )
 	{
 		//Only if it's not healing damage.
@@ -328,7 +328,7 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 			//Can't stealth if we just took damage in the last frame or two.
 			if( self->getBodyModule()->getLastDamageTimestamp() != 0xffffffff )
 			{
-				//But it's initialized to 0xffffffff so we don't think we took damage on the first frame. 
+				//But it's initialized to 0xffffffff so we don't think we took damage on the first frame.
 				return FALSE;
 			}
 		}
@@ -337,11 +337,11 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 	//We need all required status or else we fail
 	// If we have any requirements
 	if( data->m_requiredStatus.any()  &&  !self->getStatusBits().testForAll( data->m_requiredStatus ) )
-		return FALSE; 
+		return FALSE;
 
 	//If we have any forbidden statii, then fail
 	if( self->getStatusBits().testForAny( data->m_forbiddenStatus ) )
-		return FALSE; 
+		return FALSE;
 
 
 	//Do a quick preliminary test to see if we are restricted by firing particular weapons and we fired a shot last frame or this frame.
@@ -411,10 +411,10 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 
 
 	const PhysicsBehavior *physics = self->getPhysics();
-	if ((flags & STEALTH_NOT_WHILE_MOVING) && physics != NULL && 
+	if ((flags & STEALTH_NOT_WHILE_MOVING) && physics != NULL &&
 					physics->getVelocityMagnitude() > getStealthUpdateModuleData()->m_stealthSpeed)
 		return FALSE;
-	
+
 	if( self->testScriptStatusBit(OBJECT_STATUS_SCRIPT_UNSTEALTHED))
 	{
 		//We can't stealth because a script disabled this ability for this object!
@@ -428,7 +428,7 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 //---------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------------------------------
-void StealthUpdate::hintDetectableWhileUnstealthed() 
+void StealthUpdate::hintDetectableWhileUnstealthed()
 {
 	Object *self = getObject();
 	const StealthUpdateModuleData *md = getStealthUpdateModuleData();
@@ -451,7 +451,7 @@ void StealthUpdate::hintDetectableWhileUnstealthed()
 
 Real StealthUpdate::getFriendlyOpacity() const
 {
-	return getStealthUpdateModuleData()->m_friendlyOpacityMin; 
+	return getStealthUpdateModuleData()->m_friendlyOpacityMin;
 }
 
 
@@ -463,7 +463,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		for stealthy things, there are these distinct "logical" states:
 
 		-- not stealthed at all (ie, totally visible)
-		-- stealthed 
+		-- stealthed
 		-- stealthed-but-detected
 
 		and the following visual states:
@@ -474,7 +474,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		-- stealthed-but-visible-to-everyone-due-to-being-detected (sd)
 
 		Let's be ubergeeks and make a matrix of the possibilities:
-				
+
 								Ally		Nonally
 		normal:			(n)			(n)
 		stealthed:	(sv)		(i)
@@ -484,7 +484,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		Or, to put it another way:
 
 		If normal, you always appear normal.
-		If stealthed (and not detected), you appear as (sv) to allies and (i) to others. 
+		If stealthed (and not detected), you appear as (sv) to allies and (i) to others.
 		If detected, you always appears as (sd).
 
 		Sorry, there is one more condition, stealthed, but visible to friendly folks, YET detected
@@ -493,7 +493,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 
 
 	*/
-	
+
 
 	if (obj->isEffectivelyDead())
 		return STEALTHLOOK_NONE;			// making sure he turns visible when he dies
@@ -761,7 +761,7 @@ UpdateSleepTime StealthUpdate::update( void )
 	else
 	{
 		m_stealthAllowedFrame = now + stealthDelay;
-		
+
 		// if you are destealthing on your own free will, play sound for all to hear
 		if( self->getStatusBits().test( OBJECT_STATUS_STEALTHED ) )
 		{
@@ -771,7 +771,7 @@ UpdateSleepTime StealthUpdate::update( void )
 		}
 
 		self->clearStatus( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_STEALTHED ) );
-		
+
 		hintDetectableWhileUnstealthed();
 	}
 
@@ -916,7 +916,7 @@ void StealthUpdate::markAsDetected(UnsignedInt numFrames)
 	if( orderIdlesToAttack )
 	{
 		// This can't be a partitionmanager thing, because we need to know which objects can see
-		// us. Therefore, walk the play list, and for each player that considers us an enemy, 
+		// us. Therefore, walk the play list, and for each player that considers us an enemy,
 		// check if any of their units can see us.
 
 		Int numPlayers = ThePlayerList->getPlayerCount();
@@ -953,7 +953,7 @@ void StealthUpdate::disguiseAsObject( const Object *target )
 			m_disguiseAsTemplate				= target->getTemplate();
 			m_disguiseAsPlayerIndex			= target->getControllingPlayer()->getPlayerIndex();
 		}
-		
+
 		m_enabled										= true;
 		m_transitioningToDisguise		= true; //Means we are gaining disguise over time.
 		m_disguiseTransitionFrames	= data->m_disguiseTransitionFrames;
@@ -977,7 +977,7 @@ void StealthUpdate::disguiseAsObject( const Object *target )
 	{
 		TheControlBar->markUIDirty();
 	}
-	
+
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -995,7 +995,7 @@ void StealthUpdate::changeVisualDisguise()
 		Player *player = ThePlayerList->getNthPlayer( m_disguiseAsPlayerIndex );
 
 		ModelConditionFlags flags = draw->getModelConditionFlags();
-		
+
 		//Get rid of the old instance!
 		TheGameClient->destroyDrawable( draw );
 
@@ -1049,7 +1049,7 @@ void StealthUpdate::changeVisualDisguise()
 	{
 		m_disguiseAsPlayerIndex = -1;
 		ModelConditionFlags flags = draw->getModelConditionFlags();
-		
+
 		//Get rid of the old instance!
 		TheGameClient->destroyDrawable( draw );
 
@@ -1076,7 +1076,7 @@ void StealthUpdate::changeVisualDisguise()
 			//UGH!
 			//A concrete example is the bomb truck. Different payloads are displayed based on which upgrades have been
 			//made. When the bomb truck disguises as something else, these subobjects are lost because the vector is
-			//stored in W3DDrawModule. When we revert back to the original bomb truck, we call this function to 
+			//stored in W3DDrawModule. When we revert back to the original bomb truck, we call this function to
 			//recalculate those upgraded subobjects.
 			self->forceRefreshSubObjectUpgradeStatus();
 		}
@@ -1161,7 +1161,7 @@ void StealthUpdate::xfer( Xfer *xfer )
 
 	// pulse phase
 	xfer->xferReal( &m_pulsePhase );
-	
+
 	// disguise as player index
 	xfer->xferInt( &m_disguiseAsPlayerIndex );
 

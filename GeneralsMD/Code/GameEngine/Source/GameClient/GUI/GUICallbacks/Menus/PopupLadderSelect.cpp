@@ -24,12 +24,12 @@
 
 // FILE: PopupLadderSelect.cpp ////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	August 2002
@@ -37,7 +37,7 @@
 //	Filename: 	PopupLadderSelect.cpp
 //
 //	author:		Matthew D. Campbell
-//	
+//
 //	purpose:	Contains the Callbacks for the Ladder Select Popup
 //
 //-----------------------------------------------------------------------------
@@ -269,7 +269,7 @@ void PopupLadderSelectInit( WindowLayout *layout, void *userData )
 //-------------------------------------------------------------------------------------------------
 WindowMsgHandledType PopupLadderSelectInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -286,7 +286,7 @@ WindowMsgHandledType PopupLadderSelectInput( GameWindow *window, UnsignedInt msg
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
@@ -340,7 +340,7 @@ void ladderSelectedCallback(void)
 //-------------------------------------------------------------------------------------------------
 WindowMsgHandledType PopupLadderSelectSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 )
 {
-  switch( msg ) 
+  switch( msg )
 	{
 		// --------------------------------------------------------------------------------------------
 		case GWM_CREATE:
@@ -462,7 +462,7 @@ WindowMsgHandledType PopupLadderSelectSystem( GameWindow *window, UnsignedInt ms
 
       if( controlID == listboxLadderSelectID )
 			{
-				TheWindowManager->winSendSystemMsg( parent, GBM_SELECTED, 
+				TheWindowManager->winSendSystemMsg( parent, GBM_SELECTED,
 																					(WindowMsgData)buttonOk, buttonOk->winGetWindowId() );
 			}
 			break;
@@ -475,7 +475,7 @@ WindowMsgHandledType PopupLadderSelectSystem( GameWindow *window, UnsignedInt ms
 			Int controlID = control->winGetWindowId();
 			if (controlID == textEntryPasswordID)
 			{
-				TheWindowManager->winSendSystemMsg( parent, GBM_SELECTED, 
+				TheWindowManager->winSendSystemMsg( parent, GBM_SELECTED,
 																					(WindowMsgData)(TheWindowManager->winGetWindowFromId(passwordParent, buttonPasswordOkID)), buttonPasswordOkID );
 			}
 			break;
@@ -594,7 +594,7 @@ static void closeRightClickMenu(GameWindow *win)
 		WindowLayout *winLay = win->winGetLayout();
 		if(!winLay)
 			return;
-		winLay->destroyWindows();					
+		winLay->destroyWindows();
 		winLay->deleteInstance();
 		winLay = NULL;
 
@@ -611,7 +611,7 @@ WindowMsgHandledType RCGameDetailsMenuSystem( GameWindow *window, UnsignedInt ms
 	static NameKeyType buttonOkID = NAMEKEY_INVALID;
 	switch( msg )
 	{
-		
+
 		case GWM_CREATE:
 			{
 				ladderInfoID = NAMEKEY("RCGameDetailsMenu.wnd:ButtonLadderDetails");
@@ -652,7 +652,7 @@ WindowMsgHandledType RCGameDetailsMenuSystem( GameWindow *window, UnsignedInt ms
 						const LadderInfo *linfo = TheLadderList->findLadder(theRoom->getLadderIP(), theRoom->getLadderPort());
 						if (linfo)
 						{
-							WindowLayout *rcLayout = TheWindowManager->winCreateLayout(AsciiString("Menus/PopupLadderDetails.wnd"));	
+							WindowLayout *rcLayout = TheWindowManager->winCreateLayout(AsciiString("Menus/PopupLadderDetails.wnd"));
 							if (!rcLayout)
 								break;
 
@@ -660,7 +660,7 @@ WindowMsgHandledType RCGameDetailsMenuSystem( GameWindow *window, UnsignedInt ms
 							rcMenu->winGetLayout()->runInit();
 							rcMenu->winBringToTop();
 							rcMenu->winHide(FALSE);
-							
+
 							rcMenu->winSetUserData((void *)selectedID);
 							TheWindowManager->winSetLoneWindow(rcMenu);
 
@@ -676,7 +676,7 @@ WindowMsgHandledType RCGameDetailsMenuSystem( GameWindow *window, UnsignedInt ms
 			}
 		default:
 			return MSG_IGNORED;
-	
-	}//Switch		
+
+	}//Switch
 	return MSG_HANDLED;
 }

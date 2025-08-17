@@ -51,7 +51,7 @@ class DownloadManager : public IDownload
 public:
 	DownloadManager();
 	virtual ~DownloadManager();
-	
+
 public:
 	void init( void );
 	HRESULT update( void );

@@ -28,8 +28,8 @@
 #include "Common/MiscAudio.h"
 #include "Common/INI.h"
 
-const FieldParse MiscAudio::m_fieldParseTable[] = 
-{ 
+const FieldParse MiscAudio::m_fieldParseTable[] =
+{
 	{ "RadarNotifyUnitUnderAttackSound",			INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_radarUnitUnderAttackSound ) },
 	{ "RadarNotifyHarvesterUnderAttackSound",	INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_radarHarvesterUnderAttackSound ) },
 	{ "RadarNotifyStructureUnderAttackSound", INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_radarStructureUnderAttackSound ) },
@@ -64,7 +64,7 @@ const FieldParse MiscAudio::m_fieldParseTable[] =
 	{ "UnitPromoted",													INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_unitPromoted ) },
 	{ "RepairSparks",													INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_repairSparks ) },
 	{ "AircraftWheelScreech",									INI::parseAudioEventRTS, NULL, offsetof( MiscAudio, m_aircraftWheelScreech ) },
-	
+
 	{ 0, 0, 0, 0 }
 };
 

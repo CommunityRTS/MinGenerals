@@ -24,12 +24,12 @@
 
 // FILE: W3DGameFont.cpp //////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:    RTS3
@@ -139,7 +139,7 @@ void W3DFontLibrary::releaseFontData( GameFont *font )
 		((FontCharsClass *)(font->fontData))->Release_Ref();
 	}
 	font->fontData = NULL;
-	
+
 }  // end releaseFont
 
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////

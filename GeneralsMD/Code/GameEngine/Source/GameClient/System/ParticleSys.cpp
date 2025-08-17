@@ -55,7 +55,7 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-//------------------------------------------------------------------------------ Performance Timers 
+//------------------------------------------------------------------------------ Performance Timers
 //#include "Common/PerfMetrics.h"
 //#include "Common/PerfTimer.h"
 
@@ -91,7 +91,7 @@ ParticleInfo::ParticleInfo( void )
 
 	m_lifetime = 0;
 	m_particleUpTowardsEmitter = FALSE;
-	
+
 	//
 }  // end ParticleInfo
 
@@ -271,11 +271,11 @@ Particle::Particle( ParticleSystem *system, const ParticleInfo *info )
 	//Initializations inserted
 	m_lastPos.zero();
 	//
-	m_windRandomness = info->m_windRandomness;	
+	m_windRandomness = info->m_windRandomness;
 	m_particleUpTowardsEmitter = info->m_particleUpTowardsEmitter;
 	m_emitterPos = info->m_emitterPos;
 
-	
+
 	m_angularRateZ = info->m_angularRateZ;
 	m_angularDamping = info->m_angularDamping;
 
@@ -556,7 +556,7 @@ void Particle::doWindMotion( void )
 
 		// only apply force if still within the circle of influence
 		if( distFromWind > fullForceDistance )
-			windForceStrength *= (1.0f - ((distFromWind - fullForceDistance) / 
+			windForceStrength *= (1.0f - ((distFromWind - fullForceDistance) /
 																		(noForceDistance - fullForceDistance)));
 
 		// integate the wind motion into the position
@@ -571,7 +571,7 @@ void Particle::doWindMotion( void )
 /** Get priority of a particle ... which is the priority of it's attached system */
 // ------------------------------------------------------------------------------------------------
 ParticlePriorityType Particle::getPriority( void )
-{ 
+{
 	return m_system->getPriority();
 }
 
@@ -584,7 +584,7 @@ Bool Particle::isInvisible( void )
 	{
 		case ParticleSystemInfo::ADDITIVE:
 			// if color is black, this particle is invisible
-			
+
 			// check that we're not in the process of going to another color
 			if (m_colorKey[ m_colorTargetKey ].frame == 0)
 			{
@@ -635,7 +635,7 @@ void Particle::crc( Xfer *xfer )
 void Particle::xfer( Xfer *xfer )
 {
 
-	// version 
+	// version
 	XferVersion currentVersion = 1;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
@@ -699,7 +699,7 @@ void Particle::loadPostProcess( void )
 	if( m_systemUnderControlID != INVALID_PARTICLE_SYSTEM_ID )
 	{
 		ParticleSystem *system;
-		
+
 		// find system
 		system = TheParticleSystemManager->findParticleSystem( m_systemUnderControlID );
 
@@ -731,7 +731,7 @@ ParticleSystemInfo::ParticleSystemInfo()
 	m_isGroundAligned = false;
 	m_isEmitAboveGroundOnly = false;
 	m_isParticleUpTowardsEmitter = false;
-	
+
 	//Added By Sadullah Nader
 	//Initializations inserted
 	m_driftVelocity.zero();
@@ -740,7 +740,7 @@ ParticleSystemInfo::ParticleSystemInfo()
 	m_isOneShot = FALSE;
 	m_slavePosOffset.zero();
 	m_systemLifetime = 0;
-	
+
 	//
 	// some default values for the wind motion values
 	m_windMotion = WIND_MOTION_NOT_USED;
@@ -793,7 +793,7 @@ void ParticleSystemInfo::xfer( Xfer *xfer )
 {
 	Int i;
 
-	// version 
+	// version
 	XferVersion currentVersion = 1;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
@@ -865,22 +865,22 @@ void ParticleSystemInfo::xfer( Xfer *xfer )
 
 	// color scale
 	xfer->xferUser( &m_colorScale, sizeof( GameClientRandomVariable ) );
-	
+
 	// burst delay
 	xfer->xferUser( &m_burstDelay, sizeof( GameClientRandomVariable ) );
-	
+
 	// burst count
 	xfer->xferUser( &m_burstCount, sizeof( GameClientRandomVariable ) );
-	
+
 	// initial delay
 	xfer->xferUser( &m_initialDelay, sizeof( GameClientRandomVariable ) );
-	
+
 	// drift velocity
 	xfer->xferCoord3D( &m_driftVelocity );
-	
+
 	// gravity
 	xfer->xferReal( &m_gravity );
-		
+
 	// slave system name
 	xfer->xferAsciiString( &m_slaveSystemName );
 
@@ -908,18 +908,18 @@ void ParticleSystemInfo::xfer( Xfer *xfer )
 			break;
 
 		// --------------------------------------------------------------------------------------------
-		case SPHERICAL:		
-			xfer->xferUser( &m_emissionVelocity.spherical.speed, sizeof( GameClientRandomVariable ) );			
+		case SPHERICAL:
+			xfer->xferUser( &m_emissionVelocity.spherical.speed, sizeof( GameClientRandomVariable ) );
 			break;
 
 		// --------------------------------------------------------------------------------------------
 		case HEMISPHERICAL:
-			xfer->xferUser( &m_emissionVelocity.hemispherical.speed, sizeof( GameClientRandomVariable ) );			
+			xfer->xferUser( &m_emissionVelocity.hemispherical.speed, sizeof( GameClientRandomVariable ) );
 			break;
 
 		// --------------------------------------------------------------------------------------------
 		case CYLINDRICAL:
-			xfer->xferUser( &m_emissionVelocity.cylindrical.radial, sizeof( GameClientRandomVariable ) );						
+			xfer->xferUser( &m_emissionVelocity.cylindrical.radial, sizeof( GameClientRandomVariable ) );
 			xfer->xferUser( &m_emissionVelocity.cylindrical.normal, sizeof( GameClientRandomVariable ) );
 			break;
 
@@ -940,7 +940,7 @@ void ParticleSystemInfo::xfer( Xfer *xfer )
 
 		// --------------------------------------------------------------------------------------------
 		case POINT:
-			// point has no data, it uses the systems position			
+			// point has no data, it uses the systems position
 			break;
 
 		// --------------------------------------------------------------------------------------------
@@ -1032,8 +1032,8 @@ void ParticleSystemInfo::loadPostProcess( void )
 // ------------------------------------------------------------------------------------------------
 /** Read particle system properties from given file */
 // ------------------------------------------------------------------------------------------------
-ParticleSystem::ParticleSystem( const ParticleSystemTemplate *sysTemplate, 
-																ParticleSystemID id, 
+ParticleSystem::ParticleSystem( const ParticleSystemTemplate *sysTemplate,
+																ParticleSystemID id,
 																Bool createSlaves )
 {
 	m_systemParticlesHead = m_systemParticlesTail = NULL;
@@ -1147,7 +1147,7 @@ ParticleSystem::ParticleSystem( const ParticleSystemTemplate *sysTemplate,
 	m_windMotionStartAngle = GameClientRandomValueReal( m_windMotionStartAngleMin, m_windMotionStartAngleMax );
 	m_windMotionEndAngle = GameClientRandomValueReal( m_windMotionEndAngleMin, m_windMotionEndAngleMax );
 	m_windAngle = GameClientRandomValueReal( m_windMotionStartAngle, m_windMotionEndAngle );
-			
+
 	m_shaderType = sysTemplate->m_shaderType;
 
 	m_particleType = sysTemplate->m_particleType;
@@ -1209,7 +1209,7 @@ ParticleSystem::~ParticleSystem()
 		setMaster( NULL );
 
 	}  // end if
-	
+
 
 	// destroy all particles "in the air"
 	while (m_systemParticlesHead)
@@ -1223,7 +1223,7 @@ ParticleSystem::~ParticleSystem()
 		m_controlParticle->detachControlledParticleSystem();
 
 	m_controlParticle = NULL;
-	
+
 	TheParticleSystemManager->friend_removeParticleSystem(this);
 	//DEBUG_ASSERTLOG(!(m_totalParticleSystemCount % 10 == 0), ( "TotalParticleSystemCount = %d\n", m_totalParticleSystemCount ));
 }
@@ -1403,7 +1403,7 @@ const Coord3D *ParticleSystem::computeParticleVelocity( const Coord3D *pos )
 			newVel.y = m_emissionVelocity.ortho.y.getValue();
 			newVel.z = m_emissionVelocity.ortho.z.getValue();
 			break;
-		
+
 		case CYLINDRICAL:
 		{
 			Real radialSpeed, angle;
@@ -1481,7 +1481,7 @@ const Coord3D *ParticleSystem::computeParticleVelocity( const Coord3D *pos )
 					// "speed" is in 'horizontal' plane, and "otherSpeed" is 'vertical'
 					newVel.x = speed * perp.x + otherSpeed * up.x;
 					newVel.y = speed * perp.y + otherSpeed * up.y;
-					newVel.z = speed * perp.z + otherSpeed * up.z;								
+					newVel.z = speed * perp.z + otherSpeed * up.z;
 					break;
 				}
 
@@ -1559,7 +1559,7 @@ const Coord3D *ParticleSystem::computeParticlePosition( void )
 		{
 			Real angle = GameClientRandomValueReal( 0, 2.0f*PI );
 			Real radius;
-			
+
 			if (m_isEmissionVolumeHollow)
 				radius = m_emissionVolume.cylinder.radius;
 			else
@@ -1593,10 +1593,10 @@ const Coord3D *ParticleSystem::computeParticlePosition( void )
 		}
 
 		case BOX:
-		{			
+		{
 			if (m_isEmissionVolumeHollow) {
 				// determine which side to generate on.
-				// 0 is bottom, 3 is top, 
+				// 0 is bottom, 3 is top,
 				// 1 is left , 4 is right
 				// 2 is front, 5 is right back
 
@@ -1610,7 +1610,7 @@ const Coord3D *ParticleSystem::computeParticlePosition( void )
 					} else {
 						newPos.z = m_emissionVolume.box.halfSize.z;
 					}
-															
+
 				} else if (side % 3 == 1) {
 					// generate Y, Z
 					newPos.y = GameClientRandomValueReal( -m_emissionVolume.box.halfSize.y, m_emissionVolume.box.halfSize.y );
@@ -1674,7 +1674,7 @@ const Coord3D *ParticleSystem::computeParticlePosition( void )
 // ------------------------------------------------------------------------------------------------
 /** Factory method for particles. */
 // ------------------------------------------------------------------------------------------------
-Particle *ParticleSystem::createParticle( const ParticleInfo *info, 
+Particle *ParticleSystem::createParticle( const ParticleInfo *info,
 																					ParticlePriorityType priority,
 																					Bool forceCreate )
 {
@@ -1697,18 +1697,18 @@ Particle *ParticleSystem::createParticle( const ParticleInfo *info,
 		//
 
 		//
-		// Check if particle is below priorities we allow for this FPS or if it being skipped because 
-		// all particesl are being skipped (excluding special fps independent particles at 
-		// getMinDynamicParticleSkipPriority()) 
+		// Check if particle is below priorities we allow for this FPS or if it being skipped because
+		// all particesl are being skipped (excluding special fps independent particles at
+		// getMinDynamicParticleSkipPriority())
 		//
 		if( priority < TheGameLODManager->getMinDynamicParticlePriority() ||
-				(priority < TheGameLODManager->getMinDynamicParticleSkipPriority() && 
+				(priority < TheGameLODManager->getMinDynamicParticleSkipPriority() &&
 				 TheGameLODManager->isParticleSkipped()) )
 			return NULL;
 
 		if ( getParticleCount() > 0 && priority == AREA_EFFECT && m_isGroundAligned && TheParticleSystemManager->getFieldParticleCount() > (UnsignedInt)TheGlobalData->m_maxFieldParticleCount )
 			return NULL;
-		
+
 		// ALWAYS_RENDER particles are exempt from all count limits, and are always created, regardless of LOD issues.
 		if (priority != ALWAYS_RENDER)
 		{
@@ -1754,15 +1754,15 @@ const ParticleInfo *ParticleSystem::generateParticleInfo( Int particleNum, Int p
 	{
 		// transform particle position to world coordinates
 		Vector3 p, pr;
-		
+
 		Coord3D emissionAdjustment;	// this is the adjustment for inter-frame emission
-		// @todo : This should work, if m_lastPos = m_pos is removed from here but it doesn't. 
+		// @todo : This should work, if m_lastPos = m_pos is removed from here but it doesn't.
 		// @todo : Investigate why. jkmcd
 		if (m_isFirstPos) {
 			m_lastPos = m_pos;
 			m_isFirstPos = false;
 		}
-		
+
 		emissionAdjustment.x = (1 - (INT_TO_REAL(particleNum) / particleCount)) * (m_pos.x - m_lastPos.x);
 		emissionAdjustment.y = (1 - (INT_TO_REAL(particleNum) / particleCount)) * (m_pos.y - m_lastPos.y);
 		emissionAdjustment.z = (1 - (INT_TO_REAL(particleNum) / particleCount)) * (m_pos.z - m_lastPos.z);
@@ -1890,7 +1890,7 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 			m_pos = *attachedTo->getPosition();
 		}
 		else
-		{ 
+		{
 			// Drawable has been destroyed - lose our attachment to it
 			m_attachedToDrawableID = INVALID_DRAWABLE_ID;
 
@@ -1906,13 +1906,13 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 		{
 			if (!isShrouded)
 				isShrouded = (objectAttachedTo->getShroudedStatus(localPlayerIndex) >= OBJECTSHROUD_FOGGED);
- 
+
       const Drawable * draw = objectAttachedTo->getDrawable();
       if ( draw )
   			parentXfrm = draw->getTransformMatrix();
       else
   			parentXfrm = objectAttachedTo->getTransformMatrix();
-      
+
 
 
 
@@ -1920,7 +1920,7 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 			m_pos = *objectAttachedTo->getPosition();
 		}
 		else
-		{ 
+		{
 			// Drawable has been destroyed - lose our attachment to it
 			m_attachedToObjectID = INVALID_ID;
 
@@ -2034,7 +2034,7 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 							}
 						}
 					}
-						
+
 					// compute next burst delay
 					m_burstDelayLeft = (UnsignedInt)m_burstDelay.getValue();
 					m_burstDelayLeft *= m_delayCoeff;
@@ -2127,7 +2127,7 @@ void ParticleSystem::updateWindMotion( void )
 
 			// given our current angle ... how far away from the "center" of the span are we
 			Real diffFromCenter = fabs( halfSpan - m_windAngle + startAngle );
-	
+
 			//
 			// given our distance from the center ... we need to compute how much we will change
 			// the angle.  When we are closer to the center we change it faster (more), and when
@@ -2139,7 +2139,7 @@ void ParticleSystem::updateWindMotion( void )
 			#define MINIMUM_CHANGE 0.005f  // lower #'s have softer swings at the edge angles
 			if( change < MINIMUM_CHANGE )
 				change = MINIMUM_CHANGE;
-			
+
 			//
 			// if we are moving toward the end angle we add the change, if we're moving away
 			// from it we subtract it
@@ -2158,15 +2158,15 @@ void ParticleSystem::updateWindMotion( void )
 					m_windMotionMovingToEndAngle = FALSE;
 
 					// pick a new change delta
-					m_windAngleChange = 
+					m_windAngleChange =
 							GameClientRandomValueReal( m_windAngleChangeMin, m_windAngleChangeMax );
 
 					// pick new start and end angles
-					m_windMotionStartAngle = 
-							GameClientRandomValueReal( m_windMotionStartAngleMin, 
+					m_windMotionStartAngle =
+							GameClientRandomValueReal( m_windMotionStartAngleMin,
 																				 m_windMotionStartAngleMax );
-					m_windMotionEndAngle = 
-							GameClientRandomValueReal( m_windMotionEndAngleMin, 
+					m_windMotionEndAngle =
+							GameClientRandomValueReal( m_windMotionEndAngleMin,
 																				 m_windMotionEndAngleMax );
 
 				}  // end if
@@ -2186,15 +2186,15 @@ void ParticleSystem::updateWindMotion( void )
 					m_windMotionMovingToEndAngle = TRUE;
 
 					// pick a new change delta
-					m_windAngleChange = 
+					m_windAngleChange =
 							GameClientRandomValueReal( m_windAngleChangeMin, m_windAngleChangeMax );
 
 					// pick new start and end angles
-					m_windMotionStartAngle = 
-							GameClientRandomValueReal( m_windMotionStartAngleMin, 
+					m_windMotionStartAngle =
+							GameClientRandomValueReal( m_windMotionStartAngleMin,
 																				 m_windMotionStartAngleMax );
-					m_windMotionEndAngle = 
-							GameClientRandomValueReal( m_windMotionEndAngleMin, 
+					m_windMotionEndAngle =
+							GameClientRandomValueReal( m_windMotionEndAngleMin,
 																				 m_windMotionEndAngleMax );
 
 				}  // end if
@@ -2215,7 +2215,7 @@ void ParticleSystem::updateWindMotion( void )
 
 			// add to our wind angle
 			m_windAngle += m_windAngleChange;
-			
+
 			// keep in 0 to 2PI range just to keep the numbers safe and sane
 			if( m_windAngle > TWO_PI )
 				m_windAngle -= TWO_PI;
@@ -2266,7 +2266,7 @@ void ParticleSystem::addParticle( Particle *particleToAdd )
 
 	++m_particleCount;
 
-	particleToAdd->setPersonality( m_personalityStore++ ); 
+	particleToAdd->setPersonality( m_personalityStore++ );
 
 }
 
@@ -2349,11 +2349,11 @@ ParticleInfo ParticleSystem::mergeRelatedParticleSystems( ParticleSystem *master
 		slaveParticleSystem->m_emissionVolumeType = masterParticleSystem->m_emissionVolumeType;
 		slaveParticleSystem->m_isEmissionVolumeHollow = masterParticleSystem->m_isEmissionVolumeHollow;
 
-		
+
 		slaveParticleSystem->m_startSize.setRange(masterParticleSystem->m_startSize.getMinimumValue() * slaveParticleSystem->m_startSize.getMinimumValue(),
 																							masterParticleSystem->m_startSize.getMaximumValue() * slaveParticleSystem->m_startSize.getMaximumValue(),
 																							masterParticleSystem->m_startSize.getDistributionType());
-	
+
 		slaveParticleSystem->m_sizeRate.setRange(masterParticleSystem->m_sizeRate.getMinimumValue() * slaveParticleSystem->m_sizeRate.getMinimumValue(),
 																							masterParticleSystem->m_sizeRate.getMaximumValue() * slaveParticleSystem->m_sizeRate.getMaximumValue(),
 																							masterParticleSystem->m_sizeRate.getDistributionType());
@@ -2361,11 +2361,11 @@ ParticleInfo ParticleSystem::mergeRelatedParticleSystems( ParticleSystem *master
 		slaveParticleSystem->m_sizeRateDamping.setRange(masterParticleSystem->m_sizeRateDamping.getMinimumValue() * slaveParticleSystem->m_sizeRateDamping.getMinimumValue(),
 																							masterParticleSystem->m_sizeRateDamping.getMaximumValue() * slaveParticleSystem->m_sizeRateDamping.getMaximumValue(),
 																							masterParticleSystem->m_sizeRateDamping.getDistributionType());
-		
-//		slaveParticleSystem->m_burstCount.setRange(masterParticleSystem->m_burstCount.getMinimumValue() / 2, 
+
+//		slaveParticleSystem->m_burstCount.setRange(masterParticleSystem->m_burstCount.getMinimumValue() / 2,
 //																							 masterParticleSystem->m_burstCount.getMaximumValue() / 2,
 //																							 masterParticleSystem->m_burstCount.getDistributionType());
-		
+
 	}
 
 	return mergeInfo;
@@ -2603,7 +2603,7 @@ void ParticleSystem::loadPostProcess( void )
 // ------------------------------------------------------------------------------------------------
 /** INI parse data */
 // ------------------------------------------------------------------------------------------------
-const FieldParse ParticleSystemTemplate::m_fieldParseTable[] = 
+const FieldParse ParticleSystemTemplate::m_fieldParseTable[] =
 {
 	{ "Priority",								INI::parseIndexList, ParticlePriorityNames, offsetof( ParticleSystemTemplate, m_priority ) },
 	{ "IsOneShot",							INI::parseBool,						NULL,		offsetof( ParticleSystemTemplate, m_isOneShot ) },
@@ -2734,7 +2734,7 @@ void ParticleSystemTemplate::parseRGBColorKeyframe( INI* ini, void *instance,
 /** Parse a RandomVariable RGB color.
  * Note that the components may be negative, as this is used for rates, as well. */
 // ------------------------------------------------------------------------------------------------
-void ParticleSystemTemplate::parseRandomRGBColor( INI* ini, void *instance, 
+void ParticleSystemTemplate::parseRandomRGBColor( INI* ini, void *instance,
 																											 void *store, const void* /*userData*/ )
 {
 #if 0
@@ -2775,9 +2775,9 @@ void ParticleSystemTemplate::parseRandomRGBColor( INI* ini, void *instance,
 	// assign the color components to the "RGBColor" pointer at 'store'
 	ParticleSystemInfo::RandomRGBColor *theColor = (ParticleSystemInfo::RandomRGBColor *)store;
 
-	theColor->red.setRange( (Real)colors[ LO ][ RED ] / 255.0f, (Real)colors[ HI ][ RED ] / 255.0f ); 
-	theColor->green.setRange( (Real)colors[ LO ][ GREEN ] / 255.0f, (Real)colors[ HI ][ GREEN ] / 255.0f ); 
-	theColor->blue.setRange( (Real)colors[ LO ][ BLUE ] / 255.0f, (Real)colors[ HI ][ BLUE ] / 255.0f ); 
+	theColor->red.setRange( (Real)colors[ LO ][ RED ] / 255.0f, (Real)colors[ HI ][ RED ] / 255.0f );
+	theColor->green.setRange( (Real)colors[ LO ][ GREEN ] / 255.0f, (Real)colors[ HI ][ GREEN ] / 255.0f );
+	theColor->blue.setRange( (Real)colors[ LO ][ BLUE ] / 255.0f, (Real)colors[ HI ][ BLUE ] / 255.0f );
 #endif
 }
 
@@ -2785,7 +2785,7 @@ void ParticleSystemTemplate::parseRandomRGBColor( INI* ini, void *instance,
 // ------------------------------------------------------------------------------------------------
 ParticleSystemTemplate::ParticleSystemTemplate( const AsciiString &name ) :
 	m_name(name)
-{ 
+{
 	//Added By Sadullah Nader
 	//Initializations inserted
 	m_slaveTemplate = NULL;
@@ -2796,7 +2796,7 @@ ParticleSystemTemplate::ParticleSystemTemplate( const AsciiString &name ) :
 // ------------------------------------------------------------------------------------------------
 ParticleSystemTemplate::~ParticleSystemTemplate()
 {
- 
+
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -2829,7 +2829,7 @@ ParticleSystemManager::ParticleSystemManager( void )
 
 	m_onScreenParticleCount = 0;
 	m_localPlayerIndex = 0;
-	
+
 	//Added By Sadullah Nader
 	//Initializations inserted
 	m_lastLogicFrameUpdate = 0;
@@ -2840,7 +2840,7 @@ ParticleSystemManager::ParticleSystemManager( void )
 
 	for( Int i = 0; i < NUM_PARTICLE_PRIORITIES; ++i )
 	{
-		
+
 		m_allParticlesHead[ i ] = NULL;
 		m_allParticlesTail[ i ] = NULL;
 
@@ -2874,7 +2874,7 @@ void ParticleSystemManager::init( void )
 	for( Int i = 0; i < NUM_PARTICLE_PRIORITIES; ++i )
 	{
 
-		// sanity		
+		// sanity
 		DEBUG_ASSERTCRASH( m_allParticlesHead[ i ] == NULL, ("INIT: ParticleSystem all particles head[%d] is not NULL!\n", i) );
 		DEBUG_ASSERTCRASH( m_allParticlesTail[ i ] == NULL, ("INIT: ParticleSystem all particles tail[%d] is not NULL!\n", i) );
 
@@ -2901,7 +2901,7 @@ void ParticleSystemManager::reset( void )
 	for( Int i = 0; i < NUM_PARTICLE_PRIORITIES; ++i )
 	{
 
-		// sanity		
+		// sanity
 		DEBUG_ASSERTCRASH( m_allParticlesHead[ i ] == NULL, ("RESET: ParticleSystem all particles head[%d] is not NULL!\n", i) );
 		DEBUG_ASSERTCRASH( m_allParticlesTail[ i ] == NULL, ("RESET: ParticleSystem all particles tail[%d] is not NULL!\n", i) );
 
@@ -2916,7 +2916,7 @@ void ParticleSystemManager::reset( void )
 	m_particleSystemCount = 0;
 
 	m_uniqueSystemID = INVALID_PARTICLE_SYSTEM_ID;
-	
+
 	m_lastLogicFrameUpdate = -1;
 	// leave templates as-is
 }
@@ -2937,7 +2937,7 @@ void ParticleSystemManager::update( void )
 	//USE_PERF_TIMER(ParticleSystemManager)
 	ParticleSystem *sys;
 
-	for(ParticleSystemListIt it = m_allParticleSystemList.begin(); it != m_allParticleSystemList.end();) 
+	for(ParticleSystemListIt it = m_allParticleSystemList.begin(); it != m_allParticleSystemList.end();)
 	{
 		sys = (*it);
 		if (!sys) {
@@ -2979,7 +2979,7 @@ ParticleSystem *ParticleSystemManager::createParticleSystem( const ParticleSyste
 // ------------------------------------------------------------------------------------------------
 /// given a template, instantiate a particle system attached to the given object, and return its ID
 // ------------------------------------------------------------------------------------------------
-ParticleSystemID ParticleSystemManager::createAttachedParticleSystemID( 
+ParticleSystemID ParticleSystemManager::createAttachedParticleSystemID(
 																			const ParticleSystemTemplate *sysTemplate,
 																			Object* attachTo,
 																			Bool createSlaves )
@@ -3078,11 +3078,11 @@ ParticleSystemTemplate *ParticleSystemManager::findParentTemplate( const AsciiSt
 		}
 	}
 
-	return NULL;	
+	return NULL;
 }
 
 // ------------------------------------------------------------------------------------------------
-/** Destroy any particle systems that are attached to this object */	
+/** Destroy any particle systems that are attached to this object */
 // ------------------------------------------------------------------------------------------------
 void ParticleSystemManager::destroyAttachedSystems( Object *obj )
 {
@@ -3094,15 +3094,15 @@ void ParticleSystemManager::destroyAttachedSystems( Object *obj )
 	// iterate through all systems
 	ParticleSystem *system = NULL;
 
-	for( ParticleSystemListIt it = m_allParticleSystemList.begin(); 
-			 it != m_allParticleSystemList.end(); 
-			 ++it ) 
+	for( ParticleSystemListIt it = m_allParticleSystemList.begin();
+			 it != m_allParticleSystemList.end();
+			 ++it )
 	{
 
 		system = *it;
 		if( system == NULL )
 			continue;
-		
+
 		if( system->getAttachedObject() == obj->getID() )
 			system->destroy();
 
@@ -3138,7 +3138,7 @@ void ParticleSystemManager::addParticle( Particle *particleToAdd, ParticlePriori
 	particleToAdd->m_inOverallList = TRUE;
 
 	++m_particleCount;
-	
+
 
 }
 
@@ -3198,18 +3198,18 @@ void ParticleSystemManager::friend_removeParticleSystem( ParticleSystem *particl
 /** Remove the oldest N number of particles from the lowest priority lists first.  We will
  * not remove particles from any priorities higher or equal to the priorityCap parameter. */
 // ------------------------------------------------------------------------------------------------
-Int ParticleSystemManager::removeOldestParticles( UnsignedInt count, 
+Int ParticleSystemManager::removeOldestParticles( UnsignedInt count,
 																									ParticlePriorityType priorityCap )
 {
 	Int countToRemove = count;
 
-	while (count-- && getParticleCount()) 
+	while (count-- && getParticleCount())
 	{
 		for( Int i = PARTICLE_PRIORITY_LOWEST;
 				 i < priorityCap;
 				 ++i )
 		{
-			if( m_allParticlesHead[ i ] ) 
+			if( m_allParticlesHead[ i ] )
 			{
 				m_allParticlesHead[ i ]->deleteInstance();
 				break;  // exit for
@@ -3365,7 +3365,7 @@ void ParticleSystemDebugDisplay( DebugDisplayInterface *dd, void *, FILE *fp )
 
 	dd->setCursorPos( 0, 0 );
 	dd->setRightMargin( 2 );
-	
+
 	dd->printf( "Total Particles: %d\n", TheParticleSystemManager->getParticleCount() );
 	dd->printf( "Total Particles (On Screen): %d\n", TheParticleSystemManager->getOnScreenParticleCount());
 	dd->printf( "Total Particle Systems: %d\n", TheParticleSystemManager->getParticleSystemCount() );
@@ -3436,7 +3436,7 @@ static Real angleBetween(const Coord2D *vecA, const Coord2D *vecB)
 	if (vecB->x > 0) {
 		return theta;
 	}
-	
+
 	return -theta;
 }
 

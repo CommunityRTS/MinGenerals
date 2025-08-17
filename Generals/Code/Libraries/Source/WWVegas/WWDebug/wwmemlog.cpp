@@ -118,9 +118,9 @@ public:
 		ThreadID(-1),
 		Count(0)
 	{ }
-	
+
 	~ActiveCategoryStackClass(void)									{ WWASSERT(Count == 1); }
-	
+
 	ActiveCategoryStackClass & operator = (const ActiveCategoryStackClass & that);
 
 	bool		operator == (const ActiveCategoryStackClass &)	{ return false; }

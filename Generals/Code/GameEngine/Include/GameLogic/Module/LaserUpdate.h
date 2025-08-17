@@ -55,7 +55,7 @@ public:
 	LaserUpdateModuleData();
 	static void buildFieldParse(MultiIniFieldParse& p);
 
-private: 
+private:
 
 };
 

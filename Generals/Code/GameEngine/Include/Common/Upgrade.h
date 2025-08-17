@@ -103,7 +103,7 @@ enum UpgradeType
 	NUM_UPGRADE_TYPES,		// keep this last
 };
 #ifdef DEFINE_UPGRADE_TYPE_NAMES
-static Char *UpgradeTypeNames[] = 
+static Char *UpgradeTypeNames[] =
 {
 	"PLAYER",
 	"OBJECT",
@@ -162,7 +162,7 @@ protected:
 	NameKeyType m_nameKey;							///< name key
 	AsciiString m_displayNameLabel;			///< String manager label for UI display name
 	Real m_buildTime;										///< database # for how long it takes to "build" this
-	Int m_cost;													///< cost for production 
+	Int m_cost;													///< cost for production
 	Int64 m_upgradeMask;								///< Unique bitmask for this upgrade template
 	AudioEventRTS	m_researchSound;			///< Sound played when upgrade researched.
 	AudioEventRTS	m_unitSpecificSound;	///< Secondary sound played when upgrade researched.

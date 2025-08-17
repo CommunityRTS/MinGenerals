@@ -208,7 +208,7 @@ mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 //mad COL, c[CV_LIGHT_COLOR_1], LIGHT_1.w, COL
 //mad COL, c[CV_LIGHT_COLOR_2], LIGHT_2.w, COL
 
- 
+
 //mul oT2, COL, c[CV_SPECULAR]
 
 // Set alpha to 1

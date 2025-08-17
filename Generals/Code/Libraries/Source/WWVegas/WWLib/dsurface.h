@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/dsurface.h                                         $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/dsurface.h                                         $*
+ *                                                                                             *
  *                      $Author:: Neal_k                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 6/23/00 2:24p                                               $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #ifndef DSURFACE_H
@@ -148,7 +148,7 @@ class DSurface : public XSurface
 		*/
 		LPDIRECTDRAWSURFACE SurfacePtr;
 		DDSURFACEDESC * Description;
-		
+
 		/*
 		**	Pointer to the clipper object that is attached to the primary
 		**	surface.
@@ -161,7 +161,7 @@ class DSurface : public XSurface
 		static DDPIXELFORMAT PixelFormat;
 
 		/*
-		**	Shift values to extract the gun value from a hicolor pixel such that the 
+		**	Shift values to extract the gun value from a hicolor pixel such that the
 		**	gun component is normalized to a byte value.
 		*/
 		static int RedRight;

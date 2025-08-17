@@ -483,7 +483,7 @@ STM_ACCESS*		STM_StreamAcquireAccess ( STM_STREAM *stm, int access_id )
 		DBGPRINTF ((  "%s access to stream failed. Access already acquired.\n",access->id == vSTM_ACCESS_ID_IN ? "Write" : "Read" ));
 		return NULL;
 	}
-	
+
 	DBG_CODE
 	(
 		if ( !stm->buffers)

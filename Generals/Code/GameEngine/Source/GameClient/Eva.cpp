@@ -38,7 +38,7 @@
 #endif
 
 //-------------------------------------------------------------------------------------------------
-const char *TheEvaMessageNames[] = 
+const char *TheEvaMessageNames[] =
 {
 	"LOWPOWER",
 	"INSUFFICIENTFUNDS",
@@ -69,8 +69,8 @@ void INI::parseEvaEvent( INI* ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
-	
+	name.set( c );
+
 	EvaCheckInfo *check = TheEva->newEvaCheckInfo( name );
 	if (!check) {
 		// could be null because it already exists.
@@ -109,11 +109,11 @@ EvaCheckInfo::EvaCheckInfo() :
 	m_framesToExpire(150) // 5 seconds at 30 fps
 {
 
-	
+
 }
 
 //-------------------------------------------------------------------------------------------------
-const FieldParse EvaCheckInfo::s_evaEventInfo[] = 
+const FieldParse EvaCheckInfo::s_evaEventInfo[] =
 {
 	{ "Priority",							INI::parseUnsignedInt,					NULL,			offsetof( EvaCheckInfo, m_priority ) },
 	{ "TimeBetweenChecksMS",	INI::parseDurationUnsignedInt,	NULL,			offsetof( EvaCheckInfo, m_framesBetweenChecks ) },
@@ -125,7 +125,7 @@ const FieldParse EvaCheckInfo::s_evaEventInfo[] =
 
 
 //-------------------------------------------------------------------------------------------------
-const ShouldPlayFunc Eva::s_shouldPlayFuncs[] = 
+const ShouldPlayFunc Eva::s_shouldPlayFuncs[] =
 {
 	Eva::shouldPlayLowPower,
 	Eva::shouldPlayGenericHandler,
@@ -144,23 +144,23 @@ const ShouldPlayFunc Eva::s_shouldPlayFuncs[] =
 	Eva::shouldPlayGenericHandler,
 	Eva::shouldPlayGenericHandler,
 	Eva::shouldPlayGenericHandler,
-	Eva::shouldPlayGenericHandler,	
-	Eva::shouldPlayGenericHandler,	
+	Eva::shouldPlayGenericHandler,
+	Eva::shouldPlayGenericHandler,
 	NULL,
 };
 
 //-------------------------------------------------------------------------------------------------
-EvaCheck::EvaCheck() : 
-	m_evaInfo(NULL), 
+EvaCheck::EvaCheck() :
+	m_evaInfo(NULL),
 	m_triggeredOnFrame(TRIGGEREDON_NOT),
-	m_timeForNextCheck(NEXT_CHECK_NOW), 
+	m_timeForNextCheck(NEXT_CHECK_NOW),
 	m_alreadyPlayed(FALSE)
 {
 
 }
 
 //-------------------------------------------------------------------------------------------------
-Eva::Eva() : 
+Eva::Eva() :
 	m_localPlayer(NULL),
 	m_previousBuildingCount(0),
 	m_previousUnitCount(0),
@@ -205,7 +205,7 @@ void Eva::reset()
 	// remove all things flagged as "need to play"
 	for (Int i = 0; i < EVA_COUNT; ++i) {
 		m_shouldPlay[i] = FALSE;
-	}	
+	}
 
 	// If we were previously disabled, re-enable ourselves.
 	m_enabled = TRUE;
@@ -235,7 +235,7 @@ void Eva::update()
 		}
 	}
 
-	processPlayingMessages(frame);	
+	processPlayingMessages(frame);
 	m_localPlayer = NULL;
 
 	// Reset all of the flags that have been set to true that haven't actually been probed, because
@@ -314,7 +314,7 @@ void Eva::setEvaEnabled(Bool enabled)
 	for (Int i = EVA_FIRST; i < EVA_COUNT; ++i) {
 		m_shouldPlay[i] = FALSE;
 	}
-	m_enabled = enabled; 
+	m_enabled = enabled;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -452,7 +452,7 @@ void Eva::processPlayingMessages(UnsignedInt currentFrame)
 	// Update the entry
 	storedIt->m_alreadyPlayed = true;
 	storedIt->m_timeForNextCheck = currentFrame + storedIt->m_evaInfo->m_framesBetweenChecks;
-	
+
 	// Now that we correctly filter messages, we need to set the player index for who should hear the
 	// sound to the local player.
 	m_evaSpeech.setPlayerIndex(m_localPlayer->getPlayerIndex());

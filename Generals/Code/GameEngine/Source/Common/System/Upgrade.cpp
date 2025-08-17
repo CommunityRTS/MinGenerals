@@ -104,7 +104,7 @@ void Upgrade::loadPostProcess( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-const FieldParse UpgradeTemplate::m_upgradeFieldParseTable[] = 
+const FieldParse UpgradeTemplate::m_upgradeFieldParseTable[] =
 {
 
 	{ "DisplayName",				INI::parseAsciiString,		NULL, offsetof( UpgradeTemplate, m_displayNameLabel ) },
@@ -112,8 +112,8 @@ const FieldParse UpgradeTemplate::m_upgradeFieldParseTable[] =
 	{ "BuildTime",					INI::parseReal,						NULL, offsetof( UpgradeTemplate, m_buildTime ) },
 	{ "BuildCost",					INI::parseInt,						NULL, offsetof( UpgradeTemplate, m_cost ) },
 	{ "ButtonImage",				INI::parseAsciiString,		NULL, offsetof( UpgradeTemplate, m_buttonImageName ) },
-	{ "ResearchSound",			INI::parseAudioEventRTS,	NULL, offsetof( UpgradeTemplate, m_researchSound ) }, 
-	{ "UnitSpecificSound",	INI::parseAudioEventRTS,	NULL, offsetof( UpgradeTemplate, m_unitSpecificSound ) }, 
+	{ "ResearchSound",			INI::parseAudioEventRTS,	NULL, offsetof( UpgradeTemplate, m_researchSound ) },
+	{ "UnitSpecificSound",	INI::parseAudioEventRTS,	NULL, offsetof( UpgradeTemplate, m_unitSpecificSound ) },
 	{ NULL,						NULL,												 NULL, 0 }  // keep this last
 
 };
@@ -227,7 +227,7 @@ UpgradeCenter::UpgradeCenter( void )
 //-------------------------------------------------------------------------------------------------
 UpgradeCenter::~UpgradeCenter( void )
 {
-	
+
 	// delete all the upgrades loaded from the INI database
 	UpgradeTemplate *next;
 	while( m_upgradeList )
@@ -252,7 +252,7 @@ UpgradeCenter::~UpgradeCenter( void )
 void UpgradeCenter::init( void )
 {
 	UpgradeTemplate* up;
-	
+
 	// name will be overridden by friend_makeVeterancyUpgrade
 
 // no, there ISN'T an upgrade for this one...
@@ -317,7 +317,7 @@ UpgradeTemplate *UpgradeCenter::findNonConstUpgradeByKey( NameKeyType key )
 // ------------------------------------------------------------------------------------------------
 UpgradeTemplate *UpgradeCenter::firstUpgradeTemplate( void )
 {
-	
+
 	return m_upgradeList;
 
 }  // end firstUpgradeTemplate
@@ -422,7 +422,7 @@ void UpgradeCenter::unlinkUpgrade( UpgradeTemplate *upgrade )
 //-------------------------------------------------------------------------------------------------
 Bool UpgradeCenter::canAffordUpgrade( Player *player, const UpgradeTemplate *upgradeTemplate, Bool displayReason ) const
 {
- 
+
 	// sanity
 	if( player == NULL || upgradeTemplate == NULL )
 		return FALSE;
@@ -466,7 +466,7 @@ void UpgradeCenter::parseUpgradeDefinition( INI *ini )
 {
 	// read the name
 	const char* c = ini->getNextToken();
-	AsciiString name = c;	
+	AsciiString name = c;
 
 	// find existing item if present
 	UpgradeTemplate* upgrade = TheUpgradeCenter->findNonConstUpgradeByKey( NAMEKEY(name) );

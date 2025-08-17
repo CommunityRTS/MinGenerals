@@ -59,7 +59,7 @@ const Int MAX_GLOBAL_LIGHTS	= 3;
 /** Global data container class
   *	Defines all global game data used by the system
 	* @todo Change this entire system. Otherwise this will end up a huge class containing tons of variables,
-	* and will cause re-compilation dependancies throughout the codebase. 
+	* and will cause re-compilation dependancies throughout the codebase.
   * OOPS -- TOO LATE! :) */
 //-------------------------------------------------------------------------------------------------
 class GlobalData : public SubsystemInterface
@@ -131,7 +131,7 @@ public:
 	Real m_waterPositionX;
 	Real m_waterPositionY;
 	Real m_waterPositionZ;
-	Real m_waterExtentX;	
+	Real m_waterExtentX;
 	Real m_waterExtentY;
 	Int	m_waterType;
 	Bool m_showSoftWaterEdge;
@@ -195,7 +195,7 @@ public:
 	Int m_maxTankTrackEdges;	///<maximum length of tank track
 	Int m_maxTankTrackOpaqueEdges;	///<maximum length of tank track before it starts fading.
 	Int m_maxTankTrackFadeDelay;	///<maximum amount of time a tank track segment remains visible.
-	
+
 	AsciiString m_levelGainAnimationName; ///< The animation to play when a level is gained.
 	Real m_levelGainAnimationDisplayTimeInSeconds;		///< time to play animation for
 	Real m_levelGainAnimationZRisePerSecond;					///< rise animation up while playing
@@ -259,13 +259,13 @@ public:
 	Bool m_winCursors;						///< Should we force use of windows cursors?
 	Bool m_constantDebugUpdate;		///< should we update the debug stats constantly, vs every 2 seconds?
 	Bool m_showTeamDot;						///< Shows the little colored team dot representing which team you are controlling.
-	
+
 #ifdef DUMP_PERF_STATS
 	Bool m_dumpPerformanceStatistics;
   Bool  m_dumpStatsAtInterval;///< should I automatically dum stats every in N frames
   Int   m_statsInterval;       ///< if so, how many is N?
 #endif
-	
+
 	Bool m_forceBenchmark;	///<forces running of CPU detection benchmark, even on known cpu's.
 
 	Int m_fixedSeed;							///< fixed random seed for game logic (less than 0 to disable)
@@ -344,7 +344,7 @@ public:
 
 	Real m_keyboardScrollFactor;			///< Factor applied to game scrolling speed via keyboard scrolling
 	Real m_keyboardDefaultScrollFactor;			///< Factor applied to game scrolling speed via keyboard scrolling
-	
+
   Real m_musicVolumeFactor;         ///< Factor applied to loudness of music volume
   Real m_SFXVolumeFactor;           ///< Factor applied to loudness of SFX volume
   Real m_voiceVolumeFactor;         ///< Factor applied to loudness of voice volume
@@ -353,7 +353,7 @@ public:
 	Bool m_animateWindows;						///< Should we animate window transitions?
 
 	Bool m_incrementalAGPBuf;
-	
+
 	UnsignedInt m_iniCRC;							///< CRC of important INI files
 	UnsignedInt m_exeCRC;							///< CRC of the executable
 
@@ -368,10 +368,10 @@ public:
 	Bool m_selectionFlashHouseColor ;  /// skip the house color and just use white.
 
 	Real m_cameraAudibleRadius;				///< If the camera is being used as the position of audio, then how far can we hear?
-	Real m_groupMoveClickToGatherFactor; /** if you take all the selected units and calculate the smallest possible rectangle 
-																			 that contains them all, and click within that, all the selected units will break 
+	Real m_groupMoveClickToGatherFactor; /** if you take all the selected units and calculate the smallest possible rectangle
+																			 that contains them all, and click within that, all the selected units will break
 																			 formation and gather at the point the user clicked (if the value is 1.0). If it's 0.0,
-																			 units will always keep their formation. If it's <1.0, then the user must click a 
+																			 units will always keep their formation. If it's <1.0, then the user must click a
 																			 smaller area within the rectangle to order the gather. */
 
 	Int m_antiAliasBoxValue;          ///< value of selected antialias from combo box in options menu
@@ -404,7 +404,7 @@ public:
 
   //THis is put on ice until later - M Lorenzen
   //	Int m_cheaterHasBeenSpiedIfMyLowestBitIsTrue; ///< says it all.. this lives near other "colors" cause it is masquerading as one
-	
+
 	AsciiString m_specialPowerViewObjectName;	///< Created when certain special powers are fired so players can watch.
 
 	std::vector<AsciiString> m_standardPublicBones;
@@ -412,10 +412,10 @@ public:
 	Real m_standardMinefieldDensity;
 	Real m_standardMinefieldDistance;
 
-	
+
 	Bool  m_showMetrics;								///< whether or not to show the metrics.
 	Money m_defaultStartingCash;				///< The amount of cash a player starts with by default.
-	
+
 	Bool m_debugShowGraphicalFramerate;		///< Whether or not to show the graphical framerate bar.
 
 	Int m_powerBarBase;										///< Logrithmic base for the power bar scale
@@ -426,7 +426,7 @@ public:
 	UnsignedInt m_unlookPersistDuration;	///< How long after unlook until the sighting info executes the undo
 
 	Bool m_shouldUpdateTGAToDDS;					///< Should we attempt to update old TGAs to DDS stuff on loadup?
-  
+
 	UnsignedInt m_doubleClickTimeMS;	///< What is the maximum amount of time that can seperate two clicks in order
 																		///< for us to generate a double click message?
 
@@ -445,7 +445,7 @@ public:
 	UnsignedInt m_networkDisconnectTime;			      	///< The number of milliseconds between when the game gets stuck on a frame for a network stall and when the disconnect dialog comes up.
 	UnsignedInt m_networkPlayerTimeoutTime;		      	///< The number of milliseconds between when a player's last keep alive command was recieved and when they are considered disconnected from the game.
 	UnsignedInt	m_networkDisconnectScreenNotifyTime;  ///< The number of milliseconds between when the disconnect screen comes up and when the other players are notified that we are on the disconnect screen.
-	
+
 	Real				m_keyboardCameraRotateSpeed;    ///< How fast the camera rotates when rotated via keyboard controls.
   Int					m_playStats;									///< Int whether we want to log play stats or not, if <= 0 then we don't log
 
@@ -453,7 +453,7 @@ public:
 	Bool m_specialPowerUsesDelay ;
 #endif
   Bool m_TiVOFastMode;            ///< When true, the client speeds up the framerate... set by HOTKEY!
-  
+
 
 
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -525,7 +525,7 @@ private:
 	// this is private, since we read the info from Windows and cache it for
 	// future use. No one is allowed to change it, ever. (srj)
 	AsciiString m_userDataDir;
-	
+
 	static GlobalData *m_theOriginal;		///< the original global data instance (no overrides)
 	GlobalData *m_next;									///< next instance (for overrides)
 	GlobalData *newOverride( void );		/** create a new override, copy data from previous

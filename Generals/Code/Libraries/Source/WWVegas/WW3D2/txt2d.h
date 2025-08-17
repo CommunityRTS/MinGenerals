@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*************************************************************************** 
- ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     *** 
- *************************************************************************** 
- *                                                                         * 
- *                 Project Name : Commando/G                               * 
- *                                                                         * 
- *                     $Archive:: /Commando/Code/ww3d2/txt2d.h            $* 
- *                                                                         * 
- *                      $Author:: Greg_h                                  $* 
- *                                                                         * 
- *                     $Modtime:: 1/23/01 10:37a                          $* 
- *                                                                         * 
- *                    $Revision:: 2                                       $* 
- *                                                                         * 
- *-------------------------------------------------------------------------* 
- * Functions:                                                              * 
+/***************************************************************************
+ ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     ***
+ ***************************************************************************
+ *                                                                         *
+ *                 Project Name : Commando/G                               *
+ *                                                                         *
+ *                     $Archive:: /Commando/Code/ww3d2/txt2d.h            $*
+ *                                                                         *
+ *                      $Author:: Greg_h                                  $*
+ *                                                                         *
+ *                     $Modtime:: 1/23/01 10:37a                          $*
+ *                                                                         *
+ *                    $Revision:: 2                                       $*
+ *                                                                         *
+ *-------------------------------------------------------------------------*
+ * Functions:                                                              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #if defined(_MSC_VER)
@@ -56,7 +56,7 @@ class Text2DObjClass : public DynamicScreenMeshClass
 
 		// class id of this render object
 		virtual int Class_ID(void) const { return CLASSID_TEXT2D; }
-		
+
 		static float		_LastWidth;
 		static float		_LastHeight;
 

@@ -63,7 +63,7 @@ FloatUpdateModuleData::FloatUpdateModuleData( void )
 
 	UpdateModuleData::buildFieldParse( p );
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "Enabled",	INI::parseBool,	NULL, offsetof( FloatUpdateModuleData, m_enabled ) },
 		{ 0, 0, 0, 0 }
@@ -105,7 +105,7 @@ UpdateSleepTime FloatUpdate::update( void )
 	{
 		// get object position
 		const Coord3D *pos = getObject()->getPosition();
-		
+
 		// get the height of the water here
 		Real waterZ;
 		TheTerrainLogic->isUnderwater( pos->x, pos->y, &waterZ );
@@ -134,7 +134,7 @@ UpdateSleepTime FloatUpdate::update( void )
 		mx.Rotate_Z(zRot);
 		mx.Rotate_Y(yaw);
 		mx.Rotate_X(pitch);
-		
+
 		draw->setInstanceMatrix(&mx);
 	}
 

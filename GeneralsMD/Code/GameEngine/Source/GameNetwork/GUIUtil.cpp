@@ -197,7 +197,7 @@ void PopulateColorComboBox(Int comboBox, GameWindow *comboArray[], GameInfo *myG
 
 	for (i = 0; i < MAX_SLOTS; i++)
 	{
-		GameSlot *slot = myGame->getSlot(i);	
+		GameSlot *slot = myGame->getSlot(i);
 		if( slot && (i != comboBox) && (slot->getColor() >= 0 )&& (slot->getColor() < numColors))
 		{
 			DEBUG_ASSERTCRASH(slot->getColor() >= 0,("We've tried to access array %d and that ain't good",slot->getColor()));
@@ -335,12 +335,12 @@ void PopulateStartingCashComboBox(GameWindow *comboBox, GameInfo *myGame)
 {
   GadgetComboBoxReset(comboBox);
 
-  const MultiplayerStartingMoneyList & startingCashMap = TheMultiplayerSettings->getStartingMoneyList(); 
+  const MultiplayerStartingMoneyList & startingCashMap = TheMultiplayerSettings->getStartingMoneyList();
   Int currentSelectionIndex = -1;
-  
+
   for ( MultiplayerStartingMoneyList::const_iterator it = startingCashMap.begin(); it != startingCashMap.end(); it++ )
   {
-    Int newIndex = GadgetComboBoxAddEntry(comboBox, formatMoneyForStartingCashComboBox( *it ), 
+    Int newIndex = GadgetComboBoxAddEntry(comboBox, formatMoneyForStartingCashComboBox( *it ),
                                           comboBox->winGetEnabled() ? comboBox->winGetEnabledTextColor() : comboBox->winGetDisabledTextColor());
     GadgetComboBoxSetItemData(comboBox, newIndex, (void *)it->countMoney());
 
@@ -353,7 +353,7 @@ void PopulateStartingCashComboBox(GameWindow *comboBox, GameInfo *myGame)
   if ( currentSelectionIndex == -1 )
   {
     DEBUG_CRASH( ("Current selection for starting cash not found in list") );
-    currentSelectionIndex = GadgetComboBoxAddEntry(comboBox, formatMoneyForStartingCashComboBox( myGame->getStartingCash() ), 
+    currentSelectionIndex = GadgetComboBoxAddEntry(comboBox, formatMoneyForStartingCashComboBox( myGame->getStartingCash() ),
                                           comboBox->winGetEnabled() ? comboBox->winGetEnabledTextColor() : comboBox->winGetDisabledTextColor());
     GadgetComboBoxSetItemData(comboBox, currentSelectionIndex, (void *)it->countMoney() );
   }
@@ -368,7 +368,7 @@ void PopulateStartingCashComboBox(GameWindow *comboBox, GameInfo *myGame)
 //-------------------------------------------------------------------------------------------------
 void UpdateSlotList( GameInfo *myGame, GameWindow *comboPlayer[],
 										GameWindow *comboColor[], GameWindow *comboPlayerTemplate[],
-										GameWindow *comboTeam[], GameWindow *buttonAccept[], 
+										GameWindow *comboTeam[], GameWindow *buttonAccept[],
 										GameWindow *buttonStart, GameWindow *buttonMapStartPosition[] )
 {
 	if(!AreSlotListUpdatesEnabled())
@@ -416,7 +416,7 @@ void UpdateSlotList( GameInfo *myGame, GameWindow *comboPlayer[],
 							comboTeam, buttonAccept, buttonStart, buttonMapStartPosition);
 					}
 				}
-				
+
 			}
 			else if(myGame->amIHost())
 			{
@@ -452,7 +452,7 @@ void UpdateSlotList( GameInfo *myGame, GameWindow *comboPlayer[],
 				}
 			}
 			else
-			{				
+			{
 				GadgetComboBoxSetSelectedPos(comboPlayer[i], slot->getState(), TRUE);
         if( buttonAccept &&  buttonAccept[i] )
 				  buttonAccept[i]->winHide(TRUE);

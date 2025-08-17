@@ -100,7 +100,7 @@ NetworkInterface *TheNetwork = NULL;
 // PRIVATE PROTOTYPES /////////////////////////////////////////////////////////
 
 /**
- * The Network class is used to instantiate a singleton which 
+ * The Network class is used to instantiate a singleton which
  * implements the interface to all Network operations such as message stream processing and network communications.
  */
 class Network : public NetworkInterface
@@ -256,7 +256,7 @@ Bool Network::isPlayerConnected( Int playerID ) {
 /**
  * This creates a network object and returns it.
  */
-NetworkInterface *NetworkInterface::createNetwork() 
+NetworkInterface *NetworkInterface::createNetwork()
 {
 	return NEW Network;
 }
@@ -275,7 +275,7 @@ Network::Network()
 	m_frameDataReady = FALSE;
 	m_sawCRCMismatch = FALSE;
 	//
-	
+
 	m_conMgr = NULL;
 	m_messageWindow = NULL;
 
@@ -501,7 +501,7 @@ Int Network::getExecutionFrame() {
  * send our info for the last frame to the other players.
  * Return true if the message should be "eaten" by the network.
  */
-Bool Network::processCommand(GameMessage *msg) 
+Bool Network::processCommand(GameMessage *msg)
 {
 	if ((m_lastFrame != TheGameLogic->getFrame()) || (m_localStatus == NETLOCALSTATUS_PREGAME)) {
 		// If this is the start of a new game logic frame, then tell the connection manager that the last

@@ -51,7 +51,7 @@ void GrantUpgradeCreateModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   CreateModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "UpgradeToGrant",	INI::parseAsciiString,		NULL, offsetof( GrantUpgradeCreateModuleData, m_upgradeName ) },
 		{ "ExemptStatus",	INI::parseBitString32,	TheObjectStatusBitNames, offsetof( GrantUpgradeCreateModuleData, m_exemptStatus ) },
@@ -88,7 +88,7 @@ void GrantUpgradeCreate::onCreate( void )
 	ObjectStatusBits currentStatus = (ObjectStatusBits)getObject()->getStatusBits();
 	if( BitTest( exemptStatus, OBJECT_STATUS_UNDER_CONSTRUCTION ) == TRUE )
 	{
-		if(	BitTest( currentStatus, OBJECT_STATUS_UNDER_CONSTRUCTION ) == FALSE ) 
+		if(	BitTest( currentStatus, OBJECT_STATUS_UNDER_CONSTRUCTION ) == FALSE )
 		{
 			const UpgradeTemplate *upgradeTemplate = TheUpgradeCenter->findUpgrade( getGrantUpgradeCreateModuleData()->m_upgradeName );
 			if( !upgradeTemplate )

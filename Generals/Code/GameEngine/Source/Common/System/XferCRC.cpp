@@ -164,7 +164,7 @@ void XferCRC::xferImplementation( void *data, Int dataSize )
 		val = htonl(val);
 		addCRC (val);
 	}
-	
+
 }  // end xferImplementation
 
 //-------------------------------------------------------------------------------------------------
@@ -235,7 +235,7 @@ void XferDeepCRC::open( AsciiString identifier )
 	m_fileFP = fopen( identifier.str(), "w+b" );
 	if( m_fileFP == NULL )
 	{
-		
+
 		DEBUG_CRASH(( "File '%s' not found\n", identifier.str() ));
 		throw XFER_FILE_NOT_FOUND;
 
@@ -336,7 +336,7 @@ void XferDeepCRC::xferAsciiString( AsciiString *asciiStringData )
 // ------------------------------------------------------------------------------------------------
 void XferDeepCRC::xferUnicodeString( UnicodeString *unicodeStringData )
 {
-	
+
 	// sanity
 	if( unicodeStringData->getLength() > 255 )
 	{

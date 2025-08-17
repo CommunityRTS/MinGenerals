@@ -195,7 +195,7 @@ void ProfCacheNewFrame ( ProfileData *prof )
 		{
 			prof->DecompBytesPerSecond = 0;
 		}
-	
+
 		prof->totalDecompBytes = 0;
 		prof->totalDecompTime = 0;
 
@@ -370,25 +370,25 @@ void ProfCacheText ( ProfileData *prof, void ( *print) ( char *text ) )
 	sprintf( buf, "Used: %d%% (%d%%)\n", used, filled );
 	print ( buf );
 
-	sprintf( buf, "KbPS: %d.%02d (%d.%02d,%d.%02d)\n", 
+	sprintf( buf, "KbPS: %d.%02d (%d.%02d,%d.%02d)\n",
 							prof->TotalBytesPerSecond/1024, ((prof->TotalBytesPerSecond%1024)*100)/1024,
 							prof->LoadBytesPerSecond/1024, ((prof->LoadBytesPerSecond%1024)*100)/1024,
 							prof->DecompBytesPerSecond/1024, ((prof->DecompBytesPerSecond%1024)*100)/1024);
 
 	print ( buf );
 
-	sprintf( buf, "KPF: %d.%02d\n", 
+	sprintf( buf, "KPF: %d.%02d\n",
 							prof->BytesPerFrame/1024, ((prof->BytesPerFrame%1024)*100)/1024 );
 
 	print ( buf );
 
-	sprintf( buf, " LF: %d.%02ds; %d pages; %d Kb\n", 
+	sprintf( buf, " LF: %d.%02ds; %d pages; %d Kb\n",
 							(int) (prof->longestFrame/prof->freq), (int)(((prof->longestFrame % prof->freq)*100)/prof->freq),
 							prof->longestFramePages, prof->longestFrameBytes/1024 );
 
 	print ( buf );
 
-	sprintf( buf, "NLF: %d.%02ds; %d pages; %d Kb\n", 
+	sprintf( buf, "NLF: %d.%02ds; %d pages; %d Kb\n",
 							(int) (prof->nextLongestFrame/prof->freq), (int) (((prof->nextLongestFrame % prof->freq)*100)/prof->freq),
 							prof->nextLongestFramePages, prof->nextLongestFrameBytes/1024 );
 
@@ -483,16 +483,16 @@ void ProfileCPUDeinit ( ProfileCPU &prof )
 
 void ProfileCPUStart ( ProfileCPU &prof )
 {
-	
+
 	if ( prof.state == PROF_STATE_IDLE )
 	{
 		QueryPerformanceCounter( (LARGE_INTEGER*)&prof.start );
-		
+
 		if ( prof.lastStart )
 		{
 			prof.totalCPUTicks += calc_ticks ( prof.lastStart, prof.start );
 		}
-		
+
 		prof.lastStart = prof.start;
 		prof.state = PROF_STATE_PROFILING;
 	}
@@ -569,7 +569,7 @@ void ProfileCPUEnd ( ProfileCPU &prof )
 
 		prof.totalTicks = 0;
 		prof.totalCPUTicks = 0;
-		
+
 	}
 }
 

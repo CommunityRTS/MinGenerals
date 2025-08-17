@@ -127,12 +127,12 @@ void VectorProcessorClass::Transform (Vector3* dst,const Vector3 *src, const Mat
 		_aligned:
 
 			mov		esi,1
-		
+
 			mov		ecx,edi
 			and		edi,3
 			and		ecx,~3
 			jz		_lp
-			
+
 			lea		ecx,[ecx+ecx*2]
 			shl		ecx,2
 			add		eax,ecx
@@ -293,7 +293,7 @@ void VectorProcessorClass::Transform (Vector3* dst,const Vector3 *src, const Mat
 				movss	xmm1,xmm0
 
 				movaps	[edx+ecx+32],xmm1
-				
+
 				add		ecx,48
 				js		_xlatelp
 

@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddef.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/07/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -49,8 +49,8 @@ ShdDefClass::ShdDefClass(uint32 classid) :
 {
 
 	ENUM_PARAM (
-		ShdDefClass, SurfaceType, 
-		(	
+		ShdDefClass, SurfaceType,
+		(
 			"Light Metal",						SURFACE_TYPE_LIGHT_METAL,
 			"Heavy Metal",						SURFACE_TYPE_HEAVY_METAL,
 			"Water",								SURFACE_TYPE_WATER,
@@ -122,7 +122,7 @@ void ShdDefClass::Reset(void)
 ** Save-Load methods for ShdDefClass
 **
 *******************************************************************************/
-enum 
+enum
 {
 	CHUNKID_VARIABLES =			0x16490430,
 
@@ -141,7 +141,7 @@ bool ShdDefClass::Save (ChunkSaveClass &csave)
 {
 	bool retval=true;
 
-	csave.Begin_Chunk(CHUNKID_VARIABLES);	
+	csave.Begin_Chunk(CHUNKID_VARIABLES);
 
 		retval=Save_Variables(csave);
 
@@ -200,9 +200,9 @@ bool ShdDefClass::Load_Variables (ChunkLoadClass &cload)
 	//
 	//	Loop through all the microchunks that define the variables
 	//
-	while (cload.Open_Micro_Chunk ()) 
+	while (cload.Open_Micro_Chunk ())
 	{
-		switch (cload.Cur_Micro_Chunk_ID ()) 
+		switch (cload.Cur_Micro_Chunk_ID ())
 		{
 			READ_MICRO_CHUNK_WWSTRING (cload, VARID_NAME, Name);
 			READ_MICRO_CHUNK (cload, VARID_SURFACETYPE, SurfaceType);

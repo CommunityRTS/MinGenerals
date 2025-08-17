@@ -131,7 +131,7 @@ class INIClass {
 		StringClass Get_String(char const * section, char const * entry, char const * defvalue="") const;
 		int Get_List_Index(char const * section, char const * entry, int const defvalue, char *list[]);
 		int *	Get_Alloc_Int_Array(char const * section, char const * entry, int listend);
-		int Get_Int_Bitfield(char const * section, char const * entry, int defvalue, char *list[]); 
+		int Get_Int_Bitfield(char const * section, char const * entry, int defvalue, char *list[]);
 		char *Get_Alloc_String(char const * section, char const * entry, char const * defvalue) const;
 		int Get_TextBlock(char const * section, char * buffer, int len) const;
 		int Get_UUBlock(char const * section, void * buffer, int len) const;
@@ -175,7 +175,7 @@ class INIClass {
 		INIEntry * Find_Entry(char const * section, char const * entry) const;
 		static void Strip_Comments(char * buffer);
 
-		// the CRC function is used to produce hopefully unique values for 
+		// the CRC function is used to produce hopefully unique values for
 		// each of the entries in a section. Debug messages will be produced
 		// if redundant CRCs are generated for a particular INI file.
 		static int CRC(const char *string);

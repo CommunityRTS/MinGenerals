@@ -28,7 +28,7 @@ Streamer::Streamer() : streambuf()
   int state=unbuffered();
   unbuffered(0);  // 0 = buffered, 1 = unbuffered
 }
- 
+
 Streamer::~Streamer()
 {
   ///////// calling sync seems to cause crashes here on Win32
@@ -100,11 +100,11 @@ int Streamer::doallocate()
     setb(
        buf,         // base pointer
        buf+STREAMER_BUFSIZ,  // ebuf pointer (end of buffer);
-       0);          // 0 = manual deletion of buff 
+       0);          // 0 = manual deletion of buff
 
     // Get area
     setg(
-        buf,   // eback 
+        buf,   // eback
         buf,   // gptr
         buf);  // egptr
 

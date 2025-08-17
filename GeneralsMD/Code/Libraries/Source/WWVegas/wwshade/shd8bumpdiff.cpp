@@ -25,7 +25,7 @@
  *                     $Archive:: wwshade/shd8bumpdiff.cpp                           $*
  *                                                                                             *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 07/08/02 3:40p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -221,45 +221,45 @@ unsigned Shd8BumpDiffClass::Get_Vertex_Size(unsigned stream) const
 
 void Shd8BumpDiffClass::Copy_Vertex_Stream
 (
-	unsigned stream, 
-	void* dest_buffer, 
-	const VertexStreamStruct& vss, 
+	unsigned stream,
+	void* dest_buffer,
+	const VertexStreamStruct& vss,
 	unsigned vertex_count
 )
 {
    VertexFormatXYZNDUV1TG3* verts=(VertexFormatXYZNDUV1TG3*)dest_buffer;
 
-	for (unsigned i=0; i<vertex_count; ++i) 
+	for (unsigned i=0; i<vertex_count; ++i)
 	{
-		if (vss.Locations) 
+		if (vss.Locations)
 		{
 			verts[i].x=vss.Locations[i][0];
 			verts[i].y=vss.Locations[i][1];
 			verts[i].z=vss.Locations[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].x=0.0f;
 			verts[i].y=0.0f;
 			verts[i].z=0.0f;
 		}
 
-		if (vss.DiffuseInt) 
+		if (vss.DiffuseInt)
 		{
 			verts[i].diffuse=vss.DiffuseInt[i];
 		}
-		else 
+		else
 		{
 			verts[i].diffuse=0xffffffff;
 		}
-	
-		if (vss.Normals) 
+
+		if (vss.Normals)
 		{
 			verts[i].nx=vss.Normals[i][0];
 			verts[i].ny=vss.Normals[i][1];
 			verts[i].nz=vss.Normals[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].nx=0.0f;
 			verts[i].ny=0.0f;
@@ -271,7 +271,7 @@ void Shd8BumpDiffClass::Copy_Vertex_Stream
 			verts[i].u1=vss.UV[0][i].U;
 			verts[i].v1=vss.UV[0][i].V;
 		}
-		else 
+		else
 		{
 			verts[i].u1=0.0f;
 			verts[i].v1=0.0f;
@@ -320,7 +320,7 @@ void Shd8BumpDiffClass::Copy_Vertex_Stream
 
 bool Shd8BumpDiffClass::Pass_Selection
 (
-	ShdMeshClass* mesh, 
+	ShdMeshClass* mesh,
 	RenderInfoClass* rinfo,
 	int pass
 )
@@ -363,7 +363,7 @@ void Shd8BumpDiffClass::Setup_Self_Shadow_Info(ShdMeshClass& mesh, RenderInfoCla
 		Vector4(0.5f,     0.0f,     0.0f,	0.0f),
 		Vector4(0.0f,    -0.5f,     0.0f,	0.0f),
 		Vector4(0.0f,     0.0f,    range,	0.0f),
-		Vector4(off_x,	  off_y,	    bias,	1.0f) 
+		Vector4(off_x,	  off_y,	    bias,	1.0f)
 	);
 
 	Matrix4x4 view2tex;

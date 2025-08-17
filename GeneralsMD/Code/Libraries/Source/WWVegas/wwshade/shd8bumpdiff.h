@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shd8bumpdiff.h                           $*
  *                                                                                             *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 07/08/02 3:39p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -50,7 +50,7 @@ class Shd8BumpDiffClass : public ShdInterfaceClass
 public:
 	Shd8BumpDiffClass(const ShdDefClass* def);
 	virtual ~Shd8BumpDiffClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -68,9 +68,9 @@ public:
 	virtual bool						Use_HW_Vertex_Processing() const { return Vertex_Shader.Is_Using_Hardware(); }
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

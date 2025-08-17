@@ -52,7 +52,7 @@ enum
 };
 
 #ifdef DEFINE_STEALTHLEVEL_NAMES
-static const char *TheStealthLevelNames[] = 
+static const char *TheStealthLevelNames[] =
 {
 	"ATTACKING",
 	"MOVING",
@@ -154,7 +154,7 @@ private:
 	UnsignedInt						m_stealthAllowedFrame;
 	UnsignedInt						m_detectionExpiresFrame;
 	Bool									m_enabled;
-	
+
 	Real                  m_pulsePhaseRate;
 	Real                  m_pulsePhase;
 
@@ -172,5 +172,5 @@ private:
 };
 
 
-#endif 
+#endif
 

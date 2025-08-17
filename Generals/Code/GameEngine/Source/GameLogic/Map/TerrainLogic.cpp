@@ -75,7 +75,7 @@ WaterHandle TerrainLogic::m_gridWaterHandle;
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-Waypoint::Waypoint(WaypointID id, AsciiString name, const Coord3D *pLoc, AsciiString label1, AsciiString label2, 
+Waypoint::Waypoint(WaypointID id, AsciiString name, const Coord3D *pLoc, AsciiString label1, AsciiString label2,
 									 AsciiString label3, Bool biDirectional) :
 m_name(name),
 m_pNext(NULL),
@@ -127,8 +127,8 @@ BridgeInfo::BridgeInfo()
 /** Create a tower object for the bridge of the specified type (and therefore position) */
 // ------------------------------------------------------------------------------------------------
 Object *Bridge::createTower( Coord3D *worldPos,
-														 BridgeTowerType towerType, 
-														 const ThingTemplate *towerTemplate, 
+														 BridgeTowerType towerType,
+														 const ThingTemplate *towerTemplate,
 														 Object *bridge )
 {
 
@@ -148,7 +148,7 @@ Object *Bridge::createTower( Coord3D *worldPos,
 	Real angle = 0;
 	switch( towerType )
 	{
-		
+
 		// --------------------------------------------------------------------------------------------
 		case BRIDGE_TOWER_FROM_LEFT:
 			angle = bridge->getOrientation() + PI;
@@ -171,7 +171,7 @@ Object *Bridge::createTower( Coord3D *worldPos,
 
 		// --------------------------------------------------------------------------------------------
 		default:
-			DEBUG_CRASH(( "Bridge::createTower - Unknown bridge tower type '%d'\n", towerType )); 
+			DEBUG_CRASH(( "Bridge::createTower - Unknown bridge tower type '%d'\n", towerType ));
 			return NULL;
 
 	}  // end switch
@@ -317,19 +317,19 @@ m_bridgeInfo(theInfo)
 
 		}  // end switch
 		tower = createTower( &pos, type, towerTemplate, bridge );
-		
+
 		// store the tower object ID
 		m_bridgeInfo.towerObjectID[ i ] = tower->getID();
 
 	}  // end for, i
 #endif
-	
+
 	m_next = NULL;
 }  // end Bridge
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-Bridge::Bridge(Object *bridgeObj) 
+Bridge::Bridge(Object *bridgeObj)
 {
 
 	// save the template name
@@ -405,7 +405,7 @@ Bridge::Bridge(Object *bridgeObj)
 	// create objects targetable objects for the 4 tower pieces
 	const ThingTemplate *towerTemplate;
 	BridgeTowerType type;
-	Object *tower;	
+	Object *tower;
 	for( Int i = 0; i < BRIDGE_MAX_TOWERS; ++i )
 	{
 
@@ -476,9 +476,9 @@ Bool Bridge::isPointOnBridge(const Coord3D *pLoc)
 
 /*-------------------------------------------------------------------------------------------------
 /** Clip a floating point line to the region provided.  The source line runs from p1 to p2, and is clipped
-	* using the clipRegion.  
+	* using the clipRegion.
 	*
-	* Return values: 
+	* Return values:
 	*				TRUE  - Line intersects the region
 	*				FALSE - Line does not intersect the region
 	*/
@@ -508,7 +508,7 @@ Bool LineInRegion( const Coord2D *p1, const Coord2D *p2, const Region2D *clipReg
 	y1 = p1->y;
 	x2 = p2->x;
 	y2 = p2->y;
-		
+
 	// Test first point
 	clipCode1 = 0;
 
@@ -633,9 +633,9 @@ Bool LineInRegion( const Coord2D *p1, const Coord2D *p2, const Region2D *clipReg
 
 static Bool PointInRegion2D( const Coord3D *pt, const Region2D *clipRegion )
 {
-	return (pt->x>=clipRegion->lo.x && 
+	return (pt->x>=clipRegion->lo.x &&
 					pt->y>=clipRegion->lo.y &&
-					pt->x<=clipRegion->hi.x && 
+					pt->x<=clipRegion->hi.x &&
 					pt->y<=clipRegion->hi.y);
 }
 
@@ -675,17 +675,17 @@ Bool Bridge::isCellOnEnd(const Region2D *cell)
 	if (PointInRegion2D(&toLeft, cell)) return false;
 	if (PointInRegion2D(&toRight, cell)) return false; */
 	Coord2D line1, line2;
-	line1.x = fromLeft.x; 
-	line1.y = fromLeft.y; 
-	line2.x = fromRight.x; 
-	line2.y = fromRight.y; 
+	line1.x = fromLeft.x;
+	line1.y = fromLeft.y;
+	line2.x = fromRight.x;
+	line2.y = fromRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
-	line1.x = toLeft.x; 
-	line1.y = toLeft.y; 
-	line2.x = toRight.x; 
-	line2.y = toRight.y; 
+	line1.x = toLeft.x;
+	line1.y = toLeft.y;
+	line2.x = toRight.x;
+	line2.y = toRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
@@ -723,17 +723,17 @@ Bool Bridge::isCellOnSide(const Region2D *cell)
 	toRight.y += endVector.y;
 
 	Coord2D line1, line2;
-	line1.x = fromLeft.x; 
-	line1.y = fromLeft.y; 
-	line2.x = toLeft.x; 
-	line2.y = toLeft.y; 
+	line1.x = fromLeft.x;
+	line1.y = fromLeft.y;
+	line2.x = toLeft.x;
+	line2.y = toLeft.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
-	line1.x = fromRight.x; 
-	line1.y = fromRight.y; 
-	line2.x = toRight.x; 
-	line2.y = toRight.y; 
+	line1.x = fromRight.x;
+	line1.y = fromRight.y;
+	line2.x = toRight.x;
+	line2.y = toRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
@@ -749,17 +749,17 @@ Bool Bridge::isCellOnSide(const Region2D *cell)
 	toRight.x += endVector.x;
 	toRight.y += endVector.y;
 
-	line1.x = fromLeft.x; 
-	line1.y = fromLeft.y; 
-	line2.x = toLeft.x; 
-	line2.y = toLeft.y; 
+	line1.x = fromLeft.x;
+	line1.y = fromLeft.y;
+	line2.x = toLeft.x;
+	line2.y = toLeft.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
-	line1.x = fromRight.x; 
-	line1.y = fromRight.y; 
-	line2.x = toRight.x; 
-	line2.y = toRight.y; 
+	line1.x = fromRight.x;
+	line1.y = fromRight.y;
+	line2.x = toRight.x;
+	line2.y = toRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
@@ -818,17 +818,17 @@ Bool Bridge::isCellEntryPoint(const Region2D *cell)
 	if (PointInRegion2D(&toRight, cell)) return false;
 	*/
 	Coord2D line1, line2;
-	line1.x = fromLeft.x; 
-	line1.y = fromLeft.y; 
-	line2.x = fromRight.x; 
-	line2.y = fromRight.y; 
+	line1.x = fromLeft.x;
+	line1.y = fromLeft.y;
+	line2.x = fromRight.x;
+	line2.y = fromRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
-	line1.x = toLeft.x; 
-	line1.y = toLeft.y; 
-	line2.x = toRight.x; 
-	line2.y = toRight.y; 
+	line1.x = toLeft.x;
+	line1.y = toLeft.y;
+	line2.x = toRight.x;
+	line2.y = toRight.y;
 	if (LineInRegion(&line1, &line2, cell)) {
 		return true;
 	}
@@ -879,7 +879,7 @@ void Bridge::updateDamageState( void )
 	if (bridge) {
 		// get object damage state
 		{
-			enum BodyDamageType damageState = bridge->getBodyModule()->getDamageState(); 
+			enum BodyDamageType damageState = bridge->getBodyModule()->getDamageState();
 			enum BodyDamageType curState = m_bridgeInfo.curDamageState;
 			if (damageState != curState) {
 				m_bridgeInfo.curDamageState = damageState;
@@ -891,13 +891,13 @@ void Bridge::updateDamageState( void )
 						if (obj->getLayer() == m_layer) {
 							// don't consider the bridge health, 'cuz it's already dead. (srj)
 							const Bool considerBridgeHealth = false;
-							if (TheTerrainLogic->objectInteractsWithBridgeLayer(obj, obj->getLayer(), considerBridgeHealth)) 
+							if (TheTerrainLogic->objectInteractsWithBridgeLayer(obj, obj->getLayer(), considerBridgeHealth))
 							{
 								// srj sez: if we use this threshold, then stuff on the bridge apron doesn't die but
 								// might sink thru the eyecandy of bridge drbris, looking funny. so now we just indiscriminately
 								// kill everything that was on the bridge, regardless of height they might fall.
 								//Real deltaHeight = obj->getPosition()->z - TheTerrainLogic->getGroundHeight(obj->getPosition()->x, obj->getPosition()->y);
-								//if (deltaHeight>PATHFIND_CELL_SIZE_F * 0.5f) 
+								//if (deltaHeight>PATHFIND_CELL_SIZE_F * 0.5f)
 								{
 									// The object fell off the bridge.
 									// Destroy it.
@@ -961,7 +961,7 @@ Real Bridge::getBridgeHeight(const Coord3D *pLoc, Coord3D* normal)
 TerrainLogic::TerrainLogic()
 {
 	Int i;
-	
+
 	//Added By Sadullah Nader
 	//Initialization(s) inserted
 	m_activeBoundary = 0;
@@ -1041,7 +1041,7 @@ void TerrainLogic::update( void )
 
 		for( Int i = m_numWaterToUpdate - 1; i >= 0; --i )
 		{
-			
+
 			// get the water info
 			water = m_waterToUpdate[ i ].waterTable;
 			changePerFrame = m_waterToUpdate[ i ].changePerFrame;
@@ -1057,17 +1057,17 @@ void TerrainLogic::update( void )
 			finalTransition = FALSE;
 			if( changePerFrame > 0 )
 			{
-			
+
 				if( currentHeight + changePerFrame >= targetHeight )
 					finalTransition = TRUE;
 
 			}  // end if
 			else
 			{
-			
+
 				if( currentHeight + changePerFrame <= targetHeight )
 					finalTransition = TRUE;
-				
+
 			}  // end else
 
 			if( finalTransition == TRUE )
@@ -1075,7 +1075,7 @@ void TerrainLogic::update( void )
 
 				//
 				// make the final water height change, note we do damage on the final transition
-				// in all situations by passing a valid damage amount 
+				// in all situations by passing a valid damage amount
 				//
 				setWaterHeight( water, targetHeight, damageAmount, TRUE );
 
@@ -1093,7 +1093,7 @@ void TerrainLogic::update( void )
 			{
 
 				//
-				// we're not doing damage every frame (0 damage) from the water 
+				// we're not doing damage every frame (0 damage) from the water
 				// because it's an expensive process
 				//
 				if( doDamageThisFrame == FALSE )
@@ -1125,14 +1125,14 @@ void TerrainLogic::newMap( Bool saveGame )
 {
 
 	// Set waypoint's z value, now that the height map is loaded.
-	for( Waypoint *way = m_waypointListHead; way; way = way->getNext() ) 
+	for( Waypoint *way = m_waypointListHead; way; way = way->getNext() )
 	{
 		const Coord3D* loc = way->getLocation();
 		way->setLocationZ(getGroundHeight(loc->x, loc->y));
 	}
 	//
 	// until we have a real way to specify different water planes in the map, we will check
-	// for a special waypoint name that we will put in maps that we want to have a 
+	// for a special waypoint name that we will put in maps that we want to have a
 	// water grid
 	/// @todo Mark W, remove this when you have water plane placements in the map done (Colin)
 	//
@@ -1202,7 +1202,7 @@ void TerrainLogic::enableWaterGrid( Bool enable )
 			// now try this compare
 			if( strippedMapNameOnly.compareNoCase( strippedCompareMapNameOnly.str() ) == 0 )
 			{
-				
+
 				waterSettingIndex = i;
 				break;  // exit for i
 
@@ -1220,23 +1220,23 @@ void TerrainLogic::enableWaterGrid( Bool enable )
 
 		}  // end if
 
-		TheTerrainVisual->setWaterGridHeightClamps( NULL, 
-																								TheGlobalData->m_vertexWaterHeightClampLow[ waterSettingIndex ], 
+		TheTerrainVisual->setWaterGridHeightClamps( NULL,
+																								TheGlobalData->m_vertexWaterHeightClampLow[ waterSettingIndex ],
 																								TheGlobalData->m_vertexWaterHeightClampHi[ waterSettingIndex ] );
-		TheTerrainVisual->setWaterTransform( NULL, 
-																				 TheGlobalData->m_vertexWaterAngle[ waterSettingIndex ], 
-																				 TheGlobalData->m_vertexWaterXPosition[ waterSettingIndex ], 
-																				 TheGlobalData->m_vertexWaterYPosition[ waterSettingIndex ], 
+		TheTerrainVisual->setWaterTransform( NULL,
+																				 TheGlobalData->m_vertexWaterAngle[ waterSettingIndex ],
+																				 TheGlobalData->m_vertexWaterXPosition[ waterSettingIndex ],
+																				 TheGlobalData->m_vertexWaterYPosition[ waterSettingIndex ],
 																				 TheGlobalData->m_vertexWaterZPosition[ waterSettingIndex ] );
-		TheTerrainVisual->setWaterGridResolution( NULL, 
-																							TheGlobalData->m_vertexWaterXGridCells[ waterSettingIndex ], 
-																							TheGlobalData->m_vertexWaterYGridCells[ waterSettingIndex ], 
+		TheTerrainVisual->setWaterGridResolution( NULL,
+																							TheGlobalData->m_vertexWaterXGridCells[ waterSettingIndex ],
+																							TheGlobalData->m_vertexWaterYGridCells[ waterSettingIndex ],
 																							TheGlobalData->m_vertexWaterGridSize[ waterSettingIndex ] );
-		TheTerrainVisual->setWaterAttenuationFactors( NULL, 
-																									TheGlobalData->m_vertexWaterAttenuationA[ waterSettingIndex ], 
-																									TheGlobalData->m_vertexWaterAttenuationB[ waterSettingIndex ], 
-																									TheGlobalData->m_vertexWaterAttenuationC[ waterSettingIndex ], 
-																									TheGlobalData->m_vertexWaterAttenuationRange[ waterSettingIndex ] );	
+		TheTerrainVisual->setWaterAttenuationFactors( NULL,
+																									TheGlobalData->m_vertexWaterAttenuationA[ waterSettingIndex ],
+																									TheGlobalData->m_vertexWaterAttenuationB[ waterSettingIndex ],
+																									TheGlobalData->m_vertexWaterAttenuationC[ waterSettingIndex ],
+																									TheGlobalData->m_vertexWaterAttenuationRange[ waterSettingIndex ] );
 
 	}  // end if
 
@@ -1268,7 +1268,7 @@ Bool TerrainLogic::loadMap( AsciiString filename, Bool query )
 	}
 
 	CachedFileInputStream theInputStream;
-	if (theInputStream.open(AsciiString(m_filenameString.str()))) 
+	if (theInputStream.open(AsciiString(m_filenameString.str())))
 	try {
 		ChunkInputStream *pStrm = &theInputStream;
 		pStrm->absoluteSeek(0);
@@ -1362,7 +1362,7 @@ void TerrainLogic::addWaypoint(MapObject *pMapObj)
 	Bool biDirectional;
 	biDirectional = pMapObj->getProperties()->getBool(TheKey_waypointPathBiDirectional, &exists);
 	DEBUG_ASSERTCRASH(pMapObj->isWaypoint(), ("not a waypoint"));
-	Waypoint *pWay = newInstance(Waypoint)(pMapObj->getWaypointID(), pMapObj->getWaypointName(), 
+	Waypoint *pWay = newInstance(Waypoint)(pMapObj->getWaypointID(), pMapObj->getWaypointName(),
 																&loc, label1, label2, label3, biDirectional);
 	pWay->setNext(m_waypointListHead);
 	m_waypointListHead = pWay;
@@ -1477,12 +1477,12 @@ void makeAlignToNormalMatrix( Real angle, const Coord3D& pos, const Coord3D& nor
 		that atan2(xvec.y, xvec.x) == angle. So we must construct
 		the matrix carefully to ensure this!
 	*/
-	x.x = Cos( angle ); 
-	x.y = Sin( angle ); 
-	x.z = 0.0f; 
+	x.x = Cos( angle );
+	x.y = Sin( angle );
+	x.z = 0.0f;
 //x.normalize();	-- redundant; is normalized by definition
 
-	// dot of two unit vectors is cos of angle between them; 
+	// dot of two unit vectors is cos of angle between them;
 	// we want there to be a 90-deg angle between the x and z
 	// vectors, so calc x.z to satisfy this (ie, cos==0)
 	/*
@@ -1610,7 +1610,7 @@ Waypoint *TerrainLogic::getClosestWaypointOnPath( const Coord3D *pos, AsciiStrin
 			}
 		}
 	}
-		
+
 	return pClosestWay;
 }
 
@@ -1640,7 +1640,7 @@ PolygonTrigger *TerrainLogic::getTriggerAreaByName( AsciiString name )
 {
 	for (PolygonTrigger* pTrig = PolygonTrigger::getFirstPolygonTrigger(); pTrig; pTrig = pTrig->getNext()) {
 		AsciiString trigName = pTrig->getTriggerName();
-		if (name == trigName) 
+		if (name == trigName)
 			return pTrig;
 	}
 	return NULL;
@@ -1668,13 +1668,13 @@ Bridge * TerrainLogic::findBridgeAt( const Coord3D *pLoc) const
 //-------------------------------------------------------------------------------------------------
 Bridge * TerrainLogic::findBridgeLayerAt( const Coord3D *pLoc, PathfindLayerEnum layer, Bool clip) const
 {
-	if (layer == LAYER_GROUND) 
+	if (layer == LAYER_GROUND)
 		return NULL;
 
 	Bridge *pBridge = getFirstBridge();
-	while (pBridge) 
+	while (pBridge)
 	{
-		if (pBridge->getLayer() == layer && (!clip || pBridge->isPointOnBridge(pLoc))) 
+		if (pBridge->getLayer() == layer && (!clip || pBridge->isPointOnBridge(pLoc)))
 		{
 			return(pBridge);
 		}
@@ -1844,10 +1844,10 @@ Bool TerrainLogic::objectInteractsWithBridgeEnd(Object *obj, Int layer) const
 			if (match) {
 				Real bridgeHeight = pBridge->getBridgeHeight(obj->getPosition(), NULL);
 				Real delta = fabs(obj->getPosition()->z-bridgeHeight);
-				if (delta>LAYER_Z_CLOSE_ENOUGH_F) 
+				if (delta>LAYER_Z_CLOSE_ENOUGH_F)
 				{
 					return false;
-				}			
+				}
 				return true;
 			}
 			return false;
@@ -2017,8 +2017,8 @@ void TerrainLogic::deleteBridge( Bridge *bridge )
 	else
 	{
 
-		for( Bridge *otherBridge = getFirstBridge(); 
-				 otherBridge; 
+		for( Bridge *otherBridge = getFirstBridge();
+				 otherBridge;
 				 otherBridge = otherBridge->getNext() )
 		{
 
@@ -2055,7 +2055,7 @@ void TerrainLogic::deleteBridge( Bridge *bridge )
 //-------------------------------------------------------------------------------------------------
 /** Returns the ground aligned point on the bounding box closest to the given point*/
 //-------------------------------------------------------------------------------------------------
-Coord3D TerrainLogic::findClosestEdgePoint ( const Coord3D *closestTo ) const 
+Coord3D TerrainLogic::findClosestEdgePoint ( const Coord3D *closestTo ) const
 {
 	Region3D mapExtent;
 	getExtent( &mapExtent );
@@ -2107,7 +2107,7 @@ Coord3D TerrainLogic::findClosestEdgePoint ( const Coord3D *closestTo ) const
 /** Returns the ground aligned point on the bounding box farthest from the given point*/
 //-------------------------------------------------------------------------------------------------
 // Lorenzen was here
-Coord3D TerrainLogic::findFarthestEdgePoint( const Coord3D *farthestFrom ) const 
+Coord3D TerrainLogic::findFarthestEdgePoint( const Coord3D *farthestFrom ) const
 {
 	Region3D mapExtent;
 	getExtent( &mapExtent );
@@ -2185,16 +2185,16 @@ const WaterHandle* TerrainLogic::getWaterHandle( Real x, Real y )
 	iLoc.z = 0;
 
 	// Look for water areas in the polygon triggers
-	for( PolygonTrigger *pTrig = PolygonTrigger::getFirstPolygonTrigger(); 
-			 pTrig; 
-			 pTrig = pTrig->getNext() ) 
+	for( PolygonTrigger *pTrig = PolygonTrigger::getFirstPolygonTrigger();
+			 pTrig;
+			 pTrig = pTrig->getNext() )
 	{
 
-		if( !pTrig->isWaterArea() ) 
+		if( !pTrig->isWaterArea() )
 			continue;
 
 		// See if point is in a water area
-		if( pTrig->pointInTrigger( iLoc ) ) 
+		if( pTrig->pointInTrigger( iLoc ) )
 		{
 
 			if( pTrig->getPoint( 0 )->z >= waterZ )
@@ -2213,7 +2213,7 @@ const WaterHandle* TerrainLogic::getWaterHandle( Real x, Real y )
 		in water triggers.  For now do special check for water grid mesh. */
 	Real meshZ;
 	if( TheTerrainVisual->getWaterGridHeight( x, y, &meshZ ) )
-	{	
+	{
 
 		//
 		// point falls on water grid, return the special handle for the grid water, since we
@@ -2350,7 +2350,7 @@ void TerrainLogic::setWaterHeight( const WaterHandle *water, Real height, Real d
 	{
 
 		// do the pathfind remapping
-		TheAI->pathfinder()->forceMapRecalculation(); 
+		TheAI->pathfinder()->forceMapRecalculation();
 
 	}  // end if
 
@@ -2368,13 +2368,13 @@ void TerrainLogic::setWaterHeight( const WaterHandle *water, Real height, Real d
 		center.z = 0.0f;  // irrelavant
 
 		// the max radius to scan around us is the diagonal of the bounding region
-		Real maxDist = sqrt( affectedRegion.width() * affectedRegion.width() + 
+		Real maxDist = sqrt( affectedRegion.width() * affectedRegion.width() +
 												 affectedRegion.height() * affectedRegion.height() );
 
 		// scan the objects in the area of the water affected
 		ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange( &center,
 																																			 maxDist,
-																																			 FROM_CENTER_2D, 
+																																			 FROM_CENTER_2D,
 																																			 NULL );
 		MemoryPoolObjectHolder hold( iter );
 		Object *obj;
@@ -2455,7 +2455,7 @@ void TerrainLogic::changeWaterHeightOverTime( const WaterHandle *water,
 
 	// add the entry into the array of water to update
 	m_waterToUpdate[ m_numWaterToUpdate ].waterTable = water;
-	m_waterToUpdate[ m_numWaterToUpdate ].changePerFrame = (finalHeight - currentHeight) / 
+	m_waterToUpdate[ m_numWaterToUpdate ].changePerFrame = (finalHeight - currentHeight) /
 																												 (LOGICFRAMES_PER_SECOND * transitionTimeInSeconds);
 	m_waterToUpdate[ m_numWaterToUpdate ].targetHeight = finalHeight;
 	m_waterToUpdate[ m_numWaterToUpdate ].damageAmount = damageAmount;
@@ -2533,7 +2533,7 @@ void TerrainLogic::findAxisAlignedBoundingRect( const WaterHandle *water, Region
 		Int numPoints = water->m_polygon->getNumPoints();
 		for( Int i = 0; i < numPoints; i++ )
 		{
-		
+
 			// get this point
 			p = water->m_polygon->getPoint( i );
 
@@ -2554,7 +2554,7 @@ void TerrainLogic::findAxisAlignedBoundingRect( const WaterHandle *water, Region
 				region->hi.z = p->z;
 
 		}  // end for i
-				
+
 	}  // end else
 
 }  // end findAxisAlignedBoundingRect
@@ -2577,10 +2577,10 @@ void TerrainLogic::setActiveBoundary(Int newActiveBoundary)
 	}
 
 	ShroudStatusStoreRestore partitionStore;
-	
+
 	// Can't have any lingering looks persist over the resize, so flush the queue now
 	ThePartitionManager->processEntirePendingUndoShroudRevealQueue();
-	
+
 	//Store fogged cells
 	ThePartitionManager->storeFoggedCells(partitionStore, TRUE);
 
@@ -2600,7 +2600,7 @@ void TerrainLogic::setActiveBoundary(Int newActiveBoundary)
 
 	//Store permanently revealed cells.
 	ThePartitionManager->storeFoggedCells(partitionStore, FALSE);
-	
+
 	ThePartitionManager->reset();
 	ThePartitionManager->init();
 	TheRadar->newMap(TheTerrainLogic);
@@ -2634,7 +2634,7 @@ void TerrainLogic::setActiveBoundary(Int newActiveBoundary)
 // ------------------------------------------------------------------------------------------------
 /** Flatten the terrain beneath a struture. */
 // ------------------------------------------------------------------------------------------------
-void TerrainLogic::flattenTerrain(Object *obj) 
+void TerrainLogic::flattenTerrain(Object *obj)
 {
 	if (obj->getGeometryInfo().getIsSmall()) {
 		return;
@@ -2707,7 +2707,7 @@ void TerrainLogic::flattenTerrain(Object *obj)
 			Real avgHeight = totalHeight/numSamples;
 			Int rawDataHeight = REAL_TO_INT_FLOOR(0.5f + avgHeight/MAP_HEIGHT_SCALE);
 
-			// Compare to the height at the building's origin, because setRawMapHeight will only lower, 
+			// Compare to the height at the building's origin, because setRawMapHeight will only lower,
 			// not raise.  jba
 			Int centerHeight = REAL_TO_INT_FLOOR(TheTerrainLogic->getGroundHeight(pos->x, pos->y)/MAP_HEIGHT_SCALE);
 			if (rawDataHeight>centerHeight) rawDataHeight = centerHeight;
@@ -2759,14 +2759,14 @@ void TerrainLogic::flattenTerrain(Object *obj)
 				}
 			}
 
-				
+
 		break;
 		}
 		case GEOMETRY_SPHERE:	// not quite right, but close enough
 		case GEOMETRY_CYLINDER:
 		{
 			// fill in all cells that overlap as obstacle cells
-			Real radius = obj->getGeometryInfo().getMajorRadius();	
+			Real radius = obj->getGeometryInfo().getMajorRadius();
 			Real radiusSqr = sqr(radius);
 			ICoord2D iMin, iMax;
 			iMin.x = REAL_TO_INT_FLOOR((pos->x-radius)/MAP_XY_FACTOR);
@@ -2840,7 +2840,7 @@ void TerrainLogic::flattenTerrain(Object *obj)
 					}
 				}
 			}
-		
+
 		} // cylinder
 		break;
 	} // switch
@@ -2866,7 +2866,7 @@ void TerrainLogic::xfer( Xfer *xfer )
 {
 
 	// version
-	const XferVersion currentVersion = 2;	
+	const XferVersion currentVersion = 2;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
 
@@ -2898,7 +2898,7 @@ void TerrainLogic::xfer( Xfer *xfer )
 			}  // end if, save
 			else if (xfer->getXferMode() == XFER_LOAD)
 			{
-				
+
 				// read trigger id
 				Int triggerID;
 				xfer->xferInt( &triggerID );
@@ -2909,7 +2909,7 @@ void TerrainLogic::xfer( Xfer *xfer )
 				// sanity
 				if( poly == NULL )
 				{
-				
+
 					DEBUG_CRASH(( "TerrainLogic::xfer - Unable to find polygon trigger for water table with trigger ID '%d'\n",
 												triggerID ));
 					throw SC_INVALID_DATA;
@@ -2955,7 +2955,7 @@ void TerrainLogic::loadPostProcess( void )
 {
 	Bridge* pBridge = getFirstBridge();
 	Bridge* pNext;
-	while (pBridge) 
+	while (pBridge)
 	{
 		pNext = pBridge->getNext();
 		Object* obj = TheGameLogic->findObjectByID(pBridge->peekBridgeInfo()->bridgeObjectID);

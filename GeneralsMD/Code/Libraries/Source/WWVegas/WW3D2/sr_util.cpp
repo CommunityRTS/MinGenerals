@@ -17,28 +17,28 @@
 */
 
 /* $Header: /Commando/Code/ww3d2/sr_util.cpp 3     2/06/01 6:18p Greg_h $ */
-/*********************************************************************************************** 
- ***                            Confidential - Westwood Studios                              *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Commando / G 3D Library                                      * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/ww3d2/sr_util.cpp                            $* 
- *                                                                                             * 
- *                       Author:: Greg_h                                                       * 
- *                                                                                             * 
- *                     $Modtime:: 2/06/01 2:51p                                               $* 
- *                                                                                             * 
- *                    $Revision:: 3                                                           $* 
- *                                                                                             * 
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   Set_SR_Transform -- copies our object transform into a Surrender object                   * 
- *   Set_SR_Camera_Transform -- copies our camera transform into a Surrender object            * 
+/***********************************************************************************************
+ ***                            Confidential - Westwood Studios                              ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Commando / G 3D Library                                      *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/ww3d2/sr_util.cpp                            $*
+ *                                                                                             *
+ *                       Author:: Greg_h                                                       *
+ *                                                                                             *
+ *                     $Modtime:: 2/06/01 2:51p                                               $*
+ *                                                                                             *
+ *                    $Revision:: 3                                                           $*
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   Set_SR_Transform -- copies our object transform into a Surrender object                   *
+ *   Set_SR_Camera_Transform -- copies our camera transform into a Surrender object            *
  *   Get_SR_Camera_Transform -- creates a Matrix3D from a surrender camera transform           *
  *   Get_SR_Transform -- Creates a Matrix3D from a surrender object transform                  *
- *   Get_Camera_Frustum_Corners -- Returns 8 camera frustum corner points.                     * 
- *   Get_ZClamped_Camera_Frustum_Corners -- Gets zclamped frustum corners.                     * 
+ *   Get_Camera_Frustum_Corners -- Returns 8 camera frustum corner points.                     *
+ *   Get_ZClamped_Camera_Frustum_Corners -- Gets zclamped frustum corners.                     *
  *   Push_Multiply_Westwood_Matrix -- push and multiply a matrix into the gerd                 *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -54,17 +54,17 @@
 #include <srMeshModel.hpp>
 #include <srGERD.hpp>
 
-/*********************************************************************************************** 
- * Set_SR_Transform -- copies our object transform into a Surrender object                     * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   08/11/1997 GH  : Created.                                                                 * 
+/***********************************************************************************************
+ * Set_SR_Transform -- copies our object transform into a Surrender object                     *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/11/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 void Set_SR_Transform(srNode * obj,const Matrix3D & tm)
 {
@@ -127,17 +127,17 @@ Matrix3D Get_SR_Transform(srNode * obj)
 	return(tm);
 }
 
-/*********************************************************************************************** 
- * Set_SR_Camera_Transform -- copies our camera transform into a Surrender object              * 
- *                                                                                             * 
- * INPUT:                                                                                      * 
- *                                                                                             * 
- * OUTPUT:                                                                                     * 
- *                                                                                             * 
- * WARNINGS:                                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   08/11/1997 GH  : Created.                                                                 * 
+/***********************************************************************************************
+ * Set_SR_Camera_Transform -- copies our camera transform into a Surrender object              *
+ *                                                                                             *
+ * INPUT:                                                                                      *
+ *                                                                                             *
+ * OUTPUT:                                                                                     *
+ *                                                                                             *
+ * WARNINGS:                                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/11/1997 GH  : Created.                                                                 *
  *=============================================================================================*/
 void Set_SR_Camera_Transform(srCamera * obj,const Matrix3D & transform)
 {
@@ -217,7 +217,7 @@ void Push_Multiply_Westwood_Matrix(srGERD * gerd,const Matrix3D & tm)
 {
 	WWASSERT(gerd);
 	gerd->matrixMode(srGERD::MODELVIEW);
-	
+
 	srMatrix4x3 srtm;
 	Convert_Westwood_Matrix(tm,&srtm);
 	gerd->pushMultMatrix(srtm);
@@ -389,18 +389,18 @@ void Multiply_Westwood_And_Surrender_Matrix(const Matrix3D& n,const srMatrix4& m
 }
 
 /**************************************************************************
- * Get_Camera_Frustum_Corners -- Returns 8 camera frustum corner points.  * 
- *                                                                        * 
- * INPUT:	CameraClass * camera - camera.                                * 
- *                                                                        * 
- * OUTPUT:	(parameter) Vector3 points[8] - array of corner points.       * 
- *                                                                        * 
+ * Get_Camera_Frustum_Corners -- Returns 8 camera frustum corner points.  *
+ *                                                                        *
+ * INPUT:	CameraClass * camera - camera.                                *
+ *                                                                        *
+ * OUTPUT:	(parameter) Vector3 points[8] - array of corner points.       *
+ *                                                                        *
  * WARNINGS:	points must be an array of length 8 at least, or bad       *
- *             things will happen (this is not checked by the compiler).  * 
- *                                                                        * 
- * HISTORY:                                                               * 
- *   01/18/1998 NH  : Created.                                            * 
- *   04/13/1998 NH  : Modified for SR 1.3.                                * 
+ *             things will happen (this is not checked by the compiler).  *
+ *                                                                        *
+ * HISTORY:                                                               *
+ *   01/18/1998 NH  : Created.                                            *
+ *   04/13/1998 NH  : Modified for SR 1.3.                                *
  *========================================================================*/
 void Get_Camera_Frustum_Corners(const CameraClass * camera, Vector3 points[8])
 {
@@ -448,20 +448,20 @@ void Get_Camera_Frustum_Corners(const CameraClass * camera, Vector3 points[8])
 
 
 /**************************************************************************
- * Get_ZClamped_Camera_Frustum_Corners -- Gets zclamped frustum corners.  * 
- *                                                                        * 
- * INPUT:	CameraClass * camera - camera.                                * 
- *				float minz, maxz - depth clamps on frustum.                   * 
- *                                                                        * 
- * OUTPUT:	(parameter) Vector3 points[8] - array of corner points.       * 
+ * Get_ZClamped_Camera_Frustum_Corners -- Gets zclamped frustum corners.  *
+ *                                                                        *
+ * INPUT:	CameraClass * camera - camera.                                *
+ *				float minz, maxz - depth clamps on frustum.                   *
+ *                                                                        *
+ * OUTPUT:	(parameter) Vector3 points[8] - array of corner points.       *
  *				returns false of the intersection between the clamped range   *
- *				and the frustum is empty.                                     * 
- *                                                                        * 
+ *				and the frustum is empty.                                     *
+ *                                                                        *
  * WARNINGS:	points must be an array of length 8 at least, or bad       *
- *             things will happen (this is not checked by the compiler).  * 
- *                                                                        * 
- * HISTORY:                                                               * 
- *   11/18/1998 NH  : Re-Created.                                         * 
+ *             things will happen (this is not checked by the compiler).  *
+ *                                                                        *
+ * HISTORY:                                                               *
+ *   11/18/1998 NH  : Re-Created.                                         *
  *========================================================================*/
 bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 	Vector3 points[8], float minz, float maxz)
@@ -480,7 +480,7 @@ bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 	}
 	float startz = minz > znear ? minz : znear;
 	float endz = maxz < zfar ? maxz : zfar;
-	
+
 
    // Forward is negative Z in our viewspace coordinate system.
 	znear = -startz;

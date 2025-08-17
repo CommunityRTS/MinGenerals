@@ -174,7 +174,7 @@ mul LIGHT_0.w, LIGHT_0, LIGHT_0
 // accumulate light colors
 mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 
-// output per vertex specular color 
+// output per vertex specular color
 mul oT2, COL, c[CV_SPECULAR]
 
 mov oT0, V_TEXTURE

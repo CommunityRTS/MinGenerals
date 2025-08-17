@@ -16,29 +16,29 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/ini.cpp                                $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/ini.cpp                                $*
+ *                                                                                             *
  *                      $Author:: Byon_g                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 7/23/01 6:20p                                               $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 17                                                          $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  *   INIClass::Clear -- Clears out a section (or all sections) of the INI data.                *
  *   INIClass::Entry_Count -- Fetches the number of entries in a specified section.            *
  *   INIClass::Find_Entry -- Find specified entry within section.                              *
  *   INIClass::Find_Section -- Find the specified section within the INI data.                 *
  *   INIClass::Get_Bool -- Fetch a boolean value for the section and entry specified.          *
  *   INIClass::Get_Entry -- Get the entry identifier name given ordinal number and section name*
- *   INIClass::Get_Float -- Fetch a floating point number from the database.                   * 
+ *   INIClass::Get_Float -- Fetch a floating point number from the database.                   *
  *   INIClass::Get_Hex -- Fetches integer [hex format] from the section and entry specified.   *
  *   INIClass::Get_Int -- Fetch an integer entry from the specified section.                   *
  *   INIClass::Get_PKey -- Fetch a key from the ini database.                                  *
@@ -49,7 +49,7 @@
  *   INIClass::Load -- Load INI data from the file specified.                                  *
  *   INIClass::Load -- Load the INI data from the data stream (straw).                         *
  *   INIClass::Put_Bool -- Store a boolean value into the INI database.                        *
- *   INIClass::Put_Float -- Store a floating point number to the database.                     * 
+ *   INIClass::Put_Float -- Store a floating point number to the database.                     *
  *   INIClass::Put_Hex -- Store an integer into the INI database, but use a hex format.        *
  *   INIClass::Put_Int -- Stores a signed integer into the INI data base.                      *
  *   INIClass::Put_PKey -- Stores the key to the INI database.                                 *
@@ -70,7 +70,7 @@
  *   INIClass::Get_Point -- Fetch a 2D point from the INI database.                            *
  *   INIClass::CRC - returns a (hopefully) unique 32-bit value for a string                    *
  *    -- Displays debug information when a duplicate entry is found in an INI file             *
- *   INIClass::Enumerate_Entries -- Count how many entries begin with a certain prefix followed by a range * 
+ *   INIClass::Enumerate_Entries -- Count how many entries begin with a certain prefix followed by a range *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -90,7 +90,7 @@
 #include "rawfile.h"
 #include "ffactory.h"
 
-// recently transferred from ini.h 
+// recently transferred from ini.h
 #include "inisup.h"
 #include	"trect.h"
 #include	"wwfile.h"
@@ -104,7 +104,7 @@
 #endif
 
 
-INIEntry::~INIEntry(void) 
+INIEntry::~INIEntry(void)
 {
 	free(Entry);
 	Entry = NULL;
@@ -112,14 +112,14 @@ INIEntry::~INIEntry(void)
 	Value = NULL;
 }
 
-INISection::~INISection(void) 
+INISection::~INISection(void)
 {
 	free(Section);
 	Section = 0;
 	EntryList.Delete();
 }
 
-bool INIClass::Is_Loaded(void) const 
+bool INIClass::Is_Loaded(void) const
 {
 	return(!SectionList->Is_Empty());
 }
@@ -134,7 +134,7 @@ void INIClass::Shutdown(void)
 {
 	delete SectionList;
 	delete SectionIndex;
-}	
+}
 
 /***********************************************************************************************
  * INIClass::INIClass -- Constructor for INI handler.                                          *
@@ -166,7 +166,7 @@ INIClass::INIClass(void)
  * HISTORY:                                                                                    *
  *=============================================================================================*/
 
-INIClass::INIClass(FileClass & file) 
+INIClass::INIClass(FileClass & file)
 {
 	Initialize();
 	Load(file);
@@ -187,7 +187,7 @@ INIClass::INIClass(FileClass & file)
  * HISTORY:                                                                                    *
  *=============================================================================================*/
 
-INIClass::INIClass(const char *filename) 
+INIClass::INIClass(const char *filename)
 {
 	Initialize();
 	FileClass *file=_TheFileFactory->Get_File(filename);
@@ -777,7 +777,7 @@ char const * INIClass::Get_Entry(char const * section, int index) const
 
 
 /***********************************************************************************************
- * Enumerate_Entries -- Count how many entries begin with a certain prefix followed by a range * 
+ * Enumerate_Entries -- Count how many entries begin with a certain prefix followed by a range *
  *                      of numbers.                                                            *
  *                                                                                             *
  *                                                                                             *
@@ -797,7 +797,7 @@ unsigned INIClass::Enumerate_Entries(const char *Section, const char * Entry_Pre
 	unsigned count = StartNumber;
 	bool present = false;
 	char entry[256];
-	do 
+	do
 	{
 		sprintf(entry, "%s%d", Entry_Prefix, count);
 		present = Is_Present(Section, entry);
@@ -1151,7 +1151,7 @@ bool INIClass::Put_Rect(char const * section, char const * entry, Rect const & v
 
 	sprintf(buffer, "%d,%d,%d,%d", value.X, value.Y, value.Width, value.Height);
 	return(Put_String(section, entry, buffer));
-}	
+}
 
 
 /***********************************************************************************************
@@ -1185,7 +1185,7 @@ Rect const INIClass::Get_Rect(char const * section, char const * entry, Rect con
 		return(retval);
 	}
 	return(defvalue);
-}	
+}
 
 
 /***********************************************************************************************
@@ -1253,24 +1253,24 @@ int INIClass::Get_Hex(char const * section, char const * entry, int defvalue) co
 }
 
 
-/*********************************************************************************************** 
- * INIClass::Get_Float -- Fetch a floating point number from the database.                     * 
- *                                                                                             * 
- *    This routine will retrieve a floating point number from the database.                    * 
- *                                                                                             * 
- * INPUT:   section  -- The section name to find the entry under.                              * 
- *                                                                                             * 
- *          entry    -- The entry name to fetch the float value from.                          * 
- *                                                                                             * 
- *          defvalue -- Return value to use if the section and entry could not be found.       * 
- *                                                                                             * 
- * OUTPUT:  Returns with the float value from the section and entry specified. If not found,   * 
- *          then the default value is returned.                                                * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/31/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * INIClass::Get_Float -- Fetch a floating point number from the database.                     *
+ *                                                                                             *
+ *    This routine will retrieve a floating point number from the database.                    *
+ *                                                                                             *
+ * INPUT:   section  -- The section name to find the entry under.                              *
+ *                                                                                             *
+ *          entry    -- The entry name to fetch the float value from.                          *
+ *                                                                                             *
+ *          defvalue -- Return value to use if the section and entry could not be found.       *
+ *                                                                                             *
+ * OUTPUT:  Returns with the float value from the section and entry specified. If not found,   *
+ *          then the default value is returned.                                                *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/31/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 float INIClass::Get_Float(char const * section, char const * entry, float defvalue) const
 {
@@ -1292,24 +1292,24 @@ float INIClass::Get_Float(char const * section, char const * entry, float defval
 }
 
 
-/*********************************************************************************************** 
- * INIClass::Put_Float -- Store a floating point number to the database.                       * 
- *                                                                                             * 
- *    This routine will store a flaoting point number to the section and entry of the          * 
- *    database.                                                                                * 
- *                                                                                             * 
- * INPUT:   section  -- The section to store the entry under.                                  * 
- *                                                                                             * 
- *          entry    -- The entry to store the floating point number to.                       * 
- *                                                                                             * 
- *          number   -- The floating point number to store.                                    * 
- *                                                                                             * 
- * OUTPUT:  bool; Was the floating point number stored without error?                          * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/31/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * INIClass::Put_Float -- Store a floating point number to the database.                       *
+ *                                                                                             *
+ *    This routine will store a flaoting point number to the section and entry of the          *
+ *    database.                                                                                *
+ *                                                                                             *
+ * INPUT:   section  -- The section to store the entry under.                                  *
+ *                                                                                             *
+ *          entry    -- The entry to store the floating point number to.                       *
+ *                                                                                             *
+ *          number   -- The floating point number to store.                                    *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the floating point number stored without error?                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/31/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 bool INIClass::Put_Float(char const * section, char const * entry, double number)
 {
@@ -1459,7 +1459,7 @@ StringClass INIClass::Get_String(char const * section, char const * entry, char 
 	**	value will be used as the entry value.
 	*/
 	INIEntry * entryptr = Find_Entry(section, entry);
-	if (entryptr != NULL) { 
+	if (entryptr != NULL) {
 		defvalue = entryptr->Value;
 	}
 
@@ -1504,7 +1504,7 @@ char *INIClass::Get_Alloc_String(char const * section, char const * entry, char 
 	**	value will be used as the entry value.
 	*/
 	INIEntry * entryptr = Find_Entry(section, entry);
-	if (entryptr != NULL) { 
+	if (entryptr != NULL) {
 		defvalue = entryptr->Value;
 	}
 
@@ -1517,7 +1517,7 @@ int INIClass::Get_List_Index(char const * section, char const * entry, int const
 	if (section == NULL || entry == NULL) return(0);
 
 	INIEntry * entryptr = Find_Entry(section, entry);
-	if (entryptr == NULL || entryptr->Value == NULL) { 
+	if (entryptr == NULL || entryptr->Value == NULL) {
 		return defvalue;
 	}
 
@@ -1533,17 +1533,17 @@ int INIClass::Get_Int_Bitfield(char const * section, char const * entry, int def
 {
 	// if we can't find the entry or the entry is null just return the default value
 	INIEntry * entryptr = Find_Entry(section, entry);
-	if (entryptr == NULL || entryptr->Value == NULL) { 
+	if (entryptr == NULL || entryptr->Value == NULL) {
 		return defvalue;
 	}
 
-	// swim through the entry breaking it down into its token pieces and 
+	// swim through the entry breaking it down into its token pieces and
 	// get the bitfield value for each piece.
 	// int count	= 0; (gth) initailized but not referenced...
 	int retval	= 0;
 	char *str	= strdup(entryptr->Value);
 
-   int lp; 
+   int lp;
 	for (char *token = strtok(str, "|+"); token; token = strtok(NULL, "|+")) {
 		for (lp = 0; list[lp]; lp++) {
 			// if this list entry matches our string token then we need
@@ -1566,7 +1566,7 @@ int *	INIClass::Get_Alloc_Int_Array(char const * section, char const * entry, in
 	int *retval = NULL;
 
 	INIEntry * entryptr = Find_Entry(section, entry);
-	if (entryptr == NULL || entryptr->Value == NULL) { 
+	if (entryptr == NULL || entryptr->Value == NULL) {
 		retval = W3DNEWARRAY int[1];
 		retval[0] = listend;
 
@@ -2037,7 +2037,7 @@ void INIClass::Strip_Comments(char * buffer)
  * HISTORY:                                                                                    *
  *   12/8/97    EHC : Created.                                                                 *
  *=============================================================================================*/
-int INIClass::CRC(const char *string) 
+int INIClass::CRC(const char *string)
 {
 	// simply call the CRC class string evaluator.
 	return CRC::String(string);
@@ -2059,7 +2059,7 @@ int INIClass::CRC(const char *string)
  * HISTORY:                                                                                    *
  *   12/9/97    EHC : Created.                                                                 *
  *=============================================================================================*/
-void INIClass::DuplicateCRCError(const char *message, const char *entry) 
+void INIClass::DuplicateCRCError(const char *message, const char *entry)
 {
 	OutputDebugString(message);
 	OutputDebugString(" - Duplicate Entry CRC \"");

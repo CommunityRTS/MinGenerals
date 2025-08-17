@@ -16,21 +16,21 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/rndstrng.h                             $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/rndstrng.h                             $*
+ *                                                                                             *
  *                      $Author:: Byon_g                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 11/03/99 2:26p                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
+ *---------------------------------------------------------------------------------------------*
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #if _MSC_VER >= 1000
@@ -54,7 +54,7 @@ public:
 	RandomStringClass( void );
 	~RandomStringClass( void );
 
-	// Add a string to the class.  
+	// Add a string to the class.
 	// (future version may have a weight parameter)
 	void Add_String( const char * str );
 

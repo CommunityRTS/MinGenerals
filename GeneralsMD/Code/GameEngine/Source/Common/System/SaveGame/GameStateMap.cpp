@@ -78,7 +78,7 @@ GameStateMap::~GameStateMap( void )
 // ------------------------------------------------------------------------------------------------
 static void embedPristineMap( AsciiString map, Xfer *xfer )
 {
- 
+
 	// open the map file
 	File *file = TheFileSystem->openFile( map.str(), File::READ | File::BINARY );
 	if( file == NULL )
@@ -88,10 +88,10 @@ static void embedPristineMap( AsciiString map, Xfer *xfer )
 		throw SC_INVALID_DATA;
 
 	}  // end if
- 
+
 	// how big is the map file
 	Int fileSize = file->seek( 0, File::END );
- 
+
 	// rewind to beginning of file
 	file->seek( 0, File::START );
 
@@ -104,7 +104,7 @@ static void embedPristineMap( AsciiString map, Xfer *xfer )
 		throw SC_INVALID_DATA;
 
 	}  // end if
- 
+
 	// copy the file to the buffer
 	if( file->read( buffer, fileSize ) != fileSize )
 	{
@@ -113,10 +113,10 @@ static void embedPristineMap( AsciiString map, Xfer *xfer )
 		throw SC_INVALID_DATA;
 
 	}  // end if
- 
+
 	// close the BIG file
 	file->close();
- 
+
 	// write the contents to the save file
 	DEBUG_ASSERTCRASH( xfer->getXferMode() == XFER_SAVE, ("embedPristineMap - Unsupposed xfer mode\n") );
 	xfer->beginBlock();
@@ -125,7 +125,7 @@ static void embedPristineMap( AsciiString map, Xfer *xfer )
 
 	// delete the buffer
 	delete [] buffer;
- 
+
 }  // end embedPristineMap
 
 // ------------------------------------------------------------------------------------------------
@@ -314,7 +314,7 @@ void GameStateMap::xfer( Xfer *xfer )
 			xfer->xferAsciiString( &tmp );
 		}
 
-		if (currentVersion >= 2) 
+		if (currentVersion >= 2)
 		{
 			// save the game mode.
 			Int gameMode = TheGameLogic->getGameMode();
@@ -345,7 +345,7 @@ void GameStateMap::xfer( Xfer *xfer )
 		xfer->xferAsciiString( &saveGameInfo->pristineMapName );
 		saveGameInfo->pristineMapName = TheGameState->portableMapPathToRealMapPath(saveGameInfo->pristineMapName);
 
-		if (currentVersion >= 2) 
+		if (currentVersion >= 2)
 		{
 			// get the game mode.
 			Int gameMode;
@@ -418,20 +418,20 @@ void GameStateMap::xfer( Xfer *xfer )
 	TheGameClient->setDrawableIDCounter( highDrawableID );
 
 	// Save the Game Info so the game can be started with the correct players on load
-	if( TheGameLogic->getGameMode()==GAME_SKIRMISH ) 
+	if( TheGameLogic->getGameMode()==GAME_SKIRMISH )
 	{
-		if( TheSkirmishGameInfo==NULL ) 
+		if( TheSkirmishGameInfo==NULL )
 		{
 			TheSkirmishGameInfo = NEW SkirmishGameInfo;
-			TheSkirmishGameInfo->init();  
+			TheSkirmishGameInfo->init();
 			TheSkirmishGameInfo->clearSlotList();
 			TheSkirmishGameInfo->reset();
 		}
 		xfer->xferSnapshot(TheSkirmishGameInfo);
-	} 
-	else 
+	}
+	else
 	{
-		if( TheSkirmishGameInfo ) 
+		if( TheSkirmishGameInfo )
 		{
 			delete TheSkirmishGameInfo;
 			TheSkirmishGameInfo = NULL;
@@ -443,7 +443,7 @@ void GameStateMap::xfer( Xfer *xfer )
 	// things in the map file that don't don't change (terrain, triggers, teams, script
 	// definitions) etc
 	//
-	if( xfer->getXferMode() == XFER_LOAD ) 
+	if( xfer->getXferMode() == XFER_LOAD )
 	{
 		TheGameLogic->startNewGame( TRUE );
 		TheGameLogic->setLoadingSave( FALSE );

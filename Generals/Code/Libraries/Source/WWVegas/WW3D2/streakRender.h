@@ -118,7 +118,7 @@ public:
 
 	void					Reset_Line(void);
 
-	
+
 	void	Render(	RenderInfoClass & rinfo,
 								const Matrix3D & transform,
 								unsigned int point_count,
@@ -147,9 +147,9 @@ private:
 	float								Width;
 	Vector3							Color;
 	float								Opacity;
-	
+
 	// Subdivision properties
-	unsigned int					SubdivisionLevel;	
+	unsigned int					SubdivisionLevel;
 	float								NoiseAmplitude;
 
 	// If >0, will abort a merge which causes an intersection to move
@@ -163,10 +163,10 @@ private:
 	float								TextureTileFactor;
 
 	// Used for texture coordinate animation
-	unsigned int					LastUsedSyncTime;		// Last sync time used	
+	unsigned int					LastUsedSyncTime;		// Last sync time used
 	Vector2							CurrentUVOffset;		// Current UV offset
 	Vector2							UVOffsetDeltaPerMS;	// Amount to increase offset each millisec
-	
+
 	// Various flags
 	enum BitShiftOffsets {
 		TEXTURE_MAP_MODE_OFFSET = 24	// By how many bits do I need to shift the texture mapping mode?
@@ -190,8 +190,8 @@ private:
 
 
 inline StreakRendererClass::TextureMapMode StreakRendererClass::Get_Texture_Mapping_Mode(void) const
-{ 
-	return (TextureMapMode)((Bits & TEXTURE_MAP_MODE_MASK) >> TEXTURE_MAP_MODE_OFFSET); 
+{
+	return (TextureMapMode)((Bits & TEXTURE_MAP_MODE_MASK) >> TEXTURE_MAP_MODE_OFFSET);
 }
 
 inline void StreakRendererClass::Set_Texture_Mapping_Mode(StreakRendererClass::TextureMapMode mode)
@@ -201,7 +201,7 @@ inline void StreakRendererClass::Set_Texture_Mapping_Mode(StreakRendererClass::T
 }
 
 inline Vector2 StreakRendererClass::Get_UV_Offset_Rate(void) const
-{	
+{
 	return UVOffsetDeltaPerMS * 1000.0f;
 }
 

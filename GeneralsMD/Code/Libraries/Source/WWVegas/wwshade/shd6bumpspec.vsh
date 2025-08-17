@@ -131,7 +131,7 @@ mul LIGHT_0.w, LIGHT_0, LIGHT_0
 
 // accumulate light colors
 mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
- 
+
 mul oD1, COL, c[CV_SPECULAR]
 
 

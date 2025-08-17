@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/monodrvr.h                                         $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/monodrvr.h                                         $*
+ *                                                                                             *
  *                      $Author:: Neal_k                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 10/04/99 10:25a                                             $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 4                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #if _MSC_VER >= 1000
 #pragma once
@@ -75,10 +75,10 @@
 #define IOCTL_MONO_FILL_ATTRIB	CTL_CODE(FILE_DEVICE_MONO, 0x80E, METHOD_BUFFERED, FILE_WRITE_DATA)
 
 /*
-**	These specify the various behavior flags available for the mono display driver. They 
+**	These specify the various behavior flags available for the mono display driver. They
 **	default to being OFF (or FALSE).
 */
-typedef enum MonoFlagType 
+typedef enum MonoFlagType
 {
 	MONOFLAG_WRAP,			// Text will wrap to the next line when right margin is reached.
 

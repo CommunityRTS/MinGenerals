@@ -16,7 +16,7 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
+/***********************************************************************************************
  ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
  ***********************************************************************************************
  *                                                                                             *
@@ -32,8 +32,8 @@
  *                                                                                             *
  *---------------------------------------------------------------------------------------------*
  * Functions:                                                                                  *
- *   Blit_Block -- Blit a block of data to the surface.                                        * 
- *   Draw_Shape -- Draw a shape to the surface.                                                * 
+ *   Blit_Block -- Blit a block of data to the surface.                                        *
+ *   Draw_Shape -- Draw a shape to the surface.                                                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -48,37 +48,37 @@
 #include	"shapeset.h"
 
 
-/*********************************************************************************************** 
- * Draw_Shape -- Draw a shape to the surface.                                                  * 
- *                                                                                             * 
- *    This is the largely general purpose shape drawing routine for the game. All non-voxel    * 
- *    shape drawing will pass through this routine.                                            * 
- *                                                                                             * 
- * INPUT:   surface  -- The destination surface for the draw.                                  * 
- *                                                                                             * 
- *          convert  -- The converter to use for the pixel transformation.                     * 
- *                                                                                             * 
- *          shapefile   -- Pointer to the shapefile data block.                                * 
- *                                                                                             * 
- *          shapenum -- The shape number within the shape file data block specified.           * 
- *                                                                                             * 
- *          point    -- The draw point for this shape on the destination surface. This point   * 
- *                      is relative to the clipping window.                                    * 
- *                                                                                             * 
- *          window   -- The clipping window to use for this draw.                              * 
- *                                                                                             * 
- *          flags    -- Shape draw control flags. These flags are used to extract the          * 
- *                      proper blitter from the converter object.                              * 
- *                                                                                             * 
- *          remap    -- Auxiliary remap table used for the draw process. House ownership can   * 
- *                      be controlled with this parameter.                                     * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/27/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Draw_Shape -- Draw a shape to the surface.                                                  *
+ *                                                                                             *
+ *    This is the largely general purpose shape drawing routine for the game. All non-voxel    *
+ *    shape drawing will pass through this routine.                                            *
+ *                                                                                             *
+ * INPUT:   surface  -- The destination surface for the draw.                                  *
+ *                                                                                             *
+ *          convert  -- The converter to use for the pixel transformation.                     *
+ *                                                                                             *
+ *          shapefile   -- Pointer to the shapefile data block.                                *
+ *                                                                                             *
+ *          shapenum -- The shape number within the shape file data block specified.           *
+ *                                                                                             *
+ *          point    -- The draw point for this shape on the destination surface. This point   *
+ *                      is relative to the clipping window.                                    *
+ *                                                                                             *
+ *          window   -- The clipping window to use for this draw.                              *
+ *                                                                                             *
+ *          flags    -- Shape draw control flags. These flags are used to extract the          *
+ *                      proper blitter from the converter object.                              *
+ *                                                                                             *
+ *          remap    -- Auxiliary remap table used for the draw process. House ownership can   *
+ *                      be controlled with this parameter.                                     *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/27/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Draw_Shape(Surface & surface, ConvertClass & convert, ShapeSet const * shapefile, int shapenum, Point2D const & point, Rect const & window, ShapeFlags_Type flags, unsigned char const * remap)
 {
@@ -142,37 +142,37 @@ void Draw_Shape(Surface & surface, ConvertClass & convert, ShapeSet const * shap
 }
 
 
-/*********************************************************************************************** 
- * Blit_Block -- Blit a block of data to the surface.                                          * 
- *                                                                                             * 
- *    This function serves as a wrapper to the normal Bit_Blit function. It is used to control * 
- *    the blitter according to remap parameter specified.                                      * 
- *                                                                                             * 
- * INPUT:   surface  -- The destination surface of this blit.                                  * 
- *                                                                                             * 
- *          convert  -- The convert class for pixel transformation.                            * 
- *                                                                                             * 
- *          source   -- The source surface to blit from.                                       * 
- *                                                                                             * 
- *          sourcerect  -- The source rectangle within the source surface to blit from.        * 
- *                                                                                             * 
- *          point    -- The draw point of this blit (upper left corner).                       * 
- *                                                                                             * 
- *          window   -- The clipping window for this blit. The destination rectangle is        * 
- *                      relative  to this clipping window.                                     * 
- *                                                                                             * 
- *          remap    -- The remapping table pointer (optional) to be used for ownership        * 
- *                      remapping control.                                                     * 
- *                                                                                             * 
- *          blitter  -- Preexisting blitter to use. If this parameter is NULL, then a blitter  * 
- *                      object is created from the convert object supplied.                    * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/27/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Blit_Block -- Blit a block of data to the surface.                                          *
+ *                                                                                             *
+ *    This function serves as a wrapper to the normal Bit_Blit function. It is used to control *
+ *    the blitter according to remap parameter specified.                                      *
+ *                                                                                             *
+ * INPUT:   surface  -- The destination surface of this blit.                                  *
+ *                                                                                             *
+ *          convert  -- The convert class for pixel transformation.                            *
+ *                                                                                             *
+ *          source   -- The source surface to blit from.                                       *
+ *                                                                                             *
+ *          sourcerect  -- The source rectangle within the source surface to blit from.        *
+ *                                                                                             *
+ *          point    -- The draw point of this blit (upper left corner).                       *
+ *                                                                                             *
+ *          window   -- The clipping window for this blit. The destination rectangle is        *
+ *                      relative  to this clipping window.                                     *
+ *                                                                                             *
+ *          remap    -- The remapping table pointer (optional) to be used for ownership        *
+ *                      remapping control.                                                     *
+ *                                                                                             *
+ *          blitter  -- Preexisting blitter to use. If this parameter is NULL, then a blitter  *
+ *                      object is created from the convert object supplied.                    *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/27/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Blit_Block(Surface & surface, ConvertClass & convert, Surface const & source, Rect const & sourcerect, Point2D const & point, Rect const & window, unsigned char const * remap, Blitter const * blitter)
 {

@@ -120,7 +120,7 @@ struct W3dSphereStruct
 	uint32				Version;							// file format version
 	uint32				Attributes;						// sphere attributes (above #define's)
 	char					Name[2*W3D_NAME_LEN];		// name is in the form <containername>.<spherename>
-	
+
 	W3dVectorStruct	Center;							// center of the sphere
 	W3dVectorStruct	Extent;							// extent of the sphere
 
@@ -173,7 +173,7 @@ private:
 
 	float		Radius;
 	int		Slices;
-	int		Stacks;			
+	int		Stacks;
 	int		face_ct;	  		// # of faces
 
 	int		Vertex_ct;		// vertex count
@@ -221,7 +221,7 @@ SphereMeshClass::Set_DCG (bool is_additive, int index, float value)
 **
 */
 class SphereRenderObjClass : public RenderObjClass
-{	
+{
 
 public:
 
@@ -240,13 +240,13 @@ public:
 	~SphereRenderObjClass(void);
 
 	/////////////////////////////////////////////////////////////////////////////
-	// Render Object Interface 
+	// Render Object Interface
 	/////////////////////////////////////////////////////////////////////////////
 	virtual RenderObjClass *	Clone(void) const;
 	virtual int						Class_ID(void) const;
 	virtual void					Render(RenderInfoClass & rinfo);
 	virtual void					Special_Render(SpecialRenderInfoClass & rinfo);
-	virtual void 					Set_Transform(const Matrix3D &m); 
+	virtual void 					Set_Transform(const Matrix3D &m);
 	virtual void 					Set_Position(const Vector3 &v);
    virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
    virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & aabox) const;
@@ -305,8 +305,8 @@ public:
 
 	// Animatable channel access
 	SphereColorChannelClass &			Get_Color_Channel (void)				{ return ColorChannel; }
-	const SphereColorChannelClass &	Peek_Color_Channel (void)				{ return ColorChannel; }	
-	
+	const SphereColorChannelClass &	Peek_Color_Channel (void)				{ return ColorChannel; }
+
 	SphereAlphaChannelClass &			Get_Alpha_Channel (void)				{ return AlphaChannel; }
 	const SphereAlphaChannelClass &	Peek_Alpha_Channel (void)				{ return AlphaChannel; }
 
@@ -322,7 +322,7 @@ public:
 	void								Set_Vector_Channel (const SphereVectorChannelClass &data)	{ VectorChannel = data; }
 
 protected:
-	
+
 	virtual void			 		update_cached_box(void);
 	virtual void			 		Update_Cached_Bounding_Volumes(void) const;
 	void								Update_On_Visibilty(void);
@@ -336,7 +336,7 @@ protected:
 	float								anim_time;			// what time in seconds are we in the animation
 	float								AnimDuration;
 	bool								IsAnimating;
-	
+
 	SphereColorChannelClass		ColorChannel;
 	SphereAlphaChannelClass		AlphaChannel;
 	SphereScaleChannelClass		ScaleChannel;
@@ -395,11 +395,11 @@ inline void SphereRenderObjClass::Set_Local_Min_Max(const Vector3 & min,const Ve
 }
 
 
-inline const AABoxClass & SphereRenderObjClass::Get_Box(void) 
-{ 
+inline const AABoxClass & SphereRenderObjClass::Get_Box(void)
+{
 	Validate_Transform();
 	update_cached_box();
-	return CachedBox; 
+	return CachedBox;
 }
 
 /*

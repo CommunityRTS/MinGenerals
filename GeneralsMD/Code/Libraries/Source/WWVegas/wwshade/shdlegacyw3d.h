@@ -26,7 +26,7 @@
 #include "meshmatdesc.h"
 
 /**
-** ShdLegacyW3DDefClass - This ShaderDef's sole purpose for existance is to let us make the 
+** ShdLegacyW3DDefClass - This ShaderDef's sole purpose for existance is to let us make the
 ** transition to using shaders for all of our materials.  This shader will wrap the old
 ** material system completely.  The plan is to eventually have a full set of "real" shaders and
 ** not need to use this at all.
@@ -43,7 +43,7 @@ public:
 	ShdLegacyW3DDefClass();
 	ShdLegacyW3DDefClass(const ShdLegacyW3DDefClass& that);
 	virtual ~ShdLegacyW3DDefClass();
-	
+
 	virtual ShdDefClass*	Clone() const	{ return new ShdLegacyW3DDefClass(*this); }
 
 	// Shader Creation (should create a shader compatible with the current hardware/API)
@@ -88,14 +88,14 @@ private:
 	bool									Load_Variables(ChunkLoadClass &cload);
 
 	int									PassCount;
-	
+
 	// Textures
 	StringClass							TextureNames[MeshMatDescClass::MAX_PASSES][MeshMatDescClass::MAX_TEX_STAGES];
 	unsigned int						TextureAttributes[MeshMatDescClass::MAX_PASSES][MeshMatDescClass::MAX_TEX_STAGES];
 
 	// Shaders
 	W3dShaderStruct					Shaders[MeshMatDescClass::MAX_PASSES];
-	
+
 	// Materials
 	W3dVertexMaterialStruct			Materials[MeshMatDescClass::MAX_PASSES];
 	StringClass							MapperArgs[MeshMatDescClass::MAX_PASSES][MeshMatDescClass::MAX_TEX_STAGES];
@@ -110,7 +110,7 @@ class Shd6LegacyW3DClass : public ShdInterfaceClass
 public:
 	Shd6LegacyW3DClass(const ShdDefClass* def);
 	virtual ~Shd6LegacyW3DClass();
-	
+
 	static void Init();
 	static void Shutdown();
 
@@ -131,9 +131,9 @@ public:
 
 	virtual void						Copy_Vertex_Stream
 	(
-		unsigned stream, 
-		void* dest_buffer, 
-		const VertexStreamStruct& vss, 
+		unsigned stream,
+		void* dest_buffer,
+		const VertexStreamStruct& vss,
 		unsigned vertex_count
 	);
 

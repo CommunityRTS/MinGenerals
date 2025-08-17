@@ -53,11 +53,11 @@ PointerRemapClass					SaveLoadSystemClass::PointerRemapper;
 
 
 bool SaveLoadSystemClass::Save (ChunkSaveClass &csave,SaveLoadSubSystemClass & subsystem)
-{	
+{
 	bool ok = true;
 
 	if (subsystem.Contains_Data()) {
-		csave.Begin_Chunk (subsystem.Chunk_ID ());		
+		csave.Begin_Chunk (subsystem.Chunk_ID ());
 		ok &= subsystem.Save (csave);
 		csave.End_Chunk ();
 	}
@@ -131,7 +131,7 @@ SaveLoadSubSystemClass * SaveLoadSystemClass::Find_Sub_System (uint32 chunk_id)
 			break;
 		}
 	}
-	return sys;	
+	return sys;
 }
 
 void SaveLoadSystemClass::Register_Persist_Factory(PersistFactoryClass * factory)
@@ -155,7 +155,7 @@ PersistFactoryClass * SaveLoadSystemClass::Find_Persist_Factory(uint32 chunk_id)
 			break;
 		}
 	}
-	return fact;	
+	return fact;
 }
 
 bool SaveLoadSystemClass::Is_Post_Load_Callback_Registered(PostLoadableClass * obj)
@@ -229,7 +229,7 @@ void SaveLoadSystemClass::Unlink_Sub_System(SaveLoadSubSystemClass * sys)
 	WWASSERT(sys != NULL);
 	SaveLoadSubSystemClass * cursys = SubSystemListHead;
 	SaveLoadSubSystemClass * prev = NULL;
-	
+
 	while (cursys != sys) {
 		prev = cursys;
 		cursys = cursys->NextSubSystem;
@@ -240,14 +240,14 @@ void SaveLoadSystemClass::Unlink_Sub_System(SaveLoadSubSystemClass * sys)
 	} else {
 		prev->NextSubSystem = sys->NextSubSystem;
 	}
-	
+
 	sys->NextSubSystem = NULL;
 }
 
 
 void SaveLoadSystemClass::Link_Factory(PersistFactoryClass * fact)
 {
-	WWASSERT(fact != NULL);	
+	WWASSERT(fact != NULL);
 	if (fact != NULL) {
 		WWASSERT(fact->NextFactory == NULL);			// factories should never be registered twice!
 		fact->NextFactory = FactoryListHead;
@@ -257,11 +257,11 @@ void SaveLoadSystemClass::Link_Factory(PersistFactoryClass * fact)
 
 void SaveLoadSystemClass::Unlink_Factory(PersistFactoryClass * fact)
 {
-	WWASSERT(fact != NULL);	
+	WWASSERT(fact != NULL);
 
 	PersistFactoryClass * curfact = FactoryListHead;
 	PersistFactoryClass * prev = NULL;
-	
+
 	while (curfact != fact) {
 		prev = curfact;
 		curfact = curfact->NextFactory;
@@ -272,7 +272,7 @@ void SaveLoadSystemClass::Unlink_Factory(PersistFactoryClass * fact)
 	} else {
 		prev->NextFactory = fact->NextFactory;
 	}
-	
+
 	fact->NextFactory = NULL;
 }
 

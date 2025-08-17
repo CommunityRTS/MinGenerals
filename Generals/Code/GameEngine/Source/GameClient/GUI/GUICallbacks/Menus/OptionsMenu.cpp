@@ -92,10 +92,10 @@ static NameKeyType    comboBoxAntiAliasingID   = NAMEKEY_INVALID;
 static GameWindow *   comboBoxAntiAliasing     = NULL;
 
 static NameKeyType    comboBoxResolutionID      = NAMEKEY_INVALID;
-static GameWindow *   comboBoxResolution       = NULL; 
+static GameWindow *   comboBoxResolution       = NULL;
 
 static NameKeyType    comboBoxDetailID      = NAMEKEY_INVALID;
-static GameWindow *   comboBoxDetail        = NULL; 
+static GameWindow *   comboBoxDetail        = NULL;
 
 static NameKeyType		checkAlternateMouseID	= NAMEKEY_INVALID;
 static GameWindow *		checkAlternateMouse		= NULL;
@@ -145,13 +145,13 @@ static GameWindow *   sliderGamma = NULL;
 
 //Advanced Options Screen
 static NameKeyType    WinAdvancedDisplayID      = NAMEKEY_INVALID;
-static GameWindow *   WinAdvancedDisplay				= NULL; 
+static GameWindow *   WinAdvancedDisplay				= NULL;
 
 static NameKeyType    ButtonAdvancedAcceptID      = NAMEKEY_INVALID;
-static GameWindow *   ButtonAdvancedAccept				= NULL; 
+static GameWindow *   ButtonAdvancedAccept				= NULL;
 
 static NameKeyType    ButtonAdvancedCancelID      = NAMEKEY_INVALID;
-static GameWindow *   ButtonAdvancedCancel				= NULL; 
+static GameWindow *   ButtonAdvancedCancel				= NULL;
 
 static NameKeyType    sliderTextureResolutionID = NAMEKEY_INVALID;
 static GameWindow *   sliderTextureResolution = NULL;
@@ -243,7 +243,7 @@ Int OptionPreferences::getCampaignDifficulty(void)
 		factor = DIFFICULTY_EASY;
 	if (factor > DIFFICULTY_HARD)
 		factor = DIFFICULTY_HARD;
-	
+
 	return factor;
 }
 
@@ -334,7 +334,7 @@ Real OptionPreferences::getScrollFactor(void)
 		factor = 0;
 	if (factor > 100)
 		factor = 100;
-	
+
 	return factor/100.0f;
 }
 
@@ -681,7 +681,7 @@ Real OptionPreferences::getGammaValue(void)
 	OptionPreferences::const_iterator it = find("Gamma");
  	if (it == end())
  		return 50.0f;
- 
+
  	Real gamma = (Real) atoi(it->second.str());
  	return gamma;
 }
@@ -736,7 +736,7 @@ static void setDefaults( void )
 	//-------------------------------------------------------------------------------------------------
 	// send Delay
 	GadgetCheckBoxSetChecked(checkSendDelay, FALSE);
-	
+
 	//-------------------------------------------------------------------------------------------------
 	// LOD
 	if ((TheGameLogic->isInGame() == FALSE) || (TheGameLogic->isInShellGame() == TRUE)) {
@@ -759,7 +759,7 @@ static void setDefaults( void )
 			DEBUG_ASSERTCRASH(FALSE,("Tried to set comboBoxDetail to a value of %d ", TheGameLODManager->getStaticLODLevel()) );
 		};
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------
 	// Resolution
 	//Find index of 800x600 mode.
@@ -816,7 +816,7 @@ static void setDefaults( void )
 	//
 
 	if ((TheGameLogic->isInGame() == FALSE) || (TheGameLogic->isInShellGame() == TRUE))
-	{	
+	{
 		Int	txtFact=TheGameLODManager->getRecommendedTextureReduction();
 
 		GadgetSliderSetPosition( sliderTextureResolution, 2-txtFact);
@@ -908,7 +908,7 @@ static void saveOptions( void )
 			TheWritableGlobalData->m_languageFilterPref = false;
 			(*pref)["LanguageFilter"] = "false";
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------
 	// send Delay
 	TheWritableGlobalData->m_firewallSendDelay = GadgetCheckBoxIsChecked(checkSendDelay);
@@ -1016,18 +1016,18 @@ static void saveOptions( void )
 	// Resolution
 	GadgetComboBoxGetSelectedPos( comboBoxResolution, &index );
 	Int xres, yres, bitDepth;
-	
+
 	oldDispSettings.xRes = TheDisplay->getWidth();
 	oldDispSettings.yRes = TheDisplay->getHeight();
 	oldDispSettings.bitDepth = TheDisplay->getBitDepth();
 	oldDispSettings.windowed = TheDisplay->getWindowed();
-	
+
 	if (index < TheDisplay->getDisplayModeCount() && index >= 0)
 	{
 		TheDisplay->getDisplayModeDescription(index,&xres,&yres,&bitDepth);
 		if (TheGlobalData->m_xResolution != xres || TheGlobalData->m_yResolution != yres)
 		{
-			
+
 			if (TheDisplay->setDisplayMode(xres,yres,bitDepth,TheDisplay->getWindowed()))
 			{
 				dispChanged = TRUE;
@@ -1036,7 +1036,7 @@ static void saveOptions( void )
 
 				TheHeaderTemplateManager->headerNotifyResolutionChange();
 				TheMouse->mouseNotifyResolutionChange();
-				
+
 				//Save new settings for a dialog box confirmation after options are accepted
 				newDispSettings.xRes = xres;
 				newDispSettings.yRes = yres;
@@ -1055,7 +1055,7 @@ static void saveOptions( void )
 				TheShell = MSGNEW("GameClientSubsystem") Shell;
 				if( TheShell )
 					TheShell->init();
-				
+
 				TheInGameUI->recreateControlBar();
 
 				TheShell->push( AsciiString("Menus/MainMenu.wnd") );
@@ -1137,7 +1137,7 @@ static void saveOptions( void )
 		prefString.format("%d", val);
 		(*pref)["ScrollFactor"] = prefString;
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------
 	// slider music volume
 	val = GadgetSliderGetPosition(sliderMusicVolume);
@@ -1149,13 +1149,13 @@ static void saveOptions( void )
     (*pref)["MusicVolume"] = prefString;
     TheAudio->setVolume(val / 100.0f, (AudioAffect) (AudioAffect_Music | AudioAffect_SystemSetting));
 	}
-	
+
 	//-------------------------------------------------------------------------------------------------
 	// slider SFX volume
 	val = GadgetSliderGetPosition(sliderSFXVolume);
 	if(val != -1)
 	{
-		//Both 2D and 3D sound effects are sharing the same slider. However, there is a 
+		//Both 2D and 3D sound effects are sharing the same slider. However, there is a
 		//relative slider that gets applied to one of these values to lower that sound volume.
 		Real sound2DVolume = val / 100.0f;
 		Real sound3DVolume = val / 100.0f;
@@ -1339,7 +1339,7 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 
 //	checkBoxLowTextureDetailID = TheNameKeyGenerator->nameToKey( AsciiString( "OptionsMenu.wnd:CheckLowTextureDetail" ) );
 //	checkBoxLowTextureDetail      = TheWindowManager->winGetWindowFromId( NULL, checkBoxLowTextureDetailID );
-	
+
 	WinAdvancedDisplayID		= TheNameKeyGenerator->nameToKey( AsciiString( "OptionsMenu.wnd:WinAdvancedDisplayOptions" ) );
 	WinAdvancedDisplay      = TheWindowManager->winGetWindowFromId( NULL, WinAdvancedDisplayID );
 
@@ -1401,7 +1401,7 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 	GameWindow *labelVersion = TheWindowManager->winGetWindowFromId( NULL, versionID );
 	UnicodeString versionString;
 	versionString.format(TheGameText->fetch("Version:Format2").str(), (GetRegistryVersion() >> 16), (GetRegistryVersion() & 0xffff));
-	
+
 	if (TheVersion->showFullVersion())
 	{
 		if (TheVersion)
@@ -1640,7 +1640,7 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 		GadgetCheckBoxSetChecked( checkLanguageFilter, false);
 		TheWritableGlobalData->m_languageFilterPref = false;
 	}
-	
+
 	//set replay camera
 	if (pref->saveCameraInReplays())
 	{
@@ -1715,7 +1715,7 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 
 	//set voice volume slider
 	GadgetSliderSetPosition( sliderVoiceVolume, REAL_TO_INT(pref->getSpeechVolume()) );
-	
+
 	// set the gamma slider
  	GadgetSliderSetPosition( sliderGamma, REAL_TO_INT(pref->getGammaValue()) );
 
@@ -1727,7 +1727,7 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 	NameKeyType parentID = TheNameKeyGenerator->nameToKey( parentName );
 	GameWindow *parent = TheWindowManager->winGetWindowFromId( NULL, parentID );
 	TheWindowManager->winSetFocus( parent );
-	
+
 	if( (TheGameLogic->isInGame() && TheGameLogic->getGameMode() != GAME_SHELL) || TheGameSpyInfo )
 	{
 		// disable controls that you can't change the options for in game
@@ -1795,7 +1795,7 @@ WindowMsgHandledType OptionsMenuInput( GameWindow *window, UnsignedInt msg,
 																			 WindowMsgData mData1, WindowMsgData mData2 )
 {
 
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -1810,7 +1810,7 @@ WindowMsgHandledType OptionsMenuInput( GameWindow *window, UnsignedInt msg,
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
@@ -1821,7 +1821,7 @@ WindowMsgHandledType OptionsMenuInput( GameWindow *window, UnsignedInt msg,
 						NameKeyType buttonID = TheNameKeyGenerator->nameToKey( buttonName );
 						GameWindow *button = TheWindowManager->winGetWindowFromId( window, buttonID );
 
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																								(WindowMsgData)button, buttonID );
 
 					}  // end if
@@ -1844,7 +1844,7 @@ WindowMsgHandledType OptionsMenuInput( GameWindow *window, UnsignedInt msg,
 //-------------------------------------------------------------------------------------------------
 /** options menu window system callback */
 //-------------------------------------------------------------------------------------------------
-WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg, 
+WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 																				WindowMsgData mData1, WindowMsgData mData2 )
 {
 	static NameKeyType buttonBack = NAMEKEY_INVALID;
@@ -1853,7 +1853,7 @@ WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 	static NameKeyType buttonReplayMenu = NAMEKEY_INVALID;
 	static NameKeyType buttonKeyboardOptionsMenu = NAMEKEY_INVALID;
 
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -1897,7 +1897,7 @@ WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 					break;
 				GameWindow *control = (GameWindow *)mData1;
 				Int controlID = control->winGetWindowId();
-		
+
 				if (controlID == comboBoxDetailID)
 				{
 					Int index;
@@ -1952,7 +1952,7 @@ WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 
 				comboBoxLANIP = NULL;
 				comboBoxOnlineIP = NULL;
-				
+
 				if(!TheGameLogic->isInGame() || TheGameLogic->isInShellGame())
 					destroyQuitMenu(); // if we're in a game, the change res then enter the same kind of game, we nee the quit menu to be gone.
 
@@ -1976,10 +1976,10 @@ WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 			else if (controlID == ButtonAdvancedAcceptID )
 			{
 				acceptAdvancedOptions();
-				
+
 			}
 			else if (controlID == ButtonAdvancedCancelID )
-			{	
+			{
 				cancelAdvancedOptions();
 			}
 			else if ( controlID == buttonKeyboardOptionsMenu )

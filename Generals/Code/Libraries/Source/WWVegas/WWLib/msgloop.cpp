@@ -16,27 +16,27 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Library/msgloop.cpp                               $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Library/msgloop.cpp                               $*
+ *                                                                                             *
  *                      $Author:: Greg_h                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 7/22/97 11:37a                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 1                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
- *   Add_Accelerator -- Adds a keyboard accelerator to the message handler.                    * 
- *   Add_Modeless_Dialog -- Adds a modeless dialog box to the message handler.                 * 
- *   Remove_Accelerator -- Removes an accelerator from the message processor.                  * 
- *   Remove_Modeless_Dialog -- Removes the dialog box from the message tracking handler.       * 
- *   Windows_Message_Handler -- Handles windows message.                                       * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   Add_Accelerator -- Adds a keyboard accelerator to the message handler.                    *
+ *   Add_Modeless_Dialog -- Adds a modeless dialog box to the message handler.                 *
+ *   Remove_Accelerator -- Removes an accelerator from the message processor.                  *
+ *   Remove_Modeless_Dialog -- Removes the dialog box from the message tracking handler.       *
+ *   Windows_Message_Handler -- Handles windows message.                                       *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include	"always.h"
@@ -75,24 +75,24 @@ static DynamicVectorClass<AcceleratorTracker> _Accelerators;
 bool (*Message_Intercept_Handler)(MSG &msg) = NULL;
 
 
-/*********************************************************************************************** 
- * Windows_Message_Handler -- Handles windows message.                                         * 
- *                                                                                             * 
- *    This routine will take all messages that have accumulated in the message queue and       * 
- *    dispatch them to their respective recipients. When the message queue has been emptied,   * 
- *    then this routine will return. By using this routine, it is possible to have the main    * 
- *    program run in the main thread and yet still have it behave like a normal program as     * 
- *    far as message handling is concerned. To achieve this, this routine must be called on    * 
- *    a semi-frequent basis (a few times a second is plenty).                                  * 
- *                                                                                             * 
- * INPUT:   none                                                                               * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   none                                                                            * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Windows_Message_Handler -- Handles windows message.                                         *
+ *                                                                                             *
+ *    This routine will take all messages that have accumulated in the message queue and       *
+ *    dispatch them to their respective recipients. When the message queue has been emptied,   *
+ *    then this routine will return. By using this routine, it is possible to have the main    *
+ *    program run in the main thread and yet still have it behave like a normal program as     *
+ *    far as message handling is concerned. To achieve this, this routine must be called on    *
+ *    a semi-frequent basis (a few times a second is plenty).                                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Windows_Message_Handler(void)
 {
@@ -153,93 +153,93 @@ void Windows_Message_Handler(void)
 }
 
 
-/*********************************************************************************************** 
- * Add_Modeless_Dialog -- Adds a modeless dialog box to the message handler.                   * 
- *                                                                                             * 
- *    When a modeless dialog box becomes active, the messages processed by the main message    * 
- *    handler must be handled different. This routine is used to inform the message handler    * 
- *    that a dialog box is active and messages must be fed to it as appropriate.               * 
- *                                                                                             * 
- * INPUT:   dialog   -- Handle to the modeless dialog box.                                     * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   The modeless dialog box must be removed from the tracking system by calling     * 
- *             Remove_Modeless_Dialog. Failure to do so when the dialog is destroyed will      * 
- *             result in undefined behavior.                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Add_Modeless_Dialog -- Adds a modeless dialog box to the message handler.                   *
+ *                                                                                             *
+ *    When a modeless dialog box becomes active, the messages processed by the main message    *
+ *    handler must be handled different. This routine is used to inform the message handler    *
+ *    that a dialog box is active and messages must be fed to it as appropriate.               *
+ *                                                                                             *
+ * INPUT:   dialog   -- Handle to the modeless dialog box.                                     *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   The modeless dialog box must be removed from the tracking system by calling     *
+ *             Remove_Modeless_Dialog. Failure to do so when the dialog is destroyed will      *
+ *             result in undefined behavior.                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Add_Modeless_Dialog(HWND dialog)
 {
 	_ModelessDialogs.Add(dialog);
-}	
+}
 
 
-/*********************************************************************************************** 
- * Remove_Modeless_Dialog -- Removes the dialog box from the message tracking handler.         * 
- *                                                                                             * 
- *    This routine must be called when a modeless dialog is being removed.                     * 
- *                                                                                             * 
- * INPUT:   dialog   -- Handle to the modeless dialog that was previously submitted to         * 
- *                      Add_Modeless_Dialog().                                                 * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   Failure to call this routine will result in undefined behavior when the dialog  * 
- *             is destroyed.                                                                   * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Remove_Modeless_Dialog -- Removes the dialog box from the message tracking handler.         *
+ *                                                                                             *
+ *    This routine must be called when a modeless dialog is being removed.                     *
+ *                                                                                             *
+ * INPUT:   dialog   -- Handle to the modeless dialog that was previously submitted to         *
+ *                      Add_Modeless_Dialog().                                                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Failure to call this routine will result in undefined behavior when the dialog  *
+ *             is destroyed.                                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Remove_Modeless_Dialog(HWND dialog)
 {
 	_ModelessDialogs.Delete(dialog);
-}	
+}
 
 
-/*********************************************************************************************** 
- * Add_Accelerator -- Adds a keyboard accelerator to the message handler.                      * 
- *                                                                                             * 
- *    This routine will add a keyboard accelerator to the tracking process for the message     * 
- *    handler. If the incoming message is processed by an accelerator, then the normal         * 
- *    processing must be altered. By using this routine, the proper behavior of accelerators   * 
- *    is maintained.                                                                           * 
- *                                                                                             * 
- * INPUT:   window   -- The window that the accelerator belongs to. Each accelerator must be   * 
- *                      assigned to a window.                                                  * 
- *                                                                                             * 
- *          accelerator -- The handler to the windows accelerator.                             * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   When the accelerator is no longer valid (or the controlling window as been      * 
- *             destroyed), the Remove_Accelerator function must be called.                     * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Add_Accelerator -- Adds a keyboard accelerator to the message handler.                      *
+ *                                                                                             *
+ *    This routine will add a keyboard accelerator to the tracking process for the message     *
+ *    handler. If the incoming message is processed by an accelerator, then the normal         *
+ *    processing must be altered. By using this routine, the proper behavior of accelerators   *
+ *    is maintained.                                                                           *
+ *                                                                                             *
+ * INPUT:   window   -- The window that the accelerator belongs to. Each accelerator must be   *
+ *                      assigned to a window.                                                  *
+ *                                                                                             *
+ *          accelerator -- The handler to the windows accelerator.                             *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   When the accelerator is no longer valid (or the controlling window as been      *
+ *             destroyed), the Remove_Accelerator function must be called.                     *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Add_Accelerator(HWND window, HACCEL accelerator)
 {
 	_Accelerators.Add(AcceleratorTracker(window, accelerator));
-}	
+}
 
 
-/*********************************************************************************************** 
- * Remove_Accelerator -- Removes an accelerator from the message processor.                    * 
- *                                                                                             * 
- *    This routine must be called when the accelerator or the window it was attached to has    * 
- *    been destroyed.                                                                          * 
- *                                                                                             * 
- * INPUT:   accelerator -- The accelerator to remove from the tracking system.                 * 
- *                                                                                             * 
- * OUTPUT:  none                                                                               * 
- *                                                                                             * 
- * WARNINGS:   This routine presumes that the accelerator will not be shared between windows.  * 
- *                                                                                             * 
- * HISTORY:                                                                                    * 
- *   05/17/1997 JLB : Created.                                                                 * 
+/***********************************************************************************************
+ * Remove_Accelerator -- Removes an accelerator from the message processor.                    *
+ *                                                                                             *
+ *    This routine must be called when the accelerator or the window it was attached to has    *
+ *    been destroyed.                                                                          *
+ *                                                                                             *
+ * INPUT:   accelerator -- The accelerator to remove from the tracking system.                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   This routine presumes that the accelerator will not be shared between windows.  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/17/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
 void Remove_Accelerator(HACCEL accelerator)
 {
@@ -249,4 +249,4 @@ void Remove_Accelerator(HACCEL accelerator)
 			break;
 		}
 	}
-}	
+}

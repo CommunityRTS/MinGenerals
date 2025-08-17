@@ -150,8 +150,8 @@ class DazzleTypeClass
 public:
 
 	virtual void Calculate_Intensities(
-		float& dazzle_intensity, 
-		float& dazzle_size, 
+		float& dazzle_intensity,
+		float& dazzle_size,
 		float& halo_intensity,
 		const Vector3& camera_dir,
 		const Vector3& dazzle_dir,
@@ -183,7 +183,7 @@ class DazzleLayerClass {
 	friend DazzleRenderObjClass;
 
 	public:
-	
+
 		DazzleLayerClass(void);
 		~DazzleLayerClass(void);
 
@@ -236,7 +236,7 @@ public:
 class INIClass;
 
 class DazzleRenderObjClass : public RenderObjClass
-{	
+{
 	friend DazzleLayerClass;
 
 	DazzleRenderObjClass * succ;
@@ -272,17 +272,17 @@ public:
 	const DazzleRenderObjClass* Succ() const { return succ; }
 
 	/////////////////////////////////////////////////////////////////////////////
-	// Render Object Interface 
+	// Render Object Interface
 	/////////////////////////////////////////////////////////////////////////////
 	virtual RenderObjClass *	Clone(void) const;
 	virtual int						Class_ID(void)	const { return CLASSID_DAZZLE; }
-	
+
 	virtual void					Render(RenderInfoClass & rinfo);
 	virtual void Special_Render(SpecialRenderInfoClass & rinfo);
-	virtual void 					Set_Transform(const Matrix3D &m); 
+	virtual void 					Set_Transform(const Matrix3D &m);
    virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
    virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & box) const;
-	virtual void					Scale(float scale) 															{ radius*=scale; };	
+	virtual void					Scale(float scale) 															{ radius*=scale; };
 
 	void Set_Dazzle_Color(const Vector3& col) { dazzle_color=col; }
 	void Set_Halo_Color(const Vector3& col) { halo_color=col; }
@@ -348,7 +348,7 @@ public:
 
 /**
 ** DazzlePrototypeClass
-** This description object is generated when reading a W3D_CHUNK_DAZZLE.  It stores the 
+** This description object is generated when reading a W3D_CHUNK_DAZZLE.  It stores the
 ** information needed to construct a particular instance of a dazzle.  Prototypes are
 ** stored in the asset manager and used to construct render objects when needed.
 */
@@ -357,14 +357,14 @@ class DazzlePrototypeClass : public W3DMPO, public PrototypeClass
 	W3DMPO_GLUE(DazzlePrototypeClass)
 public:
 	DazzlePrototypeClass(void) : DazzleType(0)				{ }
-	
+
 	virtual const char *			Get_Name(void) const			{ return Name; }
 	virtual int								Get_Class_ID(void) const	{ return RenderObjClass::CLASSID_DAZZLE; }
 	virtual RenderObjClass *	Create(void);
 	virtual void							DeleteSelf()							{ delete this; }
 
 	WW3DErrorType					Load_W3D(ChunkLoadClass & cload);
-	
+
 private:
 
 	StringClass				Name;
@@ -374,7 +374,7 @@ private:
 
 /**
 ** DazzleLoaderClass
-** An instance of this class is registered with the asset manager and handles loading W3D_CHUNK_DAZZLE.  
+** An instance of this class is registered with the asset manager and handles loading W3D_CHUNK_DAZZLE.
 ** It creates DazzlePrototypes from the data in the chunk.
 */
 class DazzleLoaderClass : public PrototypeLoaderClass

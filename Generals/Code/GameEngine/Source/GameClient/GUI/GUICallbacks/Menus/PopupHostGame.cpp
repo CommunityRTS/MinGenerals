@@ -24,12 +24,12 @@
 
 // FILE: PopupHostGame.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	Jul 2002
@@ -37,7 +37,7 @@
 //	Filename: 	PopupHostGame.cpp
 //
 //	author:		Chris Huybregts
-//	
+//
 //	purpose:	Contains the Callbacks for the Host Game Popus
 //
 //-----------------------------------------------------------------------------
@@ -368,7 +368,7 @@ void PopupHostGameInit( WindowLayout *layout, void *userData )
 //-------------------------------------------------------------------------------------------------
 WindowMsgHandledType PopupHostGameInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 )
 {
-	switch( msg ) 
+	switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -385,14 +385,14 @@ WindowMsgHandledType PopupHostGameInput( GameWindow *window, UnsignedInt msg, Wi
 				// ----------------------------------------------------------------------------------------
 				case KEY_ESC:
 				{
-					
+
 					//
 					// send a simulated selected event to the parent window of the
 					// back/exit button
 					//
 					if( BitTest( state, KEY_STATE_UP ) )
 					{
-						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED, 
+						TheWindowManager->winSendSystemMsg( window, GBM_SELECTED,
 																							(WindowMsgData)buttonCancel, buttonCancelID );
 
 					}  // end if
@@ -417,7 +417,7 @@ WindowMsgHandledType PopupHostGameInput( GameWindow *window, UnsignedInt msg, Wi
 //-------------------------------------------------------------------------------------------------
 WindowMsgHandledType PopupHostGameSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 )
 {
-  switch( msg ) 
+  switch( msg )
 	{
 
 		// --------------------------------------------------------------------------------------------
@@ -506,7 +506,7 @@ WindowMsgHandledType PopupHostGameSystem( GameWindow *window, UnsignedInt msg, W
 		{
 			GameWindow *control = (GameWindow *)mData1;
 			Int controlID = control->winGetWindowId();
-     
+
       if( controlID == buttonCancelID )
 			{
 				parentPopup = NULL;

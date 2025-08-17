@@ -140,7 +140,7 @@ public:
       // Had to remove the emits back to normal
       // ASM statements because sometimes the jump
       // would be 1 byte off....
-      
+
 		  __asm mov ebx, [nFlag]
 		  __asm ts_lock
 		  __asm bts dword ptr [ebx], 0
@@ -165,7 +165,7 @@ public:
 		{
       cs.Flag=0;
 		}
-    
+
 	private:
 		LockClass &operator=(const LockClass&);
     LockClass(const LockClass&);

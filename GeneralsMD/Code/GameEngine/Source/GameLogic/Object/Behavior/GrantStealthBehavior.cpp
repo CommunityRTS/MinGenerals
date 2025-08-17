@@ -58,7 +58,7 @@ struct GrantStealthPlayerScanHelper
 {
 	KindOfMaskType m_kindOfToTest;
 	Object *m_theGrantor;
-	ObjectPointerList *m_objectList;	
+	ObjectPointerList *m_objectList;
 };
 
 static void checkForGrantStealth( Object *testObj, void *userData )
@@ -79,7 +79,7 @@ static void checkForGrantStealth( Object *testObj, void *userData )
 		return;
 
 	listToAddTo->push_back(testObj);
-	
+
 	if( testObj->getContain() )
 	{
 		// have to tag visible riders too, or they will float around and look silly.
@@ -164,7 +164,7 @@ UpdateSleepTime GrantStealthBehavior::update( void )
 	// scan objects in our region
 	ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange( self->getPosition(), m_currentScanRadius, FROM_CENTER_2D, filters );
 	MemoryPoolObjectHolder hold( iter );
-	// GRANT STEALTH TO FRIENDLIES IN RADIUS 
+	// GRANT STEALTH TO FRIENDLIES IN RADIUS
 	for( Object *obj = iter->first(); obj; obj = iter->next() )
     grantStealthToObject( obj );
 
@@ -177,7 +177,7 @@ UpdateSleepTime GrantStealthBehavior::update( void )
 
   return UPDATE_SLEEP_NONE;
 }
- 
+
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void GrantStealthBehavior::grantStealthToObject( Object *obj )
@@ -185,7 +185,7 @@ void GrantStealthBehavior::grantStealthToObject( Object *obj )
 
   if ( obj == getObject() )
     return;
-  
+
 
 	const GrantStealthBehaviorModuleData *d = getGrantStealthBehaviorModuleData();
   if ( ! obj->isAnyKindOf( d->m_kindOf ) )

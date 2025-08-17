@@ -36,7 +36,7 @@ enum waveType;	//forward reference
 	to be managed/accessed only by the WaterTracksRenderObjClassSystem
 */
 class WaterTracksObj
-{	
+{
 	friend class WaterTracksRenderSystem;
 
 public:

@@ -61,12 +61,12 @@ DeployStyleAIUpdate::DeployStyleAIUpdate( Thing *thing, const ModuleData* module
 {
 	m_state = READY_TO_MOVE;
 	m_frameToWaitForDeploy = 0;
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 DeployStyleAIUpdate::~DeployStyleAIUpdate( void )
 {
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 Bool DeployStyleAIUpdate::isIdle() const
@@ -108,7 +108,7 @@ UpdateSleepTime DeployStyleAIUpdate::update( void )
 
 	//Are we attempting to move? If so we can't do it unless we are undeployed.
 	Bool isTryingToMove = isWaitingForPath() || getPath();
-	
+
 	//Are we trying to attack something. If so, we need to be in range before we can do so.
 	Bool isTryingToAttack = getStateMachine()->isInAttackState();
 	Bool isInRange = FALSE;
@@ -125,7 +125,7 @@ UpdateSleepTime DeployStyleAIUpdate::update( void )
 		{
 			isInRange = weapon->isWithinAttackRange( self, victim );
 		}
-		else 
+		else
 		{
 			const Coord3D *pos = ai->getCurrentVictimPos();
 			if( pos )
@@ -147,7 +147,7 @@ UpdateSleepTime DeployStyleAIUpdate::update( void )
 				break;
 		}
 	}
-	
+
 	if( isInRange || isInGuardIdleState )
 	{
 		switch( m_state )
@@ -283,13 +283,13 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID, Bool reverseDepl
 	Object *self = getObject();
 	UnsignedInt now = TheGameLogic->getFrame();
 	const DeployStyleAIUpdateModuleData *data = getDeployStyleAIUpdateModuleData();
-	
+
 	switch( stateID )
 	{
 		case DEPLOY:
 		{
 			//Tell our object to deploy (so it can continue the same attack later).
-			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_PACKING ), 
+			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_PACKING ),
 																						 MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ) );
 
 			if( reverseDeploy )
@@ -309,7 +309,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID, Bool reverseDepl
 			}
 			else
 			{
-				m_frameToWaitForDeploy = getUnpackTime() + now; 
+				m_frameToWaitForDeploy = getUnpackTime() + now;
 			}
 
 			//Play deploy sound
@@ -321,7 +321,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID, Bool reverseDepl
 				soundToPlay.setObjectID( self->getID() );
 				TheAudio->addAudioEvent( &soundToPlay );
 			}
-			
+
 			break;
 		}
 		case UNDEPLOY:
@@ -363,7 +363,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID, Bool reverseDepl
 					setTurretEnabled( tur, false );
 				}
 			}
-			
+
 			//Play undeploy sound
 			const ThingTemplate *thing = self->getTemplate();
 			const AudioEventRTS* soundToPlayPtr = thing->getPerUnitSound( "Undeploy" );
@@ -391,7 +391,7 @@ void DeployStyleAIUpdate::setMyState( DeployStateTypes stateID, Bool reverseDepl
 
 			m_frameToWaitForDeploy = 0;
 
-			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ), 
+			self->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ),
 																						 MAKE_MODELCONDITION_MASK( MODELCONDITION_DEPLOYED) );
 
 			if( doTurretsFunctionOnlyWhenDeployed() )
@@ -431,7 +431,7 @@ void DeployStyleAIUpdate::crc( Xfer *xfer )
 // ------------------------------------------------------------------------------------------------
 /** Xfer method
 	* Version Info:
-	* 1: Initial version 
+	* 1: Initial version
 	* 2: Added support for attack move
 	* 3: Added improved support for guard, and support for hunt AI
  **/
@@ -442,7 +442,7 @@ void DeployStyleAIUpdate::xfer( Xfer *xfer )
   XferVersion currentVersion = 4;
   XferVersion version = currentVersion;
   xfer->xferVersion( &version, currentVersion );
- 
+
  // extend base class
 	AIUpdateInterface::xfer(xfer);
 

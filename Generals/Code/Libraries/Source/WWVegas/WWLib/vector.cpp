@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/vector.cpp                             $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/vector.cpp                             $*
+ *                                                                                             *
  *                      $Author:: Patrick                                                     $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 8/22/01 1:46p                                               $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 19                                                          $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  *   BooleanVectorClass::BooleanVectorClass -- Copy constructor for boolean array.             *
  *   BooleanVectorClass::BooleanVectorClass -- Explicit data buffer constructor.               *
  *   BooleanVectorClass::Clear -- Resets boolean vector to empty state.                        *

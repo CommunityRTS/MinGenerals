@@ -25,7 +25,7 @@
 // FILE: OpenContain.cpp //////////////////////////////////////////////////////////////////////////
 // Author: Colin Day, November 2001
 // Desc:   The OpenContain ContainModule allows objects to be contained inside of other
-//				 objects.  There is a set of functionality that will be common to 
+//				 objects.  There is a set of functionality that will be common to
 //				 all container modules that provides the actual containment
 //				 implementations, those implementations are found here
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,11 +89,11 @@ OpenContainModuleData::OpenContainModuleData( void )
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
-/*static*/ void OpenContainModuleData::buildFieldParse(MultiIniFieldParse& p) 
+/*static*/ void OpenContainModuleData::buildFieldParse(MultiIniFieldParse& p)
 {
   UpdateModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
 		{ "ContainMax",								INI::parseInt, NULL, offsetof( OpenContainModuleData, m_containMax ) },
 		{ "EnterSound",								INI::parseAudioEventRTS,		NULL, offsetof( OpenContainModuleData, m_enterSound ) },
@@ -148,12 +148,12 @@ OpenContain::OpenContain( Thing *thing, const ModuleData* moduleData ) : UpdateM
 	m_noFirePointsInArt = false;
 	m_whichExitPath = 1;
 	m_loadSoundsEnabled = TRUE;
-  
-  m_passengerAllowedToFire = getOpenContainModuleData()->m_passengersAllowedToFire; 
+
+  m_passengerAllowedToFire = getOpenContainModuleData()->m_passengersAllowedToFire;
   // overridable by setPass...()  in the parent interface (for use by upgrade module)
 
 	for( Int i = 0; i < MAX_FIRE_POINTS; i++ )
-	{		
+	{
 		m_firePoints[ i ].Make_Identity();
 	}  // end for i
 
@@ -175,13 +175,13 @@ OpenContain::~OpenContain()
 {
 
 	// sanity, the system should be cleaning these up itself if all is going well
-	DEBUG_ASSERTCRASH( m_containList.empty(), 
-										 ("OpenContain %s: destroying a container that still has items in it!\n", 
+	DEBUG_ASSERTCRASH( m_containList.empty(),
+										 ("OpenContain %s: destroying a container that still has items in it!\n",
 										  getObject()->getTemplate()->getName().str() ) );
 
 	// sanity
 	DEBUG_ASSERTCRASH( m_xferContainIDList.empty(),
-										 ("OpenContain %s: m_xferContainIDList is not empty but should be\n", 
+										 ("OpenContain %s: m_xferContainIDList is not empty but should be\n",
 											getObject()->getTemplate()->getName().str() ) );
 
 }
@@ -220,12 +220,12 @@ UpdateSleepTime OpenContain::update( void )
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-void OpenContain::addOrRemoveObjFromWorld(Object* obj, Bool add) 
-{ 
+void OpenContain::addOrRemoveObjFromWorld(Object* obj, Bool add)
+{
 
 	//
 	// it's expensive to add and remove structures from the pathfinder, but we really shouldn't
-	// be doing it anyway as it doesn't make much sense to contain a structure, but we'll 
+	// be doing it anyway as it doesn't make much sense to contain a structure, but we'll
 	// check for it here and print a warning
 	//
 	if( obj->isKindOf( KINDOF_STRUCTURE ) )
@@ -263,7 +263,7 @@ void OpenContain::addOrRemoveObjFromWorld(Object* obj, Bool add)
 
 	}
 
-	// if we're a non-enclosing container (eg, parachute), and we're inside an 
+	// if we're a non-enclosing container (eg, parachute), and we're inside an
 	// enclosing container (eg, b52), we need to be able to show/hide the contained riders...
 	if( obj->getContain() )
 	{
@@ -408,7 +408,7 @@ void OpenContain::removeFromContain( Object *rider, Bool exposeStealthUnits )
 	{
 		// note that this invalidates the iterator!
 		removeFromContainViaIterator( it, exposeStealthUnits );
-	}	
+	}
 
 }
 
@@ -478,9 +478,9 @@ void OpenContain::harmAndForceExitAllContained( DamageInfo *info )
 		  rider->attemptDamage( info );
 		}
 
-		//Kris: Patch 1.03 -- Crash fix when neutral bunker on Alpine Assault is occupied with 10 demo general 
+		//Kris: Patch 1.03 -- Crash fix when neutral bunker on Alpine Assault is occupied with 10 demo general
 		//infantry units with the suicide upgrade and US stealth fighters with bunker busters kill the guys inside.
-		//Causes recursive damage where a bunker buster destroys an infantry, the infantry explodes and blows up 
+		//Causes recursive damage where a bunker buster destroys an infantry, the infantry explodes and blows up
 		//another missile which kills everyone inside while the first missile is killing everyone. And the game blows up.
 		//Fix is to reset the list.
 		it = m_containList.begin();
@@ -553,11 +553,11 @@ void OpenContain::iterateContained( ContainIterateFunc func, void *userData, Boo
 		{
 			// save the rider...
 			Object* rider = *it;
-			
+
 			// incr the iterator BEFORE calling the func (if the func removes the rider,
 			// the iterator becomes invalid)
 			++it;
-			
+
 			// call it
 			(*func)( rider, userData );
 		}
@@ -570,15 +570,15 @@ void OpenContain::iterateContained( ContainIterateFunc func, void *userData, Boo
 		{
 			// save the rider...
 			Object* rider = *it;
-			
+
 			// incr the iterator BEFORE calling the func (if the func removes the rider,
 			// the iterator becomes invalid)
 			++it;
-			
+
 			// call it
 			(*func)( rider, userData );
 		}
-  } 
+  }
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -595,10 +595,10 @@ Object* OpenContain::getClosestRider( const Coord3D *pos )
     if (rider)
     {
       Real distance = ThePartitionManager->getDistanceSquared( rider, pos, FROM_CENTER_2D );
-	    if( !closest || closestDistance > distance ) 
+	    if( !closest || closestDistance > distance )
 	    {
 		    closest = rider;
-		    closestDistance = distance; 
+		    closestDistance = distance;
 	    }
     }
 
@@ -632,7 +632,7 @@ void OpenContain::removeFromContainViaIterator( ContainedItemsList::iterator it,
 
 /*
 	#ifdef _DEBUG
-		TheInGameUI->message( UnicodeString( L"'%S(%d)' no longer contains '%S(%d)'" ), 
+		TheInGameUI->message( UnicodeString( L"'%S(%d)' no longer contains '%S(%d)'" ),
 													getObject()->getTemplate()->getName().str(),
 													getObject()->getID(),
 													itemToRemove->m_object->getTemplate()->getName().str(),
@@ -677,7 +677,7 @@ void OpenContain::removeFromContainViaIterator( ContainedItemsList::iterator it,
 	{
 		getObject()->getContain()->onRemoving( rider );
 	}
-		
+
 	// trigger an onRemovedFrom event for 'remove'
 	DEBUG_ASSERTCRASH(getObject()->getContain() == this, ("hmm, wrong container 2"));
 	rider->onRemovedFrom( getObject() );
@@ -693,7 +693,7 @@ void OpenContain::scatterToNearbyPosition(Object* rider)
 	// for now we will just set the position of the object that is being removed from us
 	// at a random angle away from our center out some distance
 	//
-	
+
 	//
 	// pick an angle that is in the view of the current camera position so that
 	// the thing will come out "toward" the player and they can see it
@@ -748,7 +748,7 @@ void OpenContain::onContaining( Object *rider, Bool wasSelected )
 }
 
 //-------------------------------------------------------------------------------------------------
-void OpenContain::onRemoving( Object *rider) 
+void OpenContain::onRemoving( Object *rider)
 {
 	// Play audio
 	AudioEventRTS exitSound = *getObject()->getTemplate()->getSoundExit();
@@ -804,11 +804,11 @@ void OpenContain::onCollide( Object *other, const Coord3D *loc, const Coord3D *n
 	{
 		// save the rider...
 		Object* rider = *it;
-		
+
 		// incr the iterator BEFORE calling the func (if the func removes the rider,
 		// the iterator becomes invalid)
 		++it;
-		
+
 		// call it
 		if( rider->getControllingPlayer() != other->getControllingPlayer() )
 		{
@@ -836,7 +836,7 @@ void OpenContain::onCollide( Object *other, const Coord3D *loc, const Coord3D *n
 		return;
 
 	addToContain(other);
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -868,11 +868,11 @@ void OpenContain::onDie( const DamageInfo * damageInfo )
 
 	killRidersWhoAreNotFreeToExit();
 
-	// Leaving this commented out to show it can't work.  We are about to die, so they will have zero 
+	// Leaving this commented out to show it can't work.  We are about to die, so they will have zero
 	// chance to hit an exitState::Update.  At least we would clean them up in onDelete.
 //	orderAllPassengersToExit( CMD_FROM_AI, FALSE );
 	removeAllContained();
-}  
+}
 
 // ------------------------------------------------------------------------------------------------
 /** Check to see if we are a valid container for 'obj' */
@@ -901,27 +901,27 @@ Bool OpenContain::isValidContainerFor(const Object* obj, Bool checkCapacity) con
  			if( modData->m_allowAlliesInside == FALSE )
  				relationshipRestricted = TRUE;
  			break;
- 
+
  		case ENEMIES:
  			if( modData->m_allowEnemiesInside == FALSE )
  				relationshipRestricted = TRUE;
  			break;
- 
+
  		case NEUTRAL:
  			if( modData->m_allowNeutralInside == FALSE )
  				relationshipRestricted = TRUE;
  			break;
- 
+
  		default:
  			DEBUG_CRASH(( "isValidContainerFor: Undefined relationship (%d) between '%s' and '%s'",
  										r, getObject()->getTemplate()->getName().str(),
  										obj->getTemplate()->getName().str() ));
  			return FALSE;
- 
+
  	}  // end switch
  	if( relationshipRestricted == TRUE )
  		return FALSE;
- 
+
 	// all is well
 	return true;
 
@@ -947,7 +947,7 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 	m_doorCloseCountdown = getOpenContainModuleData()->m_doorOpenTime;
 	if (m_doorCloseCountdown)
 	{
-		// srj sez: only diddle the doors if this countdown is nonzero. 
+		// srj sez: only diddle the doors if this countdown is nonzero.
 		// this allows us to prevent this module from messing with the doors
 		// at all, which is required for DeliverPayloadAIUpdate.
 		/// @todo srj -- for now, OpenContain assumes at most one door
@@ -972,7 +972,7 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 				startBone.concat('0');
 				endBone.concat('0');
 			}
-			
+
 			m_whichExitPath = (m_whichExitPath % numberExits) + 1;// To cycle from 1 to n
 
 			startBone.concat(suffix);
@@ -986,20 +986,20 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 		PhysicsBehavior *physics = exitObj->getPhysics();
 		// Can fall problem - When units exit from planes, they are airborne for a while as they drop.
 		// Airborne units dont' do pathfinding, and this is fine.
-		// However, amphibious transports unload 3 feet off the ground.  This is enough to trigger the 
+		// However, amphibious transports unload 3 feet off the ground.  This is enough to trigger the
 		// airborne flag, and they don't pathfind.  So they all unload at the same exact point, and life
-		// is ugly.  So temporarily, we turn off the allowToFall flag, so they aren't considered airborne, 
+		// is ugly.  So temporarily, we turn off the allowToFall flag, so they aren't considered airborne,
 		// and their final destination (adjustToPossibleDestination) considers them as pathfinding, so they
 		// don't stack up.  Then we turn the flag back, so if they are parachuting, they can fly down
 		//  on their parachute.  jba.
 		Bool canFall = false;
-		if (physics) 
+		if (physics)
 		{
 			canFall = physics->getAllowToFall();
 		}
 		exitObj->setPosition( &startPosition );
 		exitObj->setOrientation( exitAngle );
-		
+
 		// Per JohnA: We need to set our layer to match our transports layer, or we'll try to pick a spot
 		// on the ground.
 		exitObj->setLayer( me->getLayer() );
@@ -1008,7 +1008,7 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 		AIUpdateInterface *ai = exitObj->getAI();
 		AIUpdateInterface *myAi = me->getAI();
 		TheAI->pathfinder()->addObjectToPathfindMap( exitObj );
-		if (ai) 
+		if (ai)
 		{
 			if (myAi && myAi->isIdle() && me->isKindOf(KINDOF_VEHICLE)) {
 				TheAI->pathfinder()->removeUnitFromPathfindMap(me);
@@ -1030,7 +1030,7 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 
 		if( ai )
 		{
-			if (physics) 
+			if (physics)
 			{
 				physics->setAllowToFall(false);
 			}
@@ -1039,7 +1039,7 @@ void OpenContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor )
 
 			TheAI->pathfinder()->updateGoal(exitObj, &endPosition, TheTerrainLogic->getLayerForDestination(&endPosition));
 		}
-		if (physics) 
+		if (physics)
 		{
 			physics->setAllowToFall(canFall);
 		}
@@ -1066,7 +1066,7 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 	m_doorCloseCountdown = getOpenContainModuleData()->m_doorOpenTime;
 	if (m_doorCloseCountdown)
 	{
-		// srj sez: only diddle the doors if this countdown is nonzero. 
+		// srj sez: only diddle the doors if this countdown is nonzero.
 		// this allows us to prevent this module from messing with the doors
 		// at all, which is required for DeliverPayloadAIUpdate.
 		/// @todo srj -- for now, OpenContain assumes at most one door
@@ -1091,7 +1091,7 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 				startBone.concat('0');
 				endBone.concat('0');
 			}
-			
+
 			m_whichExitPath = (m_whichExitPath % numberExits) + 1;// To cycle from 1 to n
 
 			startBone.concat(suffix);
@@ -1104,7 +1104,7 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 		Real exitAngle = me->getOrientation();
 		exitObj->setPosition( &startPosition );
 		exitObj->setOrientation( exitAngle );
-		
+
 		// Per JohnA: We need to set our layer to match our transports layer, or we'll try to pick a spot
 		// on the ground.
 		exitObj->setLayer( me->getLayer() );
@@ -1113,7 +1113,7 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 		AIUpdateInterface *ai = exitObj->getAI();
 		AIUpdateInterface *myAi = me->getAI();
 		TheAI->pathfinder()->addObjectToPathfindMap( exitObj );
-		if (ai) 
+		if (ai)
 		{
 			if (myAi && myAi->isIdle() && me->isKindOf(KINDOF_VEHICLE)) {
 				TheAI->pathfinder()->removeUnitFromPathfindMap(me);
@@ -1228,7 +1228,7 @@ void OpenContain::putObjAtNextFirePoint( Object *obj )
 {
 
 	//
-	// first, if we need to load the 3D point data from the art do so, if we've already 
+	// first, if we need to load the 3D point data from the art do so, if we've already
 	// determined there is no firepoints in the current art we will avoid searching for
 	// it all the time
 	//
@@ -1349,11 +1349,11 @@ void OpenContain::markAllPassengersDetected( )
 	{
 		// save the rider...
 		Object* rider = *it;
-		
+
 		// incr the iterator BEFORE calling the func (if the func removes the rider,
 		// the iterator becomes invalid)
 		++it;
-		
+
 		// call it
 		if( rider->isKindOf( KINDOF_STEALTH_GARRISON ) )
 		{
@@ -1380,11 +1380,11 @@ void OpenContain::orderAllPassengersToExit( CommandSourceType commandSource, Boo
 	{
 		// save the rider...
 		Object* rider = *it;
-		
+
 		// incr the iterator BEFORE calling the func (if the func removes the rider,
 		// the iterator becomes invalid)
 		++it;
-		
+
 		// call it
 		if( rider->getAI() )
 		{
@@ -1392,7 +1392,7 @@ void OpenContain::orderAllPassengersToExit( CommandSourceType commandSource, Boo
 			{
 				rider->getAI()->aiExitInstantly( getObject(), commandSource );
 			}
-			else 
+			else
 			{
 				rider->getAI()->aiExit( getObject(), commandSource );
 			}
@@ -1400,7 +1400,7 @@ void OpenContain::orderAllPassengersToExit( CommandSourceType commandSource, Boo
 	}
 }
 
- 
+
 //-------------------------------------------------------------------------------------------------
 void OpenContain::orderAllPassengersToIdle( CommandSourceType commandSource )
 {
@@ -1408,7 +1408,7 @@ void OpenContain::orderAllPassengersToIdle( CommandSourceType commandSource )
 	{
 		Object* rider = *it;
 		++it;
-		
+
 		if( rider->getAI() )
 		{
 			rider->getAI()->aiIdle( commandSource );
@@ -1468,7 +1468,7 @@ void OpenContain::processDamageToContained(Real percentDamage)
 			object->attemptDamage( &damageInfo );
 
 			if( !object->isEffectivelyDead() && percentDamage == 1.0f )
-				object->kill(); // in case we are carrying flame proof troops we have been asked to kill			
+				object->kill(); // in case we are carrying flame proof troops we have been asked to kill
 		}
 	}
 }
@@ -1487,15 +1487,15 @@ WeaponBonusConditionFlags OpenContain::getWeaponBonusPassedToPassengers() const
 }
 
 //-------------------------------------------------------------------------------------------------
-Real OpenContain::getDamagePercentageToUnits( void ) 
-{ 
-	return getOpenContainModuleData()->m_damagePercentageToUnits; 
+Real OpenContain::getDamagePercentageToUnits( void )
+{
+	return getOpenContainModuleData()->m_damagePercentageToUnits;
 }
 
 //-------------------------------------------------------------------------------------------------
 Bool OpenContain::isEnclosingContainerFor( const Object * ) const
 {
-	return TRUE; 
+	return TRUE;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -1550,7 +1550,7 @@ Bool OpenContain::getNaturalRallyPoint( Coord3D& rallyPoint, Bool offset )  cons
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void testForAttackingProc( Object *obj, void *userData )
-{	
+{
 	Bool *info = (Bool*)userData;
   if ( *info == TRUE )
     return;
@@ -1598,7 +1598,7 @@ void OpenContain::crc( Xfer *xfer )
 void OpenContain::xfer( Xfer *xfer )
 {
 
-	// version 
+	// version
 	const XferVersion currentVersion = 2;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
@@ -1728,7 +1728,7 @@ void OpenContain::xfer( Xfer *xfer )
 	}  // end if, save
 	else
 	{
-		
+
 		// the map should be emtpy now
 		if( m_objectEnterExitInfo.empty() == FALSE )
 		{
@@ -1754,7 +1754,7 @@ void OpenContain::xfer( Xfer *xfer )
 		}  // end for, i
 
 	}  // end else, load
-	
+
 	// which exit path
 	xfer->xferInt( &m_whichExitPath );
 

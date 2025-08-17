@@ -22,7 +22,7 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-// FILE: SubsystemInterface.cpp 
+// FILE: SubsystemInterface.cpp
 // ----------------------------------------------------------------------------
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
@@ -65,7 +65,7 @@ SubsystemInterface::~SubsystemInterface()
 }
 
 #ifdef DUMP_PERF_STATS
-void SubsystemInterface::UPDATE(void) 
+void SubsystemInterface::UPDATE(void)
 {
 	__int64 startTime64;
 	__int64 endTime64,freq64;
@@ -78,7 +78,7 @@ void SubsystemInterface::UPDATE(void)
 	Real subTime = s_msConsumed - m_startTimeConsumed;
 	if (m_name.isEmpty()) return;
 	if (m_curUpdateTime > 0.00001) {
-		//DEBUG_LOG(("Subsys %s total time %.2f, subTime %.2f, net time %.2f\n", 
+		//DEBUG_LOG(("Subsys %s total time %.2f, subTime %.2f, net time %.2f\n",
 		//	m_name.str(), m_curUpdateTime*1000, subTime*1000, (m_curUpdateTime-subTime)*1000	));
 
 		m_curUpdateTime -= subTime;
@@ -87,8 +87,8 @@ void SubsystemInterface::UPDATE(void)
 		m_curUpdateTime = 0;
 	}
 
-}																
-void SubsystemInterface::DRAW(void) 
+}
+void SubsystemInterface::DRAW(void)
 {
 	__int64 startTime64;
 	__int64 endTime64,freq64;
@@ -101,7 +101,7 @@ void SubsystemInterface::DRAW(void)
 	Real subTime = s_msConsumed - m_startDrawTimeConsumed;
 	if (m_name.isEmpty()) return;
 	if (m_curDrawTime > 0.00001) {
-		//DEBUG_LOG(("Subsys %s total time %.2f, subTime %.2f, net time %.2f\n", 
+		//DEBUG_LOG(("Subsys %s total time %.2f, subTime %.2f, net time %.2f\n",
 		//	m_name.str(), m_curUpdateTime*1000, subTime*1000, (m_curUpdateTime-subTime)*1000	));
 
 		m_curDrawTime -= subTime;
@@ -138,7 +138,7 @@ void SubsystemInterfaceList::removeSubsystem(SubsystemInterface* sys)
 {
 #ifdef DUMP_PERF_STATS
 	for (SubsystemList::iterator it = m_allSubsystems.begin(); it != m_subsystems.end(); ++it)
-	{	 
+	{
 		if ( (*it) == sys) {
 			m_allSubsystems.erase(it);
 			break;
@@ -201,7 +201,7 @@ AsciiString SubsystemInterfaceList::dumpTimesForAll()
 
 	AsciiString buffer;
 	buffer = "ALL SUBSYSTEMS:\n";
-	//buffer.format("\nSUBSYSTEMS: total time %.2f MS\n", 
+	//buffer.format("\nSUBSYSTEMS: total time %.2f MS\n",
 	//	SubsystemInterface::getTotalTime()*1000.0f);
 	Real misc = 0;
 	Real total = 0;

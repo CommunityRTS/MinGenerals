@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Jani P                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 07/12/02 10:31a                                              $*
  *                                                                                             *
  *                    $Revision:: 1                                                           $*
@@ -64,7 +64,7 @@ ShdSubMeshClass::ShdSubMeshClass(void)
 	VisiblePolygonCount(0),
 	Sorting(false)
 {
-	for (int i=0;i<MAX_TEXTURE_STAGES;++i) 
+	for (int i=0;i<MAX_TEXTURE_STAGES;++i)
 	{
 		UV[i]=NULL;
 	}
@@ -81,7 +81,7 @@ ShdSubMeshClass::ShdSubMeshClass(const ShdSubMeshClass& that)
 	VisiblePolygonCount(that.VisiblePolygonCount),
 	Sorting(false)
 {
-	for (int i=0;i<MAX_TEXTURE_STAGES;++i) 
+	for (int i=0;i<MAX_TEXTURE_STAGES;++i)
 	{
 		UV[i]=NULL;
 	}
@@ -90,13 +90,13 @@ ShdSubMeshClass::ShdSubMeshClass(const ShdSubMeshClass& that)
 
 ShdSubMeshClass & ShdSubMeshClass::operator = (const ShdSubMeshClass & that)
 {
-	if (this != &that) 
+	if (this != &that)
 	{
 		FirstVisiblePolygon=that.FirstVisiblePolygon;
 		VisiblePolygonCount=that.VisiblePolygonCount;
 		Sorting=that.Sorting;
 		REF_PTR_SET(Shader,that.Shader);
-		for (int i=0;i<MAX_TEXTURE_STAGES;++i) 
+		for (int i=0;i<MAX_TEXTURE_STAGES;++i)
 		{
 			REF_PTR_SET(UV[i],that.UV[i]);
 		}
@@ -115,7 +115,7 @@ ShdSubMeshClass & ShdSubMeshClass::operator = (const ShdSubMeshClass & that)
 ShdSubMeshClass::~ShdSubMeshClass(void)
 {
 	REF_PTR_RELEASE(Shader);
-	for (int i=0;i<MAX_TEXTURE_STAGES;++i) 
+	for (int i=0;i<MAX_TEXTURE_STAGES;++i)
 	{
 		REF_PTR_RELEASE(UV[i]);
 	}
@@ -147,7 +147,7 @@ static unsigned Define_FVF(MeshModelClass* mmc,bool enable_lighting)
 	if (mmc->Get_Color_Array(1,false)) {
 		fvf|=D3DFVF_SPECULAR;
 	}
-	
+
 	switch (tex_coord_count) {
 	default:
 	case 0:
@@ -193,7 +193,7 @@ static unsigned Define_FVF(ShdSubMeshClass* ssm,bool enable_lighting)
 	if (ssm->Get_Diffuse_Array() != NULL) {
 		fvf|=D3DFVF_DIFFUSE;
 	}
-	
+
 	switch (tex_coord_count) {
 	default:
 	case 0:
@@ -365,7 +365,7 @@ WW3DErrorType ShdSubMeshClass::Load_W3D(ChunkLoadClass& cload)
 	// read header
 	W3dShdSubMeshHeaderStruct hdr;
 	cload.Open_Chunk();
-	if 
+	if
 	(
 		cload.Read
 		(
@@ -382,7 +382,7 @@ WW3DErrorType ShdSubMeshClass::Load_W3D(ChunkLoadClass& cload)
 	PolyCount=hdr.NumTris;
 	VertexCount=hdr.NumVertices;
 
-	if ((PolyCount!=0) && (VertexCount!=0)) 
+	if ((PolyCount!=0) && (VertexCount!=0))
 	{
 		Poly				= NEW_REF(ShareBufferClass<TriIndex>,(PolyCount,"ShdSubMesh::Poly"));
 		PolySurfaceType		= NEW_REF(ShareBufferClass<uint8>,(PolyCount,"ShdSubMesh::PolySurfaceType"));
@@ -431,17 +431,17 @@ WW3DErrorType ShdSubMeshClass::Load_W3D(ChunkLoadClass& cload)
  * HISTORY:                                                                                    *
  *   5/21/2002  kjm : Created.                                                                 *
  *=============================================================================================*/
-WW3DErrorType ShdSubMeshClass::read_chunks(ChunkLoadClass& cload) 
+WW3DErrorType ShdSubMeshClass::read_chunks(ChunkLoadClass& cload)
 {
 	// If there are no more chunks within the mesh chunk,
 	// we are done.
 
-	while (cload.Open_Chunk()) 
+	while (cload.Open_Chunk())
 	{
 		// Process the chunk
 		WW3DErrorType error=WW3D_ERROR_OK;
 
-		switch (cload.Cur_Chunk_ID()) 
+		switch (cload.Cur_Chunk_ID())
 		{
 		case W3D_CHUNK_SHDSUBMESH_VERTICES					: error=read_vertices(cload); break;
 		case W3D_CHUNK_SHDSUBMESH_VERTEX_NORMALS			: error=read_vertex_normals(cload); break;
@@ -457,11 +457,11 @@ WW3DErrorType ShdSubMeshClass::read_chunks(ChunkLoadClass& cload)
 		case W3D_CHUNK_SHDSUBMESH_SHADER						: error=read_shader(cload); break;
 		case W3D_CHUNK_SHDSUBMESH_VERTEX_INFLUENCES		: error=read_vertex_influences(cload); break;
 		default: break;
-		}	
-		
+		}
+
 		cload.Close_Chunk();
 
-		if (error!=WW3D_ERROR_OK) 
+		if (error!=WW3D_ERROR_OK)
 		{
 			return error;
 		}
@@ -489,19 +489,19 @@ WW3DErrorType ShdSubMeshClass::read_vertices(ChunkLoadClass& cload)
 	Vector3* loc=Vertex->Get_Array();
 	assert(loc);
 
-	for (int i=0; i<Get_Vertex_Count(); i++) 
+	for (int i=0; i<Get_Vertex_Count(); i++)
 	{
-		if (cload.Read(&vert,sizeof(W3dVectorStruct)) != sizeof(W3dVectorStruct)) 
+		if (cload.Read(&vert,sizeof(W3dVectorStruct)) != sizeof(W3dVectorStruct))
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
-		
+
 		loc[i].X=vert.X;
 		loc[i].Y=vert.Y;
 		loc[i].Z=vert.Z;
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 }
 
 
@@ -523,9 +523,9 @@ WW3DErrorType ShdSubMeshClass::read_vertex_normals(ChunkLoadClass& cload)
 	Vector3 * mdlnorms=get_vert_normals();
 	WWASSERT(mdlnorms);
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if (cload.Read(&norm,sizeof(W3dVectorStruct)) != sizeof(W3dVectorStruct)) 
+		if (cload.Read(&norm,sizeof(W3dVectorStruct)) != sizeof(W3dVectorStruct))
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
@@ -533,7 +533,7 @@ WW3DErrorType ShdSubMeshClass::read_vertex_normals(ChunkLoadClass& cload)
 		mdlnorms[i].Set(norm.X,norm.Y,norm.Z);
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 }
 
 /***********************************************************************************************
@@ -555,22 +555,22 @@ WW3DErrorType ShdSubMeshClass::read_uv0(ChunkLoadClass& cload)
 
 	Vector2* uv=UV[0]->Get_Array();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				uv++,
 				sizeof(Vector2)
 			)!=sizeof(Vector2)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 
 }
 
@@ -593,22 +593,22 @@ WW3DErrorType ShdSubMeshClass::read_uv1(ChunkLoadClass& cload)
 
 	Vector2* uv=UV[1]->Get_Array();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				uv++,
 				sizeof(Vector2)
 			)!=sizeof(Vector2)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 
 }
 
@@ -631,22 +631,22 @@ WW3DErrorType ShdSubMeshClass::read_tangent_basis_s(ChunkLoadClass& cload)
 
 	Vector3* t=S->Get_Array();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				t++,
 				sizeof(Vector3)
 			)!=sizeof(Vector3)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 
 }
 
@@ -669,22 +669,22 @@ WW3DErrorType ShdSubMeshClass::read_tangent_basis_t(ChunkLoadClass& cload)
 
 	Vector3* t=T->Get_Array();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				t++,
 				sizeof(Vector3)
 			)!=sizeof(Vector3)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 
 }
 
@@ -707,22 +707,22 @@ WW3DErrorType ShdSubMeshClass::read_tangent_basis_sxt(ChunkLoadClass& cload)
 
 	Vector3* t=SxT->Get_Array();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				t++,
 				sizeof(Vector3)
 			)!=sizeof(Vector3)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 
 }
 
@@ -744,16 +744,16 @@ WW3DErrorType ShdSubMeshClass::read_vertex_influences(ChunkLoadClass& cload)
 {
 	uint16 * bone_links = get_bone_links();
 
-	for (int i=0; i<VertexCount; i++) 
+	for (int i=0; i<VertexCount; i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
 				bone_links++,
 				sizeof(uint8)
 			)!=sizeof(uint8)
-		) 
+		)
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}
@@ -761,7 +761,7 @@ WW3DErrorType ShdSubMeshClass::read_vertex_influences(ChunkLoadClass& cload)
 
 	Set_Flag(SKIN,true);
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 }
 
 /***********************************************************************************************
@@ -787,9 +787,9 @@ WW3DErrorType ShdSubMeshClass::read_triangles(ChunkLoadClass & cload)
 //	uint8 * surface_types = Get_Poly_Surface_Type_Array();
 
 	// read in each polygon one by one
-	for (int i=0; i<Get_Polygon_Count(); i++) 
+	for (int i=0; i<Get_Polygon_Count(); i++)
 	{
-		if 
+		if
 		(
 			cload.Read
 			(
@@ -817,7 +817,7 @@ WW3DErrorType ShdSubMeshClass::read_triangles(ChunkLoadClass & cload)
 		surface_types[i] = (uint8)(tri.Attributes);*/
 	}
 
-	return WW3D_ERROR_OK;	
+	return WW3D_ERROR_OK;
 }
 
 /***********************************************************************************************
@@ -837,9 +837,9 @@ WW3DErrorType ShdSubMeshClass::read_vertex_shade_indices(ChunkLoadClass & cload)
 	uint32 * shade_index = get_shade_indices(true);
 	uint32 si;
 
-	for (int i=0; i<Get_Vertex_Count(); i++) 
+	for (int i=0; i<Get_Vertex_Count(); i++)
 	{
-		if (cload.Read(&si,sizeof(uint32)) != sizeof(uint32)) 
+		if (cload.Read(&si,sizeof(uint32)) != sizeof(uint32))
 		{
 			return WW3D_ERROR_LOAD_FAILED;
 		}

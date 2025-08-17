@@ -24,12 +24,12 @@
 
 // FILE: ProductionPrerequisite.cpp /////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2001 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -59,7 +59,7 @@
 #endif
 
 //-----------------------------------------------------------------------------
-ProductionPrerequisite::ProductionPrerequisite() 
+ProductionPrerequisite::ProductionPrerequisite()
 {
 	init();
 }
@@ -74,7 +74,7 @@ void ProductionPrerequisite::init()
 {
 	m_prereqUnits.clear();
 	m_prereqSciences.clear();
-	
+
 }
 
 //=============================================================================
@@ -146,7 +146,7 @@ const ThingTemplate *ProductionPrerequisite::getExistingBuildFacilityTemplate( c
 				break;
 			if (ownCount[i])
 				return m_prereqUnits[i].unit;
-		} 
+		}
 	}
 	return NULL;
 }
@@ -183,7 +183,7 @@ Bool ProductionPrerequisite::isSatisfied(const Player *player) const
 	for (i = 0; i < cnt; i++)
 	{
 		if (ownCount[i] == -1)	// the magic "ignore me" flag
-			continue;	
+			continue;
 		if (ownCount[i] == 0)		// everything not ignored, is required
 			return false;
 	}
@@ -194,7 +194,7 @@ Bool ProductionPrerequisite::isSatisfied(const Player *player) const
 //-------------------------------------------------------------------------------------------------
 /** Add a unit prerequisite, if 'orWithPrevious' is set then this unit is said
 	* to be an alternate prereq to the previously added unit, otherwise this becomes
-	* a new 'block' and is required in ADDDITION to other entries. 
+	* a new 'block' and is required in ADDDITION to other entries.
 	* Return FALSE if no space left to add unit */
 //-------------------------------------------------------------------------------------------------
 void ProductionPrerequisite::addUnitPrereq( AsciiString unit, Bool orUnitWithPrevious )
@@ -210,7 +210,7 @@ void ProductionPrerequisite::addUnitPrereq( AsciiString unit, Bool orUnitWithPre
 //-------------------------------------------------------------------------------------------------
 /** Add a unit prerequisite, if 'orWithPrevious' is set then this unit is said
 	* to be an alternate prereq to the previously added unit, otherwise this becomes
-	* a new 'block' and is required in ADDDITION to other entries. 
+	* a new 'block' and is required in ADDDITION to other entries.
 	* Return FALSE if no space left to add unit */
 //-------------------------------------------------------------------------------------------------
 void ProductionPrerequisite::addUnitPrereq( const std::vector<AsciiString>& units )
@@ -235,7 +235,7 @@ UnicodeString ProductionPrerequisite::getRequiresList(const Player *player) cons
 		return UnicodeString::TheEmptyString;
 
 	UnicodeString requiresList = UnicodeString::TheEmptyString;
-		
+
 	// check the prerequired units
 	Int ownCount[MAX_PREREQ];
 	Int cnt = calcNumPrereqUnitsOwned(player, ownCount);
@@ -260,7 +260,7 @@ UnicodeString ProductionPrerequisite::getRequiresList(const Player *player) cons
 			ownCount[i-1] = -1;						// flag for "ignore me"
 		}
 	}
-	
+
 	// check to see if anything is required
 	const ThingTemplate *unit;
 	UnicodeString unitName;
@@ -269,7 +269,7 @@ UnicodeString ProductionPrerequisite::getRequiresList(const Player *player) cons
 	{
 		// we have an unfulfilled requirement
 		if (ownCount[i] == 0) {
-			
+
 			if(orRequirements[i])
 			{
 				unit = m_prereqUnits[i-1].unit;

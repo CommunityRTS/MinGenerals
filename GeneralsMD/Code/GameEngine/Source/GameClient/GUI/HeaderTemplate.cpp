@@ -24,12 +24,12 @@
 
 // FILE: HeaderTemplate.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	Aug 2002
@@ -37,7 +37,7 @@
 //	Filename: 	HeaderTemplate.cpp
 //
 //	author:		Chris Huybregts
-//	
+//
 //	purpose:	The header template system is used to maintain a unified look across
 //						windows.  It also allows Localization to customize the looks based
 //						on language fonts.
@@ -87,7 +87,7 @@ void INI::parseHeaderTemplateDefinition( INI *ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	// find existing item if present
 	hTemplate = TheHeaderTemplateManager->findHeaderTemplate( name );
@@ -113,7 +113,7 @@ m_point(0),
 m_bold(FALSE)
 {
 	//Added By Sadullah Nader
-	//Initializations missing and needed 
+	//Initializations missing and needed
 	m_fontName.clear();
 	m_name.clear();
 }
@@ -179,7 +179,7 @@ HeaderTemplate *HeaderTemplateManager::newHeaderTemplate( AsciiString name )
 	DEBUG_ASSERTCRASH(newHTemplate, ("Unable to create a new Header Template in HeaderTemplateManager::newHeaderTemplate"));
 	if(!newHTemplate)
 		return NULL;
-	
+
 	newHTemplate->m_name = name;
 	m_headerTemplateList.push_front(newHTemplate);
 	return newHTemplate;
@@ -194,7 +194,7 @@ GameFont *HeaderTemplateManager::getFontFromTemplate( AsciiString name )
 		//DEBUG_LOG(("HeaderTemplateManager::getFontFromTemplate - Could not find header %s\n", name.str()));
 		return NULL;
 	}
-	
+
 	return ht->m_font;
 }
 
@@ -244,7 +244,7 @@ void HeaderTemplateManager::populateGameFonts( void )
 		DEBUG_ASSERTCRASH(font,("HeaderTemplateManager::populateGameFonts - Could not find font %s %d",hTemplate->m_fontName, hTemplate->m_point));
 
 		hTemplate->m_font = font;
-		
+
 		++it;
 	}
 }

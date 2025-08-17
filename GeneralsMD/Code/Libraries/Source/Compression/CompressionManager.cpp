@@ -372,7 +372,7 @@ public:
 
 void DoCompressTest( void )
 {
-	
+
 	Int i;
 
 	PerfGather *s_compressGathers[COMPRESSION_MAX+1];
@@ -422,7 +422,7 @@ void DoCompressTest( void )
 
 				Int compressedLen, decompressedLen;
 
-				for (Int j=0; j < NUM_TIMES; ++j) 
+				for (Int j=0; j < NUM_TIMES; ++j)
 				{
 					s_compressGathers[i]->startTimer();
 					compressedLen = CompressionManager::compressData((CompressionType)i, buf, origSize, compressedBuf, maxCompressedSize);
@@ -495,7 +495,7 @@ void DoCompressTest( void )
 	PerfGather::resetAll();
 	CopyFile( "AAAPerfStats.csv", "AAACompressPerfStats.csv", FALSE );
 
-	for (i = 0; i < COMPRESSION_MAX+1; ++i) 
+	for (i = 0; i < COMPRESSION_MAX+1; ++i)
 	{
 		delete s_compressGathers[i];
 		s_compressGathers[i] = NULL;

@@ -26,8 +26,8 @@
  *                                                                                             *
  *                   Org Author:: Jani P                                               *
  *                                                                                             *
- *                       Author : Kenny Mitchell                                               * 
- *                                                                                             * 
+ *                       Author : Kenny Mitchell                                               *
+ *                                                                                             *
  *                     $Modtime:: 07/12/02 10:31a                                              $*
  *                                                                                             *
  *                    $Revision:: 2                                                           $*
@@ -73,7 +73,7 @@ public:
 	virtual ~ShdMeshClass(void);
 
 	/////////////////////////////////////////////////////////////////////////////
-	// Render Object Interface 
+	// Render Object Interface
 	/////////////////////////////////////////////////////////////////////////////
 	virtual RenderObjClass *	Clone(void) const;
 	virtual int						Class_ID(void) const { return CLASSID_SHDMESH; }
@@ -87,13 +87,13 @@ public:
 
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface - Collision Detection
-	/////////////////////////////////////////////////////////////////////////////	
+	/////////////////////////////////////////////////////////////////////////////
 	virtual bool					Cast_Ray(RayCollisionTestClass & raytest);
 	virtual bool					Cast_AABox(AABoxCollisionTestClass & boxtest);
 	virtual bool					Cast_OBBox(OBBoxCollisionTestClass & boxtest);
 	virtual bool					Intersect_AABox(AABoxIntersectionTestClass & boxtest);
 	virtual bool					Intersect_OBBox(OBBoxIntersectionTestClass & boxtest);
-   
+
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface - Bounding Volumes
 	/////////////////////////////////////////////////////////////////////////////
@@ -104,14 +104,14 @@ public:
 	// Render Object Interface - Attributes, Options, Properties, etc
 	/////////////////////////////////////////////////////////////////////////////
 //   virtual int						Get_Sort_Level(void) const;
-//   virtual void					Set_Sort_Level(int level);	
+//   virtual void					Set_Sort_Level(int level);
 
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface - Decals
 	/////////////////////////////////////////////////////////////////////////////
 //	virtual void					Create_Decal(DecalGeneratorClass * generator);
 //	virtual void					Delete_Decal(uint32 decal_id);
-	
+
 	/////////////////////////////////////////////////////////////////////////////
 	// MeshClass Interface
 	/////////////////////////////////////////////////////////////////////////////

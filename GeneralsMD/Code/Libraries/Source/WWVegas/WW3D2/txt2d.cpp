@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*************************************************************************** 
- ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     *** 
- *************************************************************************** 
- *                                                                         * 
- *                 Project Name : Commando/G                               * 
- *                                                                         * 
- *                     $Archive:: /Commando/Code/ww3d2/txt2d.cpp          $* 
- *                                                                         * 
- *                      $Author:: Patrick                                 $* 
- *                                                                         * 
- *                     $Modtime:: 3/27/01 5:08p                           $* 
- *                                                                         * 
- *                    $Revision:: 3                                       $* 
- *                                                                         * 
- *-------------------------------------------------------------------------* 
- * Functions:                                                              * 
+/***************************************************************************
+ ***    C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S     ***
+ ***************************************************************************
+ *                                                                         *
+ *                 Project Name : Commando/G                               *
+ *                                                                         *
+ *                     $Archive:: /Commando/Code/ww3d2/txt2d.cpp          $*
+ *                                                                         *
+ *                      $Author:: Patrick                                 $*
+ *                                                                         *
+ *                     $Modtime:: 3/27/01 5:08p                           $*
+ *                                                                         *
+ *                    $Revision:: 3                                       $*
+ *                                                                         *
+ *-------------------------------------------------------------------------*
+ * Functions:                                                              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "txt2d.h"
@@ -50,17 +50,17 @@
 float Text2DObjClass::_LastWidth = 0.0f;
 float Text2DObjClass::_LastHeight = 0.0f;
 
-/************************************************************************** 
- * T2DOC::Text2DObjClass -- Constructor for 2D text objects               * 
- *                                                                        * 
- * INPUT:                                                                 * 
- *                                                                        * 
- * OUTPUT:                                                                * 
- *                                                                        * 
- * WARNINGS:                                                              * 
- *                                                                        * 
- * HISTORY:                                                               * 
- *   09/08/1997 PWG : Created.                                            * 
+/**************************************************************************
+ * T2DOC::Text2DObjClass -- Constructor for 2D text objects               *
+ *                                                                        *
+ * INPUT:                                                                 *
+ *                                                                        *
+ * OUTPUT:                                                                *
+ *                                                                        *
+ * WARNINGS:                                                              *
+ *                                                                        *
+ * HISTORY:                                                               *
+ *   09/08/1997 PWG : Created.                                            *
  *========================================================================*/
 Text2DObjClass::Text2DObjClass(FontClass &font, const char *str, float screen_x, float screen_y, int fore, int back, ConvertClass &conv, bool center, bool clamp, ...):
 	DynamicScreenMeshClass(2, 4)
@@ -76,18 +76,18 @@ Text2DObjClass::Text2DObjClass(FontClass &font, const char *str, float screen_x,
 }
 
 
-/************************************************************************** 
- * T2DOC::Text2DObjClass -- Constructor for 2D text objects               * 
- *                                                                        * 
- * INPUT:                                                                 * 
- *                                                                        * 
- * OUTPUT:                                                                * 
- *                                                                        * 
- * WARNINGS:                                                              * 
- *                                                                        * 
- * HISTORY:                                                               * 
- *   09/08/1997 PWG : Created.                                            * 
- *   01/28/2000 SKB : Dont' Set font width                                * 
+/**************************************************************************
+ * T2DOC::Text2DObjClass -- Constructor for 2D text objects               *
+ *                                                                        *
+ * INPUT:                                                                 *
+ *                                                                        *
+ * OUTPUT:                                                                *
+ *                                                                        *
+ * WARNINGS:                                                              *
+ *                                                                        *
+ * HISTORY:                                                               *
+ *   09/08/1997 PWG : Created.                                            *
+ *   01/28/2000 SKB : Dont' Set font width                                *
  *========================================================================*/
 void Text2DObjClass::Set_Text(FontClass &font, const char *str, float screen_x, float screen_y, int fore, int back, ConvertClass &conv, bool center, bool clamp, ...)
 {
@@ -108,10 +108,10 @@ void Text2DObjClass::Set_Text(FontClass &font, const char *str, float screen_x, 
 
 	// if we didn't build a new texture than all the polygons will be just
 	// fine so we don't need to do anything.
-	if (!TextTexture.Build_Texture(font, text, fore, back, conv)) 
+	if (!TextTexture.Build_Texture(font, text, fore, back, conv))
 		return;
 
-	// cache the TextTexture elements we think are important on the local 
+	// cache the TextTexture elements we think are important on the local
 	// stack.
 	srTextureIFace *texture_map = TextTexture.Get_Texture();
 	int tsize = TextTexture.Get_Texture_Size();
@@ -136,8 +136,8 @@ void Text2DObjClass::Set_Text(FontClass &font, const char *str, float screen_x, 
 		x_delta = -((float)fw / (float)resw) / 2.0f;
 		y_delta = -((float)fh / (float)resh) / 2.0f;
 	}
-	
-	// Set so user can know where end of string is printed.								
+
+	// Set so user can know where end of string is printed.
 	_LastWidth = ((float) fw / (float)resw);
 	_LastHeight = ((float) fh / (float)resh);
 

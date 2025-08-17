@@ -25,7 +25,7 @@
  *                     $Archive:: /Commando/Code/ww3d2/shdbumpspec.cpp                           $*
  *                                                                                             *
  *                       $Author:: Kenny_m
- *																																	
+ *
  *								$Modtime:: 5/27/02 2:21p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -58,7 +58,7 @@ REGISTER_SHDDEF(ShdBumpSpecDefClass,SHDDEF_CLASSID_BUMPSPEC,"Bump Specular");
 ShdVersion ShdBumpSpecDefClass::Version;
 
 // Save-Load methods for ShdDefClass
-enum 
+enum
 {
 	CHUNKID_VARIABLES =			0x16490450,
 
@@ -72,7 +72,7 @@ enum
 	VARID_SPECULAR_BUMPINESS
 };
 
-ShdBumpSpecDefClass::ShdBumpSpecDefClass() 
+ShdBumpSpecDefClass::ShdBumpSpecDefClass()
 :	ShdDefClass(SHDDEF_CLASSID_BUMPSPEC),
 	Ambient(1,1,1),
 	Diffuse(1,1,1),
@@ -86,7 +86,7 @@ ShdBumpSpecDefClass::ShdBumpSpecDefClass()
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_COLOR, Ambient, "Ambient");
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_COLOR, Diffuse, "Diffuse");
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_COLOR, Specular, "Specular");
-	
+
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_FLOAT, Diffuse_Bumpiness.X, "Diffuse Bump Scale");
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_FLOAT, Diffuse_Bumpiness.Y, "Diffuse Bump Bias");
 	NAMED_EDITABLE_PARAM(ShdBumpSpecDefClass, ParameterClass::TYPE_FLOAT, Specular_Bumpiness.X, "Specular Bump Scale");
@@ -118,10 +118,10 @@ bool ShdBumpSpecDefClass::Save(ChunkSaveClass &csave)
 {
 	ShdDefClass::Save(csave);
 
-	csave.Begin_Chunk(CHUNKID_VARIABLES);	
+	csave.Begin_Chunk(CHUNKID_VARIABLES);
 
 		bool retval = true;
-	
+
 		// only save the file name
 		char fname[_MAX_PATH];
 
@@ -158,9 +158,9 @@ bool ShdBumpSpecDefClass::Load(ChunkLoadClass &cload)
 		switch (cload.Cur_Chunk_ID())
 		{
 		case CHUNKID_VARIABLES:
-			while (cload.Open_Micro_Chunk()) 
+			while (cload.Open_Micro_Chunk())
 			{
-				switch (cload.Cur_Micro_Chunk_ID()) 
+				switch (cload.Cur_Micro_Chunk_ID())
 				{
 				READ_MICRO_CHUNK_WWSTRING(cload, VARID_TEXTURE_NAME, TextureName);
 				READ_MICRO_CHUNK_WWSTRING(cload, VARID_BUMP_MAP_NAME, BumpMapName);
@@ -176,7 +176,7 @@ bool ShdBumpSpecDefClass::Load(ChunkLoadClass &cload)
 				cload.Close_Micro_Chunk();
 			}
 			break;
-		
+
 		default:
 			break;
 		}

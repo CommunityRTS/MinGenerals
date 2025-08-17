@@ -61,8 +61,8 @@
 //-------------------------------------------------------------------------------------------------
 // this method should NEVER be overridden by user code, only via the MAKE_STANDARD_MODULE_xxx macros!
 // it should also NEVER be called directly; it's only for use by ModuleFactory!
-/*static*/ ModuleData* Module::friend_newModuleData(INI* ini) 
-{ 
+/*static*/ ModuleData* Module::friend_newModuleData(INI* ini)
+{
 	ModuleData* data = MSGNEW("Module::friend_newModuleData") ModuleData;	// no need to memorypool these since we never allocate more than one of each
 	if (ini)
 		ini->initFromINI(data, 0);	// this is just so that an "end" token is required
@@ -110,7 +110,7 @@ void Module::loadPostProcess( void )
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 ObjectModule::ObjectModule( Thing *thing, const ModuleData* moduleData ) : Module(moduleData)
-{ 
+{
 	if (!moduleData)
 	{
 		DEBUG_CRASH(("module data may not be null\n"));
@@ -173,7 +173,7 @@ void ObjectModule::loadPostProcess( void )
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 DrawableModule::DrawableModule( Thing *thing, const ModuleData* moduleData ) : Module(moduleData)
-{ 
+{
 	if (!moduleData)
 	{
 		DEBUG_CRASH(("module data may not be null\n"));
@@ -292,7 +292,7 @@ void UpgradeMuxData::getUpgradeActivationMasks(UpgradeMaskType& activation, Upgr
 	{
 		m_activationMask.clear();
 		m_conflictingMask.clear();
-		
+
 		std::vector<AsciiString>::const_iterator it;
 		for( it = m_activationUpgradeNames.begin();
 					it != m_activationUpgradeNames.end();

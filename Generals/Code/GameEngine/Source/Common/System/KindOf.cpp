@@ -31,7 +31,7 @@
 #include "Common/KindOf.h"
 #include "Common/BitFlagsIO.h"
 
-const char* KindOfMaskType::s_bitNameList[] = 
+const char* KindOfMaskType::s_bitNameList[] =
 {
 	"OBSTACLE",
 	"SELECTABLE",

@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shddef.h                           $*
  *                                                                                             *
  *                  $Org Author:: Jani_p
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 6/07/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 2                                                          $*
@@ -70,14 +70,14 @@ private:
 
 
 /**
-** ShdDefClass - This class is the base class for all shader "definition" objects.  
+** ShdDefClass - This class is the base class for all shader "definition" objects.
 **
-** A shader definition object has two responsibilities.  
+** A shader definition object has two responsibilities.
 **
-** - It contains a "generic" description (chars, ints, floats, etc) of all of the user-settable parameters used 
+** - It contains a "generic" description (chars, ints, floats, etc) of all of the user-settable parameters used
 ** by an instance of this type of shader (e.g. what textures it uses, colors, etc).
 **
-** - It contains a virtual "Create" function which can create an actual shader for you.  This function is an 
+** - It contains a virtual "Create" function which can create an actual shader for you.  This function is an
 ** abstract factory which creates a shader implementation compatible with the current hardware the application
 ** is running on.
 */
@@ -89,8 +89,8 @@ public:
 	ShdDefClass(uint32 class_id);
 	ShdDefClass(const ShdDefClass & that);
 	virtual ~ShdDefClass(void);
-		
-	virtual ShdDefClass *			Clone(void) const	= 0;		
+
+	virtual ShdDefClass *			Clone(void) const	= 0;
 	virtual void						Reset(void);
 
 	// Run-Time Type identification (ID's defined in "shdclassids.h")
@@ -103,7 +103,7 @@ public:
 
 	// Name methods
 	const char *						Get_Name (void) const;
-	void									Set_Name (const char *new_name);	
+	void									Set_Name (const char *new_name);
 
 	// Surface type, used for decal, sound, and emitter creation
 	int									Get_Surface_Type(void) const	{ return SurfaceType; }

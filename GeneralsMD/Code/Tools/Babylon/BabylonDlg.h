@@ -29,8 +29,8 @@
 #include "resource.h"
 #include "transdb.h"
 
-typedef enum 
-{	
+typedef enum
+{
 	SAME_LINE,
 	NEW_LINE
 

@@ -40,7 +40,7 @@
 // will clear the flag and expect you to exit from the thread. If you are
 // not exiting in certain time (defined as a parameter to Stop()) it will
 // force-kill the thread to prevent the program from halting.
-// 
+//
 // ****************************************************************************
 
 class ThreadClass

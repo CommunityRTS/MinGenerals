@@ -42,7 +42,7 @@ static void exitWait(void)
 static bool getNextLine(FILE *fp, char *line, int& frame, int& index) {
 	if (!fp)
 		return false;
-	
+
 	char buf[LINESIZE];
 	while (fgets(buf, LINESIZE-1, fp) != NULL)
 	{
@@ -55,7 +55,7 @@ static bool getNextLine(FILE *fp, char *line, int& frame, int& index) {
 			return true;
 		}
 	}
-	
+
 	fclose(fp);
 	return false;
 }
@@ -73,7 +73,7 @@ static std::string readInFile(const char *fname) {
 	{
 		ret.append(buf);
 	}
-	
+
 	fclose(fp);
 	return ret;
 }
@@ -211,7 +211,7 @@ int main(int argc, char *argv[])
 		inFname[1] = argv[5];
 		outFname = argv[6];
 	}
-	
+
 	ifp[0] = fopen(inFname[0], "rt");
 	if (!ifp[0])
 	{
@@ -225,9 +225,9 @@ int main(int argc, char *argv[])
 		cout << "could not open " << inFname[1] << endl;
 		return 1;
 	}
-	
+
 	ofp = fopen(outFname, "wt");
-	
+
 	char lastLine[2][LINESIZE];
 	int lastFrame[2] = {-1, -1};
 	int lastIndex[2] = {-1, -1};
@@ -251,7 +251,7 @@ int main(int argc, char *argv[])
 					lastFrame[i], lastIndex[i]);
 			}
 		}
-		
+
 		if (fileOk[0] && fileOk[1])
 		{
 			if (lastFrame[0] < lastFrame[1] ||
@@ -357,11 +357,11 @@ int main(int argc, char *argv[])
 	std::string out;
 	e.expand(footer, out);
 	outputLine(out.c_str());
-	
+
 	if (ofp)
 	{
 		fclose(ofp);
 	}
-	
+
 	return 0;
 }

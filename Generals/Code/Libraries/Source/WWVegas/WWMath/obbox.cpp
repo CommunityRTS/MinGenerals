@@ -72,7 +72,7 @@ OBBoxClass::OBBoxClass(const Vector3 * /*points*/, int /*n*/)
 	// TODO: IMPLEMENT THIS!!!
 	assert(0);
 
-#if 0	
+#if 0
 	int i;
 
 	// compute mean and covariances of points
@@ -204,7 +204,7 @@ void OBBoxClass::Init_From_Box_Points(Vector3 * points,int num)
 	** this assumption is not true!!!!
 	*/
 	assert(num == 8);
-	
+
 	/*
 	** Just pick the first point as the preliminary center.  Compute
 	** vectors from this point to each of the other points
@@ -215,7 +215,7 @@ void OBBoxClass::Init_From_Box_Points(Vector3 * points,int num)
 	}
 
 	/*
-	** Find the shortest two candidate axes.  Then the 
+	** Find the shortest two candidate axes.  Then the
 	** third axis will be the cross product of these two.
 	*/
 	for (i=1;i<num;i++) {
@@ -288,7 +288,7 @@ void OBBoxClass::Init_From_Box_Points(Vector3 * points,int num)
 void OBBoxClass::Init_Random(float min_extent,float max_extent)
 {
 	Center.Set(0,0,0);
-	
+
 	Extent.X = min_extent + WWMath::Random_Float() * (max_extent - min_extent);
 	Extent.Y = min_extent + WWMath::Random_Float() * (max_extent - min_extent);
 	Extent.Z = min_extent + WWMath::Random_Float() * (max_extent - min_extent);
@@ -416,7 +416,7 @@ bool Oriented_Boxes_Intersect
 
 	Vector3::Cross_Product(A[2],B[2],&axis);
 	if (!Oriented_Boxes_Intersect_On_Axis(box0,box1,axis)) return false;
-	
+
 	// None of the above tests separated the two boxes, so they are intersecting
 	return true;
 }
@@ -507,7 +507,7 @@ bool Oriented_Boxes_Collide
 
 	/////////////////////////////////////////////////////////////////////////
 	// L = A0
-	// 
+	//
 	// Projecting the two boxes onto Box0's X axis.  If their intervals
 	// on this line do not intersect, the boxes are not intersecting!
 	// Each of the tests in this function work in a similar way.
@@ -593,7 +593,7 @@ bool Oriented_Boxes_Collide
 	// L = A0xB1
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A0,B1,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -603,7 +603,7 @@ bool Oriented_Boxes_Collide
 	// L = A0xB2
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A0,B2,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -613,7 +613,7 @@ bool Oriented_Boxes_Collide
 	// L = A1xB0
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A1,B0,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -623,7 +623,7 @@ bool Oriented_Boxes_Collide
 	// L = A1xB1
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A1,B1,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -633,7 +633,7 @@ bool Oriented_Boxes_Collide
 	// L = A1xB2
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A1,B2,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -643,7 +643,7 @@ bool Oriented_Boxes_Collide
 	// L = A2xB0
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A2,B0,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -653,7 +653,7 @@ bool Oriented_Boxes_Collide
 	// L = A2xB1
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A2,B1,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -663,7 +663,7 @@ bool Oriented_Boxes_Collide
 	// L = A2xB2
 	/////////////////////////////////////////////////////////////////////////
 	Vector3::Cross_Product(A2,B2,&SepAxis);
-	
+
 	if (!Oriented_Boxes_Collide_On_Axis(box0,v0,box1,v1,SepAxis,dt)) {
 		intersect = false;
 		goto exit;
@@ -696,14 +696,14 @@ bool Oriented_Box_Intersects_Tri_On_Axis(const OBBoxClass & box,const TriClass &
 	float tmp;
 
 	if (axis.Length2() < WWMATH_EPSILON) return true;
-	
+
 	Vector3 D = *(tri.V[0]) - box.Center;
 	Vector3 r1 = *(tri.V[1]) - *(tri.V[0]);
 	Vector3 r2 = *(tri.V[2]) - *(tri.V[0]);
-	
+
 	// I want the axis to point from box.center to tri.v0
 	dist = Vector3::Dot_Product(D,axis);
-	if (dist < 0) {		
+	if (dist < 0) {
 		dist = -dist;
 		axis = -axis;
 	}
@@ -715,7 +715,7 @@ bool Oriented_Box_Intersects_Tri_On_Axis(const OBBoxClass & box,const TriClass &
 	lep = 0;
 	tmp = Vector3::Dot_Product(r1,axis); if (tmp < lep) lep = tmp;
 	tmp = Vector3::Dot_Product(r2,axis); if (tmp < lep) lep = tmp;
-	lep += dist;	
+	lep += dist;
 
 	if (lep >= leb) {
 		return false;
@@ -762,7 +762,7 @@ bool Oriented_Box_Intersects_Tri(const OBBoxClass & box,const TriClass & tri)
 
 	Vector3::Cross_Product(A[0],E[1],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
-		
+
 	Vector3::Cross_Product(A[0],E[2],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
 
@@ -771,7 +771,7 @@ bool Oriented_Box_Intersects_Tri(const OBBoxClass & box,const TriClass & tri)
 
 	Vector3::Cross_Product(A[1],E[1],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
-		
+
 	Vector3::Cross_Product(A[1],E[2],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
 
@@ -780,7 +780,7 @@ bool Oriented_Box_Intersects_Tri(const OBBoxClass & box,const TriClass & tri)
 
 	Vector3::Cross_Product(A[2],E[1],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
-		
+
 	Vector3::Cross_Product(A[2],E[2],&axis);
 	if (!Oriented_Box_Intersects_Tri_On_Axis(box,tri,axis)) return false;
 

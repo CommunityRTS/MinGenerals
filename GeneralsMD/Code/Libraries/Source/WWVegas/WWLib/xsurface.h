@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /G/wwlib/xsurface.h                                         $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/xsurface.h                                         $*
+ *                                                                                             *
  *                      $Author:: Eric_c                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 4/02/99 12:01p                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 2                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #if _MSC_VER >= 1000
 #pragma once
@@ -44,7 +44,7 @@
 
 /*
 **	This is a concrete (mostly) derived class that handles a surface. This layer presumes that
-**	pixels are compositied into a contiguous integral (usually a byte) linear array. The 
+**	pixels are compositied into a contiguous integral (usually a byte) linear array. The
 **	implemented routines do not use hardware assist. They are prime candidates to be converted
 **	to assembly language.
 */
@@ -53,7 +53,7 @@ class XSurface : public Surface
 	public:
 		XSurface(int width=0, int height=0) : Surface(width, height), LockCount(0) {}
 		virtual ~XSurface(void) {}
-		
+
 		/*
 		**	Copies regions from one surface to another.
 		*/
@@ -79,7 +79,7 @@ class XSurface : public Surface
 		*/
 		virtual bool Draw_Line(Point2D const & startpoint, Point2D const & endpoint, int color);
 		virtual bool Draw_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, int color);
-		
+
 		/*
 		**	Draws rectangles onto the surface.
 		*/
@@ -98,7 +98,7 @@ class XSurface : public Surface
 		*/
 		virtual int Bytes_Per_Pixel(void) const = 0;
 		virtual int Stride(void) const = 0;
-		
+
 		/*
 		**	Hack function to serve the purpose that RTTI was invented for, but since
 		**	the Watcom compiler doesn't support RTTI, we must resort to using this

@@ -23,12 +23,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 //----------------------------------------------------------------------------
-//                                                                          
-//                       Westwood Studios Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright(C) 2001 - All Rights Reserved                  
-//                                                                          
+//
+//                       Westwood Studios Pacific.
+//
+//                       Confidential Information
+//                Copyright(C) 2001 - All Rights Reserved
+//
 //----------------------------------------------------------------------------
 //
 // Project:   RTS3
@@ -40,7 +40,7 @@
 //----------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------
-//         Includes                                                      
+//         Includes
 //----------------------------------------------------------------------------
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
@@ -65,7 +65,7 @@
 
 
 //----------------------------------------------------------------------------
-//         Externals                                                     
+//         Externals
 //----------------------------------------------------------------------------
 
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -74,7 +74,7 @@ Bool g_useStringFile = TRUE;
 
 
 //----------------------------------------------------------------------------
-//         Defines                                                         
+//         Defines
 //----------------------------------------------------------------------------
 
 #define CSF_ID ( ('C'<<24) | ('S'<<16) | ('F'<<8) | (' ') )
@@ -87,11 +87,11 @@ Bool g_useStringFile = TRUE;
 #define CSF_FILE 1
 #define MAX_UITEXT_LENGTH (10*1024)
 //----------------------------------------------------------------------------
-//         Private Types                                                     
+//         Private Types
 //----------------------------------------------------------------------------
 
 //===============================
-// StringInfo 
+// StringInfo
 //===============================
 
 struct StringInfo
@@ -108,7 +108,7 @@ struct StringLookUp
 };
 
 //===============================
-// CSFHeader 
+// CSFHeader
 //===============================
 
 struct CSFHeader
@@ -123,7 +123,7 @@ struct CSFHeader
 };
 
 //===============================
-// struct NoString 
+// struct NoString
 //===============================
 
 struct NoString
@@ -134,7 +134,7 @@ struct NoString
 
 
 //===============================
-// GameTextManager 
+// GameTextManager
 //===============================
 
 class GameTextManager : public GameTextInterface
@@ -163,7 +163,7 @@ class GameTextManager : public GameTextInterface
 		Char						m_buffer2[MAX_UITEXT_LENGTH];
 		Char						m_buffer3[MAX_UITEXT_LENGTH];
 		WideChar				m_tbuffer[MAX_UITEXT_LENGTH*2];
-		
+
 		StringInfo			*m_stringInfo;
 		StringLookUp		*m_stringLUT;
 		Bool						m_initialized;
@@ -200,31 +200,31 @@ class GameTextManager : public GameTextInterface
 
 static int _cdecl			compareLUT ( const void *,  const void*);
 //----------------------------------------------------------------------------
-//         Private Data                                                     
+//         Private Data
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Data                                                      
+//         Public Data
 //----------------------------------------------------------------------------
 
 GameTextInterface *TheGameText = NULL;
 
 //----------------------------------------------------------------------------
-//         Private Prototypes                                               
+//         Private Prototypes
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Private Functions                                               
+//         Private Functions
 //----------------------------------------------------------------------------
 
 
 
 //----------------------------------------------------------------------------
-//         Public Functions                                                
+//         Public Functions
 //----------------------------------------------------------------------------
 
 //============================================================================
@@ -264,9 +264,9 @@ GameTextManager::GameTextManager()
 
 	for(Int i=0; i < MAX_UITEXT_LENGTH; i++)
 	{
-		m_buffer[i] = 0; 
-		m_buffer2[i] = 0; 
-		m_buffer3[i] = 0; 
+		m_buffer[i] = 0;
+		m_buffer2[i] = 0;
+		m_buffer3[i] = 0;
 	}
 	//
 }
@@ -278,7 +278,7 @@ GameTextManager::GameTextManager()
 GameTextManager::~GameTextManager()
 {
 	deinit();
-}							
+}
 
 //============================================================================
 // GameTextManager::init
@@ -441,7 +441,7 @@ void GameTextManager::reset( void )
 
 
 //============================================================================
-// GameTextManager::stripSpaces 
+// GameTextManager::stripSpaces
 //============================================================================
 
 void GameTextManager::stripSpaces ( WideChar *string )
@@ -488,7 +488,7 @@ void GameTextManager::stripSpaces ( WideChar *string )
 }
 
 //============================================================================
-// GameTextManager::removeLeadingAndTrailing 
+// GameTextManager::removeLeadingAndTrailing
 //============================================================================
 
 void GameTextManager::removeLeadingAndTrailing ( Char *buffer )
@@ -647,7 +647,7 @@ void GameTextManager::readToEndOfQuote( File *file, Char *in, Char *out, Char *w
 
 
 //============================================================================
-// GameTextManager::reverseWord 
+// GameTextManager::reverseWord
 //============================================================================
 
 void GameTextManager::reverseWord ( Char *file, Char *lp )
@@ -827,7 +827,7 @@ Bool GameTextManager::getStringCount( const char *filename, Int& textCount )
 	File *file;
 	file = TheFileSystem->openFile(filename, File::READ | File::TEXT);
 	DEBUG_LOG(("Looking in %s for string file\n", filename));
-	
+
 	if ( file == NULL )
 	{
 		return FALSE;
@@ -859,7 +859,7 @@ Bool GameTextManager::getStringCount( const char *filename, Int& textCount )
 }
 
 //============================================================================
-// GameTextManager::getCSFInfo 
+// GameTextManager::getCSFInfo
 //============================================================================
 
 Bool GameTextManager::getCSFInfo ( const Char *filename )
@@ -973,19 +973,19 @@ Bool GameTextManager::parseCSF( const Char *filename )
 			{
 				// only use the first string found
 				m_tbuffer[len] = 0;
-				
+
 				{
 					WideChar *ptr;
-				
+
 					ptr = m_tbuffer;
-				
+
 					while ( *ptr )
 					{
 						*ptr = ~*ptr;
 						ptr++;
 					}
 				}
-				
+
 				stripSpaces ( m_tbuffer );
 				m_stringInfo[listCount].text = m_tbuffer;
 			}
@@ -1034,7 +1034,7 @@ Bool GameTextManager::parseStringFile( const char *filename )
 	Int ok = TRUE;
 
 	File *file = TheFileSystem->openFile(filename, File::READ | File::TEXT);
-	
+
 	if ( file == NULL )
 	{
 		return FALSE;
@@ -1102,7 +1102,7 @@ Bool GameTextManager::parseStringFile( const char *filename )
 					// Copy string into new home
 					translateCopy( m_tbuffer, m_buffer2 );
 					stripSpaces ( m_tbuffer );
-					
+
 					m_stringInfo[listCount].text = m_tbuffer ;
 					m_stringInfo[listCount].speech = m_buffer3;
 					readString = TRUE;
@@ -1165,7 +1165,7 @@ Bool GameTextManager::parseMapStringFile( const char *filename )
 
 	File *file;
 
-	file = TheFileSystem->openFile(filename, File::READ | File::TEXT);	
+	file = TheFileSystem->openFile(filename, File::READ | File::TEXT);
 	if ( file == NULL )
 	{
 		return FALSE;
@@ -1237,7 +1237,7 @@ Bool GameTextManager::parseMapStringFile( const char *filename )
 					UnicodeString text = UnicodeString(m_tbuffer);
 					if (TheLanguageFilter)
 						TheLanguageFilter->filterLine(text);
-					
+
 					m_mapStringInfo[listCount].text = text;
 					m_mapStringInfo[listCount].speech = m_buffer3;
 					readString = TRUE;
@@ -1318,7 +1318,7 @@ UnicodeString GameTextManager::fetch( const Char *label, Bool *exists )
 		m_noStringList = noString;
 		return noString->text;
 	}
-	if( exists )	
+	if( exists )
 		*exists = TRUE;
 	return lookUp->info->text;
 }
@@ -1340,14 +1340,14 @@ AsciiStringVec& GameTextManager::getStringsWithLabelPrefix(AsciiString label)
 {
 	m_asciiStringVec.clear();
 	if (m_stringLUT) {
-		for (int i = 0; i < m_textCount; ++i) {		
+		for (int i = 0; i < m_textCount; ++i) {
 			if (strstr(m_stringLUT[i].label->str(), label.str()) == m_stringLUT[i].label->str()) {
 				m_asciiStringVec.push_back(*m_stringLUT[i].label);
 			}
 		}
 	}
 	if (m_mapStringLUT) {
-		for (int i = 0; i < m_mapTextCount; ++i) {		
+		for (int i = 0; i < m_mapTextCount; ++i) {
 			if (strstr(m_mapStringLUT[i].label->str(), label.str()) == m_mapStringLUT[i].label->str()) {
 				m_asciiStringVec.push_back(*m_mapStringLUT[i].label);
 			}
@@ -1399,7 +1399,7 @@ Char	GameTextManager::readChar( File *file )
 }
 
 //============================================================================
-// GameTextManager::compareLUT 
+// GameTextManager::compareLUT
 //============================================================================
 
 static int __cdecl compareLUT ( const void *i1,  const void*i2)

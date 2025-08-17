@@ -25,9 +25,9 @@
  *                     $Archive:: wwshade/shdcubemap.cpp                           $*
  *                                                                                             *
  *                  $Org Author:: Kenny_m
- *																																	
+ *
  *                      $Author:: Kenny_m
- *																																	
+ *
  *							  $Modtime:: 8/01/02 3:12p                                               $*
  *                                                                                             *
  *                    $Revision:: 1                                                          $*
@@ -58,7 +58,7 @@ REGISTER_SHDDEF(ShdCubeMapDefClass,SHDDEF_CLASSID_CUBEMAP,"Cube Map");
 
 
 // Save-Load methods for ShdDefClass
-enum 
+enum
 {
 	CHUNKID_VARIABLES =			0x16490470,
 
@@ -69,7 +69,7 @@ enum
 	VARID_SPECULAR_COLOR
 };
 
-ShdCubeMapDefClass::ShdCubeMapDefClass() 
+ShdCubeMapDefClass::ShdCubeMapDefClass()
 :	ShdDefClass(SHDDEF_CLASSID_CUBEMAP),
 	Ambient(1,1,1),
 	Diffuse(1,1,1),
@@ -104,10 +104,10 @@ bool ShdCubeMapDefClass::Save(ChunkSaveClass &csave)
 {
 	ShdDefClass::Save(csave);
 
-	csave.Begin_Chunk(CHUNKID_VARIABLES);	
+	csave.Begin_Chunk(CHUNKID_VARIABLES);
 
 		bool retval = true;
-	
+
 		// only save the file name
 		char fname[_MAX_PATH];
 
@@ -135,9 +135,9 @@ bool ShdCubeMapDefClass::Load(ChunkLoadClass &cload)
 		switch (cload.Cur_Chunk_ID())
 		{
 		case CHUNKID_VARIABLES:
-			while (cload.Open_Micro_Chunk()) 
+			while (cload.Open_Micro_Chunk())
 			{
-				switch (cload.Cur_Micro_Chunk_ID()) 
+				switch (cload.Cur_Micro_Chunk_ID())
 				{
 				READ_MICRO_CHUNK_WWSTRING(cload, VARID_TEXTURE_NAME, TextureName);
 
@@ -149,7 +149,7 @@ bool ShdCubeMapDefClass::Load(ChunkLoadClass &cload)
 				cload.Close_Micro_Chunk();
 			}
 			break;
-		
+
 		default:
 			break;
 		}
@@ -206,8 +206,8 @@ Shd6CubeMapClass::Shd6CubeMapClass(const ShdDefClass* def)
 
 	Material=new D3DMATERIAL8;
 	memset(Material,0,sizeof(D3DMATERIAL8));
-	Material->Ambient.r=a.X; Material->Ambient.g=a.Y; Material->Ambient.b=a.Z; 
-	Material->Diffuse.r=d.X; Material->Diffuse.g=d.Y; Material->Diffuse.b=d.Z; 
+	Material->Ambient.r=a.X; Material->Ambient.g=a.Y; Material->Ambient.b=a.Z;
+	Material->Diffuse.r=d.X; Material->Diffuse.g=d.Y; Material->Diffuse.b=d.Z;
 	Material->Specular.r=s.X; Material->Specular.g=s.Y; Material->Specular.b=s.Z;
 	Material->Power=20;
 }
@@ -233,7 +233,7 @@ void Shd6CubeMapClass::Shutdown()
 void Shd6CubeMapClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
 {
 	// fixed function uses pass through by default
-	DX8Wrapper::Set_DX8_Texture_Stage_State(0, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR); 
+	DX8Wrapper::Set_DX8_Texture_Stage_State(0, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR);
 
 	// set vertex shader
 	DX8Wrapper::Set_Vertex_Shader(DX8_FVF_XYZNDCUBEMAP);
@@ -259,7 +259,7 @@ void Shd6CubeMapClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
 }
 
 //**********************************************************************************************
-//! Apply per instance states for 1 pass DX6 
+//! Apply per instance states for 1 pass DX6
 /*! 7/10/02 5:39p KJM Created
 */
 void Shd6CubeMapClass::Apply_Instance(int cur_pass, RenderInfoClass& rinfo)
@@ -279,45 +279,45 @@ unsigned Shd6CubeMapClass::Get_Vertex_Size(unsigned stream) const
 
 void Shd6CubeMapClass::Copy_Vertex_Stream
 (
-	unsigned stream, 
-	void* dest_buffer, 
-	const VertexStreamStruct& vss, 
+	unsigned stream,
+	void* dest_buffer,
+	const VertexStreamStruct& vss,
 	unsigned vertex_count
 )
 {
    VertexFormatXYZNDCUBEMAP* verts=(VertexFormatXYZNDCUBEMAP*)dest_buffer;
 
-	for (unsigned i=0; i<vertex_count; ++i) 
+	for (unsigned i=0; i<vertex_count; ++i)
 	{
-		if (vss.Locations) 
+		if (vss.Locations)
 		{
 			verts[i].x=vss.Locations[i][0];
 			verts[i].y=vss.Locations[i][1];
 			verts[i].z=vss.Locations[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].x=0.0f;
 			verts[i].y=0.0f;
 			verts[i].z=0.0f;
 		}
 
-		if (vss.DiffuseInt) 
+		if (vss.DiffuseInt)
 		{
 			verts[i].diffuse=vss.DiffuseInt[i];
 		}
-		else 
+		else
 		{
 			verts[i].diffuse=0xffffffff;
 		}
-	
-		if (vss.Normals) 
+
+		if (vss.Normals)
 		{
 			verts[i].nx=vss.Normals[i][0];
 			verts[i].ny=vss.Normals[i][1];
 			verts[i].nz=vss.Normals[i][2];
 		}
-		else 
+		else
 		{
 			verts[i].nx=0.0f;
 			verts[i].ny=0.0f;

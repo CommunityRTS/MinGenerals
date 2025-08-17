@@ -68,7 +68,7 @@ class GrannyAnimClass : public HAnimClass
 	friend class GrannyRenderObjClass;
 
 	public:
-	
+
 	enum
 	{
 		OK,
@@ -97,7 +97,7 @@ private:
 	int NumFrames;
 	float FrameRate;
 	char	Name[2*W3D_NAME_LEN];
-};	
+};
 
 class GrannyAnimManagerClass
 {
@@ -142,7 +142,7 @@ Since skies are only visible in reflections, this code will also
 render clouds and sky bodies.
 */
 class GrannyRenderObjClass : public RenderObjClass
-{	
+{
 	friend class GrannyRenderObjSystem;
 	friend class W3DShadow;
 
@@ -175,13 +175,13 @@ protected:
 	SphereClass	m_boundingSphere;		///<bounding sphere of TerrainTracks
 	AABoxClass	m_boundingBox;			///<bounding box of TerrainTracks
 	Int			m_vertexCount;			///<number of vertices in model
-	
+
 	GrannyRenderObjClass	*m_nextSystem;			///<next track system
 	GrannyRenderObjClass *m_prevSystem;			///<previous track system
 };
 
 #define GRANNY_MAX_MESHES_PER_MODEL 4
- 
+
 /** Prototype or definition of a Granny model.  Contains all info need to instance a model of this type.*/
 class GrannyPrototypeClass : public PrototypeClass
 {
@@ -207,8 +207,8 @@ public:
 		Int vertexCount;	///< number of vertices in this mesh.
 	};
 
-	virtual ~GrannyPrototypeClass(void)							{ if (m_vertexMaterial) REF_PTR_RELEASE (m_vertexMaterial); if (m_file) GrannyFreeFile(m_file); }						 
-	virtual const char *			Get_Name(void)	const			{ return m_name; }	
+	virtual ~GrannyPrototypeClass(void)							{ if (m_vertexMaterial) REF_PTR_RELEASE (m_vertexMaterial); if (m_file) GrannyFreeFile(m_file); }
+	virtual const char *			Get_Name(void)	const			{ return m_name; }
 	virtual int						Get_Class_ID(void) const	{ return RenderObjClass::CLASSID_UNKNOWN; }
 	virtual RenderObjClass *	Create(void)					{ return NEW_REF( GrannyRenderObjClass, (*this) ); }
 	void	Set_Name(char *name)	{strcpy(m_name,name);}

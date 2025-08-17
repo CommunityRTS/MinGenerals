@@ -78,7 +78,7 @@ void parseTechPositionsCoord3D( INI* ini, void * instance, void * /*store*/, con
 
 }
 
-const FieldParse MapMetaDataReader::m_mapFieldParseTable[] = 
+const FieldParse MapMetaDataReader::m_mapFieldParseTable[] =
 {
 
 	{ "isOfficial",							INI::parseBool,			NULL,	offsetof( MapMetaDataReader, m_isOfficial ) },

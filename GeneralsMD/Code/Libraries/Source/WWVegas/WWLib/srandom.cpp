@@ -154,7 +154,7 @@ void SecureRandomClass::Generate_Seed(void)
 	if (in)
 	{
 		for (i=0; i<SeedLength; i++)
-			Seeds[i]^=fgetc(in); 
+			Seeds[i]^=fgetc(in);
 		fclose(in);
 	}
 	else

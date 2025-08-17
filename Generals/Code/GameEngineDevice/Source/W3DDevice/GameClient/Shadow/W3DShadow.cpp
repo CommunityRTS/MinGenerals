@@ -93,7 +93,7 @@ void DoShadows(RenderInfoClass & rinfo, Bool stencilPass)
 		TheW3DShadowManager->queueShadows(FALSE);
 
 }
-	
+
 W3DShadowManager::W3DShadowManager( void )
 {
 	DEBUG_ASSERTCRASH(TheW3DVolumetricShadowManager == NULL && TheW3DProjectedShadowManager == NULL,
@@ -193,7 +193,7 @@ Shadow *W3DShadowManager::addShadow( RenderObjClass *robj, Shadow::ShadowTypeInf
 		default:
 			return NULL;
 	}
-		
+
 	return NULL;
 }
 

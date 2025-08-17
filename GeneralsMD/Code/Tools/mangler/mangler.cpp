@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 {
 	ConfigFile config;
 	FILE*	conf;
-	
+
 	if( argc <= 1 )
 	{
 		// No args - use a default config file
@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 		config.readFile(conf);
 		fclose(conf);
 	}
-	
+
 	// ----- LOGGING -----
 	// Setup debugging & logging output
 	Wstring output_file("mangler.log");
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 	DBGMSG("DBG working...");
 	INFMSG("INF working...");
 	WRNMSG("WRN working...");
-	
+
 	if (htonl(0x12345678) == 0x12345678)
 	{
 		INFMSG("Host is network-byte-order");
@@ -93,19 +93,19 @@ int main(int argc, char **argv)
 	{
 		INFMSG("Host is Intel-byte-order");
 	}
-	
-	
+
+
 	// ----- Initialize Winsock -----
 #ifdef _WINDOWS
 	WORD verReq = MAKEWORD(2, 2);
 	WSADATA wsadata;
-	
+
 	int err = WSAStartup(verReq, &wsadata);
 	if (err != 0) {
 		ERRMSG("Winsock Init failed.");
 		return 1;
 	}
-	
+
 	if ((LOBYTE(wsadata.wVersion) != 2) || (HIBYTE(wsadata.wVersion) !=2)) {
 		ERRMSG("Winsock DLL is not 2.2");
 		WSACleanup();
@@ -114,8 +114,8 @@ int main(int argc, char **argv)
 	}
 	INFMSG("Winsock Init done.");
 #endif
-	
-	
+
+
 	// Set up a UDP listener
 	uint8  *buff=new uint8[1024];
 	int     retval;
@@ -149,7 +149,7 @@ int main(int argc, char **argv)
 		ERRMSG("Couldn't bind - error " << retval);
 		exit(1);
 	}
-	
+
 	unsigned char buf[1024];
 	struct sockaddr_in addr;
 	int packet_size = sizeof(ManglerData);
@@ -161,7 +161,7 @@ int main(int argc, char **argv)
 		retval = udp.Wait(15, 0, fdset);
 		if (!retval)
 			continue;
-		
+
 		//DBGMSG("Wait returned " << retval);
 		retval = udp.Read(buf, packet_size, &addr);        // Wait until there is something on the socket
 		if (retval > 0)
@@ -190,7 +190,7 @@ int main(int argc, char **argv)
 				Build_Packet_CRC(buf, packet_size);
 				udp.Write(buf,packet_size,ntohl(addr.sin_addr.s_addr), ntohs(addr.sin_port));
 				INFMSG("Saw " << (int)theAddr[0] << "." << (int)theAddr[1] << "." << (int)theAddr[2] << "." << (int)theAddr[3] << ":" << ntohs(addr.sin_port) << ((blitz)?" Blitzed":"") );
-				
+
 				if (blitz)
 				{
 					udp2.Write(buf,packet_size,ntohl(addr.sin_addr.s_addr), ntohs(addr.sin_port)+1);
@@ -200,8 +200,8 @@ int main(int argc, char **argv)
 			}
 		}
 	}
-	
-	
+
+
 	return 0;
 }
 

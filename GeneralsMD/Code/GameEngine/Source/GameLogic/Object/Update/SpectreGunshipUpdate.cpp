@@ -105,7 +105,7 @@ static Real zero = 0.0f;
 {
 	ModuleData::buildFieldParse(p);
 
-	static const FieldParse dataFieldParse[] = 
+	static const FieldParse dataFieldParse[] =
 	{
     { "SpecialPowerTemplate",           INI::parseSpecialPowerTemplate,   NULL, offsetof( SpectreGunshipUpdateModuleData, m_specialPowerTemplate ) },
     { "GattlingTemplateName",           INI::parseAsciiString,				    NULL, offsetof( SpectreGunshipUpdateModuleData, m_gattlingTemplateName ) },
@@ -122,7 +122,7 @@ static Real zero = 0.0f;
 		{ "GattlingStrafeFXParticleSystem",	INI::parseParticleSystemTemplate, NULL, offsetof( SpectreGunshipUpdateModuleData, m_gattlingStrafeFXParticleSystem ) },
 		{ "AttackAreaDecal",		            RadiusDecalTemplate::parseRadiusDecalTemplate,	NULL, offsetof( SpectreGunshipUpdateModuleData, m_attackAreaDecalTemplate ) },
 		{ "TargetingReticleDecal",		      RadiusDecalTemplate::parseRadiusDecalTemplate,	NULL, offsetof( SpectreGunshipUpdateModuleData, m_targetingReticleDecalTemplate ) },
-    
+
 
 
 
@@ -153,7 +153,7 @@ SpectreGunshipUpdate::SpectreGunshipUpdate( Thing *thing, const ModuleData* modu
 m_howitzerTrackerDecal.clear();
 #endif
 
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 SpectreGunshipUpdate::~SpectreGunshipUpdate( void )
@@ -231,7 +231,7 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
     friend_enableAfterburners(TRUE);
 
     setLogicalStatus( GUNSHIP_STATUS_INSERTING ); // The gunship is en route to the tharget area, from map-edge
- 
+
 
     // TELL THE GUNNERS ABOARD THE GUNSHIP TO HOLD THEIR FIRE UNTIL ORBIT INSERTION
         ContainModuleInterface *shipContain = gunShip->getContain();
@@ -247,7 +247,7 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
       }
       if ( gattlingTemplate )
       {
-        newGattling = TheThingFactory->newObject( gattlingTemplate, getObject()->getTeam() ); 
+        newGattling = TheThingFactory->newObject( gattlingTemplate, getObject()->getTeam() );
         DEBUG_ASSERTCRASH( gunShip, ("SpecterGunshipUpdate failed to find or create a GATTLING object"));
         shipContain->addToContain( newGattling );
         m_gattlingID = newGattling->getID();
@@ -278,7 +278,7 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
 		SpecialPowerModule *spModule = (SpecialPowerModule*)spmInterface;
 		spModule->markSpecialPowerTriggered( &m_initialTargetPosition );
 	}
-  
+
 	return TRUE;
 }
 
@@ -290,11 +290,11 @@ Bool SpectreGunshipUpdate::isPowerCurrentlyInUse( const CommandButton *command )
 
 //-------------------------------------------------------------------------------------------------
 void SpectreGunshipUpdate::setSpecialPowerOverridableDestination( const Coord3D *loc )
-{ 
+{
 	Object *me = getObject();
 	if( !me->isDisabled() )
 	{
-		m_overrideTargetDestination = *loc; 
+		m_overrideTargetDestination = *loc;
 
 		if( me->getControllingPlayer()  &&  me->getControllingPlayer()->isLocalPlayer() )
 		{
@@ -358,7 +358,7 @@ public:
 /** The update callback. */
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SpectreGunshipUpdate::update()
-{	
+{
 	const SpectreGunshipUpdateModuleData *data = getSpectreGunshipUpdateModuleData();
 
    Object *gunship = getObject();
@@ -393,21 +393,21 @@ UpdateSleepTime SpectreGunshipUpdate::update()
       {
 
 
-  //   init'l    apogee                                          
-  //   target *<-------->*                                               
-  //    posi  ^\         /                                     
-  //          | \      /                                        
-  //  perigee |  \   /                                        
-  //          |   */ declination                                          
-  //          |  / \                                           
-  //          v/    * m_satelliteposition                                         
-  //          *                                                
-  //          |                                              
-  //          |                                              
-  //          |                                              
-  //          |                                              
-  //          |                                              
-  //          * gunship->getPosition()                                             
+  //   init'l    apogee
+  //   target *<-------->*
+  //    posi  ^\         /
+  //          | \      /
+  //  perigee |  \   /
+  //          |   */ declination
+  //          |  / \
+  //          v/    * m_satelliteposition
+  //          *
+  //          |
+  //          |
+  //          |
+  //          |
+  //          |
+  //          * gunship->getPosition()
 
         //perigee is the point in the orbital arc nearest the satellite being captured
         Coord3D perigee = *gunship->getPosition();
@@ -429,7 +429,7 @@ UpdateSleepTime SpectreGunshipUpdate::update()
         declination.z = zero;
         declination.x = ( perigee.x * n1 ) + ( apogee.x * n2 );
         declination.y = ( perigee.y * n1 ) + ( apogee.y * n2 );
-      
+
         //scale out to the orbital radius
         Real orbitalRadius = data->m_gunshipOrbitRadius;
         declination.x *= orbitalRadius;
@@ -437,10 +437,10 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
         m_satellitePosition.x = m_initialTargetPosition.x + declination.x;
         m_satellitePosition.y = m_initialTargetPosition.y + declination.y;
-   
+
         if ( shipAI)
         {
-           shipAI->aiMoveToPosition( &m_satellitePosition, CMD_FROM_AI ); 
+           shipAI->aiMoveToPosition( &m_satellitePosition, CMD_FROM_AI );
         }
 
         Real constraintRadius = data->m_attackAreaRadius - data->m_targetingReticleRadius;
@@ -452,7 +452,7 @@ UpdateSleepTime SpectreGunshipUpdate::update()
         {
           overrideTargetDelta.normalize();
           overrideTargetDelta.x *= constraintRadius;
-          overrideTargetDelta.y *= constraintRadius; 
+          overrideTargetDelta.y *= constraintRadius;
 
           m_overrideTargetDestination.x = m_initialTargetPosition.x - overrideTargetDelta.x;
           m_overrideTargetDestination.y = m_initialTargetPosition.y - overrideTargetDelta.y;
@@ -497,13 +497,13 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
       if ( m_status == GUNSHIP_STATUS_ORBITING )
       {
-        Object *validTargetObject = NULL; 
+        Object *validTargetObject = NULL;
 
 
         if ( TheGameLogic->getFrame() >= m_orbitEscapeFrame )
         {
           cleanUp();
-          setLogicalStatus( GUNSHIP_STATUS_DEPARTING ); 
+          setLogicalStatus( GUNSHIP_STATUS_DEPARTING );
 
           // CEASE FIRE, RETURN TO BASE
           disengageAndDepartAO( gunship );
@@ -515,7 +515,7 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
           // ONLY EVERY FEW FRAMES DO WE RE_EVALUATE THE TARGET OBJECT
           if ( TheGameLogic->getFrame() %data->m_howitzerFiringRate < ONE )
-          { 
+          {
 
             m_positionToShootAt = m_overrideTargetDestination; // unless we get a hit, below
 
@@ -525,33 +525,33 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 	          PartitionFilterFreeOfFog filterFogged( gunship->getControllingPlayer()->getPlayerIndex() );
 	          PartitionFilter *filters[6];
 	          Int numFilters = 0;
-	          filters[numFilters++] = &filterObvious;	
-	          filters[numFilters++] = &filterStealth;	
-	          filters[numFilters++] = &filterAttack;	
-	          filters[numFilters++] = &filterFogged;	
+	          filters[numFilters++] = &filterObvious;
+	          filters[numFilters++] = &filterStealth;
+	          filters[numFilters++] = &filterAttack;
+	          filters[numFilters++] = &filterFogged;
 	          filters[numFilters] = NULL;
 
 
 
             // THIS WILL FIND A VALID TARGET WITHIN THE TARGETING RETICLE
-	          ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(&m_overrideTargetDestination, 
+	          ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(&m_overrideTargetDestination,
               data->m_targetingReticleRadius,
-              FROM_BOUNDINGSPHERE_2D, 
-              filters, 
+              FROM_BOUNDINGSPHERE_2D,
+              filters,
               ITER_SORTED_NEAR_TO_FAR);
 	          MemoryPoolObjectHolder holder(iter);
-	          for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next()) 
+	          for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next())
 	          {
               if ( theEnemy && isFairDistanceFromShip( theEnemy ) )
               {
                 validTargetObject = theEnemy;
                 break;
               }
-	          }	
-            
+	          }
 
 
-            // WE WANT THE WIDE_RANGE AUTOACQUIRE POWER DISABLED FOR HUMAN PLAYERS 
+
+            // WE WANT THE WIDE_RANGE AUTOACQUIRE POWER DISABLED FOR HUMAN PLAYERS
             // SO THAT THE SPECTREGUNSHIP REQUIRES BABYSITTING AT ALL TIMES
             if (gunship->getControllingPlayer()->getPlayerType() != PLAYER_HUMAN )
             {
@@ -559,13 +559,13 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               {
                 // set a flag to start the targeting decal fading, since there is nothing to kill there
                 // THIS WILL FIND A VALID TARGET ANYWHERE INSIDE THE TARGETING AREA (THE BIG CIRCLE)
-	              ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(&m_initialTargetPosition, 
-                  data->m_attackAreaRadius, 
-                  FROM_BOUNDINGSPHERE_2D, 
-                  filters, 
+	              ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(&m_initialTargetPosition,
+                  data->m_attackAreaRadius,
+                  FROM_BOUNDINGSPHERE_2D,
+                  filters,
                   ITER_SORTED_NEAR_TO_FAR);
 	              MemoryPoolObjectHolder holder(iter);
-	              for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next()) 
+	              for (Object *theEnemy = iter->first(); theEnemy; theEnemy = iter->next())
 	              {
                   if ( theEnemy && isFairDistanceFromShip( theEnemy ) )
                   {
@@ -575,12 +575,12 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
                     break;
                   }
-	              }	
+	              }
               }
             }
 
 
-            
+
             //lets keep a constant barrage of gattling bullets on the current aim location
 				    if( gattlingAI )
 				    {
@@ -646,7 +646,7 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               m_gattlingTargetPosition.add( &delta );
             }
 
-			
+
 			const Player *localPlayer = ThePlayerList->getLocalPlayer();
 
 			//Make sure the gunship is visible to the player before drawing effects.
@@ -669,13 +669,13 @@ UpdateSleepTime SpectreGunshipUpdate::update()
           }
         }// end else
 
-        
+
       }//not orbiting
       else if ( m_status == GUNSHIP_STATUS_DEPARTING )
       {
         if ( isPointOffMap( *gunship->getPosition() ) )
         {
-          
+
           TheGameLogic->destroyObject( gunship );
           setLogicalStatus( GUNSHIP_STATUS_IDLE );
 
@@ -801,7 +801,7 @@ void SpectreGunshipUpdate::disengageAndDepartAO( Object *gunship )
     exitPoint.add( gunship->getPosition() );
 
     shipAI->aiMoveToPosition( &exitPoint, CMD_FROM_AI );
-    
+
 
 
   }
@@ -855,7 +855,7 @@ void SpectreGunshipUpdate::crc( Xfer *xfer )
 // ------------------------------------------------------------------------------------------------
 /** Xfer method
 	* Version Info:
-	* 1: Initial version 
+	* 1: Initial version
 	* 2: Can't flat-save decals, that's a hella crash (they aren't saved (no memory) and they have a pointer in them).  And half the class wasn't saved.
 */
 // ------------------------------------------------------------------------------------------------
@@ -872,8 +872,8 @@ void SpectreGunshipUpdate::xfer( Xfer *xfer )
 	UpdateModule::xfer( xfer );
 
 
-  
-  
+
+
   // The initial target destination.
 	xfer->xferCoord3D( &m_initialTargetPosition );
 	// The manual override target destination.
@@ -890,7 +890,7 @@ void SpectreGunshipUpdate::xfer( Xfer *xfer )
 	{
 		xfer->xferUser( &m_attackAreaDecal, sizeof( RadiusDecal ) );
 		xfer->xferUser( &m_targetingReticleDecal, sizeof( RadiusDecal ) );
-		
+
 #if defined TRACKERS
 		xfer->xferUser( &m_howitzerTrackerDecal, sizeof( RadiusDecal ) );
 #endif

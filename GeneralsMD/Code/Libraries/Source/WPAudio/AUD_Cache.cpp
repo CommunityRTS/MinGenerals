@@ -46,7 +46,7 @@
 #include <string.h>
 #include <memory.h>
 
-#include <wpaudio/altypes.h>						//  always include this header first 
+#include <wpaudio/altypes.h>						//  always include this header first
 #include <wpaudio/memory.h>
 #include <wpaudio/list.h>
 #include <wpaudio/source.h>
@@ -197,7 +197,7 @@ AudioCache*			AudioCacheCreate ( int cacheSize, int maxItems, int frameSize )
 
 	ProfCacheInit ( &cache->profile, pages, frameSize );
 	ProfCacheUpdateInterval ( &cache->profile, 10 ); // every ten milliseconds
-	
+
 	if ( !cache->framePool || !cache->itemPool )
 	{
 		AudioCacheDestroy ( cache );
@@ -215,7 +215,7 @@ AudioCache*			AudioCacheCreate ( int cacheSize, int maxItems, int frameSize )
 void				AudioCacheDestroy ( AudioCache *cache )
 {
 	AudioCacheItem	*item;
-	
+
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -247,7 +247,7 @@ void				AudioCacheDestroy ( AudioCache *cache )
 AudioCacheItem*		AudioCacheGetItem ( AudioCache *cache, const char *name )
 {
 	AudioCacheItem	*item, *head;
-	
+
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -272,7 +272,7 @@ AudioCacheItem*		AudioCacheGetItem ( AudioCache *cache, const char *name )
 void		AudioCacheInvalidate ( AudioCache *cache )
 {
 	AudioCacheItem	*item, *head;
-	
+
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -308,7 +308,7 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 {
 	AudioCacheItem *item;
 	int			error;
-	
+
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -326,8 +326,8 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 	}
 
 	ProfCacheMiss ( &cache->profile );
-	//  item is not in the cache so load it 
-	//  see first if the sample exists 
+	//  item is not in the cache so load it
+	//  see first if the sample exists
 
 	#if DEBUG_CACHE
 		DBGPRINTF (("ACACHE: %10s - Loading\n", name ));
@@ -347,20 +347,20 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 
 	if ( !item )
 	{
-		//  free the oldest item so that we can use it's item struct 
+		//  free the oldest item so that we can use it's item struct
 		AudioCacheFreeOldestItem ( cache );
 		item = (AudioCacheItem *) MemoryPoolGetItem ( cache->itemPool );
 
 		if ( !item )
 		{
-			//  the oldest item could not be freed because it was still playing 
+			//  the oldest item could not be freed because it was still playing
 			DBGPRINTF (("Audio cache overflow\n"));
 			audioCacheAssetClose ( cache );
 			goto none;
 		}
 	}
 
-	//  prepare item for use 
+	//  prepare item for use
 	item->name = name;
 	item->cache = cache;
 	ListNodeInit ( &item->nd );
@@ -373,7 +373,7 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 
 	error = FALSE;
 
-	//  ok load sample data in to cache 
+	//  ok load sample data in to cache
 	{
 		int bytesToTransfer;
 		int bytes;
@@ -438,7 +438,7 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 		DBGPRINTF (("done\n"));
 	#endif
 
-	//  update the format structure 
+	//  update the format structure
 	memcpy ( &item->format, &cache->assetFormat, sizeof ( AudioFormat) );
 
 
@@ -495,7 +495,7 @@ int				AudioCacheFreeOldestItem( AudioCache *cache )
 
 void				AudioCacheItemLock ( AudioCacheItem *item )
 {
-	
+
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
@@ -510,7 +510,7 @@ void				AudioCacheItemLock ( AudioCacheItem *item )
 
 void				AudioCacheItemUnlock ( AudioCacheItem *item )
 {
-	
+
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
@@ -524,7 +524,7 @@ void				AudioCacheItemUnlock ( AudioCacheItem *item )
 
 int				AudioCacheItemInUse ( AudioCacheItem *item )
 {
-	
+
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
@@ -538,7 +538,7 @@ int				AudioCacheItemInUse ( AudioCacheItem *item )
 
 void				AudioCacheItemFree ( AudioCacheItem *item )
 {
-	
+
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
@@ -553,7 +553,7 @@ void				AudioCacheItemFree ( AudioCacheItem *item )
 		DBGPRINTF (("ACACHE: %10s - Freeing\n", AudioBagGetItemName ( item->cache->bag, item->id )));
 	#endif
 
-	//  return frames to frame pool 
+	//  return frames to frame pool
 	{
 		AudioFrame *frame;
 

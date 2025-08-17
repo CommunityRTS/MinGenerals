@@ -64,7 +64,7 @@
  * his own choice.
  */
 //										m_connectionPairs[num nodes]	[round]			 [node index]
-/* static */ Int NAT::m_connectionPairs[MAX_SLOTS-1][MAX_SLOTS-1][MAX_SLOTS] = 
+/* static */ Int NAT::m_connectionPairs[MAX_SLOTS-1][MAX_SLOTS-1][MAX_SLOTS] =
 {
 	{	// 2 nodes
 		//	node 0	node 1	node 2	node 3	node 4	node 5	node 6	node 7
@@ -147,7 +147,7 @@
 
 NAT *TheNAT = NULL;
 
-NAT::NAT() 
+NAT::NAT()
 {
 	//Added By Sadullah Nader
 	//Initializations inserted
@@ -496,7 +496,7 @@ void NAT::establishConnectionPaths() {
 		m_NATState = NATSTATE_DONE;
 		return;
 	}
-	
+
 	m_connectionRound = 0;
 	m_connectionPairIndex = m_numNodes - 2;
 	Bool connectionAssigned[MAX_SLOTS];
@@ -603,7 +603,7 @@ void NAT::establishConnectionPaths() {
 			TheEstablishConnectionsMenu->setPlayerName(playerNum, m_slotList[i]->getName());
 			TheEstablishConnectionsMenu->setPlayerStatus(playerNum, NATCONNECTIONSTATE_WAITINGTOBEGIN);
 			++playerNum;
-		}	
+		}
 	}
 
 //	m_roundTimeout = timeGetTime() + TheGameSpyConfig->getRoundTimeout();
@@ -681,12 +681,12 @@ void NAT::doThisConnectionRound() {
 				DEBUG_ASSERTCRASH(targetSlot != NULL, ("trying to negotiate with a NULL target slot, slot is %d", m_connectionPairs[m_connectionPairIndex][m_connectionRound][i]));
 				DEBUG_LOG(("NAT::doThisConnectionRound - Target slot index = %d (%ls)\n", targetSlotIndex, m_slotList[targetSlotIndex]->getName().str()));
 				DEBUG_LOG(("NAT::doThisConnectionRound - Target slot has NAT behavior 0x%8X, local slot has NAT behavior 0x%8X\n", targetSlot->getNATBehavior(), localSlot->getNATBehavior()));
-				
+
 #if defined(DEBUG_LOGGING)
 				UnsignedInt targetIP = targetSlot->getIP();
 				UnsignedInt localIP = localSlot->getIP();
 #endif
-				
+
 				DEBUG_LOG(("NAT::doThisConnectionRound - Target slot has IP %d.%d.%d.%d  Local slot has IP %d.%d.%d.%d\n",
 							targetIP >> 24, (targetIP >> 16) & 0xff, (targetIP >> 8) & 0xff, targetIP & 0xff,
 							localIP >> 24, (localIP >> 16) & 0xff, (localIP >> 8) & 0xff, localIP & 0xff));
@@ -825,7 +825,7 @@ void NAT::sendMangledSourcePort() {
 
 	memcpy(&m_manglerAddress, &(hostInfo->h_addr_list[0][0]), 4);
 	m_manglerAddress = ntohl(m_manglerAddress);
-	DEBUG_LOG(("NAT::sendMangledSourcePort - mangler %s address is %d.%d.%d.%d\n", manglerName, 
+	DEBUG_LOG(("NAT::sendMangledSourcePort - mangler %s address is %d.%d.%d.%d\n", manglerName,
 							m_manglerAddress >> 24, (m_manglerAddress >> 16) & 0xff, (m_manglerAddress >> 8) & 0xff, m_manglerAddress & 0xff));
 
 	DEBUG_LOG(("NAT::sendMangledSourcePort - NAT behavior = 0x%08x\n", fwType));

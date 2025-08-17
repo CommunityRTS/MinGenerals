@@ -16,22 +16,22 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/*********************************************************************************************** 
- ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               *** 
- *********************************************************************************************** 
- *                                                                                             * 
- *                 Project Name : Command & Conquer                                            * 
- *                                                                                             * 
- *                     $Archive:: /Commando/Code/wwlib/surface.h                              $* 
- *                                                                                             * 
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /Commando/Code/wwlib/surface.h                              $*
+ *                                                                                             *
  *                      $Author:: Byon_g                                                      $*
- *                                                                                             * 
+ *                                                                                             *
  *                     $Modtime:: 11/28/00 2:40p                                              $*
- *                                                                                             * 
+ *                                                                                             *
  *                    $Revision:: 3                                                           $*
  *                                                                                             *
- *---------------------------------------------------------------------------------------------* 
- * Functions:                                                                                  * 
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #if _MSC_VER >= 1000
 #pragma once
@@ -54,7 +54,7 @@ class Surface
 	public:
 		Surface(int width, int height) : Width(width), Height(height) {}
 		virtual ~Surface(void) {};
-		
+
 		/*
 		**	Copies regions from one surface to another.
 		*/
@@ -80,7 +80,7 @@ class Surface
 		*/
 		virtual bool Draw_Line(Point2D const & startpoint, Point2D const & endpoint, int color) = 0;
 		virtual bool Draw_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, int color) = 0;
-		
+
 		/*
 		**	Draws rectangle onto the surface.
 		*/
@@ -102,7 +102,7 @@ class Surface
 		virtual Rect Get_Rect(void) const {return(Rect(0, 0, Width, Height));}
 		virtual int Get_Width(void) const {return(Width);}
 		virtual int Get_Height(void) const {return(Height);}
-		
+
 		/*
 		**	Hack function to serve the purpose that RTTI was invented for, but since
 		**	the Watcom compiler doesn't support RTTI, we must resort to using this

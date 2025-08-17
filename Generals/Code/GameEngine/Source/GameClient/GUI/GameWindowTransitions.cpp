@@ -24,12 +24,12 @@
 
 // FILE: GameWindowTransitions.cpp /////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-//                                                                          
-//                       Electronic Arts Pacific.                          
-//                                                                          
-//                       Confidential Information                           
-//                Copyright (C) 2002 - All Rights Reserved                  
-//                                                                          
+//
+//                       Electronic Arts Pacific.
+//
+//                       Confidential Information
+//                Copyright (C) 2002 - All Rights Reserved
+//
 //-----------------------------------------------------------------------------
 //
 //	created:	Dec 2002
@@ -37,8 +37,8 @@
 //	Filename: 	GameWindowTransitions.cpp
 //
 //	author:		Chris Huybregts
-//	
-//	purpose:	
+//
+//	purpose:
 //
 //-----------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////
@@ -64,12 +64,12 @@
 // DEFINES ////////////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 GameWindowTransitionsHandler *TheTransitionHandler = NULL;
-const FieldParse GameWindowTransitionsHandler::m_gameWindowTransitionsFieldParseTable[] = 
+const FieldParse GameWindowTransitionsHandler::m_gameWindowTransitionsFieldParseTable[] =
 {
 
 	{ "Window",		GameWindowTransitionsHandler::parseWindow,	NULL, NULL	},
 	{ "FireOnce",	INI::parseBool,															NULL, offsetof( TransitionGroup, m_fireOnce) 	},
-	
+
 	{ NULL,										NULL,													NULL, 0 }  // keep this last
 
 };
@@ -81,16 +81,16 @@ void INI::parseWindowTransitions( INI* ini )
 
 	// read the name
 	const char* c = ini->getNextToken();
-	name.set( c );	
+	name.set( c );
 
 	// find existing item if present
-	
+
 	DEBUG_ASSERTCRASH( TheTransitionHandler, ("parseWindowTransitions: TheTransitionHandler doesn't exist yet\n") );
 	if( !TheTransitionHandler )
 		return;
 
 	// If we have a previously allocated control bar, this will return a cleared out pointer to it so we
-	// can overwrite it	
+	// can overwrite it
 	g = TheTransitionHandler->getNewGroup( name );
 
 	// sanity
@@ -173,7 +173,7 @@ Bool TransitionWindow::init( void )
 //	DEBUG_ASSERTCRASH( m_win, ("TransitionWindow::init Failed to find window %s", m_winName.str()));
 //	if( !m_win )
 //		return FALSE;
-	
+
 	if(m_transition)
 		delete m_transition;
 
@@ -187,7 +187,7 @@ void TransitionWindow::update( Int frame )
 {
 	if(frame < m_currentFrameDelay || frame > (m_currentFrameDelay + m_transition->getFrameLength()))
 		return;
-	
+
 	if(m_transition)
 		m_transition->update( frame - m_currentFrameDelay);
 }
@@ -270,7 +270,7 @@ void TransitionGroup::update( void )
 		TransitionWindow *tWin = *it;
 		tWin->update(m_currentFrame);
 		it++;
-	}	
+	}
 }
 
 Bool TransitionGroup::isFinished( void )
@@ -291,7 +291,7 @@ void TransitionGroup::reverse( void )
 {
 	Int totalFrames =0;
 	m_directionMultiplier = -1;
-	
+
 	TransitionWindowList::iterator it = m_transitionWindowList.begin();
 	while (it != m_transitionWindowList.end())
 	{
@@ -454,7 +454,7 @@ void GameWindowTransitionsHandler::setGroup(AsciiString groupName, Bool immidiat
 			m_currentGroup->init();
 		return;
 	}
-	
+
 	if(m_currentGroup)
 	{
 		if(!m_currentGroup->isFireOnce() && !m_currentGroup->isReversed())
@@ -469,8 +469,8 @@ void GameWindowTransitionsHandler::setGroup(AsciiString groupName, Bool immidiat
 	if(m_currentGroup)
 		m_currentGroup->init();
 
-	
-	
+
+
 }
 
 void GameWindowTransitionsHandler::reverse( AsciiString groupName )
@@ -562,7 +562,7 @@ TransitionGroup *GameWindowTransitionsHandler::findGroup( AsciiString groupName 
 
 void GameWindowTransitionsHandler::parseWindow( INI* ini, void *instance, void *store, const void *userData )
 {
-	static const FieldParse myFieldParse[] = 
+	static const FieldParse myFieldParse[] =
 		{
 			{ "WinName",				INI::parseAsciiString,		NULL,									offsetof( TransitionWindow, m_winName ) },
       { "Style",					INI::parseLookupList,			TransitionStyleNames,	offsetof( TransitionWindow, m_style ) },

@@ -53,7 +53,7 @@ PreorderCreate::PreorderCreate( Thing *thing, const ModuleData* moduleData ) : C
 PreorderCreate::~PreorderCreate( void )
 {
 
-} 
+}
 
 //-------------------------------------------------------------------------------------------------
 void PreorderCreate::onCreate( void )

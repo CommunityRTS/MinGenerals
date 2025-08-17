@@ -11,7 +11,7 @@ library Noxstring
 
 
 	//  Primary dispatch interface for CNoxstringDoc
-	
+
 	[ uuid(2BF31248-3BA1-11D3-B9DA-006097B90D93) ]
 	dispinterface INoxstring
 	{
@@ -20,7 +20,7 @@ library Noxstring
 			//    Use extreme caution when editing this section.
 			//{{AFX_ODL_PROP(CNoxstringDlgAutoProxy)
 			//}}AFX_ODL_PROP
-			
+
 		methods:
 			// NOTE - ClassWizard will maintain method information here.
 			//    Use extreme caution when editing this section.
@@ -30,7 +30,7 @@ library Noxstring
 	};
 
 	//  Class information for CNoxstringDoc
-	
+
 	[ uuid(2BF31246-3BA1-11D3-B9DA-006097B90D93) ]
 	coclass Noxstring
 	{
