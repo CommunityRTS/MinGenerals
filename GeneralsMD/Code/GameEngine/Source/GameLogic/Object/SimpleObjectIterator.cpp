@@ -32,7 +32,6 @@
 #include "Common/ThingTemplate.h"
 #include "GameLogic/Object.h"
 
-
 /// @todo Doxygenize this file
 
 SimpleObjectIterator::ClumpCompareProc SimpleObjectIterator::theClumpCompareProcs[] =

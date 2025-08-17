@@ -136,7 +136,6 @@ private:
 	void doAttack( void );							///< implement ATTACK state
 	void detonate();												///< blow it up. (usually only called by MissileCollide)
 
-
 };
 
 #endif // _MISSILE_UPDATE_H_

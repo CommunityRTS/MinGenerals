@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colmath.h"
 #include "aaplane.h"
 #include "plane.h"
@@ -44,7 +43,6 @@
 #include "aabox.h"
 #include "obbox.h"
 #include "wwdebug.h"
-
 
 /*
 ** Structure used in the line->box test.  There was a lot of common code between the axis-
@@ -75,7 +73,6 @@ enum BoxSideType {
 	BOX_SIDE_POSITIVE = 1,
 	BOX_SIDE_MIDDLE = 2
 };
-
 
 /*
 ** Table of normals for an axis aligned box.
@@ -109,7 +106,6 @@ static Vector3 _box_normal[3][2] =
 ** Local function prototypes
 */
 inline bool Test_Aligned_Box(BoxTestStruct * test);
-
 
 bool CollisionMath::Collide(const LineSegClass & line,const AAPlaneClass & plane,CastResultStruct * result)
 {
@@ -146,7 +142,6 @@ bool CollisionMath::Collide(const LineSegClass & line,const AAPlaneClass & plane
 	}
 	return false;
 }
-
 
 bool CollisionMath::Collide(const LineSegClass & line,const PlaneClass & plane,CastResultStruct * result)
 {
@@ -362,8 +357,6 @@ bool CollisionMath::Collide(const LineSegClass & line,const OBBoxClass & box,Cas
 	return false;
 }
 
-
-
 /***********************************************************************************************
  * Test_Aligned_Box -- used as the guts of the Box intersection tests                          *
  *                                                                                             *
@@ -478,7 +471,4 @@ inline bool Test_Aligned_Box(BoxTestStruct * test)
 	test->Side = quadrant[intersection_plane];
 	return true;
 }
-
-
-
 

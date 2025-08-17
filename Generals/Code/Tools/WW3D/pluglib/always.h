@@ -69,7 +69,6 @@ void* __cdecl operator new(unsigned int s);
 #endif	//_MSC_VER
 #endif	//_DEBUG
 
-
 // Jani: Intel's C++ compiler issues too many warnings in WW libraries when using warning level 4
 #if defined (__ICL)    // Detect Intel compiler
 #pragma warning (3)
@@ -131,7 +130,6 @@ template <class T> T max(T a,T b)
 	}
 }
 
-
 /*
 **	This includes the minimum set of compiler defines and pragmas in order to bring the
 **	various compilers to a common behavior such that the C&C engine will compile without
@@ -149,7 +147,6 @@ template <class T> T max(T a,T b)
 #include	"watcom.h"
 #endif
 
-
 #ifndef	NULL
 	#define	NULL		0
 #endif
@@ -165,6 +162,5 @@ template <class T> T max(T a,T b)
 #ifndef size_of
 #define size_of(typ,id) sizeof(((typ*)0)->id)
 #endif
-
 
 #endif

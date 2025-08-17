@@ -127,7 +127,6 @@ AudioHandle lastPreviewSound = NULL;
 static Int introAudioMagicNumber = 0;
 static Bool hasPlayedIntroAudio = FALSE;
 
-
 //-------------------------------------------------------------------------------------------------
 // returns the index of the General Position button selected, or -1 if not found
 //-------------------------------------------------------------------------------------------------
@@ -140,7 +139,6 @@ Int findPositionButton( Int controlID )
 	}
 	return -1;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // enable the appropriate buttons, make sure they aren't hidden, and set the correct images
@@ -173,7 +171,6 @@ void setEnabledButtons()
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // sets the appropriate campaign for the chosen general
 //-------------------------------------------------------------------------------------------------
@@ -195,7 +192,6 @@ void setGeneralCampaign( Int buttonIndex )
 	slot.setPlayerTemplate(templateNum);
 	TheChallengeGameInfo->setSlot(0, slot);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // set the appropriate bio for the given general and initialize the bio windows
@@ -325,7 +321,6 @@ Bool updateBio(Int frames)
 	return ret;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** init the challenge mode menu */
 //-------------------------------------------------------------------------------------------------
@@ -338,7 +333,6 @@ void ChallengeMenuInit( WindowLayout *layout, void *userData )
 	TheChallengeGameInfo->clearSlotList();
 	TheChallengeGameInfo->reset();
 	TheChallengeGameInfo->enterGame();
-
 
 	TheShell->showShellMap(TRUE);
 
@@ -405,7 +399,6 @@ void ChallengeMenuInit( WindowLayout *layout, void *userData )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** update the challenge mode menu */
 //-------------------------------------------------------------------------------------------------
@@ -417,7 +410,6 @@ void ChallengeMenuUpdate( WindowLayout *layout, void *userData )
 		{
 			TheTransitionHandler->setGroup("ChallengeMenuFade");
 //			TheTransitionHandler->setGroup("ChallengeButtonsIntro");
-
 
 			initialGadgetDelay = 2;
 			justEntered = FALSE;
@@ -453,7 +445,6 @@ void ChallengeMenuUpdate( WindowLayout *layout, void *userData )
 		wndVideoManager->update();
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** shutdown the challenge mode menu */
 //-------------------------------------------------------------------------------------------------
@@ -488,7 +479,6 @@ void ChallengeMenuShutdown( WindowLayout *layout, void *userData )
 	lastPreviewSound = NULL;
 	introAudioMagicNumber = 0;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** challenge mode menu input callback */
@@ -536,7 +526,6 @@ WindowMsgHandledType ChallengeMenuInput( GameWindow *window, UnsignedInt msg, Wi
 	return MSG_IGNORED;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** challenge mode menu window system callback */
@@ -687,7 +676,6 @@ WindowMsgHandledType ChallengeMenuSystem( GameWindow *window, UnsignedInt msg, W
 				msg->appendIntegerArgument(GAME_SINGLE_PLAYER);
 				msg->appendIntegerArgument(TheCampaignManager->getGameDifficulty());
 				msg->appendIntegerArgument(TheCampaignManager->getRankPoints());
-
 
         // Added so that, even though a ChallengeGame is really a SkirmishGame in SinglePlayerGame's clothing,
         // GameEngine will still apply the default "FRAME CAP" as it does during "Solo Missions."

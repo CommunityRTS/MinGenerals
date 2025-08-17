@@ -99,7 +99,6 @@ static void debugLog(const char *fmt, ...)
 
 #endif // NDEBUG
 
-
 static void usage(const char *progname)
 {
 	if (!progname)

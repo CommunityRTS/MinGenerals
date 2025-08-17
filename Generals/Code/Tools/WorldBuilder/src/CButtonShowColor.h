@@ -32,10 +32,8 @@ class CButtonShowColor : public CButton
 		void setColor(const RGBColor& color) { m_color = color; }
 		~CButtonShowColor();
 
-
 		static COLORREF RGBtoBGR(Int color);
 		static Int BGRtoRGB(COLORREF color);
-
 
 	protected:
 		afx_msg void OnPaint();

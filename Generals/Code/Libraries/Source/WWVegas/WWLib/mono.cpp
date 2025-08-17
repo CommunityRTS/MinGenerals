@@ -65,19 +65,16 @@
 #include	"monodrvr.h"
 #include	<stdio.h>
 
-
 /*
 **	Global flag to indicate whether mono output is enabled. If it is not enabled,
 **	then no mono output will occur.
 */
 bool MonoClass::Enabled = false;
 
-
 /*
 **	This points to the current mono displayed screen.
 */
 MonoClass * MonoClass::Current;
-
 
 /***********************************************************************************************
  * MonoClass::MonoClass -- The default constructor for monochrome screen object.               *
@@ -108,7 +105,6 @@ MonoClass::MonoClass(void) :
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::~MonoClass -- The default destructor for a monochrome screen object.             *
  *                                                                                             *
@@ -137,7 +133,6 @@ MonoClass::~MonoClass(void)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Pan -- Scroll the window right or left.                                          *
  *                                                                                             *
@@ -164,7 +159,6 @@ void MonoClass::Pan(int )
 	}
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Sub_Window -- Partitions the mono screen into a sub-window.                      *
@@ -203,7 +197,6 @@ void MonoClass::Sub_Window(int x, int y, int w, int h)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Set_Cursor -- Sets the monochrome cursor to the coordinates specified.           *
  *                                                                                             *
@@ -238,7 +231,6 @@ void MonoClass::Set_Cursor(int x, int y)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Clear -- Clears the monochrome screen object.                                    *
  *                                                                                             *
@@ -266,7 +258,6 @@ void MonoClass::Clear(void)
 	}
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Fill_Attrib -- Fill a block with specified attribute.                            *
@@ -298,7 +289,6 @@ void MonoClass::Fill_Attrib(int x, int y, int w, int h, MonoAttribute attrib)
 			int X,Y,W,H,A;
 		} fillcontrol;
 
-
 		fillcontrol.X = x;
 		fillcontrol.Y = y;
 		fillcontrol.W = w;
@@ -308,7 +298,6 @@ void MonoClass::Fill_Attrib(int x, int y, int w, int h, MonoAttribute attrib)
 	}
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Scroll -- Scroll the monochrome screen up by the specified lines.                *
@@ -337,7 +326,6 @@ void MonoClass::Scroll(int )
 	}
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Printf -- Prints a formatted string to the monochrome screen.                    *
@@ -378,7 +366,6 @@ void MonoClass::Printf(char const *text, ...)
 	va_end(va);
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Printf -- Prints formatted text using text string number.                        *
@@ -421,7 +408,6 @@ void MonoClass::Printf(int text, ...)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Print -- Prints the text string at the current cursor coordinates.               *
  *                                                                                             *
@@ -448,7 +434,6 @@ void MonoClass::Print(char const * ptr)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Set_Default_Attribute -- Set the default attribute for this window.              *
  *                                                                                             *
@@ -473,7 +458,6 @@ void MonoClass::Set_Default_Attribute(MonoAttribute attrib)
 	}
 #endif
 }
-
 
 /***********************************************************************************************
  * MonoClass::Text_Print -- Prints text to the monochrome object at coordinates indicated.     *
@@ -508,7 +492,6 @@ void MonoClass::Text_Print(char const *text, int x, int y, MonoAttribute attrib)
 #endif
 }
 
-
 /***********************************************************************************************
  * MonoClass::Text_Print -- Simple text printing from text number.                             *
  *                                                                                             *
@@ -533,7 +516,6 @@ void MonoClass::Text_Print(int text, int x, int y, MonoAttribute attrib)
 	Text_Print(Fetch_String(text), x, y, attrib);
 }
 
-
 /***********************************************************************************************
  * MonoClass::Print -- Simple print of text number.                                            *
  *                                                                                             *
@@ -552,7 +534,6 @@ void MonoClass::Print(int text)
 {
 	Print(Fetch_String(text));
 }
-
 
 /***********************************************************************************************
  * MonoClass::View -- Brings the mono object to the main display.                              *

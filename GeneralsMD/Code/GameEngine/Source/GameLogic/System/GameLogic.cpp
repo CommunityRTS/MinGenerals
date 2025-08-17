@@ -129,15 +129,11 @@ FILE *g_UT_commaLog=NULL;
 extern void externalAddTree(Coord3D location, Real scale, Real angle, AsciiString name);
 #endif
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
-
 
 // I'm making this larger now that we know how big our maps are going to be.
 enum { OBJ_HASH_SIZE	= 8192 };
@@ -146,7 +142,6 @@ enum { OBJ_HASH_SIZE	= 8192 };
 GameLogic *TheGameLogic = NULL;
 
 static void findAndSelectCommandCenter(Object *obj, void* alreadyFound);
-
 
 // ------------------------------------------------------------------------------------------------
 /** This enum is for loading screen bar progress */
@@ -302,7 +297,6 @@ Bool GameLogic::isInSinglePlayerGame( void )
 		(TheRecorder && TheRecorder->getMode() == RECORDERMODETYPE_PLAYBACK && TheRecorder->getGameMode() == GAME_SINGLE_PLAYER));
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Destroy all objects immediately */
 //-------------------------------------------------------------------------------------------------
@@ -383,7 +377,6 @@ void GameLogic::init( void )
 	ThePartitionManager = NEW PartitionManager;
 	ThePartitionManager->init();
 	ThePartitionManager->setName("ThePartitionManager");
-
 
 	// Create system for holding deleted objects that are
 	// still in the partition manager because player has a fogged
@@ -1981,7 +1974,6 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 
 				// prevent from loading disallowed templates, in case your peer hacked their GUI.
 
-
         // So that the global flag for restricting factions to "OLD" is applied only in the appropriate context!
         // Trouble was that skirmish games would get no command centers upon start, if this was set true in a GameSpyMenu
         if ( isInInternetGame() )
@@ -1989,9 +1981,6 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 				  if ( game->oldFactionsOnly() && !pt->isOldFaction() )
 				    continue;
         }
-
-
-
 
 				placeNetworkBuildingsForPlayer(i, slot, player, pt);
 			}
@@ -2089,7 +2078,6 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 	DEBUG_LOG(("%s", Buf));
 	#endif
 
-
 	// final step, run newMap for all players
 	if( loadingSaveGame == FALSE )
 		ThePlayerList->newMap();
@@ -2142,7 +2130,6 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 			}
 		}
 	}
-
 
 	// reset all the skill points in a single player game
 	if(loadingSaveGame == FALSE && isInSinglePlayerGame())
@@ -2282,7 +2269,6 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 		TheTacticalView->lookAt( &thePos );
 #endif
 
-
 	// @todo remove this hack
 //	TheGlobalData->m_inGame = TRUE;
 
@@ -2360,12 +2346,10 @@ void GameLogic::startNewGame( Bool loadingSaveGame )
 	if (TheGameSpyInfo)
 		TheGameSpyInfo->updateAdditionalGameSpyDisconnections(1);
 
-
   if ( isInReplayGame() && TheInGameUI && TheGameText )
   {
 		TheInGameUI->message( TheGameText->fetch( "GUI:FastForwardInstructions" ) );
   }
-
 
 }  // end startNewGame
 
@@ -2381,10 +2365,6 @@ static void findAndSelectCommandCenter(Object *obj, void* alreadyFound)
 }
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -2423,7 +2403,6 @@ void GameLogic::loadMapINI( AsciiString mapName )
 		--extension;
 	}
 	*extension = 0;
-
 
 	sprintf(fullFledgeFilename, "%s\\map.ini", filename);
 	if (TheFileSystem->doesFileExist(fullFledgeFilename)) {
@@ -2520,7 +2499,6 @@ void GameLogic::processDestroyList( void )
 			eraseSleepyUpdate(idx);
 			DEBUG_ASSERTCRASH(sleepyUpdatesForThisObject[numSUO]->friend_getIndexInLogic() == -1, ("Hmm, expected index to be -1 here"));
 		}
-
 
 		currentObject->removeFromList(&m_objList);//remove from object list
 
@@ -3046,12 +3024,6 @@ void GameLogic::friend_awakenUpdateModule(Object* obj, UpdateModulePtr u, Unsign
 	}
 }
 
-
-
-
-
-
-
 // ------------------------------------------------------------------------------------------------
 #ifdef DO_UNIT_TIMINGS
 
@@ -3068,7 +3040,6 @@ void drawGraph( const char* style, Real scale, double value )
 
 }
 
-
 	enum {TIME_FRAMES=20};
 	enum {SETTLE_FRAMES=10};
 static void unitTimings(void)
@@ -3079,15 +3050,12 @@ static void unitTimings(void)
 	static Int unitTypes = INFANTRY;
 	AsciiString sides[16];
 
-
 	const Int UNIT_X = 10;
 	const Int UNIT_Y = 10;
 	const Int TOTAL_UNITS = UNIT_X*UNIT_Y;
 
-
 	const Int UNIT_SPACING = 30;
 	const Int UNIT_BORDER = 30;
-
 
 	Int sideCount = 0;
   #define no_SINGLE_UNIT "AmericaInfantryRanger"
@@ -3111,7 +3079,6 @@ static void unitTimings(void)
 
 //  sides[sideCount++] = "*"; // wildcard for unspecified side
 
-
 #endif
 
 #define DO_CIVILIAN
@@ -3128,7 +3095,6 @@ static void unitTimings(void)
 
 	sides[sideCount] = "";
 	static bool veryFirstTime = true;
-
 
 	static Int side = 0;
 
@@ -3161,7 +3127,6 @@ static void unitTimings(void)
 
 //		Real timeToUpdateMicrosec = timeToUpdate*1E6/(TIME_FRAMES * TOTAL_UNITS);
 		timeToUpdate *= 100.0f/TIME_FRAMES;
-
 
 		if (mode == LOGIC) {
 			timeLogic = timeToUpdate;
@@ -3215,7 +3180,6 @@ static void unitTimings(void)
 		}
 		if (g_UT_curThing==NULL) return;
 
-
 		char remark[2048];
     Real graphScale = 20.0f;
 		AsciiString thingName = g_UT_curThing->getName();
@@ -3239,7 +3203,6 @@ static void unitTimings(void)
     DEBUG_LOG((remark));
     drawGraph( "@", graphScale, timeLogic );
 
-
 		sprintf(remark, "DrawCalls for %s \n", thingName.str() ) ;
 		DEBUG_LOG((remark));
 
@@ -3258,7 +3221,6 @@ static void unitTimings(void)
 		sprintf(remark, "Draw Call Logic %f \n", drawCallLogic );
 		DEBUG_LOG((remark));
     drawGraph( "#", graphScale, drawCallLogic );
-
 
 		if (g_UT_timingLog) {
 			fputs(remark, g_UT_timingLog);
@@ -3398,7 +3360,6 @@ static void unitTimings(void)
 			if (!btt->isKindOf(goalKind)) continue;
 #endif
 
-
       static char *illegalTemplateNames[] =
       {
 	      "EMPPulseBomb",
@@ -3474,8 +3435,6 @@ static void unitTimings(void)
 //
 //      if (btt->getName() == "AmericaAircraftCarrier") continue;
 
-
-
 #ifdef SINGLE_UNIT
 			if (btt->getName()!=SINGLE_UNIT) {
 				DEBUG_LOG(("Skipping %s\n", btt->getName().str()));
@@ -3483,7 +3442,6 @@ static void unitTimings(void)
 			}
 #endif
 			DEBUG_LOG(("\n===Doing thing %s ===\n", btt->getName().str()));
-
 
 #define dont_DO_ATTACK
 #ifdef DO_ATTACK
@@ -3815,10 +3773,6 @@ void GameLogic::update( void )
 		}
 	}
 
-
-
-
-
 	// increment world time
 	if (!m_startNewGame)
 	{
@@ -4002,7 +3956,6 @@ void GameLogic::destroyObject( Object *obj )
 			TheControlBar->markUIDirty();
 		}
 	}
-
 
 }  // end destroyObject
 
@@ -5093,5 +5046,4 @@ void GameLogic::loadPostProcess( void )
 	remakeSleepyUpdate();
 
 }  // end loadPostProcess
-
 

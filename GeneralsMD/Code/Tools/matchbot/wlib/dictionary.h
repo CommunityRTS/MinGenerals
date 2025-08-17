@@ -35,10 +35,8 @@ is working well, this is much faster than a linked list, but only if
 your hashing function is good.
 \****************************************************************************/
 
-
 #ifndef DICTIONARY_HEADER
 #define DICTIONARY_HEADER
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,7 +61,6 @@ class Dictionary
 {
  public:
                    ////////////////Dictionary(uint32 (* hashFn)(K &key));
-
 
 // Note: I had to put this inside the class definition because VC5 sucks butt
 
@@ -91,7 +88,6 @@ Dictionary(uint32 (*hashFn)(const K &key)) :
   hashFunc=hashFn;
 }
 
-
                   ~Dictionary();
 
   void             clear(void);
@@ -114,7 +110,6 @@ Dictionary(uint32 (*hashFn)(const K &key)) :
   void             shrink(void);  // halve the number of slots
   void             expand(void);  // double the number of slots
 
-
   DNode<K,V>     **table;      // This stores the lists at each slot
 
   uint32           entries;    // number of entries
@@ -126,14 +121,11 @@ Dictionary(uint32 (*hashFn)(const K &key)) :
   uint32           (* hashFunc)(IN K &key);   // User provided hash function
   uint32           keyHash(IN K &key) RO;     // This will reduce to correct range
 
-
   // See initilizer list of constructor for values
   const double     SHRINK_THRESHOLD; // When table is this % full shrink it
   const double     EXPAND_THRESHOLD; // When table is this % full grow it
   const int        MIN_TABLE_SIZE;   // must be a power of 2
 };
-
-
 
 //Free all the memory...
 template <class K,class V>
@@ -176,7 +168,6 @@ uint32 Dictionary<K,V>::keyHash(IN K &key) RO
   return(retval);
 }
 
-
 template <class K,class V>
 void Dictionary<K,V>::print(FILE *out) RO
 {
@@ -201,14 +192,11 @@ void Dictionary<K,V>::print(FILE *out) RO
   fprintf(out,"--------------------\n");
 }
 
-
 template <class K, class V>
 Dictionary<K,V> &Dictionary<K,V>::operator=(Dictionary<K,V> &other)
 {
   _ASSERTE(0);
 }
-
-
 
 //
 // Iterate through all the records. Index is for the table, offset specifies the
@@ -255,9 +243,6 @@ bit8 Dictionary<K,V>::iterate(INOUT int &index,INOUT int &offset,
 
   return(TRUE);
 }
-
-
-
 
 //
 // Iterate through all the records. Index is for the table, offset specifies the
@@ -306,20 +291,15 @@ bit8 Dictionary<K,V>::iterate(INOUT int &index,INOUT int &offset,
   return(TRUE);
 }
 
-
-
-
 // Return the current size of the hash table
 template <class K,class V>
 uint32 Dictionary<K,V>::getSize(void) RO
 { return(size); }
 
-
 // Return the current number of entries in the table
 template <class K,class V>
 uint32 Dictionary<K,V>::getEntries(void) RO
 { return(entries); }
-
 
 // Does the Dictionary contain the key?
 template <class K,class V>
@@ -344,7 +324,6 @@ bit8 Dictionary<K,V>::contains(IN K &key) RO
   return(FALSE);
 }
 
-
 // Try and update the value of an already existing object
 template <class K,class V>
 bit8 Dictionary<K,V>::updateValue(IN K &key,IN V &value)
@@ -358,7 +337,6 @@ bit8 Dictionary<K,V>::updateValue(IN K &key,IN V &value)
   add(key,value);
   return(TRUE);
 }
-
 
 // Add to the dictionary (if key exists, value is updated with the new V)
 template <class K, class V>
@@ -484,14 +462,12 @@ bit8 Dictionary<K,V>::remove(IN K &key,OUT V &value)
   return(retval);
 }
 
-
 template <class K,class V>
 bit8 Dictionary<K,V>::remove(IN K &key)
 {
   V temp;
   return(remove(key,temp));
 }
-
 
 // Remove some random K/V pair that's in the Dictionary
 template <class K,class V>
@@ -542,7 +518,6 @@ bit8 Dictionary<K,V>::removeAny(OUT K &key,OUT V &value)
   return(TRUE);
 }
 
-
 template <class K,class V>
 bool Dictionary<K,V>::getValue(IN K &key,OUT V &value) RO
 {
@@ -592,7 +567,6 @@ bool Dictionary<K,V>::getPointer(IN K &key,OUT V **valptr) RO
   return(TRUE);
 }
 
-
 //A note about Shrink and Expand: They are never necessary, they are
 //only here to improve performance of the hash table by reducing
 //the length of the linked list at each table entry.
@@ -636,7 +610,6 @@ void Dictionary<K,V>::shrink(void)
   delete[](oldtable);
 }
 
-
 template <class K,class V>
 void Dictionary<K,V>::expand(void)
 {
@@ -674,7 +647,6 @@ void Dictionary<K,V>::expand(void)
   }
   delete[](oldtable);
 }
-
 
 #endif
 

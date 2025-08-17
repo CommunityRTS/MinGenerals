@@ -42,7 +42,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 extern HWND ApplicationHWnd;
 
 //-------------------------------------------------------------------------------------------------

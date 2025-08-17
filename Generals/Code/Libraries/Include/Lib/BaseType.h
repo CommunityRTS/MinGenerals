@@ -28,7 +28,6 @@
 // tell the compiler to only load this file once
 #pragma once
 
-
 #ifndef _BASE_TYPE_H_
 #define _BASE_TYPE_H_
 
@@ -312,7 +311,6 @@ struct IRegion2D
 	Int height( void ) const { return hi.y - lo.y; }
 };
 
-
 struct Coord3D
 {
 	Real x, y, z;
@@ -440,7 +438,6 @@ struct IRegion3D
 	Int height( void ) const { return hi.y - lo.y; }
 	Int depth( void ) const { return hi.z - lo.z; }
 };
-
 
 struct RGBColor
 {

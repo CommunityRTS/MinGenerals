@@ -133,7 +133,6 @@ void W3DGadgetHorizontalSliderDraw( GameWindow *window, WinInstanceData *instDat
 
 	}  // end if
 
-
 }  // end W3DGadgetHorizontalSliderDraw
 
 // W3DGadgetHorizontalSliderImageDraw =========================================
@@ -325,7 +324,6 @@ void W3DGadgetHorizontalSliderImageDrawB( GameWindow *window,
 //	}
 }
 
-
 // W3DGadgetHorizontalSliderImageDraw =========================================
 /** Draw horizontal slider with user supplied images */
 //=============================================================================
@@ -396,8 +394,6 @@ void W3DGadgetHorizontalSliderImageDrawA( GameWindow *window,
 	rightStart.x = origin.x + size.x - rightSize.x + xOffset;
 	rightStart.y = origin.y  + size.y - leftSize.y + yOffset;
 
-
-
 	// draw the center repeating bar
 	Int centerWidth, pieces;
 
@@ -420,7 +416,6 @@ void W3DGadgetHorizontalSliderImageDrawA( GameWindow *window,
 	clipRight.lo.y = rightStart.y;
 	clipRight.hi.y = leftEnd.y;
 	clipRight.hi.x = origin.x + size.x;
-
 
 	for( i = 0; i < pieces; i++ )
 	{

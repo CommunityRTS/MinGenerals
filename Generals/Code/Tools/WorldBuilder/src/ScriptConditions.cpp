@@ -53,7 +53,6 @@ void ScriptConditionsDlg::DoDataExchange(CDataExchange* pDX)
 	//}}AFX_DATA_MAP
 }
 
-
 BEGIN_MESSAGE_MAP(ScriptConditionsDlg, CPropertyPage)
 	//{{AFX_MSG_MAP(ScriptConditionsDlg)
 	ON_BN_CLICKED(IDC_EDIT_CONDITION, OnEditCondition)
@@ -116,7 +115,6 @@ void ScriptConditionsDlg::loadList(void)
 		OnSelchangeConditionList();
 	}
 }
-
 
 void ScriptConditionsDlg::OnEditCondition()
 {
@@ -219,7 +217,6 @@ void ScriptConditionsDlg::OnDblclkConditionList()
 {
 	OnEditCondition();
 }
-
 
 void ScriptConditionsDlg::OnOr()
 {

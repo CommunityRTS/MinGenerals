@@ -44,7 +44,6 @@
 #include	"point.h"
 #include	<assert.h>
 
-
 /*
 **	This class encapsulates a surface and a clipping rectangle. It is intended to be used as
 **	a convenience for certain operations that need both a surface and a rectangle. Be aware that

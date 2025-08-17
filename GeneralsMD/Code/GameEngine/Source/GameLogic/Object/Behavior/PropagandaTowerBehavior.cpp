@@ -43,13 +43,11 @@
 #include "GameLogic/Module/PropagandaTowerBehavior.h"
 #include "GameLogic/Module/BodyModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // FORWARD REFERENCES /////////////////////////////////////////////////////////////////////////////
 enum ObjectID;
@@ -306,7 +304,6 @@ void PropagandaTowerBehavior::effectLogic( Object *obj, Bool giving,
 			if( obj->testWeaponBonusCondition( WEAPONBONUSCONDITION_ENTHUSIASTIC ) == FALSE )
 				obj->setWeaponBonusCondition( WEAPONBONUSCONDITION_ENTHUSIASTIC );
 
-
 			if (effectUpgraded)
 			{
 				if (obj->testWeaponBonusCondition( WEAPONBONUSCONDITION_SUBLIMINAL ) == FALSE)
@@ -314,7 +311,6 @@ void PropagandaTowerBehavior::effectLogic( Object *obj, Bool giving,
 			}
 
 		} // hasdamageweapon
-
 
 		// grant health to this object as well
 		BodyModuleInterface *body = obj->getBodyModule();
@@ -430,7 +426,6 @@ void PropagandaTowerBehavior::doScan( void )
 		}  // end switch
 
 	}  // end if
-
 
   Bool doFX = TRUE;
     // if it is us, or if it is he and we do see him

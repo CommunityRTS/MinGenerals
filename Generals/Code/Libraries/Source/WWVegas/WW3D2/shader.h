@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -80,8 +79,6 @@ enum ShaderShiftConstants
 		(alpha_test) << SHIFT_ALPHATEST | (cullmode) << SHIFT_CULLMODE | \
 		(post_det_color) << SHIFT_POSTDETAILCOLORFUNC | \
 		(post_det_alpha) << SHIFT_POSTDETAILALPHAFUNC)
-
-
 
 class ShaderClass
 {

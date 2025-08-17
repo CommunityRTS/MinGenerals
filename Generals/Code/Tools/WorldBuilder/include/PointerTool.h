@@ -78,5 +78,4 @@ public:
 	static Bool allowPick(MapObject* pMapObj, WbView* pView);
 };
 
-
 #endif //POINTER_TOOL_H

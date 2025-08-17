@@ -165,7 +165,6 @@ WindowVideoManager::~WindowVideoManager( void )
 
 }
 
-
 void WindowVideoManager::init( void )
 {
 	m_playingVideos.clear();
@@ -295,7 +294,6 @@ void WindowVideoManager::playMovie( GameWindow *win, AsciiString movieName, Wind
 	m_pauseAllMovies = FALSE;
 	m_stopAllMovies = FALSE;
 }
-
 
 void WindowVideoManager::pauseMovie( GameWindow *win )
 {

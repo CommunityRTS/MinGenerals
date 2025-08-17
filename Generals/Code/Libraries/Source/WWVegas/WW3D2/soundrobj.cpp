@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "soundrobj.h"
 #include "audiblesound.h"
 #include "sound3d.h"
@@ -44,12 +43,10 @@
 #include "chunkio.h"
 #include "scene.h"
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //	Global variables
 //////////////////////////////////////////////////////////////////////////////////
 SoundRenderObjLoaderClass		_SoundRenderObjLoader;
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -64,7 +61,6 @@ SoundRenderObjClass::SoundRenderObjClass (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	SoundRenderObjClass
@@ -78,7 +74,6 @@ SoundRenderObjClass::SoundRenderObjClass (const SoundRenderObjClass &src)
 	(*this) = src;
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -98,7 +93,6 @@ SoundRenderObjClass::~SoundRenderObjClass (void)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -126,7 +120,6 @@ SoundRenderObjClass::operator= (const SoundRenderObjClass &src)
 	return *this;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Sound
@@ -153,7 +146,6 @@ SoundRenderObjClass::Set_Sound (AudibleSoundDefinitionClass *definition)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	On_Frame_Update
@@ -175,7 +167,6 @@ SoundRenderObjClass::On_Frame_Update (void)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -199,7 +190,6 @@ SoundRenderObjClass::Set_Hidden (int onoff)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Visible
@@ -221,7 +211,6 @@ SoundRenderObjClass::Set_Visible (int onoff)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -245,7 +234,6 @@ SoundRenderObjClass::Set_Animation_Hidden (int onoff)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Force_Visible
@@ -267,7 +255,6 @@ SoundRenderObjClass::Set_Force_Visible (int onoff)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -316,7 +303,6 @@ SoundRenderObjClass::Update_On_Visibilty (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Get_Sound
@@ -331,7 +317,6 @@ SoundRenderObjClass::Get_Sound (void) const
 
 	return Sound;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -349,7 +334,6 @@ SoundRenderObjClass::Set_Flag (uint32 flag, bool onoff)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Notify_Added
@@ -365,7 +349,6 @@ SoundRenderObjClass::Notify_Added (SceneClass *scene)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Notify_Removed
@@ -380,7 +363,6 @@ SoundRenderObjClass::Notify_Removed (SceneClass *scene)
 	Update_On_Visibilty ();
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -400,7 +382,6 @@ SoundRenderObjClass::Set_Transform (const Matrix3D &tm)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Position
@@ -419,13 +400,11 @@ SoundRenderObjClass::Set_Position (const Vector3 &pos)
 	return ;
 }
 
-
 //*********************************************************************************
 //
 //	Start of SoundRenderObjDefClass
 //
 //*********************************************************************************
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -438,7 +417,6 @@ SoundRenderObjDefClass::SoundRenderObjDefClass (void)
 {
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -453,7 +431,6 @@ SoundRenderObjDefClass::SoundRenderObjDefClass (SoundRenderObjClass &render_obj)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	SoundRenderObjDefClass
@@ -467,7 +444,6 @@ SoundRenderObjDefClass::SoundRenderObjDefClass (const SoundRenderObjDefClass &sr
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	~SoundRenderObjDefClass
@@ -477,7 +453,6 @@ SoundRenderObjDefClass::~SoundRenderObjDefClass (void)
 {
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -492,7 +467,6 @@ SoundRenderObjDefClass::operator= (const SoundRenderObjDefClass &src)
 	Name			= src.Name;
 	return (*this);
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -512,7 +486,6 @@ SoundRenderObjDefClass::Create (void)
 
 	return render_obj;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -539,7 +512,6 @@ SoundRenderObjDefClass::Initialize (SoundRenderObjClass &render_obj)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Load
@@ -561,7 +533,6 @@ SoundRenderObjDefClass::Load_W3D (ChunkLoadClass &cload)
 
 	return retval;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -592,7 +563,6 @@ SoundRenderObjDefClass::Save_W3D (ChunkSaveClass &csave)
 
 	return retval;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -631,7 +601,6 @@ SoundRenderObjDefClass::Read_Header (ChunkLoadClass &cload)
 	return retval;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Read_Definition
@@ -660,7 +629,6 @@ SoundRenderObjDefClass::Read_Definition (ChunkLoadClass &cload)
 
 	return retval;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -700,7 +668,6 @@ SoundRenderObjDefClass::Write_Header (ChunkSaveClass &csave)
 	return retval;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Write_Definition
@@ -724,13 +691,11 @@ SoundRenderObjDefClass::Write_Definition (ChunkSaveClass &csave)
 	return retval;
 }
 
-
 //*********************************************************************************
 //
 //	Start of SoundRenderObjDefClass
 //
 //*********************************************************************************
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -764,5 +729,4 @@ SoundRenderObjLoaderClass::Load_W3D (ChunkLoadClass &cload)
 
 	return prototype;
 }
-
 

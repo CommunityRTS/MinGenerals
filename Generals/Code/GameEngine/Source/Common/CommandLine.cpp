@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file in the GameEngine
 
 #include "Common/ArchiveFileSystem.h"
@@ -130,7 +129,6 @@ Int parseNoMusic(char *args[], int)
 	}
 	return 1;
 }
-
 
 //=============================================================================
 //=============================================================================
@@ -611,7 +609,6 @@ Int parseParticleEdit(char *args[], int)
 	return 1;
 }
 
-
 Int parseBuildMapCache(char *args[], int)
 {
 	if (TheWritableGlobalData)
@@ -819,7 +816,6 @@ Int parseShowTeamDot( char *args[], int num )
 	return 1;
 }
 
-
 #if defined(_DEBUG) || defined(_INTERNAL)
 Int parseSelectAll( char *args[], int num )
 {
@@ -841,7 +837,6 @@ Int parseRunAhead( char *args[], Int num )
 	return 3;
 }
 #endif
-
 
 Int parseSeed(char *args[], int num)
 {
@@ -1240,5 +1235,4 @@ void parseCommandLine(int argc, char *argv[])
 
 	TheArchiveFileSystem->loadMods();
 }
-
 

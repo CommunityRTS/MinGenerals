@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -219,6 +218,5 @@ public:
 
 	void Get_FVF_Name(StringClass& fvfname) const;	// For debug purposes
 };
-
 
 #endif

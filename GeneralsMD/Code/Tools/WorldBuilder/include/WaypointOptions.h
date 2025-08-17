@@ -46,7 +46,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(WaypointOptions)
@@ -88,7 +87,6 @@ public:
 	static PolygonTrigger *getSingleSelectedPolygon(void);
 	static Bool isUnique(AsciiString name, MapObject* theMapObj = NULL);
 	static AsciiString GenerateUniqueName(Int id);
-
 
 };
 

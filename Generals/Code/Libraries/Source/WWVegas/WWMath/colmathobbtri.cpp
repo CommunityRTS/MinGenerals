@@ -56,7 +56,6 @@
 #include "tri.h"
 #include "wwdebug.h"
 
-
 /*
 ** Separating Axes have to be rejected if their length is smaller than some epsilon.
 ** Otherwise, erroneous results can be reported.
@@ -89,7 +88,6 @@ enum
 	AXIS_A1E2,
 	AXIS_A2E2
 };
-
 
 /******************************************************************************************
 
@@ -201,10 +199,6 @@ private:
 	BTCollisionStruct & operator = (const BTCollisionStruct &);
 };
 
-
-
-
-
 /***********************************************************************************************
  * obbtri_collision_separation_test -- test the projected extents for separation               *
  *                                                                                             *
@@ -273,7 +267,6 @@ static inline bool obbtri_collision_separation_test
 	return false;
 }
 
-
 /***********************************************************************************************
  * obbtri_check_collision_axis -- project the obb and tri onto an arbitrary axis               *
  *                                                                                             *
@@ -326,7 +319,6 @@ static inline bool obbtri_check_collision_axis(BTCollisionStruct & context)
 
 	return obbtri_collision_separation_test(context,lp,leb0,leb1);
 }
-
 
 /***********************************************************************************************
  * obbtri_check_collision_cross_axis -- projects obb and tri onto a "cross" axis               *
@@ -382,7 +374,6 @@ static inline bool obbtri_check_collision_cross_axis
 
 	return obbtri_collision_separation_test(context,lp,leb0,leb1);
 }
-
 
 /***********************************************************************************************
  * obbtri_check_collision_basis_axis -- projects the obb and tri onto a basis axis             *
@@ -440,7 +431,6 @@ static inline bool obbtri_check_collision_basis_axis
 
 	return obbtri_collision_separation_test(context,lp,leb0,leb1);
 }
-
 
 /***********************************************************************************************
  * obbtri_check_collision_normal_axis -- project the box and tri onto the tri-normal           *
@@ -587,7 +577,6 @@ static inline void obbtri_compute_contact_normal
 	WWASSERT(result->Normal.Length2() > 0.0f);
 }
 
-
 /***********************************************************************************************
  * eval_A0_point -- contact point parameters for A0xEx                                         *
  *                                                                                             *
@@ -629,7 +618,6 @@ static inline void eval_A0_point(const BTCollisionStruct & context,float * x,int
 
 	}
 }
-
 
 /***********************************************************************************************
  * eval_A1_point -- contact point parameters for A1xEx                                         *
@@ -714,7 +702,6 @@ static inline void eval_A2_point(const BTCollisionStruct & context,float * x,int
 
 	}
 }
-
 
 /***********************************************************************************************
  * obbtri_compute_contact_point -- compute the contact point                                   *
@@ -864,8 +851,6 @@ static inline void obbtri_compute_contact_point
 
 	Vector3::Add(result->ContactPoint,result->Fraction * context.BoxMove,&(result->ContactPoint));
 }
-
-
 
 /***********************************************************************************************
  * CollisionMath::Collide -- collide an obbox into a triangle                                  *
@@ -1113,7 +1098,6 @@ exit:
 	return false;
 }
 
-
 /***********************************************************************************************
 
 	OBBox-Triangle Intersection
@@ -1172,7 +1156,6 @@ private:
 	BTIntersectStruct & operator = (const BTIntersectStruct &);
 };
 
-
 /***********************************************************************************************
  * obbtri_intersection_separation_test -- test the projected extents for intersection          *
  *                                                                                             *
@@ -1211,7 +1194,6 @@ static inline bool obbtri_intersection_separation_test
 
 	return (lp - leb0 > -eps);
 }
-
 
 /***********************************************************************************************
  * obbtri_check_intersection_cross_axis -- intersection check for a "cross-product" axis       *
@@ -1254,7 +1236,6 @@ static inline bool obbtri_check_intersection_cross_axis
 
 	return obbtri_intersection_separation_test(context,lp,leb0);
 }
-
 
 /***********************************************************************************************
  * obbtri_check_intersection_basis_axis -- intersection check for a basis axis                 *
@@ -1301,7 +1282,6 @@ static inline bool obbtri_check_intersection_basis_axis
 	return obbtri_intersection_separation_test(context,lp,leb0);
 }
 
-
 /***********************************************************************************************
  * obbtri_check_intersection_normal_axis -- intersection check for the triangle normal         *
  *                                                                                             *
@@ -1341,7 +1321,6 @@ static inline bool obbtri_check_intersection_normal_axis
 
 	return obbtri_intersection_separation_test(context,lp,leb0);
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- Intersection check for an OBBox and a triangle          *
@@ -1502,6 +1481,4 @@ bool CollisionMath::Intersection_Test(const OBBoxClass & box,const TriClass & tr
 
 	return true;
 }
-
-
 

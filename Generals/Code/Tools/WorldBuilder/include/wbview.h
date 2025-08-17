@@ -55,7 +55,6 @@ protected:
 	void mouseMove(TTrackingMode m, CPoint viewPt);
 	void mouseUp(TTrackingMode m, CPoint viewPt);
 
-
 	void constrainCenterPt();
 
 	WorldHeightMapEdit *getTrackingHeightMap();
@@ -235,7 +234,6 @@ protected:
 	afx_msg void OnShowTerrain();
 	afx_msg void OnUpdateShowTerrain(CCmdUI* pCmdUI);
 	afx_msg int OnCreate(LPCREATESTRUCT lpcs);
-
 
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

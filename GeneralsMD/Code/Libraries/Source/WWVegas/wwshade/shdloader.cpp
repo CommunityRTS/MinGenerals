@@ -78,7 +78,6 @@ PrototypeClass* ShdMeshLoaderClass::Load_W3D(ChunkLoadClass& cload)
 	return newproto;
 }
 
-
 PrototypeClass * ShdMeshLegacyLoaderClass::Load_W3D(ChunkLoadClass & cload)
 {
 	MeshClass * mesh = NEW_REF( MeshClass, () );

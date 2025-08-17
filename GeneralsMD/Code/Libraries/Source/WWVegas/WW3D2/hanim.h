@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -60,8 +59,6 @@ class HTreeClass;
 class ChunkLoadClass;
 class ChunkSaveClass;
 class HTreeClass;
-
-
 
 #define EMBEDDED_SOUND_BONE_INDEX_NOT_SET -1
 /**********************************************************************************
@@ -125,7 +122,6 @@ protected:
 	int EmbeddedSoundBoneIndex;
 };
 
-
 /*
 ** The PivotMapClass is used by the HAnimComboDataClass (sometimes) to keep track of animation
 ** weights per-pivot point.
@@ -137,7 +133,6 @@ class PivotMapClass : public DynamicVectorClass<float>, public RefCountClass
 public:
 	virtual NamedPivotMapClass * As_Named_Pivot_Map() { return 0; }
 };
-
 
 /*
 **	The NamedPivotMapClass allows us to create HAnimComboDataClass objects with pivot maps without
@@ -176,7 +171,6 @@ private:
 	DynamicVectorClass<WeightInfoStruct>	WeightInfo;
 };
 
-
 /*
 **	The HAnimComboDataClass is used by the new HAnimComboClass to allow for a mix of shared/unshared data
 **	which will allow us to have the anim combo refer to data whereever we wish to put it.
@@ -197,7 +191,6 @@ class HAnimComboDataClass : public AutoPoolClass<HAnimComboDataClass,256> {
 		void Set_Prev_Frame(float frame)	{ PrevFrame = frame; }
 		void Set_Weight(float weight)		{ Weight = weight; }
 		void Set_Pivot_Map(PivotMapClass *map);
-
 
 		HAnimClass * Peek_HAnim(void)				const { return HAnim; }	// note: does not add reference
 		HAnimClass * Get_HAnim(void)				const { if(HAnim) HAnim->Add_Ref(); return HAnim; }	// note: does not add reference
@@ -253,7 +246,6 @@ public:
 	void	Set_Pivot_Weight_Map( int indx, PivotMapClass * map );
 	PivotMapClass	* Get_Pivot_Weight_Map( int indx );
 	PivotMapClass	* Peek_Pivot_Weight_Map( int indx );
-
 
 	// add an entry to the dynamic vector
 	void Append_Anim_Combo_Data(HAnimComboDataClass * AnimComboData);

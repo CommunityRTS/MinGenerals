@@ -113,8 +113,6 @@ UnicodeString alt;
 UnicodeString ctrl;
 UnicodeString shift;
 
-
-
 void populateCategoryBox()
 {
 	Int i;
@@ -383,7 +381,6 @@ void doKeyDown(EntryData *e, UnicodeString mod )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Initialize the options menu */
 //-------------------------------------------------------------------------------------------------
@@ -418,8 +415,6 @@ void KeyboardOptionsMenuInit( WindowLayout *layout, void *userData )
 
 	buttonAssignID          = TheNameKeyGenerator->nameToKey( "KeyboardOptionsMenu.wnd:ButtonAssign" );
 	buttonAssign            = TheWindowManager->winGetWindowFromId( NULL, buttonAssignID );
-
-
 
 	//special text entry box that needs its own function
 	textEntryAssignHotkey->winSetInputFunc( KeyboardTextEntryInput );
@@ -812,7 +807,6 @@ WindowMsgHandledType KeyboardTextEntryInput( GameWindow *window, UnsignedInt msg
 					}
 				}
 
-
 			}
 			break;
 		}
@@ -895,7 +889,6 @@ WindowMsgHandledType KeyboardTextEntryInput( GameWindow *window, UnsignedInt msg
 																						(WindowMsgData)window,
 																						0 );
 
-
 						return MSG_HANDLED;
 					}
 					break;
@@ -931,7 +924,6 @@ WindowMsgHandledType KeyboardTextEntryInput( GameWindow *window, UnsignedInt msg
 				}
 
 				// -------------------------------------------------------------------------------------------
-
 
 				// --------------------------------------------------------------------
 				// Don't process these keys
@@ -1097,10 +1089,8 @@ WindowMsgHandledType KeyboardTextEntryInput( GameWindow *window, UnsignedInt msg
 							}
 						}
 
-
 					}
 				}*/
-
 
 			}  // end switch( mData1 )
 
@@ -1158,5 +1148,4 @@ WindowMsgHandledType KeyboardTextEntryInput( GameWindow *window, UnsignedInt msg
 	return MSG_HANDLED;
 
 }  // end GadgetTextEntryInput
-
 

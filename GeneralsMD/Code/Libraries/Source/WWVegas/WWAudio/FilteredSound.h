@@ -41,9 +41,7 @@
 #ifndef __FILTERED_SOUND_H
 #define __FILTERED_SOUND_H
 
-
 #include "SoundPseudo3D.H"
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -100,7 +98,6 @@ class FilteredSoundClass : public SoundPseudo3DClass
 		//////////////////////////////////////////////////////////////////////
 		HPROVIDER    m_hFilter;
 };
-
 
 #endif //__FILTERED_SOUND_H
 

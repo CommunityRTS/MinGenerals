@@ -58,13 +58,11 @@
 #include "aabox.h"
 #include "wwdebug.h"
 
-
 /*
 ** Separating Axes have to be rejected if their length is smaller than some epsilon.
 ** Otherwise, erroneous results can be reported.
 */
 #define AXISLEN_EPSILON2	WWMATH_EPSILON * WWMATH_EPSILON	// squared length of a separating axis must be larger than this
-
 
 enum
 {
@@ -86,8 +84,6 @@ enum
 	AXIS_A2B1,
 	AXIS_A2B2
 };
-
-
 
 /********************************************************************************
 
@@ -113,7 +109,6 @@ enum
 	the OBB-OBB code.
 
 ********************************************************************************/
-
 
 /**
 ** ObbIntersectionStruct
@@ -150,8 +145,6 @@ private:
 	ObbIntersectionStruct(const ObbIntersectionStruct&);
 	ObbIntersectionStruct & operator = (const ObbIntersectionStruct&);
 };
-
-
 
 /***********************************************************************************************
  * obb_intersect_box0_basis -- intersection test for a basis vector from box0                  *
@@ -190,7 +183,6 @@ static bool obb_intersect_box0_basis
 	return ((u /*+ WWMATH_EPSILON*/ > rsum) || (u /*- WWMATH_EPSILON*/ < -rsum));
 }
 
-
 /***********************************************************************************************
  * obb_intersect_box1_basis -- intersection test for a basis vector from box1                  *
  *                                                                                             *
@@ -228,7 +220,6 @@ static bool obb_intersect_box1_basis
 	return ((u /*+ WWMATH_EPSILON*/ > rsum) || (u /*- WWMATH_EPSILON*/ < -rsum));
 }
 
-
 /***********************************************************************************************
  * obb_intersect_axis -- intersection test for a axis                                          *
  *                                                                                             *
@@ -260,7 +251,6 @@ static inline bool obb_intersect_axis
 	// caused problems when the axis being tested became very small
 	return ((u /*+ WWMATH_EPSILON*/ > rsum) || (u /*- WWMATH_EPSILON*/ < -rsum));
 }
-
 
 /***********************************************************************************************
  * intersect_obb_obb -- test two OBBoxes for intersection                                      *
@@ -308,7 +298,6 @@ bool intersect_obb_obb
 		if (obb_intersect_box0_basis(context,1)) return false;
 	}
 
-
 	/////////////////////////////////////////////////////////////////////////
 	// Axis = A2
 	/////////////////////////////////////////////////////////////////////////
@@ -318,7 +307,6 @@ bool intersect_obb_obb
 	if (context.Box0.Extent[2] > 0.0f) {
 		if (obb_intersect_box0_basis(context,2)) return false;
 	}
-
 
 	/////////////////////////////////////////////////////////////////////////
 	// Axis B0,B1,B2
@@ -428,7 +416,6 @@ bool intersect_obb_obb
 	return true;
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- test two obb's for intersection                         *
  *                                                                                             *
@@ -449,7 +436,6 @@ bool CollisionMath::Intersection_Test(const OBBoxClass & box0,const OBBoxClass &
 	return intersect_obb_obb(context);
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- test an OBB for intersection with an AAB                *
  *                                                                                             *
@@ -468,7 +454,6 @@ bool CollisionMath::Intersection_Test(const OBBoxClass & box0,const AABoxClass &
 	ObbIntersectionStruct context(box0,obbox1);
 	return intersect_obb_obb(context);
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- Test an AAB for intersection with an OBB                *
@@ -489,7 +474,6 @@ bool CollisionMath::Intersection_Test(const AABoxClass & box0,const OBBoxClass &
 	return intersect_obb_obb(context);
 }
 
-
 /********************************************************************************
 
 	OBBox-OBBox collision detection
@@ -506,7 +490,6 @@ bool CollisionMath::Intersection_Test(const AABoxClass & box0,const OBBoxClass &
 	derive myself (they are pretty nasty...)
 
 ********************************************************************************/
-
 
 /**
 ** ObbCollisionStruct
@@ -562,8 +545,6 @@ private:
 	ObbCollisionStruct & operator = (const ObbCollisionStruct&);
 };
 
-
-
 /***********************************************************************************************
  * obb_separation_test -- test the projections of two obb's for separation                     *
  *                                                                                             *
@@ -618,7 +599,6 @@ static inline bool obb_separation_test
 	return false;
 }
 
-
 /***********************************************************************************************
  * obb_check_box0_basis -- projects the boxes onto a basis vector from box0                    *
  *                                                                                             *
@@ -652,7 +632,6 @@ static bool obb_check_box0_basis
 	return obb_separation_test(context,ra,rb,u0,u1);
 }
 
-
 /***********************************************************************************************
  * obb_check_box1_basis -- projects the two obbs onto a basis vector from box1                 *
  *                                                                                             *
@@ -685,7 +664,6 @@ static bool obb_check_box1_basis
 	return obb_separation_test(context,ra,rb,u0,u1);
 }
 
-
 /***********************************************************************************************
  * obb_check_axis -- projects the obbs onto an arbitrary axis                                  *
  *                                                                                             *
@@ -709,7 +687,6 @@ static inline bool obb_check_axis
 	float u1 = u0 + Vector3::Dot_Product(context.M,context.TestAxis);
 	return obb_separation_test(context,ra,rb,u0,u1);
 }
-
 
 /***********************************************************************************************
  * obb_compute_projections -- computes projections of two boxes onto an arbitrary axis         *
@@ -738,7 +715,6 @@ static inline void obb_compute_projections
 			context.Box1.Extent.Y * WWMath::Fabs(Vector3::Dot_Product(context.B[1],context.TestAxis)) +
 			context.Box1.Extent.Z * WWMath::Fabs(Vector3::Dot_Product(context.B[2],context.TestAxis));
 }
-
 
 /***********************************************************************************************
  * compute_contact_normal -- computes the contact normal (after contact is detected)           *
@@ -834,7 +810,6 @@ static inline void compute_contact_normal(ObbCollisionStruct & context,CastResul
 	result->Normal *= -context.Side;
 }
 
-
 /***********************************************************************************************
  * eval_side -- returns -1,0,1 depending on ab and side                                        *
  *                                                                                             *
@@ -857,7 +832,6 @@ static inline float eval_side(float ab,float side)
 		return 0.0f;
 	}
 }
-
 
 /***********************************************************************************************
  * compute_contact_point -- computes the contact point (after contact is detected)             *
@@ -1090,7 +1064,6 @@ static inline void compute_contact_point(ObbCollisionStruct & context,CastResult
 
 }
 
-
 /***********************************************************************************************
  * collide_obb_obb -- test two obb's for collision                                             *
  *                                                                                             *
@@ -1311,7 +1284,6 @@ exit:
 		return true;
 	}
 
-
 	/*
 	** If our fraction is smaller, override the previous
 	** values because our collision occured first.
@@ -1354,7 +1326,6 @@ bool CollisionMath::Collide
 	return collide_obb_obb(context,result);
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Collide -- collide an OBB with an AAB                                        *
  *                                                                                             *
@@ -1380,7 +1351,6 @@ bool CollisionMath::Collide
 	ObbCollisionStruct context(box0,move0,obbox1,move1);
 	return collide_obb_obb(context,result);
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Collide -- collide an AAB with an OBB                                        *

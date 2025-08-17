@@ -22,5 +22,3 @@
 
 #include "stdafx.h"
 
-
-

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -68,7 +67,6 @@ protected:
 	char								Name[2*W3D_NAME_LEN];
 };
 
-
 class NullPrototypeClass : public W3DMPO, public PrototypeClass
 {
 	W3DMPO_GLUE(NullPrototypeClass)
@@ -85,7 +83,6 @@ protected:
 	W3dNullObjectStruct			Definition;
 };
 
-
 class NullLoaderClass : public PrototypeLoaderClass
 {
 public:
@@ -93,13 +90,11 @@ public:
 	virtual PrototypeClass *	Load_W3D(ChunkLoadClass & cload);
 };
 
-
 /*
 ** Instance of the default loader which the asset manager can
 ** automatically install at creation time
 */
 extern NullLoaderClass _NullLoader;
-
 
 #endif
 

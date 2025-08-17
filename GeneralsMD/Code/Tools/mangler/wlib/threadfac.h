@@ -43,8 +43,6 @@
 
 #include "critsec.h"
 
-
-
 #ifdef THREADFAC_CODE
   // This is the fake thread entry point for functions
   #ifdef _WIN32
@@ -61,10 +59,6 @@
   #endif
 #endif
 
-
-
-
-
 // Forward definition of base class for threaded classes
 class Runnable;
 
@@ -78,8 +72,6 @@ class ThreadFactory
   static bit8    startThread(Runnable &runable, void *data, bit8 destroy=FALSE);
 };
 
-
-
 //
 // Base class for when you want a thread to execute inside a class
 //  instead of a function.
@@ -89,7 +81,6 @@ class Runnable
  public:
                 Runnable();
    virtual     ~Runnable();
-
 
    // ThreadFactory needs to be able to access the private
    // IsRunning_ field.
@@ -114,7 +105,6 @@ class Runnable
 
            // Get the count of threads running inside this class
            static int    getThreadCount();
-
 
   private:
    static int       ThreadCount_;

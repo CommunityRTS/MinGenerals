@@ -43,7 +43,6 @@ lrp r0, c2, r1, t0	;blend modified image into original image so smooth fade in/o
 ;add_sat r1,r1,c5		;clamp out upper values +60
 ;add		r1,r1,-c6		;shift to center range at 0
 
-
 ;add r0,r0,-c5
 ;mul_x4 r0,r0,c6
 

@@ -85,6 +85,5 @@ public:
 
 };
 
-
 #endif // __FXListDie_H_
 

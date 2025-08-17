@@ -50,7 +50,6 @@ void AutoEdgeOutTool::activate()
 	CMainFrame::GetMainFrame()->showOptionsDialog(IDD_BLEND_MATERIAL);
 }
 
-
 /** Execute the tool on mouse down - Create a copy of the height map
 * to edit, blend the edges, and give the undoable command to the doc. */
 void AutoEdgeOutTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

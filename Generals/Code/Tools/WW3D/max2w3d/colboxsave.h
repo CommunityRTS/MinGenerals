@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -46,7 +45,6 @@
 #include "w3d_file.h"
 #include "chunkio.h"
 #include "progress.h"
-
 
 /*******************************************************************************************
 **
@@ -78,7 +76,5 @@ private:
 	W3dBoxStruct						BoxData;				// contains same information as the W3dOBBoxStruct
 
 };
-
-
 
 #endif //COLBOXSAVE_H

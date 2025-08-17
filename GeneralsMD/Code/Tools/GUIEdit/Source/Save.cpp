@@ -489,7 +489,6 @@ static Bool saveTextColor( GameWindow *window, FILE *fp, Int dataIndent )
 static Bool tokenIsEnabledData( char *token )
 {
 
-
 	if( strcmp( token, "ENABLEDDRAWDATA" ) == 0 ||
 			strcmp( token, "LISTBOXENABLEDUPBUTTONDRAWDATA" ) == 0 ||
 			strcmp( token, "LISTBOXENABLEDDOWNBUTTONDRAWDATA" ) == 0 ||
@@ -790,7 +789,6 @@ static Bool saveComboBoxData( GameWindow *window, FILE *fp, Int dataIndent )
 
 }  // end saveComboBoxData
 
-
 // saveRadioButtonData ========================================================
 /** Save radio button specific data */
 //=============================================================================
@@ -800,7 +798,6 @@ static Bool saveRadioButtonData( GameWindow *window, FILE *fp, Int dataIndent )
 
 	if( radioData == NULL )
 	{
-
 
 		DEBUG_LOG(( "No radio button data to save for window '%d'\n",
 						 window->winGetWindowId() ));

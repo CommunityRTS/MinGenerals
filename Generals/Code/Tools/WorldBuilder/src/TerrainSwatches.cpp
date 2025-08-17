@@ -37,7 +37,6 @@ TerrainSwatches::~TerrainSwatches()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(TerrainSwatches, CWnd)
 	//{{AFX_MSG_MAP(TerrainSwatches)
 	ON_WM_PAINT()
@@ -85,7 +84,6 @@ void TerrainSwatches::OnPaint()
 	}
 	dc.FrameRect(&fgRect, &brush);
 
-
 }
 
 void TerrainSwatches::DrawMyTexture(CDC *pDc, int top, int left, Int width, UnsignedByte *rgbData)
@@ -112,5 +110,4 @@ void TerrainSwatches::DrawMyTexture(CDC *pDc, int top, int left, Int width, Unsi
 		DIB_RGB_COLORS, SRCCOPY);
 	delete(pBI);
 }
-
 

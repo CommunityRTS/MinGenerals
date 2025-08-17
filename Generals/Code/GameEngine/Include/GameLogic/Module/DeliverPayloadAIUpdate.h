@@ -170,7 +170,6 @@ protected:
 };
 EMPTY_DTOR(CleanUpState)
 
-
 //-------------------------------------------------------------------------------------------------
 enum
 {
@@ -377,8 +376,6 @@ protected:
 		DIVESTATE_POSTDIVE=2,
 	};
 	DiveState											m_diveState;
-
-
 
 };
 

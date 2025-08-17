@@ -118,7 +118,6 @@ DDSFileClass::DDSFileClass(const char* name,unsigned reduction_factor)
 		Type=DDS_VOLUME;
 	}
 
-
 	FullWidth=SurfaceDesc.Width;
 	FullHeight=SurfaceDesc.Height;
 	FullDepth=SurfaceDesc.Depth;
@@ -325,7 +324,6 @@ WWINLINE static unsigned short ARGB8888_To_RGB565(unsigned argb_)
 	return rgb;
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // Copy mipmap level to D3D surface. The copying is performed using another
@@ -515,7 +513,6 @@ const unsigned char* DDSFileClass::Get_CubeMap_Memory_Pointer
 {
 	return &DDSMemory[CubeFaceSize*face+LevelOffsets[level]];
 }
-
 
 void DDSFileClass::Copy_CubeMap_Level_To_Surface
 (
@@ -710,7 +707,6 @@ void DDSFileClass::Copy_Volume_Level_To_Surface
 
 	// get 'dest_surface'
 
-
 	// If the format and size is a match just copy the contents
 	bool has_hsv_shift = hsv_shift[0]!=0.0f || hsv_shift[1]!=0.0f || hsv_shift[2]!=0.0f;
 	if (dest_format==Format && dest_width==Get_Width(level) && dest_height==Get_Height(level))
@@ -874,7 +870,6 @@ WWINLINE static unsigned Combine_Colors(unsigned col1, unsigned col2, unsigned r
 	r_b_col1+=r_b_col2;
 	r_b_col1>>=8;
 	r_b_col1&=R_B_MASK;
-
 
 	unsigned g_col1=col1&G_MASK;
 	g_col1*=rel;
@@ -1205,9 +1200,6 @@ bool DDSFileClass::Get_4x4_Block(
 					tmp_dest_ptr+=dest_bpp;
 				}
 			}
-
-
-
 
 /*
 			for (int y=0;y<4;++y) {

@@ -47,50 +47,35 @@
 #include <wpaudio/level.h>
 #include <wpaudio/attributes.h>
 
-
 DBG_DECLARE_TYPE ( AudioAttribs )
 
 /*****************************************************************************
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **        Private Types                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Prototypes                                               **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **          Private Functions                                               **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **          Public Functions                                                **
@@ -153,10 +138,8 @@ int			AudioAttribsChanged ( AudioAttribs *attr )
 void			AudioAttribsApply ( AudioAttribs *attr, AudioAttribs *mod )
 {
 
-
 	DBG_ASSERT_TYPE ( attr, AudioAttribs );
 	DBG_ASSERT_TYPE ( mod, AudioAttribs );
-
 
 	AudioLevelSet ( &attr->VolumeLevel, AudioLevelApply ( &mod->VolumeLevel, AudioAttribsGetVolume ( attr ) ));
 	AudioLevelUpdate ( &attr->VolumeLevel );
@@ -166,10 +149,8 @@ void			AudioAttribsApply ( AudioAttribs *attr, AudioAttribs *mod )
 		int	level;
 		int	change;
 
-
 		level = AudioAttribsGetPitch ( attr );
 		change = AudioAttribsGetPitch ( mod );
-
 
 		level = (level * change) / 100;
 
@@ -218,7 +199,6 @@ void			AudioAttribsUsed ( AudioAttribs *attr )
 int		AudioAttribsCalcPitch ( AudioAttribs *attr, int pitch )
 {
 	int	level;
-
 
 	DBG_ASSERT_TYPE ( attr, AudioAttribs );
 

@@ -35,7 +35,6 @@
  *   PTPMC::BeginEditParams -- Change all W3D materials in the mesh to be PS2 compatible.      *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include <Max.h>
 #include <gport.h>
 #include <hsv.h>
@@ -45,7 +44,6 @@
 #include "utilapi.h"
 #include "nodelist.h"
 #include "gamemtl.h"
-
 
 Class_ID PCToPS2MaterialClassID(0x40d11cee, 0x68881657);
 
@@ -58,7 +56,6 @@ class PCToPS2MaterialClass : public UtilityObj {
 		void DeleteThis() {delete this;}
 
 };
-
 
 /***********************************************************************************************
  * PTPMC::BeginEditParams -- Change all W3D materials in the mesh to be PS2 compatible.        *

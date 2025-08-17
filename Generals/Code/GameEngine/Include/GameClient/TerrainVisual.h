@@ -151,7 +151,6 @@ public:
 	virtual void removeAllBibs(void)=0;
 	virtual void removeBibHighlighting(void)=0;
 
-
 	//
 	// Modify height.
 	//

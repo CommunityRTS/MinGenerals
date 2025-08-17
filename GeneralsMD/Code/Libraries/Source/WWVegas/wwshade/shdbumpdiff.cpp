@@ -57,7 +57,6 @@ REGISTER_SHDDEF(ShdBumpDiffDefClass,SHDDEF_CLASSID_BUMPDIFF,"Bump Diffuse");
 // static member
 ShdVersion ShdBumpDiffDefClass::Version;
 
-
 // Save-Load methods for ShdDefClass
 enum
 {
@@ -174,7 +173,6 @@ bool ShdBumpDiffDefClass::Load(ChunkLoadClass &cload)
 
 	return true;
 }
-
 
 void ShdBumpDiffDefClass::Init()
 {

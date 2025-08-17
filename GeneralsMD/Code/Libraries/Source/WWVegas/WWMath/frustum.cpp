@@ -37,7 +37,6 @@
 
 #include "frustum.h"
 
-
 /***********************************************************************************************
  * FrustumClass::Init -- Initialize a frustum object                                           *
  *                                                                                             *
@@ -134,7 +133,6 @@ void FrustumClass::Init
 		Corners[3] *= znear;
 		Corners[7] *= zfar;
 	}
-
 
 	// Transform the eight corners of the view frustum from camera space to world space.
 	for (i = 0; i < 8; i++) {

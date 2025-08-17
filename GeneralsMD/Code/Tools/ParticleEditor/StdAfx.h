@@ -39,7 +39,6 @@
 #include <afxdisp.h>        // MFC Automation classes
 #endif // _AFX_NO_OLE_SUPPORT
 
-
 #ifndef _AFX_NO_DB_SUPPORT
 #include <afxdb.h>			// MFC ODBC database classes
 #endif // _AFX_NO_DB_SUPPORT
@@ -68,7 +67,6 @@
 #ifndef interface
 #	define interface struct
 #endif
-
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.

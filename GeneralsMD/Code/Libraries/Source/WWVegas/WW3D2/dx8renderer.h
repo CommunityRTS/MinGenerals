@@ -37,7 +37,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -119,7 +118,6 @@ public:
 
 	void Remove_Polygon_Renderer(DX8PolygonRendererClass* p_renderer);
 	void Add_Polygon_Renderer(DX8PolygonRendererClass* p_renderer,DX8PolygonRendererClass* add_after_this=NULL);
-
 
 	DX8FVFCategoryContainer * Get_Container(void) { return container; }
 
@@ -233,7 +231,6 @@ public:
 	virtual void Render_Delayed_Procedural_Material_Passes(void) = 0;
 };
 
-
 /**
 ** DX8RigidFVFCategoryContainer
 ** This is an FVFCategoryContainer for rigid (non-skin) meshes
@@ -259,7 +256,6 @@ public:
 
 protected:
 
-
 	VertexBufferClass *	vertex_buffer;
 	int						used_vertices;
 
@@ -267,7 +263,6 @@ protected:
 	MatPassTaskClass *	delayed_matpass_tail;
 
 };
-
 
 /**
 ** DX8SkinFVFCategoryContainer
@@ -303,8 +298,6 @@ private:
 	MeshClass *									VisibleSkinTail;
 
 };
-
-
 
 /**
 ** DX8MeshRendererClass
@@ -351,7 +344,6 @@ protected:
 	FVFCategoryList *									texture_category_container_list_skin;
 
 	DecalMeshClass *									visible_decal_meshes;
-
 
 };
 

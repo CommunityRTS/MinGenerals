@@ -84,13 +84,10 @@ protected:
 public:
 	ICoord2D	m_tileLocationInTexture;
 
-
 protected:
 	/** doMip - generates the next mip level mipping pHiRes down to pLoRes.
 				pLoRes is 1/2 the width of pHiRes, and both are square. */
 	static void doMip(UnsignedByte *pHiRes, Int hiRow, UnsignedByte *pLoRes);
-
-
 
 public:
 	TileData(void);

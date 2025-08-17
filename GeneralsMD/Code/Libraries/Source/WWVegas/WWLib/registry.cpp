@@ -44,7 +44,6 @@
 
 bool RegistryClass::IsLocked = false;
 
-
 bool RegistryClass::Exists(const char* sub_key)
 {
 	HKEY hKey;
@@ -115,7 +114,6 @@ void	RegistryClass::Set_Int( const char * name, int value )
 	}
 }
 
-
 bool	RegistryClass::Get_Bool( const char * name, bool def_value )
 {
 	return (Get_Int( name, def_value ) != 0);
@@ -125,7 +123,6 @@ void	RegistryClass::Set_Bool( const char * name, bool value )
 {
 	Set_Int( name, value ? 1 : 0 );
 }
-
 
 float	RegistryClass::Get_Float( const char * name, float def_value )
 {
@@ -159,7 +156,6 @@ int RegistryClass::Get_Bin_Size( const char * name )
 	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, NULL, &size );
 	return size;
 }
-
 
 void RegistryClass::Get_Bin( const char * name, void *buffer, int buffer_size )
 {
@@ -207,7 +203,6 @@ void	RegistryClass::Get_String( const char * name, StringClass &string, const ch
 
 	return ;
 }
-
 
 char *RegistryClass::Get_String( const char * name, char *value, int value_size,
    const char * default_string )
@@ -294,7 +289,6 @@ void	RegistryClass::Deleta_All_Values( void )
 	return ;
 }
 
-
 void	RegistryClass::Get_String( const WCHAR * name, WideStringClass &string, const WCHAR *default_string )
 {
 	assert( IsValid );
@@ -318,7 +312,6 @@ void	RegistryClass::Get_String( const WCHAR * name, WideStringClass &string, con
 	return ;
 }
 
-
 void	RegistryClass::Set_String( const WCHAR * name, const WCHAR *value )
 {
 	assert( IsValid );
@@ -338,14 +331,6 @@ void	RegistryClass::Set_String( const WCHAR * name, const WCHAR *value )
 	::RegSetValueExW ( (HKEY)Key, name, 0, REG_SZ, (LPBYTE)value, size );
 	return ;
 }
-
-
-
-
-
-
-
-
 
 /***********************************************************************************************
  * RegistryClass::Save_Registry_Values -- Save values in a key to an .ini file                 *
@@ -420,10 +405,6 @@ void RegistryClass::Save_Registry_Values(HKEY key, char *path, INIClass *ini)
 	}
 }
 
-
-
-
-
 /***********************************************************************************************
  * RegistryClass::Save_Registry_Tree -- Save out a whole chunk or registry as an .INI          *
  *                                                                                             *
@@ -450,7 +431,6 @@ void RegistryClass::Save_Registry_Tree(char *path, INIClass *ini)
 	unsigned long class_name_size = sizeof(class_name);
 	FILETIME file_time;
 	memset(&file_time, 0, sizeof(file_time));
-
 
 	long result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, path, 0, KEY_ALL_ACCESS, &base_key);
 
@@ -500,10 +480,6 @@ void RegistryClass::Save_Registry_Tree(char *path, INIClass *ini)
 	}
 }
 
-
-
-
-
 /***********************************************************************************************
  * RegistryClass::Save_Registry -- Save a chunk of registry to an .ini file.                   *
  *                                                                                             *
@@ -526,8 +502,6 @@ void RegistryClass::Save_Registry(const char *filename, char *path)
 	Save_Registry_Tree(path, &ini);
 	ini.Save(file);
 }
-
-
 
 /***********************************************************************************************
  * RegistryClass::Load_Registry -- Load a chunk of registry from an .INI file                  *
@@ -554,7 +528,6 @@ void RegistryClass::Load_Registry(const char *filename, char *old_path, char *ne
 		char path[1024];
 		char string[1024];
 		unsigned char buffer[8192];
-
 
 		List<INISection *> &section_list = ini.Get_Section_List();
 
@@ -606,11 +579,6 @@ void RegistryClass::Load_Registry(const char *filename, char *old_path, char *ne
 	}
 }
 
-
-
-
-
-
 /***********************************************************************************************
  * RegistryClass::Delete_Registry_Values -- Delete all values under the given key              *
  *                                                                                             *
@@ -645,9 +613,6 @@ void RegistryClass::Delete_Registry_Values(HKEY key)
 	}
 }
 
-
-
-
 /***********************************************************************************************
  * RegistryClass::Delete_Registry_Tree -- Delete all values and sub keys of a registry key     *
  *                                                                                             *
@@ -675,7 +640,6 @@ void RegistryClass::Delete_Registry_Tree(char *path)
 		FILETIME file_time;
 		memset(&file_time, 0, sizeof(file_time));
 		int max_times = 1000;
-
 
 		long result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, path, 0, KEY_ALL_ACCESS, &base_key);
 
@@ -731,16 +695,4 @@ void RegistryClass::Delete_Registry_Tree(char *path)
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

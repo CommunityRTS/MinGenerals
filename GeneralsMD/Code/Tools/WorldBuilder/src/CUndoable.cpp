@@ -41,7 +41,6 @@
 #include "WorldBuilder.h"	// for MAX_OBJECTS_IN_MAP
 #include "Common/UnicodeString.h"
 
-
 // base mostly virtual class.
 
 //
@@ -51,7 +50,6 @@ Undoable::~Undoable(void)
 {
 	REF_PTR_RELEASE(mNext);
 }
-
 
 //
 /// Create a new undoable.
@@ -77,7 +75,6 @@ void Undoable::Redo(void)
 	Do();
 }
 
-
 /*************************************************************************
 **                             WBDocUndoable
  An undoable that actually undoes something.  Saves the entire height map
@@ -92,7 +89,6 @@ WBDocUndoable::~WBDocUndoable(void)
 	REF_PTR_RELEASE(mPOldHeightMapData);
 	mPDoc = NULL;  // not ref counted.
 }
-
 
 //
 /// Create a new undoable.
@@ -212,7 +208,6 @@ AddObjectUndoable::~AddObjectUndoable(void)
 		m_objectToAdd=NULL;
 	}
 }
-
 
 //
 // AddObjectUndoable - create a new undoable.
@@ -602,7 +597,6 @@ FlagsInfo::FlagsInfo( MapObject *pObjToMove, Int flagMask, Int flagValue):
 	m_oldValue = m_objectToModify->getFlags()&flagMask;
 }
 
-
 //
 /// Move the object.
 //
@@ -678,7 +672,6 @@ ModifyFlagsUndoable::ModifyFlagsUndoable(CWorldBuilderDoc *pDoc, Int flagMask, I
 		curMapObj = curMapObj->getNext();
 	}
 }
-
 
 //
 /// Set the new values, and force an inval of the objects.
@@ -783,7 +776,6 @@ DictItemUndoable::DictItemUndoable(Dict **d, Dict data, NameKeyType key, Int dic
 DictItemUndoable::~DictItemUndoable()
 {
 }
-
 
 void DictItemUndoable::Do(void)
 {
@@ -942,7 +934,6 @@ DeleteObjectUndoable::~DeleteObjectUndoable(void)
 	m_deleteList=NULL;
 }
 
-
 //
 // DeleteObjectUndoable - create a new undoable.	Deletes all selected objects.
 //
@@ -967,7 +958,6 @@ DeleteObjectUndoable::DeleteObjectUndoable(CWorldBuilderDoc *pDoc):
 		}
 	}
 
-
 	m_pDoc = pDoc; // not ref counted.
 	MapObject *curMapObj = MapObject::getFirstMapObject();
 	DeleteInfo *pCurInfo = NULL;
@@ -984,7 +974,6 @@ DeleteObjectUndoable::DeleteObjectUndoable(CWorldBuilderDoc *pDoc):
 		curMapObj = curMapObj->getNext();
 	}
 }
-
 
 //
 /// Delete the objects.
@@ -1038,7 +1027,6 @@ void DeleteObjectUndoable::Undo(void)
 	m_deleteList = pInvertedList;
 }
 
-
 /*************************************************************************
 **                             AddPolygonUndoable
 ***************************************************************************/
@@ -1085,7 +1073,6 @@ void AddPolygonUndoable::Undo(void)
 	m_isTriggerInList = false;
 }
 
-
 /*************************************************************************
 **                             AddPolygonPointUndoable
 ***************************************************************************/
@@ -1123,7 +1110,6 @@ void AddPolygonPointUndoable::Undo(void)
 	m_point = *m_trigger->getPoint(m_trigger->getNumPoints()-1);
 	m_trigger->deletePoint(m_trigger->getNumPoints()-1);
 }
-
 
 /*************************************************************************
 **                             ModifyPolygonPointUndoable
@@ -1205,7 +1191,6 @@ void MovePolygonUndoable::SetOffset(const ICoord3D &offset)
 	}
 }
 
-
 //
 /// Offset the trigger.
 //
@@ -1235,7 +1220,6 @@ void MovePolygonUndoable::Undo(void)
 		m_trigger->setPoint(iLoc, i);
 	}
 }
-
 
 /*************************************************************************
 **                             InsertPolygonPointUndoable
@@ -1355,8 +1339,6 @@ void DeletePolygonUndoable::Undo(void)
 	m_isTriggerInList = true;
 }
 
-
-
 /*************************************************************************
 **                             MultipleUndoable
 ***************************************************************************/
@@ -1389,7 +1371,6 @@ void MultipleUndoable::addUndoable( Undoable * undoable )
   REF_PTR_SET( m_undoableList, undoable );
 }
 
-
 //
 /// Do all the list's actions.
 //
@@ -1404,7 +1385,6 @@ void MultipleUndoable::Do(void)
     undoable = next;
   }
 }
-
 
 //
 // Recursive function to help tranverse a singly-linked list in reverse order
@@ -1427,7 +1407,6 @@ void MultipleUndoable::Undo(void)
 {
   undoHelper(m_undoableList);
 }
-
 
 //
 /// Redo all the list's actions.

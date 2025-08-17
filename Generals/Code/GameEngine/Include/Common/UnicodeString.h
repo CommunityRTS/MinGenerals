@@ -120,7 +120,6 @@ public:
 		MAX_LEN = 32767							///< max total len of any UnicodeString, in chars
 	};
 
-
 	/**
 		This is a convenient global used to indicate the empty
 		string, so we don't need to construct temporaries
@@ -289,7 +288,6 @@ public:
 	UnicodeString& operator=(const UnicodeString& stringSrc);	///< the same as set()
 	UnicodeString& operator=(const WideChar* s);				///< the same as set()
 };
-
 
 // -----------------------------------------------------
 inline WideChar* UnicodeString::peek() const

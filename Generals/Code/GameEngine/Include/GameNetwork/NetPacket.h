@@ -32,8 +32,6 @@ for the data, but at least that wouldn't be repeating code, that would
 be specialized code.
 */
 
-
-
 #pragma once
 
 #ifndef __NETPACKET_H

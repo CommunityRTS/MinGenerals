@@ -161,7 +161,6 @@ void WinInstanceData::init( void )
 
 	m_videoBuffer = NULL;
 
-
 }  // end init
 
 // WinInstanceData::setTooltipText ============================================

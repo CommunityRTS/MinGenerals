@@ -70,7 +70,6 @@ static VARIANT GetCell ( int row, int column )
 		goto error;
 	}
 
-
 	range->AttachDispatch ( dispatch );
 	result = range->GetValue ();
 	range->ReleaseDispatch ( );
@@ -82,7 +81,6 @@ error:
 	return result;
 }
 
-
 int PutCell ( int row, int column, OLECHAR *string, int val )
 {
 	VARIANT cell;
@@ -90,7 +88,6 @@ int PutCell ( int row, int column, OLECHAR *string, int val )
 	int ok = FALSE;
 	LPDISPATCH dispatch;
 	OLECHAR cellname[20];
-
 
 	V_VT ( &newValue ) = VT_EMPTY;
 	V_VT ( &cell ) = VT_EMPTY;
@@ -140,7 +137,6 @@ int PutCell ( int row, int column, OLECHAR *string, int val )
 
 error:
 
-
 	VariantClear ( &cell );
 	VariantClear ( &newValue );
 
@@ -186,7 +182,6 @@ int PutSeparator ( int row )
  	V_VT ( &cell2 ) = VT_BSTR;
  	V_BSTR ( &cell2 ) = SysAllocString (cellname2);
 
-
   if ( ! (dispatch = ws->GetRange (cell1, cell2 )))
 	{
 		goto error;
@@ -195,7 +190,6 @@ int PutSeparator ( int row )
 	range->AttachDispatch ( dispatch );
 
 	dispatch = range->GetBorders ();
-
 
 	borders = new Borders ( dispatch );
 
@@ -239,7 +233,6 @@ error:
 	return ok;
 }
 
-
 int PutSection ( int row, OLECHAR *title )
 {
 
@@ -268,7 +261,6 @@ int PutSection ( int row, OLECHAR *title )
  	V_VT ( &cell2 ) = VT_BSTR;
  	V_BSTR ( &cell2 ) = SysAllocString (cellname2);
 
-
   if ( ! (dispatch = ws->GetRange (cell1, cell2 )))
 	{
 		goto error;
@@ -277,7 +269,6 @@ int PutSection ( int row, OLECHAR *title )
 	range->AttachDispatch ( dispatch );
 
 	dispatch = range->GetBorders ();
-
 
 	borders = new Borders ( dispatch );
 
@@ -433,7 +424,6 @@ int OpenExcel ( void )
 		return FALSE;
 	}
 
-
 	V_VT ( &no ) = VT_BOOL;
 	V_VT ( &yes ) = VT_BOOL;
 	V_VT ( &dummy ) = VT_I4;
@@ -462,14 +452,12 @@ int OpenExcel ( void )
 	V_I4 ( &solid ) = xlSolid;
 	V_I4 ( &yellow ) = 6;
 
-
 	return TRUE;
 
 error_access:
 		AfxMessageBox ("Could not access Excel!\n\nMake sure Excel is installed on this system.");
 		return FALSE;
 }
-
 
 void CloseExcel ( void )
 {
@@ -589,7 +577,6 @@ int SaveWorkBook ( const char *filename, int protect )
 
 	V_VT ( &fileformat ) = VT_I4;
 	V_I4 ( &fileformat ) = xlWorkbookNormal;
-
 
 	V_VT ( &rc ) = VT_I4;
 	V_I4 ( &rc ) = xlLocalSessionChanges;

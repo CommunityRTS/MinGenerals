@@ -53,7 +53,6 @@
 #include "plane.h"
 #include "meshgeometry.h"
 
-
 class CameraClass;
 class AABoxClass;
 struct GradientsStruct;
@@ -140,9 +139,6 @@ inline bool IDBufferClass::Is_Backfacing(const Vector3 & p0,const Vector3 & p1,c
 	if (r<0.0f) return true;
 	return false;
 }
-
-
-
 
 /**
 ** VisRasterizerClass

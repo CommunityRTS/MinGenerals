@@ -32,7 +32,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // EulaDialog dialog
 
-
 EulaDialog::EulaDialog(CWnd* pParent /*=NULL*/)
 	: CDialog(EulaDialog::IDD, pParent)
 {
@@ -41,7 +40,6 @@ EulaDialog::EulaDialog(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EulaDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -49,7 +47,6 @@ void EulaDialog::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EulaDialog, CDialog)
 	//{{AFX_MSG_MAP(EulaDialog)

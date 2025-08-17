@@ -88,5 +88,4 @@ class Base64Straw : public Straw
 		Base64Straw & operator = (Base64Straw const & pipe);
 };
 
-
 #endif

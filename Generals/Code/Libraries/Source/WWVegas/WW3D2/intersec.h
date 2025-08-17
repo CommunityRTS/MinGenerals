@@ -41,8 +41,6 @@
 
 	Exceptions to this are the functions most commonly used by render objects:
 
-
-
 	The constructors/destructors are inline & implemented here.
 
 */
@@ -60,10 +58,8 @@
 #include "sphere.h"
 #include "coltype.h"
 
-
 class RenderObjClass;
 typedef unsigned short POLYGONINDEX;
-
 
 /*
 **
@@ -89,7 +85,6 @@ public:
 		POLYGON
 	} IntersectionType;
 };
-
 
 class IntersectionClass
 {
@@ -147,8 +142,6 @@ public:
 		ConvexTest = convex_test;
 	}
 
-
-
 	// this constructor uses static variables for the location/direction/normal variables
 	// so can be only used one thread at a time unless the Set() function is used to
 	// set them to private vector3's
@@ -161,16 +154,13 @@ public:
 		Result.CollisionType=COLLISION_TYPE_ALL;	//added for 'Generals'. MW
 	}
 
-
 	// This will be the most commonly used constructor
 	inline IntersectionClass(Vector3 *location, Vector3 *direction, Vector3 *intersection_normal, bool interpolate_normal = false, float max_distance = WWMATH_FLOAT_MAX, bool convex_test = false)
 	{
 		Set(location, direction, intersection_normal, interpolate_normal, max_distance, convex_test);
 	}
 
-
 	virtual ~IntersectionClass() {}
-
 
 	// this copy routine is used when the model coords are needed to be copied along with the other information.
 	inline void IntersectionClass::Copy_Results(IntersectionResultClass *Destination, IntersectionResultClass *Source) {
@@ -180,11 +170,9 @@ public:
 		Destination->IntersectedRenderObject = Source->IntersectedRenderObject;
 	}
 
-
 	inline void IntersectionClass::Copy_Results(IntersectionResultClass *Source) {
 		Copy_Results(&Result, Source);
 	}
-
 
 	// this is called only for the nearest intersection. If the request passes a Interpolated_Normal pointer then it will be calculated.
 	// otherwise the results are copied into the request structure.
@@ -201,13 +189,11 @@ public:
 		Destination->IntersectionType = Source->IntersectionType;
 	}
 
-
 	// used for creating temporary copies
 	inline IntersectionClass(IntersectionClass *source)
 	{
 		*this = source;
 	}
-
 
 	inline IntersectionClass *operator =(IntersectionClass *source)
 	{
@@ -215,8 +201,6 @@ public:
 		Copy_Results(&source->Result);
 		return this;
 	}
-
-
 
 	// find the range to the intersection of the ray and sphere (if any)
 	// note: Intersection_Request->RayDirection must be a unit vector
@@ -241,7 +225,6 @@ public:
 		return FinalResult->Intersects = true;
 	}
 
-
 	// this will find the intersection with the sphere and the intersection normal if needed.
 	inline bool IntersectionClass::Intersect_Sphere(SphereClass &Sphere, IntersectionResultClass *FinalResult)
 	{
@@ -261,7 +244,6 @@ public:
 		}
 		return true;
 	}
-
 
 	// inline declarations
 	// Usage of these functions requires including intersec.inl
@@ -304,14 +286,11 @@ public:
 	*/
 	static inline float _Get_Z_Elevation(Vector3 &Point, Vector3 &PlanePoint, Vector3 &PlaneNormal);
 
-
 	// test a 2d screen area with the intersection's screen coords, assigning a GENERIC intersection
 	// to the specified object.
 	inline bool Intersect_Screen_Object(IntersectionResultClass *Final_Result, Vector4 &Area, RenderObjClass *obj = 0);
 
-
 	// non-inlined declarations
-
 
 	// accumulates an object array for passing into Intersect_ObjectArray
 	void Append_Object_Array(int MaxCount, int &CurrentCount, RenderObjClass **ObjectArray, RenderObjClass *Object);
@@ -343,7 +322,6 @@ public:
 	** Identifies exactly what sub object of a render object is under the screen space vector
 	*/
 	RenderObjClass *Intersect_Sub_Object(float screenx, float screeny, LayerClass &layer, RenderObjClass *robj, IntersectionResultClass *result);
-
 
 	/*
 	**	Functions related to determining if a 3d point is within a triangle.
@@ -388,8 +366,6 @@ protected:
 		const Vector3 & edge_point1
 	);
 
-
-
 	inline float Plane_Z_Distance(Vector3 &PlaneNormal, Vector3 &PlanePoint);
 	inline void Transform_Model_To_World_Coords(IntersectionResultClass *FinalResult);
 
@@ -399,6 +375,5 @@ protected:
 	static Vector3 _RayLocation, _RayDirection, _IntersectionNormal;
 
 };
-
 
 #endif

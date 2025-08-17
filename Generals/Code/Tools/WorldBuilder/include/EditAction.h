@@ -25,7 +25,6 @@
 // EditAction.h : header file
 //
 
-
 class ScriptAction;
 class SidesList;
 
@@ -43,7 +42,6 @@ public:
 	enum { IDD = IDD_ScriptAction };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "w3dutil.h"
 #include "w3ddesc.h"
 #include "rcmenu.h"
@@ -50,17 +49,14 @@
 #include "floaterdialog.h"
 #include <StdMat.h>
 
-
 #define DAZZLE_SETTINGS_FILENAME		"dazzle.ini"
 #define DAZZLE_TYPES_SECTION			"Dazzles_List"
 #define DAZZLE_SECTION_BUFFERSIZE	32767
-
 
 static BOOL CALLBACK _settings_form_dlg_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 static BOOL CALLBACK _w3d_utility_tools_dlg_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 static VisibleSelectedINodeFilter _INodeFilter;
-
 
 /**********************************************************************************************
 **
@@ -106,7 +102,6 @@ RefResult MaterialReferenceMaker::NotifyRefChanged(Interval changeInt,RefTargetH
 
 int MaterialReferenceMaker::ReferenceCount;
 
-
 /**********************************************************************************************
 **
 ** SettingsFormClass - code for the W3DUTILITY_SETTINGS_DIALOG.  Used in the command panel
@@ -139,7 +134,6 @@ private:
 	static SettingsFormClass *	ActiveList;
 
 };
-
 
 /**********************************************************************************************
 **
@@ -300,7 +294,6 @@ public:
 
 static W3DUtilityClass TheW3DUtility;
 
-
 /**********************************************************************************************
 **
 ** W3DUtilityClassDesc - Class Descriptor for the W3D Utility
@@ -359,7 +352,6 @@ void W3DUtilityClass::BeginEditParams(Interface *ip,IUtil *iu)
 		_w3d_utility_tools_dlg_proc,
 		Get_String(IDS_W3DUTILITY_TOOLS),
 		0);
-
 
 //	TheRCMenu.Bind(TheW3DUtility.InterfacePtr,&TheW3DUtility);
 //	RightClickMenuManager *rcm = ip->GetRightClickMenuManager();
@@ -1278,7 +1270,6 @@ void W3DUtilityClass::generate_material_names(Mtl * mtl)
 	}
 }
 
-
 W3DAppData0Struct * W3DUtilityClass::get_app_data_0(INode * node)
 {
 	/*
@@ -1297,7 +1288,6 @@ W3DAppData0Struct * W3DUtilityClass::get_app_data_0(INode * node)
 
 	return wdata;
 }
-
 
 W3DAppData1Struct * W3DUtilityClass::get_app_data_1(INode * node)
 {
@@ -1319,18 +1309,15 @@ W3DAppData1Struct * W3DUtilityClass::get_app_data_1(INode * node)
 	return wdata;
 }
 
-
 W3DAppData2Struct * W3DUtilityClass::get_app_data_2(INode * node)
 {
 	return W3DAppData2Struct::Get_App_Data(node);
 }
 
-
 W3DDazzleAppDataStruct * W3DUtilityClass::get_dazzle_app_data(INode * node)
 {
 	return W3DDazzleAppDataStruct::Get_App_Data(node);
 }
-
 
 /**********************************************************************************************
 **
@@ -1410,8 +1397,6 @@ static BOOL CALLBACK _w3d_utility_tools_dlg_proc(HWND hWnd, UINT msg, WPARAM wPa
 	return TRUE;
 }
 
-
-
 /**********************************************************************************************
 **
 ** SettingsFormClass Implementation
@@ -1490,7 +1475,6 @@ SettingsFormClass::~SettingsFormClass(void)
 	Hwnd = NULL;
 }
 
-
 void SettingsFormClass::Update_All_Instances(void)
 {
 	if (ActiveList == NULL) {
@@ -1513,7 +1497,6 @@ void SettingsFormClass::Update_All_Instances(void)
 		form = form->Next;
 	}
 }
-
 
 void SettingsFormClass::Init(void)
 {
@@ -1619,7 +1602,6 @@ bool SettingsFormClass::Dialog_Proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM 
 			INodeListClass node_list(	::GetCOREInterface()->GetRootNode(),
 												::GetCOREInterface()->GetTime(),
 												&_INodeFilter	);
-
 
 			switch (LOWORD(wParam))
 			{
@@ -1777,7 +1759,6 @@ bool SettingsFormClass::Dialog_Proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM 
 				ReleaseICustEdit(edit_ctrl);
 				break;
 			}
-
 
 		default:
 			return FALSE;
@@ -1960,7 +1941,6 @@ void SettingsFormClass::Update_Controls(INodeListClass * node_list)
 	CheckDlgButton(Hwnd,IDC_GEOMETRY_DAZZLE,(ns.GeometryDazzle ? BST_CHECKED : BST_UNCHECKED));
 }
 
-
 void SettingsFormClass::Disable_Controls(void)
 {
 	EnableWindow(GetDlgItem(Hwnd,IDC_OBJ_NAME),FALSE);
@@ -2021,7 +2001,6 @@ void SettingsFormClass::Disable_Controls(void)
 	CheckDlgButton(Hwnd,IDC_COLLISION_CAMERA,BST_UNCHECKED);
 	CheckDlgButton(Hwnd,IDC_COLLISION_VEHICLE,BST_UNCHECKED);
 }
-
 
 /*
 ** Functions to access the W3D AppData of any INode.

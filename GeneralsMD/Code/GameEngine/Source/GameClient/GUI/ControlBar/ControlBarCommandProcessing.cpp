@@ -62,7 +62,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 struct SelectObjectsInfo
@@ -96,7 +95,6 @@ void selectObjectOfType( Object* obj, void* selectObjectsInfo )
 }
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
 
 //-------------------------------------------------------------------------------------------------
 /** Process a button transition message from the window system that should be for one of
@@ -160,7 +158,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 	// the context sensitive gui only is only made of buttons ... sanity
 	if( control->winGetInputFunc() != GadgetPushButtonInput )
 		return CBC_COMMAND_NOT_USED;
-
 
 	if( commandButton == NULL )
 		return CBC_COMMAND_NOT_USED;
@@ -277,7 +274,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 
 		}  // end dozer construct
 
-
 		case GUI_COMMAND_SPECIAL_POWER_CONSTRUCT_FROM_SHORTCUT:
 		{
 			//Determine the object that would construct it.
@@ -367,8 +363,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 			break;
 
 		}  // end dozer construct
-
-
 
 		//---------------------------------------------------------------------------------------------
 		case GUI_COMMAND_DOZER_CONSTRUCT_CANCEL:
@@ -883,7 +877,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				switchToContext( CB_CONTEXT_NONE, NULL );
 				break;
 			}
-
 
 			GameMessage *msg = TheMessageStream->appendMessage( GameMessage::MSG_PURCHASE_SCIENCE );
 			msg->appendIntegerArgument( st );

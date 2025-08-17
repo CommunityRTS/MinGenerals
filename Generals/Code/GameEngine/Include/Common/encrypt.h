@@ -40,4 +40,3 @@ const char *EncryptString(const char *);
 
 #endif
 
-

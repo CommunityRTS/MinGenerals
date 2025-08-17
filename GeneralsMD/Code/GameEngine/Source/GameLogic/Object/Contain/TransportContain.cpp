@@ -120,8 +120,6 @@ void TransportContainModuleData::buildFieldParse(MultiIniFieldParse& p)
   p.add(dataFieldParse);
 }
 
-
-
 // PRIVATE ////////////////////////////////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------------------------------
@@ -182,7 +180,6 @@ Bool TransportContain::isValidContainerFor(const Object* rider, Bool checkCapaci
 		}
 	}
 
-
 	// extend functionality
 	if( OpenContain::isValidContainerFor( rider, checkCapacity ) == false )
 		return false;
@@ -215,8 +212,6 @@ Bool TransportContain::isValidContainerFor(const Object* rider, Bool checkCapaci
 		return true;
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -275,8 +270,6 @@ void TransportContain::letRidersUpgradeWeaponSet( void )
   	self->clearWeaponSetFlag( WEAPONSET_PLAYER_UPGRADE );
 
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -418,7 +411,6 @@ void TransportContain::onRemoving( Object *rider )
 	}
 
 	m_frameExitNotBusy = TheGameLogic->getFrame() + d->m_exitDelay;
-
 
   if ( d->m_armedRidersUpgradeWeaponSet )
     letRidersUpgradeWeaponSet();
@@ -616,8 +608,6 @@ Bool TransportContain::isPassengerAllowedToFire( ObjectID id ) const
     if ( hisContain && hisContain->isSpecialOverlordStyleContainer() )
       return hisContain->isPassengerAllowedToFire( id );
   }
-
-
 
 	return OpenContain::isPassengerAllowedToFire();
 }

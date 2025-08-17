@@ -43,7 +43,6 @@ BlendEdgeTool::~BlendEdgeTool(void)
 {
 }
 
-
 /** Execute the tool on mouse down - Place an object. */
 void BlendEdgeTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)
 {

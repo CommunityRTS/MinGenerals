@@ -121,5 +121,4 @@ protected:
 	std::list<const Coord3D *> m_cachedHeroPosList;					//< cache of hero positions for drawing icons in radar overlay
 };
 
-
 #endif // __W3DRADAR_H_

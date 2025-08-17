@@ -90,7 +90,6 @@ class SysTimeClass
 
 extern SysTimeClass SystemTime;
 
-
 /***********************************************************************************************
  * SysTimeClass::Get -- Wrapper around system timeGetTime() api call                           *
  *                                                                                             *
@@ -129,14 +128,9 @@ WWINLINE unsigned long SysTimeClass::Get(void)
 	return(time + WrapAdd);
 }
 
-
-
 #ifdef timeGetTime
 #undef timeGetTime
 #define timeGetTime SystemTime.Get
 #endif //timeGetTime
-
-
-
 
 #endif //_SYSTIMER_H

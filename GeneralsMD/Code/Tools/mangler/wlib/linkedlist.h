@@ -74,7 +74,6 @@ class LinkedList
   bit8             removeHead(OUT T &node);
   bit8             removeTail(OUT T &node);
 
-
   // Get a node without removing from the list
   bit8             get(OUT T &node,sint32 pos);
   bit8             getHead(OUT T &node);
@@ -100,7 +99,6 @@ class LinkedList
   LNode<T>        *Current;    // Current pointer & index for speed only
   sint32           CurIndex;
 };
-
 
 //Create the empty list
 template <class T>
@@ -141,7 +139,6 @@ LinkedList<T> &LinkedList<T>::operator=(LinkedList<T> &other)
   }
   return(*this);
 }
-
 
 // Remove all the entries and free the memory
 template <class T>
@@ -242,7 +239,6 @@ bit8 LinkedList<T>::add(IN T &node,sint32 pos, OUT T **newnodeptr)
   return(TRUE);
 }
 
-
 // Add to the first node, all others get shifted down one slot
 template <class T>
 bit8 LinkedList<T>::addHead(IN T &node, OUT T **newnodeptr)
@@ -250,14 +246,12 @@ bit8 LinkedList<T>::addHead(IN T &node, OUT T **newnodeptr)
   return(add(node,0,newnodeptr));
 }
 
-
 // Append to the end of the list
 template <class T>
 bit8 LinkedList<T>::addTail(IN T &node, OUT T **newnodeptr)
 {
   return(add(node,length(),newnodeptr));
 }
-
 
 // Remove at the zero based index specified by 'pos'.  When removing from
 // a slot, all others get shifted up by one.
@@ -333,7 +327,6 @@ bit8 LinkedList<T>::remove(OUT T &node, sint32 pos)
     return(TRUE);
   }
 
-
   // If control reaches here we have to scan the whole thing
   item=Head->Next;  // Can start at node '1' because head was special cased
   for (int i=1; i<pos; i++) {
@@ -352,9 +345,6 @@ bit8 LinkedList<T>::remove(OUT T &node, sint32 pos)
   return(TRUE);
 }
 
-
-
-
 // Remove at the zero based index specified by 'pos'.  When removing from
 // a slot, all others get shifted up by one.
 template <class T>
@@ -364,7 +354,6 @@ bit8 LinkedList<T>::remove(sint32 pos)
   return(remove(temp_node,pos));
 }
 
-
 // Remove the first node of the list
 template <class T>
 bit8 LinkedList<T>::removeHead(OUT T &node)
@@ -372,15 +361,12 @@ bit8 LinkedList<T>::removeHead(OUT T &node)
   return(remove(node,0));
 }
 
-
 // Remove the last node of the list
 template <class T>
 bit8 LinkedList<T>::removeTail(OUT T &node)
 {
   return(remove(node,Entries-1));
 }
-
-
 
 template <class T>
 bit8 LinkedList<T>::get(OUT T &node, sint32 pos)
@@ -392,7 +378,6 @@ bit8 LinkedList<T>::get(OUT T &node, sint32 pos)
 
   return(retval);
 }
-
 
 template <class T>
 bit8 LinkedList<T>::getPointer(OUT T **node,sint32 pos)
@@ -451,7 +436,6 @@ bit8 LinkedList<T>::getPointer(OUT T **node,sint32 pos)
   return(TRUE);
 }
 
-
 // Remove the first node of the list
 template <class T>
 bit8 LinkedList<T>::getHead(OUT T &node)
@@ -459,14 +443,12 @@ bit8 LinkedList<T>::getHead(OUT T &node)
   return(get(node,0));
 }
 
-
 // Remove the last node of the list
 template <class T>
 bit8 LinkedList<T>::getTail(OUT T &node)
 {
   return(get(node,Entries-1));
 }
-
 
 template <class T>
 void LinkedList<T>::print(IN FILE *out)

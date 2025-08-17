@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "skin.h"
 #include "dllmain.h"
 #include "max.h"
@@ -71,7 +70,6 @@ ICustButton *		SkinWSMObjectClass::AddBonesButton = NULL;
 ICustButton *		SkinWSMObjectClass::RemoveBonesButton = NULL;
 ISpinnerControl *	SkinWSMObjectClass::BasePoseSpin = NULL;
 
-
 /*******************************************************************************
 **
 ** Class Descriptor for SkinWSMObjectClass
@@ -92,7 +90,6 @@ public:
 static SkinWSMObjectClassDesc _SkinWSMObjectDesc;
 ClassDesc * Get_Skin_Obj_Desc() { return &_SkinWSMObjectDesc; }
 
-
 /*******************************************************************************
 **
 ** Class Descriptor for the SkinModifier
@@ -112,8 +109,6 @@ public:
 
 static SkinModClassDesc _SkinModDesc;
 ClassDesc * Get_Skin_Mod_Desc() { return &_SkinModDesc; }
-
-
 
 /*******************************************************************************
 **
@@ -567,7 +562,6 @@ IOResult SkinWSMObjectClass::Load(ILoad * iload)
 	return IO_OK;
 }
 
-
 int SkinWSMObjectClass::Find_Closest_Bone(const Point3 & vertex)
 {
 	float mindist = 10000.0f;
@@ -587,8 +581,6 @@ int SkinWSMObjectClass::Find_Closest_Bone(const Point3 & vertex)
 
 	return minindex;
 }
-
-
 
 /*******************************************************************************
 **
@@ -631,13 +623,11 @@ void SkinModifierClass::Default_Init(void)
 	UnLinkButton = NULL;
 }
 
-
 RefTargetHandle SkinModifierClass::Clone(RemapDir & remap)
 {
 	SkinModifierClass * newmod = new SkinModifierClass(WSMNodeRef,(SkinWSMObjectClass *)WSMObjectRef);
 	return newmod;
 }
-
 
 void SkinModifierClass::BeginEditParams(IObjParam * ip, ULONG flags,Animatable * prev)
 {
@@ -671,7 +661,6 @@ void SkinModifierClass::BeginEditParams(IObjParam * ip, ULONG flags,Animatable *
 	ip->SetSubObjectLevel(SubObjSelLevel);
 
 }
-
 
 void SkinModifierClass::EndEditParams(IObjParam *ip, ULONG flags,Animatable *next)
 {
@@ -810,7 +799,6 @@ void SkinModifierClass::ModifyObject(TimeValue t, ModContext & mc, ObjectState *
 	*/
 	for (int vidx = 0; vidx < triobj->NumPoints(); vidx++) {
 
-
 		// TODO: Allow multiple bone influences here...
 		// issues - UI to set the weights, rebalance weights whenever
 		// a bone is deleted, should also then never get NULL bones
@@ -942,7 +930,6 @@ IOResult SkinModifierClass::LoadLocalData(ILoad *iload, LocalModData **pld)
 	*/
 	return newskin->Load(iload);
 }
-
 
 void SkinModifierClass::ActivateSubobjSel(int level, XFormModes & modes)
 {
@@ -1564,7 +1551,6 @@ void SkinModifierClass::Unlink_Verts(void)
 	nodes.DisposeTemporary();
 }
 
-
 /****************************************************************************
 **
 **    DIALOG BOX JUNK
@@ -1635,7 +1621,6 @@ static BOOL CALLBACK _sot_dialog_proc(HWND hWnd,UINT message,WPARAM wParam,LPARA
 	}
 	return TRUE;
 }
-
 
 /*********************************************************************************
 *
@@ -1715,7 +1700,6 @@ BOOL SkinWSMObjectClass::Skeleton_Dialog_Proc(HWND hWnd,UINT message,WPARAM wPar
 			InterfacePtr->RedrawViews(InterfacePtr->GetTime(),REDRAW_END);
 			return TRUE;
 
-
 		case WM_LBUTTONDOWN:
 		case WM_LBUTTONUP:
 		case WM_MOUSEMOVE:
@@ -1763,7 +1747,6 @@ static BOOL CALLBACK _bone_influence_dialog_thunk(HWND hWnd,UINT message,WPARAM 
 
 	return skinmod->Bone_Influence_Dialog_Proc(hWnd,message,wParam,lParam);
 }
-
 
 BOOL SkinModifierClass::Bone_Influence_Dialog_Proc(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam)
 {
@@ -1872,7 +1855,6 @@ static TriObject * Get_Tri_Object(TimeValue t,ObjectState & os,Interval & valid,
 	}
 	return NULL;
 }
-
 
 float Bone_Distance(INode * bone,TimeValue time,const Point3 & vertex)
 {

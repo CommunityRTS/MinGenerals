@@ -61,7 +61,6 @@
  *   AABTreeClass::Generate_OBBox_APT_Recursive -- recurse, generate the apt for a box and vie *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "aabtree.h"
 #include "aabtreebuilder.h"
 #include "wwdebug.h"
@@ -72,8 +71,6 @@
 #include "colmathinlines.h"
 #include "w3d_file.h"
 #include "chunkio.h"
-
-
 
 /***********************************************************************************************
  * AABTreeClass::AABTreeClass -- Constructor                                                   *
@@ -121,7 +118,6 @@ AABTreeClass::AABTreeClass(AABTreeBuilderClass * builder)
 	int curpolyindex = 0;
 	Build_Tree_Recursive(builder->Root,curpolyindex);
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::AABTreeClass -- copy constructor                                              *
@@ -195,7 +191,6 @@ AABTreeClass & AABTreeClass::operator = (const AABTreeClass & that)
 	return *this;
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Reset -- reset this tree, releases all allocated resources                    *
  *                                                                                             *
@@ -244,7 +239,6 @@ void AABTreeClass::Scale(float f)
 		Nodes[i].Max*=f;
 	}
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Build_Tree_Recursive -- Initializes this tree from the given builder          *
@@ -302,7 +296,6 @@ void AABTreeClass::Build_Tree_Recursive(AABTreeBuilderClass::CullNodeStruct * no
 	}
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Set_Mesh -- set the mesh pointer                                              *
  *                                                                                             *
@@ -319,7 +312,6 @@ void AABTreeClass::Set_Mesh(MeshGeometryClass * mesh)
 {
 	Mesh = mesh;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Generate_APT -- Generate an active poly table for the mesh                    *
@@ -339,8 +331,6 @@ void AABTreeClass::Generate_APT(const OBBoxClass & box,SimpleDynVecClass<uint32>
 	OBBoxAPTContextStruct context(box,apt);
 	Generate_OBBox_APT_Recursive(&(Nodes[0]),context);
 }
-
-
 
 /***********************************************************************************************
  * AABTreeClass::Generate_OBBox_APT_Recursive -- recursively generate the apt                  *
@@ -411,7 +401,6 @@ void AABTreeClass::Generate_OBBox_APT_Recursive(CullNodeStruct * node,OBBoxAPTCo
 	}
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Generate_APT -- generate an apt from a box and viewdir                        *
  *                                                                                             *
@@ -437,7 +426,6 @@ void AABTreeClass::Generate_APT
 	OBBoxRayAPTContextStruct context(box,viewdir,apt);
 	Generate_OBBox_APT_Recursive(&(Nodes[0]),context);
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Generate_OBBox_APT_Recursive -- recurse, generate the apt for a box and viewd *
@@ -509,7 +497,6 @@ void AABTreeClass::Generate_OBBox_APT_Recursive(CullNodeStruct * node, OBBoxRayA
 	}
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Cast_Ray_Recursive -- Internal implementation of Cast_Ray                     *
  *                                                                                             *
@@ -548,7 +535,6 @@ bool AABTreeClass::Cast_Ray_Recursive(CullNodeStruct * node,RayCollisionTestClas
 
 	return res;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Cast_Semi_Infinite_Axis_Aligned_Ray_Recursive -- Internal implementation      *
@@ -611,7 +597,6 @@ int AABTreeClass::Cast_Semi_Infinite_Axis_Aligned_Ray_Recursive(CullNodeStruct *
 	return count;
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Cast_AABox_Recursive -- internal implementation of Cast_AABox                 *
  *                                                                                             *
@@ -651,7 +636,6 @@ bool AABTreeClass::Cast_AABox_Recursive(CullNodeStruct * node,AABoxCollisionTest
 	return res;
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Cast_OBBox_Recursive -- Internal implementation of Cast_OBBox                 *
  *                                                                                             *
@@ -690,7 +674,6 @@ bool AABTreeClass::Cast_OBBox_Recursive(CullNodeStruct * node,OBBoxCollisionTest
 
 	return res;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Intersect_OBBox_Recursive -- internal implementation of Intersect_OBBox       *
@@ -795,7 +778,6 @@ bool AABTreeClass::Cast_Ray_To_Polys(CullNodeStruct * node,RayCollisionTestClass
 #pragma optimize("", on)
 #endif
 
-
 /***********************************************************************************************
  * AABTreeClass::Cast_Semi_Infinite_Axis_Aligned_Ray_To_Polys -- cast ray to polys in the node *
  *                                                                                             *
@@ -849,7 +831,6 @@ int AABTreeClass::Cast_Semi_Infinite_Axis_Aligned_Ray_To_Polys(CullNodeStruct * 
 
 	return count;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Cast_AABox_To_Polys -- cast aabox to polys in the given node                  *
@@ -910,7 +891,6 @@ bool AABTreeClass::Cast_AABox_To_Polys(CullNodeStruct * node,AABoxCollisionTestC
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Cast_OBBox_To_Polys -- cast obbox to polys in the given node                  *
@@ -975,7 +955,6 @@ bool AABTreeClass::Cast_OBBox_To_Polys(CullNodeStruct * node,OBBoxCollisionTestC
 
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Intersect_OBBox_With_Polys -- Test polys for intersection                     *
  *                                                                                             *
@@ -1031,7 +1010,6 @@ bool AABTreeClass::Intersect_OBBox_With_Polys
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Update_Bounding_Boxes_Recursive -- recompute the bounding boxes               *
@@ -1108,7 +1086,6 @@ void AABTreeClass::Update_Bounding_Boxes_Recursive(CullNodeStruct * node)
 	WWASSERT(node->Max.Z != -100000.0f);
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Update_Min_Max -- updates min and max given a polygon index                   *
  *                                                                                             *
@@ -1137,7 +1114,6 @@ void AABTreeClass::Update_Min_Max(int poly_index,Vector3 & min,Vector3 & max)
 		if (point->Z  > max.Z) max.Z = point->Z;
 	}
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Load_W3D -- Load a W3D description of an AABTree                              *
@@ -1181,7 +1157,6 @@ void AABTreeClass::Load_W3D(ChunkLoadClass & cload)
 	}
 }
 
-
 /***********************************************************************************************
  * AABTreeClass::Read_Poly_Indices -- load the polygon index array                             *
  *                                                                                             *
@@ -1198,7 +1173,6 @@ void AABTreeClass::Read_Poly_Indices(ChunkLoadClass & cload)
 {
 	cload.Read(PolyIndices,sizeof(uint32) * PolyCount);
 }
-
 
 /***********************************************************************************************
  * AABTreeClass::Read_Nodes -- Load the node array                                             *
@@ -1231,6 +1205,4 @@ void AABTreeClass::Read_Nodes(ChunkLoadClass & cload)
 		Nodes[i].BackOrPolyCount = w3dnode.BackOrPolyCount;
 	}
 }
-
-
 

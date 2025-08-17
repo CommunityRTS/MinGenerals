@@ -89,14 +89,12 @@
 // A network connection is closed
 #define CHAT_S_CON_DISCONNECTED   MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 303)
 
-
 // Find - Nick not in system
 #define CHAT_S_FIND_NOTHERE   MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 304)
 // Find - Not in any channels
 #define CHAT_S_FIND_NOCHAN   MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 305)
 // Find - user has find turned off
 #define CHAT_S_FIND_OFF   MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 306)
-
 
 // Page - Nick not in system
 #define CHAT_S_PAGE_NOTHERE   MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 307)
@@ -105,12 +103,6 @@
 
 // This channel list is only a ping update
 #define CHAT_S_PINGLIST  MAKE_HRESULT( SEVERITY_SUCCESS, FACILITY_ITF, 315)
-
-
-
-
-
-
 
 //
 // Request errors (returned from the RequestFoo calls)
@@ -132,7 +124,6 @@
 #define CHAT_E_JOINCHANNEL		MAKE_HRESULT( SEVERITY_ERROR, FACILITY_ITF, 509)
 // Tried to join a non-existant channel
 #define CHAT_E_UNKNOWNCHANNEL	MAKE_HRESULT( SEVERITY_ERROR, FACILITY_ITF, 510)
-
 
 //
 // Request success codes
@@ -168,6 +159,5 @@
 #define CHAN_MODE_KEY         0x0100
 #define CHAN_MODE_BAN         0x0200
 #define CHAN_MODE_LIMIT       0x0400
-
 
 #endif

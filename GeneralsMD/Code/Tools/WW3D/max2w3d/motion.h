@@ -35,10 +35,8 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef MOTION_H
 #define MOTION_H
-
 
 #ifndef ALWAYS_H
 #include "always.h"
@@ -67,7 +65,6 @@
 #endif
 
 struct W3dExportOptionsStruct;
-
 
 class MotionClass
 {
@@ -159,6 +156,5 @@ private:
 	void			init(void);
 
 };
-
 
 #endif /*MOTION_H*/

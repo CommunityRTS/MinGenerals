@@ -60,7 +60,6 @@ Font3DDataClass::Font3DDataClass( const char *filename )
 	Name = strupr( Name);
 }
 
-
 /***********************************************************************************************
  *                                                                                             *
  * Font3DDataClass::~Font3DDataClass -- destructor																	  *
@@ -75,7 +74,6 @@ Font3DDataClass::~Font3DDataClass(void)
 
 	REF_PTR_RELEASE(Texture);
 }
-
 
 /***********************************************************************************************
  *                                                                                             *
@@ -262,7 +260,6 @@ bool	Font3DDataClass::Load_Font_Image( const char *filename )
 		int	column = 0;
 		int	width = sd.Width;
 
-
 		// for each char, find the uv start location and set the
 		// mono-spaced width and height in normalized screen units
 		for (int char_index = 0; char_index < 256; char_index++) {
@@ -340,7 +337,6 @@ bool	Font3DDataClass::Load_Font_Image( const char *filename )
 	// return SUCCESS!
 	return true;
 }
-
 
 /***********************************************************************************************
  *                                                                                             *

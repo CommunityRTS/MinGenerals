@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -63,5 +62,4 @@ typedef MultiListClass<RenderObjClass>			NonRefRenderObjListClass;
 typedef MultiListIterator<RenderObjClass>		NonRefRenderObjListIterator;
 
 #endif
-
 

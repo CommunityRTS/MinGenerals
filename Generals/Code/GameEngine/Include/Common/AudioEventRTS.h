@@ -149,7 +149,6 @@ public:
 	Bool getUninterruptable( ) const { return m_uninterruptable; }
 	void setUninterruptable( Bool uninterruptable ) { m_uninterruptable = uninterruptable; }
 
-
 	// This will retrieve the appropriate position based on type.
 	const Coord3D *getCurrentPosition( void );
 

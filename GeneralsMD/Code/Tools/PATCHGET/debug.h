@@ -36,7 +36,6 @@ void DebugLog( const char *fmt, ... );
 
 #endif // DEBUG
 
-
 #ifdef DEBUG_CRASHING
 
 	extern void DebugCrash(const char *format, ...);

@@ -73,7 +73,6 @@
 
 static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 
-
 /*
 #define SC_ALPHA_MIRROR ( SHADE_CNST(ShaderClass::PASS_LEQUAL, ShaderClass::DEPTH_WRITE_DISABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_SRC_ALPHA, \
 	ShaderClass::DSTBLEND_ONE_MINUS_SRC_ALPHA, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_MODULATE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
@@ -567,7 +566,6 @@ W3DTreeBuffer::W3DTreeBuffer(void)
 	m_initialized = true;
 }
 
-
 //=============================================================================
 // W3DTreeBuffer::freeTreeBuffers
 //=============================================================================
@@ -655,7 +653,6 @@ void W3DTreeBuffer::addTree(Coord3D loc, Real scale, Real angle, AsciiString nam
 	m_numTrees++;
 }
 
-
 //=============================================================================
 // W3DTreeBuffer::drawTrees
 //=============================================================================
@@ -690,5 +687,4 @@ void W3DTreeBuffer::drawTrees(CameraClass * camera, RefRenderObjListIterator *pD
 	// Draw all the trees.
 	DX8Wrapper::Draw_Triangles(	m_curTreeIndexOffset, m_curNumTreeIndices/3, 0,	m_curNumTreeVertices);
 }
-
 

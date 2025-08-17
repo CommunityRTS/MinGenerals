@@ -53,5 +53,4 @@ class NoInitClass {
 };
 #endif
 
-
 #endif

@@ -48,7 +48,6 @@
 #include "W3DDevice/GameClient/W3DScene.h"
 #include "W3DDevice/GameClient/W3DShadow.h"
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 W3DDefaultDraw::W3DDefaultDraw(Thing *thing, const ModuleData* moduleData) : DrawModule(thing, moduleData)
@@ -67,7 +66,6 @@ W3DDefaultDraw::W3DDefaultDraw(Thing *thing, const ModuleData* moduleData) : Dra
 		shadowInfo.m_offsetX=0;
 		shadowInfo.m_offsetY=0;
   		m_shadow = TheW3DShadowManager->addShadow(m_renderObject, &shadowInfo);
-
 
 		DEBUG_ASSERTCRASH(m_renderObject, ("Test asset %s not found", getDrawable()->getTemplate()->getLTAName().str()));
 		if (m_renderObject)

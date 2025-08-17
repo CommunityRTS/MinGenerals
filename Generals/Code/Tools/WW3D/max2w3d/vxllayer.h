@@ -35,12 +35,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef VXLLAYER_H
 #define VXLLAYER_H
 
 #include <Max.h>
-
 
 #ifndef BITTYPE_H
 #include "bittype.h"
@@ -55,7 +53,6 @@ const sint8 VOXEL_SOLID = 1;				// voxels that are part of the object
 const sint8 VOXEL_UNKNOWN = -1;			// either inside or outside, don't know yet
 const int max_bitmap_width = 256;
 const int max_bitmap_height = 256;
-
 
 class VoxelLayerClass
 {
@@ -144,6 +141,5 @@ protected:
 	int		bitmap_width;
 	int		bitmap_height;
 };
-
 
 #endif /*VXLLAYER_H*/

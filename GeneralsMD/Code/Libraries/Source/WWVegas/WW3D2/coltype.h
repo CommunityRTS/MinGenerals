@@ -37,15 +37,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
-
 #ifndef COLTYPE_H
 #define COLTYPE_H
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -87,8 +84,6 @@ enum
 	COLL_TYPE_CAMERA		=			COLL_TYPE_3,		// camera collision (99% should match physical setting)
 	COLL_TYPE_VEHICLE		=		COLL_TYPE_4,		// vehicles will collide with physical and this.
 };
-
-
 
 #endif
 

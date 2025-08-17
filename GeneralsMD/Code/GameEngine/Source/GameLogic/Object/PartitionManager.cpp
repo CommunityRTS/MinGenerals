@@ -1009,7 +1009,6 @@ private:
 	*/
 	enum { PartitionContactList_SOCKET_COUNT = 5381 };
 
-
 	PartitionContactListNode* m_contactHash[PartitionContactList_SOCKET_COUNT];
 	PartitionContactListNode* m_contactList;
 
@@ -2033,7 +2032,6 @@ void PartitionData::updateCellsTouched()
 	Coord3D pos;
 	Real angle,majorRadius,minorRadius;
 
-
 	Object *obj = getObject();
 	DEBUG_ASSERTCRASH(obj != NULL || m_ghostObject != NULL, ("must be attached to an Object here 1"));
 
@@ -2138,7 +2136,6 @@ static AsciiString theObjName;
 Int PartitionData::calcMaxCoiForShape(GeometryType geom, Real majorRadius, Real minorRadius, Bool isSmall)
 {
 	Int result;
-
 
   // THis is commented out, since some cases od big extets labeled small seem to be escaping.
   //M Lorenzen 8/26/03
@@ -2356,7 +2353,6 @@ inline UnsignedInt hash2ints(Int a, Int b)
 	}
 }
 
-
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -2401,7 +2397,6 @@ void PartitionContactList::addToContactList( PartitionData *obj, PartitionData *
 	ncd->m_next = m_contactList;
 	m_contactList = ncd;
 
-
 #if 0
 
 Int depth = 0;
@@ -2420,7 +2415,6 @@ if (depth > 3)
 	{
 		UnsignedInt rawhash = djb2hash2ints(cd2->m_obj->getObject()->getID(), cd2->m_other->getObject()->getID());
 		//hashValue %= PartitionContactList_SOCKET_COUNT;
-
 
 		DEBUG_LOG(("ENTRY: %s %08lx (%d) - %s %08lx (%d) [rawhash %d]\n",
 			cd2->m_obj->getObject()->getTemplate()->getName().str(),cd2->m_obj->getObject(),cd2->m_obj->getObject()->getID(),
@@ -2446,7 +2440,6 @@ aggcount += 1.0f;
 DEBUG_ASSERTLOG(((Int)aggcount)%1000!=0,("avg hash depth at %f is %f, fullness %f%%\n",
 aggcount,aggtotal/(aggcount*PartitionContactList_SOCKET_COUNT),(aggfull*100)/(aggcount*PartitionContactList_SOCKET_COUNT)));
 #endif
-
 
 }
 
@@ -3065,7 +3058,6 @@ CellShroudStatus PartitionManager::getShroudStatusForPlayer(Int playerIndex, con
 	return getShroudStatusForPlayer( playerIndex, x, y );
 }
 
-
 //-----------------------------------------------------------------------------
 ObjectShroudStatus PartitionManager::getPropShroudStatusForPlayer(Int playerIndex, const Coord3D *loc ) const
 {
@@ -3091,8 +3083,6 @@ ObjectShroudStatus PartitionManager::getPropShroudStatusForPlayer(Int playerInde
 	}
 	return OBJECTSHROUD_FOGGED;
 }
-
-
 
 #ifdef FASTER_GCO
 //-----------------------------------------------------------------------------
@@ -3445,7 +3435,6 @@ Object *PartitionManager::getClosestObjects(
 	return closestObj;	// might be null...
 }
 
-
 //-----------------------------------------------------------------------------
 Object *PartitionManager::getClosestObject(
 	const Object *obj,
@@ -3560,7 +3549,6 @@ Real PartitionManager::getRelativeAngle2D( const Object *obj, const Coord3D *pos
 	// normalize
 	if (dist == 0.0f)
 		return 0.0f;
-
 
 	const Coord3D *dir = obj->getUnitDirectionVector2D();
 
@@ -4913,7 +4901,6 @@ void PartitionManager::restoreFoggedCells(const ShroudStatusStoreRestore &inPart
 	}
 }
 
-
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -5011,7 +4998,6 @@ Bool PartitionFilterInsignificantBuildings::allow( Object *other )
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 
-
 //-----------------------------------------------------------------------------
 
 Bool PartitionFilterRepulsor::allow( Object *other )
@@ -5047,7 +5033,6 @@ Bool PartitionFilterRepulsor::allow( Object *other )
 
 	if ( other->isKindOf( KINDOF_INERT ))
 		return false;
-
 
 	if ( ! other->isAbleToAttack() )
 	{
@@ -5328,8 +5313,6 @@ Bool PartitionFilterRejectBehind::allow( Object *other )
 	return false;
 }
 
-
-
 //-----------------------------------------------------------------------------
 PartitionFilterLineOfSight::PartitionFilterLineOfSight(const Object *obj)
 {
@@ -5434,7 +5417,6 @@ PartitionFilterLastAttackedBy::PartitionFilterLastAttackedBy(Object *obj)
 	}
 }
 
-
 //-----------------------------------------------------------------------------
 
 Bool PartitionFilterLastAttackedBy::allow(Object *other)
@@ -5457,7 +5439,6 @@ Bool PartitionFilterAcceptByObjectStatus::allow(Object *objOther)
 	return status.testForAll( m_mustBeSet ) && status.testForNone( m_mustBeClear );
 }
 
-
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -5470,7 +5451,6 @@ Bool PartitionFilterRejectByObjectStatus::allow(Object *objOther)
 	return !( status.testForAll( m_mustBeSet ) && status.testForNone( m_mustBeClear ) );
 }
 
-
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -5481,7 +5461,6 @@ Bool PartitionFilterAcceptByKindOf::allow(Object *objOther)
 	return objOther->isKindOfMulti(m_mustBeSet, m_mustBeClear);
 }
 
-
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -5491,7 +5470,6 @@ Bool PartitionFilterRejectByKindOf::allow(Object *objOther)
 {
 	return !objOther->isKindOfMulti(m_mustBeSet, m_mustBeClear);
 }
-
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -5569,7 +5547,6 @@ Bool PartitionFilterStealthedAndUndetected::allow( Object *objOther )
 	//The unit is not stealthed!
 	return !m_allow;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

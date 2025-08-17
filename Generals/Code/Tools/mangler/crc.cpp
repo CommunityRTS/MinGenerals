@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <iostream>
 #include <signal.h>
 #ifdef _WINDOWS
@@ -35,9 +34,6 @@
 #include <wstring.h>
 #include <wdebug.h>
 #include <udp.h>
-
-
-
 
 /***************************************************************************
  * Add_CRC -- Adds a value to a CRC                                        *
@@ -75,7 +71,6 @@ void Add_CRC(unsigned long *crc, unsigned char val)
 
 	//cout << hex << (*crc) <<endl;
 }
-
 
 void Build_Packet_CRC(unsigned char *buf, int len)
 {
@@ -115,7 +110,6 @@ void Build_Packet_CRC(unsigned char *buf, int len)
 */
 	*crc_ptr = htonl(*crc_ptr);
 }
-
 
 /***********************************************************************************************
  * Passes_CRC_Check -- Checks the CRC for a packet                                             *

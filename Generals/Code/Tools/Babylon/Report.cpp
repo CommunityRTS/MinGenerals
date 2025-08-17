@@ -33,7 +33,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CReport dialog
 
-
 CReport::CReport(CWnd* pParent /*=NULL*/)
 	: CDialog(CReport::IDD, pParent)
 {
@@ -48,7 +47,6 @@ CReport::CReport(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CReport::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -56,7 +54,6 @@ void CReport::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CReport, CDialog)
 	//{{AFX_MSG_MAP(CReport)
@@ -110,7 +107,6 @@ BOOL CReport::OnInitDialog()
 	}
 	num_langs = index;
 
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -126,17 +122,13 @@ void CReport::OnInvert()
 	// TODO: Add your control notification handler code here
 	int index = 0;
 
-
 	while ( index < num_langs )
 	{
 		list->SetSel ( index,  !list->GetSel ( index ));
 		index++;
 	}
 
-
 }
-
-
 
 void CReport::OnShowDetails()
 {
@@ -205,7 +197,6 @@ void CReport::OnOK()
 	{
 		options.limit = INT_MAX;
 	}
-
 
 	CDialog::OnOK();
 }

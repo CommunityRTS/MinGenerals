@@ -164,7 +164,6 @@ void IntegrationSystem::Midpoint_Integrate(ODESystemClass * sys,float dt)
 	sys->Set_State(Y1);
 }
 
-
 /***********************************************************************************************
  * Runge_Kutta_Integrate -- Runge Kutta 4 method                                               *
  *                                                                                             *

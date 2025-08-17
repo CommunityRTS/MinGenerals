@@ -45,7 +45,6 @@ EyedropperTool::~EyedropperTool(void)
 {
 }
 
-
 /// Shows the terrain materials options panel.
 void EyedropperTool::activate()
 {

@@ -39,7 +39,6 @@ Standard type definitions for the sake of portability and readability.
 #define FALSE 0
 #endif
 
-
 //These are used for readability purposes mostly, when a method takes a
 //  pointer or reference these help specify what will happen to the data
 //  that is sent in.
@@ -49,14 +48,12 @@ Standard type definitions for the sake of portability and readability.
 
 typedef char               bit8;
 
-
 typedef char               sint8;
 typedef unsigned char      uint8;
 typedef signed short int   sint16;
 typedef unsigned short int uint16;
 typedef signed int         sint32;
 typedef unsigned int       uint32;
-
 
 #define MAX_BIT8    0x1
 #define MAX_UINT32  0xFFFFFFFF

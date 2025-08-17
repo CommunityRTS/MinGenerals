@@ -65,13 +65,11 @@
 //-----------------------------------------------------------------------------
 CampaignManager *TheCampaignManager = NULL;
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 const FieldParse CampaignManager::m_campaignFieldParseTable[] =
 {
@@ -215,7 +213,6 @@ Mission *Campaign::getNextMission( Mission *current)
 //	DEBUG_ASSERTCRASH(FALSE, ("GetNextMission couldn't find %s", current->m_nextMission.str()));
 	return NULL;
 }
-
 
 //-----------------------------------------------------------------------------
 CampaignManager::CampaignManager( void )
@@ -391,7 +388,6 @@ void CampaignManager::parseMissionPart( INI* ini, void *instance, void *store, c
 	ini->initFromINI(mission, myFieldParse);
 }
 
-
 //-----------------------------------------------------------------------------
 Campaign *CampaignManager::newCampaign(AsciiString name)
 {
@@ -512,8 +508,6 @@ void CampaignManager::loadPostProcess( void )
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-
-
 
 //-----------------------------------------------------------------------------
 Mission::Mission( void )

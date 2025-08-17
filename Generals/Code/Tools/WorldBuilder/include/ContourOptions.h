@@ -47,7 +47,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(ContourOptions)
@@ -80,7 +79,6 @@ public:
 	static Int getContourWidth(void) {return m_contourWidth;};  ///<Returns width.
 	static Int getContourOffset(void) {return m_contourOffset;}; ///<Returns offset.
 	static Int getContourStep(void) {return m_contourStep;}; ///<Returns step.
-
 
 };
 

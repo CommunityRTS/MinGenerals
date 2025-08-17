@@ -98,17 +98,10 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 // 30 fps
 Int TheW3DFrameLengthInMsec = 1000/LOGICFRAMES_PER_SECOND; // default is 33msec/frame == 30fps. but we may change it depending on sys config.
 static const Int MAX_REQUEST_CACHE_SIZE = 40;	// Any size larger than 10, or examine code below for changes. jkmcd.
 static const Real DRAWABLE_OVERSCAN = 75.0f;  ///< 3D world coords of how much to overscan in the 3D screen region
-
-
-
-
-
 
 //=================================================================================================
 inline Real minf(Real a, Real b) { if (a < b) return a; else return b; }
@@ -148,7 +141,6 @@ static Real getHeightAroundPos(Real x, Real y)
 
 	return terrainHeightMax;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -271,7 +263,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 	sourcePos.Y = m_cameraOffset.y*zoom;
 	sourcePos.Z = m_cameraOffset.z*zoom;
 
-
 #ifdef NOT_IN_USE
 	if (TheGlobalData->m_isOffsetCameraZ && TheTerrainLogic)
 	{
@@ -293,7 +284,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 	targetPos.X = 0;
 	targetPos.Y = 0;
 	targetPos.Z = 0;
-
 
 	Real factor = 1.0 - (groundLevel/sourcePos.Z );
 
@@ -502,7 +492,6 @@ void W3DView::init( void )
 
 	// create our 3D camera
 	m_3DCamera = NEW_REF( CameraClass, () );
-
 
 	setCameraTransform();
 
@@ -796,7 +785,6 @@ Bool W3DView::updateCameraMovements()
 	return didUpdate;
 }
 
-
 /** This function performs all actions which affect the camera transform or 3D objects
 	rendered in this frame.
 
@@ -865,7 +853,6 @@ void W3DView::update(void)
 				loseLock = true;
 		}
 #endif
-
 
 		if (loseLock)
 		{
@@ -1236,7 +1223,6 @@ void W3DView::calcDeltaScroll(Coord2D &screenDelta)
 	screenDelta.y = screen.Y-prevScreen.Y;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Draw member for the W3D window, this will literally draw the window
   * for this view */
@@ -1568,7 +1554,6 @@ void W3DView::setAngle( Real angle )
 	// call our base class, we are adding functionality
 	View::setAngle( angle );
 
-
 	m_doingMoveCameraOnWaypointPath = false;
 	m_doingRotateCamera = false;
 	m_doingPitchCamera = false;
@@ -1585,7 +1570,6 @@ void W3DView::setPitch( Real angle )
 {
 	// call our base class, we are extending functionality
 	View::setPitch( angle );
-
 
 	m_doingMoveCameraOnWaypointPath = false;
 	m_doingRotateCamera = false;
@@ -1825,7 +1809,6 @@ Int W3DView::iterateDrawablesInRegion( IRegion2D *screenRegion,
 
 	}  // end if
 
-
 	Drawable *onlyDrawableToTest = NULL;
 	if (regionIsPoint)
 	{
@@ -1976,7 +1959,6 @@ void W3DView::screenToTerrain( const ICoord2D *screen, Coord3D *world )
 		m_locationRequests.erase(m_locationRequests.begin(), m_locationRequests.begin() + 10);
 	}
 
-
 	// We insert them at the end for speed (no copies needed), but using the princ of locality, we should
 	// start searching where we most recently inserted
 	for (int i = m_locationRequests.size() - 1; i >= 0; --i) {
@@ -2027,7 +2009,6 @@ void W3DView::screenToTerrain( const ICoord2D *screen, Coord3D *world )
 void W3DView::lookAt( const Coord3D *o )
 {
 	Coord3D pos = *o;
-
 
 // no, don't call the super-lookAt, since it will munge our coords
 // as for a 2d view. just call setPosition.
@@ -2177,7 +2158,6 @@ void W3DView::rotateCameraTowardPosition(const Coord3D *pLoc, Int milliseconds)
 {
 	m_rcInfo.numHoldFrames = 0;
 	m_rcInfo.trackObject = FALSE;
-
 
 	if (milliseconds<1) milliseconds = 1;
 	m_rcInfo.numFrames = milliseconds/TheW3DFrameLengthInMsec;
@@ -2606,7 +2586,6 @@ void W3DView::setupWaypointPath(Bool orient)
 	m_mcwpInfo.cameraAngle[m_mcwpInfo.numWaypoints+1] = m_mcwpInfo.cameraAngle[m_mcwpInfo.numWaypoints];
 	m_mcwpInfo.groundHeight[m_mcwpInfo.numWaypoints+1] = newGround;
 
-
 	cur = m_mcwpInfo.waypoints[2];
 	prev = m_mcwpInfo.waypoints[1];
 	m_mcwpInfo.waypoints[0].x -= cur.x-prev.x;
@@ -2714,7 +2693,6 @@ void W3DView::rotateCameraOneFrame(void)
 			m_angle = angle;
 		}
 	}
-
 
 	if (m_rcInfo.curFrame >= m_rcInfo.numFrames + m_rcInfo.numHoldFrames) {
 		m_doingRotateCamera = false;
@@ -2921,7 +2899,6 @@ void W3DView::moveAlongWaypointPath(Int milliseconds)
 	m_cameraConstraint.hi.y = maxf(m_cameraConstraint.hi.y, result.y);
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** Add an impulse force to shake the camera.

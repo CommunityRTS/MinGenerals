@@ -42,7 +42,6 @@
  *   HLodSaveClass::save_proxy_array -- save the array of proxies (if any)                     *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "hlodsave.h"
 #include "meshcon.h"
 #include "errclass.h"
@@ -50,8 +49,6 @@
 #include "w3dappdata.h"
 #include "wwmath.h"	// NO_MAX_SCREEN_SIZE
 #include "exportlog.h"
-
-
 
 /* Behold, the applicable snippets of code from w3d_file.h that are applicable to this module!
 
@@ -81,7 +78,6 @@ struct W3dHLodSubObjectStruct
 	char						Name[W3D_NAME_LEN*2];
 };
 */
-
 
 /***********************************************************************************************
  * HLodSaveClass -- The constructor builds the whole HLOD tree in a form suitable for saving   *
@@ -207,7 +203,6 @@ HLodSaveClass::HLodSaveClass (MeshConnectionsClass **connections, int lod_count,
 
 }
 
-
 /***********************************************************************************************
  * ~HLodSaveClass -- Destructor blows away the dynamic memory we used.                         *
  *                                                                                             *
@@ -228,7 +223,6 @@ HLodSaveClass::~HLodSaveClass (void)
 		lod_array = NULL;
 	}
 }
-
 
 /***********************************************************************************************
  * HLodSaveClass::Save -- Method called when saving to a W3D file. Saves the chunks that       *
@@ -269,7 +263,6 @@ bool HLodSaveClass::Save(ChunkSaveClass &csave)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HLodSaveClass::save_header -- Write the header                                              *
  *                                                                                             *
@@ -295,7 +288,6 @@ bool HLodSaveClass::save_header (ChunkSaveClass &csave)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * HLodSaveClass::save_lod_arrays -- Writes each LOD                                           *
@@ -326,8 +318,6 @@ bool HLodSaveClass::save_lod_arrays(ChunkSaveClass &csave)
 	return true;
 }
 
-
-
 /***********************************************************************************************
  * HLodSaveClass::save_aggregate_array -- save the aggregates (if any)                         *
  *                                                                                             *
@@ -355,7 +345,6 @@ bool HLodSaveClass::save_aggregate_array(ChunkSaveClass & csave)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HLodSaveClass::save_proxy_array -- save the array of proxies (if any)                       *
  *                                                                                             *
@@ -382,7 +371,6 @@ bool HLodSaveClass::save_proxy_array(ChunkSaveClass & csave)
 	}
 	return true;
 }
-
 
 /***********************************************************************************************
  * HLodSaveClass::save_sub_object_array -- Writes the mesh to bone connectivity info for each  *
@@ -422,5 +410,4 @@ bool HLodSaveClass::save_sub_object_array(ChunkSaveClass &csave, const HLodArray
 
 	return true;
 }
-
 

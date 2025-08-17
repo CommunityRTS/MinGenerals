@@ -288,7 +288,6 @@ private:
 	inline void setFlag(PhysicsFlagsType f, Bool set) { if (set) m_flags |= f; else m_flags &= ~f; }
 	inline Bool getFlag(PhysicsFlagsType f) const { return (m_flags & f) != 0; }
 
-
 };
 
 //-------------------------------------------------------------------------------------------------

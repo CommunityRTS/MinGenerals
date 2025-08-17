@@ -67,7 +67,6 @@
  *		LaunchObjectClass::Launch											*
  *--------------------------------------------------------------------------*/
 
-
 #define  STRICT
 #include <windows.h>
 #include <windowsx.h>
@@ -176,7 +175,6 @@
 #define		PRODUCT_VOLUME_CD1	 			"Generals1"
 #define		PRODUCT_VOLUME_CD2	 			"Generals2"
 
-
 //-----------------------------------------------------------------------------
 // Global Variables
 //-----------------------------------------------------------------------------
@@ -216,7 +214,6 @@ char 		szVolumeName		[_MAX_PATH];
 
 char		szProduct_Name		[ _MAX_PATH ];
 
-
 #ifdef LEAN_AND_MEAN
 
 wchar_t 	szWideBuffer   		[ _MAX_PATH ];
@@ -249,7 +246,6 @@ enum
 	IDS_REGISTRY_KEY,
 	IDS_MAIN_WINDOW,
 
-
 	IDS_COUNT // keep this last
 };
 */
@@ -264,8 +260,6 @@ UnicodeString	productName;
 UnicodeString fullProductName;
 
 #endif
-
-
 
 bool		IsEnglish				= FALSE;
 bool		UseSounds				= FALSE;
@@ -285,9 +279,6 @@ int			SongNumber 				= 0;
 HANDLE		AppMutex				= NULL;
 HANDLE		GameAppMutex			= NULL;
 HANDLE		SetupAppMutex	 		= NULL;
-
-
-
 
 #ifdef LEAN_AND_MEAN
 
@@ -316,7 +307,6 @@ int			FlickerPositions[ NUM_FLICKER_POSITIONS ][2];
 char		szCDDrive[ MAX_PATH ];
 #endif
 
-
 //-----------------------------------------------------------------------------
 // Global Function Definitions
 //-----------------------------------------------------------------------------
@@ -342,7 +332,6 @@ BOOL 		Valid_Environment 			( void );
 BOOL 		CALLBACK	Dialog_Box_Proc	( HWND window_handle, UINT message, WPARAM w_param, LPARAM l_param );
 LRESULT 	CALLBACK	Wnd_Proc 		( HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam );
 
-
 //-----------------------------------------------------------------------------
 // Main & MainWindow Public Variables
 //-----------------------------------------------------------------------------
@@ -351,7 +340,6 @@ HINSTANCE	Main::hPrevInstance	= 0;
 HMODULE		Main::hModule		= 0;
 int 		Main::nCmdShow 		= 0;
 char   		MainWindow::szClassName[] = CLASS_NAME;
-
 
 //*****************************************************************************
 // WinMain -- 	Main Program Loop.
@@ -436,7 +424,6 @@ int PASCAL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpszCmd
 	CDList.Get_Volume_For_This_CD_Drive( szBuffer, szVolumeName );
 
 	Msg( __LINE__, __FILE__, "szVolumeName  = %s.", szVolumeName );
-
 
 #ifdef LEAN_AND_MEAN
 
@@ -548,7 +535,6 @@ int PASCAL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpszCmd
 	// Init the strings chosen.
 	//=========================================================================
 
-
 	Locale_Init( LanguageToUse, szPath );
 
 	/*
@@ -561,7 +547,6 @@ int PASCAL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpszCmd
 	}
 	*/
 
-
 	//-------------------------------------------------------------------------
 	// Get some pertinent strings.
 	//-------------------------------------------------------------------------
@@ -571,7 +556,6 @@ int PASCAL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpszCmd
 	//Locale_GetString( IDS_FULL_GAME_TITLE,	szFullProductName );
 //	Locale_GetString( IDS_REGISTRY_KEY,		szRegistryKey );
 //	Locale_GetString( IDS_MAIN_WINDOW,		szGameWindow );
-
 
 	//-------------------------------------------------------------------------
 	// Set other variables used through out.
@@ -899,7 +883,6 @@ void Prog_End ( void )
 	Debug_Date_And_Time_Stamp();
 }
 
-
 //*****************************************************************************
 // Main::MessageLoop -- Dispatch Message Loop.
 //
@@ -946,7 +929,6 @@ int Main::MessageLoop( void )
 
 	return( msg.wParam );
 }
-
 
 //*****************************************************************************
 // MainWindow::Register -- Register the Main Window.
@@ -1200,7 +1182,6 @@ LRESULT MainWindow::Window_Proc( HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM
 	return 0;
 }
 
-
 //*****************************************************************************
 // MainWindow::Is_Product_Registered -- Check the Registration Table information.
 //
@@ -1394,7 +1375,6 @@ BOOL MainWindow::Is_Product_Registered( void )
 
 	return( result );
 }
-
 
 //*****************************************************************************
 // MainWindow::Run_Explorer
@@ -1697,7 +1677,6 @@ unsigned int MainWindow::Run_OpenFile(int cd_drive, const char *filename, bool w
 
 	HANDLE hProcess;
 
-
 	BOOL ret = ShellExecuteEx(&executeInfo);
 
 	if ((ret == 0) || ((int)(executeInfo.hInstApp) <= 32)) {
@@ -1818,7 +1797,6 @@ unsigned int MainWindow::Run_Setup( HWND hWnd, RECT *rect, int cd_drive )
 	return( true );
 }
 
-
 //*****************************************************************************
 // MainWindow::Run_New_Account -- Create a new online account.
 //
@@ -1889,7 +1867,6 @@ unsigned int MainWindow::Run_New_Account ( HWND hWnd, RECT *rect )
 	LaunchObject.Set_Launch( true );
 	return( true );
 }
-
 
 //*****************************************************************************
 // MainWindow::Run_Register_Or_Auto_Update
@@ -1986,7 +1963,6 @@ unsigned int MainWindow::Run_Auto_Update ( HWND hWnd, RECT *rect )
 	}
 	return( result );
 }
-
 
 //*****************************************************************************
 // MainWindow::Run_Uninstall -- Main Window function to perform Setup tasks.
@@ -2239,7 +2215,6 @@ void MainWindow::Create_Buttons( HWND hWnd, RECT *dlg_rect )
 	Msg( __LINE__, TEXT(__FILE__), TEXT("next_button_name = %s."), next_button_name );
 	Msg( __LINE__, TEXT(__FILE__), TEXT("focused_button_name = %s."), focused_button_name );
 
-
 	//-------------------------------------------------------------------------
 	// INSTALL or PLAY?
 	//-------------------------------------------------------------------------
@@ -2473,7 +2448,6 @@ void MainWindow::Create_Buttons( HWND hWnd, RECT *dlg_rect )
 #endif
 }
 
-
 //*****************************************************************************
 // WndProc -- Get Main Window's Stored Word.
 //
@@ -2624,7 +2598,6 @@ BOOL CALLBACK  Dialog_Box_Proc( HWND window_handle, UINT message, WPARAM w_param
 	}
 	#endif
 
-
 	//-----------------------------------------------------------------------------------
 	// Process Dialogs messages.
 	//-----------------------------------------------------------------------------------
@@ -2650,7 +2623,6 @@ BOOL CALLBACK  Dialog_Box_Proc( HWND window_handle, UINT message, WPARAM w_param
 				WideCharToMultiByte( CodePage, 0, wideBuffer2.str(), wideBuffer2.getLength()+1, szBuffer, _MAX_PATH, NULL, NULL );
 
 #endif
-
 
 				SetWindowText( window_handle, szBuffer );
 
@@ -3470,8 +3442,6 @@ BOOL CALLBACK  Dialog_Box_Proc( HWND window_handle, UINT message, WPARAM w_param
 #else
 								ButtonList[i]->Draw_Text( hDC );
 #endif
-
-
 
 							} // end of if button
 
@@ -4363,7 +4333,6 @@ BOOL CALLBACK  Dialog_Box_Proc( HWND window_handle, UINT message, WPARAM w_param
 
 				}	// end of for
 
-
 			#if( USE_MOUSE_MOVES )
 	        	//-----------------------------------------------------------------------
 				// If a MouseMove was found to be in one of the buttons, then
@@ -4730,7 +4699,6 @@ BOOL Options( Command_Line_Arguments *Orgs )
 					}
 					break;
 
-
 			#endif
 
 				default:
@@ -5057,7 +5025,6 @@ void Cant_Find_MessageBox ( HINSTANCE hInstance, char *szPath )
 
 	sprintf( szBuffer1, szBuffer3, szPath );
 
-
 	if ( strlen( szPath ) < 3 )
 	{
 		MessageBox( NULL, "The path specified in Cant_Find_MessageBox was blank", "Autorun", MB_APPLMODAL | MB_OK );
@@ -5079,12 +5046,8 @@ void Cant_Find_MessageBox ( HINSTANCE hInstance, char *szPath )
 		return;
 	}
 
-
-
-
 	MessageBox( NULL, szBuffer1, szBuffer2, MB_APPLMODAL | MB_OK );
 }
-
 
 /******************************************************************************
  * Error_Message --
@@ -5125,9 +5088,7 @@ void Error_Message ( HINSTANCE hInstance, const char * title, const char * strin
 
 	MessageBox( NULL, "ERROR_UNDEFINED", "ERROR_UNDEFINED", MB_APPLMODAL | MB_OK );
 
-
 }
-
 
 /******************************************************************************
 / Launch Class Object
@@ -5322,7 +5283,6 @@ void Debug_Date_And_Time_Stamp ( void )
 //	Msg( __LINE__, __FILE__, "%s %s\n", asctime( today ), ampm );
 }
 
-
 bool Is_On_CD ( char *volume_name )
 {
 	char volume_to_match[ MAX_PATH ];
@@ -5386,8 +5346,6 @@ bool Prompt_For_CD ( HWND window_handle, char *volume_name, const char * message
 	return( true );
 }
 
-
-
 int Show_Message ( HWND window_handle, const char * message1, const char * message2 )
 {
 
@@ -5418,7 +5376,6 @@ int Show_Message ( HWND window_handle, const char * message1, const char * messa
 
 }
 
-
 void Reformat_Volume_Name ( char *volume_name, char *new_volume_name )
 {
 	char temp_volume_name[ MAX_PATH ];
@@ -5433,5 +5390,4 @@ void Reformat_Volume_Name ( char *volume_name, char *new_volume_name )
 		strcpy( new_volume_name, temp_volume_name );
 	}
 }
-
 

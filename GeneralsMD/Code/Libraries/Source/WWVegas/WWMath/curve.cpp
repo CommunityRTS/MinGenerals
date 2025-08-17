@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "curve.h"
 #include "wwdebug.h"
 #include "persistfactory.h"
@@ -77,7 +76,6 @@ enum
 	LINEARCURVE1D_CHUNK_CURVE1D			= 0x00020657,
 
 };
-
 
 /***********************************************************************************************
 **
@@ -156,7 +154,6 @@ void Curve3DClass::Set_Key(int i,const Vector3 & point)
 	assert(i < Keys.Count());
 	Keys[i].Point = point;
 }
-
 
 int Curve3DClass::Add_Key(const Vector3 & point,float t)
 {
@@ -261,8 +258,6 @@ bool Curve3DClass::Load(ChunkLoadClass & cload)
 	return true;
 }
 
-
-
 /***********************************************************************************************
 **
 ** LinearCurve3DClass Implementation
@@ -320,7 +315,6 @@ bool LinearCurve3DClass::Load(ChunkLoadClass & cload)
 
 	return true;
 }
-
 
 /***********************************************************************************************
 **
@@ -403,7 +397,6 @@ void Curve1DClass::Set_Key(int i,float point,unsigned int extra)
 	Keys[i].Point = point;
 	Keys[i].Extra = extra;
 }
-
 
 int Curve1DClass::Add_Key(float point,float t,unsigned int extra)
 {
@@ -587,5 +580,4 @@ bool LinearCurve1DClass::Load(ChunkLoadClass & cload)
 
 	return true;
 }
-
 

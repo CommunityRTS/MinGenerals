@@ -40,8 +40,6 @@
 #ifndef __WSYS_FILE_H
 #define __WSYS_FILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -51,8 +49,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -105,13 +101,10 @@ class File
 		Bool		m_deleteOnClose;					///< delete File object on close()
 		Int			m_access;									///< How the file was opened
 
-
 		File();											///< This class can only used as a base class
 		virtual				~File();
 
 	public:
-
-
 
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
 		virtual void	close( void );																			///< Close the file !!! File object no longer valid after this call !!!
@@ -138,7 +131,6 @@ class File
 		virtual Int		size( void );																				///< Returns the size of the file
 		virtual Int		position( void );																		///< Returns the current read/write position
 
-
 		void					setName( const Char *name );												///< Set the name of the file
 		Char*					getName( void );																		///< Returns a pointer to the name of the file
 		Bool					getName( Char *buffer, Int max );										///< Copies the name of the file to the buffer
@@ -146,9 +138,6 @@ class File
 
 		void					deleteOnClose ( void );															///< Causes the File object to delete itself when it closes
 };
-
-
-
 
 //----------------------------------------------------------------------------
 //           Inlining
@@ -158,10 +147,7 @@ inline Char* File::getName( void ) { return m_name;};
 inline Int File::getAccess( void ) { return m_access;};
 inline void File::deleteOnClose( void ) { m_deleteOnClose = TRUE;};
 
-
-
 // include FileSystem.h as it will be used alot with File.h
 //#include "wsys/FileSystem.h"
-
 
 #endif // __WSYS_FILE_H

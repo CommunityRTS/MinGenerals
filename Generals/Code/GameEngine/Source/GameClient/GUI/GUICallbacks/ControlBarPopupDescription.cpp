@@ -63,7 +63,6 @@
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
@@ -113,7 +112,6 @@ void ControlBarPopupDescriptionUpdateFunc( WindowLayout *layout, void *param )
 		theAnimateWindowManager->reverseAnimateWindow();
 	else if(!TheControlBar->getShowBuildTooltipLayout() && (!TheGlobalData->m_animateWindows || !useAnimation))
 		TheControlBar->deleteBuildTooltipLayout();
-
 
 	if ( useAnimation && theAnimateWindowManager && TheGlobalData->m_animateWindows)
 	{
@@ -170,7 +168,6 @@ void ControlBar::showBuildTooltipLayout( GameWindow *cmdButton )
 		}
 		return;
 	}
-
 
 	// will only get here the firsttime through the function through this window
 	if(!passedWaitTime)
@@ -234,9 +231,7 @@ void ControlBar::showBuildTooltipLayout( GameWindow *cmdButton )
 		theAnimateWindowManager->registerGameWindow( m_buildToolTipLayout->getFirstWindow(), WIN_ANIMATION_SLIDE_RIGHT_FAST, TRUE, 200 );
 	}
 
-
 }
-
 
 void ControlBar::repopulateBuildTooltipLayout( void )
 {

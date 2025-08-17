@@ -72,5 +72,4 @@ struct MiscAudio
 	AudioEventRTS m_aircraftWheelScreech;									///< When a jet lands on a runway.
 };
 
-
 #endif /* _MISCAUDIO_H_ */

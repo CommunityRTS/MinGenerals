@@ -76,7 +76,6 @@
 
 #define FILE_HEADER_NAME	"Texture File Cache Header"
 
-
 char  *TextureFileCache::_FileNamePtr = NULL;
 static int Instances=0;
 
@@ -96,7 +95,6 @@ static void Verify_Compression_Buffer()
 {
 	WWASSERT(compression_buffer[compression_buffer.Length()-1]==BUFFER_OVERRUN_TEST_VALUE);
 }
-
 
 class Compressor
 {
@@ -151,7 +149,6 @@ int Compressor::Decompress( const unsigned char * in, unsigned int in_len,
 
 	return TRUE;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// TextureFileCache /////////////////////////////////////////////
@@ -244,7 +241,6 @@ char *TextureFileCache::_Create_File_Name(const char *fileprefix)
 	return(_FileNamePtr);
 }
 
-
 /***********************************************************************************************
  * ~TextureFileCache::TextureFileCache -- Shut down texture cache system.            *
  *                                                                                             *
@@ -265,7 +261,6 @@ TextureFileCache::~TextureFileCache()
 	Instances--;
 	WWASSERT(!Instances);
 }
-
 
 /**************************************************************************
  * TextureFileCache::Reset_File -- virtual function to reset file and wri *
@@ -373,7 +368,6 @@ bool TextureFileCache::Save_Texture(const char *texturename, srTextureIFace::Mul
 														(unsigned int) 		  		surface->getDataSize(),
 														(unsigned char *) 			Get_Compression_Buffer(buf_size),
 														(unsigned *)			&compsize);
-
 
 		// Lots-o-test to make sure that the compression did what we want.
 		assert(retcode == TRUE);
@@ -858,7 +852,6 @@ void TextureFileCache::Add_Cached_Surface(srColorSurface *surface)
 	CachedSurfaces[surface_idx] = surface;
 	surface->addReference();
 }
-
 
 bool TextureFileCache::Validate_Texture(const char* FileName)
 {

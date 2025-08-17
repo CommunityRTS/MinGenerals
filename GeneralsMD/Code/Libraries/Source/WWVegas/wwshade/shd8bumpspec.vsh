@@ -55,11 +55,6 @@ dp3 SxT_WORLD.x, V_SxT, c[CV_WORLD_0]
 dp3 SxT_WORLD.y, V_SxT, c[CV_WORLD_1]
 dp3 SxT_WORLD.z, V_SxT, c[CV_WORLD_2]
 
-
-
-
-
-
 // transform light 0 by basis vectors to put it into texture space
 dp3 LIGHT_LOCAL.x, S_WORLD.xyz, c[CV_LIGHT_DIRECTION_0]
 dp3 LIGHT_LOCAL.y, T_WORLD.xyz, c[CV_LIGHT_DIRECTION_0]
@@ -78,7 +73,6 @@ dp3 WORLD_NORMAL.z, V_NORMAL, c[CV_WORLD_2]
 dp3 WORLD_NORMAL.w, WORLD_NORMAL, WORLD_NORMAL
 rsq WORLD_NORMAL.w, WORLD_NORMAL.w
 mul WORLD_NORMAL, WORLD_NORMAL, WORLD_NORMAL.w
-
 
 // calculate light 0 factor
 dp3 LIGHT_0.w, WORLD_NORMAL, c[CV_LIGHT_DIRECTION_0]	// L.N
@@ -119,7 +113,6 @@ mul LIGHT_LOCAL, LIGHT_LOCAL, c[CV_CONST].zzz
 mul LIGHT_LOCAL, LIGHT_LOCAL, c[CV_BUMPINESS].xxx
 add oD0, LIGHT_LOCAL, c[CV_BUMPINESS].yyy
 
-
 // calc light factor excluding bumped lights
 add LIGHT_0.w, c[CV_CONST].y, -LIGHT_0.w
 add LIGHT_1.w, c[CV_CONST].y, -LIGHT_1.w
@@ -127,7 +120,6 @@ add LIGHT_1.w, c[CV_CONST].y, -LIGHT_1.w
 mul LIGHT_0.w, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 mul LIGHT_1.w, c[CV_LIGHT_COLOR_1], LIGHT_1.w
 add oD0.w, LIGHT_0.w, LIGHT_1.w
-
 
 // calculate specular term
 
@@ -179,5 +171,4 @@ mul oT2, COL, c[CV_SPECULAR]
 
 mov oT0, V_TEXTURE
 mov oT1, V_TEXTURE
-
 

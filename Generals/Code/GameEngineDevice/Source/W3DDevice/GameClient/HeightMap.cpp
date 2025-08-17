@@ -517,7 +517,6 @@ Int HeightMapRenderObjClass::updateVB(DX8VertexBufferClass	*pVB, char *data, Int
 					pMap->getAlphaUVData(getXWithOrigin(i),getYWithOrigin(j), UA, VA, alpha, &flipForBlend, m_halfResMesh);
 				}
 
-
 				for (Int lightIndex=0; lightIndex < TheGlobalData->m_numGlobalLights; lightIndex++)
 				{
 					lightPos=&TheGlobalData->m_terrainLightPos[lightIndex];
@@ -855,7 +854,6 @@ Int HeightMapRenderObjClass::updateVBForLight(DX8VertexBufferClass	*pVB, char *d
 	return -1;
 }
 
-
 Int HeightMapRenderObjClass::updateVBForLightOptimized(DX8VertexBufferClass	*pVB, char *data, Int x0, Int y0, Int x1, Int y1, Int originX, Int originY, W3DDynamicLight *pLights[], Int numLights)
 {
 	Int i,j,k;
@@ -1049,8 +1047,6 @@ Int HeightMapRenderObjClass::updateVBForLightOptimized(DX8VertexBufferClass	*pVB
 	return -1;
 }
 
-
-
 //=============================================================================
 // HeightMapRenderObjClass::doPartialUpdate
 //=============================================================================
@@ -1242,7 +1238,6 @@ void HeightMapRenderObjClass::drawScorches(void)
 }
 #endif
 
-
 //-----------------------------------------------------------------------------
 //         Public Functions
 //-----------------------------------------------------------------------------
@@ -1370,7 +1365,6 @@ HeightMapRenderObjClass::HeightMapRenderObjClass(void)
 #endif
 	DX8Wrapper::SetCleanupHook(this);
 }
-
 
 //=============================================================================
 // HeightMapRenderObjClass::adjustTerrainLOD
@@ -1747,7 +1741,6 @@ bool HeightMapRenderObjClass::Cast_Ray(RayCollisionTestClass & raytest)
 				P3.Y=ADJUST_FROM_INDEX_TO_REAL(Y+1);
 				P3.Z=MAP_HEIGHT_SCALE*(float)getClipHeight(X, Y+1);
 
-
 				tri.V[0] = &P0;
 				tri.V[1] = &P1;
 				tri.V[2] = &P2;
@@ -1904,8 +1897,6 @@ Real HeightMapRenderObjClass::getHeightMapHeight(Real x, Real y, Coord3D* normal
 		Real deltaZ_Y_Right = deltaZ_Y1*(1.0f-fx) + fx*deltaZ_Y2;
 		Real deltaZ_Y = deltaZ_Y_Left*(1.0-fy) + fy*deltaZ_Y_Right;
 
-
-
 			Vector3 l2r, n2f, normalAtTexel;
 			l2r.Set(2*MAP_XY_FACTOR/MAP_HEIGHT_SCALE, 0, deltaZ_X);
 			n2f.Set(0, 2*MAP_XY_FACTOR/MAP_HEIGHT_SCALE, deltaZ_Y);
@@ -1915,7 +1906,6 @@ Real HeightMapRenderObjClass::getHeightMapHeight(Real x, Real y, Coord3D* normal
 			normal->z = normalAtTexel.Z;
 
 	}
-
 
 	return height;
 }
@@ -2276,8 +2266,6 @@ void HeightMapRenderObjClass::oversizeTerrain(Int tilesToOversize)
 	initHeightData(m_map->getDrawWidth(), m_map->getDrawHeight(), m_map, NULL);
 	m_needFullUpdate = true;
 }
-
-
 
 //=============================================================================
 // HeightMapRenderObjClass::Get_Obj_Space_Bounding_Sphere
@@ -2996,7 +2984,6 @@ void HeightMapRenderObjClass::addScorch(Vector3 location, Real radius, Scorches 
 #endif
 }
 
-
 //=============================================================================
 // HeightMapRenderObjClass::getStaticDiffuse
 //=============================================================================
@@ -3178,7 +3165,6 @@ void HeightMapRenderObjClass::On_Frame_Update(void)
 	Int originX,originY;
 	if (Scene==NULL) return;
 	RTS3DScene *pMyScene = (RTS3DScene *)Scene;
-
 
 	RefRenderObjListIterator pDynamicLightsIterator(pMyScene->getDynamicLights());
 	if (m_map == NULL) {
@@ -3463,8 +3449,6 @@ void HeightMapRenderObjClass::Notify_Added(SceneClass * scene)
 	scene->Register(this,SceneClass::ON_FRAME_UPDATE);
 }
 
-
-
 #define CENTER_LIMIT 2
 #define BIG_JUMP 16
 #define WIDE_STEP 32
@@ -3506,7 +3490,6 @@ static void calcVis(const FrustumClass & frustum, WorldHeightMap *pMap, Int minX
 
 			1     2
 
-
 			3			4 */
 
 	if (check(frustum, pMap, midX, maxY)) {
@@ -3544,7 +3527,6 @@ static void calcVis(const FrustumClass & frustum, WorldHeightMap *pMap, Int minX
 		calcVis(frustum, pMap, midX, minY, maxX, midY, limit);
 	}
 }
-
 
 //=============================================================================
 // HeightMapRenderObjClass::updateCenter
@@ -3823,7 +3805,6 @@ void HeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
 	if (m_treeBuffer) {
 		m_treeBuffer->setIsTerrain();
 	}
-
 
 #ifdef DO_UNIT_TIMINGS
 #pragma MESSAGE("*** WARNING *** DOING DO_UNIT_TIMINGS!!!!")

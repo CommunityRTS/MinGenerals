@@ -59,7 +59,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 static WindowLayout *quitMenuLayout = NULL;
 static WindowLayout *fullQuitMenuLayout = NULL;
@@ -437,7 +436,6 @@ void ToggleQuitMenu()
 			//if we're not in a multiplayer game, pause the game
 			TheGameLogic->setGamePaused(TRUE);
 		}
-
 
 		if (quitConfirmationWindow)
 			TheWindowManager->winDestroy(quitConfirmationWindow);

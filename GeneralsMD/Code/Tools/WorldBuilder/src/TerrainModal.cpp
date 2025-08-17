@@ -33,7 +33,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // TerrainModal dialog
 
-
 TerrainModal::TerrainModal(AsciiString path, WorldHeightMapEdit *pMap, CWnd* pParent  /*=NULL*/)
 	: CDialog(TerrainModal::IDD, pParent)
 {
@@ -44,7 +43,6 @@ TerrainModal::TerrainModal(AsciiString path, WorldHeightMapEdit *pMap, CWnd* pPa
 	m_map = pMap;
 }
 
-
 void TerrainModal::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -52,7 +50,6 @@ void TerrainModal::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 void TerrainModal::updateLabel(void)
 {
@@ -264,8 +261,6 @@ Bool TerrainModal::setTerrainTreeViewSelection(HTREEITEM parent, Int selection)
 	}
 	return(false);
 }
-
-
 
 BOOL TerrainModal::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

@@ -42,7 +42,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(EditObjectParameter)
@@ -51,7 +50,6 @@ public:
 	//}}AFX_VIRTUAL
 
 // Implementation
-
 
 protected:
 	HTREEITEM findOrAdd(HTREEITEM parent, const char *pLabel);

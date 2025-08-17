@@ -219,7 +219,6 @@ protected:
 		UnsignedInt m_taskOrderFrame;			///< logic frame we decided we wanted to do this task
 	} m_task[ DOZER_NUM_TASKS ];				///< tasks we want to do indexed by DozerTask
 
-
 	DozerTask m_currentTask;						///< current task the dozer is attending to (if any)
 
 	//
@@ -242,7 +241,6 @@ protected:
 	Bool m_forcedBusyPending;	// A supply truck can't tell the difference between Idle since
 														// I'm between docking states, or a Stop command without help.
 
-
 	WorkerStateMachine *m_workerMachine;
 	// The two state machines are not in Worker's machine because I need to be able to accept
 	// Dozer like commands while acting as a Supply Truck - that's how I switch.
@@ -263,7 +261,6 @@ private:
  	AudioEventRTS m_suppliesDepletedVoice;						///< Sound played when I take the last box.
 
 };
-
 
 #endif // __WORKER_AI_UPDATE_H_
 

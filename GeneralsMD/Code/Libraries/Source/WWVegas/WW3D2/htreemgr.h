@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -93,6 +92,5 @@ private:
 	HashTemplateClass<StringClass,HTreeClass*> TreeHash;
 
 };
-
 
 #endif

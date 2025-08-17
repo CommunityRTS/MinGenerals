@@ -140,9 +140,6 @@ inline const Image *GadgetTabControlGetEnabledImageBackground( GameWindow *g )		
 inline Color GadgetTabControlGetEnabledColorBackground( GameWindow *g )										{ return g->winGetEnabledColor( GTC_BACKGROUND ); }
 inline Color GadgetTabControlGetEnabledBorderColorBackground( GameWindow *g )							{ return g->winGetEnabledBorderColor( GTC_BACKGROUND ); }
 
-
-
-
 inline void GadgetTabControlSetDisabledImageTabZero( GameWindow *g, const Image *image )				{ g->winSetDisabledImage( GTC_TAB_0, image ); }
 inline void GadgetTabControlSetDisabledColorTabZero( GameWindow *g, Color color )				{ g->winSetDisabledColor( GTC_TAB_0, color ); }
 inline void GadgetTabControlSetDisabledBorderColorTabZero( GameWindow *g, Color color )	{ g->winSetDisabledBorderColor( GTC_TAB_0, color ); }
@@ -206,9 +203,6 @@ inline const Image *GadgetTabControlGetDisabledImageBackground( GameWindow *g )	
 inline Color GadgetTabControlGetDisabledColorBackground( GameWindow *g )										{ return g->winGetDisabledColor( GTC_BACKGROUND ); }
 inline Color GadgetTabControlGetDisabledBorderColorBackground( GameWindow *g )							{ return g->winGetDisabledBorderColor( GTC_BACKGROUND ); }
 
-
-
-
 inline void GadgetTabControlSetHiliteImageTabZero( GameWindow *g, const Image *image )				{ g->winSetHiliteImage( GTC_TAB_0, image ); }
 inline void GadgetTabControlSetHiliteColorTabZero( GameWindow *g, Color color )				{ g->winSetHiliteColor( GTC_TAB_0, color ); }
 inline void GadgetTabControlSetHiliteBorderColorTabZero( GameWindow *g, Color color )	{ g->winSetHiliteBorderColor( GTC_TAB_0, color ); }
@@ -271,7 +265,6 @@ inline void GadgetTabControlSetHiliteBorderColorBackground( GameWindow *g, Color
 inline const Image *GadgetTabControlGetHiliteImageBackground( GameWindow *g )										{ return g->winGetHiliteImage( GTC_BACKGROUND ); }
 inline Color GadgetTabControlGetHiliteColorBackground( GameWindow *g )										{ return g->winGetHiliteColor( GTC_BACKGROUND ); }
 inline Color GadgetTabControlGetHiliteBorderColorBackground( GameWindow *g )							{ return g->winGetHiliteBorderColor( GTC_BACKGROUND ); }
-
 
 // EXTERNALS //////////////////////////////////////////////////////////////////
 

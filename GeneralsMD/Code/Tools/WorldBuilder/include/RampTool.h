@@ -65,5 +65,4 @@ class RampTool : public Tool
 		void applyRamp(CWorldBuilderDoc* pDoc);
 };
 
-
 #endif /* _H_RAMPTOOL_ */

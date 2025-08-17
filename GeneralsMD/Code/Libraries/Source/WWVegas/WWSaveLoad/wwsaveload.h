@@ -55,6 +55,5 @@ public:
 	static void		Shutdown(void);
 };
 
-
 #endif
 

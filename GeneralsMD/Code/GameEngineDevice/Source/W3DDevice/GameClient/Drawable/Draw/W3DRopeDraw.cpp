@@ -134,7 +134,6 @@ void W3DRopeDraw::tossSegments()
 	m_segments.clear();
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void W3DRopeDraw::initRopeParms(Real length, Real width, const RGBColor& color, Real wobbleLen, Real wobbleAmp, Real wobbleRate)
@@ -280,7 +279,6 @@ void W3DRopeDraw::xfer( Xfer *xfer )
 
 	if (xfer->getXferMode() == XFER_LOAD)
 		tossSegments();
-
 
 }  // end xfer
 

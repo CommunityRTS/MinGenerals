@@ -39,12 +39,10 @@
  *   GameMtlVertexMaterialDlg::ActivateDlg -- activate / deactivate this dialog                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "GameMtlVertexMaterialDlg.h"
 #include "GameMtl.h"
 #include "dllmain.h"
 #include "resource.h"
-
 
 /***********************************************************************************************
  * GameMtlVertexMaterialDlg::GameMtlVertexMaterialDlg -- constructor                           *
@@ -82,7 +80,6 @@ GameMtlVertexMaterialDlg::GameMtlVertexMaterialDlg
 
 	Create_Form(parent,IDD_GAMEMTL_VERTEX_MATERIAL);
 }
-
 
 /***********************************************************************************************
  * GameMtlVertexMaterialDlg::~GameMtlVertexMaterialDlg -- destructor                           *
@@ -125,7 +122,6 @@ GameMtlVertexMaterialDlg::~GameMtlVertexMaterialDlg()
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * GameMtlVertexMaterialDlg::Dialog_Proc -- windows message handler                            *
@@ -283,7 +279,6 @@ BOOL GameMtlVertexMaterialDlg::Dialog_Proc(HWND dlg_wnd, UINT message, WPARAM wp
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * GameMtlVertexMaterialDlg::ReloadDialog -- reload the contents of the controls               *
  *                                                                                             *
@@ -361,7 +356,6 @@ void GameMtlVertexMaterialDlg::ReloadDialog(void)
 	buffer = TheMtl->Get_Mapping_Arg_Buffer(PassIndex, 1);
 	SetWindowText(GetDlgItem(m_hWnd, IDC_MAPPING1_ARGS_EDIT), buffer);
 }
-
 
 /***********************************************************************************************
  * GameMtlVertexMaterialDlg::ActivateDlg -- activate / deactivate this dialog                  *

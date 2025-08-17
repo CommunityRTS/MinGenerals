@@ -41,7 +41,6 @@
 #include	<string.h>
 #include	<assert.h>
 
-
 /***********************************************************************************************
  * BlowStraw::Get -- Fetch a block of data from the straw.                                     *
  *                                                                                             *
@@ -124,7 +123,6 @@ int BlowStraw::Get(void * source, int slen)
 	*/
 	return(total);
 }
-
 
 /***********************************************************************************************
  * BlowStraw::Key -- Submit a key to the Blowfish straw.                                       *

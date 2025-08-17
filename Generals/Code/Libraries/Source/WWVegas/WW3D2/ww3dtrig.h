@@ -34,14 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
 #ifndef WW3DTRIG_H
 #define WW3DTRIG_H
-
 
 /*
 ** The WW3D Library will check for debugging triggers using the following ID's

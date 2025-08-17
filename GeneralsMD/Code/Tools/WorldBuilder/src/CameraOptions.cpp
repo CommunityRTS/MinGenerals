@@ -27,13 +27,11 @@
 #include "WorldBuilderDoc.h"
 #include "wbview3d.h"
 
-
 #include "WaypointOptions.h" //WST 10/7/2002
 #include "CUndoable.h" //WST 10/7/2002
 
 /////////////////////////////////////////////////////////////////////////////
 // CameraOptions dialog
-
 
 CameraOptions::CameraOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(CameraOptions::IDD, pParent)
@@ -44,7 +42,6 @@ CameraOptions::CameraOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CameraOptions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -52,7 +49,6 @@ void CameraOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CameraOptions, CDialog)
 	//{{AFX_MSG_MAP(CameraOptions)
@@ -64,7 +60,6 @@ BEGIN_MESSAGE_MAP(CameraOptions, CDialog)
 	ON_WM_SHOWWINDOW()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CameraOptions message handlers
@@ -136,7 +131,6 @@ void CameraOptions::OnCenterOnSelectedButton()
 		}
 	}
 }
-
 
 void CameraOptions::OnMove(int x, int y)
 {
@@ -238,8 +232,6 @@ void CameraOptions::applyCameraPitch( Real pitch )
 	}
 }
 
-
-
 void CameraOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {
 	switch (sliderID) {
@@ -273,7 +265,6 @@ void CameraOptions::PopSliderChanged(const long sliderID, long theVal)
 			putReal(IDC_PITCH_EDIT, ((Real)theVal)*0.01f);
 			break;
 
-
 		default:
 			// uh-oh!
 			DEBUG_CRASH(("Slider message from unknown control"));
@@ -294,7 +285,6 @@ void CameraOptions::PopSliderFinished(const long sliderID, long theVal)
 	}	// switch
 
 }
-
 
 BOOL CameraOptions::OnInitDialog()
 {

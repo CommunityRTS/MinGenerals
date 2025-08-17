@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #pragma once
 
 #include "CButtonShowColor.h"
@@ -38,7 +37,6 @@ class CColorAlphaDialog : public CDialog
 		// if true, updates the UI from the Particle System.
 		// if false, updates the Particle System from the UI
 		void performUpdate( IN Bool toUI );
-
 
 	protected:
 		virtual BOOL OnInitDialog();

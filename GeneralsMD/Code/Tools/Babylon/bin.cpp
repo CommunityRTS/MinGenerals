@@ -43,8 +43,6 @@ Bin::~Bin ( )
 
 }
 
-
-
 void Bin::Clear ( void )
 {
 	int count = num_buckets;
@@ -124,7 +122,6 @@ BinItem*		Bin::GetBinItem		( OLECHAR *text1, OLECHAR *text2)
 
 	sh_item = (BinItem *) &bucket[sh_hash%num_buckets];
 
-
 	return GetNextBinItem ();
 }
 
@@ -151,7 +148,6 @@ BinItem*		Bin::GetBinItem	( void *item )
 {
 	BinItem *bitem = NULL;
 	int i;
-
 
 	for ( i=0; i< num_buckets; i++)
 	{
@@ -197,7 +193,6 @@ void				Bin::Remove			( BinItem *item )
 
 }
 
-
 BinItem::BinItem ( void *data, int new_hash, OLECHAR *new_text1, OLECHAR *new_text2 )
 {
 	SetItem ( data );
@@ -241,7 +236,6 @@ int BinItem::Same ( int chash, OLECHAR *ctext1, int size1, OLECHAR *ctext2, int 
 
 	return TRUE;
 
-
 }
 int Bin::calc_hash ( OLECHAR *text )
 {
@@ -274,8 +268,6 @@ BinID::~BinID ( )
 	delete [] bucket;
 
 }
-
-
 
 void BinID::Clear ( void )
 {
@@ -311,7 +303,6 @@ void				BinID::Add					( void *data, int id )
 	BinIDItem *item;
 	List		*list;
 
-
 	item = new BinIDItem ( data, id );
 
 	list = &bucket[id%num_buckets];
@@ -323,7 +314,6 @@ void				BinID::Add					( void *data, int id )
 BinIDItem*		BinID::GetBinIDItem		( int id )
 {
 	BinIDItem *item;
-
 
 	item = (BinIDItem *) bucket[id%num_buckets].Next();
 
@@ -339,12 +329,10 @@ BinIDItem*		BinID::GetBinIDItem		( int id )
 	return item	;
 }
 
-
 BinIDItem*		BinID::GetBinIDItem	( void *item )
 {
 	BinIDItem *bitem = NULL;
 	int i;
-
 
 	for ( i=0; i< num_buckets; i++)
 	{
@@ -388,7 +376,6 @@ void				BinID::Remove			( BinIDItem *item )
 	delete item ;
 
 }
-
 
 BinIDItem::BinIDItem ( void *data, int new_id  )
 {

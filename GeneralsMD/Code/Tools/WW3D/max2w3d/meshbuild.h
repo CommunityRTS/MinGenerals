@@ -290,7 +290,6 @@ private:
 		WingedEdgeStruct *	Edge[3];
 	};
 
-
 	int							State;					// is the builder accepting input or already processed the mesh.
 	int							PassCount;				// number of render passes for this mesh
 	int							FaceCount;				// number of faces

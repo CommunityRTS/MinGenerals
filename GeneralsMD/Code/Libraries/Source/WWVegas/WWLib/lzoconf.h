@@ -59,14 +59,12 @@
    markus.oberhumer@jk.uni-linz.ac.at
  */
 
-
 #ifndef __LZOCONF_H
 #define __LZOCONF_H
 
 #define LZO_VERSION             0x0200
 #define LZO_VERSION_STRING      "0.20"
 #define LZO_VERSION_DATE        "11 Aug 1996"
-
 
 #include	<limits.h>             /* CHAR_BIT, UINT_MAX, ULONG_MAX */
 #if !defined(CHAR_BIT) || (CHAR_BIT != 8)
@@ -76,7 +74,6 @@
 //#ifdef __cplusplus
 //extern "C" {
 //#endif
-
 
 /***********************************************************************
 // defines
@@ -88,7 +85,6 @@
 #    define __LZO_MSDOS16
 #  endif
 #endif
-
 
 /***********************************************************************
 // integral and pointer types
@@ -107,7 +103,6 @@
 #  error lzo_uint
 #endif
 
-
 /* Memory model that allows to access memory at offsets of lzo_uint.
  * Huge pointers (16 bit MSDOS) are somewhat slow, but they work
  * fine and I really don't care about 16 bit compiler
@@ -122,7 +117,6 @@
 #  error __LZO_MMODEL
 #endif
 
-
 /* no typedef here because of const-pointer issues */
 #define lzo_byte            unsigned char __LZO_MMODEL
 #define lzo_voidp           void __LZO_MMODEL *
@@ -132,14 +126,12 @@
 #define lzo_voidpp          lzo_voidp __LZO_MMODEL *
 #define lzo_bytepp          lzo_bytep __LZO_MMODEL *
 
-
 /* Unsigned type that can store all bits of a lzo_voidp */
 typedef unsigned long       lzo_ptr_t;
 
 /* Align a pointer on a boundary that is a multiple of 'size' */
 #define LZO_ALIGN(ptr,size) \
     ((lzo_voidp) (((lzo_ptr_t)(ptr) + (size)-1) & ~((lzo_ptr_t)((size)-1))))
-
 
 /***********************************************************************
 // function types
@@ -150,7 +142,6 @@ typedef unsigned long       lzo_ptr_t;
 //#else
 #  define LZO_EXTERN_C          extern
 //#endif
-
 
 #if !defined(__LZO_ENTRY)       /* calling convention */
 #  define __LZO_ENTRY
@@ -163,7 +154,6 @@ typedef unsigned long       lzo_ptr_t;
 #  define LZO_EXTERN(_rettype)  LZO_EXTERN_C _rettype __LZO_ENTRY __LZO_EXPORT
 #endif
 
-
 typedef int __LZO_ENTRY
 (__LZO_EXPORT *lzo_compress_t)  ( const lzo_byte *src, lzo_uint  src_len,
                                         lzo_byte *dst, lzo_uint *dst_len,
@@ -174,11 +164,9 @@ typedef int __LZO_ENTRY
                                         lzo_byte *dst, lzo_uint *dst_len,
                                         lzo_voidp wrkmem );
 
-
 /* a progress indicator callback function */
 typedef void __LZO_ENTRY
 (__LZO_EXPORT *lzo_progress_callback_t)(lzo_uint,lzo_uint);
-
 
 /***********************************************************************
 // error codes and prototypes
@@ -196,7 +184,6 @@ typedef void __LZO_ENTRY
 #define LZO_E_OUTPUT_OVERRUN        (-5)
 #define LZO_E_LOOKBEHIND_OVERRUN    (-6)
 #define LZO_E_OUT_OF_MEMORY         (-7)    /* not used right now */
-
 
 /* this should be the first function you call. Check the return code ! */
 LZO_EXTERN(int) lzo_init(void);
@@ -222,7 +209,6 @@ lzo_adler32(lzo_uint _adler, const lzo_byte *_buf, lzo_uint _len);
 /* misc. */
 LZO_EXTERN(int) lzo_assert(int _expr);
 LZO_EXTERN(int) _lzo_config_check(void);
-
 
 //#ifdef __cplusplus
 //} /* extern "C" */

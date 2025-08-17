@@ -288,8 +288,6 @@ Bool GarrisonContain::calcBestGarrisonPosition( Coord3D *sourcePos, const Coord3
   DEBUG_ASSERTCRASH(modData->m_isEnclosingContainer, ("calcBestGarrisonPosition... SHOULD NOT GET HERE, since this container is non-enclosing") );
 #endif
 
-
-
 	// find which garrison point position array we will used based on body condition
 	Int conditionIndex = findConditionIndex();
 
@@ -530,9 +528,7 @@ GarrisonContain::GarrisonContain( Thing *thing, const ModuleData *moduleData ) :
 	m_rallyValid = FALSE;
 	m_exitRallyPoint.zero();
 
-
   m_evacDisposition = EVAC_BURST_FROM_CENTER; // default, anyway
-
 
   m_stationPointList.clear();
 
@@ -637,12 +633,10 @@ void GarrisonContain::removeInvalidObjectsFromGarrisonPoints( void )
 void GarrisonContain::addValidObjectsToGarrisonPoints( void )
 {
 
-
 #if defined __DEBUG || defined _INTERNAL
   const GarrisonContainModuleData *modData = getGarrisonContainModuleData();
   DEBUG_ASSERTCRASH(modData->m_isEnclosingContainer, ("addvalidobjtoGarrisonPoint... SHOULD NOT GET HERE, since this container is non-enclosing") );
 #endif
-
 
 	const ContainedItemsList& containList = getContainList();
 
@@ -682,11 +676,8 @@ void GarrisonContain::addValidObjectsToGarrisonPoints( void )
 void GarrisonContain::trackTargets( void )
 {
 
-
   if ( ! isEnclosingContainerFor( 0 ) )
     return; // since ina non-enclosing container, objects fire from their station points, instead of being juggled around between garrison firepoints
-
-
 
 	Int conditionIndex = findConditionIndex();
 	const ContainedItemsList& containList = getContainList();
@@ -798,12 +789,10 @@ void GarrisonContain::redeployOccupants( void )
 //	// redeploy them
 //	addValidObjectsToGarrisonPoints();
 
-
   // ATTENTION... setting this false allows each redeployOccupants() call to create fresh station points, based on the new transform
   // if anything wierd ever happens, like rotating buildings and such, we will need a way of transforming the points without clearing the
   // list (and thus forgetting where everyone contained was stationed)... just a handy reminder.
   m_stationGarrisonPointsInitialized = FALSE;
-
 
   matchObjectsToGarrisonPoints();
 
@@ -832,12 +821,10 @@ void GarrisonContain::redeployOccupants( void )
 void GarrisonContain::updateEffects( void )
 {
 
-
 #if defined __DEBUG || defined _INTERNAL
   const GarrisonContainModuleData *modData = getGarrisonContainModuleData();
   DEBUG_ASSERTCRASH(modData->m_isEnclosingContainer, ("updateeffects... SHOULD NOT GET HERE, since this container is non-enclosing") );
 #endif
-
 
 	UnsignedInt currentFrame = TheGameLogic->getFrame();
 	const ContainedItemsList& containList = getContainList();
@@ -968,9 +955,6 @@ UpdateSleepTime GarrisonContain::update( void )
 	return UPDATE_SLEEP_NONE;
 }  // end update
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** Every frame, and whenever anyone enters or leaves */
 // ------------------------------------------------------------------------------------------------
@@ -998,8 +982,6 @@ void GarrisonContain::matchObjectsToGarrisonPoints( void )
   }
 
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** enforce that everybody stays at their pre-assigned space */
@@ -1043,8 +1025,6 @@ void GarrisonContain::positionObjectsAtStationGarrisonPoints()
 
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** When a new guy enters a non-enclosing garrison container */
 // ------------------------------------------------------------------------------------------------
@@ -1087,20 +1067,15 @@ void GarrisonContain::removeObjectFromStationPoint( const Object *obj )
     }
   }
 
-
   DEBUG_ASSERTCRASH(foundOccupant, ("GarrisonContain::removeObjectFromStationPoint is all kinds of bad... \n the contained object was not found in station point list."));
 
-
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** When I become damaged */
 // ------------------------------------------------------------------------------------------------
 void GarrisonContain::onDamage( DamageInfo * /*info*/ )
 {
-
-
 
 //	const ContainedItemsList& containList = getContainList();
 //	for( ContainedItemsList::const_iterator it = containList.begin(); it != containList.end(); ++it )
@@ -1113,12 +1088,7 @@ void GarrisonContain::onDamage( DamageInfo * /*info*/ )
 //		healSingleObject(obj, modData->m_framesForFullHeal);
 //	}
 
-
-
 }
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1140,10 +1110,6 @@ void GarrisonContain::healObjects( void )
 		healSingleObject(obj, modData->m_framesForFullHeal);
 	}
 }
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1247,7 +1213,6 @@ void GarrisonContain::recalcApparentControllingPlayer( void )
 	{
 		Bool setModelGarrisoned = FALSE;
 
-
 		if ( getContainCount() > 0 )
 		{
 			ContainedItemsList::const_iterator it = getContainList().begin();
@@ -1261,12 +1226,10 @@ void GarrisonContain::recalcApparentControllingPlayer( void )
 
 		}
 
-
 		if ( setModelGarrisoned )
 			draw->setModelConditionState( MODELCONDITION_GARRISONED );
 		else
 			draw->clearModelConditionState( MODELCONDITION_GARRISONED );
-
 
 		// Handle the team color that is rendered
 		const Player* controller = getApparentControllingPlayer(ThePlayerList->getLocalPlayer());
@@ -1305,8 +1268,6 @@ void GarrisonContain::recalcApparentControllingPlayer( void )
 // ------------------------------------------------------------------------------------------------
 void GarrisonContain::loadGarrisonPoints( void )
 {
-
-
 
 	const GarrisonContainModuleData *modData = getGarrisonContainModuleData();
 
@@ -1393,15 +1354,11 @@ void GarrisonContain::loadGarrisonPoints( void )
 	// garrison points are now initialized
 	m_garrisonPointsInitialized = TRUE;
 
-
-
 	if (gBonesFound && modData->m_mobileGarrison && (getObject()->isMobile() == TRUE) )
 	{
 		DEBUG_ASSERTCRASH( getObject()->isMobile() == FALSE,
 		 ("GarrisonContain::update - You have specified this garrisonContain as mobile,\n yet you want garrison point placement bones... \n what are you thinking?") );
 	}
-
-
 
 }  // end loadGarrisonPoints
 
@@ -1447,17 +1404,12 @@ void GarrisonContain::validateRallyPoint( void )
 
 }  // end validateRallyPoint
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 void GarrisonContain::onSelling( void )
 {
   removeAllContained( FALSE );
   OpenContain::onSelling();
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** Remove all contents of this container.  We will try to do so with intelligent garrison
@@ -1530,9 +1482,6 @@ void GarrisonContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor 
 		}
 	}
 
-
-
-
   if ( m_evacDisposition == EVAC_TO_LEFT || m_evacDisposition == EVAC_TO_RIGHT  )
   {
 
@@ -1603,8 +1552,6 @@ void GarrisonContain::exitObjectViaDoor( Object *exitObj, ExitDoorType exitDoor 
 	  }
   }
 
-
-
 	recalcApparentControllingPlayer();
 }
 
@@ -1645,7 +1592,6 @@ void GarrisonContain::onContaining( Object *obj, Bool wasSelected )
   if ( draw && draw->isSelected() )
     TheInGameUI->deselectDrawable( draw );
 
-
 }  // end onContaining
 
 //-------------------------------------------------------------------------------------------------
@@ -1653,7 +1599,6 @@ void GarrisonContain::onContaining( Object *obj, Bool wasSelected )
 void GarrisonContain::onRemoving( Object *obj )
 {
 	OpenContain::onRemoving(obj);
-
 
   if (isEnclosingContainerFor( obj ))
 	  // first remove the object from any garrison fire point if it's at one
@@ -1972,10 +1917,6 @@ void GarrisonContain::loadPostProcess( void )
 
 }  // end loadPostProcess
 
-
-
-
-
 // ------------------------------------------------------------------------------------------------
 /** Load the loadStationGarrisonPoints data and save for use later */
 // ------------------------------------------------------------------------------------------------
@@ -1985,7 +1926,6 @@ void GarrisonContain::loadStationGarrisonPoints( void )
 
 	Object *structure = getObject();
 	Bool stationBonesFound = FALSE;
-
 
 	//
 	// in order to get all the station point positions we will actually switch the model
@@ -2011,14 +1951,12 @@ void GarrisonContain::loadStationGarrisonPoints( void )
 		structure->clearAndSetModelConditionFlags( clearFlags, setFlags );
 		conditionIndex = GARRISON_POINT_PRISTINE;
 
-
     Coord3D tempBuffer[MAX_GARRISON_POINTS];
   	for( int t = 0; t < MAX_GARRISON_POINTS; ++t )
 		  tempBuffer[ t ] = *(structure->getPosition());
 
 		count = structure->getMultiLogicalBonePosition("STATION", modData->m_containMax, tempBuffer, NULL);
 		if ( count > 0) stationBonesFound = TRUE;
-
 
     m_stationPointList.clear();// we are starting over... forget everything
 
@@ -2039,8 +1977,6 @@ void GarrisonContain::loadStationGarrisonPoints( void )
 	// garrison points are now initialized
 	m_stationGarrisonPointsInitialized = TRUE;
 
-
-
 	if (stationBonesFound && modData->m_mobileGarrison && (getObject()->isMobile() == TRUE) )
 	{
 		DEBUG_ASSERTCRASH( getObject()->isMobile() == FALSE,
@@ -2048,14 +1984,4 @@ void GarrisonContain::loadStationGarrisonPoints( void )
 	}
 
 }  // end loadStationGarrisonPoints
-
-
-
-
-
-
-
-
-
-
 

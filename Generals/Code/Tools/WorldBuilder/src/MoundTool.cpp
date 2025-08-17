@@ -39,8 +39,6 @@ Int MoundTool::m_moundHeight=0;
 Int MoundTool::m_brushWidth;
 Int MoundTool::m_brushFeather;
 
-
-
 /// Constructor
 MoundTool::MoundTool(void) :
 	Tool(ID_BRUSH_ADD_TOOL, IDC_BRUSH_CROSS)
@@ -56,7 +54,6 @@ MoundTool::~MoundTool(void)
 	REF_PTR_RELEASE(m_htMapEditCopy);
 	REF_PTR_RELEASE(m_htMapSaveCopy);
 }
-
 
 void MoundTool::setMoundHeight(Int height)
 {
@@ -88,7 +85,6 @@ void MoundTool::setFeather(Int feather)
 		DrawObject::setBrushFeedbackParms(false, m_brushWidth, m_brushFeather);
 	}
 };
-
 
 /// Shows the brush options panel.
 void MoundTool::activate()
@@ -137,7 +133,6 @@ void MoundTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWorld
 	Int deltaTime = curTime - m_lastMoveTime;
 	if (deltaTime < MIN_DELAY_TIME) return;
 	m_lastMoveTime = curTime;
-
 
 	int brushWidth = m_brushWidth;
 	int setFeather = m_brushFeather;

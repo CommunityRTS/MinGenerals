@@ -42,7 +42,6 @@ static const char* NEUTRAL_NAME_STR = "(neutral)";
 /////////////////////////////////////////////////////////////////////////////
 // CTeamsDialog dialog
 
-
 CTeamsDialog::CTeamsDialog(CWnd* pParent /*=NULL*/)
 	: CDialog(CTeamsDialog::IDD, pParent)
 {
@@ -51,7 +50,6 @@ CTeamsDialog::CTeamsDialog(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CTeamsDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -59,7 +57,6 @@ void CTeamsDialog::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CTeamsDialog, CDialog)
 	//{{AFX_MSG_MAP(CTeamsDialog)
@@ -184,7 +181,6 @@ void CTeamsDialog::updateUI(Int whatToRebuild)
 	CButton *newteam = (CButton*)GetDlgItem(IDC_NEWTEAM);
 	newteam->EnableWindow(whichPlayer>0);	// toplevel team names are delete-able, but "default" teams are not
 
-
 	--m_updating;
 }
 
@@ -205,7 +201,6 @@ BOOL CTeamsDialog::OnInitDialog()
 	pList->InsertColumn(2, "Priority", LVCFMT_LEFT, 50, 2);
 	pList->InsertColumn(3, "Script", LVCFMT_LEFT, 150, 3);
 	pList->InsertColumn(4, "Trigger", LVCFMT_LEFT, 150, 4);
-
 
 	CListBox *players = (CListBox*)GetDlgItem(IDC_PLAYER_LIST);
 	players->ResetContent();

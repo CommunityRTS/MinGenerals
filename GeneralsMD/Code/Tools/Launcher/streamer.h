@@ -34,7 +34,6 @@
  #define STREAMER_BUFSIZ 2048
 #endif
 
-
 // Provide a streambuf interface for a class that can 'print'
 class Streamer : public streambuf
 {
@@ -52,7 +51,6 @@ class Streamer : public streambuf
     int       sync();
 
     int       doallocate();                 // allocate a buffer
-
 
     OutputDevice  *Output_Device;
 };

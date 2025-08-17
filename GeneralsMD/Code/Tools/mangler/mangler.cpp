@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <iostream.h>
 #include <signal.h>
 #ifdef _WINDOWS
@@ -94,7 +93,6 @@ int main(int argc, char **argv)
 		INFMSG("Host is Intel-byte-order");
 	}
 
-
 	// ----- Initialize Winsock -----
 #ifdef _WINDOWS
 	WORD verReq = MAKEWORD(2, 2);
@@ -114,7 +112,6 @@ int main(int argc, char **argv)
 	}
 	INFMSG("Winsock Init done.");
 #endif
-
 
 	// Set up a UDP listener
 	uint8  *buff=new uint8[1024];
@@ -201,8 +198,6 @@ int main(int argc, char **argv)
 		}
 	}
 
-
 	return 0;
 }
-
 

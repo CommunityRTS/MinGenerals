@@ -207,5 +207,4 @@ class TextureFileCache
 
 #endif //WW3D_DX8
 
-
 #endif //TEXTFCACH_H

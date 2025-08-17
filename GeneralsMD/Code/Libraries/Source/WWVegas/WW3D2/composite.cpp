@@ -54,12 +54,10 @@
  *   CompositeRenderObjClass::Set_User_Data -- set the userdata pointer                        *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "composite.h"
 #include "wwdebug.h"
 #include <stdlib.h>
 #include <string.h>
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::CompositeRenderObjClass -- Constructor                             *
@@ -75,7 +73,6 @@
 CompositeRenderObjClass::CompositeRenderObjClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::CompositeRenderObjClass -- copy constructor                        *
@@ -95,7 +92,6 @@ CompositeRenderObjClass::CompositeRenderObjClass(const CompositeRenderObjClass &
 	Set_Base_Model_Name(that.Get_Base_Model_Name());
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::~CompositeRenderObjClass -- Destructor                             *
  *                                                                                             *
@@ -111,7 +107,6 @@ CompositeRenderObjClass::CompositeRenderObjClass(const CompositeRenderObjClass &
 CompositeRenderObjClass::~CompositeRenderObjClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::operator -- assignment operator                                    *
@@ -131,7 +126,6 @@ CompositeRenderObjClass & CompositeRenderObjClass::operator = (const CompositeRe
 	Set_Base_Model_Name(that.Get_Base_Model_Name());
 	return *this;
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Restart -- Recursively call Restart on all sub-objects             *
@@ -172,7 +166,6 @@ const char * CompositeRenderObjClass::Get_Name(void) const
 	return Name;
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Set_Name -- sets the name of this render object                    *
  *                                                                                             *
@@ -189,7 +182,6 @@ void CompositeRenderObjClass::Set_Name(const char * name)
 {
 	Name=name;
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Set_Base_Model_Name -- sets the "base-model-name"                  *
@@ -217,7 +209,6 @@ void CompositeRenderObjClass::Set_Base_Model_Name(const char *name)
 	}
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Get_Num_Polys -- returns the number of polys                       *
  *                                                                                             *
@@ -242,7 +233,6 @@ int CompositeRenderObjClass::Get_Num_Polys(void) const
 	return count;
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Notify_Added -- notify all sub-objects that they were added        *
  *                                                                                             *
@@ -266,7 +256,6 @@ void CompositeRenderObjClass::Notify_Added(SceneClass * scene)
 	}
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Notify_Removed -- notifies all subobjs they were removed from the  *
  *                                                                                             *
@@ -289,7 +278,6 @@ void CompositeRenderObjClass::Notify_Removed(SceneClass * scene)
 	}
 	RenderObjClass::Notify_Removed(scene);
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Cast_Ray -- cast a ray against this object                         *
@@ -315,7 +303,6 @@ bool CompositeRenderObjClass::Cast_Ray(RayCollisionTestClass & raytest)
 	return res;
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Cast_AABox -- cast a swept AABox against this object               *
  *                                                                                             *
@@ -339,7 +326,6 @@ bool CompositeRenderObjClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	}
 	return res;
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Cast_OBBox -- cast a swept OBBox against this object               *
@@ -365,7 +351,6 @@ bool CompositeRenderObjClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	return res;
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Intersect_AABox -- intersect this object with an AABox             *
  *                                                                                             *
@@ -389,7 +374,6 @@ bool CompositeRenderObjClass::Intersect_AABox(AABoxIntersectionTestClass & boxte
 	}
 	return res;
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Intersect_OBBox -- intersect this object with an OBBox             *
@@ -415,7 +399,6 @@ bool CompositeRenderObjClass::Intersect_OBBox(OBBoxIntersectionTestClass & boxte
 	return res;
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Create_Decal -- create a decal on this object                      *
  *                                                                                             *
@@ -437,7 +420,6 @@ void CompositeRenderObjClass::Create_Decal(DecalGeneratorClass * generator)
 		robj->Release_Ref();
 	}
 }
-
 
 /***********************************************************************************************
  * CompositeRenderObjClass::Delete_Decal -- remove a logical decal from this object            *
@@ -464,7 +446,6 @@ void CompositeRenderObjClass::Delete_Decal(uint32 decal_id)
 	}
 }
 
-
 /***********************************************************************************************
  * CompositeRenderObjClass::Update_Obj_Space_Bounding_Volumes -- updates the object-space BVs  *
  *                                                                                             *
@@ -489,7 +470,6 @@ void CompositeRenderObjClass::Update_Obj_Space_Bounding_Volumes(void)
 		ObjBox.Extent.Set(0,0,0);
 		return;
 	}
-
 
 	AABoxClass obj_aabox;
 	MinMaxAABoxClass box;

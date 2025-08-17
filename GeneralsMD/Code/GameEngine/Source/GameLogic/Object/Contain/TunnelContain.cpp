@@ -111,8 +111,6 @@ void TunnelContain::removeFromContain( Object *obj, Bool exposeStealthUnits )
 
 }
 
-
-
 //--------------------------------------------------------------------------------------------------------
 /** Force all contained objects in the contained list to exit, and kick them in the pants on the way out*/
 //--------------------------------------------------------------------------------------------------------
@@ -142,7 +140,6 @@ void TunnelContain::harmAndForceExitAllContained( DamageInfo *info )
 	}  // end while
 
 }  // end removeAllContained
-
 
 //-------------------------------------------------------------------------------------------------
 /** Remove all contained objects from the contained list */
@@ -201,11 +198,7 @@ void TunnelContain::onContaining( Object *obj, Bool wasSelected )
 
 	obj->getControllingPlayer()->getAcademyStats()->recordUnitEnteredTunnelNetwork();
 
-
-
-
   obj->handlePartitionCellMaintenance();
-
 
 }
 
@@ -227,7 +220,6 @@ void TunnelContain::onRemoving( Object *obj )
 	}
 
 	doUnloadSound();
-
 
 }
 
@@ -286,12 +278,9 @@ const ContainedItemsList* TunnelContain::getContainedItemsList() const
 	return owningPlayer->getTunnelSystem()->getContainedItemsList();
 }
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //-------------------------------------------------------------------------------------------------
 void TunnelContain::scatterToNearbyPosition(Object* obj)

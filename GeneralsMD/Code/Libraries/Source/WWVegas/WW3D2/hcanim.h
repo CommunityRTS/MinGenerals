@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -58,7 +57,6 @@ class AdaptiveDeltaMotionChannelClass;
 class HTreeClass;
 class ChunkLoadClass;
 class ChunkSaveClass;
-
 
 /**********************************************************************************
 
@@ -128,12 +126,10 @@ private:
 	void add_channel(TimeCodedMotionChannelClass * newchan);
 	void add_channel(AdaptiveDeltaMotionChannelClass * newchan);
 
-
 	bool read_bit_channel(ChunkLoadClass & cload,TimeCodedBitChannelClass * * newchan);
 	void add_bit_channel(TimeCodedBitChannelClass * newchan);
 
 };
-
 
 #endif // hcanim.h
 

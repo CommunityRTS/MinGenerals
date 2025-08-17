@@ -279,7 +279,6 @@ typedef struct
 #endif
 #endif
 
-
 #if !defined(__cplusplus) && !defined(bool)
 #define bool bool
 typedef enum{ False=0x0, True=0x1}bool;

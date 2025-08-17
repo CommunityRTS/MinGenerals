@@ -128,7 +128,6 @@ class WWFontClass : public FontClass
 		} FontType;
 		FontType const * FontData;
 
-
 		// Pointer to a font palette for the font.
 		unsigned char	*RemapPalette;
 
@@ -138,6 +137,5 @@ class WWFontClass : public FontClass
 		int Raw_Width(void) const;
 		int Raw_Height(void) const;
 };
-
 
 #endif

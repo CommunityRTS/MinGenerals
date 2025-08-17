@@ -610,7 +610,6 @@ class W3DShadowGeometry : public RefCountClass, public	HashableClass
 		Int					getMeshCount(void)	{ return m_meshCount;}
 		W3DShadowGeometryMesh	*getMesh(Int index)	{ return &m_meshList[index];}
 
-
 		int GetNumTotalVertex (void)	{	return m_numTotalsVerts;}	///<total number of vertices in all meshes of this geometry
 
 	private:
@@ -699,7 +698,6 @@ Int W3DShadowGeometry::initFromHLOD(RenderObjClass *robj)
 			geomMesh++;
 			m_meshCount++;
 		}
-
 
 #if (1) //(cnc3)(gth) Support for ShaderMeshes!
 // I'm coding this as a completely independent block rather than re-factoring the code above
@@ -1303,7 +1301,6 @@ void W3DVolumetricShadow::updateOptimalExtrusionPadding(void)
 			}
 		}
 
-
 		m_extraExtrusionPadding = objPos.Z - baseGroundHeight + SHADOW_EXTRUSION_BUFFER;
 
 		DEBUG_ASSERTCRASH(m_extraExtrusionPadding <= (255.0f*MAP_HEIGHT_SCALE),("Warning: Volumetric Shadow UpdateOptimalExtrusionPadding too large"));
@@ -1445,7 +1442,6 @@ void W3DVolumetricShadow::RenderDynamicMeshVolume(Int meshIndex, Int lightIndex,
 	if (!m_pDev)
 		return;
 
-
 	geometry = m_shadowVolume[lightIndex][ meshIndex ];
 
 	//
@@ -1462,7 +1458,6 @@ void W3DVolumetricShadow::RenderDynamicMeshVolume(Int meshIndex, Int lightIndex,
 	// reject shadows with no data
 	if( numVerts == 0 || numPolys == 0 )
 		return;
-
 
 	if (nShadowVertsInBuf > (SHADOW_VERTEX_SIZE-numVerts))	//check if room for model verts
 	{	//flush the buffer by drawing the contents and re-locking again
@@ -1505,7 +1500,6 @@ void W3DVolumetricShadow::RenderDynamicMeshVolume(Int meshIndex, Int lightIndex,
 	{	if (shadowIndexBufferD3D->Lock(nShadowIndicesInBuf*sizeof(short),numIndex*sizeof(short), (unsigned char**)&pvIndices,D3DLOCK_NOOVERWRITE) != D3D_OK)
 			return;
 	}
-
 
 	try {
 	if(pvIndices)
@@ -1619,7 +1613,6 @@ void W3DVolumetricShadow::RenderMeshVolumeBounds(Int meshIndex, Int lightIndex, 
 	if( numVerts == 0 || numPolys == 0 )
 		return;
 
-
 	if (nShadowVertsInBuf > (SHADOW_VERTEX_SIZE-numVerts))	//check if room for model verts
 	{	//flush the buffer by drawing the contents and re-locking again
 		if (shadowVertexBufferD3D->Lock(0,numVerts*sizeof(SHADOW_DYNAMIC_VOLUME_VERTEX),(unsigned char**)&pvVertices,D3DLOCK_DISCARD) != D3D_OK)
@@ -1659,7 +1652,6 @@ void W3DVolumetricShadow::RenderMeshVolumeBounds(Int meshIndex, Int lightIndex, 
 			return;
 	}
 
-
 	if(pvIndices)
 	{
 		for (Int i=0; i<numPolys; i++,pvIndices+=3)
@@ -1673,7 +1665,6 @@ void W3DVolumetricShadow::RenderMeshVolumeBounds(Int meshIndex, Int lightIndex, 
 	shadowIndexBufferD3D->Unlock();
 
 	m_pDev->SetIndices(shadowIndexBufferD3D,nShadowStartBatchVertex);
-
 
 	//todo: replace this with mesh transform
 	Matrix4x4 mWorld(1);	//identity since boxes are pre-transformed to world space.
@@ -1875,9 +1866,7 @@ void W3DVolumetricShadow::Update()
    			updateVolumes(m_extraExtrusionPadding);
  		}
 
-
 	//	floorZ = 2.0f;	//lower slightly so shadows go under ground.
-
 
 		// update delay time
 		lastTime = currentTime;
@@ -2031,7 +2020,6 @@ void W3DVolumetricShadow::updateMeshVolume(Int meshIndex, Int lightIndex, const 
 	}
 	else
 		isMeshRotating =true;
-
 
 #else // CNC3 (old generals code)
 
@@ -3422,7 +3410,6 @@ void W3DVolumetricShadowManager::renderStencilShadows( void )
 		m_pDev->SetRenderState( D3DRS_SRCBLEND,  D3DBLEND_DESTCOLOR);
 		m_pDev->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ZERO );
 
-
 	// Set stencil states
     m_pDev->SetRenderState( D3DRS_ZENABLE,          TRUE );
 		m_pDev->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
@@ -3436,7 +3423,6 @@ void W3DVolumetricShadowManager::renderStencilShadows( void )
 	//pixels and only use the lower bits for shadow calculations.
 	m_pDev->SetRenderState( D3DRS_STENCILMASK,     ~TheW3DShadowManager->getStencilShadowMask());
     m_pDev->SetRenderState( D3DRS_STENCILREF,      0x1 );
-
 
 	m_pDev->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_FLAT);
 
@@ -3501,7 +3487,6 @@ void W3DVolumetricShadowManager::renderShadows( Bool forceStencilFill )
 		m_pDev->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
 		m_pDev->SetRenderState(D3DRS_FOGENABLE, FALSE);
 
-
 		// setup the TMU to default
 		m_pDev->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_FLAT);
 		m_pDev->SetRenderState(D3DRS_LIGHTING, FALSE);
@@ -3560,7 +3545,6 @@ void W3DVolumetricShadowManager::renderShadows( Bool forceStencilFill )
 		m_pDev->SetRenderState(D3DRS_CULLMODE,D3DCULL_CW);
 //		m_pDev->SetRenderState(D3DRS_ZBIAS,1);	///@todo: See if this helps or makes things worse.
 		//m_pDev->SetRenderState(D3DRS_FILLMODE,D3DFILL_WIREFRAME);
-
 
 		lastActiveVertexBuffer=NULL;	//reset
 
@@ -3644,7 +3628,6 @@ void W3DVolumetricShadowManager::renderShadows( Bool forceStencilFill )
 		m_pDev->SetRenderState(D3DRS_CULLMODE,D3DCULL_CW);
 //		m_pDev->SetRenderState(D3DRS_ZBIAS,0);	///@todo: See if this helps or makes things worse.
 		//m_pDev->SetRenderState(D3DRS_FILLMODE,D3DFILL_SOLID);
-
 
 		if (oldColorWriteEnable != 0x12345678)
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_COLORWRITEENABLE,oldColorWriteEnable);

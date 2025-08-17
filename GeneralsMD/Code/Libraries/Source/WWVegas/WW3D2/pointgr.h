@@ -228,7 +228,6 @@ private:
 	static VectorClass<Vector3>		transformed_loc;		// transformed point locations
 };
 
-
 class SegmentGroupClass : public PointGroupClass
 {
 public:
@@ -236,7 +235,5 @@ public:
 	virtual ~SegmentGroupClass(void);
 
 };
-
-
 
 #endif

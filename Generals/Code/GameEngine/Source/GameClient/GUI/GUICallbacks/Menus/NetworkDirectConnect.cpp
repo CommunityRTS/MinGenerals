@@ -355,7 +355,6 @@ void NetworkDirectConnectInit( WindowLayout *layout, void *userData )
 	layout->bringForward();
 	TheTransitionHandler->setGroup("NetworkDirectConnectFade");
 
-
 } // NetworkDirectConnectInit
 
 //-------------------------------------------------------------------------------------------------
@@ -395,7 +394,6 @@ void NetworkDirectConnectShutdown( WindowLayout *layout, void *userData )
 
 	TheTransitionHandler->reverse("NetworkDirectConnectFade");
 }  // NetworkDirectConnectShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Welcome Menu update method */
@@ -466,7 +464,6 @@ WindowMsgHandledType NetworkDirectConnectSystem( GameWindow *window, UnsignedInt
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

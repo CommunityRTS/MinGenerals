@@ -43,7 +43,6 @@ extern "C" {
 	void __declspec(dllexport) UpdateCurrentNumParticles( int currentParticleCount );
 	int __declspec(dllexport) GetNewParticleCap( void );
 
-
 #	define PARM_ParticleTypeName		0x00
 # define PARM_SlaveSystemName			0x01
 #	define PARM_AttachedSystemName	0x02
@@ -54,7 +53,6 @@ extern "C" {
 	void __declspec(dllexport) GetSelectedParticleAsciiStringParm( int parmNum, char *bufferToCopyInto, ParticleSystemTemplate **whichTemplate );
 	void __declspec(dllexport) UpdateParticleAsciiStringParm( int parmNum, const char *bufferToCopyFrom, ParticleSystemTemplate **whichTemplate  );
 
-
 	void __declspec(dllexport) UpdateCurrentParticleSystem( ParticleSystemTemplate *particleTemplate );
 	void __declspec(dllexport) UpdateSystemUseParameters( ParticleSystemTemplate *particleTemplate );
 
@@ -62,7 +60,6 @@ extern "C" {
 	Bool __declspec(dllexport) ShouldBusyWait( void );
 	Bool __declspec(dllexport) ShouldUpdateParticleCap( void );
 	Bool __declspec(dllexport) ShouldReloadTextures( void );
-
 
 #	define PEB_Continue								0x00
 #	define PEB_UpdateCurrentSystem		0x01
@@ -76,8 +73,6 @@ extern "C" {
 #	define PEB_BusyWait								0xFE
 #	define PEB_Error									0xFF
 
-
 	int __declspec(dllexport) NextParticleEditorBehavior( void );
-
 
 }

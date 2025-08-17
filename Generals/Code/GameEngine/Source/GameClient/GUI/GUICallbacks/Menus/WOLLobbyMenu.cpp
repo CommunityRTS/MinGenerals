@@ -901,7 +901,6 @@ void WOLLobbyMenuUpdate( WindowLayout * layout, void *userData)
 		SignalUIInteraction(SHELL_SCRIPT_HOOK_GENERALS_ONLINE_ENTERED_FROM_GAME);
 	}
 
-
 	// We'll only be successful if we've requested to
 	if(isShuttingDown && TheShell->isAnimFinished() && TheTransitionHandler->isFinished())
 		shutdownComplete(layout);
@@ -1405,7 +1404,6 @@ WindowMsgHandledType WOLLobbyMenuInput( GameWindow *window, UnsignedInt msg,
 //	listboxLobbyGamesLarge->winSetSize(gwlW, newH);
 ////	listboxLobbyGameInfo->winSetSize(gwiW, newH);
 
-
 //-------------------------------------------------------------------------------------------------
 /** WOL Lobby Menu window system callback */
 //-------------------------------------------------------------------------------------------------
@@ -1417,7 +1415,6 @@ WindowMsgHandledType WOLLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 
 	switch( msg )
 	{
-
 
 		//---------------------------------------------------------------------------------------------
 		case GWM_CREATE:

@@ -82,7 +82,6 @@ typedef struct
 #endif
 #endif
 
-
 typedef struct QFUNCTIONS
 {
     CODEXABOUT * (GCALL * CODEX_about)(void);

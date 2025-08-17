@@ -659,7 +659,6 @@ void BuildAssistant::iterateFootprint( const ThingTemplate *build,
 
 }  // end iterateFootprint
 
-
 //-------------------------------------------------------------------------------------------------
 /** Check for objects preventing building at this location.  */
 //-------------------------------------------------------------------------------------------------
@@ -816,7 +815,6 @@ LegalBuildCode BuildAssistant::isLocationClearOfObjects( const Coord3D *worldPos
 		myExitPos.x += c*offset;
 		myExitPos.y += s*offset;
 	}
-
 
 	for( them = iter2->first(); them; them = iter2->next() )
 	{
@@ -1294,7 +1292,6 @@ Bool BuildAssistant::isPossibleToMakeUnit( Object *builder, const ThingTemplate 
 	return TRUE;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** This method will check to make sure it is possible to build the requested unit. and

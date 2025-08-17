@@ -436,7 +436,6 @@ protected:
 	Real getCurAnimDistanceCovered() const;
 	Bool setCurAnimDurationInMsec(Real duration);
 
-
 	inline Bool getFullyObscuredByShroud() const { return m_fullyObscuredByShroud; }
 
 private:
@@ -465,18 +464,15 @@ private:
 		}
 	};
 
-
 	struct ParticleSysTrackerType
 	{
 		ParticleSystemID id;
 		Int				boneIndex;
 	};
 
-
 	typedef std::vector<WeaponRecoilInfo>	WeaponRecoilInfoVec;
 	typedef std::vector<ParticleSysTrackerType>	ParticleSystemIDVec;
 	//typedef std::vector<ParticleSystemID>	ParticleSystemIDVec;
-
 
 	const ModelConditionInfo*			m_curState;
 	const ModelConditionInfo*			m_nextState;

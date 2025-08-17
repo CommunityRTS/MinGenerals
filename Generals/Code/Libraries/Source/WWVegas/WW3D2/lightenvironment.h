@@ -46,10 +46,8 @@
 #include "always.h"
 #include "vector3.h"
 
-
 class Matrix3D;
 class LightClass;
-
 
 /**
 ** LightEnvironmentClass
@@ -158,7 +156,6 @@ protected:
 	OutputLightStruct	OutputLights[MAX_LIGHTS];	// ouput lights
 
 };
-
 
 #endif //LIGHTENVIRONMENT_H
 

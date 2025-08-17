@@ -34,11 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
 
 #ifndef SAVELOAD_H
 #define SAVELOAD_H
@@ -55,7 +53,6 @@ class PersistClass;
 class PostLoadableClass;
 class ChunkSaveClass;
 class ChunkLoadClass;
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -132,7 +129,6 @@ class ChunkLoadClass;
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	SaveLoadSystemClass
@@ -205,7 +201,6 @@ protected:
 	friend class PersistFactoryClass;
 };
 
-
 /*
 ** Use the following macros to automatically enable pointer-remap DEBUG code.  Remember that
 ** in all cases you submit a pointer to the pointer you want re-mapped.
@@ -217,7 +212,6 @@ protected:
 #define REQUEST_POINTER_REMAP(pp)					SaveLoadSystemClass::Request_Pointer_Remap(pp)
 #define REQUEST_REF_COUNTED_POINTER_REMAP(pp)	SaveLoadSystemClass::Request_Ref_Counted_Pointer_Remap(pp)
 #endif
-
 
 #endif //SAVELOAD_H
 

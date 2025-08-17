@@ -75,7 +75,6 @@ public:
 	virtual Bool shouldExit(const StateMachine* machine) const;
 };
 
-
 // FORWARD DECLARATIONS ///////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------------------------
@@ -210,7 +209,6 @@ protected:
 	virtual void loadPostProcess();
 };
 EMPTY_DTOR(AITNGuardReturnState)
-
 
 //--------------------------------------------------------------------------------------
 class AITNGuardPickUpCrateState : public AIPickUpCrateState

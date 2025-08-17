@@ -46,13 +46,11 @@
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/Weapon.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -109,13 +107,10 @@ HelixContain::~HelixContain( void )
 
 }
 
-
 void HelixContain::onObjectCreated( void )
 {
   HelixContain::createPayload();
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -132,12 +127,10 @@ UpdateSleepTime HelixContain::update()
   return TransportContain::update(); // extend base
 }
 
-
 void HelixContain::redeployOccupants( void )
 {
   Coord3D firePos = *getObject()->getPosition();
   firePos.z += 8;
-
 
 	for (ContainedItemsList::iterator it = m_containList.begin(); it != m_containList.end(); ++it)
   {
@@ -147,13 +140,11 @@ void HelixContain::redeployOccupants( void )
   }
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 void HelixContain::createPayload()
 {
 	HelixContainModuleData* self = (HelixContainModuleData*)getHelixContainModuleData();
-
 
   // Any number of different passengers can be loaded here at init time
 	Object* object = getObject();
@@ -215,8 +206,6 @@ Object* HelixContain::getPortableStructure( void )
   return TheGameLogic->findObjectByID( m_portableStructureID );
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 void HelixContain::onDie( const DamageInfo *damageInfo )
 {
@@ -258,7 +247,6 @@ void HelixContain::addToContainList( Object *obj )
     m_portableStructureID = obj->getID();
     obj->friend_setContainedBy( getObject() );//fool portable into thinking my object is his container
 
-
   }
   else
 		TransportContain::addToContainList( obj );
@@ -275,7 +263,6 @@ void HelixContain::addToContain( Object *obj )
 
     m_portableStructureID = obj->getID();
     obj->friend_setContainedBy( getObject() );//fool portable into thinking my object is his container
-
 
   }
   else
@@ -300,7 +287,6 @@ void HelixContain::removeFromContain( Object *obj, Bool exposeStealthUnits )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool HelixContain::isValidContainerFor(const Object* obj, Bool checkCapacity) const
 {
@@ -309,7 +295,6 @@ Bool HelixContain::isValidContainerFor(const Object* obj, Bool checkCapacity) co
 
 	return TransportContain::isValidContainerFor( obj, checkCapacity );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 const Object *HelixContain::friend_getRider() const
@@ -335,10 +320,8 @@ Bool HelixContain::isEnclosingContainerFor( const Object *obj ) const
       return FALSE;
   }
 
-
   return TransportContain::isEnclosingContainerFor( obj );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -359,7 +342,6 @@ void HelixContain::clientVisibleContainedFlashAsSelected()
 		}
   }
 }
-
 
 Bool HelixContain::isPassengerAllowedToFire( ObjectID id ) const
 {
@@ -383,11 +365,6 @@ Bool HelixContain::isPassengerAllowedToFire( ObjectID id ) const
 
 }
 
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 void HelixContain::onContaining( Object *obj, Bool wasSelected )
 {
@@ -397,7 +374,6 @@ void HelixContain::onContaining( Object *obj, Bool wasSelected )
 	// give the object a garrisoned version of its weapon
 	obj->setWeaponBonusCondition( WEAPONBONUSCONDITION_GARRISONED );
   obj->setDisabled( DISABLED_HELD );
-
 
   if ( obj->isKindOf( KINDOF_PORTABLE_STRUCTURE ) && getObject()->testStatus( OBJECT_STATUS_STEALTHED ) )
   {
@@ -411,9 +387,6 @@ void HelixContain::onContaining( Object *obj, Bool wasSelected )
     }
   }
 
-
-
-
 }  // end onContaining
 
 void HelixContain::onRemoving( Object *obj )
@@ -426,15 +399,6 @@ void HelixContain::onRemoving( Object *obj )
   obj->clearDisabled( DISABLED_HELD );
 
 } // end onRemoving
-
-
-
-
-
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -465,7 +429,6 @@ void HelixContain::xfer( Xfer *xfer )
 
 	// extend base class
   	TransportContain::xfer( xfer );
-
 
 }  // end xfer
 

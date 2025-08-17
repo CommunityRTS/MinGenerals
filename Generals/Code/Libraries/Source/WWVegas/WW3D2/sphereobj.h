@@ -149,7 +149,6 @@ typedef AlphaVectorChannel							SphereVectorChannelClass;
 
 class VertexMaterialClass;
 
-
 class SphereMeshClass
 {
 friend class SphereRenderObjClass;
@@ -254,7 +253,6 @@ public:
 	virtual void					Set_Visible(int onoff)				{ RenderObjClass::Set_Visible (onoff); Update_On_Visibilty (); }
 	virtual void					Set_Animation_Hidden(int onoff)	{ RenderObjClass::Set_Animation_Hidden (onoff); Update_On_Visibilty (); }
 	virtual void					Set_Force_Visible(int onoff)		{ RenderObjClass::Set_Force_Visible (onoff); Update_On_Visibilty (); }
-
 
 	const AABoxClass	&			Get_Box(void);
 
@@ -394,7 +392,6 @@ inline void SphereRenderObjClass::Set_Local_Min_Max(const Vector3 & min,const Ve
 	update_cached_box();
 }
 
-
 inline const AABoxClass & SphereRenderObjClass::Get_Box(void)
 {
 	Validate_Transform();
@@ -450,5 +447,4 @@ extern SphereLoaderClass			_SphereLoader;
 #endif // SPHEREOBJ_H
 
 // EOF - sphereobj,h
-
 

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -63,7 +62,6 @@ public:
 	WWINLINE const	int&	operator[] (int n) const;
 	WWINLINE int&			operator[] (int n);
 };
-
 
 WWINLINE Vector2i::Vector2i(void)
 {
@@ -108,6 +106,5 @@ WWINLINE void Vector2i::Swap(Vector2i & other)
 	other.J ^= J;
 	J ^= other.J;
 }
-
 
 #endif

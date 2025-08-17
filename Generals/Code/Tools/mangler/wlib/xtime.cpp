@@ -45,10 +45,8 @@ static char *MONTHS[]={"Jan","Feb","Mar","Apr","May","Jun","Jul",
 static char *FULLMONTHS[]={"January","February","March","April","May","June",
                "July","August","September","October","November","December"};
 
-
 #define IS_LEAP(y) ((y) % 4) == 0 && (! ((y) % 100) == 0 || ((y) % 400) == 0)
 #define LEAPS_THRU_END_OF(y) ((y) / 4 - (y) / 100 + (y) / 400)
-
 
 /////////////// Utility functions ///////////////////
 
@@ -76,8 +74,6 @@ static sint32 Get_Day(int month, int day, int year)
       --days;
     return(days);
 }
-
-
 
 //
 // Get the year from a daycount since year 0
@@ -123,7 +119,6 @@ static bit8 Get_Date_From_Day(sint32 days, OUT sint32 &year, OUT sint32 &yday)
   return(TRUE);
 }
 
-
 //
 // Get the max day of a given month in a given year
 //
@@ -136,8 +131,6 @@ int Max_Day(int month, int year)
   bit8 isleap=IS_LEAP(year);
   return(dayTable[isleap][month]);
 }
-
-
 
 /**********************************************************
 int main(int argc, char *argv[])
@@ -189,7 +182,6 @@ int main(int argc, char *argv[])
   dayoffset=Get_Day(1,1,1970);
   printf("DAYOFFSET = %d\n",dayoffset);
 
-
   wtime.getTime(month, mday, year, hour, minute, second);
   printf("\n%s %d  %d  %d:%02d:%02d\n\n",
     MONTHS[month-1],mday,year,hour,minute,second);
@@ -213,8 +205,6 @@ int main(int argc, char *argv[])
   printf("TIME->GMT->ASCTIME = %s\n",asctime(&tmtime));
 }
 ***************************************************************/
-
-
 
 //
 // Construct with current clock time
@@ -303,7 +293,6 @@ void Xtime::update(void)
   // Now normalize in case msec is > 1 days worth
   normalize();
 }
-
 
 // This takes the standard Microsoft time formatting string
 // make sure the out string is big enough
@@ -564,7 +553,6 @@ bit8 Xtime::ParseDate(char *in)
   if ((sint32)sec==-1)
     return(FALSE);
 
-
   // The next part of the time is OPTIONAL (+minutes)
 
   // first skip past the seconds
@@ -590,8 +578,6 @@ bit8 Xtime::ParseDate(char *in)
   sec+=minOffset*60;  // add the minutes as seconds
   return(TRUE);
 }
-
-
 
 // In addition to PrintTime & PrintDate there is the 'Print' function
 //   which prints both in RFC 1123 format
@@ -653,7 +639,6 @@ void Xtime::set(sint32 newday, sint32 newmsec)
   msec_=newmsec;
 }
 
-
 //
 // Get a timeval ptr from a Xtime class
 // May fail if timeval can't hold a year this big or small
@@ -684,8 +669,6 @@ bit8 Xtime::setTime(int month, int mday, int year, int hour, int minute, int sec
   return(TRUE);
 }
 
-
-
 int Xtime::getYDay(void) const   // Day of Year  (1-366)  (366 = leap yr)
 {
 	int year;
@@ -694,7 +677,6 @@ int Xtime::getYDay(void) const   // Day of Year  (1-366)  (366 = leap yr)
 		return(-1);
 	return dayofyear;
 }
-
 
 //
 // Get all the components of the time in the usual normalized format.
@@ -778,7 +760,6 @@ int Xtime::getYear(void) const
   return(year);
 }
 
-
 //
 // Set the seconds value (0-59)
 //
@@ -843,7 +824,6 @@ bit8 Xtime::setMonth(sint32 _month)
   return(TRUE);
 }
 
-
 //
 // Modify the day of the month
 //
@@ -858,7 +838,6 @@ bit8 Xtime::setMDay(sint32 _mday)
   day_=Get_Day(month,mday,year);
   return(TRUE);
 }
-
 
 //
 // Compare two times.  The time better be normalized
@@ -881,7 +860,6 @@ int   Xtime::compare(const Xtime &other) const
   else
     return(-1);
 }
-
 
 bit8 Xtime::operator == ( const Xtime &other ) const
 {
@@ -937,7 +915,6 @@ bit8 Xtime::operator >= ( const Xtime &other ) const
     return(FALSE);
 }
 
-
 Xtime &Xtime::operator += (const Xtime &other)
 {
   day_+=other.day_;
@@ -968,7 +945,6 @@ Xtime Xtime::operator + (Xtime &other)
   return(temp);
 }
 
-
 Xtime   &Xtime::operator = (const Xtime &other)
 {
   day_=other.day_;
@@ -976,13 +952,11 @@ Xtime   &Xtime::operator = (const Xtime &other)
   return *this;
 }
 
-
 Xtime &Xtime::operator += (const time_t other)
 {
   addSeconds(other);
   return *this;
 }
-
 
 Xtime &Xtime::operator -= (const time_t other)
 {
@@ -990,14 +964,12 @@ Xtime &Xtime::operator -= (const time_t other)
   return *this;
 }
 
-
 Xtime Xtime::operator - (time_t other)
 {
   Xtime temp(*this);
   temp-=other;
   return(temp);
 }
-
 
 Xtime Xtime::operator + (time_t other)
 {

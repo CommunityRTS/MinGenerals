@@ -249,8 +249,6 @@ void BuildListTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CW
 
 }
 
-
-
 /** Execute the tool on mouse up - Place an object. */
 void BuildListTool::mouseUp(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)
 {

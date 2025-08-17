@@ -43,13 +43,11 @@
 #include "rawfile.h"
 #include "units.h"
 
-
 /*
 ** Static functions
 */
 static BOOL CALLBACK		_logdata_dialog_proc(HWND Hwnd,UINT message,WPARAM wParam,LPARAM lParam);
 static DWORD WINAPI		_logdata_thread_function(LPVOID log_obj_ptr);
-
 
 /***********************************************************************************************
  * LogDataDialogClass::LogDataDialogClass -- constructor for the options dialog object         *
@@ -86,7 +84,6 @@ LogDataDialogClass::~LogDataDialogClass(void)
 		SendMessage( Hwnd, WM_CLOSE, 0, 0 );
 	}
 }
-
 
 /***********************************************************************************************
  * LogDataDialogClass::printf -- handles doing printfs into the current log window             *
@@ -127,7 +124,6 @@ void LogDataDialogClass::printf(char * text, const va_list & args)
 	//if (pos == max) {
 		SendMessage(GetDlgItem(Hwnd,IDC_ANIM_LOG_RICHEDIT), EM_SCROLLCARET, 0, 0);
 	//}
-
 
 }
 
@@ -171,7 +167,6 @@ void LogDataDialogClass::rprintf(char *text, const va_list & args)
 
 }	// rprintf
 
-
 /***********************************************************************************************
  * LogDataDialogClass::updatebar - send message to progress meter                              *
  *                                                                                             *
@@ -196,7 +191,6 @@ void	LogDataDialogClass::updatebar(float position, float total)
 
 }	// updatebar
 
-
 /***********************************************************************************************
  * LogDataDialogClass::Wait_OK - Give user a chance to review log, then hit ok                 *
  *                                                                                             *
@@ -219,8 +213,6 @@ void LogDataDialogClass::Wait_OK()
 	}
 
 } // Wait_OK
-
-
 
 /***********************************************************************************************
  * LogDataDialogClass::Dialog_Proc -- Handles the windows message for the options dialog    *
@@ -256,7 +248,6 @@ bool LogDataDialogClass::Dialog_Proc
 
 			Dialog_Init();
 			return TRUE;
-
 
 		/*******************************************************************
 		* WM_COMMAND
@@ -324,10 +315,7 @@ void LogDataDialogClass::Dialog_Init()
 
 	status = 1;	// signal init
 
-
 }	// Dialog_Init
-
-
 
 /***********************************************************************************************
  * _logdata_dialog_proc -- thunks into the logdata dialog class's windows message handler      *
@@ -369,7 +357,6 @@ BOOL CALLBACK _logdata_dialog_proc
 
 } // _logdata_dialog_proc
 
-
 DWORD WINAPI _logdata_thread_function(LPVOID log_obj_ptr)
 {
 	// put logdata dialog box (lpParameter is the "this" pointer of the object)
@@ -379,10 +366,8 @@ DWORD WINAPI _logdata_thread_function(LPVOID log_obj_ptr)
                    (DLGPROC) _logdata_dialog_proc,
                    (LPARAM) log_obj_ptr);
 
-
 	// When this exits it should terminate the thread
 	return(0);
 }
-
 
 // EOF - logdlg.cpp

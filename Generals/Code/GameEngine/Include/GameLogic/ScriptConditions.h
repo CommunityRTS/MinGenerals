@@ -60,7 +60,6 @@ public:
 };  // end class ScriptConditionsInterface
 extern ScriptConditionsInterface *TheScriptConditions;   ///< singleton definition
 
-
 //-----------------------------------------------------------------------------
 // ScriptConditions
 //-----------------------------------------------------------------------------
@@ -181,12 +180,9 @@ protected:
 	Bool evaluateSkirmishSupplySourceAttacked(Parameter *pSkirmishPlayerParm );
 	Bool evaluateSkirmishStartPosition(Parameter *pSkirmishPlayerParm, Parameter *startNdx );
 
-
 	// Stubs
 	Bool evaluateMissionAttempts(Parameter *pPlayerParm, Parameter *pComparisonParm, Parameter *pAttemptsParm);
 
-
 };  // end class ScriptConditions
-
 
 #endif  // end __SCRIPTCONDITIONS_H_

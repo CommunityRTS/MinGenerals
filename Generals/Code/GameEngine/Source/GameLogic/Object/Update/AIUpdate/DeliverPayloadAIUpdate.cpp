@@ -100,7 +100,6 @@ const FieldParse* DeliverPayloadData::getFieldParse()
 	return dataFieldParse;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -300,7 +299,6 @@ void DeliverPayloadAIUpdate::deliverPayload(
 		}
 	}
 
-
 	// must make the state machine AFTER initing the other stuff, since it may inquire of its values...
 	m_deliverPayloadStateMachine = newInstance(DeliverPayloadStateMachine)( getObject() );
 	m_deliverPayloadStateMachine->initDefaultState();
@@ -366,7 +364,6 @@ Real DeliverPayloadAIUpdate::calcMinTurnRadius(Real* timeToTravelThatDist) const
 	return minTurnRadius;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool DeliverPayloadAIUpdate::isCloseEnoughToTarget()
 {
@@ -383,7 +380,6 @@ Bool DeliverPayloadAIUpdate::isCloseEnoughToTarget()
 		allowedDistanceSqr = sqr(getAllowedDistanceToTarget() + getPreOpenDistance());
 
 	//DEBUG_LOG(("Dist to target is %f (allowed %f)\n",sqrt(currentDistanceSqr),sqrt(allowedDistanceSqr)));
-
 
 	if ( allowedDistanceSqr > currentDistanceSqr )
 		return TRUE;
@@ -490,7 +486,6 @@ void DeliverPayloadAIUpdate::xfer( Xfer *xfer )
 	{
 		xfer->xferBool(&m_acceptingCommands);
 	}
-
 
 }  // end xfer
 
@@ -652,7 +647,6 @@ void DeliveringState::xfer( Xfer *xfer )
 void DeliveringState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 //-------------------------------------------------------------------------------------------------
 StateReturnType DeliveringState::onEnter() // Open the pod bay doors, Hal
@@ -931,7 +925,6 @@ void ConsiderNewApproachState::loadPostProcess( void )
 {
 }  // end loadPostProcess
 
-
 //-------------------------------------------------------------------------------------------------
 StateReturnType ConsiderNewApproachState::onEnter() // Increment local counter o' futility
 {
@@ -1042,7 +1035,6 @@ void RecoverFromOffMapState::xfer( Xfer *xfer )
 void RecoverFromOffMapState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 //-------------------------------------------------------------------------------------------------
 StateReturnType RecoverFromOffMapState::onEnter() // Increment local counter o' futility
@@ -1173,7 +1165,6 @@ StateReturnType HeadOffMapState::update()
 
 	return STATE_CONTINUE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

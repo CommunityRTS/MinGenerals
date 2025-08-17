@@ -50,7 +50,6 @@ void __cdecl PrintWin32Error(const char* string, ...);
 
 extern char debugLogName[];
 
-
 #ifdef __cplusplus
 }
 #endif

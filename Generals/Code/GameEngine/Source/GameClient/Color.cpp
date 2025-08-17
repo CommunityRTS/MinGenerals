@@ -100,7 +100,6 @@ void GameGetColorComponentsReal( Color color, Real *red, Real *green, Real *blue
 	*blue		= (color & 0x000000FF) / 255.0f;
 }
 
-
 Color GameDarkenColor( Color color, Int percent )
 {
 	// if they try to go to dark, just return their old color

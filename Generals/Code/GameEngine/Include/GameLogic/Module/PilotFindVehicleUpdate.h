@@ -40,7 +40,6 @@
 class ThingTemplate;
 class WeaponTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class PilotFindVehicleUpdateModuleData : public ModuleData
@@ -79,7 +78,6 @@ public:
 protected:
 	Bool		m_didMoveToBase;
 };
-
 
 #endif
 

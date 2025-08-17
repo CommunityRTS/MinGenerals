@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -44,7 +43,6 @@
 
 #include "curve.h"
 #include "vector.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -79,7 +77,6 @@ public:
 			Curve3DClass () { }
 
 	virtual ~VehicleCurveClass () {}
-
 
 	///////////////////////////////////////////////////////////////////////////
 	//	Public methods
@@ -119,7 +116,6 @@ protected:
 	///////////////////////////////////////////////////////////////////////////
 	void			Update_Arc_List (void);
 	void			Load_Variables (ChunkLoadClass &cload);
-
 
 	///////////////////////////////////////////////////////////////////////////
 	//	Protected data types
@@ -204,7 +200,6 @@ VehicleCurveClass::Clear_Keys (void)
 	Curve3DClass::Clear_Keys ();
 	return ;
 }
-
 
 #endif //__VEHICLE_CURVE_H
 

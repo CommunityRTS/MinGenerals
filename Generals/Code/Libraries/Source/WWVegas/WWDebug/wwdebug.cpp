@@ -41,7 +41,6 @@
  *   WWDebug_Check_Trigger -- calls the user-installed debug trigger handler                   *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "wwdebug.h"
 #include <windows.h>
 //#include "win.h" can use this if allowed to see wwlib
@@ -50,7 +49,6 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-
 
 static PrintFunc			_CurMessageHandler = NULL;
 static AssertPrintFunc	_CurAssertHandler = NULL;
@@ -99,7 +97,6 @@ PrintFunc WWDebug_Install_Message_Handler(PrintFunc func)
 	return tmp;
 }
 
-
 /***********************************************************************************************
  * WWDebug_Install_Assert_Handler -- Install a function for handling the assert messages       *
  *                                                                                             *
@@ -118,7 +115,6 @@ AssertPrintFunc WWDebug_Install_Assert_Handler(AssertPrintFunc func)
 	_CurAssertHandler = func;
 	return tmp;
 }
-
 
 /***********************************************************************************************
  * WWDebug_Install_Trigger_Handler -- install a trigger handler function                       *
@@ -139,7 +135,6 @@ TriggerFunc	WWDebug_Install_Trigger_Handler(TriggerFunc func)
 	return tmp;
 }
 
-
 /***********************************************************************************************
  * WWDebug_Install_Profile_Start_Handler -- install a profile handler function                 *
  *                                                                                             *
@@ -159,7 +154,6 @@ ProfileFunc	WWDebug_Install_Profile_Start_Handler(ProfileFunc func)
 	return tmp;
 }
 
-
 /***********************************************************************************************
  * WWDebug_Install_Profile_Stop_Handler -- install a profile handler function                  *
  *                                                                                             *
@@ -178,7 +172,6 @@ ProfileFunc	WWDebug_Install_Profile_Stop_Handler(ProfileFunc func)
 	_CurProfileStopHandler = func;
 	return tmp;
 }
-
 
 /***********************************************************************************************
  * WWDebug_Printf -- Internal function for passing messages to installed handler               *
@@ -302,7 +295,6 @@ void WWDebug_Assert_Fail(const char * expr,const char * file, int line)
 }
 #endif
 
-
 /***********************************************************************************************
  * WWDebug_Assert_Fail_Print -- Internal function, passes assert message to handler            *
  *                                                                                             *
@@ -332,7 +324,6 @@ void WWDebug_Assert_Fail_Print(const char * expr,const char * file, int line,con
 }
 #endif
 
-
 /***********************************************************************************************
  * WWDebug_Check_Trigger -- calls the user-installed debug trigger handler                     *
  *                                                                                             *
@@ -354,7 +345,6 @@ bool WWDebug_Check_Trigger(int trigger_num)
 	}
 }
 
-
 /***********************************************************************************************
  * WWDebug_Profile_Start -- calls the user-installed profile start handler                     *
  *                                                                                             *
@@ -374,7 +364,6 @@ void WWDebug_Profile_Start( const char * title)
 	}
 }
 
-
 /***********************************************************************************************
  * WWDebug_Profile_Stop -- calls the user-installed profile start handler                      *
  *                                                                                             *
@@ -393,8 +382,6 @@ void WWDebug_Profile_Stop( const char * title)
 		_CurProfileStopHandler( title );
 	}
 }
-
-
 
 #ifdef WWDEBUG
 /***********************************************************************************************

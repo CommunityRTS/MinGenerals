@@ -183,7 +183,6 @@ void TextureFilterClass::_Init_Filters(TextureFilterMode filter_type)
 		}
 		_MipMapFilters[i][FILTER_TYPE_BEST]=_MipMapFilters[i-1][FILTER_TYPE_BEST];
 
-
 	}
 
 	// Set default to best. The level of best filter mode is controlled by the input parameter.
@@ -196,7 +195,6 @@ void TextureFilterClass::_Init_Filters(TextureFilterMode filter_type)
 	}
 
 }
-
 
 //**********************************************************************************************
 //! Set mip mapping filter (legacy)
@@ -223,7 +221,6 @@ void TextureFilterClass::_Set_Default_Min_Filter(FilterType filter)
 		_MinTextureFilters[i][FILTER_TYPE_DEFAULT]=_MinTextureFilters[i][filter];
 	}
 }
-
 
 //**********************************************************************************************
 //! Set default mag filter (legacy)

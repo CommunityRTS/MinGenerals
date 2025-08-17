@@ -46,7 +46,6 @@
 
 #include <stack>
 
-
 static int newLayerNum = 1;
 
 // CLLTreeCtrl Implementation /////////////////////////////////////////////////////////////////////
@@ -250,7 +249,6 @@ void LayersList::addPolygonTriggerToLayersList(PolygonTrigger *triggerToAdd, Asc
 	addPolygonTriggerToLayer(triggerToAdd, &layerIt);
 }
 
-
 AsciiString LayersList::removeMapObjectFromLayersList(MapObject *objToRemove)
 {
 	ListLayerIt layerIt;
@@ -276,7 +274,6 @@ AsciiString LayersList::removePolygonTriggerFromLayersList(PolygonTrigger *trigg
 	removePolygonTriggerFromLayer(triggerToRemove, &layerIt, &triggerIt);
 	return layerIt->layerName;
 }
-
 
 void LayersList::changeMapObjectLayer(MapObject *objToChange, AsciiString layerToPlaceOn)
 {
@@ -330,7 +327,6 @@ void LayersList::removeLayerNamed(IN AsciiString layerToRemove)
 		return;
 	}
 
-
 	// If we can't find the layer, how can we remove it?
 	if (!findLayerNamed(layerToRemove, &layerIt)) {
 		DEBUG_CRASH(("Couldn't find layer named %s", layerToRemove.str()));
@@ -378,7 +374,6 @@ void LayersList::mergeLayerInto(IN ListLayerIt src, IN ListLayerIt dst)
 		changePolygonTriggerLayer(*ptpIt, dst->layerName);
 	}
 
-
 	// Don't remove these layers.
 	if (src->layerName.compareNoCase(TheDefaultLayerName.c_str()) == 0) {
 		return;
@@ -391,7 +386,6 @@ void LayersList::mergeLayerInto(IN ListLayerIt src, IN ListLayerIt dst)
 		// The active layer is no longer available.
 		TheActiveLayerName = AsciiString::TheEmptyString.str();
 	}
-
 
 	// remove the layer from the tree view
 	HTREEITEM itemToRemove = findTreeLayerNamed(src->layerName);
@@ -504,7 +498,6 @@ Bool LayersList::findPolygonTriggerAndList(IN PolygonTrigger *triggerToFind, OUT
 	// if we get here, it means we didn't find the object anywhere in any of the layers
 	return false;
 }
-
 
 Bool LayersList::findLayerNamed(IN AsciiString layerName, OUT ListLayerIt *layerIt)
 {
@@ -627,7 +620,6 @@ void LayersList::addPolygonTriggerToLayer(IN PolygonTrigger *triggerToAdd, IN Li
 
 }
 
-
 void LayersList::removeMapObjectFromLayer(IN MapObject *objectToRemove, IN ListLayerIt *layerIt, IN ListMapObjectPtrIt *objectIt)
 {
 	if (!objectToRemove) {
@@ -707,7 +699,6 @@ void LayersList::removePolygonTriggerFromLayer(IN PolygonTrigger *triggerToRemov
 
 }
 
-
 BOOL LayersList::OnInitDialog()
 {
 	// call the parent first
@@ -742,7 +733,6 @@ BOOL LayersList::OnInitDialog()
 	pTree->SetImageList(&mImageList, LVSIL_NORMAL);
 	pTree->InsertItem(TheDefaultLayerName.c_str(), 0, 0);
 
-
 	return 1;
 
 }
@@ -773,7 +763,6 @@ void LayersList::OnBeginEditLabel(NMHDR *pNotifyStruct, LRESULT* pResult)
 		(*pResult) = 1;
 		return;
 	}
-
 
 	CString str = pTree->GetItemText(ptvdi->item.hItem);
 	// if we can't find the layer of that name, then
@@ -818,7 +807,6 @@ void LayersList::OnEndEditLabel(NMHDR *pNotifyStruct, LRESULT* pResult)
 
 	return;
 }
-
 
 void LayersList::OnNewLayer()
 {
@@ -865,7 +853,6 @@ void LayersList::OnDeleteLayer()
 	if (!findLayerNamed(asciiCatToDelete, &srcLayerIt)) {
 		return;
 	}
-
 
 	if (asciiCatToDelete.compareNoCase(TheActiveLayerName.c_str()) == 0) {
 		// The active layer is being deleted.
@@ -1108,7 +1095,6 @@ void LayersList::updateTreeImages()
 		return;
 	}
 
-
 	ListLayerIt layerIt;
 
 	for (layerIt = mLayers.begin(); layerIt != mLayers.end(); layerIt++) {
@@ -1165,7 +1151,6 @@ void LayersList::OnMergeViewSelection(UINT commandID)
 		allSelectedObjects.pop();
 	}
 
-
 	PolygonTrigger *polygonTrigger = PolygonTrigger::getFirstPolygonTrigger();
 
 	std::stack<PolygonTrigger*> allSelectedTriggers;
@@ -1182,7 +1167,6 @@ void LayersList::OnMergeViewSelection(UINT commandID)
 		allSelectedTriggers.pop();
 	}
 }
-
 
 //WST 11/23/2002
 void LayersList::unselectAllMapObjects(void)
@@ -1202,7 +1186,6 @@ void LayersList::unselectAllPolygonTriggers(void)
 		trigger = trigger->getNext();
 	}
 }
-
 
 //WST 11/23/2002
 Bool LayersList::findAndSelectMapObject(AsciiString selectedItemAsciiString)
@@ -1224,7 +1207,6 @@ Bool LayersList::findAndSelectMapObject(AsciiString selectedItemAsciiString)
 	return (false);
 }
 
-
 Bool LayersList::findAndSelectPolygonTrigger(AsciiString selectedItemAsciiString)
 {
 	PolygonTrigger *trigger = PolygonTrigger::getFirstPolygonTrigger();
@@ -1242,8 +1224,6 @@ Bool LayersList::findAndSelectPolygonTrigger(AsciiString selectedItemAsciiString
 	return (false);
 }
 
-
-
 //WST 11/21/02 New Design team request to select objects from layer view box
 void LayersList::OnSelectLayerObject()
 {
@@ -1256,7 +1236,6 @@ void LayersList::OnSelectLayerObject()
 	if (!item) {
 		return;
 	}
-
 
 	CString selectedItemCString = pTree->GetItemText(item);
 	AsciiString selectedItemAsciiString(selectedItemCString.GetBuffer(0));
@@ -1333,8 +1312,6 @@ BEGIN_MESSAGE_MAP(LayersList, CDialog)
 	ON_COMMAND_RANGE(ID_LAYERSLIST_MERGEOBJECTINTO_BEGIN, ID_LAYERSLIST_MERGEOBJECTINTO_END, OnMergeObject)
 	ON_COMMAND_RANGE(ID_LAYERSLIST_MERGEVIEWSELECTIONINTO_BEGIN, ID_LAYERSLIST_MERGEVIEWSELECTIONINTO_END, OnMergeViewSelection)
 END_MESSAGE_MAP()
-
-
 
 // for purposes of linking.
 // TheDefaultLayerName is NOT constant, because it is okay to change it.

@@ -57,7 +57,6 @@
 #include "iostruct.h"
 #endif
 
-
 /************************************************************************************
 
 	ChunkIO
@@ -125,7 +124,6 @@ struct MicroChunkHeader
 	uint8	ChunkSize;
 };
 
-
 /**************************************************************************************
 **
 ** ChunkSaveClass
@@ -170,7 +168,6 @@ private:
 	int					MicroChunkPosition;
 	MicroChunkHeader	MCHeader;
 };
-
 
 /**************************************************************************************
 **
@@ -256,7 +253,6 @@ private:
 	csave.Write((const WCHAR *)var, (var.Get_Length () + 1) * 2); \
 	csave.End_Chunk(); }
 
-
 /*
 ** READ_WWSTRING_CHUNK	- use this macro in a switch statement to read the contents
 **	of a chunk into a string object.
@@ -277,7 +273,6 @@ private:
 
 #define READ_WIDESTRING_CHUNK(cload,id,var)		\
 	case (id):	cload.Read(var.Get_Buffer((cload.Cur_Chunk_Length()+1)/2),cload.Cur_Chunk_Length()); break;	\
-
 
 /*
 ** WRITE_MICRO_CHUNK	- use this one-line macro to easily make a micro chunk for an individual variable.
@@ -315,7 +310,6 @@ private:
 	csave.Begin_Micro_Chunk(id); \
 	csave.Write((const WCHAR *)var, (var.Get_Length () + 1) * 2); \
 	csave.End_Micro_Chunk(); }
-
 
 /*
 ** READ_MICRO_CHUNK - use this macro in a switch statement to read a micro chunk into a variable
@@ -366,7 +360,6 @@ private:
 #define LOAD_MICRO_CHUNK_WIDESTRING(cload,var)		\
 	cload.Read(var.Get_Buffer((cload.Cur_Micro_Chunk_Length()+1)/2),cload.Cur_Micro_Chunk_Length());	\
 
-
 /*
 ** OBSOLETE_MICRO_CHUNK - use this macro in a switch statement when you want your code
 ** to skip a given micro chunk but not fall through to your 'default' case statement which
@@ -374,7 +367,5 @@ private:
 */
 #define OBSOLETE_MICRO_CHUNK(id) \
 	case (id): break;
-
-
 
 #endif CHUNKIO_H

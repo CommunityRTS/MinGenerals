@@ -60,7 +60,6 @@ class MeshConnectionsClass;
 class MeshSaveClass;
 class SkinDataClass;
 
-
 /*******************************************************************************************
 **
 ** VertStruct
@@ -218,9 +217,5 @@ private:
 
 	friend class DamageClass;
 };
-
-
-
-
 
 #endif /*MESHSAVE_H*/

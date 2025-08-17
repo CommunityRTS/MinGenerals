@@ -62,7 +62,6 @@ class JetAIUpdate;
 enum AIStateType;
 enum ObjectID;
 
-
 //-------------------------------------------------------------------------------------------------
 const Real FAST_AS_POSSIBLE = 999999.0f;
 
@@ -134,7 +133,6 @@ static const char *TheAutoAcquireEnemiesNames[] =
 };
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 enum MoodMatrixParameters
 {
@@ -202,7 +200,6 @@ public:
  	UnsignedInt						m_surrenderDuration;					///< when we surrender, how long we stay surrendered.
 #endif
 
-
   AIUpdateModuleData();
 	virtual ~AIUpdateModuleData();
 
@@ -214,7 +211,6 @@ public:
 
 private:
 	static void parseTurret( INI* ini, void *instance, void *store, const void* /*userData*/ );
-
 
 };
 
@@ -295,7 +291,6 @@ protected:
 	virtual void privateBusy( CommandSourceType cmdSource );	///< Transition to the busy state
 	virtual void privateMoveAwayFromUnit( Object *unit, CommandSourceType cmdSource );	///< Move out of the way of a unit.
 
-
 public:
 	AIUpdateInterface( Thing *thing, const ModuleData* moduleData );
 	// virtual destructor prototype provided by memory pool declaration
@@ -368,7 +363,6 @@ public:
 														 Player *owningPlayer,
 														 Bool isRebuild ) { return NULL; }///< construct a building
 
-
 	void ignoreObstacle( const Object *obj );			///< tell the pathfinder to ignore the given object as an obstacle
 	void ignoreObstacleID( ObjectID id );			///< tell the pathfinder to ignore the given object as an obstacle
 
@@ -391,7 +385,6 @@ public:
 	*/
 	virtual void addTargeter(ObjectID id, Bool add) { return; }
 	virtual Bool isTemporarilyPreventingAimSuccess() const { return false; }
-
 
 	void setPriorWaypointID( UnsignedInt id )   { m_priorWaypointID = id; };
 	void setCurrentWaypointID( UnsignedInt id ) { m_currentWaypointID = id; };
@@ -589,7 +582,6 @@ public:
 	Bool canAutoAcquire() const { return getAIUpdateModuleData()->m_autoAcquireEnemiesWhenIdle; }
 
   Bool canAutoAcquireWhileStealthed() const ;
-
 
 protected:
 

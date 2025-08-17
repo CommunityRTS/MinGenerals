@@ -82,7 +82,6 @@ class ParticleSystemTemplate;
 class StealthUpdate;
 class SpyVisionUpdate;
 
-
 //-------------------------------------------------------------------------------------------------
 class BehaviorModuleData : public ModuleData
 {
@@ -205,7 +204,6 @@ protected:
 };
 inline BehaviorModule::BehaviorModule( Thing *thing, const ModuleData* moduleData ) : ObjectModule( thing, moduleData ) { }
 inline BehaviorModule::~BehaviorModule() { }
-
 
 enum RunwayReservationType
 {

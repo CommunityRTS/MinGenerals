@@ -70,7 +70,6 @@ struct DamageColorStruct
 	RGBStruct	Color1;		// damaged color.
 };
 
-
 /*
 ** DamageClass - this class encapsulates the information needed
 ** to apply damage to meshes.  It contains replacement vertices,
@@ -101,8 +100,6 @@ protected:
 	friend class MeshClass;
 };
 
-
 #endif
-
 
 #endif //0

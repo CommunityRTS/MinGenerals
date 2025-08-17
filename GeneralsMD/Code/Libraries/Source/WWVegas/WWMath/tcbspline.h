@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -80,7 +79,6 @@ protected:
 
 	DynamicVectorClass<TCBClass> Params;
 };
-
 
 #endif
 

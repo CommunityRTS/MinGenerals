@@ -29,7 +29,6 @@ SplashScreen::SplashScreen()
 
 	m_loadString = "Cock & Beer";
 
-
 	LOGFONT lf;
 	lf.lfHeight = 12;
 	lf.lfWidth = 0;
@@ -73,7 +72,6 @@ void SplashScreen::OnPaint()
 {
 	// we're extending the default behavior
 	CDialog::OnPaint();
-
 
 	CDC *dc = GetDC();
 

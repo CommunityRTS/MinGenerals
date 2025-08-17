@@ -100,7 +100,6 @@ public:
 																				BodyDamageType oldState,
 																				BodyDamageType newState ) { }
 
-
 	// specific methods
 	virtual void toggle( void );						///< toggle overcharge on/off
 	virtual void enable( Bool enable );			///< turn overcharge on/off

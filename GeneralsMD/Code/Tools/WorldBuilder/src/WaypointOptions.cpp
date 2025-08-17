@@ -38,7 +38,6 @@ WaypointOptions *WaypointOptions::m_staticThis = NULL;
 /////////////////////////////////////////////////////////////////////////////
 /// WaypointOptions dialog trivial construstor - Create does the real work.
 
-
 WaypointOptions::WaypointOptions(CWnd* pParent /*=NULL*/):
 m_moveUndoable(NULL)
 {
@@ -298,7 +297,6 @@ BOOL WaypointOptions::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
 BEGIN_MESSAGE_MAP(WaypointOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(WaypointOptions)
 	ON_CBN_KILLFOCUS(IDC_WAYPOINTNAME_EDIT, OnChangeWaypointnameEdit)
@@ -512,7 +510,6 @@ void WaypointOptions::OnChangeWaypointnameEdit()
 		}
 	}
 }
-
 
 void WaypointOptions::OnEditchangeWaypointlabel1Edit()
 {

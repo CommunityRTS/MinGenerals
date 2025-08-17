@@ -47,10 +47,8 @@
  *   scan_edge -- Scan convert an edge                                                         *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "vxllayer.h"
 #include "plane.h"
-
 
 /***************************************************************************************
 ** local types
@@ -66,7 +64,6 @@ struct scanstruct
 	vertexstruct P[2];
 };
 
-
 /***************************************************************************************
 ** static data
 ***************************************************************************************/
@@ -75,8 +72,6 @@ static scanstruct _scantab[256];
 const int LEFT = 0;
 const int RIGHT = 1;
 const float EMPTY_SPAN = -10000.0f;
-
-
 
 /***************************************************************************************
 ** local functions
@@ -120,12 +115,6 @@ static void fixup_scan_table(
 static void scan_edge(
 						const vertexstruct &	p0,
 						const vertexstruct &	p1);
-
-
-
-
-
-
 
 /***********************************************************************************************
  * VoxelLayerClass::VoxelLayerClass -- Constructor for VoxelLayerClass                         *
@@ -211,8 +200,6 @@ VoxelLayerClass::VoxelLayerClass
 	}
 }
 
-
-
 /***********************************************************************************************
  * VoxelLayerClass::Intersect_Triangle -- Intersect a triangle with the slab                   *
  *                                                                                             *
@@ -290,7 +277,6 @@ void VoxelLayerClass::Intersect_Triangle
 	// Draw the edge into the bitmap.
 	Draw_Line(start_x, start_y, end_x, end_y);
 }
-
 
 /***********************************************************************************************
  * VoxelLayerClass::Draw_Line -- Draw a line of voxels into the slab                           *
@@ -378,8 +364,6 @@ void VoxelLayerClass::Draw_Line
 	}
 }
 
-
-
 /***********************************************************************************************
  * VoxelLayerClass::Scan_Triangle -- Clip and scan-convert a triangle into the slab            *
  *                                                                                             *
@@ -447,7 +431,6 @@ void VoxelLayerClass::Scan_Triangle
 	}
 }
 
-
 /***********************************************************************************************
  * clip_tri_to_slab -- Clips a triangle against a voxel slab                                   *
  *                                                                                             *
@@ -490,7 +473,6 @@ static void clip_tri_to_slab
 	// clip from the tmp buffer to the out buffer against top of slab:
 	clip_poly(tmpverts,*setnum,outverts,setnum,PlaneClass(Vector3(0.0f,0.0f,-1.0f),z1));
 }
-
 
 /***********************************************************************************************
  * clip_poly -- clip a polygon against a single 3D plane                                       *
@@ -542,7 +524,6 @@ static void clip_poly
 	}
 }
 
-
 /***********************************************************************************************
  * output -- Emit a vertex into a polygons vertex list                                         *
  *                                                                                             *
@@ -565,7 +546,6 @@ static void output
 	poly[*numverts] = outvert;
 	(*numverts)++;
 }
-
 
 /***********************************************************************************************
  * inside -- Test whether a point is in the front half-space of a plane                        *
@@ -592,7 +572,6 @@ static int inside
 		return 0;
 	}
 }
-
 
 /***********************************************************************************************
  * intersect -- compute intersection between a line and a plane                                *
@@ -636,7 +615,6 @@ static vertexstruct intersect
 	i.Bary = (1.0f - t) * p0.Bary + t*p1.Bary;
 	return i;
 }
-
 
 /***********************************************************************************************
  * clear_scan_table -- clears the static scanline table                                        *
@@ -698,7 +676,6 @@ static void fixup_scan_table(int y0,int y1)
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * scan_edge -- Scan convert an edge                                                           *

@@ -64,6 +64,5 @@ inline ClientUpdateModule::ClientUpdateModule( Thing *thing, const ModuleData* m
 inline ClientUpdateModule::~ClientUpdateModule() { }
 //-------------------------------------------------------------------------------------------------
 
-
 #endif // __ClientUpdateModule_H_
 

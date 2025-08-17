@@ -38,7 +38,6 @@
 #include "GameClient/GadgetTextEntry.h"
 #include "GameNetwork/LANAPI.h"
 
-
 // LAN API Singleton ----------------------------------------------------------------------
 extern LANAPI *TheLAN;
 
@@ -57,7 +56,6 @@ extern WindowLayout *mapSelectLayout;
 extern NameKeyType listboxChatWindowScoreScreenID;
 extern GameWindow *listboxChatWindowScoreScreen;
 
-
 //Colors used for the chat dialogs
 extern const Color playerColor;
 extern const Color gameColor;
@@ -71,10 +69,8 @@ extern const Color chatSystemColor;
 extern const Color acceptTrueColor;
 extern const Color acceptFalseColor;
 
-
 void lanUpdateSlotList( void );
 void updateGameOptions( void );
-
 
 //Enum is used for the utility function so other windows do not need
 //to know about controls on LanGameOptions window.
@@ -83,7 +79,5 @@ enum PostToLanGameType{ SEND_GAME_OPTS = 0,
 												POST_TO_LAN_GAME_TYPE_COUNT };
 //the utility function mentioned above
 void PostToLanGameOptions(PostToLanGameType post);
-
-
 
 #endif //_LANAPI_CALLBACKS_H_

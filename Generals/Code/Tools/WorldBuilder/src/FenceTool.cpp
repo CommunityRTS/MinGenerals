@@ -122,8 +122,6 @@ void FenceTool::updateMapObjectList(Coord3D downPt, Coord3D curPt, WbView* pView
 
 }
 
-
-
 /// Turn off object tracking.
 void FenceTool::deactivate()
 {

@@ -40,7 +40,6 @@
 #if !defined(WATCOM_H) && defined(__WATCOMC__)
 #define WATCOM_H
 
-
 /**********************************************************************
 **	The "bool" integral type was defined by the C++ comittee in
 **	November of '94. Until the compiler supports this, use the following
@@ -113,6 +112,5 @@
 #define M_SQRT2     1.41421356237309504880
 #define M_SQRT_2    0.707106781186547524401
 #endif
-
 
 #endif

@@ -82,12 +82,10 @@ protected:
 	DefinitionFactoryClass *	m_NextFactory;
 	DefinitionFactoryClass *	m_PrevFactory;
 
-
 	//////////////////////////////////////////////////////////////
 	//	Friends
 	//////////////////////////////////////////////////////////////
 	friend class DefinitionFactoryMgrClass;
 };
-
 
 #endif //__DEFINITION_FACTORY_H

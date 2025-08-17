@@ -252,8 +252,6 @@ void MapPreview::buildMapPreviewTexture( CString tgaName )
 	}
 	getTerrainAverageZ = getTerrainAverageZ /terrainCount;
 
-
-
 //	Color paddingColor = GameMakeColor( 100, 100, 100, 255 );
 	for( y = 0; y < MAP_PREVIEW_HEIGHT; y++ )
 	{
@@ -265,7 +263,6 @@ void MapPreview::buildMapPreviewTexture( CString tgaName )
 			radarPoint.x = x;
 			radarPoint.y = y;
 			mapPreviewToWorld( &radarPoint, &worldPoint );
-
 
 			// get height of the terrain at this sample point
 			z = pMap->getHeight(worldPoint.x, worldPoint.y);
@@ -420,8 +417,6 @@ void MapPreview::buildMapPreviewTexture( CString tgaName )
 	tga.Save(tgaName,TGAF_IMAGE, FALSE);
 
 }  // end buildTerrainTexture
-
-
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////

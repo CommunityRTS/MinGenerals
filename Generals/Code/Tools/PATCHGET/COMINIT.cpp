@@ -35,7 +35,6 @@ ComInit::ComInit()
   }
 }
 
-
 ComInit::~ComInit()
 {
   CoUninitialize();

@@ -42,13 +42,11 @@ class GarrisonContainModuleData : public OpenContainModuleData
 {
 public:
 
-
 	struct InitialRoster
 	{
 		AsciiString templateName;
 		Int count;
 	};
-
 
 	Bool m_doIHealObjects;
 	Real m_framesForFullHeal;
@@ -86,7 +84,6 @@ public:
 		self->m_initialRoster.count = count;
 	};
 
-
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -122,7 +119,6 @@ public:
 	virtual void onBodyDamageStateChange( const DamageInfo* damageInfo,
 																				BodyDamageType oldState,
 																				BodyDamageType newState);  ///< Die Interface state change callback
-
 
 	/**
 		return the player that *appears* to control this unit, given an observing player.

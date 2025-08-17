@@ -50,8 +50,6 @@ void registerDLL(const char *dllName)
 		;//unable to locate entry point
 }
 
-
-
 HINSTANCE g_hInst = NULL;
 
 LRESULT CALLBACK MainDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
@@ -69,7 +67,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	return 0;
 }
-
 
 // Mesage handler for generals setup box.
 LRESULT CALLBACK GeneralsSetupDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -206,6 +203,4 @@ LRESULT CALLBACK MainDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 	}
     return FALSE;
 }
-
-
 

@@ -68,7 +68,6 @@ class ArchiveFile;
 //           Type Defines
 //----------------------------------------------------------------------------
 
-
 //===============================
 // ArchiveFileSystem
 //===============================
@@ -143,7 +142,6 @@ public:
 	}
 };
 
-
 class ArchiveFileSystem : public SubsystemInterface
 {
 	public:
@@ -180,7 +178,6 @@ protected:
 	ArchiveFileMap m_archiveFileMap;
 	ArchivedDirectoryInfo m_rootDirectory;
 };
-
 
 extern ArchiveFileSystem *TheArchiveFileSystem;
 

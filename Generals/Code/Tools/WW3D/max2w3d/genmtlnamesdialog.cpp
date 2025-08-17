@@ -50,13 +50,11 @@
 
 static BOOL CALLBACK _gen_mtl_names_dialog_proc(HWND Hwnd,UINT message,WPARAM wParam,LPARAM lParam);
 
-
 /**********************************************************************************************
 **
 ** GenMtlNamesDialogClass Implementation
 **
 **********************************************************************************************/
-
 
 /***********************************************************************************************
  * GenMtlNamesDialogClass::GenMtlNamesDialogClass -- Constructor                               *
@@ -77,7 +75,6 @@ GenMtlNamesDialogClass::GenMtlNamesDialogClass(Interface * maxinterface) :
 {
 }
 
-
 /***********************************************************************************************
  * GenMtlNamesDialogClass::~GenMtlNamesDialogClass -- Destructor                               *
  *                                                                                             *
@@ -94,7 +91,6 @@ GenMtlNamesDialogClass::~GenMtlNamesDialogClass(void)
 {
 	ReleaseISpinner(NameIndexSpin);
 }
-
 
 /***********************************************************************************************
  * GenMtlNamesDialogClass::Get_Options -- present the dialog, get user input                   *
@@ -131,7 +127,6 @@ bool GenMtlNamesDialogClass::Get_Options(OptionsStruct * options)
 	}
 }
 
-
 /***********************************************************************************************
  * GenMtlNamesDialogClass::Ok_To_Exit -- verify that the input is valid                        *
  *                                                                                             *
@@ -159,7 +154,6 @@ bool GenMtlNamesDialogClass::Ok_To_Exit(void)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * GenMtlNamesDialogClass::Dialog_Proc -- windows message handling                             *
@@ -228,7 +222,6 @@ bool GenMtlNamesDialogClass::Dialog_Proc(HWND hWnd,UINT message,WPARAM wParam,LP
 	}
 	return 0;
 }
-
 
 /***********************************************************************************************
  * _gen_mtl_names_dialog_proc -- windows dialog proc for GenMtlNamesDialog                     *

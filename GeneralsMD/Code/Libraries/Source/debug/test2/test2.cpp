@@ -101,8 +101,6 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	return msg.wParam;
 }
 
-
-
 //
 //  FUNCTION: MyRegisterClass()
 //

@@ -167,7 +167,6 @@ WindowMsgHandledType PassMessagesToParentSystem( GameWindow *window, UnsignedInt
 	if( window == NULL )
 		return MSG_IGNORED;
 
-
 	GameWindow *parent = window->winGetParent();
 
 	if( parent )
@@ -176,7 +175,6 @@ WindowMsgHandledType PassMessagesToParentSystem( GameWindow *window, UnsignedInt
 	return MSG_IGNORED;
 
 }  // end PassSelectedButtonsToParentSystem
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1148,7 +1146,6 @@ WinInputReturnCode GameWindowManager::winProcessMouseEvent( GameWindowMessage ms
 							break;
 
 					}  // end while
-
 
 					// First check to see if m_loneWindow is set if so, close the window
 					if( m_loneWindow && m_loneWindow == oldLoneWindow
@@ -2177,8 +2174,6 @@ GameWindow *GameWindowManager::gogoGadgetListBox( GameWindow *parent,
 	else
 		listbox->winSetInputFunc( GadgetListBoxInput );
 
-
-
 	//
 	// allocate and set the list length, note that setting the list length will
 	// automatically allocate the selection entries that are needed for multi
@@ -2418,7 +2413,6 @@ GameWindow *GameWindowManager::gogoGadgetComboBox( GameWindow *parent,
 
 	}  // end if
 
-
 // begin here
 	// allocate the listbox data, copy template data over and set it into box
 	comboBoxData = NEW ComboBoxData;
@@ -2445,13 +2439,11 @@ GameWindow *GameWindowManager::gogoGadgetComboBox( GameWindow *parent,
 
 	//Create the windows that make up
 
-
 	WinInstanceData winInstData;
 	Int buttonWidth, buttonHeight;
 	Int fontHeight;
 	Int top;
 	Int bottom;
-
 
 	// do we have a title
 	if( comboBox->winGetTextLength() )
@@ -2567,7 +2559,6 @@ GameWindow *GameWindowManager::gogoGadgetComboBox( GameWindow *parent,
 		comboBoxData->listBox->winSetDisabledTextColors( color,border);
 	if(comboBoxData->editBox)
 		comboBoxData->editBox->winSetDisabledTextColors(color,border);
-
 
 	color = comboBox->winGetHiliteTextColor();
 	border = comboBox->winGetHiliteTextBorderColor();
@@ -3122,7 +3113,6 @@ void GameWindowManager::assignDefaultGadgetLook( GameWindow *gadget,
 		GadgetSliderSetHiliteSelectedThumbColor( gadget, GadgetSliderGetHiliteBorderColor( gadget ) );
 		GadgetSliderSetHiliteSelectedThumbBorderColor( gadget, GadgetSliderGetHiliteColor( gadget ) );
 
-
 	}  // end if
 	else if( BitTest( instData->getStyle(), GWS_VERT_SLIDER ) )
 	{
@@ -3218,7 +3208,6 @@ void GameWindowManager::assignDefaultGadgetLook( GameWindow *gadget,
 		GadgetListBoxSetDisabledSelectedItemImageRight( gadget, winFindImage( "ListBoxDisabledSelectedItemRightEnd" ) );
 		GadgetListBoxSetDisabledSelectedItemImageCenter( gadget, winFindImage( "ListBoxDisabledSelectedItemRepeatingCenter" ) );
 		GadgetListBoxSetDisabledSelectedItemImageSmallCenter( gadget, winFindImage( "ListBoxDisabledSelectedItemSmallRepeatingCenter" ) );
-
 
 		// hilited
 		GadgetListBoxSetHiliteImage( gadget, winFindImage( "ListBoxHilite" ) );
@@ -3323,7 +3312,6 @@ void GameWindowManager::assignDefaultGadgetLook( GameWindow *gadget,
 		GadgetComboBoxSetDisabledSelectedItemImageCenter( gadget, winFindImage( "ListBoxDisabledSelectedItemRepeatingCenter" ) );
 		GadgetComboBoxSetDisabledSelectedItemImageSmallCenter( gadget, winFindImage( "ListBoxDisabledSelectedItemSmallRepeatingCenter" ) );
 
-
 		// hilited
 		GadgetComboBoxSetHiliteImage( gadget, winFindImage( "ListBoxHilite" ) );
 		GadgetComboBoxSetHiliteSelectedItemImageLeft( gadget, winFindImage( "ListBoxHiliteSelectedItemLeftEnd" ) );
@@ -3398,7 +3386,6 @@ void GameWindowManager::assignDefaultGadgetLook( GameWindow *gadget,
 			GadgetListBoxSetDisabledSelectedItemImageRight( listBox, winFindImage( "ListBoxDisabledSelectedItemRightEnd" ) );
 			GadgetListBoxSetDisabledSelectedItemImageCenter( listBox, winFindImage( "ListBoxDisabledSelectedItemRepeatingCenter" ) );
 			GadgetListBoxSetDisabledSelectedItemImageSmallCenter( listBox, winFindImage( "ListBoxDisabledSelectedItemSmallRepeatingCenter" ) );
-
 
 			// hilited
 			GadgetListBoxSetHiliteImage( listBox, winFindImage( "ListBoxHilite" ) );
@@ -4037,7 +4024,6 @@ Bool GameWindowManager::initTestGUI( void )
 	return TRUE;
 
 }  // end initTestGUI
-
 
 void GameWindowManager::winNextTab( GameWindow *window )
 {

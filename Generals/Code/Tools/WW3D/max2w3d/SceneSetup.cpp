@@ -35,14 +35,12 @@
  *  wwSceneSetup  -- Allows the user to select how many LOD and damage models to create.       *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 /*
 ** SceneSetup.cpp - Implements the "wwSceneSetup" MAXScript function to
 ** present a nice dialog to the user for getting a number of parameters
 ** that will governs the number, placement, and type of LOD and Damage
 ** models created in the scene.
 */
-
 
 #include "SceneSetupDlg.h"
 
@@ -52,12 +50,10 @@
 #include <Arrays.h>
 #include <definsfn.h>
 
-
 /*
 ** Let MAXScript know we're implementing new built-in functions.
 */
 def_visible_primitive(scene_setup, "wwSceneSetup");
-
 
 /***********************************************************************************************
  * scene_setup_cf - MAXScript function wwSceneSetup                                            *
@@ -119,5 +115,4 @@ Value * scene_setup_cf (Value **arg_list, int count)
 	// Return the array of new values.
 	return_value(vl.result);
 }
-
 

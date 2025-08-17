@@ -44,7 +44,6 @@ class ObjectCreationList;
 typedef std::vector<const ObjectCreationList*> OCLVec;
 typedef std::vector<const FXList*> FXVec;
 
-
 //-------------------------------------------------------------------------------------------------
 enum StructureCollapsePhaseType
 {
@@ -96,7 +95,6 @@ public:
 	static void buildFieldParse(MultiIniFieldParse& p);
 
 };
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

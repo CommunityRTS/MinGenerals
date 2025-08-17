@@ -58,5 +58,4 @@ public:
 	virtual void deactivate(); ///< Become not the current tool.
 };
 
-
 #endif //FenceTool_H

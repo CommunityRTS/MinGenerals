@@ -40,7 +40,6 @@
 class ThingTemplate;
 class WeaponTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class CommandButtonHuntUpdateModuleData : public ModuleData
@@ -81,12 +80,10 @@ protected:
 	UpdateSleepTime huntWeapon(AIUpdateInterface *ai);
 	UpdateSleepTime huntEnter( AIUpdateInterface *ai );
 
-
 protected:
 	AsciiString		m_commandButtonName;
 	const CommandButton *m_commandButton;
 };
-
 
 #endif
 

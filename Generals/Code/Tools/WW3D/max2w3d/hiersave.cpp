@@ -68,9 +68,7 @@
 #include "errclass.h"
 #include "exportlog.h"
 
-
 bool HierarchySaveClass::TerrainModeEnabled = false;
-
 
 /***********************************************************************************************
  * HierarchySaveClass::HierarchySaveClass -- constructor                                       *
@@ -239,7 +237,6 @@ void HierarchySaveClass::Free(void)
 	Node.Clear();
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::Get_Node_Transform -- returns the transformation matrix of specified no *
  *                                                                                             *
@@ -265,7 +262,6 @@ Matrix3 HierarchySaveClass::Get_Node_Transform(int nodeidx) const
 
 	return tm;
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::get_relative_transform -- retruns tm between this node and its parent   *
@@ -308,7 +304,6 @@ Matrix3 HierarchySaveClass::get_relative_transform(int nodeidx) const
 	return tm;
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::Get_Name -- returns the name of this hierarchy                          *
  *                                                                                             *
@@ -325,7 +320,6 @@ const char * HierarchySaveClass::Get_Name(void) const
 {
 	return HierarchyHeader.Name;
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::Get_Node -- Get the Max INode                                           *
@@ -366,7 +360,6 @@ const char * HierarchySaveClass::Get_Node_Name(int node) const
 
 	return Node[node].Pivot.Name;
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::Find_Named_Node -- returns index of a named node                        *
@@ -523,7 +516,6 @@ bool HierarchySaveClass::Save(ChunkSaveClass & csave)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::Load -- read the hierarchy from a W3D file                              *
  *                                                                                             *
@@ -565,7 +557,6 @@ bool HierarchySaveClass::Load(ChunkLoadClass & cload)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::add_tree -- adds a node and all of its children                         *
@@ -610,7 +601,6 @@ void HierarchySaveClass::add_tree(INode * node,int pidx)
 		add_tree(node->GetChildNode(i),nextparent);
 	}
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::add_node -- adds a single node to the tree                              *
@@ -695,7 +685,6 @@ int HierarchySaveClass::add_node(INode * node,int pidx)
 		maxnodeTM = fixup * maxnodeTM;
 	}
 
-
 	ournodeTM = fixup_matrix(maxnodeTM);
 	fixupTM = ournodeTM * Inverse(maxnodeTM);
 
@@ -710,7 +699,6 @@ int HierarchySaveClass::add_node(INode * node,int pidx)
 		Matrix3 pinv = Inverse(parentTM);
 		ournodeTM = ournodeTM * pinv;
 	}
-
 
 	/*
 	** Break the matrix down into a rotation and translation.
@@ -820,7 +808,6 @@ Matrix3 HierarchySaveClass::fixup_matrix(const Matrix3 & csrc) const
 	return newtm;
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::save_header -- writes the header into a W3D file                        *
  *                                                                                             *
@@ -849,7 +836,6 @@ bool HierarchySaveClass::save_header(ChunkSaveClass & csave)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * HierarchySaveClass::save_pivots -- writes the pivots into a W3D file                        *
@@ -913,7 +899,6 @@ bool HierarchySaveClass::save_fixups(ChunkSaveClass & csave)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::load_header -- reads the header from a W3D file                         *
  *                                                                                             *
@@ -960,7 +945,6 @@ bool HierarchySaveClass::load_header(ChunkLoadClass & cload)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HierarchySaveClass::load_pivots -- reads the pivots from a W3D file                         *
  *                                                                                             *
@@ -1005,5 +989,4 @@ bool HierarchySaveClass::load_fixups(ChunkLoadClass & cload)
 	}
 	return true;
 }
-
 

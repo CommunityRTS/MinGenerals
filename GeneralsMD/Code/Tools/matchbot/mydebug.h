@@ -116,7 +116,6 @@ if (MyMsgManager::paranoidStream()) \
 MYDEBUGUNLOCK; \
 }
 
-
 //#undef MYDEBUGLOCK
 //#undef MYDEBUGUNLOCK
 

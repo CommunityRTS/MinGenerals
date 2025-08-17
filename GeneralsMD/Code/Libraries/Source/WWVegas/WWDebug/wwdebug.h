@@ -78,7 +78,6 @@ TriggerFunc			WWDebug_Install_Trigger_Handler(TriggerFunc func);
 ProfileFunc			WWDebug_Install_Profile_Start_Handler(ProfileFunc func);
 ProfileFunc			WWDebug_Install_Profile_Stop_Handler(ProfileFunc func);
 
-
 /*
 ** Users should not call the following three functions directly!  Use the macros below instead...
 */
@@ -97,7 +96,6 @@ void					WWDebug_Profile_Stop( const char * title);
 */
 void					WWDebug_DBWin32_Message_Handler( const char * message);
 #endif
-
 
 /*
 ** Use the following #define so that all of the debugging messages
@@ -160,7 +158,6 @@ void					WWDebug_DBWin32_Message_Handler( const char * message);
 #else
 #define WWDEBUG_TRIGGER(x)						(0)
 #endif
-
 
 /*
 ** The WWDEBUG_PROFILE macros can be used to time blocks of code

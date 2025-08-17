@@ -25,4 +25,3 @@ char *do_encrypt(char *);
 
 #endif
 
-

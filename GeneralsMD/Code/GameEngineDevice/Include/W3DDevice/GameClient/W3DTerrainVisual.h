@@ -41,12 +41,6 @@ class WaterHandle;
 class BaseHeightMapRenderObjClass;
 class WorldHeightMap;
 
-
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** W3D impelmentation of visual terrain details singleton */
 //-------------------------------------------------------------------------------------------------
@@ -124,7 +118,6 @@ public:
 		Real angle
 	);
 
-
 	//
 	// Modify height.
 	//
@@ -153,17 +146,12 @@ public:
   ////////////////////////////////////////////////////
   ////////////////////////////////////////////////////
 
-
-
-
 protected:
 
 	// snapshot methods
 	virtual void crc( Xfer *xfer );
 	virtual void xfer( Xfer *xfer );
 	virtual void loadPostProcess( void );
-
-
 
 #ifdef DO_SEISMIC_SIMULATIONS
   ////////////////////////////////////////////////////
@@ -178,8 +166,6 @@ protected:
   ////////////////////////////////////////////////////
 #endif
 
-
-
 	BaseHeightMapRenderObjClass *m_terrainRenderObject;  ///< W3D render object for terrain
 	WaterRenderObjClass	*m_waterRenderObject;	///< W3D render object for water plane
 
@@ -193,9 +179,6 @@ protected:
 
   AsciiString	m_currentSkyboxTexNames[NumSkyboxTextures];	///<store current texture names applied to skybox.
 	AsciiString m_initialSkyboxTexNames[NumSkyboxTextures];	///<store starting texture/default skybox textures.
-
-
-
 
 };  // end class W3DTerrainVisual
 

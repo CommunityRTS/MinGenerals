@@ -62,31 +62,21 @@ DBG_DECLARE_TYPE ( STM_STREAM )
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **        Private Types                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Private Prototypes                                               **
@@ -179,7 +169,6 @@ void			STM_stream_reset( STM_STREAM* stm )
 	{
 		first = NULL;
 	}
-
 
 	if ( first )	/* there is at least one buffer */
 	{
@@ -289,7 +278,6 @@ static		void			STM_sbuffer_init ( STM_SBUFFER *buf )
 	ListNodeInit ( &buf->nd );
 }
 
-
 /******************************************************************/
 /*                                                                */
 /*                                                                */
@@ -310,14 +298,11 @@ static		void			STM_sbuffer_reset( STM_SBUFFER *sbuf )
 		sbuf->region[i].Bytes = sbuf->data_region.Bytes;
 	}
 
-
 }
-
 
 /*****************************************************************************
 **          Public Functions                                                **
 *****************************************************************************/
-
 
 /******************************************************************/
 /*                                                                */
@@ -779,7 +764,6 @@ int			STM_AccessTransfer( STM_ACCESS* access, void *data, int bytes )
 			break;		/* stream has been exhuasted */
 		}
 
-
 		/* do the transfer */
 		switch ( access->id )
 		{
@@ -818,7 +802,6 @@ int			STM_AccessFileTransfer( STM_ACCESS* access, File *file, int bytes, int *tr
 {
 	int			transfer;
 
-
 	DBG_Function ("STM_AccessFileTransfer");
 
 	DBG_ASSERT_TYPE ( access, STM_ACCESS );
@@ -843,7 +826,6 @@ int			STM_AccessFileTransfer( STM_ACCESS* access, File *file, int bytes, int *tr
 		{
 			transfer = bytes;
 		}
-
 
 		if ( !transfer )
 		{
@@ -937,7 +919,6 @@ int			STM_AccessUpdate ( STM_ACCESS *access )
 	access->bytes_out += bytes_to_update;		/* reduce our byte count accordingly */
 	up_stream_accessor->bytes_in += bytes_to_update;
 
-
 	/* now move our start buffer to its new posistion */
 
 	sbuf = access->start_buffer ;
@@ -968,7 +949,6 @@ int			STM_AccessUpdate ( STM_ACCESS *access )
 			bytes_to_update = 0;	/* no more bytes to up date */
 		}
 
-
 	} while ( bytes_to_update );
 
 	access->start_buffer = sbuf;	/* update to new start buffer */
@@ -989,7 +969,6 @@ int			STM_AccessAdvance ( STM_ACCESS *access, int bytes_to_advance )
 					advance;
 	int			total_bytes;
 	int			ok = TRUE;
-
 
 	DBG_Function ("STM_AccessAdvance");
 
@@ -1216,7 +1195,6 @@ STM_ACCESS*			STM_AccessUpStreamAccessor ( STM_ACCESS *access )
 	return &access->stream->access[id];
 }
 
-
 #ifdef _DEBUG
 
 #include <wpaudio/time.h>
@@ -1262,7 +1240,6 @@ void			STM_ProfileUpdate ( STM_PROFILE *pf, int bytes )
 
 	DBG_Function ("STM_ProfileUpdate");
 	DBG_ASSERT ( pf != NULL );
-
 
 	if ( pf->flags & mSTM_PROFILE_ACTIVE )
 	{

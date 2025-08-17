@@ -44,9 +44,7 @@
 #include "rendobj.h"
 #include "mesh.h"
 
-
 inline DWORD F2DW( FLOAT f ) { return *((DWORD*)&f); }
-
 
 // HY 1/26/01
 // Rewritten to use DX 8 texture matrices

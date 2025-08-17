@@ -146,8 +146,6 @@ struct SpecialPowerReadyTimerType
 	UnsignedInt m_readyFrame;   ///< on what game frame will this special power be ready?
 };
 
-
-
 // ------------------------------------------------------------------------------------------------
 typedef std::hash_map< PlayerIndex, Relationship, std::hash<PlayerIndex>, std::equal_to<PlayerIndex> > PlayerRelationMapType;
 class PlayerRelationMap : public MemoryPoolObject,
@@ -346,14 +344,12 @@ public:
 	///< @todo Can't do edge trigger until after demo; make things check for power on creation
 	void onPowerBrownOutChange( Bool brownOut );
 
-
 	///< one of my command centers just fired a special power, let us reset timers for all command centers.
 	void resetOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *temp );
 	///< my new command center wants to init his timers to the status quo
 	UnsignedInt getOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *temp);
 	void expressSpecialPowerReadyFrame( const SpecialPowerTemplate *temp, UnsignedInt frame );
 	void addNewSharedSpecialPowerTimer( const SpecialPowerTemplate *temp, UnsignedInt frame );
-
 
 	void addRadar( Bool disableProof );///< One more producer of Radar exists
 	void removeRadar( Bool disableProof );///< One less thing produces radar
@@ -814,7 +810,6 @@ private:
 	typedef std::list<KindOfPercentProductionChange*> KindOfPercentProductionChangeList;
 	typedef KindOfPercentProductionChangeList::iterator KindOfPercentProductionChangeListIt;
 	mutable KindOfPercentProductionChangeList m_kindOfPercentProductionChangeList;
-
 
 	typedef std::list<SpecialPowerReadyTimerType> SpecialPowerReadyTimerList;
 	typedef SpecialPowerReadyTimerList::iterator SpecialPowerReadyTimerListIterator;

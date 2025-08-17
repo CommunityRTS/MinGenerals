@@ -44,25 +44,21 @@ ChallengeGenerals *createChallengeGenerals( void )
 	return MSGNEW("ChallengeGenerals") ChallengeGenerals;
 }
 
-
 ChallengeGenerals::ChallengeGenerals()
 {
 	//ctor
 }
-
 
 ChallengeGenerals::~ChallengeGenerals()
 {
 	//dtor
 }
 
-
 void ChallengeGenerals::init( void )
 {
 	INI ini;
 	ini.load( AsciiString( "Data\\INI\\ChallengeMode.ini" ), INI_LOAD_OVERWRITE, NULL );
 }
-
 
 void ChallengeGenerals::parseGeneralPersona(INI *ini, void *instance, void *store, const void *userData)
 {
@@ -100,7 +96,6 @@ void ChallengeGenerals::parseGeneralPersona(INI *ini, void *instance, void *stor
 	ini->initFromINI(store, dataFieldParse);
 }
 
-
 const FieldParse ChallengeGenerals::s_fieldParseTable[] =
 {
 	{ "GeneralPersona0", ChallengeGenerals::parseGeneralPersona, NULL, offsetof( ChallengeGenerals, m_position[0] ) },
@@ -117,7 +112,6 @@ const FieldParse ChallengeGenerals::s_fieldParseTable[] =
 	{ "GeneralPersona11", ChallengeGenerals::parseGeneralPersona, NULL, offsetof( ChallengeGenerals, m_position[11] ) },
 	{ 0, 0, 0, 0 }
 };
-
 
 //-------------------------------------------------------------------------------------------------
 /** Parse Gen Challenge entries */

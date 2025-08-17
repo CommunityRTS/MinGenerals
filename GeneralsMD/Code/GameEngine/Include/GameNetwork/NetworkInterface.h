@@ -45,8 +45,6 @@ class GameInfo;
 void ClearCommandPacket(UnsignedInt frame);										///< ClearCommandPacket clears the command packet at the start of the frame.
 CommandPacket *GetCommandPacket(void);											///< TheNetwork calls GetCommandPacket to get commands to send.
 
-
-
 /**
  * Interface definition for the Network.
  */
@@ -129,7 +127,6 @@ public:
 	virtual Int getPingsSent() = 0;
 	virtual Int getPingsRecieved() = 0;
 };
-
 
 /**
  * ResolveIP turns a string ("games2.westwood.com", or "192.168.0.1") into

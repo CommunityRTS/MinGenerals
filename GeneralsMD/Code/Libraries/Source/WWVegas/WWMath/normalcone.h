@@ -106,7 +106,6 @@ class NormalCone : public Vector3
 
 };
 
-
 // find the two vectors on the edge of the cone residing on the same plane as the input vector.
 inline float NormalCone::Get_Coplanar_Normals(const Vector3 & Input, Vector3 & Output1, Vector3 & Output2) const
 {
@@ -191,7 +190,6 @@ inline void NormalCone::Merge(const Vector3 & Input)
 
 	Normalize();
 }
-
 
 // merge the input normal cone's coplanar normals with this object.
 inline void NormalCone::Merge(const NormalCone & Input)

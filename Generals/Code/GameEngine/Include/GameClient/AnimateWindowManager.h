@@ -147,8 +147,6 @@ private:
 	Bool m_isFinished;														///< We're finished
 };
 
-
-
 //-----------------------------------------------------------------------------
 typedef	std::list<AnimateWindow *>	AnimateWindowList;
 

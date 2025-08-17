@@ -45,16 +45,13 @@
 
 #include "GameClient/Drawable.h"
 
-
 const Real NO_START_Z = 1e10;
-
 
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // PRIVATE ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -326,7 +323,6 @@ UpdateSleepTime ParachuteContain::update( void )
 				TheAudio->addAudioEvent( &soundToPlay );
 			}
 
-
 			// When a parachute opens, it should look for a good place to land.  This could be explicitly set
 			// by a DeliverPayload, otherwise any place clear is good.
 			if( parachuteAI )
@@ -442,7 +438,6 @@ UpdateSleepTime ParachuteContain::update( void )
 	{
 		getObject()->kill();
 	}
-
 
 	return UPDATE_SLEEP_NONE;
 }
@@ -619,7 +614,6 @@ void ParachuteContain::onDie( const DamageInfo * damageInfo )
 			}
 		}
 	}
-
 
 	OpenContain::onDie(damageInfo);
 }

@@ -182,4 +182,3 @@ AsciiString IPEnumeration::getMachineName( void )
 	return AsciiString(hostname);
 }
 
-

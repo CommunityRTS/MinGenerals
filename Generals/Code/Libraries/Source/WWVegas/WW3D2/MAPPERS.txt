@@ -16,7 +16,6 @@ Types:
 (int) - any integer
 (bool) - either TRUE or FALSE
 
-
 LINEAR_OFFSET
 Description:
 Makes the texture scroll at the speed specified
@@ -138,7 +137,6 @@ UPerSec=(float) 0.0;
 VPerSec=(float) 0.0;
 UScale=(float) 1.0;
 VScale=(float) 1.0;
-
 
 -----------
 TODO:

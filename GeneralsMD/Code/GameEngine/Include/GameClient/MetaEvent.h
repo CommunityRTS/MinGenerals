@@ -33,7 +33,6 @@
 #include "Common/SubsystemInterface.h"
 #include "GameClient/InGameUI.h"
 
-
 enum MappableKeyCategories
 {
 	CATEGORY_CONTROL = 0,
@@ -59,7 +58,6 @@ static const LookupListRec CategoryListName[] =
 	{"DEBUG",							CATEGORY_DEBUG},
 	{NULL, 0}// keep this last
 };
-
 
 // -------------------------------------------------------------------------------
 // the keys we allow to be mapped to Meta-events.
@@ -292,8 +290,6 @@ static const LookupListRec ModifierNames[] =
 	{ NULL, 0	}// keep this last!
 };
 
-
-
 // -------------------------------------------------------------------------------
 // CommandUsableInType sets in what state the commands are allowed.
 enum CommandUsableInType
@@ -329,7 +325,6 @@ public:
 	UnicodeString						m_displayName;		///< The display name of our command
 };
 EMPTY_DTOR(MetaMapRec)
-
 
 //-----------------------------------------------------------------------------
 class MetaEventTranslator : public GameMessageTranslator

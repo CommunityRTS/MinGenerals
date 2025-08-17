@@ -291,7 +291,6 @@ void PlayerTemplateStore::update()
 	// nothing
 }
 
-
 Int PlayerTemplateStore::getTemplateNumByName(AsciiString name) const
 {
 	for (Int num = 0; num < m_playerTemplates.size(); num++)

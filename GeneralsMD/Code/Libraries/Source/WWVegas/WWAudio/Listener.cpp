@@ -34,12 +34,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "listener.h"
 #include "wwaudio.h"
 #include "utils.h"
 #include "soundhandle.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -51,7 +49,6 @@ Listener3DClass::Listener3DClass (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	~Listener3DClass
@@ -62,7 +59,6 @@ Listener3DClass::~Listener3DClass (void)
 	Free_Miles_Handle ();
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -82,14 +78,12 @@ Listener3DClass::Initialize_Miles_Handle (void)
 				0.0F, 0.0F, 1.0F,
 				0.0F, 1.0F, 0.0F);
 
-
 		// Associate this object instance with the handle
 		m_SoundHandle->Set_Sample_User_Data (INFO_OBJECT_PTR, (S32)this);
 	}
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -102,7 +96,6 @@ Listener3DClass::Allocate_Miles_Handle (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Free_Miles_Handle
@@ -113,7 +106,6 @@ Listener3DClass::Free_Miles_Handle (void)
 {
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -126,7 +118,6 @@ Listener3DClass::On_Added_To_Scene (void)
 	Allocate_Miles_Handle ();
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //

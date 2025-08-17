@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "w3dmtl.h"
 #include <Max.h>
 #include <StdMat.h>
@@ -53,10 +52,7 @@ static W3dRGBStruct Color_To_W3d(Color & c)
 
 /*
 
-
 	Implementation of W3dMapClass
-
-
 
 */
 
@@ -136,16 +132,11 @@ void W3dMapClass::Set_Anim_Info(int framecount,float framerate)
 	AnimInfo->FrameRate = framerate;
 }
 
-
-
 /*
-
 
 	Implementation of W3dMaterialClass
 
-
 */
-
 
 W3dMaterialClass::W3dMaterialClass(void)
 {
@@ -418,7 +409,6 @@ void W3dMaterialClass::Init(Mtl * mtl, char *materialColorTexture)
 	Set_Vertex_Material(mat,0);
 	Set_Shader(shader,0);
 
-
 	/*
 	** Setting up the reflection pass (envmap)
 	*/
@@ -662,18 +652,14 @@ void W3dMaterialClass::Init(GameMtl * gamemtl, char *materialColorTexture)
 	}
 }
 
-
 bool W3dMaterialClass::Is_Multi_Pass_Transparent(void) const
 {
 	return ((PassCount >= 2) && (Get_Shader(0).DestBlend != W3DSHADER_DESTBLENDFUNC_ZERO));
 }
 
-
 /*
 
-
 	Implementation of W3dMaterialDescClass::VertClass
-
 
 */
 W3dMaterialDescClass::VertMatClass::VertMatClass(void) :
@@ -750,12 +736,9 @@ void W3dMaterialDescClass::VertMatClass::Set_Mapper_Args(const char * args, int 
 	}
 }
 
-
 /*
 
-
 	Implementation of W3dMaterialDescClass
-
 
 */
 W3dMaterialDescClass::MaterialRemapClass::MaterialRemapClass(void)
@@ -790,8 +773,6 @@ bool W3dMaterialDescClass::MaterialRemapClass::operator == (const MaterialRemapC
 	return true;
 }
 
-
-
 W3dMaterialDescClass::W3dMaterialDescClass(void)
 {
 	Reset();
@@ -810,7 +791,6 @@ void W3dMaterialDescClass::Reset(void)
 	VertexMaterials.Clear();
 	Textures.Clear();
 }
-
 
 W3dMaterialDescClass::ErrorType W3dMaterialDescClass::Add_Material(const W3dMaterialClass & mat,const char * name)
 {
@@ -875,7 +855,6 @@ W3dMaterialDescClass::ErrorType W3dMaterialDescClass::Add_Material(const W3dMate
 	MaterialRemaps.Add(remap);
 	return OK;
 }
-
 
 int W3dMaterialDescClass::Material_Count(void)
 {
@@ -1061,7 +1040,6 @@ bool W3dMaterialDescClass::Pass_Uses_Vertex_Alpha(int pass)
 	return (max_alpha_pass == pass);
 }
 
-
 bool W3dMaterialDescClass::Pass_Uses_Alpha(int pass)
 {
 	for (int mi=0; mi<MaterialRemaps.Count(); mi++) {
@@ -1235,5 +1213,4 @@ unsigned long W3dMaterialDescClass::Add_String_To_Crc(const char *str, unsigned 
 	}
 	return out_crc;
 }
-
 

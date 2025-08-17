@@ -29,7 +29,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/PlayerTemplate.h"
 #include "Common/GameEngine.h"
 #include "Common/UserPreferences.h"
@@ -569,8 +568,6 @@ static void handleStartPositionSelection(Int player, int startPos)
 	}
 }
 
-
-
 static void handleTeamSelection(int index)
 {
 	GameWindow *combo = comboBoxTeam[index];
@@ -991,8 +988,6 @@ void updateGameOptions( void )
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** This is called when a shutdown is complete for this menu */
 //-------------------------------------------------------------------------------------------------
@@ -1103,7 +1098,6 @@ WindowMsgHandledType LanGameOptionsMenuInput( GameWindow *window, UnsignedInt ms
 	}  // end switch( msg )
 	return MSG_IGNORED;
 }//WindowMsgHandledType LanGameOptionsMenuInput( GameWindow *window, UnsignedInt msg,
-
 
 //-------------------------------------------------------------------------------------------------
 /** Lan Game Options menu window system callback */

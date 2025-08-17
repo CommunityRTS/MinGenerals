@@ -147,7 +147,6 @@ enum WinInputReturnCode
 	WIN_INPUT_USED,
 };
 
-
 #define GWM_USER 32768
 
 // Window status flags --------------------------------------------------------
@@ -188,7 +187,6 @@ enum
 
 };
 
-
 // Message Box Button flags --------------------------------------------------------
 //-----------------------------------------------------------------------------
 enum
@@ -198,7 +196,6 @@ enum
 	MSG_BOX_OK							= 0x08, //Display the Ok button
 	MSG_BOX_CANCEL					= 0x04, //Display the Cancel button
 };
-
 
 // WindowMessageBoxData ---------------------------------------------------------
 /** Data attached to each Message box window */

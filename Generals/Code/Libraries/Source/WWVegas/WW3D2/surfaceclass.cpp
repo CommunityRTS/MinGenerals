@@ -309,7 +309,6 @@ void SurfaceClass::Clear()
 	DX8_ErrorCode(D3DSurface->UnlockRect());
 }
 
-
 /***********************************************************************************************
  * SurfaceClass::Copy -- Copies from a byte array to the surface                               *
  *                                                                                             *
@@ -347,7 +346,6 @@ void SurfaceClass::Copy(const unsigned char *other)
 
 	DX8_ErrorCode(D3DSurface->UnlockRect());
 }
-
 
 /***********************************************************************************************
  * SurfaceClass::Copy -- Copies a block of system ram to the surface                           *
@@ -392,7 +390,6 @@ void SurfaceClass::Copy(Vector2i &min,Vector2i &max, const unsigned char *other)
 
 	DX8_ErrorCode(D3DSurface->UnlockRect());
 }
-
 
 /***********************************************************************************************
  * SurfaceClass::CreateCopy -- Creates a byte array copy of the surface                        *
@@ -445,7 +442,6 @@ unsigned char *SurfaceClass::CreateCopy(int *width,int *height,int*size,bool fli
 
 	return other;
 }
-
 
 /***********************************************************************************************
  * SurfaceClass::Copy -- Copies a region from one surface to another                           *
@@ -621,7 +617,6 @@ void SurfaceClass::FindBB(Vector2i *min,Vector2i*max)
 	*min=realmin;
 }
 
-
 /***********************************************************************************************
  * SurfaceClass::Is_Transparent_Column -- Tests to see if the column is transparent or not     *
  *                                                                                             *
@@ -758,7 +753,6 @@ void SurfaceClass::Attach (IDirect3DSurface8 *surface)
 	return ;
 }
 
-
 /***********************************************************************************************
  * SurfaceClass::Detach -- Releases the reference on the internal surface ptr, and NULLs it.	 .*
  *                                                                                             *
@@ -786,7 +780,6 @@ void SurfaceClass::Detach (void)
 	D3DSurface = NULL;
 	return ;
 }
-
 
 /***********************************************************************************************
  * SurfaceClass::DrawPixel -- draws a pixel                                                    *
@@ -898,7 +891,6 @@ void SurfaceClass::DrawHLine(const unsigned int y,const unsigned int x1, const u
 
 	DX8_ErrorCode(D3DSurface->UnlockRect());
 }
-
 
 /***********************************************************************************************
  * SurfaceClass::Is_Monochrome -- Checks if surface is monochrome or not                       *

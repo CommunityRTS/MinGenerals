@@ -65,5 +65,4 @@ public:
 
 };
 
-
 #endif //BRUSHTOOL_H

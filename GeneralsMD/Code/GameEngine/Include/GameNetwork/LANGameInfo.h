@@ -164,7 +164,6 @@ public:
 		return 0;
 	}
 
-
 private:
 	LANGameInfo *m_next;																///< Pointer for linked list
 	UnsignedInt m_lastHeard;														///< The last time we heard from this game (for timeout purposes)
@@ -180,6 +179,5 @@ void LANDisplayGameOptions( void );	///< Displays the game options according to 
 
 AsciiString GenerateGameOptionsString( void );
 Bool ParseGameOptionsString(LANGameInfo *game, AsciiString options);
-
 
 #endif // __LANGAMEINFO_H__

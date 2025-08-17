@@ -84,7 +84,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 
 enum
@@ -109,7 +108,6 @@ static GameWindow *buttonCompressTest = NULL;
 void DoCompressTest( void );
 #endif // TEST_COMPRESSION
 #endif
-
 
 // window ids -------------------------------------------------------------------------------------
 static NameKeyType mainMenuID = NAMEKEY_INVALID;
@@ -145,7 +143,6 @@ static NameKeyType buttonEasyID = NAMEKEY_INVALID;
 static NameKeyType buttonMediumID = NAMEKEY_INVALID;
 static NameKeyType buttonHardID = NAMEKEY_INVALID;
 static NameKeyType buttonDiffBackID = NAMEKEY_INVALID;
-
 
 // window pointers --------------------------------------------------------------------------------
 static GameWindow *parentMainMenu = NULL;
@@ -255,8 +252,6 @@ static void quitCallback( void )
 	TheShell->pop();
 	TheGameEngine->setQuitting( TRUE );
 
-
-
 	//if (!TheGameLODManager->didMemPass())
 	{	//GIANT CRAPTACULAR HACK ALERT!!!!  On sytems with little memory, we skip all normal exit code
 //		//and let Windows clean up the mess.  This reduces exit times from minutes to seconds.
@@ -272,7 +267,6 @@ static void quitCallback( void )
 	if (TheGameLogic->isInGame())
 		TheMessageStream->appendMessage( GameMessage::MSG_CLEAR_GAME_DATA );
 }
-
 
 void setupGameStart(AsciiString mapName, GameDifficulty diff)
 {
@@ -369,8 +363,6 @@ static void shutdownComplete( WindowLayout *layout )
 	TheShell->shutdownComplete( layout );
 
 }  // end if
-
-
 
 /*
 static void TimetToFileTime( time_t t, LPFILETIME pft )
@@ -525,7 +517,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	buttonHard = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonHardID );
 	buttonDiffBack = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonDiffBackID );
 
-
 //	GameWindow *labelVersion = TheWindowManager->winGetWindowFromId( parentMainMenu, versionID );
 
 	getUpdate = TheWindowManager->winGetWindowFromId( parentMainMenu, getUpdateID );
@@ -647,7 +638,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 
 	//pendingDropDown =DROPDOWN_MAIN;
 
-
 	GameWindow *rule = TheWindowManager->winGetWindowFromId( parentMainMenu, TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:MainMenuRuler") ) );
 	if(rule)
 		rule->winHide(TRUE);
@@ -673,7 +663,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	// set keyboard focus to main parent
 	TheWindowManager->winSetFocus( parentMainMenu );
 
-
 }  // end MainMenuInit
 
 //-------------------------------------------------------------------------------------------------
@@ -692,7 +681,6 @@ void MainMenuShutdown( WindowLayout *layout, void *userData )
 //	if(winVidManager)
 	//		delete winVidManager;
 	//	winVidManager = NULL;
-
 
 	if( popImmediate )
 	{
@@ -788,7 +776,6 @@ void DoResolutionDialog()
 	resolutionNew.format(L": %dx%d\n", newDispSettings.xRes , newDispSettings.yRes);
 
 	resTimerString.concat(resolutionNew);
-
 
 	resAcceptMenu = TheWindowManager->gogoMessageBox( CORNER, CORNER, -1, -1,MSG_BOX_OK | MSG_BOX_CANCEL ,
 																									 TheGameText->fetch("GUI:Resolution"),
@@ -950,10 +937,6 @@ void MainMenuUpdate( WindowLayout *layout, void *userData )
 //			dropDownWindows[i]->winHide(TRUE);
 //	}
 
-
-
-
-
 	if (startGame && TheShell->isAnimFinished() && TheTransitionHandler->isFinished())
 	{
 		doGameStart();
@@ -964,7 +947,6 @@ void MainMenuUpdate( WindowLayout *layout, void *userData )
 	{
 		shutdownComplete(layout);
 	}
-
 
 	// We'll only be successful if we've requested to
 //	if(TheShell->isAnimReversed() && TheShell->isAnimFinished())
@@ -1033,7 +1015,6 @@ WindowMsgHandledType MainMenuInput( GameWindow *window, UnsignedInt msg,
 		}  // end char
 
 	}  // end switch( msg )
-
 
 	return MSG_IGNORED;
 
@@ -1333,7 +1314,6 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 				launchChallengeMenu = FALSE;
 			}
 
-
 			if( controlID == buttonSinglePlayerID )
 			{
 				if(dontAllowTransitions)
@@ -1561,7 +1541,6 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 				launchChallengeMenu = TRUE;
 			}
 
-
 // This button has been removed for the mission disk -June 2003
 /*			else if(controlID == buttonTRAININGID)
 			{
@@ -1695,7 +1674,6 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 				diffReverseSide();
 				campaignSelected = FALSE;
 			}
-
 
 			break;
 

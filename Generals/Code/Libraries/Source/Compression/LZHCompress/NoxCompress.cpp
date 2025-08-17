@@ -122,7 +122,6 @@ Bool DecompressFile		(char *infile, char *outfile)
 	return FALSE;
 }
 
-
 Bool CompressFile			(char *infile, char *outfile)
 {
 	UnsignedInt	rawSize = 0;
@@ -201,7 +200,6 @@ Bool CompressPacket		(char *inPacket, char *outPacket)
 	return TRUE;
 }
 
-
 Bool DecompressPacket	(char *inPacket, char *outPacket)
 {
 	// Parameter checking
@@ -210,7 +208,6 @@ Bool DecompressPacket	(char *inPacket, char *outPacket)
 		return FALSE;
 	return TRUE;
 }
-
 
 UnsignedInt CalcNewSize		(UnsignedInt rawSize)
 {

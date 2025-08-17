@@ -161,7 +161,6 @@ static void parseAllVetLevelsPSys( INI* ini, void* /*instance*/, void * store, c
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 WeaponStore *TheWeaponStore = NULL;					///< the weapon store definition
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -949,7 +948,6 @@ UnsignedInt WeaponTemplate::fireWeaponTemplate
 		{
 			owningPlayer->applyBattlePlanBonusesForObject( projectile );
 		}
-
 
 		//Store the project ID in the object as the last projectile fired!
 		if (projectileID)
@@ -2417,7 +2415,6 @@ Bool Weapon::privateFireWeapon(
 	return reloaded;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void Weapon::preFireWeapon( const Object *source, const Object *victim )
 {
@@ -3049,7 +3046,6 @@ void Weapon::crc( Xfer *xfer )
 		logString.concat(tmp);
 	}
 #endif // DEBUG_CRC
-
 
 #ifdef DEBUG_CRC
 	if (doLogging)

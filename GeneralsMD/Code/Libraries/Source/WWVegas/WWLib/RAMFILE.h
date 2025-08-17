@@ -39,7 +39,6 @@
 
 #include	"wwfile.h"
 
-
 class RAMFileClass : public FileClass
 {
 	public:
@@ -104,8 +103,5 @@ class RAMFileClass : public FileClass
 		*/
 		bool IsAllocated;
 };
-
-
-
 
 #endif

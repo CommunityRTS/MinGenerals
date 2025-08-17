@@ -127,7 +127,6 @@ typedef BOOL  (WINAPI *StackWalkType) (DWORD MachineType, HANDLE hProcess, HANDL
 typedef LPVOID (WINAPI *SymFunctionTableAccessType) (HANDLE hProcess, DWORD AddrBase);
 typedef DWORD (WINAPI *SymGetModuleBaseType) (HANDLE hProcess, DWORD dwAddr);
 
-
 static SymCleanupType							_SymCleanup = NULL;
 static SymGetSymFromAddrType				_SymGetSymFromAddr = NULL;
 static SymInitializeType						_SymInitialize = NULL;
@@ -151,8 +150,6 @@ static char const *ImagehelpFunctionNames[] =
 	"SymGetModuleBaseType",
 	NULL
 };
-
-
 
 /***********************************************************************************************
  * _purecall -- This function overrides the C library Pure Virtual Function Call error         *
@@ -183,8 +180,6 @@ int __cdecl _purecall(void)
 	return(return_code);
 }
 
-
-
 /***********************************************************************************************
  * Last_Error_Text -- Get the system error text for GetLastError                                *
  *                                                                                             *
@@ -205,8 +200,6 @@ char const * Last_Error_Text(void)
 	FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), &message_buffer[0], 256, NULL);
 	return (message_buffer);
 }
-
-
 
 /***********************************************************************************************
  * Add_Txt -- Add the given text to the machine state dump buffer.                             *
@@ -262,8 +255,6 @@ static void Add_Txt (char const *txt)
 	}
 #endif //(0)
 }
-
-
 
 /***********************************************************************************************
  * Dump_Exception_Info -- Dump machine state information into a buffer                         *
@@ -371,7 +362,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 		DebugString("Exception Handler: Unable to load IMAGEHLP.DLL\n");
 	}
 
-
 	/*
 	** Retrieve the programs symbols if they are available
 	*/
@@ -406,7 +396,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 			DebugString ("Exception Handler: SymLoad failed for module %s with code %d - %s\n", module_name, GetLastError(), Last_Error_Text());
 		}
 	}
-
 
 	unsigned char symbol [256];
 	unsigned long displacement;
@@ -455,7 +444,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 			Add_Txt("was read from.\r\n");
 		}
 	}
-
 
 	/*
 	** If symbols are available, print out the exception eip address and the name of the
@@ -525,7 +513,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 		Add_Txt("Stack walk failed!\r\n");
 	}
 
-
 #if (0)	//Don't have this info yet for Renegade.
 	/*
 	** Add in the version info.
@@ -573,7 +560,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 	sprintf(scrap, "\r\nCPU %s, %d Mhz, Vendor: %s\r\n", (char*)CPUDetectClass::Get_Processor_String(), Get_RDTSC_CPU_Speed(), (char*)CPUDetectClass::Get_Processor_Manufacturer_Name());
 	Add_Txt(scrap);
 
-
 	Add_Txt("\r\nDetails:\r\n");
 
 	DebugString("Register dump...\n");
@@ -591,7 +577,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 	Add_Txt(scrap);
 	sprintf(scrap, "CS:%04x  SS:%04x  DS:%04x  ES:%04x  FS:%04x  GS:%04x\r\n", context->SegCs, context->SegSs, context->SegDs, context->SegEs, context->SegFs, context->SegGs);
 	Add_Txt(scrap);
-
 
 	/*
 	** Now the FP registers.
@@ -729,10 +714,6 @@ void Dump_Exception_Info(EXCEPTION_POINTERS *e_info)
 	Add_Txt ("\r\n\r\n");
 }
 
-
-
-
-
 /***********************************************************************************************
  * Exception_Handler -- Exception handler filter function                                      *
  *                                                                                             *
@@ -866,9 +847,6 @@ int Exception_Handler(int exception_code, EXCEPTION_POINTERS *e_info)
 	return (EXCEPTION_CONTINUE_SEARCH);
 }
 
-
-
-
 /***********************************************************************************************
  * Register_Thread_ID -- Let the exception handler know about a thread                         *
  *                                                                                             *
@@ -908,7 +886,6 @@ void Register_Thread_ID(unsigned long thread_id, char *thread_name, bool main_th
 	}
 }
 
-
 #if (0)
 /***********************************************************************************************
  * Register_Thread_Handle -- Keep a copy of the thread handle that matches this thread ID      *
@@ -937,8 +914,6 @@ bool Register_Thread_Handle(unsigned long thread_id, HANDLE thread_handle)
 	return(false);
 }
 
-
-
 /***********************************************************************************************
  * Get_Num_Threads -- Get the number of threads being tracked.                                 *
  *                                                                                             *
@@ -957,7 +932,6 @@ int Get_Num_Threads(void)
 {
 	return(ThreadList.Count());
 }
-
 
 /***********************************************************************************************
  * Get_Thread_Handle -- Get the handle for the given thread index                              *
@@ -1008,8 +982,6 @@ void Unregister_Thread_ID(unsigned long thread_id, char *thread_name)
 	}
 }
 
-
-
 /***********************************************************************************************
  * Get_Main_Thread_ID -- Get the ID of the processes main thread                               *
  *                                                                                             *
@@ -1033,11 +1005,6 @@ unsigned long Get_Main_Thread_ID(void)
 	}
 	return(0);
 }
-
-
-
-
-
 
 /***********************************************************************************************
  * Load_Image_Helper -- Load imagehlp.dll and retrieve the programs symbols                    *
@@ -1110,12 +1077,6 @@ void Load_Image_Helper(void)
 	}
 }
 
-
-
-
-
-
-
 /***********************************************************************************************
  * Lookup_Symbol -- Get the symbol for a given code address                                    *
  *                                                                                             *
@@ -1183,9 +1144,6 @@ bool Lookup_Symbol(void *code_ptr, char *symbol, int &displacement)
 	}
 	return(false);
 }
-
-
-
 
 /***********************************************************************************************
  * Stack_Walk -- Walk the stack and get the last n return addresses                            *
@@ -1278,8 +1236,6 @@ here:
 	return(pointer_index);
 }
 
-
-
 void Register_Application_Exception_Callback(void (*app_callback)(void))
 {
 	AppCallback = app_callback;
@@ -1289,8 +1245,6 @@ void Register_Application_Version_Callback(char *(*app_ver_callback)(void))
 {
 	AppVersionCallback = app_ver_callback;
 }
-
-
 
 void Set_Exit_On_Exception(bool set)
 {
@@ -1302,11 +1256,5 @@ bool Is_Trying_To_Exit(void)
 	return(TryingToExit);
 }
 
-
-
-
 #endif	//_MSC_VER
-
-
-
 

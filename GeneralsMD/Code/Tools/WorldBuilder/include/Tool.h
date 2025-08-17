@@ -89,5 +89,4 @@ public:
 															VecHeightMapIndexes* allIndices);
 };
 
-
 #endif //TOOL_H

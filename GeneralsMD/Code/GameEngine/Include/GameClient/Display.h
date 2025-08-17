@@ -232,5 +232,4 @@ typedef struct _DisplaySettings
 	Bool windowed; //Window mode TRUE: we're windowed, FALSE: we're not windowed
 } DisplaySettings;
 
-
 #endif // _GAME_DISPLAY_H_

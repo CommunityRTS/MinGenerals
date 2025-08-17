@@ -134,7 +134,6 @@ public:
 
 protected:
 
-
 private:
 	/**
 		Units check:
@@ -437,7 +436,6 @@ private:
 	Real				m_offsetIncrement;
 	UnsignedInt m_donutTimer;				///< Frame time to keep units from doing the donut. jba.
 
-
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -471,7 +469,6 @@ public:
 
 	// locoTemplate is who we're overriding
 	LocomotorTemplate *newOverride(LocomotorTemplate *locoTemplate);
-
 
 	static void parseLocomotorTemplateDefinition(INI* ini);
 

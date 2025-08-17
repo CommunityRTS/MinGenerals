@@ -63,7 +63,6 @@ Char* UStringToANSI(const UString& string, Char* buffer, UInt bufferLength)
 	return UnicodeToANSI(string.Get(), buffer, bufferLength);
 	}
 
-
 /******************************************************************************
 *
 * NAME

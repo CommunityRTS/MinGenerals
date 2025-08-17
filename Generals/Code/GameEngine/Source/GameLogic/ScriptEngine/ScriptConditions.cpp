@@ -169,7 +169,6 @@ void ScriptConditions::update( void )
 	// Empty for now. jba
 }  // end update
 
-
 //-------------------------------------------------------------------------------------------------
 /** Finds the player by the name in the parameter, and if found caches the player mask in the
 parameter so we don't have to do a name search.  May return null if the player doesn't exist.*/
@@ -219,7 +218,6 @@ void ScriptConditions::objectTypesFromParam(Parameter *pTypeParm, ObjectTypes *o
 		(*outObjectTypes) = (*types);
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** evaluateAllDestroyed */
@@ -453,7 +451,6 @@ Bool ScriptConditions::evaluatePlayerHasUnitTypeInArea(Condition *pCondition, Pa
 	Player::PlayerTeamList::const_iterator it;
 	Bool anyChanges = false;
 
-
 	if (pCondition->getCustomData() == 0) anyChanges = true;
 
 	for (it = pPlayer->getPlayerTeams()->begin(); it != pPlayer->getPlayerTeams()->end(); ++it) {
@@ -549,7 +546,6 @@ Bool ScriptConditions::evaluatePlayerHasUnitKindInArea(Condition *pCondition, Pa
 	Bool anyChanges = false;
 	if (pCondition->getCustomData() == 0) anyChanges = true;
 
-
 	for (it = pPlayer->getPlayerTeams()->begin(); it != pPlayer->getPlayerTeams()->end(); ++it) {
 		if (anyChanges) break;
 		for (DLINK_ITERATOR<Team> iter = (*it)->iterate_TeamInstanceList(); !iter.done(); iter.advance()) {
@@ -571,7 +567,6 @@ Bool ScriptConditions::evaluatePlayerHasUnitKindInArea(Condition *pCondition, Pa
 		if (pCondition->getCustomData()==1) return true;
 
 	}
-
 
 	Int count = 0;
 	for (it = pPlayer->getPlayerTeams()->begin(); it != pPlayer->getPlayerTeams()->end(); ++it) {
@@ -624,7 +619,6 @@ Bool ScriptConditions::evaluateTeamStateIs(Parameter *pTeamParm, Parameter *pSta
 	}
 	return false; // Non existent team isn't in any state.
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** evaluateTeamStateIsNot */
@@ -1224,7 +1218,6 @@ Bool ScriptConditions::evaluateTeamOwnedByPlayer(Parameter *pTeamParm, Parameter
 	return (pTeam->getControllingPlayer() == pPlayer);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** evaluatePlayerHasNOrFewerBuildings */
 //-------------------------------------------------------------------------------------------------
@@ -1352,10 +1345,8 @@ Bool ScriptConditions::evaluateNamedSelected(Condition *pCondition, Parameter *p
 		return false;
 	}
 
-
 	Bool anyChanges = false;
 	if (pCondition->getCustomData() == 0) anyChanges = true;
-
 
 	if (TheInGameUI->getFrameSelectionChanged()+1 >= TheGameLogic->getFrame()) {
 		anyChanges = true; // Objects were selected last frame, so count could have changed.  jba.
@@ -1848,7 +1839,6 @@ Bool ScriptConditions::evaluateSkirmishSpecialPowerIsReady(Parameter *pSkirmishP
 	return false;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** evaluatePlayerDestroyedNOrMoreBuildings */
 //-------------------------------------------------------------------------------------------------
@@ -1889,7 +1879,6 @@ Bool ScriptConditions::evaluateUnitHasEmptied(Parameter *pUnitParm)
 	Int numPeeps = cmi ? cmi->getContainCount() : 0;
 
 	UnsignedInt frameNum = TheGameLogic->getFrame();
-
 
 	if (stats == NULL)
 	{
@@ -2023,7 +2012,6 @@ Bool ScriptConditions::evaluateSkirmishValueInArea(Condition *pCondition, Parame
 	Player::PlayerTeamList::const_iterator it;
 	Bool anyChanges = false;
 	if (pCondition->getCustomData() == 0) anyChanges = true;
-
 
 	for (it = player->getPlayerTeams()->begin(); it != player->getPlayerTeams()->end(); ++it) {
 		if (anyChanges) break;
@@ -2173,7 +2161,6 @@ Bool ScriptConditions::evaluateSkirmishPlayerTechBuildingWithinDistancePerimeter
 	PartitionFilterPlayerAffiliation f2(player, ALLOW_ALLIES, false);
 	PartitionFilterPlayer f3(player, false);	// Don't find your own units, as our affiliation to self is neutral.
 	PartitionFilterOnMap filterMapStatus;
-
 
 	PartitionFilter *filters[] = { &f1, &f2, &f3, &filterMapStatus, 0 };
 
@@ -2403,7 +2390,6 @@ Bool ScriptConditions::evaluateSkirmishPlayerHasUnitsInArea(Condition *pConditio
 
 	Player::PlayerTeamList::const_iterator it;
 	Bool anyChanges = false;
-
 
 	if (pCondition->getCustomData() == 0) anyChanges = true;
 
@@ -2864,8 +2850,6 @@ Bool ScriptConditions::evaluateCondition( Condition *pCondition )
 		case Condition::PLAYER_LOST_OBJECT_TYPE:
 			return evaluatePlayerLostObjectType(pCondition->getParameter(0), pCondition->getParameter(1));
 
-
 	}
 }
-
 

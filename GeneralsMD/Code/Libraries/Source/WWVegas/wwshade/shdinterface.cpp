@@ -40,7 +40,6 @@
 #include "shdinterface.h"
 #include "shddef.h"
 
-
 //**********************************************************************************************
 //! Constructor
 /*!
@@ -55,7 +54,6 @@ ShdInterfaceClass::ShdInterfaceClass(const ShdDefClass * def, int class_id) :
 	REF_PTR_SET(Definition,def);
 }
 
-
 //**********************************************************************************************
 //! Destructor
 /*!
@@ -65,7 +63,6 @@ ShdInterfaceClass::~ShdInterfaceClass(void)
 {
 	REF_PTR_RELEASE(Definition);
 }
-
 
 //**********************************************************************************************
 //! returns a pointer to the definition for this shader

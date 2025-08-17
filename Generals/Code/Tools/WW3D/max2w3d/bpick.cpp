@@ -38,17 +38,14 @@
  *   BonePickerClass::Pick -- MAX Pick method                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "bpick.h"
 #include "dllmain.h"
 #include "resource.h"
-
 
 /*
 ** Global instance of a bone picker :-)
 */
 BonePickerClass TheBonePicker;
-
 
 /***********************************************************************************************
  * BonePickerClass::Filter -- determine whether the passed node is suitable                    *

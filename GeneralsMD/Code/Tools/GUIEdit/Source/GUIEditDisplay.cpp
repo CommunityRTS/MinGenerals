@@ -137,7 +137,6 @@ void GUIEditDisplay::drawImage( const Image *image,
 														endX, endY,
 														color );
 
-
 }  // end drawImage
 
 // GUIEditDisplay::setClipRegion ==============================================

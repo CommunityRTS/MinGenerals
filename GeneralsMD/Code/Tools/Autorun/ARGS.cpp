@@ -349,4 +349,3 @@ void Command_Line_Arguments::Set_argv( int argument_index, char *arg )
 	}
 }
 
-

@@ -39,7 +39,6 @@
 #ifndef CAMERASHAKESYSTEM_H
 #define CAMERASHAKESYSTEM_H
 
-
 #include "always.h"
 #include "vector3.h"
 #include "multilist.h"
@@ -107,7 +106,6 @@ protected:
 };
 
 extern CameraShakeSystemClass CameraShakerSystem; //WST 11/12/2002 This is the new Camera Shaker system upgrade
-
 
 #endif //CAMERASHAKESYSTEM_H
 

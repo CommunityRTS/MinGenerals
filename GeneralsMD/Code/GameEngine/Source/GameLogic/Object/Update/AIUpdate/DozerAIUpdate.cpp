@@ -345,7 +345,6 @@ StateReturnType DozerActionMoveToActionPosState::update( void )
 	const Real SLOP = 15.0f;
 	Real allowableDistanceSqr = sqr(max( MIN_ACTION_TOLERANCE, dozer->getGeometryInfo().getBoundingSphereRadius() + SLOP ));
 
-
 	if( distSqr <= allowableDistanceSqr )
 	{
 		if( m_task == DOZER_TASK_BUILD )
@@ -365,7 +364,6 @@ StateReturnType DozerActionMoveToActionPosState::update( void )
 		return STATE_SUCCESS;
 
 	}  // end if
-
 
 	// if we're in the idle state fail our move
 	// Failure transition is back to DOZER_ACTION_PICK_ACTION_POS, so
@@ -533,7 +531,6 @@ StateReturnType DozerActionDoActionState::update( void )
 
 				// the builder is now actively constructing something
 				dozer->setModelConditionState( MODELCONDITION_ACTIVELY_CONSTRUCTING );
-
 
 				// increase the construction percent of the goal object
 				Int framesToBuild = goalObject->getTemplate()->calcTimeToBuild( dozer->getControllingPlayer() );
@@ -733,8 +730,6 @@ StateReturnType DozerActionDoActionState::update( void )
 						return STATE_FAILURE;
 					}
 
-
-
 				}  // end if
 
 			}  // end else
@@ -774,7 +769,6 @@ StateReturnType DozerActionDoActionState::update( void )
 
 		// to be clean get rid of the goal object we set
 		getMachine()->setGoalObject( NULL );
-
 
 		getMachineOwner()->setWeaponSetFlag(WEAPONSET_MINE_CLEARING_DETAIL);//maybe go clear some mines, if I feel like it
 		// we're done
@@ -830,7 +824,6 @@ DozerActionStateMachine::DozerActionStateMachine( Object *owner, DozerTask task 
 	defineState( DOZER_ACTION_DO_ACTION, newInstance(DozerActionDoActionState)( this, task ), EXIT_MACHINE_WITH_SUCCESS, EXIT_MACHINE_WITH_FAILURE );
 }
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -857,7 +850,6 @@ void DozerActionStateMachine::xfer( Xfer *xfer )
 void DozerActionStateMachine::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1026,7 +1018,6 @@ void DozerPrimaryIdleState::loadPostProcess( void )
 {
 }  // end loadPostProcess
 
-
 //-------------------------------------------------------------------------------------------------
 /** Upon entering the dozer primary idle state */
 //-------------------------------------------------------------------------------------------------
@@ -1140,7 +1131,6 @@ StateReturnType DozerPrimaryIdleState::update( void )
 			}
 		}
 
-
 	}  // end if
 
 	return STATE_CONTINUE;
@@ -1212,7 +1202,6 @@ void DozerActionState::xfer( Xfer *xfer )
 void DozerActionState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -1601,7 +1590,6 @@ UpdateSleepTime DozerAIUpdate::update( void )
 	if( currentTask != DOZER_TASK_INVALID )
 	{
 
-
 		ObjectID taskTarget = getTaskTarget( currentTask );
 		Object *targetObject = TheGameLogic->findObjectByID( taskTarget );
 		Bool invalidTask = FALSE;
@@ -1836,7 +1824,6 @@ void DozerAIUpdate::privateRepair( Object *obj, CommandSourceType cmdSource )
 	//		return;
   //
 	//}  // end if
-
 
 	// for bridges, set the status for the bridge object
 	//if( obj->isKindOf( KINDOF_BRIDGE_TOWER ) )
@@ -2438,7 +2425,6 @@ void DozerAIUpdate::finishBuildingSound()
 	TheAudio->removeAudioEvent( m_buildingSound.getPlayingHandle() );
 }
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -2501,5 +2487,4 @@ void DozerAIUpdate::loadPostProcess( void )
  // extend base class
 	AIUpdateInterface::loadPostProcess();
 }  // end loadPostProcess
-
 

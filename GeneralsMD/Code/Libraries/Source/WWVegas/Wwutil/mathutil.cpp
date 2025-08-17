@@ -140,8 +140,6 @@ void cMathUtil::Rotate_Vector(double & vx, double & vy, double angle)
    vy = vx1 * ::WWMath::Sin(angle_radians) + vy1 * ::WWMath::Cos(angle_radians);
 }
 
-
-
 //-----------------------------------------------------------------------------
 double cMathUtil::Get_Uniform_Pdf_Double(double lower, double upper)
 {
@@ -211,14 +209,4 @@ int cMathUtil::Get_Hat_Pdf_Int(int lower, int upper)
 {
    return Round(Get_Hat_Pdf_Double(lower, upper));
 }
-
-
-
-
-
-
-
-
-
-
 

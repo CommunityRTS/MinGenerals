@@ -36,10 +36,8 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "shddeffactory.h"
 #include "shddefmanager.h"
-
 
 /*
 **
@@ -59,7 +57,6 @@ ShdDefFactoryClass::ShdDefFactoryClass (void) :
 	ShdDefManagerClass::Register_Factory (this);
 }
 
-
 //**********************************************************************************************
 //! Destructor for ShdDefFactoryClass
 /*!
@@ -69,6 +66,4 @@ ShdDefFactoryClass::~ShdDefFactoryClass (void)
 {
 	ShdDefManagerClass::Unregister_Factory (this);
 }
-
-
 

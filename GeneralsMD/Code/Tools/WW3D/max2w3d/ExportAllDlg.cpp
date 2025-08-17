@@ -34,8 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 // ExportAllDlg.cpp : implementation file
 //
 
@@ -44,13 +42,10 @@
 #include <assert.h>
 #include <shlobj.h>	// SHBrowseForFolder
 
-
 static BOOL CALLBACK _thunk_dialog_proc (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
 
 /////////////////////////////////////////////////////////////////////////////
 // ExportAllDlg dialog
-
 
 ExportAllDlg::ExportAllDlg (Interface *max_interface)
 {
@@ -60,7 +55,6 @@ ExportAllDlg::ExportAllDlg (Interface *max_interface)
 	assert(max_interface != NULL);
 	m_MaxInterface = max_interface;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // ExportAllDlg Methods
@@ -112,7 +106,6 @@ BOOL CALLBACK ExportAllDlg::DialogProc (HWND hWnd, UINT uMsg, WPARAM wParam, LPA
 
 			OnInitDialog();
 			return TRUE;
-
 
 		/*******************************************************************
 		* WM_COMMAND

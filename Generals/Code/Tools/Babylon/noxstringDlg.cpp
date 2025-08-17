@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 // noxstringDlg.cpp : implementation file
 //
 
@@ -65,7 +64,6 @@ static void print_to_log ( const char *text )
 
 	sprintf ( buffer, "String %s", text);
 	mainDlg->Log ( buffer );
-
 
 }
 
@@ -117,7 +115,6 @@ static void progress_cb ( void )
 		MainDLG->SetProgress ( progress_count );
 	}
 }
-
 
 static void removeLeadingAndTrailing ( char *buffer )
 {
@@ -329,7 +326,6 @@ BOOL CNoxstringDlg::OnInitDialog()
 	}
 #endif
 
-
 	Ready();;
 
 	PostMessage ( WM_COMMAND, MAKEWPARAM ( IDC_RELOAD, BN_CLICKED ));
@@ -492,7 +488,6 @@ BOOL CAboutDlg::OnInitDialog()
 	sprintf ( string, "Built: %s, %s", __DATE__, __TIME__ );
 	SetDlgItemText ( IDC_BUILD, string );
 
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
@@ -516,7 +511,6 @@ void CNoxstringDlg::OnDropFiles(HDROP hDropInfo)
 //		}
 //	}
 }
-
 
 //DEL int CNoxstringDlg::SelectFile ( const char *buffer )
 //DEL {
@@ -605,7 +599,6 @@ static DWORD CALLBACK streamin_cb (  DWORD dwCookie, LPBYTE pbBuff, LONG bytes, 
 		start_copy = FALSE;
 	}
 
-
 	while ( bytes-- )
 	{
 		if ( !*src )
@@ -644,7 +637,6 @@ void CNoxstringDlg::Log( const char *string, LogFormat format)
 
 	rec->SetSel ( end_pos, end_pos );
 
-
 	//rec->SetReadOnly ( FALSE );
 	es.dwCookie = (DWORD) string;
 	es.dwError = 0;
@@ -660,7 +652,6 @@ void CNoxstringDlg::Log( const char *string, LogFormat format)
 	rec->LineScroll ( -lines, 0 );
 	rec->LineScroll ( lines - 10, 0 );
 }
-
 
 void CNoxstringDlg::Status( const char *string, int log )
 {
@@ -688,7 +679,6 @@ int CNoxstringDlg::SaveLog()
 	EDITSTREAM es;
  	CRichEditCtrl *rec = (CRichEditCtrl *) GetDlgItem ( IDC_LOG );
 	int ok = FALSE;
-
 
 	if ( ! (log = fopen ("babylon.log", "a+t" )))
 	{
@@ -726,7 +716,6 @@ error:
 		fclose ( log );
 	}
 
-
 	return ok;
 }
 
@@ -738,7 +727,6 @@ void CNoxstringDlg::OnViewdbs()
 	ViewChanges = FALSE;
 
 	dlg.DoModal ();
-
 
 }
 
@@ -1005,7 +993,6 @@ static int parseComment ( FILE *file, char *buffer, INFO *info )
 		new_lines += getString ( file, buffer, info->wave );
 	}
 
-
 	return new_lines;
 }
 
@@ -1114,7 +1101,6 @@ int CNoxstringDlg::LoadStrFile ( TransDB *db, const char *filename, void (*cb) (
 				text->SetLineNumber ( line );
 				label->AddText ( text );
 
-
 			}
 		}
 
@@ -1132,7 +1118,6 @@ int CNoxstringDlg::LoadStrFile ( TransDB *db, const char *filename, void (*cb) (
 
 	}
 	status = TRUE;
-
 
 exit:
 
@@ -1185,7 +1170,6 @@ retry:
 
 	return TRUE;
 }
-
 
 int		CNoxstringDlg::CanOperate ( void )
 {
@@ -1494,7 +1478,6 @@ void CNoxstringDlg::OnUpdate()
 															}																															\
 														 }
 
-
 int CNoxstringDlg::UpdateLabel( NoxLabel *source, NoxLabel *destination, UPDATEINFO &info, int update, int skip )
 {
 	NoxText *stext, *dtext;
@@ -1539,7 +1522,6 @@ int CNoxstringDlg::UpdateLabel( NoxLabel *source, NoxLabel *destination, UPDATEI
 
 		stext = source->NextText ( sh );
 	}
-
 
 	// ask the user to resolve remaing unmatched strings
 
@@ -1599,7 +1581,6 @@ int CNoxstringDlg::UpdateLabel( NoxLabel *source, NoxLabel *destination, UPDATEI
 		}
 	}
 
-
 	// go through all matched strings and update them accordingly
 
 	dtext = destination->FirstText ( sh );
@@ -1643,7 +1624,6 @@ int CNoxstringDlg::UpdateLabel( NoxLabel *source, NoxLabel *destination, UPDATEI
 
 		dtext = destination->NextText ( sh );
 	}
-
 
 	// any remaining umatched text in the source are new strings
 	// any remaining umatched text in the destination are now obsolete
@@ -1709,7 +1689,6 @@ int CNoxstringDlg::UpdateLabel( NoxLabel *source, NoxLabel *destination, UPDATEI
 		info.updated_maxlen++;
 		info.changes ++;
 	}
-
 
 	if ( label_modified )
 	{
@@ -1864,7 +1843,6 @@ int CNoxstringDlg::UpdateDB(TransDB *source, TransDB *destination, int update )
 		dlabel = next_label;
 	}
 
-
 	if ( update )
 	{
 		if ( info.new_labels )
@@ -1984,7 +1962,6 @@ int CNoxstringDlg::UpdateDB(TransDB *source, TransDB *destination, int update )
 		}
 	}	// update
 
-
 	Ready ();
 
 	return info.changes;
@@ -2052,7 +2029,6 @@ int CNoxstringDlg::SaveMainDB( )
 	return TRUE;
 }
 
-
 void CNoxstringDlg::OnWarnings()
 {
 	// TODO: Add your control notification handler code here
@@ -2063,7 +2039,6 @@ void CNoxstringDlg::OnWarnings()
 
 }
 
-
 void CNoxstringDlg::OnErrors()
 {
 	// TODO: Add your control notification handler code here
@@ -2072,7 +2047,6 @@ void CNoxstringDlg::OnErrors()
 		NoxstrDB->Errors ( this );
 	}
 }
-
 
 int CNoxstringDlg::MatchText ( NoxText *text, NoxLabel *label, NoxText **match )
 {
@@ -2122,8 +2096,6 @@ void CNoxstringDlg::OnChanges()
 	ViewChanges = TRUE;
 
 	dlg.DoModal ();
-
-
 
 }
 
@@ -2193,7 +2165,6 @@ int CNoxstringDlg::ValidateStrFile( const char *filename)
 		goto error;
 	}
 
-
 	WaitForSingleObject(ProcessInfo.hProcess, INFINITE);
 
 	//this->SetForegroundWindow ();
@@ -2234,13 +2205,11 @@ int CNoxstringDlg::ValidateStrFile( const char *filename)
 			}
 		}
 
-
 	}
 	else
 	{
 		Log ("OK", SAME_LINE );
 	}
-
 
 done:
 
@@ -2494,7 +2463,6 @@ void CNoxstringDlg::OnTranslations()
 
 		VerifyTranslations ( MainDB, CurrentLanguage );
 	}
-
 
 }
 

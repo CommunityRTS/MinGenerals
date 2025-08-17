@@ -20,7 +20,6 @@
 // OLEString.cpp
 //
 
-
 #include "stdAfx.h"
 #include <assert.h>
 #include "olestring.h"
@@ -40,8 +39,6 @@ template void DecodeFormat<OLECHAR> ( OLECHAR  *string );
 template int IsFormatTypeChar<char> (  char string1 );
 template int IsFormatTypeChar<OLECHAR> ( OLECHAR  string );
 
-
-
 static char *format_type = "cCdiouxXeEfgGnpsS"; // printf type as in %<width>.<presicion>{h|l|i64|L}<type>
 
 template <typename text>int IsFormatTypeChar ( text ch )
@@ -57,8 +54,6 @@ template <typename text>int IsFormatTypeChar ( text ch )
 	}
 	return FALSE;
 }
-
-
 
 OLEString::OLEString ( void )
 {
@@ -139,7 +134,6 @@ void OLEString::StripSpaces ( void )
 		::StripSpaces ( sb );
 	}
 }
-
 
 void OLEString::FormatMetaString ( void )
 {
@@ -309,7 +303,6 @@ template <typename text> void StripSpacesFromMetaString ( text *string )
 
 	*str = 0;
 }
-
 
 template <typename text> void ConvertMetaChars ( text *string )
 {

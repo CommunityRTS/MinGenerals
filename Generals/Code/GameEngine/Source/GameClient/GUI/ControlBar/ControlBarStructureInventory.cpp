@@ -157,7 +157,6 @@ void ControlBar::populateStructureInventory( Object *building )
 		if( i + 1 > contain->getContainMax() )
 			m_commandWindows[ i ]->winHide( TRUE );
 
-
 	}  // end for i
 
 	// show the window

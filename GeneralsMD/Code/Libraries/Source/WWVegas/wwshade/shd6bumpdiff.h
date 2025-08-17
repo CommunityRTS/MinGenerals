@@ -47,7 +47,6 @@
 #include "shdhwshader.h"
 #endif
 
-
 class Shd6BumpDiffClass : public ShdInterfaceClass
 {
 public:

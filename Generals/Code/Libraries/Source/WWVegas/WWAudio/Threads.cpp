@@ -30,13 +30,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "Threads.h"
 #include "refcount.h"
 #include "Utils.h"
 #include <Process.h>
 #include "wwdebug.h"
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //	Static member initialization
@@ -57,7 +55,6 @@ WWAudioThreadsClass::WWAudioThreadsClass (void)
 {
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -88,7 +85,6 @@ WWAudioThreadsClass::Create_Delayed_Release_Thread (LPVOID param)
 	return m_hDelayedReleaseThread;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
 //	End_Delayed_Release_Thread
@@ -112,7 +108,6 @@ WWAudioThreadsClass::End_Delayed_Release_Thread (DWORD timeout)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -161,7 +156,6 @@ WWAudioThreadsClass::Add_Delayed_Release_Object
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Flush_Delayed_Release_Objects
@@ -191,7 +185,6 @@ WWAudioThreadsClass::Flush_Delayed_Release_Objects (void)
 	m_ReleaseListHead = NULL;
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -280,7 +273,6 @@ WWAudioThreadsClass::Begin_Modify_List (void)
 
 	return retval;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //

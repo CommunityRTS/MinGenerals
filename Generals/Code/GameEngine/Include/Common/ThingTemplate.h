@@ -358,7 +358,6 @@ private:
 
 public:
 
-
 	ThingTemplate();
 
 	// copy the guts of that into this, but preserve this' name, id, and list-links.
@@ -742,7 +741,6 @@ private:
 	Byte					m_moduleParsingMode;
 	UnsignedByte	m_crusherLevel;							///< crusher > crushable level to actually crush
 	UnsignedByte	m_crushableLevel;						///< Specifies the level of crushability (must be hit by a crusher greater than this to crush me).
-
 
 };
 

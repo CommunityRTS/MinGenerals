@@ -38,14 +38,11 @@
 #include "GameLogic/Module/ContainModule.h"
 #include "W3DDevice/GameClient/Module/W3DDependencyModelDraw.h"
 
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //-------------------------------------------------------------------------------------------------
 W3DDependencyModelDrawModuleData::W3DDependencyModelDrawModuleData()
@@ -92,7 +89,6 @@ void W3DDependencyModelDraw::doDrawModule(const Matrix3D* transformMtx)
 		// We've been cleared by the thing we were waiting to draw, so we can draw.
 		W3DModelDraw::doDrawModule( transformMtx );
 		m_dependencyCleared = FALSE;
-
 
     // A handy place to synchronize my drawable with container's
     Drawable *myDrawable = getDrawable();
@@ -198,5 +194,4 @@ void W3DDependencyModelDraw::loadPostProcess( void )
 	W3DModelDraw::loadPostProcess();
 
 }  // end loadPostProcess
-
 

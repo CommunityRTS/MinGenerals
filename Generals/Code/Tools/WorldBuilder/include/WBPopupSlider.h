@@ -78,7 +78,6 @@ private:
 
 /////////////////////////////////////////////////////////////////////////////
 
-
 /////////////////////////////////////////////////////////////////////////////
 // PopupSlider window
 
@@ -176,7 +175,6 @@ private:
 	// the background color brush
 	CBrush	m_brush3dFaceColor;
 };
-
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Developer Studio will insert additional declarations immediately before the previous line.

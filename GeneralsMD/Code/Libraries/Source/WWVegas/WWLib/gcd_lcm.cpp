@@ -45,7 +45,6 @@ unsigned int Greatest_Common_Divisor(unsigned int a, unsigned int b)
 	}
 }
 
-
 unsigned int Least_Common_Multiple(unsigned int a, unsigned int b)
 {
 	return (a * b) / Greatest_Common_Divisor(a, b);

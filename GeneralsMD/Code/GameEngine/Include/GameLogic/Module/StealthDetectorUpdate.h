@@ -98,6 +98,5 @@ private:
 
 };
 
-
 #endif	// __STEALTHDETECTOR_UPDATE_H_
 

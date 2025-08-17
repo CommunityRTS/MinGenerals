@@ -35,7 +35,6 @@
 #include "GameClient/Display.h"
 #include "GameClient/GraphDraw.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -185,7 +184,6 @@ static char s_buf[256] = "";
 PerfGather*		PerfGather::m_active[MAX_ACTIVE_STACK] = { 0 };
 PerfGather**	PerfGather::m_activeHead = &PerfGather::m_active[0];
 Int64					PerfGather::s_stopStartOverhead = -1;
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

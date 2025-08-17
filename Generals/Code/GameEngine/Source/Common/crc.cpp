@@ -22,12 +22,10 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "Common/CRC.h"
 #include "Common/Debug.h"
-
 
 void CRC::addCRC( UnsignedByte val )
 {
@@ -36,7 +34,6 @@ void CRC::addCRC( UnsignedByte val )
 	//cout << "\t\t" << hex << val;
 //	val = htonl(val);
 	//cout << " / " << hex << val <<endl;
-
 
 	if (crc & 0x80000000) {
 		hibit = 1;
@@ -50,7 +47,6 @@ void CRC::addCRC( UnsignedByte val )
 
 	//cout << hex << (*crc) <<endl;
 }
-
 
 void CRC::computeCRC( const void *buf, Int len )
 {

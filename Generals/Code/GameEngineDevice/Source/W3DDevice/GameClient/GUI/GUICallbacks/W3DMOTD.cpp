@@ -126,4 +126,3 @@ WindowMsgHandledType MOTDSystem( GameWindow *window, UnsignedInt msg,
 
 }  // end MOTDSystem
 
-

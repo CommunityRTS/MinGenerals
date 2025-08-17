@@ -52,7 +52,6 @@ public:
 	TemplateNameList m_payloadTemplateNameData;
   Bool m_drawPips;
 
-
 	static void buildFieldParse(MultiIniFieldParse& p);
 	static void parseInitialPayload( INI* ini, void *instance, void *store, const void* /*userData*/ );
 };
@@ -85,9 +84,7 @@ public:
   virtual void onContaining( Object *obj, Bool wasSelected  );
   virtual void onRemoving( Object *obj );
 
-
   virtual UpdateSleepTime update();							///< called once per frame
-
 
  // virtual void onContaining( Object *obj, Bool wasSelected );		///< object now contains 'obj'
 //	virtual void onRemoving( Object *obj );			///< object no longer contains 'obj'

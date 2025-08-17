@@ -168,7 +168,6 @@ void RendererListContainerClass::Flush()
 
 }
 
-
 class ShdDX8RendererClass::MeshContainerClass : public RefCountClass
 {
 public:
@@ -257,7 +256,6 @@ bool ShdDX8RendererNodeClass::Similar_Enough(const ShdRendererNodeClass& s, int 
 	return SubMesh->Peek_Shader()->Similar_Enough(*src->SubMesh->Peek_Shader(),pass);
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////////
 // Register mesh to the rendering system
 /////////////////////////////////////////////////////////////////////////////////////
@@ -300,8 +298,6 @@ void ShdDX8RendererClass::Flush()
 	DX8Wrapper::Invalidate_Cached_Render_States();
 	DX8Wrapper::Apply_Default_State();
 }
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////
 // MeshContiner is used for each shader type. Meshes are assigned to a container
@@ -396,7 +392,6 @@ void ShdDX8RendererClass::MeshContainerClass::Flush()
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * ShdDX8RendererNodeClass::ShdDX8RendererNodeClass --
@@ -658,7 +653,6 @@ void ShdDX8RendererNodeClass::Flush(int cur_pass)
 	}
 
 	// END OF SKIN CODE
-
 
 	for (unsigned n=0;n<SubMesh->Peek_Shader()->Get_Vertex_Stream_Count();++n)
 	{

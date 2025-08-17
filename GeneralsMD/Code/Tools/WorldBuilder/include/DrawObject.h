@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef __DRAW_OBJECT_H_
 #define __DRAW_OBJECT_H_
 
@@ -71,7 +70,6 @@ public:
 	virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
     virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & aabox) const;
 
-
 //	virtual int					 	Get_Num_Polys(void) const;
 //	virtual const char *		 	Get_Name(void) const;
 //	virtual void				 	Set_Name(const char * name);
@@ -102,9 +100,6 @@ public:
 	static void setWaypointDragFeedback(const Coord3D &start, const Coord3D &end);
 	static void setRampFeedbackParms(const Coord3D *start, const Coord3D *end, Real rampWidth);
 	static void stopWaypointDragFeedback();
-
-
-
 
 	MeshClass *peekMesh(void) {return m_moldMesh;};
 	void getMeshBounds(SphereClass *pSphere) {*pSphere = m_moldMeshBounds;};

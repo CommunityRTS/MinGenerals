@@ -78,7 +78,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // DEFINES ////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -895,7 +894,6 @@ static Bool parseListboxData( char *token, WinInstanceData *instData,
 	c = strtok( NULL, seps );  // value
 	scanBool( c, listData->forceSelect );
 
-
 	// "
 	return TRUE;
 
@@ -930,7 +928,6 @@ static Bool parseComboBoxData( char *token, WinInstanceData *instData,
 	c = strtok( NULL, seps );  // label
 	c = strtok( NULL, seps );	// value
   scanBool( c, comboData->lettersAndNumbersOnly );
-
 
   return TRUE;
 }//parseComboBoxData
@@ -978,7 +975,6 @@ static Bool parseRadioButtonData( char *token, WinInstanceData *instData,
 
 }  // end parseRadioButtonData
 
-
 // parseTooltipText ===========================================================
 /** Parse the TOOLTIPTEXT field */
 //=============================================================================
@@ -1007,7 +1003,6 @@ static Bool parseTooltipText( char *token, WinInstanceData *instData,
 	instData->m_tooltipString.set(c);
 	instData->setTooltipText(TheGameText->fetch(c));
 
-
   return TRUE;
 
 }  // end parseTooltipText
@@ -1029,7 +1024,6 @@ static Bool parseTooltipDelay( char *token, WinInstanceData *instData,
 	return TRUE;
 
 }  // end parseTooltipDelay
-
 
 // parseText ==================================================================
 /** Parse the TEXT field */
@@ -1056,7 +1050,6 @@ static Bool parseText( char *token, WinInstanceData *instData,
 	}  // end if
 	instData->m_textLabelString = c;
 
-
   return TRUE;
 
 }  // end parseText
@@ -1074,7 +1067,6 @@ static Bool parseTextColor( char *token, WinInstanceData *instData,
 	Int i, states = 3;
 	TextDrawData *textData;
 	Bool first = TRUE;
-
 
 	for( i = 0; i < states; i++ )
 	{
@@ -1900,7 +1892,6 @@ static GameWindow *createGadget( char *type,
 			}  // end for i
 		} // end if
 
-
 		GameWindow *listBox = GadgetComboBoxGetListBox( window );
 		if( listBox )
 		{
@@ -1914,7 +1905,6 @@ static GameWindow *createGadget( char *type,
 				instData->m_hiliteDrawData[ i ] = hiliteListBoxDrawData[ i ];
 
 			}  // end for i
-
 
 			GameWindow *upButton = GadgetListBoxGetUpButton( listBox );
 			if( upButton )
@@ -2002,7 +1992,6 @@ static GameWindow *createGadget( char *type,
 																										 width, height,
 																										 instData, tData,
 																										 instData->m_font, FALSE );
-
 
   }
 	else if( !strcmp( type, "PROGRESSBAR" ) )
@@ -2455,7 +2444,6 @@ static GameWindow *parseWindow( File *inFile, char *buffer )
 					window = createWindow( type, instData.m_id, instData.getStatus(), x, y,
 																 width, height, &instData, data,
 																 systemFunc, inputFunc, tooltipFunc, drawFunc );
-
 
 				goto cleanupAndExit;
 

@@ -202,4 +202,3 @@ void InactiveBody::loadPostProcess( void )
 
 }  // end loadPostProcess
 
-

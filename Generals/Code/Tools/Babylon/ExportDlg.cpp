@@ -35,7 +35,6 @@ static int max_index;
 /////////////////////////////////////////////////////////////////////////////
 // CExportDlg dialog
 
-
 CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CExportDlg::IDD, pParent)
 {
@@ -44,7 +43,6 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CExportDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -52,7 +50,6 @@ void CExportDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CExportDlg, CDialog)
 	//{{AFX_MSG_MAP(CExportDlg)
@@ -143,7 +140,6 @@ BOOL CExportDlg::OnInitDialog()
 	CEdit *edit = (CEdit *) GetDlgItem ( IDC_FILENAME );
 	CButton *button = (CButton *) GetDlgItem ( IDC_RADIOCHANGES );
 
-
 	CDialog::OnInitDialog();
 
 	// TODO: Add extra initialization here
@@ -157,8 +153,6 @@ BOOL CExportDlg::OnInitDialog()
 	langid = LANGID_UNKNOWN;
 	filename[0] = 0;
 	button->SetCheck ( 1 );
-
-
 
 	index = 0;
 	lang_index = 0;

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -53,7 +52,6 @@
 const int	DEF_CLASSID_START			= 0x00001000;
 const int	DEF_CLASSID_RANGE			= 0x00001000;
 #define		NEXT_SUPER_CLASSID(n)	DEF_CLASSID_START + (n * DEF_CLASSID_RANGE)
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -85,7 +83,6 @@ enum
 	CLASSID_GLOBAL_SETTINGS	= NEXT_SUPER_CLASSID(14),
 };
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	SuperClassID_From_ClassID
@@ -102,7 +99,6 @@ SuperClassID_From_ClassID (uint32 class_id)
 
 	return DEF_CLASSID_START + (num_ranges * DEF_CLASSID_RANGE);
 }
-
 
 #endif //__DEFINITION_CLASS_ID_H
 

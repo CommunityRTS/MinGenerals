@@ -100,7 +100,6 @@ public:
 
 	virtual UpdateSleepTime update();
 
-
 private:
 
 	void grantStealthToObject( Object *obj );

@@ -63,8 +63,6 @@
 #include "vector.h"
 #endif
 
-
-
 struct HierarchyNodeStruct
 {
 	INode *					MaxNode;
@@ -74,7 +72,6 @@ struct HierarchyNodeStruct
 	bool operator == (const HierarchyNodeStruct & that) { return false; }
 	bool operator != (const HierarchyNodeStruct & that) { return !(*this == that); }
 };
-
 
 class HierarchySaveClass
 {

@@ -77,7 +77,6 @@ BattlePlanUpdateModuleData::BattlePlanUpdateModuleData()
 	m_searchAndDestroyPlanAnimationFrames = 0;
 	m_battlePlanParalyzeFrames						= 0;
 
-
 	m_holdTheLineArmorDamageScalar				= 1.0f;
 	m_searchAndDestroySightRangeScalar		= 1.0f;
 	m_strategyCenterSearchAndDestroySightRangeScalar = 1.0f;

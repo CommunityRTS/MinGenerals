@@ -34,11 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "MeshDeformData.H"
 #include "Util.H"
 #include "MeshDeformSaveDefs.H"
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -50,7 +48,6 @@ MeshDeformModData::~MeshDeformModData (void)
 	Free_Sets_List ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -81,7 +78,6 @@ MeshDeformModData::Record_Mesh_State (TriObject &tri_obj, float state, bool upda
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Free_Sets_List
@@ -102,7 +98,6 @@ MeshDeformModData::Free_Sets_List (void)
 	m_SetsList.Delete_All ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -145,7 +140,6 @@ MeshDeformModData::Set_Max_Deform_Sets (int max)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Restore_Set
@@ -167,7 +161,6 @@ MeshDeformModData::Restore_Set (int set_index)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -199,7 +192,6 @@ MeshDeformModData::Save (ISave *save_obj)
 	// Return IO_OK on success IO_ERROR on failure
 	return result;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //

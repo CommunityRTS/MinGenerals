@@ -28,7 +28,6 @@
 #include "systimer.h"
 #pragma warning ( pop )
 
-
 ThreadClass::ThreadClass(const char *thread_name, ExceptionHandlerType exception_handler) : handle(0), running(false), thread_priority(0)
 {
 	if (thread_name) {

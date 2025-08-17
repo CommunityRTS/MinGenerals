@@ -129,5 +129,4 @@ protected:
 	unsigned int index;
 };
 
-
 #endif

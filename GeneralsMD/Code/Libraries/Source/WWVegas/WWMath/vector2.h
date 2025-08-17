@@ -60,7 +60,6 @@
 #include "wwmath.h"
 #include <math.h>
 
-
 /*
 ** 2-Dimensional Vectors
 */
@@ -85,7 +84,6 @@ public:
 	WWINLINE Vector2(const Vector2 & v) { X = v.X; Y = v.Y; }
 	WWINLINE Vector2(float x, float y) { X = x; Y = y; }
 	WWINLINE Vector2(const float vector[2]) { X = vector[0]; Y = vector[1]; }
-
 
 	// Assignment
 	WWINLINE Vector2 & operator = (const Vector2 & v) { X = v[0]; Y = v[1]; return *this; }
@@ -152,7 +150,6 @@ public:
 	// interpolate between two Vector2's
 	static void Lerp(const Vector2 & a,const Vector2 & b,float t,Vector2 * set_result);
 };
-
 
 /**************************************************************************
  * Scalar Multiply Operator -- Multiply a vector by a scalar              *
@@ -492,7 +489,6 @@ WWINLINE void Swap(Vector2 & a,Vector2 & b)
 	b = tmp;
 }
 
-
 /***********************************************************************************************
  * Vector2::Is_Valid -- Verifies that all components are valid floats                          *
  *                                                                                             *
@@ -509,7 +505,6 @@ WWINLINE bool Vector2::Is_Valid(void) const
 {
 	return (WWMath::Is_Valid_Float(X) && WWMath::Is_Valid_Float(Y));
 }
-
 
 /***********************************************************************************************
  * Vector2::Update_Min -- Set each component of the vector to the min of this and a.			  *
@@ -529,7 +524,6 @@ WWINLINE void Vector2::Update_Min (const Vector2 & a)
 	if (a.Y < Y) Y = a.Y;
 }
 
-
 /***********************************************************************************************
  * Vector2::Update_Max -- Set each component of the vector to the max of this and a.			  *
  *                                                                                             *
@@ -547,7 +541,6 @@ WWINLINE void Vector2::Update_Max (const Vector2 & a)
 	if (a.X > X) X = a.X;
 	if (a.Y > Y) Y = a.Y;
 }
-
 
 /***********************************************************************************************
  * Vector2::Scale -- multiply components of a vector by independant scaling factors.			  *
@@ -567,7 +560,6 @@ WWINLINE void Vector2::Scale (float a, float b)
 	Y *= b;
 }
 
-
 /***********************************************************************************************
  * Vector2::Scale -- multiply components of a vector by independant scaling factors.			  *
  *                                                                                             *
@@ -585,7 +577,6 @@ WWINLINE void Vector2::Scale (const Vector2 & a)
 	X *= a.X;
 	Y *= a.Y;
 }
-
 
 /***********************************************************************************************
  * Quick_Distance -- Fast but inaccurate 2D distance calculation.                              *
@@ -620,7 +611,6 @@ WWINLINE float Vector2::Quick_Distance(const Vector2 &a, const Vector2 &b)
 	return ::Quick_Distance(a.X, a.Y, b.X, b.Y);
 }
 
-
 /***********************************************************************************************
  * Distance -- Accurate distance 2D calculation.                                               *
  *                                                                                             *
@@ -646,7 +636,6 @@ WWINLINE float Distance(float x1, float y1, float x2, float y2)
 	return (WWMath::Sqrt((x_diff * x_diff) + (y_diff * y_diff)));
 }
 
-
 /***********************************************************************************************
  * Vector2::Lerp -- linearly interpolates two Vector2's                                        *
  *                                                                                             *
@@ -665,7 +654,6 @@ WWINLINE void Vector2::Lerp(const Vector2 & a,const Vector2 & b,float t,Vector2 
 	set_result->X = (a.X + (b.X - a.X)*t);
    set_result->Y = (a.Y + (b.Y - a.Y)*t);
 }
-
 
 #endif /* VECTOR2_H */
 

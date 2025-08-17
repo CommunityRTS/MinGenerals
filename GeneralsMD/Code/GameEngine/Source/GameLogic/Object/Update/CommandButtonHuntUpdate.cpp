@@ -96,7 +96,6 @@ CommandButtonHuntUpdate::~CommandButtonHuntUpdate( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CommandButtonHuntUpdate::onObjectCreated()
 {
@@ -391,7 +390,6 @@ Object* CommandButtonHuntUpdate::scanClosestTarget(void)
 			}
 		}
 	}
-
 
 	return bestTarget;
 }

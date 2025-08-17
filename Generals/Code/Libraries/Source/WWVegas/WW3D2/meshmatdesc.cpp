@@ -43,7 +43,6 @@
 #include	"dx8wrapper.h"
 #include "dx8caps.h"
 
-
 /**************************************************************************************************
 **
 **
@@ -86,7 +85,6 @@ VertexMaterialClass * MatBufferClass::Peek_Element(int index)
 {
 	return Array[index];
 }
-
 
 /**************************************************************************************************
 **
@@ -131,7 +129,6 @@ TextureClass * TexBufferClass::Peek_Element(int index)
 	return Array[index];
 }
 
-
 /**************************************************************************************************
 **
 **
@@ -157,13 +154,10 @@ bool UVBufferClass::Is_Equal_To(const UVBufferClass & that)
 	return (CRC == that.CRC);
 }
 
-
 void UVBufferClass::Update_CRC(void)
 {
 	CRC = CRC_Memory((unsigned char *)Get_Array(),Get_Count() * sizeof(Vector2));
 }
-
-
 
 /**************************************************************************************************
 **
@@ -649,7 +643,6 @@ void MeshMatDescClass::Install_UV_Array(int pass,int stage,Vector2 * uvs,int cou
 	}
 }
 
-
 void MeshMatDescClass::Post_Load_Process(bool lighting_enabled)
 {
 	/*
@@ -850,8 +843,6 @@ void MeshMatDescClass::Post_Load_Process(bool lighting_enabled)
 			}
 		}
 
-
-
 		/*
 		** If a DCG array is present, pre multiply the alpha value from the material into
 		** the vertex color array.  Experimentation on GeForce hardware showed that we
@@ -911,7 +902,6 @@ void MeshMatDescClass::Post_Load_Process(bool lighting_enabled)
 
 			}
 		}
-
 
 */
 

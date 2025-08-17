@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -44,7 +43,6 @@
 
 #include "vector3.h"
 #include "plane.h"
-
 
 class FrustumClass
 {
@@ -66,8 +64,6 @@ public:
 	Vector3				BoundMin;
 	Vector3				BoundMax;
 };
-
-
 
 #endif
 

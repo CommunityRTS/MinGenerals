@@ -44,7 +44,6 @@
  *   GameMtlPassDlg::SetTime -- set the current time                                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "GameMtlPassDlg.h"
 #include "dllmain.h"
 #include "resource.h"
@@ -56,7 +55,6 @@
 #include "GameMtlVertexMaterialDlg.h"
 #include "w3d_file.h"
 
-
 static int _Pass_Index_To_Flag[] =
 {
 	GAMEMTL_PASS0_ROLLUP_OPEN,
@@ -64,7 +62,6 @@ static int _Pass_Index_To_Flag[] =
 	GAMEMTL_PASS2_ROLLUP_OPEN,
 	GAMEMTL_PASS3_ROLLUP_OPEN,
 };
-
 
 /***********************************************************************************************
  * PassDlgProc -- dialog proc which thunks into a GameMtlPassDlg                               *
@@ -94,7 +91,6 @@ static BOOL CALLBACK PassDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM l
 
 	return theDlg->DialogProc(hwndDlg,msg,wParam,lParam);
 }
-
 
 /***********************************************************************************************
  * GameMtlPassDlg::GameMtlPassDlg -- constructor                                               *
@@ -128,7 +124,6 @@ GameMtlPassDlg::GameMtlPassDlg(HWND hwMtlEdit, IMtlParams *imp, GameMtl *m,int p
 	);
 }
 
-
 /***********************************************************************************************
  * GameMtlPassDlg::~GameMtlPassDlg -- destructor                                               *
  *                                                                                             *
@@ -147,7 +142,6 @@ GameMtlPassDlg::~GameMtlPassDlg()
 	IParams->DeleteRollupPage(HwndPanel);
 	SetWindowLong(HwndPanel, GWL_USERDATA, NULL);
 }
-
 
 /***********************************************************************************************
  * GameMtlPassDlg::DialogProc -- windows message handler                                       *
@@ -253,7 +247,6 @@ BOOL GameMtlPassDlg::DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * GameMtlPassDlg::Invalidate -- invalidate the dialog                                         *
  *                                                                                             *
@@ -271,7 +264,6 @@ void GameMtlPassDlg::Invalidate()
 	Valid = FALSE;
 	InvalidateRect(HwndPanel,NULL,0);
 }
-
 
 /***********************************************************************************************
  * GameMtlPassDlg::ReloadDialog -- update the contents of all of the controls                  *
@@ -305,7 +297,6 @@ void GameMtlPassDlg::ReloadDialog()
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtlPassDlg::ClassID -- returns classID of the object being edited                       *
  *                                                                                             *
@@ -322,7 +313,6 @@ Class_ID	GameMtlPassDlg::ClassID()
 {
 	return GameMaterialClassID;
 }
-
 
 /***********************************************************************************************
  * GameMtlPassDlg::SetThing -- set the material being edited                                   *
@@ -349,7 +339,6 @@ void GameMtlPassDlg::SetThing(ReferenceTarget* target)
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtlPassDlg::ActivateDlg -- activate or deactivate the dialog                            *
  *                                                                                             *
@@ -370,7 +359,6 @@ void GameMtlPassDlg::ActivateDlg(BOOL onoff)
 		Page[i]->ActivateDlg(onoff);
 	}
 }
-
 
 /***********************************************************************************************
  * GameMtlPassDlg::SetTime -- set the current time                                             *

@@ -107,7 +107,6 @@
 #include "GameNetwork/GameSpy/PersistentStorageThread.h"
 #include "Common/Player.h"
 
-
 #include "Common/Version.h"
 
 #ifdef _INTERNAL
@@ -589,7 +588,6 @@ void GameEngine::update( void )
 
 			TheCDManager->UPDATE();
 		}
-
 
 		if ((TheNetwork == NULL && !TheGameLogic->isGamePaused()) || (TheNetwork && TheNetwork->isFrameDataReady()))
 		{

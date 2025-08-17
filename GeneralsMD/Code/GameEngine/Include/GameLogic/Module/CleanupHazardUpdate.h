@@ -40,7 +40,6 @@
 class ThingTemplate;
 class WeaponTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class CleanupHazardUpdateModuleData : public ModuleData
@@ -91,7 +90,6 @@ protected:
 	Coord3D m_pos;
 	Real		m_moveRange;
 };
-
 
 #endif
 

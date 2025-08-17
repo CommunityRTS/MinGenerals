@@ -79,7 +79,6 @@ NodeMotionStruct::NodeMotionStruct() :
 {
 }
 
-
 /***********************************************************************************************
  * NodeMotionStruct::~NodeMotionStruct -- destructor                                           *
  *                                                                                             *
@@ -120,7 +119,6 @@ NodeMotionStruct::~NodeMotionStruct()
 	}
 }
 
-
 /***********************************************************************************************
  * HRawAnimClass::HRawAnimClass -- constructor                                                       *
  *                                                                                             *
@@ -143,7 +141,6 @@ HRawAnimClass::HRawAnimClass(void) :
 	memset(HierarchyName,0,W3D_NAME_LEN);
 }
 
-
 /***********************************************************************************************
  * HRawAnimClass::~HRawAnimClass -- Destructor                                                       *
  *                                                                                             *
@@ -160,7 +157,6 @@ HRawAnimClass::~HRawAnimClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * HRawAnimClass::Free -- De-allocates all memory in use                                          *
@@ -180,7 +176,6 @@ void HRawAnimClass::Free(void)
 		delete[] NodeMotion;
 	}
 }
-
 
 /***********************************************************************************************
  * HRawAnimClass::Load -- Loads hierarchy animation from a file                                   *
@@ -382,7 +377,6 @@ void HRawAnimClass::add_channel(MotionChannelClass * newchan)
 
 }
 
-
 /***********************************************************************************************
  * HRawAnimClass::read_bit_channel -- read a bit channel from the file                            *
  *                                                                                             *
@@ -406,7 +400,6 @@ bool HRawAnimClass::read_bit_channel(ChunkLoadClass & cload,BitChannelClass * * 
 
 	return result;
 }
-
 
 /***********************************************************************************************
  * HRawAnimClass::add_bit_channel -- install a bit channel into the animation                     *
@@ -671,7 +664,6 @@ bool HRawAnimClass::Get_Visibility(int pividx,float frame)
 	return 1;
 }
 
-
 /***********************************************************************************************
  * HRawAnimClass::Is_Node_Motion_Present -- return true if there is motion defined for this frame *
  *                                                                                             *
@@ -729,5 +721,4 @@ bool HRawAnimClass::Has_Visibility (int pividx)
 	WWASSERT((pividx >= 0) && (pividx < NumNodes));
 	return NodeMotion[pividx].Vis != NULL;
 }
-
 

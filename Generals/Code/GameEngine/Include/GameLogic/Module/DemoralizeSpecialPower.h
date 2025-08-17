@@ -83,5 +83,4 @@ protected:
 
 #endif // ALLOW_DEMORALIZE
 
-
 #endif  // end __DEMORALIZE_SPECIAL_POWER_H_

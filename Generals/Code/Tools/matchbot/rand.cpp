@@ -55,7 +55,6 @@ unsigned int RandClass::randomValue( void )
 	unsigned int ax;
 	unsigned int c = 0;
 
-
 	ADC(ax, seed[5], seed[4], c);   /*  mov     ax,seed+20  */
 	/*  add     ax,seed+16  */
 	seed[4] = ax;                   /*  mov     seed+8,ax   */
@@ -93,7 +92,6 @@ unsigned int RandClass::randomValue( void )
 	return(ax);
 }
 
-
 int RandClass::Int(void)
 {
 	return (int)randomValue();
@@ -128,5 +126,4 @@ double RandClass::Double(double low, double high)
 	rval = ((double)(randomValue()) * theMultFactor) * delta + low;
 	return rval;
 }
-
 

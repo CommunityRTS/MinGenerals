@@ -34,21 +34,16 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 // InputDlg.cpp : implementation file
 //
 
 #include "InputDlg.h"
 #include <assert.h>
 
-
 static BOOL CALLBACK _thunk_dialog_proc (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-
 
 /////////////////////////////////////////////////////////////////////////////
 // InputDlg dialog
-
 
 InputDlg::InputDlg (HWND hWndParent)
 :	m_hWndParent(hWndParent),
@@ -59,7 +54,6 @@ InputDlg::InputDlg (HWND hWndParent)
 	SetLabel("Please enter a value:");
 	SetValue(NULL);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // InputDlg Methods
@@ -108,7 +102,6 @@ void InputDlg::SetValue (const char *value)
 		m_Value[0] = '\0';
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // InputDlg DialogProc
 
@@ -144,7 +137,6 @@ BOOL CALLBACK InputDlg::DialogProc (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM 
 
 			OnInitDialog(wParam, lParam);
 			return TRUE;
-
 
 		/*******************************************************************
 		* WM_COMMAND

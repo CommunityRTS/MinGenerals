@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "MeshDeformPanel.H"
 #include "Resource.H"
 #include "Util.H"
@@ -46,7 +45,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////
 const char * const PANEL_OBJ_PROP	= "WWPANELOBJ";
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -90,7 +88,6 @@ MeshDeformPanelClass::Message_Proc
 	return result;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Get_Object
@@ -101,7 +98,6 @@ MeshDeformPanelClass::Get_Object (HWND hwnd)
 {
 	return (MeshDeformPanelClass *)::GetProp (hwnd, PANEL_OBJ_PROP);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -213,7 +209,6 @@ MeshDeformPanelClass::On_Message
 	return FALSE;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	On_Command
@@ -253,7 +248,6 @@ MeshDeformPanelClass::On_Command
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Set_Deformer
@@ -276,7 +270,6 @@ MeshDeformPanelClass::Set_Deformer (MeshDeformClass *obj)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Vertex_Color
@@ -295,7 +288,6 @@ MeshDeformPanelClass::Update_Vertex_Color (void)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -324,7 +316,6 @@ MeshDeformPanelClass::Set_Max_Sets
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Set_Current_Set
@@ -350,7 +341,6 @@ MeshDeformPanelClass::Set_Current_Set
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //

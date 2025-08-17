@@ -181,8 +181,6 @@ static LRESULT CALLBACK tabControlPropertiesCallback( HWND hWndDialog,
 						GadgetTabControlSetEnabledColorBackground( tabControl, info->color );
 						GadgetTabControlSetEnabledBorderColorBackground( tabControl, info->borderColor );
 
-
-
 						info = GetStateInfo( TC_TAB_0_DISABLED );
 						GadgetTabControlSetDisabledImageTabZero( tabControl, info->image );
 						GadgetTabControlSetDisabledColorTabZero( tabControl, info->color );
@@ -228,9 +226,6 @@ static LRESULT CALLBACK tabControlPropertiesCallback( HWND hWndDialog,
 						GadgetTabControlSetDisabledColorBackground( tabControl, info->color );
 						GadgetTabControlSetDisabledBorderColorBackground( tabControl, info->borderColor );
 
-
-
-
 						info = GetStateInfo( TC_TAB_0_HILITE );
 						GadgetTabControlSetHiliteImageTabZero( tabControl, info->image );
 						GadgetTabControlSetHiliteColorTabZero( tabControl, info->color );
@@ -275,7 +270,6 @@ static LRESULT CALLBACK tabControlPropertiesCallback( HWND hWndDialog,
 						GadgetTabControlSetHiliteImageBackground( tabControl, info->image );
 						GadgetTabControlSetHiliteColorBackground( tabControl, info->color );
 						GadgetTabControlSetHiliteBorderColorBackground( tabControl, info->borderColor );
-
 
 						TabControlData *tabData = (TabControlData *)tabControl->winGetUserData();
 
@@ -382,7 +376,6 @@ static LRESULT CALLBACK tabControlPropertiesCallback( HWND hWndDialog,
 
 }  // end tabControlPropertiesCallback
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -457,8 +450,6 @@ HWND InitTabControlPropertiesDialog( GameWindow *tabControl )
 	borderColor = GadgetTabControlGetEnabledBorderColorBackground( tabControl );
 	StoreImageAndColor( TAB_CONTROL_ENABLED, image, color, borderColor );
 
-
-
 	image = GadgetTabControlGetDisabledImageTabZero( tabControl );
 	color = GadgetTabControlGetDisabledColorTabZero( tabControl );
 	borderColor = GadgetTabControlGetDisabledBorderColorTabZero( tabControl );
@@ -504,8 +495,6 @@ HWND InitTabControlPropertiesDialog( GameWindow *tabControl )
 	borderColor = GadgetTabControlGetDisabledBorderColorBackground( tabControl );
 	StoreImageAndColor( TAB_CONTROL_DISABLED, image, color, borderColor );
 
-
-
 	image = GadgetTabControlGetHiliteImageTabZero( tabControl );
 	color = GadgetTabControlGetHiliteColorTabZero( tabControl );
 	borderColor = GadgetTabControlGetHiliteBorderColorTabZero( tabControl );
@@ -550,7 +539,6 @@ HWND InitTabControlPropertiesDialog( GameWindow *tabControl )
 	color = GadgetTabControlGetHiliteColorBackground( tabControl );
 	borderColor = GadgetTabControlGetHiliteBorderColorBackground( tabControl );
 	StoreImageAndColor( TAB_CONTROL_HILITE, image, color, borderColor );
-
 
 	// tab data
 	TabControlData *tabData = (TabControlData *)tabControl->winGetUserData();
@@ -617,6 +605,4 @@ HWND InitTabControlPropertiesDialog( GameWindow *tabControl )
 	return dialog;
 
 }  // end InitTabControlPropertiesDialog
-
-
 

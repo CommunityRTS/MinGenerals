@@ -86,7 +86,6 @@ static const ShaderBlendSettingPreset ShaderBlendSettingPresets[NUM_SHADER_BLEND
 	{W3DSHADER_SRCBLENDFUNC_SRC_ALPHA,	W3DSHADER_DESTBLENDFUNC_ONE_MINUS_SRC_ALPHA,	true,  true}	// Alpha Test and Blend
 };
 
-
 /***********************************************************************************************
  * GameMtlShaderDlg::GameMtlShaderDlg -- constructor                                           *
  *                                                                                             *
@@ -111,7 +110,6 @@ GameMtlShaderDlg::GameMtlShaderDlg
 	Create_Form(parent,IDD_GAMEMTL_SHADER);
 }
 
-
 /***********************************************************************************************
  * GameMtlShaderDlg::~GameMtlShaderDlg -- destructor                                           *
  *                                                                                             *
@@ -126,7 +124,6 @@ GameMtlShaderDlg::GameMtlShaderDlg
 GameMtlShaderDlg::~GameMtlShaderDlg()
 {
 }
-
 
 /***********************************************************************************************
  * GameMtlShaderDlg::Dialog_Proc -- windows message handler                                    *
@@ -246,7 +243,6 @@ BOOL GameMtlShaderDlg::Dialog_Proc (HWND dlg_wnd, UINT message, WPARAM wparam, L
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * GameMtlShaderDlg::ReloadDialog -- reload the contents of all of the controls                *
  *                                                                                             *
@@ -275,7 +271,6 @@ void GameMtlShaderDlg::ReloadDialog(void)
 	SetCheckBox(m_hWnd,IDC_ALPHATEST_CHECK, TheMtl->Get_Alpha_Test(PassIndex));
 }
 
-
 /***********************************************************************************************
  * GameMtlShaderDlg::ActivateDlg -- activate/deactivate the dialog                             *
  *                                                                                             *
@@ -292,7 +287,6 @@ void GameMtlShaderDlg::ActivateDlg(BOOL onoff)
 {
 	// shader has no color swatches which need to be activated...
 }
-
 
 /***********************************************************************************************
  * GameMtlShaderDlg::Apply_Preset -- apply a preset shader setting                             *
@@ -326,7 +320,6 @@ void GameMtlShaderDlg::Apply_Preset(int preset_index)
 	ReloadDialog();
 }
 
-
 /***********************************************************************************************
  * GameMtlShaderDlg::Set_Preset -- determine preset shader setting from game material          *
  *                                                                                             *
@@ -346,7 +339,6 @@ void GameMtlShaderDlg::Set_Preset(void)
 	}
 	SendDlgItemMessage(m_hWnd, IDC_PRESET_COMBO, CB_SETCURSEL, i, 0);
 }
-
 
 /***********************************************************************************************
  * GameMtlShaderDlg::CompareShaderToBlendPreset -- compare preset to game material shader      *
@@ -370,7 +362,6 @@ bool GameMtlShaderDlg::CompareShaderToBlendPreset(const ShaderBlendSettingPreset
 	if (alphatest != blend_preset.AlphaTest) return false;
 	return true;
 }
-
 
 /***********************************************************************************************
  * GameMtlShaderDlg::Set_Advanced_Defaults -- set advanced settings to defaults                *

@@ -45,19 +45,16 @@
 #include "logdlg.h"
 #include <assert.h>
 
-
 /*
 ** Static variables
 */
 LogDataDialogClass * _LogDialog = NULL;
-
 
 /*
 **
 ** ExportLog implementation.  Note, this is a class which only contains static functions.
 **
 */
-
 
 /***********************************************************************************************
  * ExportLog::Init -- Initialize the export logging system                                     *
@@ -76,7 +73,6 @@ void ExportLog::Init(HWND parent)
 	assert(_LogDialog == NULL);
 	_LogDialog = new LogDataDialogClass(parent);
 }
-
 
 /***********************************************************************************************
  * ExportLog::Shutdown -- Shutdown the export logging system                                   *
@@ -104,7 +100,6 @@ void ExportLog::Shutdown(bool wait_for_ok)
 	}
 }
 
-
 /***********************************************************************************************
  * ExportLog::printf -- Print a string to the log window                                       *
  *                                                                                             *
@@ -125,7 +120,6 @@ void ExportLog::printf(char * format, ...)
 		_LogDialog->printf(format,arguments);
 	}
 }
-
 
 /***********************************************************************************************
  * ExportLog::rprintf -- Print a string over the last line printed                             *
@@ -148,7 +142,6 @@ void ExportLog::rprintf(char * format, ...)
 	}
 }
 
-
 /***********************************************************************************************
  * ExportLog::updatebar -- Set the position of the progress bar                                *
  *                                                                                             *
@@ -167,5 +160,4 @@ void ExportLog::updatebar(float position, float total)
 		_LogDialog->updatebar(position,total);
 	}
 }
-
 

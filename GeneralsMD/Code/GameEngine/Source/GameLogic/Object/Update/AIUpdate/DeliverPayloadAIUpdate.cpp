@@ -101,7 +101,6 @@ const FieldParse* DeliverPayloadData::getFieldParse()
 	return dataFieldParse;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -301,7 +300,6 @@ void DeliverPayloadAIUpdate::deliverPayload(
 		}
 	}
 
-
 	// must make the state machine AFTER initing the other stuff, since it may inquire of its values...
 	m_deliverPayloadStateMachine = newInstance(DeliverPayloadStateMachine)( getObject() );
 	m_deliverPayloadStateMachine->initDefaultState();
@@ -367,7 +365,6 @@ Real DeliverPayloadAIUpdate::calcMinTurnRadius(Real* timeToTravelThatDist) const
 	return minTurnRadius;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool DeliverPayloadAIUpdate::isCloseEnoughToTarget()
 {
@@ -384,7 +381,6 @@ Bool DeliverPayloadAIUpdate::isCloseEnoughToTarget()
 		allowedDistanceSqr = sqr(getAllowedDistanceToTarget() + getPreOpenDistance());
 
 	//DEBUG_LOG(("Dist to target is %f (allowed %f)\n",sqrt(currentDistanceSqr),sqrt(allowedDistanceSqr)));
-
 
 	if ( allowedDistanceSqr > currentDistanceSqr )
 		return TRUE;
@@ -499,7 +495,6 @@ void DeliverPayloadAIUpdate::xfer( Xfer *xfer )
 	{
 		xfer->xferReal(&m_previousDistanceSqr);
 	}
-
 
 }  // end xfer
 
@@ -669,7 +664,6 @@ void DeliveringState::loadPostProcess( void )
 {
 }  // end loadPostProcess
 
-
 //-------------------------------------------------------------------------------------------------
 StateReturnType DeliveringState::onEnter() // Open the pod bay doors, Hal
 {
@@ -773,15 +767,12 @@ StateReturnType DeliveringState::update() // Kick a dude out every so often
 				mfb->setMinefieldTarget(ai->getMoveToPos());
 			}
 
-
 			static NameKeyType key_SmartBombTargetHomingUpdate = NAMEKEY("SmartBombTargetHomingUpdate");
 			SmartBombTargetHomingUpdate* smthu = (SmartBombTargetHomingUpdate *)item->findUpdateModule(key_SmartBombTargetHomingUpdate);
 			if (smthu)
 			{
 				smthu->SetTargetPosition( *ai->getMoveToPos() );
 			}
-
-
 
 			if( ai->getData()->m_inheritTransportVelocity )
 			{
@@ -958,7 +949,6 @@ void ConsiderNewApproachState::loadPostProcess( void )
 {
 }  // end loadPostProcess
 
-
 //-------------------------------------------------------------------------------------------------
 StateReturnType ConsiderNewApproachState::onEnter() // Increment local counter o' futility
 {
@@ -1069,7 +1059,6 @@ void RecoverFromOffMapState::xfer( Xfer *xfer )
 void RecoverFromOffMapState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 //-------------------------------------------------------------------------------------------------
 StateReturnType RecoverFromOffMapState::onEnter() // Increment local counter o' futility
@@ -1182,7 +1171,6 @@ StateReturnType HeadOffMapState::onEnter() // Give move order out of town
 		// once they start heading off the map. (srj)
 	ai->friend_setAcceptingCommands(false);
 
-
   owner->getUnitDirectionVector3D( facingDirectionUponDelivery );
 
 	return STATE_CONTINUE;
@@ -1215,16 +1203,12 @@ StateReturnType HeadOffMapState::update()
       owner->kill();
   }
 
-
-
 //  Coord3D pos = *owner->getPosition();
 //
 //  if( TheTerrainLogic->getGroundHeight( pos->x, pos,y ) )
 
-
 	return STATE_CONTINUE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

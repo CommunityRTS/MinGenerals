@@ -157,9 +157,7 @@ void ProjectileStreamUpdate::getAllPoints( Vector3 *points, Int *count )
 	Int pointCount = 0;
 	Int pointIndex = m_firstValidIndex;
 
-
 	Object *obj = TheGameLogic->findObjectByID(m_owningObject);
-
 
 	while( pointIndex != m_nextFreeIndex )
 	{
@@ -175,7 +173,6 @@ void ProjectileStreamUpdate::getAllPoints( Vector3 *points, Int *count )
 			points[pointCount].Y = thisPoint.y;
 			points[pointCount].Z = thisPoint.z;
 
-
 			if ( obj && obj->isKindOf( KINDOF_VEHICLE ) )				// this makes the stream skim along my roof, if I have a roof
 			{
 				const Coord3D *pos = obj->getPosition();
@@ -187,9 +184,6 @@ void ProjectileStreamUpdate::getAllPoints( Vector3 *points, Int *count )
 				if( delta.length() <= obj->getGeometryInfo().getMajorRadius() * 1.5f )
 					points[pointCount].Z = MAX( points[pointCount].Z, myTop );
 			}
-
-
-
 
 		}
 		else

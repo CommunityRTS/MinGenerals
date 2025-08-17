@@ -23,7 +23,6 @@ wtime                      Neal Kettler
 #ifndef WTIME_HEADER
 #define WTIME_HEADER
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -59,7 +58,6 @@ class Wtime
              ~Wtime();
 
     void      Update();   // Update members sec & usec to system time
-
 
     void      PrintTime(FILE *out) const;
     void      PrintTime(char *out) const;

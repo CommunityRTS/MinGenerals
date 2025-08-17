@@ -56,7 +56,6 @@ new_wsm = wwCopySkinInfo source_root target_root new_wsm
 #include "util.h"
 #include "w3d_file.h"
 
-
 /*
 ** Forward declarations
 */
@@ -79,14 +78,12 @@ IDerivedObject *setup_wsm_derived_obj (INode *node);
 
 ModContext *find_skin_mod_context (INode *node);
 
-
 /*
 ** Let MAXScript know we're implementing a new built-in function.
 */
 def_visible_primitive(find_skin_node, "wwFindSkinNode");
 def_visible_primitive(copy_skin_info, "wwCopySkinInfo");
 def_visible_primitive(dupe_skin_wsm,  "wwDuplicateSkinWSM");
-
 
 /*
 **
@@ -153,7 +150,6 @@ Value * copy_skin_info_cf (Value **arg_list, int count)
 	return copy_skin_info(src_node, dest_node, wsm_node);
 }
 
-
 /*
 **
 ** MAXScript Function:
@@ -190,7 +186,6 @@ Value * dupe_skin_wsm_cf (Value **arg_list, int count)
 	}
 }
 
-
 Value *find_skin_node_in_tree (INode *root)
 {
 	if (root == NULL)
@@ -215,7 +210,6 @@ Value *find_skin_node_in_tree (INode *root)
 	// Didn't find it anywhere!
 	return &undefined;
 }
-
 
 /***********************************************************************************************
  * find_skin_binding -- Find the "WWSkin Binding" modifier on this object.                     *
@@ -252,7 +246,6 @@ SkinModifierClass *find_skin_binding (INode *skinned_obj)
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * find_skin_wsm -- Finds the node for the WWSkin WSM used by this object.                     *
  *                                                                                             *
@@ -284,7 +277,6 @@ INode *find_skin_wsm (INode *skinned_obj)
 
 	return wsm;
 }
-
 
 /***********************************************************************************************
  * get_skin_wsm_obj -- Gets the SkinWSMObjectClass from a WWSkin WSM node.                     *
@@ -325,7 +317,6 @@ SkinWSMObjectClass *get_skin_wsm_obj (INode *wsm_node)
 	// Return it.
 	return (SkinWSMObjectClass*)obj;
 }
-
 
 /***********************************************************************************************
  * duplicate_wsm -- Duplicates a WWSkin WSM                                                    *
@@ -379,7 +370,6 @@ INode *duplicate_wsm (INode *wsm_node, INode *tree)
 	return new_wsm_node;
 }
 
-
 /***********************************************************************************************
  * find_equivalent_node -- Searches a hierarchy for an object equivalent to the given one.     *
  *                                                                                             *
@@ -424,7 +414,6 @@ INode *find_equivalent_node (INode *source, INode *tree, bool name_is_valid)
 	return NULL;
 }
 
-
 Value *copy_skin_info (INode *source, INode *target, INode *wsm)
 {
 	// Get the "WWSkin Binding" modifier on the source object.
@@ -458,7 +447,6 @@ Value *copy_skin_info (INode *source, INode *target, INode *wsm)
 	vl.wsm_node = MAXNode::intern(wsm);
 	return_value(vl.wsm_node);
 }
-
 
 IDerivedObject *setup_wsm_derived_obj (INode *node)
 {
@@ -496,7 +484,6 @@ IDerivedObject *setup_wsm_derived_obj (INode *node)
 
 	return dobj;
 }
-
 
 ModContext *find_skin_mod_context (INode *node)
 {

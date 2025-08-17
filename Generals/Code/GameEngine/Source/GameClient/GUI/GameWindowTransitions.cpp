@@ -99,7 +99,6 @@ void INI::parseWindowTransitions( INI* ini )
 	// parse the ini definition
 	ini->initFromINI( g, TheTransitionHandler->getFieldParse() );
 
-
 }
 //-----------------------------------------------------------------------------
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
@@ -432,7 +431,6 @@ void GameWindowTransitionsHandler::update( void )
 		m_currentGroup = NULL;
 }
 
-
 void GameWindowTransitionsHandler::draw( void )
 {
 //	if( TheGameLogic->getFrame() > 0 )//if( areTransitionsEnabled() ) //KRIS
@@ -468,8 +466,6 @@ void GameWindowTransitionsHandler::setGroup(AsciiString groupName, Bool immidiat
 	m_currentGroup = findGroup(groupName);
 	if(m_currentGroup)
 		m_currentGroup->init();
-
-
 
 }
 

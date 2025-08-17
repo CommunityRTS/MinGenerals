@@ -66,7 +66,5 @@ class CacheStraw : public Straw
 		CacheStraw & operator = (CacheStraw const & pipe);
 };
 
-
-
 #endif
 

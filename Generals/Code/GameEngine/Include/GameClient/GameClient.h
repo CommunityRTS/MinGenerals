@@ -72,7 +72,6 @@ public:
 	virtual ~GameClientMessageDispatcher() { }
 };
 
-
 //-----------------------------------------------------------------------------
 /**
  * The GameClient class is used to instantiate a singleton which
@@ -222,7 +221,6 @@ private:
 			} \
 		} \
 	} while (0);
-
 
 // the singleton
 extern GameClient *TheGameClient;

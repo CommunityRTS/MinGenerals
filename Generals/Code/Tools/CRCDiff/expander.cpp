@@ -123,4 +123,3 @@ void Expander::expand( const std::string& input,
 	}
 }
 
-

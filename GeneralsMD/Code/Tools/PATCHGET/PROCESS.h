@@ -38,5 +38,4 @@ class Process
 bit8 Create_Process(Process &process);
 bit8 Wait_Process(Process &process, DWORD *exit_code=NULL);
 
-
 #endif

@@ -56,6 +56,5 @@ T Bound(T original, T minval, T maxval)
 //double Bound(double, double, double);
 #endif
 
-
 #endif
 

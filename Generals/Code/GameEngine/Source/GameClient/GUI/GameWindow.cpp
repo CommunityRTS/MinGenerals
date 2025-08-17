@@ -878,7 +878,6 @@ void GameWindow::winSetEnabledTextColors( Color color, Color borderColor )
 	if( BitTest( m_instData.getStyle(), GWS_COMBO_BOX ) )
 		GadgetComboBoxSetEnabledTextColors(this,  color, borderColor );
 
-
 }  // end winSetEnabledTextColors
 
 // GameWindow::winSetDisabledTextColors =======================================

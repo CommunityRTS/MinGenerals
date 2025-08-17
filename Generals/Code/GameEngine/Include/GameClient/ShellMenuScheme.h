@@ -100,7 +100,6 @@ public:
 	void addImage( ShellMenuSchemeImage* schemeImage );
 	void addLine( ShellMenuSchemeLine* schemeLine );
 
-
 	AsciiString m_name;
 
 	typedef std::list< ShellMenuSchemeImage* > ShellMenuSchemeImageList;
@@ -110,9 +109,6 @@ public:
 	typedef std::list< ShellMenuSchemeLine* > ShellMenuSchemeLineList;
 	typedef ShellMenuSchemeLineList::iterator ShellMenuSchemeLineListIt;
 	ShellMenuSchemeLineList m_lineList;
-
-
-
 
 };
 
@@ -144,7 +140,6 @@ private:
 	ShellMenuScheme *m_currentScheme;
 
 };
-
 
 //-----------------------------------------------------------------------------
 // INLINING ///////////////////////////////////////////////////////////////////

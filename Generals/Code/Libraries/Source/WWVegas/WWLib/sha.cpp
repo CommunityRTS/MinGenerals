@@ -42,11 +42,9 @@
 #include	<iostream.h>
 #include	<stdlib.h>
 
-
 #if !defined(__BORLANDC__) && !defined(min)
 #define	min(a, b)		((a)<(b))?(a):(b)
 #endif
-
 
 /***********************************************************************************************
  * SHAEngine::Process_Partial -- Helper routine to process any partially accumulated data bloc *
@@ -102,7 +100,6 @@ void SHAEngine::Process_Partial(void const * & data, long & length)
 	}
 }
 
-
 /***********************************************************************************************
  * SHAEngine::Hash -- Process an arbitrarily long data block.                                  *
  *                                                                                             *
@@ -157,9 +154,7 @@ void SHAEngine::Hash(void const * data, long length)
 	Process_Partial(data, length);
 }
 
-
 #define	Reverse_LONG(a)	((a>>24)&0x000000FFL) | ((a>>8)&0x0000FF00L) | ((a<<8)&0x00FF0000L) | ((a<<24)&0xFF000000L)
-
 
 /***********************************************************************************************
  * SHAEngine::Result -- Fetch the current digest.                                              *
@@ -263,7 +258,6 @@ inline unsigned long _rotl(unsigned long X, int n)
 //	return(unsigned long)( (unsigned long)( (unsigned long)( (unsigned long)X ) << (int)n ) | (unsigned long)( ((unsigned long) X ) >> ( (int)((int)(sizeof(long)*(long)8) - (long)n) ) ) );
 //}
 void memrev(char * buffer, size_t length);
-
 
 /***********************************************************************************************
  * SHAEngine::Process_Block -- Process a full data block into the hash accumulator.            *

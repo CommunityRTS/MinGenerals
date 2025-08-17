@@ -139,7 +139,6 @@ MetalMapManagerClass::MetalMapManagerClass(INIClass &ini) :
 	}
 }
 
-
 /***********************************************************************************************
  * MMMC::~MetalMapManagerClass -- MetalMapManagerClass destructor                              *
  *                                                                                             *
@@ -168,7 +167,6 @@ MetalMapManagerClass::~MetalMapManagerClass(void)
 	}
 }
 
-
 /***********************************************************************************************
  * MMMC::Get_Metal_Map -- Get the texture for a metal map by id number                         *
  *                                                                                             *
@@ -189,7 +187,6 @@ TextureClass * MetalMapManagerClass::Get_Metal_Map(int id)
 	return Textures[id];
 }
 
-
 /***********************************************************************************************
  * MMMC::Metal_Map_Count -- Get the number of metal maps in the manager                        *
  *                                                                                             *
@@ -207,7 +204,6 @@ int MetalMapManagerClass::Metal_Map_Count(void)
 {
 	return MapCount;
 }
-
 
 /***********************************************************************************************
  * MMMC::Update_Lighting -- Update the lighting parameters used for generating the maps        *

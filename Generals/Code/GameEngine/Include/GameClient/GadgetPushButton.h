@@ -139,7 +139,6 @@ inline void GadgetButtonSetLeftHiliteImage( GameWindow *g, const Image *image )	
 inline void GadgetButtonSetMiddleHiliteImage( GameWindow *g, const Image *image )					{ g->winSetHiliteImage( 5, image ); }
 inline void GadgetButtonSetRightHiliteImage( GameWindow *g, const Image *image )					{ g->winSetHiliteImage( 6, image ); }
 
-
 inline const Image *GadgetButtonGetLeftDisabledSelectedImage( GameWindow *g )					{ return g->winGetDisabledImage( 1 ); }
 inline const Image *GadgetButtonGetMiddleDisabledSelectedImage( GameWindow *g )					{ return g->winGetDisabledImage( 3 ); }
 inline const Image *GadgetButtonGetRightDisabledSelectedImage( GameWindow *g )					{ return g->winGetDisabledImage( 4 ); }

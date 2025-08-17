@@ -48,7 +48,6 @@ mov oD0.w, c[CV_CONST].y
 mov oT0, V_TEXTURE
 mov oT1, V_TEXTURE
 
-
 // Transform basis vectors to world space
 dp3 S_WORLD.x, V_S, c[CV_WORLD_0]
 dp3 S_WORLD.y, V_S, c[CV_WORLD_1]
@@ -61,7 +60,6 @@ dp3 T_WORLD.z, V_T, c[CV_WORLD_2]
 dp3 SxT_WORLD.x, V_SxT, c[CV_WORLD_0]
 dp3 SxT_WORLD.y, V_SxT, c[CV_WORLD_1]
 dp3 SxT_WORLD.z, V_SxT, c[CV_WORLD_2]
-
 
 // calculate half angle
 // transform vertex position to world space
@@ -88,7 +86,6 @@ mul EYE_VECTOR, EYE_VECTOR, EYE_VECTOR.w
 
 // Add them to average & create half angle vector
 add HALF_ANGLE, c[CV_LIGHT_DIRECTION_0], EYE_VECTOR
-
 
 // Normalize the half angle vector
 dp3 HALF_ANGLE.w, HALF_ANGLE, HALF_ANGLE
@@ -140,12 +137,10 @@ mul LIGHT_0.w, LIGHT_0, LIGHT_0
 //mul LIGHT_2.w, LIGHT_2, LIGHT_2
 //mul LIGHT_2.w, LIGHT_2, LIGHT_2
 
-
 // accumulate light colors
 mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 //mad COL, c[CV_LIGHT_COLOR_1], LIGHT_1.w, COL
 //mad COL, c[CV_LIGHT_COLOR_2], LIGHT_2.w, COL
-
 
 mul oD1, COL, c[CV_SPECULAR]
 

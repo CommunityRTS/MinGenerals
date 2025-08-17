@@ -56,7 +56,6 @@ MeshMoldTool::~MeshMoldTool(void)
 	REF_PTR_RELEASE(m_htMapEditCopy);
 }
 
-
 /// Shows the mesh mold options panel.
 void MeshMoldTool::activate()
 {
@@ -139,7 +138,6 @@ void MeshMoldTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWo
 	m_prevViewPt = viewPt;
 	m_prevDocPt = cpt;
 }
-
 
 ///  Update the mesh location onscreen.
 void MeshMoldTool::updateMeshLocation(Bool changePreview)

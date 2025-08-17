@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -52,7 +51,6 @@ class OBBoxClass;
 class PlaneClass;
 class SphereClass;
 class Matrix3D;
-
 
 class LineSegClass
 {
@@ -88,6 +86,5 @@ protected:
 	Vector3				Dir;		// normalized direction.
 	float					Length;	// length of the segment
 };
-
 
 #endif

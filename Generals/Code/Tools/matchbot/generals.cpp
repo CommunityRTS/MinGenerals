@@ -165,7 +165,6 @@ int calcPingDelta(const GeneralsUser *a, const GeneralsUser *b)
 	return (int)sqrt(bestPing);
 }
 
-
 // =====================================================================
 // Matcher thread
 // =====================================================================
@@ -200,12 +199,9 @@ GeneralsMatcher::GeneralsMatcher()
 void GeneralsMatcher::init(void)
 {}
 
-
 #define W(x) setw(x) <<
 void GeneralsMatcher::dumpUsers(void)
 {}
-
-
 
 void GeneralsMatcher::sendMatchInfo(std::string name1, std::string name2, std::string name3, std::string name4,
                                     std::string name5, std::string name6, std::string name7, std::string name8,
@@ -471,7 +467,6 @@ double GeneralsMatcher::computeMatchFitness(const std::string& i1, const General
 
 	if (!u2->widened && ( p2percent < u2->minPoints || p2percent > u2->maxPoints ))
 		return 0.0;
-
 
 	int minP = min(p1, p2);
 	int maxP = max(p1, p2);
@@ -1076,7 +1071,6 @@ void GeneralsMatcher::addNonMatchingUser(const std::string& who, GeneralsUser *u
 	m_nonMatchingUsers[who] = user;
 }
 
-
 bool GeneralsMatcher::removeUser(const std::string& who)
 {
 	GeneralsUser *user;
@@ -1180,7 +1174,6 @@ GeneralsUser* GeneralsMatcher::removeNonMatchingUser(const std::string& who)
 	return user;
 }
 
-
 void GeneralsMatcher::handleDisconnect( const char *reason )
 {
 	ERRMSG("Disconnected");
@@ -1274,7 +1267,6 @@ void GeneralsMatcher::handlePlayerEnum( bool success, int gameSpyIndex, const ch
 	}
 }
 
-
 // =====================================================================
 // TEST Client Matcher class
 // =====================================================================
@@ -1314,9 +1306,7 @@ void GeneralsClientMatcher::handlePlayerChangedNick( const char *oldNick, const 
 void GeneralsClientMatcher::handlePlayerEnum( bool success, int gameSpyIndex, const char *nick, int flags )
 {}
 
-
 // =====================================================================
 // End of File
 // =====================================================================
-
 

@@ -124,7 +124,6 @@ Bool st_particleSystemNeedsStopping = FALSE; ///< Set along with st_particleSyst
 
 #endif
 
-
 enum { K_SCRIPTS_DATA_VERSION_1 = 1 };
 enum { MAX_SPIN_COUNT = 20 };
 #define NONE_STRING "<none>"
@@ -132,7 +131,6 @@ enum { MAX_SPIN_COUNT = 20 };
 static const Int FRAMES_TO_SHOW_WIN_LOSE_MESSAGE = 120;
 
 static const Int FRAMES_TO_FADE_IN_AT_START = 33;
-
 
 //------------------------------------------------------------------------------ Performance Timers
 //#include "Common/PerfMetrics.h"
@@ -1005,7 +1003,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[2] = "(0.0 to 1.0), pitch = ";
 	curTemplate->m_uiStrings[3] = "(1.0==default), looking towards ";
 	curTemplate->m_uiStrings[4] = ".";
-
 
  	curTemplate = &m_actionTemplates[ScriptAction::INCREMENT_COUNTER];
 	curTemplate->m_name = "[Scripting] Counter -- increment.";
@@ -2894,7 +2891,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_numUiStrings = 1;
 	curTemplate->m_uiStrings[0] = "The radar is now forced to be enabled.";
 
-
 	curTemplate = &m_actionTemplates[ScriptAction::RADAR_REVERT_TO_NORMAL];
 	curTemplate->m_name = "[Radar] Revert radar to normal behavior.";
 	curTemplate->m_numParameters = 0;
@@ -3600,7 +3596,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[0] = "All factories belonging to  ";
 	curTemplate->m_uiStrings[1] = " have been destroyed.";
 
-
 	curTemplate = &m_conditionTemplates[Condition::TEAM_INSIDE_AREA_PARTIALLY];
 	curTemplate->m_name = "[Team] Team has units in an area.";
 	curTemplate->m_numParameters = 3;
@@ -3623,7 +3618,6 @@ void ScriptEngine::init( void )
  	curTemplate->m_uiStrings[1] = " is in ";
 	curTemplate->m_uiStrings[2] = " (";
 	curTemplate->m_uiStrings[3] = ").";
-
 
 	curTemplate = &m_conditionTemplates[Condition::TEAM_DESTROYED];
 	curTemplate->m_name = "[Team] Team is destroyed.";
@@ -3990,8 +3984,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[2] = " (";
 	curTemplate->m_uiStrings[3] = ").";
 
-
-
 	curTemplate = &m_conditionTemplates[Condition::TEAM_ENTERED_AREA_PARTIALLY];
 	curTemplate->m_name = "[Team] One unit enters an area.";
 	curTemplate->m_numParameters = 3;
@@ -4347,7 +4339,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[2] = " of ";
 	curTemplate->m_uiStrings[3] = " worth at least ";
 
-
 	curTemplate = &m_conditionTemplates[Condition::SKIRMISH_TECH_BUILDING_WITHIN_DISTANCE];
 	curTemplate->m_name = "[Skirmish Only] Tech building is within specified distance.";
 	curTemplate->m_numParameters = 3;
@@ -4394,7 +4385,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[1] = ". There are ";
 	curTemplate->m_uiStrings[2] = " ";
 	curTemplate->m_uiStrings[3] = " unowned faction units.";
-
 
 	curTemplate = &m_conditionTemplates[Condition::SKIRMISH_PLAYER_HAS_PREREQUISITE_TO_BUILD];
 	curTemplate->m_name = "[Skirmish] Player has prerequisites to build an object type.";
@@ -4528,7 +4518,6 @@ void ScriptEngine::init( void )
 	curTemplate->m_uiStrings[0] = "";
 	curTemplate->m_uiStrings[1] = " has lost an object of type ";
 	curTemplate->m_uiStrings[2] = " (can be an object type list).";
-
 
 	reset();
 
@@ -5232,8 +5221,6 @@ PolygonTrigger *ScriptEngine::getQualifiedTriggerAreaByName( AsciiString name )
 	return trig;
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** getTeamNamed */
 //-------------------------------------------------------------------------------------------------
@@ -5316,7 +5303,6 @@ void ScriptEngine::runScript(const AsciiString& scriptName, Team *pThisTeam)
 		return; // no script
 	}
 
-
 	Player *savPlayer = m_currentPlayer;
 //	Team *pSavConditionTeam = m_conditionTeam;
 	LatchRestore<Team *> latch(m_callingTeam, pThisTeam);
@@ -5358,7 +5344,6 @@ void ScriptEngine::runScript(const AsciiString& scriptName, Team *pThisTeam)
 	m_conditionTeam = m_conditionTeam;
 	m_currentPlayer = savPlayer;
 }  // end runScript
-
 
 //-------------------------------------------------------------------------------------------------
 /** runScript - Executes a subroutine script, or script group - tests conditions, and executes actions or false actions.  */
@@ -5403,7 +5388,6 @@ void ScriptEngine::runObjectScript(const AsciiString& scriptName, Object *pThisO
 	}
 	m_callingObject = pSavCallingObject;
 }  // end runScript
-
 
 //-------------------------------------------------------------------------------------------------
 /** Allocates a counter, if this name doesn't exist. */
@@ -5776,8 +5760,6 @@ void ScriptEngine::setFlag( ScriptAction *pAction )
 	Bool value = pAction->getParameter(1)->getInt();
 	m_flags[flagNdx].value = value;
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Finds a named attack info.  Note - may return null. */
@@ -6903,8 +6885,6 @@ Bool ScriptEngine::evaluateConditions( Script *pScript, Team *thisTeam, Player *
 	return testValue; // If none of the or's fired, then it is false.
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** Execute a linked list of actions */
 //-------------------------------------------------------------------------------------------------
@@ -6964,7 +6944,6 @@ void ScriptEngine::executeScripts( Script *pScriptHead )
 		executeScript(pCurScript);
 	}
 }  // end update
-
 
 //-------------------------------------------------------------------------------------------------
 /** Gets the ui and parameter template for a script action */
@@ -7155,7 +7134,6 @@ void ScriptEngine::setSequentialTimer(Team *team, Int frameCount)
 		}
 	}
 }
-
 
 void ScriptEngine::evaluateAndProgressAllSequentialScripts( void )
 {
@@ -7362,7 +7340,6 @@ ScriptEngine::VecSequentialScriptPtrIt ScriptEngine::cleanupSequentialScript(Vec
 		scriptToDelete->deleteInstance();
 		scriptToDelete = NULL;
 	}
-
 
 	if ((*it) == NULL) {
 		return m_sequentialScripts.erase(it);
@@ -8762,7 +8739,6 @@ void _appendAllThingTemplates( void )
 
 }
 
-
 void _addUpdatedParticleSystem( AsciiString particleSystemName )
 {
 	typedef void (*funcptr)(const char*);
@@ -8785,7 +8761,6 @@ void _addUpdatedParticleSystem( AsciiString particleSystemName )
 	if (!proc2) {
 		return;
 	}
-
 
 	ParticleSystemTemplate *pTemplate = TheParticleSystemManager->newTemplate(particleSystemName);
 	if (!pTemplate) {
@@ -8856,7 +8831,6 @@ void _updateAsciiStringParmsToSystem( ParticleSystemTemplate *particleTemplate )
 	if (otherTemp == particleTemplate) {
 		particleTemplate->m_particleTypeName.set(buff);
 	}
-
 
 	((funcptr) proc)(1, buff, &otherTemp); // PARM_SlaveSystemName
 	if (otherTemp == particleTemplate) {
@@ -8933,7 +8907,6 @@ static void _writeOutINI( void )
 
 	}
 
-
 	// open the .ini file for writing, truncate.
 	File *newINI = TheFileSystem->openFile("Data\\INI\\ParticleSystem.ini", File::WRITE | File::TEXT);
 
@@ -8952,7 +8925,6 @@ static void _writeOutINI( void )
 	newINI->close();
 	newINI = NULL;
 }
-
 
 static const std::string HEADER =					"ParticleSystem";
 static const std::string SEP_SPACE =			" ";
@@ -9070,7 +9042,6 @@ void _writeSingleParticleSystem( File *out, ParticleSystemTemplate *templ )
 	static char buff2[ARBITRARY_BUFF_SIZE];
 	static char buff3[ARBITRARY_BUFF_SIZE];
 	static char buff4[ARBITRARY_BUFF_SIZE];
-
 
 	// the .append looks REALLY ugly, but this code was written with streams in mind, and so
 	// these were all originally << (feed-operator for streams)
@@ -9469,7 +9440,6 @@ static void _reloadParticleSystemFromINI( AsciiString particleSystemName )
 				throw 0;
 			}
 
-
 			while (!(iniFile->eof() || INI::isEndOfBlock(linebuff)) ) {
 				outTempINI->write(linebuff, strlen(linebuff));
 				iniFile->nextLine(linebuff, INI_MAX_CHARS_PER_LINE);
@@ -9478,7 +9448,6 @@ static void _reloadParticleSystemFromINI( AsciiString particleSystemName )
 			if (iniFile->eof()) {
 				throw 1;
 			}
-
 
 			// write out the closing "END"
 			outTempINI->write(linebuff, strlen(linebuff));

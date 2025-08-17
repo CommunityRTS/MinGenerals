@@ -240,7 +240,6 @@ WideStringClass::WideStringClass (const WCHAR *string, bool hint_temporary)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////
 //	WideStringClass
 ///////////////////////////////////////////////////////////////////
@@ -265,7 +264,6 @@ WideStringClass::~WideStringClass (void)
 	Free_String ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////
 //	Is_Empty
@@ -375,7 +373,6 @@ WideStringClass::operator >= (const WCHAR *string) const
 {
 	return (wcscmp (m_Buffer, string) >= 0);
 }
-
 
 ///////////////////////////////////////////////////////////////////
 //	Erase
@@ -719,7 +716,6 @@ WideStringClass::Store_Length (int length)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////
 // Convert_From
 ///////////////////////////////////////////////////////////////////
@@ -738,7 +734,6 @@ WideStringClass::Convert_From(const char * text)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////
 // Convert_To
@@ -765,7 +760,6 @@ WideStringClass::Convert_To (StringClass &string)
 
 	return ;
 }
-
 
 inline void
 WideStringClass::Convert_To (StringClass &string) const

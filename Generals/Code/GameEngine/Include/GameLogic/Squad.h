@@ -52,7 +52,6 @@ class AIGroup;
 class Object;
 class Team;
 
-
 // TYPE DEFINES ///////////////////////////////////////////////////////////////
 typedef std::vector<ObjectID> VecObjectID;
 typedef VecObjectID::iterator VecObjectIDIt;

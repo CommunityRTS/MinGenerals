@@ -158,7 +158,6 @@ const CrateTemplate *CrateSystem::findCrateTemplate(AsciiString name) const
 			return overridable;
 		}
 
-
 	return NULL;
 }
 
@@ -172,8 +171,6 @@ CrateTemplate *CrateSystem::friend_findCrateTemplate(AsciiString name)
 		}
 	return NULL;
 }
-
-
 
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------

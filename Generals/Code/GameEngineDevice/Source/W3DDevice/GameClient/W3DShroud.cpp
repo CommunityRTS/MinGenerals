@@ -612,7 +612,6 @@ void W3DShroud::render(CameraClass *cam)
 
 #endif //LOAD_DUMMY_SHROUD
 
-
 	WorldHeightMap *hm=TheTerrainRenderObject->getMap();
 	Int visStartX=REAL_TO_INT_FLOOR((Real)(hm->getDrawOrgX()-hm->getBorderSize())*MAP_XY_FACTOR/m_cellWidth);	//start of rendered heightmap rectangle
 	if (visStartX < 0)

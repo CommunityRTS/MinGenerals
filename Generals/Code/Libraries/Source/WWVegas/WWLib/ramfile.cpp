@@ -51,7 +51,6 @@
 #include	"ramfile.h"
 #include	<string.h>
 
-
 /***********************************************************************************************
  * RAMFileClass::RAMFileClass -- Construct a RAM buffer based "file" object.                   *
  *                                                                                             *
@@ -92,7 +91,6 @@ RAMFileClass::RAMFileClass(void * buffer, int len) :
 	}
 }
 
-
 /***********************************************************************************************
  * RAMFileClass::~RAMFileClass -- Destructor for the RAM file class.                           *
  *                                                                                             *
@@ -116,7 +114,6 @@ RAMFileClass::~RAMFileClass(void)
 		IsAllocated = false;
 	}
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Create -- Effectively clears the buffer of data.                              *
@@ -142,7 +139,6 @@ int RAMFileClass::Create(void)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * RAMFileClass::Delete -- Effectively clears the buffer of data.                              *
  *                                                                                             *
@@ -167,7 +163,6 @@ int RAMFileClass::Delete(void)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * RAMFileClass::Is_Available -- Determines if the "file" is available.                        *
  *                                                                                             *
@@ -187,7 +182,6 @@ bool RAMFileClass::Is_Available(int )
 	return(true);
 }
 
-
 /***********************************************************************************************
  * RAMFileClass::Is_Open -- Is the file open?                                                  *
  *                                                                                             *
@@ -206,7 +200,6 @@ bool RAMFileClass::Is_Open(void) const
 {
 	return(IsOpen);
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Open -- Opens a RAM based file for read or write.                             *
@@ -231,7 +224,6 @@ int RAMFileClass::Open(char const *, int access)
 {
 	return(Open(access));
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Open -- Opens the RAM based file.                                             *
@@ -274,7 +266,6 @@ int RAMFileClass::Open(int access)
 
 	return(Is_Open());
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Read -- Read data from the file.                                              *
@@ -322,7 +313,6 @@ int RAMFileClass::Read(void * buffer, int size)
 
 	return(tocopy);
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Seek -- Controls the ram file virtual read position.                          *
@@ -380,7 +370,6 @@ int RAMFileClass::Seek(int pos, int dir)
 	return(Offset);
 }
 
-
 /***********************************************************************************************
  * RAMFileClass::Size -- Returns with the size of the ram file.                                *
  *                                                                                             *
@@ -401,7 +390,6 @@ int RAMFileClass::Size(void)
 {
 	return(Length);
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Write -- Copies data to the ram file.                                         *
@@ -452,7 +440,6 @@ int RAMFileClass::Write(void const * buffer, int size)
 
 	return(towrite);
 }
-
 
 /***********************************************************************************************
  * RAMFileClass::Close -- This will 'close' the ram file.                                      *

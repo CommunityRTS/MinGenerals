@@ -83,7 +83,6 @@ const unsigned MAX_SHADOW_MAPS=1;
 #define nextVer
 #define __volatile unsigned
 
-
 enum {
 	BUFFER_TYPE_DX8,
 	BUFFER_TYPE_SORTING,
@@ -140,7 +139,6 @@ WWINLINE void DX8_ErrorCode(unsigned res)
 #define DX8_THREAD_ASSERT() ;
 #endif
 
-
 #define no_EXTENDED_STATS
 // EXTENDED_STATS collects additional timing statistics by turning off parts
 // of the 3D drawing system (terrain, objects, etc.)
@@ -165,7 +163,6 @@ public:
 };
 #endif
 
-
 // This virtual interface was added for the Generals RTS.
 // It is called before resetting the dx8 device to ensure
 // that all dx8 resources are released.  Otherwise reset fails. jba.
@@ -175,7 +172,6 @@ public:
 	virtual void ReleaseResources(void)=0;
 	virtual void ReAcquireResources(void)=0;
 };
-
 
 struct RenderStateStruct
 {
@@ -384,7 +380,6 @@ public:
 		bool rendertarget=false
 	);
 
-
 	static IDirect3DTexture8* _Create_DX8_ZTexture
 	(
 		unsigned int width,
@@ -393,7 +388,6 @@ public:
 		MipCountType mip_level_count,
 		D3DPOOL pool=D3DPOOL_MANAGED
 	);
-
 
 	static IDirect3DTexture8 * _Create_DX8_Texture
 	(
@@ -523,9 +517,6 @@ public:
 	static void						Set_Ambient(const Vector3& color);
 	static const Vector3&		Get_Ambient() { return Ambient_Color; }
 	// shader system updates KJM ^
-
-
-
 
 	static IDirect3DDevice8* _Get_D3D_Device8() { return D3DDevice; }
 	static IDirect3D8* _Get_D3D8() { return D3DInterface; }
@@ -759,7 +750,6 @@ WWINLINE void DX8Wrapper::Set_Pixel_Shader_Constant(int reg, const void* data, i
 }
 // shader system updates KJM ^
 
-
 WWINLINE void DX8Wrapper::_Set_DX8_Transform(D3DTRANSFORMSTATETYPE transform,const Matrix4x4& m)
 {
 	WWASSERT(transform<=D3DTS_WORLD);
@@ -773,7 +763,6 @@ WWINLINE void DX8Wrapper::_Set_DX8_Transform(D3DTRANSFORMSTATETYPE transform,con
 		DX8CALL(SetTransform(transform,(D3DMATRIX*)&m));
 	}
 }
-
 
 WWINLINE void DX8Wrapper::_Set_DX8_Transform(D3DTRANSFORMSTATETYPE transform,const Matrix3D& m)
 {
@@ -830,7 +819,6 @@ WWINLINE void DX8Wrapper::Set_Fog(bool enable, const Vector3 &color, float start
 	Set_DX8_Render_State(D3DRS_FOGSTART, *(DWORD *)(&start));
 	Set_DX8_Render_State(D3DRS_FOGEND,   *(DWORD *)(&end));
 }
-
 
 WWINLINE void DX8Wrapper::Set_Ambient(const Vector3& color)
 {
@@ -1152,7 +1140,6 @@ WWINLINE unsigned int DX8Wrapper::Convert_Color_Clamp(const Vector4& color)
 
 #endif
 
-
 WWINLINE void DX8Wrapper::Set_Alpha (const float alpha, unsigned int &color)
 {
 	unsigned char *component = (unsigned char*) &color;
@@ -1352,7 +1339,6 @@ WWINLINE bool DX8Wrapper::Is_Light_Enabled(unsigned index)
 	return render_state.LightEnable[index];
 }
 
-
 WWINLINE void DX8Wrapper::Set_Render_State(const RenderStateStruct& state)
 {
 	int i;
@@ -1405,13 +1391,11 @@ WWINLINE void DX8Wrapper::Release_Render_State()
 	REF_PTR_RELEASE(render_state.index_buffer);
 	REF_PTR_RELEASE(render_state.material);
 
-
 	for (i=0;i<MAX_TEXTURE_STAGES;++i)
 	{
 		REF_PTR_RELEASE(render_state.Textures[i]);
 	}
 }
-
 
 WWINLINE RenderStateStruct::RenderStateStruct()
 	:
@@ -1438,7 +1422,6 @@ WWINLINE RenderStateStruct::~RenderStateStruct()
 		REF_PTR_RELEASE(Textures[i]);
 	}
 }
-
 
 WWINLINE unsigned flimby( char* name, unsigned crib )
 {
@@ -1484,7 +1467,6 @@ WWINLINE RenderStateStruct& RenderStateStruct::operator= (const RenderStateStruc
 			}
 		}
 
-
     //lightsHash = flimby((char*)(&Lights[0]), sizeof(D3DLIGHT8)-1 );
 
 	}
@@ -1503,6 +1485,5 @@ WWINLINE RenderStateStruct& RenderStateStruct::operator= (const RenderStateStruc
 
 	return *this;
 }
-
 
 #endif

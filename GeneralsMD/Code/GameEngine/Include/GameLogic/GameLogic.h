@@ -68,7 +68,6 @@ class GhostObjectManager;
 class CommandButton;
 enum BuildableStatus;
 
-
 typedef const CommandButton* ConstCommandButtonPtr;
 
 // What kind of game we're in.
@@ -88,7 +87,6 @@ enum
 	CRC_CACHED,
 	CRC_RECALC
 };
-
 
 /// Function pointers for use by GameLogic callback functions.
 typedef void (*GameLogicFuncPtr)( Object *obj, void *userData );
@@ -422,8 +420,6 @@ inline Object* GameLogic::findObjectByID( ObjectID id )
 
 	return NULL;
 }
-
-
 
 // the singleton
 extern GameLogic *TheGameLogic;

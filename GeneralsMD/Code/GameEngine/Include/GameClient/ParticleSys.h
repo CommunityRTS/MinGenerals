@@ -43,7 +43,6 @@
 #include "WWMath/Matrix3D.h"		///< @todo Replace with our own matrix library
 #include "Common/STLTypedefs.h"
 
-
 /// @todo Once the client framerate is decoupled, the frame counters within will have to become time-based
 
 class Particle;
@@ -64,7 +63,6 @@ enum ParticleSystemID
 #define MAX_VOLUME_PARTICLE_DEPTH ( 16 )
 #define DEFAULT_VOLUME_PARTICLE_DEPTH ( 0 )//The Default is not to do the volume thing!
 #define OPTIMUM_VOLUME_PARTICLE_DEPTH ( 6 )
-
 
 //--------------------------------------------------------------------------------------------------------------
 
@@ -155,7 +153,6 @@ protected:
 
 };
 
-
 /**
  * An individual particle created by a ParticleSystem.
  * NOTE: Particles cannot exist without a parent particle system.
@@ -230,7 +227,6 @@ protected:
 	RGBColor					m_colorRate;												///< current rate of color change
 	Int								m_colorTargetKey;												///< next index into key array
 
-
 	Bool							m_isCulled;														///< status of particle relative to screen bounds
 public:
 	Bool							m_inSystemList;
@@ -243,7 +239,6 @@ public:
 	};
 
 };
-
 
 //--------------------------------------------------------------------------------------------------------------
 
@@ -330,7 +325,6 @@ public:
 	GameClientRandomVariable m_sizeRate;									///< rate of change of size
 	GameClientRandomVariable m_sizeRateDamping;						///< damping of size change
 
-
 	UnsignedInt m_volumeParticleDepth;								///< how many layers deep to draw the particle, if >1
 
 	struct RandomKeyframe
@@ -338,7 +332,6 @@ public:
 		GameClientRandomVariable var;												///< the range of values at this keyframe
 		UnsignedInt frame;												///< the frame number
 	};
-
 
 	RandomKeyframe m_alphaKey[ MAX_KEYFRAMES ];
 	RGBColorKeyframe m_colorKey[ MAX_KEYFRAMES ];	///< color of particle
@@ -474,7 +467,6 @@ public:
 	Byte m_windMotionMovingToEndAngle;			///< (for ping pong) TRUE if we're moving "towards" the end angle
 
 };
-
 
 /**
  * A ParticleSystemTemplate, used by the ParticleSystemManager to instantiate ParticleSystems.
@@ -645,7 +637,6 @@ protected:
 																		ParticlePriorityType priority,
 																		Bool forceCreate = FALSE );	///< factory method for particles
 
-
 	const ParticleInfo *generateParticleInfo( Int particleNum, Int particleCount );	///< generate a new, random set of ParticleInfo
 	const Coord3D *computeParticlePosition( void );		///< compute a position based on emission properties
 	const Coord3D *computeParticleVelocity( const Coord3D *pos );	///< compute a velocity vector based on emission properties
@@ -700,11 +691,9 @@ protected:
 	Bool							m_isSaveable;													///< true if this system should be saved/loaded
   Bool              m_skipParentXfrm;                     ///< true if this system is already in world space.
 
-
 	// the actual particle system data is inherited from ParticleSystemInfo
 
 };
-
 
 //--------------------------------------------------------------------------------------------------------------
 /**
@@ -813,6 +802,5 @@ extern ParticleSystemManager *TheParticleSystemManager;
 
 class DebugDisplayInterface;
 extern void ParticleSystemDebugDisplay( DebugDisplayInterface *dd, void *, FILE *fp = NULL );
-
 
 #endif // _PARTICLE_SYS_H_

@@ -61,7 +61,6 @@
 #include "util.h"
 #include "modstack.h"
 
-
 /***********************************************************************************************
 **
 ** W3DAppData2Struct Implementation
@@ -76,8 +75,6 @@
 **             when converting from version 0.
 */
 const int W3DAPPDATA2_CURRENT_VERSION = 1;
-
-
 
 W3DAppData2Struct::W3DAppData2Struct(void) :
 	ExportFlags(0),
@@ -203,7 +200,6 @@ bool W3DAppData2Struct::Geometry_Options_Match(const W3DAppData2Struct & that)
 	return true;
 }
 
-
 W3DAppData2Struct * W3DAppData2Struct::Get_App_Data
 (
 	INode * node,
@@ -272,7 +268,6 @@ W3DAppData2Struct * W3DAppData2Struct::Get_App_Data
 	return wdata;
 }
 
-
 /***********************************************************************************************
 **
 ** W3DDazzleAppDataStruct Implementation
@@ -287,7 +282,6 @@ W3DDazzleAppDataStruct::W3DDazzleAppDataStruct(void)
 	memset(DazzleType,0,sizeof(DazzleType));
 	strcpy(DazzleType,"DEFAULT");
 }
-
 
 W3DDazzleAppDataStruct * W3DDazzleAppDataStruct::Get_App_Data(INode * node,bool create_if_missing)
 {
@@ -317,10 +311,6 @@ W3DDazzleAppDataStruct * W3DDazzleAppDataStruct::Get_App_Data(INode * node,bool 
 	}
 	return dazzledata;
 }
-
-
-
-
 
 /***********************************************************************************************
 **
@@ -394,7 +384,6 @@ bool Is_Normal_Mesh(INode * node)
 	return (get_geometry_type(node) == W3DAppData2Struct::GEO_TYPE_NORMAL_MESH);
 }
 
-
 /***********************************************************************************************
  * Is_Camera_Aligned_Mesh -- check if a node is to be a camera aligned mesh                    *
  *                                                                                             *
@@ -448,7 +437,6 @@ bool Is_Collision_AABox(INode * node)
 	if (!Is_Geometry(node)) return false;
 	return (get_geometry_type(node) == W3DAppData2Struct::GEO_TYPE_AABOX);
 }
-
 
 /***********************************************************************************************
  * Is_Collision_OBBox -- check if a node is a collision box                                    *
@@ -543,7 +531,6 @@ bool Is_Null_Object(INode * node)
 	return (get_geometry_type(node) == W3DAppData2Struct::GEO_TYPE_NULL);
 }
 
-
 /***********************************************************************************************
  * Is_Dazzle -- check if a node is a dazzle object                                             *
  *                                                                                             *
@@ -561,7 +548,6 @@ bool	Is_Dazzle(INode * node)
 	if (!Is_Geometry(node)) return false;
 	return (get_geometry_type(node) == W3DAppData2Struct::GEO_TYPE_DAZZLE);
 }
-
 
 /***********************************************************************************************
  * Is_Aggregate -- check if a node is an aggregate object                                      *
@@ -599,7 +585,6 @@ bool Is_Physical_Collision(INode * node)
 	return (wdata->Is_Physical_Collision_Enabled());
 }
 
-
 /***********************************************************************************************
  * Is_Projectile_Collision -- Is node categorized as "projectile collision geometry"?          *
  *                                                                                             *
@@ -618,7 +603,6 @@ bool Is_Projectile_Collision(INode * node)
 	return (wdata->Is_Projectile_Collision_Enabled());
 }
 
-
 /***********************************************************************************************
  * Is_Projectile_Collision -- Is node categorized as "vis collision geometry"?                 *
  *                                                                                             *
@@ -636,7 +620,6 @@ bool Is_Vis_Collision(INode * node)
 	W3DAppData2Struct * wdata = W3DAppData2Struct::Get_App_Data(node);
 	return (wdata->Is_Vis_Collision_Enabled());
 }
-
 
 /***********************************************************************************************
  * Is_Camera_Collision -- Is node categorized as "camera collision geometry"?                  *
@@ -694,7 +677,6 @@ bool	Is_Hidden(INode * node)
 	return (wdata->Is_Hidden_Enabled());
 }
 
-
 /***********************************************************************************************
  * Is_Two_Sided -- Checks whether the node should be two sided                                 *
  *                                                                                             *
@@ -712,7 +694,6 @@ bool	Is_Two_Sided(INode * node)
 	W3DAppData2Struct * wdata = W3DAppData2Struct::Get_App_Data(node);
 	return (wdata->Is_Two_Sided_Enabled());
 }
-
 
 /***********************************************************************************************
  * Is_ZNormals -- checks if the node should be exported with 0,0,1 vert normals                *
@@ -732,7 +713,6 @@ bool	Is_ZNormals(INode * node)
 	return (wdata->Is_ZNormals_Enabled());
 }
 
-
 bool	Is_Vertex_Alpha(INode * node)
 {
 	W3DAppData2Struct * wdata = W3DAppData2Struct::Get_App_Data(node);
@@ -750,7 +730,4 @@ bool	Is_NPatchable(INode * node)
 	W3DAppData2Struct * wdata = W3DAppData2Struct::Get_App_Data(node);
 	return (wdata->Is_NPatchable_Enabled());
 }
-
-
-
 

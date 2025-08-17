@@ -43,7 +43,6 @@
 ** Inline collision functions dealing with line segments
 */
 
-
 inline CollisionMath::OverlapType	CollisionMath::Overlap_Test
 (
 	const Vector3 &		min,
@@ -56,9 +55,5 @@ inline CollisionMath::OverlapType	CollisionMath::Overlap_Test
 	return CollisionMath::Overlap_Test(box,line);
 }
 
-
-
-
 #endif
-
 

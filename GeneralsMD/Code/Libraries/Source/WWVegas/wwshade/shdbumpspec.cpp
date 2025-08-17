@@ -187,7 +187,6 @@ bool ShdBumpSpecDefClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 void ShdBumpSpecDefClass::Init()
 {
 	// select shader version

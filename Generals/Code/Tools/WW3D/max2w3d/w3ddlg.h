@@ -35,14 +35,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef W3DDLG_H
 #define W3DDLG_H
 
 #include "always.h"
 #include <Max.h>
 #include "w3dutil.h"
-
 
 class W3dOptionsDialogClass
 {
@@ -102,6 +100,5 @@ private:
 	int								UnitsType;
 	float								UnitsScale;
 };
-
 
 #endif

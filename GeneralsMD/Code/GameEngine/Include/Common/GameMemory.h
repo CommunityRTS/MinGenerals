@@ -727,7 +727,6 @@ public: /* include this line at the end to reset visibility to 'public' */
 #define MEMORY_POOL_DELETEINSTANCE_VISIBILITY(ARGVIS)\
 ARGVIS:	void deleteInstance() { MemoryPoolObject::deleteInstance(); } public:
 
-
 // ----------------------------------------------------------------------------
 /**
 	This class is provided as a simple and safe way to integrate C++ object allocation
@@ -779,7 +778,6 @@ public:
 	void release() { m_mpo = NULL; }
 	~MemoryPoolObjectHolder() { m_mpo->deleteInstance(); }
 };
-
 
 // INLINING ///////////////////////////////////////////////////////////////////
 

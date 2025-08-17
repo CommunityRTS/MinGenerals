@@ -54,10 +54,8 @@
 #include "shdinterface.h"
 #include "shdhwshader.h"
 
-
 DECLARE_FORCE_LINK(LegacyW3DShader);
 REGISTER_SHDDEF(ShdLegacyW3DDefClass,SHDDEF_CLASSID_LEGACYW3D,"LegacyW3D");
-
 
 // Save-Load methods for ShdDefClass
 enum
@@ -115,7 +113,6 @@ enum
 	VARID_AMBIENT_COLOR,
 	VARID_DIFFUSE_COLOR
 };
-
 
 ShdLegacyW3DDefClass::ShdLegacyW3DDefClass()
 :	ShdDefClass(SHDDEF_CLASSID_LEGACYW3D),
@@ -360,7 +357,6 @@ bool ShdLegacyW3DDefClass::Load_Variables(ChunkLoadClass &cload)
 	return true;
 }
 
-
 void ShdLegacyW3DDefClass::Init()
 {
 	Shd6LegacyW3DClass::Init();
@@ -473,8 +469,6 @@ bool Shd6LegacyW3DClass::Greater_Than(const ShdInterfaceClass& s,int pass) const
 
 	return false;
 }
-
-
 
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6
@@ -597,7 +591,6 @@ void Shd6LegacyW3DClass::Copy_Vertex_Stream
 				*(Vector3*)(vb+fi.Get_Normal_Offset())=Vector3(0.0f,0.0f,0.0f);
 			}
 		}
-
 
 		for (int j=0; j<uvcount; j++) {
 			const Vector2*uvs=vss.UV[j];

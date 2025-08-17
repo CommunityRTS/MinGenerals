@@ -69,7 +69,6 @@
 static ICoord2D dialogPos;
 static ICoord2D dialogSize;
 
-
 // PUBLIC DATA ////////////////////////////////////////////////////////////////
 HierarchyView *TheHierarchyView = NULL;  ///< the view singleton
 
@@ -1287,8 +1286,4 @@ Bool HierarchyView::validateDragDropOperation( GameWindow *source,
 	return TRUE;
 
 }  // end validateDragDropOperation
-
-
-
-
 

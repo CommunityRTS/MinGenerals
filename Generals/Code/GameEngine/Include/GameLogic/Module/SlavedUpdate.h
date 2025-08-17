@@ -155,7 +155,6 @@ public:
 	virtual void onObjectCreated();
 	virtual Bool isSelfTasking() const { return FALSE; };
 
-
 	void doScoutLogic( const Coord3D *mastersDestination );
 	void doAttackLogic( const Object *target );
 	void doGuardLogic( Coord3D *pinnedPosition );

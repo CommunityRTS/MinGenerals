@@ -88,7 +88,6 @@ static const Real TEE_WIDTH_ADJUSTMENT = 1.03f;
 
 static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 
-
 #define SC_ALPHA_MIRROR ( SHADE_CNST(ShaderClass::PASS_LEQUAL, ShaderClass::DEPTH_WRITE_DISABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_ONE, \
 	ShaderClass::DSTBLEND_ZERO, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_MODULATE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_DISABLE, \
@@ -96,10 +95,8 @@ static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 
 static ShaderClass detailShader(SC_ALPHA_MIRROR);
 
-
 // The radius of the center of the road is 1.5 - outer radius 2.0, inner radius 1.0.
 static const Real CORNER_RADIUS = 1.5f;
-
 
 // The radius of the center of the road is 0.5 - outer radius 1.0, inner radius 0.0.
 static const Real TIGHT_CORNER_RADIUS = 0.5f;
@@ -166,7 +163,6 @@ void RoadType::applyTexture(void)
 	DX8Wrapper::Set_Index_Buffer(m_indexRoad,0);
 	DX8Wrapper::Set_Vertex_Buffer(m_vertexRoad);
 }
-
 
 //=============================================================================
 // RoadType loadTexture
@@ -246,8 +242,6 @@ RoadSegment::~RoadSegment(void)
 	}
 	m_ib = NULL;
 }
-
-
 
 //=============================================================================
 // RoadSegment::SetVertexBuffer
@@ -405,7 +399,6 @@ void W3DRoadBuffer::loadAlphaJoin(RoadSegment *pRoad, Vector2 loc1,
 	roadVector *= roadwidth*48/128; // we just want 48 pixels.
 	roadNormal *= uScale*(1+8.0f/128); // we want 8 extra pixels.
 
-
 	Vector2	corners[NUM_CORNERS];
 
 	corners[topLeft] =  loc1 + roadNormal*0.5f - roadVector*0.65f ;
@@ -442,7 +435,6 @@ void W3DRoadBuffer::loadY(RoadSegment *pRoad, Vector2 loc1,
 
 	roadVector *= roadwidth;
 	roadNormal *= roadwidth;
-
 
 	Vector2	corners[NUM_CORNERS];
 
@@ -481,7 +473,6 @@ void W3DRoadBuffer::loadH(RoadSegment *pRoad, Vector2 loc1,
 
 	roadVector *= roadwidth;
 	roadNormal *= roadwidth;
-
 
 	Vector2	corners[NUM_CORNERS];
 
@@ -578,8 +569,6 @@ void W3DRoadBuffer::loadFloat4PtSection(RoadSegment *pRoad, Vector2 loc,
 	info.scale = uScale;
 	pRoad->SetRoadSegInfo(&info);
 
-
-
 	Real roadLen = roadVector.Length();
 	Real halfHeight = roadNormal.Length();
 	roadNormal.Normalize();
@@ -589,7 +578,6 @@ void W3DRoadBuffer::loadFloat4PtSection(RoadSegment *pRoad, Vector2 loc,
 	if (uCount<2) uCount = 2;
 	Int vCount = (2*halfHeight/MAP_XY_FACTOR)+1;
 	if (vCount<2) vCount = 2;
-
 
 	const int maxRows = 100;
 	typedef struct {
@@ -780,7 +768,6 @@ void W3DRoadBuffer::loadLit4PtSection(RoadSegment *pRoad, UnsignedShort *ib, Ver
 	const Real FLOAT_AMOUNT = MAP_HEIGHT_SCALE/8;
 	const Real MAX_ERROR = MAP_HEIGHT_SCALE*1.1f;
 
-
 	if (pRoad->m_uniqueID != m_curUniqueID) {
 		return;
 	}
@@ -828,7 +815,6 @@ void W3DRoadBuffer::loadLit4PtSection(RoadSegment *pRoad, UnsignedShort *ib, Ver
 	Vector2 curVector;
 	Int uCount = (roadLen/MAP_XY_FACTOR)+1;
 	Int vCount = (2*halfHeight/MAP_XY_FACTOR)+1;
-
 
 	const int maxRows = 100;
 	typedef struct {
@@ -1337,7 +1323,6 @@ void W3DRoadBuffer::loadRoadSegment(UnsignedShort *ib, VertexFormatXYZDUV1 *vb, 
 
 }
 
-
 //=============================================================================
 // W3DRoadBuffer::moveRoadSegTo
 //=============================================================================
@@ -1737,7 +1722,6 @@ void W3DRoadBuffer::updateCountsAndFlags()
 	}
 }
 
-
 //=============================================================================
 // W3DRoadBuffer::insertTee
 //=============================================================================
@@ -1845,7 +1829,6 @@ void W3DRoadBuffer::insertTee(Vector2 loc, Int index1, Real scale)
 		decider = v1;
 	}
 	upVector.Normalize();
-
 
 	// Check to see if the Tee side is slanted.
 	const Real cos60 = 0.5f;
@@ -2022,8 +2005,6 @@ Bool W3DRoadBuffer::insertY(Vector2 loc, Int index1, Real scale)
 	if (dot13 < (-cos30)) return false; // Too close to a straigh line, do a straight side tee.
 	if (dot32 < (-cos30)) return false; // Too close to a straigh line, to a straight side tee.
 
-
-
 	Int s1 = 0;
 	Int s2 = xpSign(v1, v2);
 	Int s3 = xpSign(v1, v3);
@@ -2074,7 +2055,6 @@ Bool W3DRoadBuffer::insertY(Vector2 loc, Int index1, Real scale)
 			do13 = false;
 		}
 	}
-
 
 	Vector2 upVector;
 	if (do12) {
@@ -2135,9 +2115,7 @@ Bool W3DRoadBuffer::insertY(Vector2 loc, Int index1, Real scale)
 	m_roads[m_numRoads].m_uniqueID = m_roads[index1].m_uniqueID;
 	m_numRoads++;
 
-
 	return true;
-
 
 }
 
@@ -2240,7 +2218,6 @@ void W3DRoadBuffer::offsetH(TRoadPt *pc1, TRoadPt *pc2, TRoadPt *pc3, Vector2 lo
 		pc2->top = pc2->loc - rightTee;
 	}
 
-
 	Vector2 arm = teeVector;
 	if (flip) {
 		arm.Rotate(PI/4);
@@ -2261,8 +2238,6 @@ void W3DRoadBuffer::offsetH(TRoadPt *pc1, TRoadPt *pc2, TRoadPt *pc3, Vector2 lo
 	}
 
 }
-
-
 
 //=============================================================================
 // W3DRoadBuffer::offsetY
@@ -2514,7 +2489,6 @@ void W3DRoadBuffer::insert4Way(Vector2 loc, Int index1, Real scale)
 	alignVector.Normalize();
 	alignVector *= 0.5*scale; // we are offseting one half road width.
 
-
 	if (do12) {
 		offset4Way(pc1, pc2, pc3, pr3, pc4, loc, alignVector, m_roads[index1].m_widthInTexture);
 	}
@@ -2550,10 +2524,7 @@ void W3DRoadBuffer::insert4Way(Vector2 loc, Int index1, Real scale)
 	m_roads[m_numRoads].m_uniqueID = m_roads[index1].m_uniqueID;
 	m_numRoads++;
 
-
-
 }
-
 
 //=============================================================================
 // W3DRoadBuffer::insertTeeIntersections
@@ -2669,7 +2640,6 @@ Int W3DRoadBuffer::findCrossTypeJoinVector(Vector2 loc, Vector2 *joinVector, Int
 	return 0;
 }
 
-
 //=============================================================================
 // W3DRoadBuffer::adjustStacking
 //=============================================================================
@@ -2703,7 +2673,6 @@ void W3DRoadBuffer::adjustStacking(Int topUniqueID, Int bottomUniqueID)
 
 }
 
-
 //=============================================================================
 // W3DRoadBuffer::insertCrossTypeJoins
 //=============================================================================
@@ -2730,7 +2699,6 @@ void W3DRoadBuffer::insertCrossTypeJoins(void)
 		}
 		Vector2 joinVector(1, 0);
 
-
 		Vector2 roadVector(loc2.X-loc1.X, loc2.Y-loc1.Y);
 		roadVector.Normalize();
 		joinVector = roadVector;
@@ -2740,7 +2708,6 @@ void W3DRoadBuffer::insertCrossTypeJoins(void)
 		}
 		Vector2 roadNormal(-roadVector.Y, roadVector.X);
 		Vector2 joinNormal(-joinVector.Y, joinVector.X);
-
 
 		Vector2 p1 = loc1 + roadNormal * m_roads[i].m_scale * m_roads[i].m_widthInTexture / 2;
 		Vector2 p2 = loc2 + roadNormal * m_roads[i].m_scale * m_roads[i].m_widthInTexture / 2;
@@ -2753,8 +2720,6 @@ void W3DRoadBuffer::insertCrossTypeJoins(void)
 		LineSegClass joinLine(vLoc1,v1);
 		Vector3 pInt1, pInt2;
 		//Vector3 pInt3, pInt4;
-
-
 
 		Real nu; // not used.
 		Vector2 top = m_roads[i].m_pt1.top;
@@ -2801,7 +2766,6 @@ void W3DRoadBuffer::insertCrossTypeJoins(void)
 		m_numRoads++;
 	}
 }
-
 
 //=============================================================================
 // W3DRoadBuffer::miter
@@ -3004,7 +2968,6 @@ void W3DRoadBuffer::insertCurveSegmentAt(Int ndx1, Int ndx2)
 
 	}
 
-
 }
 
 //=============================================================================
@@ -3062,7 +3025,6 @@ W3DRoadBuffer::W3DRoadBuffer(void)	:
 {
 	allocateRoadBuffers();
 }
-
 
 //=============================================================================
 // W3DRoadBuffer::freeRoadBuffers
@@ -3302,5 +3264,4 @@ void W3DRoadBuffer::drawRoads(CameraClass * camera, TextureClass *cloudTexture, 
 #endif
 	m_curRoadType = 0;
 }
-
 

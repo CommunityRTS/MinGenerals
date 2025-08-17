@@ -700,7 +700,6 @@ Bool ActionManager::canEnterObject( const Object *obj, const Object *objectToEnt
 
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 CanAttackResult ActionManager::getCanAttackObject( const Object *obj, const Object *objectToAttack, CommandSourceType commandSource, AbleToAttackType attackType )
@@ -899,7 +898,6 @@ Bool ActionManager::canMakeObjectDefector( const Object *obj, const Object *obje
 		return FALSE;
 	}
 
-
 	return TRUE;
 }
 
@@ -937,7 +935,6 @@ Bool ActionManager::canCaptureBuilding( const Object *obj, const Object *objectT
 //		if ( cashSPI && cashSPI->isBusy() )
 //			return FALSE;
 //	}
-
 
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_INFANTRY_CAPTURE_BUILDING );
 	if (!spInterface)
@@ -1032,7 +1029,6 @@ Bool ActionManager::canDisableVehicleViaHacking( const Object *obj, const Object
 //	SpecialPowerModuleInterface *cashSPI = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_STEAL_CASH_HACK );
 //	if ( cashSPI && cashSPI->isBusy() )
 //		return FALSE;
-
 
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_DISABLE_VEHICLE_HACK );
 	if (checkSourceRequirements)
@@ -1153,7 +1149,6 @@ Bool ActionManager::canStealCashViaHacking( const Object *obj, const Object *obj
 //	if ( disableSPI && disableSPI->isBusy() )
 //		return FALSE;
 
-
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_STEAL_CASH_HACK );
 	if( !spInterface || spInterface->getPercentReady() < 1.0f )
 	{
@@ -1266,10 +1261,8 @@ Bool ActionManager::canDisableBuildingViaHacking( const Object *obj, const Objec
 		return FALSE;
 	}
 
-
 	if ( objectToHack->isKindOf( KINDOF_REBUILD_HOLE ) || objectToHack->testStatus( OBJECT_STATUS_UNDER_CONSTRUCTION ))
 		return FALSE;
-
 
 	//If the enemy unit is stealthed and not detected, then we can't attack it!
 	UnsignedInt status = objectToHack->getStatusBits();

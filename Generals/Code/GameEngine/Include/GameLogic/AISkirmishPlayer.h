@@ -37,7 +37,6 @@
 class BuildListInfo;
 class SpecialPowerTemplate;
 
-
 #if !defined(_PLAYTEST)
 
 /**
@@ -124,6 +123,4 @@ protected:
 #endif
 
 #endif // _AI_SKIRMISH_PLAYER_H_
-
-
 

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "cardinalspline.h"
 #include "wwdebug.h"
 #include "persistfactory.h"
@@ -45,7 +44,6 @@
 ** Force-Link this module because the linker can't detect that we actually need it...
 */
 DECLARE_FORCE_LINK(cardinalspline);
-
 
 /*
 ** Save-Load stuff
@@ -63,7 +61,6 @@ enum
 	CARDINAL1D_CHUNK_HERMITE1D					= 0x02070959,
 	CARDINAL1D_CHUNK_TIGHTNESSKEYS
 };
-
 
 /*
 ** CardinalSpline3DClass Implementation
@@ -142,7 +139,6 @@ void CardinalSpline3DClass::Update_Tangents(void)
 	Tangents[end].InTangent *= in_factor;
 	Tangents[0].OutTangent *= out_factor;
 
-
 	// inner knots
 	for (int i=1; i<Keys.Count()-1; i++) {
 		Tangents[i].InTangent.X = (1.0f - Tightness[i])*(Keys[i+1].Point.X - Keys[i-1].Point.X);
@@ -213,7 +209,6 @@ bool CardinalSpline3DClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 /*
 ** CardinalSpline1DClass Implementation
 */
@@ -283,7 +278,6 @@ void CardinalSpline1DClass::Update_Tangents(void)
 	Tangents[end].InTangent *= in_factor;
 	Tangents[0].OutTangent *= out_factor;
 
-
 	// inner knots
 	for (int i=1; i<Keys.Count()-1; i++) {
 		Tangents[i].InTangent = (1.0f - Tightness[i])*(Keys[i+1].Point - Keys[i-1].Point);
@@ -351,5 +345,4 @@ bool CardinalSpline1DClass::Load(ChunkLoadClass &cload)
 
 	return true;
 }
-
 

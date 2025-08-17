@@ -24,7 +24,6 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 // NetMessageStream.cpp
 // Holds misc functions to encapsulate GameMessages into Command Packets to send
 // over the network.
@@ -38,8 +37,6 @@
 #include "GameLogic/GameLogic.h"
 #include "GameNetwork/NetworkInterface.h"
 #include "GameNetwork/NetworkDefs.h"
-
-
 
 // The per-player pointers for the list of commands
 static CommandMsg *CommandHead[MAX_SLOTS] = {  /// @todo: remove static initialization
@@ -148,9 +145,6 @@ GameMessage * GetCommandMsg(UnsignedInt timestamp, Int playerNum)
 	//DEBUG_LOG(("Adding msg to NetCommandList %d\n", playerNum));
 	return GetCommandMsg(timestamp, CommandHead[playerNum], CommandTail[playerNum]);
 }
-
-
-
 
 //====================================================================================
 

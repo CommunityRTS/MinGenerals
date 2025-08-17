@@ -142,7 +142,6 @@ void W3DPoliceCarDraw::doDrawModule(const Matrix3D* transformMtx)
 	if( m_light == NULL )
 		m_light = createDynamicLight();
 
-
 	// if we have a search light, position it
 	if( m_light )
 	{
@@ -154,7 +153,6 @@ void W3DPoliceCarDraw::doDrawModule(const Matrix3D* transformMtx)
 	}
 	W3DTruckDraw::doDrawModule(transformMtx);
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

@@ -120,7 +120,6 @@ static void drawTextEntryText( GameWindow *window, WinInstanceData *instData,
 
 	}
 
-
 	// get out of here if no text color to show up
 	if( textColor == WIN_COLOR_UNDEFINED )
 		return;
@@ -309,8 +308,6 @@ void W3DGadgetTextEntryDraw( GameWindow *window, WinInstanceData *instData )
 	drawTextEntryText( window, instData, textColor, textBorder, compositeColor, compositeBorder,
 										 start.x, start.y, width, fontHeight );
 
-
-
 }  // end W3DGadgetTextEntryDraw
 
 // W3DGadgetTextEntryImageDraw ================================================
@@ -462,7 +459,5 @@ void W3DGadgetTextEntryImageDraw( GameWindow *window, WinInstanceData *instData 
 	// draw the edit text
 	drawTextEntryText( window, instData, textColor, textBorder, compositeColor, compositeBorder,
 										 start.x, start.y, width, fontHeight );
-
-
 
 }  // end W3DGadgetTextEntryImageDraw

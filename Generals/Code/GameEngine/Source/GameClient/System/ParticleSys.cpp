@@ -200,7 +200,6 @@ enum
 	MAX_SIZE_BONUS = 50
 };
 
-
 //todo move this somewhere more useful.
 // ------------------------------------------------------------------------------------------------
 #if 0
@@ -300,7 +299,6 @@ Particle::Particle( ParticleSystem *system, const ParticleInfo *info )
 	m_windRandomness = info->m_windRandomness;
 	m_particleUpTowardsEmitter = info->m_particleUpTowardsEmitter;
 	m_emitterPos = info->m_emitterPos;
-
 
 	m_angularRateX = info->m_angularRateX;
 	m_angularRateY = info->m_angularRateY;
@@ -476,7 +474,6 @@ Bool Particle::update( void )
 	else if (m_alpha > 1.0f)
 		m_alpha = 1.0f;
 
-
 	//
 	// Update color
 	//
@@ -520,7 +517,6 @@ Bool Particle::update( void )
 		m_color.blue = 0.0f;
 	else if (m_color.blue > 1.0f)
 		m_color.blue = 1.0f;
-
 
 	// reset the acceleration for accumulation next frame
 	m_accel.x = 0.0f;
@@ -857,7 +853,6 @@ ParticleSystemInfo::ParticleSystemInfo()
 
 }
 
-
 void ParticleSystemInfo::tintAllColors( Color tintColor )
 {
 	RGBColor rgb;
@@ -872,7 +867,6 @@ void ParticleSystemInfo::tintAllColors( Color tintColor )
 	}
 
 }  // end loadPostProcess
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -1161,10 +1155,8 @@ ParticleSystem::ParticleSystem( const ParticleSystemTemplate *sysTemplate,
 
 	m_slavePosOffset = sysTemplate->m_slavePosOffset;
 
-
 	///@todo: further formalize this parameter with an UnsignedInt field in the editor
 	m_volumeParticleDepth = DEFAULT_VOLUME_PARTICLE_DEPTH;
-
 
 	m_driftVelocity = sysTemplate->m_driftVelocity;
 
@@ -1309,7 +1301,6 @@ ParticleSystem::~ParticleSystem()
 		setMaster( NULL );
 
 	}  // end if
-
 
 	// destroy all particles "in the air"
 	while (m_systemParticlesHead)
@@ -2044,7 +2035,6 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 		transformSet = true;
 	}
 
-
 	if (transformSet == false)
 	{
 		if (m_isLocalIdentity == false)
@@ -2070,7 +2060,6 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 		m_lastPos = m_pos;
 		m_pos = *controlPos;
 	}
-
 
 	//
 	// Generate new particles if the system hasn't been 'stopped' or 'destroyed'
@@ -2171,7 +2160,6 @@ Bool ParticleSystem::update( Int localPlayerIndex  )
 	//
 	if (m_isDestroyed && !m_systemParticlesHead)
 		return false;
-
 
 	// monitor particle system lifetime
 	if (m_isForever == false)
@@ -2441,7 +2429,6 @@ ParticleInfo ParticleSystem::mergeRelatedParticleSystems( ParticleSystem *master
 		slaveParticleSystem->m_emissionVolume = masterParticleSystem->m_emissionVolume;
 		slaveParticleSystem->m_emissionVolumeType = masterParticleSystem->m_emissionVolumeType;
 		slaveParticleSystem->m_isEmissionVolumeHollow = masterParticleSystem->m_isEmissionVolumeHollow;
-
 
 		slaveParticleSystem->m_startSize.setRange(masterParticleSystem->m_startSize.getMinimumValue() * slaveParticleSystem->m_startSize.getMinimumValue(),
 																							masterParticleSystem->m_startSize.getMaximumValue() * slaveParticleSystem->m_startSize.getMaximumValue(),
@@ -2792,7 +2779,6 @@ const FieldParse ParticleSystemTemplate::m_fieldParseTable[] =
 
 	{ "WindPingPongEndAngleMin",				INI::parseReal, NULL, offsetof( ParticleSystemTemplate, m_windMotionEndAngleMin ) },
 	{ "WindPingPongEndAngleMax",				INI::parseReal, NULL, offsetof( ParticleSystemTemplate, m_windMotionEndAngleMax ) },
-
 
 	{ NULL,											NULL,																					NULL,		0 },
 };
@@ -3236,7 +3222,6 @@ void ParticleSystemManager::addParticle( Particle *particleToAdd, ParticlePriori
 
 	++m_particleCount;
 
-
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -3265,7 +3250,6 @@ void ParticleSystemManager::removeParticle( Particle *particleToRemove)
 	particleToRemove->m_overallNext = particleToRemove->m_overallPrev = NULL;
 	particleToRemove->m_inOverallList = FALSE;
 	--m_particleCount;
-
 
 }
 

@@ -42,7 +42,6 @@
 #include "GameLogic/Module/PowerPlantUpdate.h"
 #include "GameClient/InGameUI.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)

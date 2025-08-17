@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -61,7 +60,6 @@ struct HmdlNodeDefStruct
 	char	RenderObjName[2*W3D_NAME_LEN];
 	int	PivotID;
 };
-
 
 /*
 **	HModelDefClass

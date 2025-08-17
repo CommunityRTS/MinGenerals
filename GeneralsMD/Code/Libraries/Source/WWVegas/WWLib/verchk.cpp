@@ -34,13 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "verchk.h"
 #include <windows.h>
 #include <winnt.h>
 #include "rawfile.h"
 #include "ffactory.h"
-
 
 /******************************************************************************
 *
@@ -106,7 +104,6 @@ bool GetVersionInfo(char* filename, VS_FIXEDFILEINFO* fileInfo)
 	return false;
 	}
 
-
 bool GetFileCreationTime(char* filename, FILETIME* createTime)
 	{
 	if (filename && createTime)
@@ -131,7 +128,6 @@ bool GetFileCreationTime(char* filename, FILETIME* createTime)
 
 	return false;
 	}
-
 
 ////////////////////////////////////////////////////////////////////////
 //
@@ -178,7 +174,6 @@ Get_Image_File_Header (const char *filename, IMAGE_FILE_HEADER *file_header)
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 //
 //	Get_Image_File_Header
@@ -209,10 +204,8 @@ Get_Image_File_Header (HINSTANCE app_instance, IMAGE_FILE_HEADER *file_header)
 		retval = true;
 	}
 
-
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////
 //

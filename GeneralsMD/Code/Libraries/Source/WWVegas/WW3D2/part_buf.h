@@ -212,7 +212,6 @@ class ParticleBufferClass : public RenderObjClass
 		float						Get_Texture_Tile_Factor(void) const;
 		Vector2					Get_UV_Offset_Rate(void) const;
 
-
 		// This is a utility function only meant to be called by the particle emitter.
 		unsigned int			Get_Buffer_Size(void) const		{ return MaxNum; }
 

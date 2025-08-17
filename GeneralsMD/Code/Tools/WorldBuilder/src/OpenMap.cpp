@@ -27,7 +27,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // OpenMap dialog
 
-
 OpenMap::OpenMap(TOpenMapInfo *pInfo, CWnd* pParent /*=NULL*/)
 	: CDialog(OpenMap::IDD, pParent),
 	m_pInfo(pInfo)
@@ -44,7 +43,6 @@ OpenMap::OpenMap(TOpenMapInfo *pInfo, CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void OpenMap::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -52,7 +50,6 @@ void OpenMap::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(OpenMap, CDialog)
 	//{{AFX_MSG_MAP(OpenMap)

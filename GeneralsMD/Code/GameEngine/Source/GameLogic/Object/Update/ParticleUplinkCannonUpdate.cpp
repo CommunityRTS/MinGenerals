@@ -64,7 +64,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 ParticleUplinkCannonUpdateModuleData::ParticleUplinkCannonUpdateModuleData()
@@ -237,7 +236,6 @@ ParticleUplinkCannonUpdate::~ParticleUplinkCannonUpdate( void )
 	killEverything();
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // Validate that we have the necessary data from the ini file.
 //-------------------------------------------------------------------------------------------------
@@ -376,7 +374,6 @@ void ParticleUplinkCannonUpdate::setSpecialPowerOverridableDestination( const Co
 		m_lastDrivingClickFrame = TheGameLogic->getFrame();
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** The update callback. */
@@ -1054,7 +1051,6 @@ void ParticleUplinkCannonUpdate::removeAllEffects()
 	//Remove all sound hooks
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool ParticleUplinkCannonUpdate::calculateDefaultInformation()
 {
@@ -1109,7 +1105,6 @@ Bool ParticleUplinkCannonUpdate::calculateUpBonePositions()
 	}
 	return TRUE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void ParticleUplinkCannonUpdate::setLogicalStatus( PUCStatus newStatus )
@@ -1323,13 +1318,11 @@ void ParticleUplinkCannonUpdate::setClientStatus( PUCStatus newStatus, Bool reve
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool ParticleUplinkCannonUpdate::doesSpecialPowerHaveOverridableDestinationActive() const
 {
 	return m_status == STATUS_PREFIRE || m_status == STATUS_FIRING || m_status == STATUS_POSTFIRE;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

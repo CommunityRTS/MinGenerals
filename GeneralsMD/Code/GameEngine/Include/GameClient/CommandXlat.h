@@ -44,7 +44,6 @@ public:
 
 	enum CommandEvaluateType { DO_COMMAND, DO_HINT, EVALUATE_ONLY };
 
-
 	GameMessage::Type evaluateForceAttack( Drawable *draw, const Coord3D *pos, CommandEvaluateType type );
 	GameMessage::Type evaluateContextCommand( Drawable *draw, const Coord3D *pos, CommandEvaluateType type );
 
@@ -70,7 +69,6 @@ private:
 
 	virtual GameMessageDisposition translateGameMessage(const GameMessage *msg);
 };
-
 
 enum FilterTypes
 {

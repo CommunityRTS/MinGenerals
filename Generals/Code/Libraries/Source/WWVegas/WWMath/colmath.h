@@ -71,7 +71,6 @@ const float COLLISION_EPSILON = 0.001f;
 #define COLMATH_STAT_TRACKING
 #endif
 
-
 /**
 ** CollisionMath
 ** This is a collection of the low-level math functions for collision detection.
@@ -241,7 +240,6 @@ private:
 	static ColmathStatsStruct				Stats;
 };
 
-
 inline CollisionMath::OverlapType CollisionMath::eval_overlap_mask(int mask)
 {
 	// check if all verts are "ON"
@@ -263,7 +261,6 @@ inline CollisionMath::OverlapType CollisionMath::eval_overlap_mask(int mask)
 	return BOTH;
 }
 
-
 inline CollisionMath::OverlapType CollisionMath::eval_overlap_collision(const CastResultStruct & res)
 {
 	if (res.Fraction < 1.0f) {
@@ -276,7 +273,6 @@ inline CollisionMath::OverlapType CollisionMath::eval_overlap_collision(const Ca
 		}
 	}
 }
-
 
 /*
 ** Stat tracking Macros

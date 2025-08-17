@@ -46,7 +46,6 @@
 #include "dx8renderer.h"
 #include "hashtemplate.h"
 
-
 /*
 ** Temporary Buffers
 ** These buffers are used by the skin code for temporary storage of the deformed vertices and
@@ -57,13 +56,11 @@ static DynamicVectorClass<Vector3>	_TempNormalBuffer;
 static DynamicVectorClass<Vector4>	_TempTransformedVertexBuffer;
 static DynamicVectorClass<unsigned long> _TempClipFlagBuffer;
 
-
 /*
 **
 ** MeshModelClass Implementation
 **
 */
-
 
 MeshModelClass::MeshModelClass(void) :
 	DefMatDesc(NULL),
@@ -290,7 +287,6 @@ void MeshModelClass::get_deformed_vertices(Vector3 *dst_vert,const HTreeClass * 
 	}
 }
 
-
 // Destination pointers MUST point to arrays large enough to hold all vertices
 void MeshModelClass::get_deformed_vertices(Vector3 *dst_vert, Vector3 *dst_norm,const HTreeClass * htree)
 {
@@ -379,7 +375,6 @@ void MeshModelClass::compose_deformed_vertex_buffer(
 		vi=cnt;
 	}
 }
-
 
 // Destination pointers MUST point to arrays large enough to hold all vertices
 void MeshModelClass::get_deformed_screenspace_vertices(Vector4 *dst_vert,const RenderInfoClass & rinfo,const Matrix3D & mesh_transform,const HTreeClass * htree)
@@ -497,8 +492,6 @@ void Whatever(
 	const Vector3i* polygon_indices,
 	unsigned polygon_count);
 
-
-
 struct TriangleSide
 {
 	Vector3 loc1;
@@ -566,7 +559,6 @@ struct SideIndexInfo
 	SideIndexInfo() {}
 	SideIndexInfo(int i) { WWASSERT(0); }
 };
-
 
 HashTemplateClass<Vector3, unsigned> LocationHash;
 HashTemplateClass<Vector3, unsigned> DuplicateLocationHash;

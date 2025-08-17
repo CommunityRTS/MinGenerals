@@ -31,7 +31,6 @@
 
 struct _EXCEPTION_POINTERS;
 
-
 // ****************************************************************************
 //
 // To create a new thread just derive a new class from this and define

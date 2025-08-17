@@ -183,5 +183,4 @@ public:
 
 extern GameSpyPSMessageQueueInterface *TheGameSpyPSMessageQueue;
 
-
 #endif // __PERSISTENTSTORAGETHREAD_H__

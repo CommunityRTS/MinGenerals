@@ -129,8 +129,6 @@ void W3DGadgetVerticalSliderDraw( GameWindow *window,
 
 	}  // end if
 
-
-
 }  // end W3DGadgetVerticalSliderDraw
 
 // W3DGadgetVerticalSliderImageDraw ===========================================
@@ -275,7 +273,5 @@ void W3DGadgetVerticalSliderImageDraw( GameWindow *window,
 		TheWindowManager->winDrawImage(bottomImage, start.x, start.y, end.x, end.y);
 	}
 
-
 }  // end W3DGadgetVerticalSliderImageDraw
-
 

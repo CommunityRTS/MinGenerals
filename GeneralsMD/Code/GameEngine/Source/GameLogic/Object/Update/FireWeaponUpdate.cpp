@@ -36,7 +36,6 @@
 #include "GameLogic/WeaponStatus.h"
 #include "GameLogic/GameLogic.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -79,7 +78,6 @@ FireWeaponUpdate::FireWeaponUpdate( Thing *thing, const ModuleData* moduleData )
 		m_weapon->loadAmmoNow( getObject() );
 	}
 
-
   m_initialDelayFrame = TheGameLogic->getFrame() + getFireWeaponUpdateModuleData()->m_initialDelayFrames;
 
 }
@@ -99,7 +97,6 @@ UpdateSleepTime FireWeaponUpdate::update( void )
 
   if ( TheGameLogic->getFrame() < m_initialDelayFrame )
     return UPDATE_SLEEP_NONE;
-
 
 	// If my weapon is ready, shoot it.
 	if( isOkayToFire() )

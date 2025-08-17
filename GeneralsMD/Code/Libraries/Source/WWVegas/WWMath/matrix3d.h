@@ -98,7 +98,6 @@
 #include "osdep.h"
 #endif
 
-
 class Matrix3x3;
 class Matrix4x4;
 class Quaternion;
@@ -267,7 +266,6 @@ public:
 	WWINLINE void	Scale(float x, float y, float z); // separate input for each axis
 	WWINLINE void	Scale(Vector3 &scale);				 // scale each axis
 
-
 	// Each of these performs an "optimized" pre-multiplication with the
 	// current matrix. All angles are assumed to be radians. The "In_Place"
 	// versions do not affect the translation part of the matrix,
@@ -389,8 +387,6 @@ protected:
 #endif
 };
 
-
-
 /* ---------------------------------------------------------------
 	Vector Transformation, Matrix concatenation
 --------------------------------------------------------------- */
@@ -404,7 +400,6 @@ Matrix3D operator * (const Matrix3D &A,const Matrix3D &B);
 --------------------------------------------------------------- */
 bool operator == (const Matrix3D &A, const Matrix3D &B);
 bool operator != (const Matrix3D &A, const Matrix3D &B);
-
 
 /***********************************************************************************************
  * M3DC::Matrix3D -- Constructors for Matrix3D										                    *
@@ -490,7 +485,6 @@ WWINLINE Matrix3D & Matrix3D::operator = (const Matrix3D & m)
 	return *this;
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Set -- init a Matrix3D from an arrray of 12 floats                                *
  *                                                                                             *
@@ -509,7 +503,6 @@ WWINLINE void Matrix3D::Set(float m[12])
 	Row[1].Set(m[4],m[5],m[6],m[7]);
 	Row[2].Set(m[8],m[9],m[10],m[11]);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Set -- Init a Matrix3D from 12 individual floats                                  *
@@ -532,7 +525,6 @@ WWINLINE void Matrix3D::Set(		float m11,float m12,float m13,float m14,
 	Row[2].Set(m31,m32,m33,m34);
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Set -- Init a matrix from 3 axis vectors and a position                           *
  *                                                                                             *
@@ -554,7 +546,6 @@ WWINLINE void Matrix3D::Set(		const Vector3	&x,		// x-axis unit vector
 	Row[1].Set(x[1],y[1],z[1],pos[1]);
 	Row[2].Set(x[2],y[2],z[2],pos[2]);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Set -- init a matrix to be a rotation about the given axis                        *
@@ -614,7 +605,6 @@ WWINLINE void Matrix3D::Set(const Vector3 & axis,float s,float c)
 	);
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Set -- Init a matrix to be a pure translation                                     *
  *                                                                                             *
@@ -633,7 +623,6 @@ WWINLINE void Matrix3D::Set(const Vector3 & position)
 	Row[1].Set(0.0f,1.0f,0.0f,position[1]);
 	Row[2].Set(0.0f,0.0f,1.0f,position[2]);
 }
-
 
 /***********************************************************************************************
  * M3DC::Make_Identity -- Initializes the matrix to be the identity matrix                     *
@@ -654,7 +643,6 @@ WWINLINE void Matrix3D::Make_Identity(void)
 	Row[2].Set(0.0f,0.0f,1.0f,0.0f);
 }
 
-
 /***********************************************************************************************
  * M3DC::Translate -- Post-Multiplies by a Translation Matrix                                  *
  *                                                                                             *
@@ -673,7 +661,6 @@ WWINLINE void Matrix3D::Translate(float x,float y,float z)
 	Row[1][3]  += (float)(Row[1][0]*x + Row[1][1]*y + Row[1][2]*z);
 	Row[2][3]  += (float)(Row[2][0]*x + Row[2][1]*y + Row[2][2]*z);
 }
-
 
 /***********************************************************************************************
  * M3DC::Translate -- Post-Multiplies the matrix by a translation matrix                       *
@@ -694,7 +681,6 @@ WWINLINE void Matrix3D::Translate(const Vector3 &t)
 	Row[2][3]  += Row[2][0]*t[0] + Row[2][1]*t[1] + Row[2][2]*t[2];
 }
 
-
 /***********************************************************************************************
  * M3DC::Translate_X -- Post-Multiplies the matrix by a translation matrix with X only         *
  *                                                                                             *
@@ -713,7 +699,6 @@ WWINLINE void Matrix3D::Translate_X(float x)
 	Row[1][3]  += (float)(Row[1][0]*x);
 	Row[2][3]  += (float)(Row[2][0]*x);
 }
-
 
 /***********************************************************************************************
  * M3DC::Translate_Y -- Post-Multiplies the matrix by a translation matrix with Y only         *
@@ -734,7 +719,6 @@ WWINLINE void Matrix3D::Translate_Y(float y)
 	Row[2][3]  += (float)(Row[2][1]*y);
 }
 
-
 /***********************************************************************************************
  * M3DC::Translate_Z -- Post-Multiplies the matrix by a translation matrix with Z only         *
  *                                                                                             *
@@ -753,7 +737,6 @@ WWINLINE void Matrix3D::Translate_Z(float z)
 	Row[1][3]  += (float)(Row[1][2]*z);
 	Row[2][3]  += (float)(Row[2][2]*z);
 }
-
 
 /***********************************************************************************************
  * M3DC::Rotate_X -- Post-Multiplies the matrix by a rotation about the X axis                 *
@@ -789,7 +772,6 @@ WWINLINE void Matrix3D::Rotate_X(float theta)
 
 }
 
-
 /***********************************************************************************************
  * M3DC::Rotate_X -- Post-Multiplies the matrix by a rotation about the X axis                 *
  *                                                                                             *
@@ -820,7 +802,6 @@ WWINLINE void Matrix3D::Rotate_X(float s,float c)
 	Row[2][1] = (float)( c*tmp1 + s*tmp2);
 	Row[2][2] = (float)(-s*tmp1 + c*tmp2);
 }
-
 
 /***********************************************************************************************
  * M3DC::Rotate_Y -- Post-multiplies the matrix by a rotation about the Y axis                 *
@@ -856,7 +837,6 @@ WWINLINE void Matrix3D::Rotate_Y(float theta)
 	Row[2][2] = (float)(s*tmp1 + c*tmp2);
 }
 
-
 /***********************************************************************************************
  * M3DC::Rotate_Y -- Post-Multiplies the matrix by a rotation about Y                          *
  *                                                                                             *
@@ -887,7 +867,6 @@ WWINLINE void Matrix3D::Rotate_Y(float s,float c)
 	Row[2][0] = (float)(c*tmp1 - s*tmp2);
 	Row[2][2] = (float)(s*tmp1 + c*tmp2);
 }
-
 
 /***********************************************************************************************
  * M3DC::Rotate_Z -- Post-multiplies the matrix by a rotation about Z                          *
@@ -922,7 +901,6 @@ WWINLINE void Matrix3D::Rotate_Z(float theta)
 	Row[2][0] = (float)( c*tmp1 + s*tmp2);
 	Row[2][1] = (float)(-s*tmp1 + c*tmp2);
 }
-
 
 /***********************************************************************************************
  * M3DC::Rotate_Z -- Post-multiplies the matrix by a rotation about Z                          *
@@ -1720,7 +1698,6 @@ WWINLINE bool operator == (const Matrix3D &A, const Matrix3D &B)
    return true;
 }
 
-
 /***********************************************************************************************
  * operator != -- Matrix inequality operator                                                   *
  *                                                                                             *
@@ -1737,7 +1714,6 @@ WWINLINE bool operator != (const Matrix3D &A, const Matrix3D &B)
 {
    return !(A == B);
 }
-
 
 WWINLINE void Matrix3D::Transform_Vector(const Matrix3D & A,const Vector3 & in,Vector3 * out)
 {

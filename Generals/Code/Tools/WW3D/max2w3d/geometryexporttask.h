@@ -44,9 +44,7 @@
 #include "w3d_file.h"
 #include "vector.h"
 
-
 class GeometryExportContextClass;
-
 
 /**
 ** GeometryExportTaskClass
@@ -84,7 +82,6 @@ public:
 	** mesh's name, the index passed in, and the LOD level of the original mesh.
 	*/
 	void										Generate_Name(char * root,int index,GeometryExportContextClass & context);
-
 
 	/*
 	** Get vertex normal.  This function should return the normal of a vertex at the
@@ -148,8 +145,6 @@ protected:
 	TimeValue			CurTime;
 	INode *				Node;
 };
-
-
 
 #endif //GEOMETRYEXPORTTASK_H
 

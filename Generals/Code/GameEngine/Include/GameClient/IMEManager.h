@@ -46,7 +46,6 @@
 #ifndef __GAMECLIENT_IMEMANAGER_H
 #define __GAMECLIENT_IMEMANAGER_H
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -65,7 +64,6 @@ class UnicodeString;
 //----------------------------------------------------------------------------
 //           Type Defines
 //----------------------------------------------------------------------------
-
 
 //===============================
 // IMEManagerInterface
@@ -90,14 +88,11 @@ class IMEManagerInterface : public SubsystemInterface
 		virtual Int						getCompositionCursorPosition( void ) =0;			///< Returns the composition cursor position
 		virtual Int						getIndexBase( void ) = 0;						///< Get index base for candidate list
 
-
 		virtual Int						getCandidateCount() = 0;						///< Returns the total number of candidates
 		virtual UnicodeString*getCandidate( Int index ) = 0;			///< Returns the candidate string
 		virtual Int						getSelectedCandidateIndex() = 0;		///< Returns the indexed of the currently selected candidate
 		virtual Int						getCandidatePageSize() = 0;					///< Returns the page size for the candidates list
 		virtual Int						getCandidatePageStart() = 0;				///< Returns the index of the first visibel candidate
-
-
 
 		/// Checks for and service IME messages. Returns TRUE if message serviced
 		virtual Bool serviceIMEMessage(	void *windowsHandle,
@@ -107,15 +102,11 @@ class IMEManagerInterface : public SubsystemInterface
 		virtual Int result( void ) = 0;							///< result return value of last serviced IME message
 };
 
-
 extern IMEManagerInterface *TheIMEManager;
 extern IMEManagerInterface *CreateIMEManagerInterface( void );
-
 
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
-
 
 #endif // __GAMECLIENT_IMEMANAGER_H

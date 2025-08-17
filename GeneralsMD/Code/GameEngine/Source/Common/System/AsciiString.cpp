@@ -46,7 +46,6 @@
 
 #include "Common/CriticalSection.h"
 
-
 // -----------------------------------------------------
 
 /*static*/ AsciiString AsciiString::TheEmptyString;
@@ -162,7 +161,6 @@ void AsciiString::ensureUniqueBufferOfSize(int numCharsNeeded, Bool preserveData
 
 	validate();
 }
-
 
 // -----------------------------------------------------
 char*  AsciiString::getBufferForRead(Int len)

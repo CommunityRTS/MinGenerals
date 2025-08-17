@@ -60,7 +60,6 @@
 #include "GameLogic/Module/DamageModule.h"
 #include "GameLogic/Module/DieModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -226,11 +225,9 @@ void ActiveBody::setCorrectDamageState()
 		TheAI->pathfinder()->removeObjectFromPathfindMap(getObject());
 		TheAI->pathfinder()->addObjectToPathfindMap(getObject());
 
-
 		// here we make sure nobody collides with us, ever again...			//Lorenzen
 		//THis allows projectiles shot from infantry that are inside rubble to get out of said rubble safely
 		getObject()->setStatus( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_NO_COLLISIONS ) );
-
 
 	}
 }
@@ -696,7 +693,6 @@ void ActiveBody::attemptDamage( DamageInfo *damageInfo )
 			PartitionFilterPlayerAffiliation f1( controllingPlayer, ALLOW_ALLIES, true );
 			PartitionFilterOnMap filterMapStatus;
 			PartitionFilter *filters[] = { &f1, &filterMapStatus, 0 };
-
 
 			Real distance = TheAI->getAiData()->m_retaliateFriendsRadius + obj->getGeometryInfo().getBoundingCircleRadius();
 			SimpleObjectIterator *iter = ThePartitionManager->iterateObjectsInRange( obj->getPosition(), distance, FROM_CENTER_2D, filters, ITER_FASTEST );
@@ -1366,7 +1362,6 @@ Real ActiveBody::getInitialHealth() const
 {
 	return m_initialHealth;
 }  // return initial health
-
 
 // ------------------------------------------------------------------------------------------------
 /** Set or unset the overridable indestructible flag in the body */

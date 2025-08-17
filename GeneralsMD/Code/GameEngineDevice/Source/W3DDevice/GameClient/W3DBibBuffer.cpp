@@ -73,11 +73,9 @@
 
 static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 
-
 //-----------------------------------------------------------------------------
 //         Private Functions
 //-----------------------------------------------------------------------------
-
 
 //=============================================================================
 // W3DBibBuffer::loadBibsInVertexAndIndexBuffers
@@ -245,7 +243,6 @@ W3DBibBuffer::W3DBibBuffer(void)
 	m_highlightBibTexture->Get_Filter().Set_V_Addr_Mode(TextureFilterClass::TEXTURE_ADDRESS_CLAMP);
 	m_initialized = true;
 }
-
 
 //=============================================================================
 // W3DBibBuffer::freeBibBuffers
@@ -415,7 +412,6 @@ void W3DBibBuffer::removeBibDrawable(DrawableID id)
 	}
 }
 
-
 //=============================================================================
 // W3DBibBuffer::drawBibs
 //=============================================================================
@@ -443,5 +439,4 @@ void W3DBibBuffer::renderBibs()
 						m_curNumNormalBibVertex,	m_curNumBibVertices-m_curNumNormalBibVertex);
 	}
 }
-
 

@@ -55,7 +55,6 @@ struct WindowExMessageBoxData
 	void *userData;
 };
 
-
 GameWindow *ExMessageBoxYesNo				(UnicodeString titleString,UnicodeString bodyString, void *userData,
 																		 MessageBoxFunc yesCallback, MessageBoxFunc noCallback);
 

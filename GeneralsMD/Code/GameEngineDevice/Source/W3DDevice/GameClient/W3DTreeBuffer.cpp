@@ -200,7 +200,6 @@ int W3DTreeBuffer::W3DTreeTextureClass::update(W3DTreeBuffer *buffer)
 	return(surface_desc.Height);
 }
 
-
 //=============================================================================
 // W3DTreeBuffer::W3DTreeTextureClass::setLOD
 //=============================================================================
@@ -252,7 +251,6 @@ void W3DTreeBuffer::W3DTreeTextureClass::Apply(unsigned int stage)
 #endif
 static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 static ShaderClass detailAlphaShader2X(SC_ALPHA_DETAIL_2X);
-
 
 /*
 #define SC_ALPHA_DETAIL ( SHADE_CNST(ShaderClass::PASS_LEQUAL, ShaderClass::DEPTH_WRITE_ENABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_ONE, \
@@ -748,9 +746,6 @@ void W3DTreeBuffer::loadTreesInVertexAndIndexBuffers(RefRenderObjListIterator *p
 
 		VertexFormatXYZNDUV1 *curVb = vb;
 
-
-
-
 		for ( ;curTree<m_numTrees;curTree++) {
 			Int type = m_trees[curTree].treeType;
 			if (type<0) {
@@ -790,15 +785,12 @@ void W3DTreeBuffer::loadTreesInVertexAndIndexBuffers(RefRenderObjListIterator *p
 			}
 			REF_PTR_RELEASE(matInfo);
 
-
 			Int startVertex = m_curNumTreeVertices[bNdx];
 			m_trees[curTree].firstIndex = startVertex;
 			m_trees[curTree].bufferNdx = bNdx;
 			Int i;
 			Int numVertex = m_treeTypes[type].m_mesh->Peek_Model()->Get_Vertex_Count();
 			Vector3 *pVert = m_treeTypes[type].m_mesh->Peek_Model()->Get_Vertex_Array();
-
-
 
 			// If we happen to have too many trees, stop.
 			if (m_curNumTreeVertices[bNdx]+numVertex+2>= MAX_TREE_VERTEX) {
@@ -918,7 +910,6 @@ void W3DTreeBuffer::loadTreesInVertexAndIndexBuffers(RefRenderObjListIterator *p
 				Real x = pVert[i].X;
 				Real y = pVert[i].Y;
 
-
 				Vector3 vLoc;
 				x += m_treeTypes[type].m_offset.X;
 				y += m_treeTypes[type].m_offset.Y;
@@ -938,7 +929,6 @@ void W3DTreeBuffer::loadTreesInVertexAndIndexBuffers(RefRenderObjListIterator *p
 					vLoc.Y += loc.Y;
 					vLoc.Z += loc.Z;
 				}
-
 
 				curVb->x = vLoc.X;
 				curVb->y = vLoc.Y;
@@ -1043,7 +1033,6 @@ void W3DTreeBuffer::updateVertexBuffer(void)
 				Real x = pVert[i].X;
 				Real y = pVert[i].Y;
 
-
 				Vector3 vLoc;
 				x += m_treeTypes[type].m_offset.X;
 				y += m_treeTypes[type].m_offset.Y;
@@ -1125,7 +1114,6 @@ W3DTreeBuffer::W3DTreeBuffer(void)
 	m_shadow = NULL;
 
 }
-
 
 //=============================================================================
 // W3DTreeBuffer::freeTreeBuffers
@@ -1224,7 +1212,6 @@ void W3DTreeBuffer::unitMoved(Object *unit)
 			}
 		}
 	}
-
 
 }
 
@@ -1336,7 +1323,6 @@ void W3DTreeBuffer::removeTreesForConstruction(const Coord3D* pos, const Geometr
 		}
 	}
 }
-
 
 //=============================================================================
 // W3DTreeBuffer::addTreeTypes
@@ -1722,7 +1708,6 @@ void W3DTreeBuffer::drawTrees(CameraClass * camera, RefRenderObjListIterator *pD
 	DX8Wrapper::Draw_Triangles(	0,2, 0,	4);	//draw a quad, 2 triangles, 4 verts
 #endif
 
-
 	if (m_curNumTreeIndices[0] == 0) {
 		return;
 	}
@@ -1794,7 +1779,6 @@ void W3DTreeBuffer::drawTrees(CameraClass * camera, RefRenderObjListIterator *pD
 	} else {
 		DX8Wrapper::Set_Vertex_Shader(DX8_FVF_XYZNDUV1);
 	}
-
 
 	Int bNdx;
 	for (bNdx=0;bNdx<MAX_BUFFERS; bNdx++) {
@@ -1898,7 +1882,6 @@ void W3DTreeBuffer::updateTopplingTree(TTree *tree)
 
 	tree->m_mtx.In_Place_Pre_Rotate_X(-curVelToUse * tree->m_toppleDirection.y);
 	tree->m_mtx.In_Place_Pre_Rotate_Y(curVelToUse * tree->m_toppleDirection.x);
-
 
 	tree->m_angularAccumulation += curVelToUse;
 	if ((tree->m_angularAccumulation >= ANGULAR_LIMIT) && (tree->m_angularVelocity > 0))
@@ -2042,7 +2025,4 @@ void W3DTreeBuffer::loadPostProcess( void )
 {
 	// empty. jba [8/11/2003]
 }  // end loadPostProcess
-
-
-
 

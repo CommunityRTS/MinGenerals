@@ -88,7 +88,6 @@ static const char* TheMaxHealthChangeTypeNames[] =
 };
 #endif
 
-
 //
 // is condition A worse than condition B  ... NOTE: this assumes the conditions
 // in BodyDamageType are in sequential order
@@ -255,7 +254,6 @@ public:
 
 	virtual void setFrontCrushed(Bool v) { DEBUG_CRASH(("you should never call this for generic Bodys")); }
 	virtual void setBackCrushed(Bool v) { DEBUG_CRASH(("you should never call this for generic Bodys")); }
-
 
 	virtual void setIndestructible( Bool indestructible ) { }
 	virtual Bool isIndestructible( void ) const { return TRUE; }

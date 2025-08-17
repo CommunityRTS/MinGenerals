@@ -44,7 +44,6 @@
 #include	<stdio.h>
 #include	<ctype.h>
 
-
 /*
 **	These are some handy fixed point constants. Using these constants instead of manually
 **	constructing them is not only faster, but more readable.
@@ -55,7 +54,6 @@ const fixed fixed::_1_4(1, 4);		// 1/4
 const fixed fixed::_3_4(3, 4);		// 3/4
 const fixed fixed::_2_3(2, 3);		// 2/3
 
-
 fixed::fixed(int numerator, int denominator)
 {
 	if (denominator == 0) {
@@ -64,7 +62,6 @@ fixed::fixed(int numerator, int denominator)
 		Data.Raw = (unsigned short)((unsigned)(numerator * 256) / (unsigned)denominator);
 	}
 }
-
 
 /***********************************************************************************************
  * fixed::fixed -- Constructor for fixed integral from ASCII initializer.                      *
@@ -150,7 +147,6 @@ fixed::fixed(char const * ascii)
 	}
 }
 
-
 /***********************************************************************************************
  * fixed::To_ASCII -- Convert a fixed point number into an ASCII string.                       *
  *                                                                                             *
@@ -221,7 +217,6 @@ int fixed::To_ASCII(char * buffer, int maxlen) const
 	if (len < maxlen-1) return(len);
 	return(maxlen-1);
 }
-
 
 /***********************************************************************************************
  * fixed::As_ASCII -- Returns a pointer (static) of this number as an ASCII string.            *

@@ -193,7 +193,6 @@ void BaseHeightMapRenderObjClass::drawScorches(void)
 }
 #endif
 
-
 //-----------------------------------------------------------------------------
 //         Public Functions
 //-----------------------------------------------------------------------------
@@ -295,7 +294,6 @@ BaseHeightMapRenderObjClass::BaseHeightMapRenderObjClass(void)
 	m_propBuffer = NULL;
 
 	m_propBuffer = NEW W3DPropBuffer;
-
 
 	m_bibBuffer = NULL;
 	m_bibBuffer = NEW W3DBibBuffer;
@@ -817,7 +815,6 @@ bool BaseHeightMapRenderObjClass::Cast_Ray(RayCollisionTestClass & raytest)
 				P3.Y=ADJUST_FROM_INDEX_TO_REAL(Y+1);
 				P3.Z=MAP_HEIGHT_SCALE*(float)getClipHeight(X, Y+1);
 
-
 				tri.V[0] = &P0;
 				tri.V[1] = &P1;
 				tri.V[2] = &P2;
@@ -883,7 +880,6 @@ Real BaseHeightMapRenderObjClass::getHeightMapHeight(Real x, Real y, Coord3D* no
 		}
 		return 0;
   }
-
 
 	float height;
 
@@ -991,8 +987,6 @@ Real BaseHeightMapRenderObjClass::getHeightMapHeight(Real x, Real y, Coord3D* no
 		Real deltaZ_Y_Right = deltaZ_Y1*(1.0f-fx) + fx*deltaZ_Y2;
 		Real deltaZ_Y = deltaZ_Y_Left*(1.0-fy) + fy*deltaZ_Y_Right;
 
-
-
 			Vector3 l2r, n2f, normalAtTexel;
 			l2r.Set(2*MAP_XY_FACTOR/MAP_HEIGHT_SCALE, 0, deltaZ_X);
 			n2f.Set(0, 2*MAP_XY_FACTOR/MAP_HEIGHT_SCALE, deltaZ_Y);
@@ -1002,7 +996,6 @@ Real BaseHeightMapRenderObjClass::getHeightMapHeight(Real x, Real y, Coord3D* no
 			normal->z = normalAtTexel.Z;
 
 	}
-
 
 	return height;
 }
@@ -1220,7 +1213,6 @@ Real BaseHeightMapRenderObjClass::getMaxCellHeight(Real x, Real y) const
 
   WorldHeightMap *logicHeightMap = TheTerrainVisual?TheTerrainVisual->getLogicHeightMap():m_map;
 
-
 	Int offset = 1;
 	Int iX = x/MAP_XY_FACTOR;
 	Int iY = y/MAP_XY_FACTOR;
@@ -1343,8 +1335,6 @@ void BaseHeightMapRenderObjClass::oversizeTerrain(Int tilesToOversize)
 {
 	// Not needed with flat version. [3/20/2003]
 }
-
-
 
 //=============================================================================
 // BaseHeightMapRenderObjClass::Get_Obj_Space_Bounding_Sphere
@@ -2079,7 +2069,6 @@ void BaseHeightMapRenderObjClass::addScorch(Vector3 location, Real radius, Scorc
 #endif
 }
 
-
 //=============================================================================
 // BaseHeightMapRenderObjClass::getStaticDiffuse
 //=============================================================================
@@ -2253,7 +2242,6 @@ void BaseHeightMapRenderObjClass::addProp(Int id, Coord3D location, Real angle, 
 		m_propBuffer->addProp(id, location, angle, scale, modelName);
 	}
 };
-
 
 //=============================================================================
 // BaseHeightMapRenderObjClass::removeProp
@@ -2487,7 +2475,6 @@ void BaseHeightMapRenderObjClass::renderShoreLines(CameraClass *pCamera)
 	//Enabled writes to destination alpha only
 	DX8Wrapper::Set_DX8_Render_State(D3DRS_COLORWRITEENABLE,D3DCOLORWRITEENABLE_ALPHA);
 	DX8Wrapper::Set_DX8_Texture_Stage_State(0,  D3DTSS_TEXCOORDINDEX, 0);
-
 
 	while (j != m_numShoreLineTiles)
 	{
@@ -3008,7 +2995,6 @@ void BaseHeightMapRenderObjClass::xfer( Xfer *xfer )
 
 	xfer->xferSnapshot( m_treeBuffer );
 	xfer->xferSnapshot( m_propBuffer );
-
 
 }  // end xfer
 

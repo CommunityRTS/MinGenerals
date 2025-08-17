@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 /***********************************************************************************************
  ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
  ***********************************************************************************************
@@ -68,7 +67,6 @@ FirewallHelperClass * createFirewallHelper()
 {
 	return NEW FirewallHelperClass();
 }
-
 
 /***********************************************************************************************
  * FirewallHelperClass::FirewallHelperClass -- Constructor                                     *
@@ -121,8 +119,6 @@ FirewallHelperClass::FirewallHelperClass(void)
 																										// to time out.
 }
 
-
-
 /***********************************************************************************************
  * FirewallHelperClass::~FirewallHelperClass -- Destructor                                     *
  *                                                                                             *
@@ -165,9 +161,6 @@ void FirewallHelperClass::reset(void)
 	}
 }
 
-
-
-
 /***********************************************************************************************
  * FirewallHelperClass::Detect_Firewall -- See what our firewall is up to                      *
  *                                                                                             *
@@ -204,7 +197,6 @@ Bool FirewallHelperClass::detectFirewall(void)
 
 	return TRUE;
 }
-
 
 Bool FirewallHelperClass::behaviorDetectionUpdate()
 {
@@ -303,10 +295,6 @@ UnsignedShort FirewallHelperClass::getNextTemporarySourcePort(Int skip)
 
 }
 
-
-
-
-
 /***********************************************************************************************
  * FHC::sendToManglerFromPort -- Send to the mangler from the specified port               *
  *                                                                                             *
@@ -388,7 +376,6 @@ Bool FirewallHelperClass::sendToManglerFromPort(UnsignedInt address, UnsignedSho
 
 	return(TRUE);
 }
-
 
 SpareSocketStruct * FirewallHelperClass::findSpareSocketByPort(UnsignedShort port) {
 	DEBUG_LOG(("FirewallHelperClass::findSpareSocketByPort - trying to find spare socket with port %d\n", port));
@@ -497,9 +484,6 @@ UnsignedShort FirewallHelperClass::getManglerResponse(UnsignedShort packetID, In
 	return mangled_port;
 }
 
-
-
-
 /***********************************************************************************************
  * FirewallHelperClass::Write_Firewall_Settings -- Save out firewall settings.                 *
  *                                                                                             *
@@ -534,7 +518,6 @@ void FirewallHelperClass::writeFirewallBehavior(void)
 	pref.write();
 }
 
-
 /***********************************************************************************************
  * FirewallHelperClass::flagNeedToRefresh -- Flag that the next time we log in we need to      *
  *    refresh our firewall settings.                                                           *
@@ -559,7 +542,6 @@ void FirewallHelperClass::flagNeedToRefresh(Bool flag)
 	pref.write();
 }
 
-
 /***********************************************************************************************
  * FirewallHelperClass::Read_Firewall_Behavior -- Read in old firewall settings                *
  *                                                                                             *
@@ -581,8 +563,6 @@ void FirewallHelperClass::readFirewallBehavior(void)
 	m_lastSourcePortAllocationDelta = ConfigINI.Get_Int("MultiPlayer", "FirewallDelta", 1);
 #endif //(0)
 }
-
-
 
 /***********************************************************************************************
  * FHC::detectFirewallBehavior -- What is that wacky firewall doing to our packet headers?   *
@@ -635,7 +615,6 @@ Bool FirewallHelperClass::detectionBeginUpdate() {
 
 //	Int delta = 0;
 
-
 	/*
 	** If the user specified a particular port to use then we act as if there is no firewall.
 	*/
@@ -652,8 +631,6 @@ Bool FirewallHelperClass::detectionBeginUpdate() {
 		m_currentState = DETECTIONSTATE_DONE;
 		return TRUE;
 	}
-
-
 
 	m_timeoutStart = timeGetTime();
 	m_timeoutLength = 5000;
@@ -716,7 +693,6 @@ Bool FirewallHelperClass::detectionBeginUpdate() {
 
 	} while ((m_numManglers < MAX_NUM_MANGLERS) && ((timeGetTime() - m_timeoutStart) < m_timeoutLength));
 
-
 	DEBUG_ASSERTCRASH(m_numManglers > 2, ("not enough mangler addresses found."));
 	if (m_numManglers < 3) {
 		m_currentState = DETECTIONSTATE_DONE;
@@ -776,7 +752,6 @@ Bool FirewallHelperClass::detectionBeginUpdate() {
 	m_currentState = DETECTIONSTATE_TEST1;
 	return FALSE;
 }
-
 
 Bool FirewallHelperClass::detectionTest1Update() {
 
@@ -875,9 +850,6 @@ Bool FirewallHelperClass::detectionTest2Update() {
 		addBehavior |= (UnsignedInt)m_behavior;
 		m_behavior = (FirewallBehaviorType)addBehavior;
 	}
-
-
-
 
 	/*
 	** Third test.
@@ -1006,7 +978,6 @@ Bool FirewallHelperClass::detectionTest3WaitForResponsesUpdate() {
 		return TRUE;
 	}
 
-
 	Bool relative_delta = FALSE;
 	Bool looks_good = FALSE;
 	Int delta = getNATPortAllocationScheme(m_numResponses, m_sparePorts, m_mangledPorts, relative_delta, looks_good);
@@ -1109,8 +1080,6 @@ Bool FirewallHelperClass::detectionTest3WaitForResponsesUpdate() {
 	m_currentState = DETECTIONSTATE_TEST5;
 	return FALSE;
 }
-
-
 
 Bool FirewallHelperClass::detectionTest4Stage1Update() {
 	m_mangledPorts[0] = getManglerResponse(m_packetID);
@@ -1243,7 +1212,6 @@ Bool FirewallHelperClass::detectionTest5Update() {
 	return TRUE;
 }
 
-
 /***********************************************************************************************
  * FHC::Get_NAT_Port_Allocation_Scheme -- Find out how a NAT is allocating ports               *
  *                                                                                             *
@@ -1326,7 +1294,6 @@ Int FirewallHelperClass::getNATPortAllocationScheme(Int numPorts, UnsignedShort 
 	Int diff2 = mangledPorts[2] - mangledPorts[1];
 	Int diff3 = mangledPorts[3] - mangledPorts[2];
 
-
 	/*
 	** 3. Check for absolute scheme skipping 'n' ports.
 	*/
@@ -1351,14 +1318,9 @@ Int FirewallHelperClass::getNATPortAllocationScheme(Int numPorts, UnsignedShort 
 		return(diff2);
 	}
 
-
-
-
 	/*
 	** Insert more tests here if we can think of any!!!!!
 	*/
-
-
 
 	/*
 	** 4. Check for relative scheme skipping 'n' ports. NAT32 behaves this way, it skips 100 ports
@@ -1402,7 +1364,6 @@ Int FirewallHelperClass::getNATPortAllocationScheme(Int numPorts, UnsignedShort 
 		return(diff2);
 	}
 
-
 	/*
 	** Aw hell, I don't know what it is.
 	*/
@@ -1410,11 +1371,6 @@ Int FirewallHelperClass::getNATPortAllocationScheme(Int numPorts, UnsignedShort 
 	relativeDelta = FALSE;
 	return(0);
 }
-
-
-
-
-
 
 /***********************************************************************************************
  * FHC::Get_Firewall_Hardness -- How hard is it to connect to this firewall                    *
@@ -1434,7 +1390,6 @@ Int FirewallHelperClass::getFirewallHardness(FirewallBehaviorType behavior)
 {
 
 	Int hardness = 0;
-
 
 	UnsignedInt fw = (UnsignedInt) behavior;
 
@@ -1465,10 +1420,6 @@ Int FirewallHelperClass::getFirewallHardness(FirewallBehaviorType behavior)
 	return(hardness);
 }
 
-
-
-
-
 /***********************************************************************************************
  * FHC::Get_Firewall_Retries -- How many retries is it likely to take before we connect?       *
  *                                                                                             *
@@ -1487,7 +1438,6 @@ Int FirewallHelperClass::getFirewallRetries(FirewallBehaviorType behavior)
 {
 
 	Int retries = 2;
-
 
 	UnsignedInt fw = (UnsignedInt) behavior;
 
@@ -1517,8 +1467,6 @@ Int FirewallHelperClass::getFirewallRetries(FirewallBehaviorType behavior)
 
 	return(retries);
 }
-
-
 
 /*
  *  openSpareSocket - opens a socket for communication on a specified port.

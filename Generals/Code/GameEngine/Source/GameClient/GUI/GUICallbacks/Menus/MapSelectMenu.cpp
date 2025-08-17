@@ -91,7 +91,6 @@ static void doGameStart( void )
 #endif
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** This is called when a shutdown is complete for this menu */
 //-------------------------------------------------------------------------------------------------
@@ -183,7 +182,6 @@ void MapSelectMenuInit( WindowLayout *layout, void *userData )
 		populateMapListbox( mapList, usesSystemMapDir, !showSoloMaps );
 	}
 
-
 	// set keyboard focus to main parent
 	AsciiString parentName( "MapSelectMenu.wnd:MapSelectMenuParent" );
 	NameKeyType parentID = TheNameKeyGenerator->nameToKey( parentName );
@@ -195,7 +193,6 @@ void MapSelectMenuInit( WindowLayout *layout, void *userData )
 
 	NameKeyType buttonOKID = TheNameKeyGenerator->nameToKey( AsciiString("MapSelectMenu.wnd:ButtonOK") );
 	GameWindow *buttonOK = TheWindowManager->winGetWindowFromId( NULL, buttonOKID );
-
 
 	TheShell->registerWithAnimateManager(buttonBack, WIN_ANIMATION_SLIDE_RIGHT, TRUE,0);
 	TheShell->registerWithAnimateManager(buttonOK, WIN_ANIMATION_SLIDE_LEFT, TRUE, 0);
@@ -247,7 +244,6 @@ void MapSelectMenuUpdate( WindowLayout *layout, void *userData )
 	// We'll only be successful if we've requested to
 	if(isShuttingDown && TheShell->isAnimFinished())
 		shutdownComplete(layout);
-
 
 }  // end MapSelectMenuUpdate
 

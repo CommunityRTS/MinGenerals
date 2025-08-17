@@ -84,7 +84,6 @@ void SpecialAbility::doSpecialPowerAtObject( Object *obj, UnsignedInt commandOpt
 	SpecialPowerModule::doSpecialPowerAtObject( obj, commandOptions );
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 void SpecialAbility::doSpecialPower( UnsignedInt commandOptions )

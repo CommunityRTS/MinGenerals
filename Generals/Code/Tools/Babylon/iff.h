@@ -16,13 +16,11 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef __IFF_H
 #define __IFF_H
 
 #define	MakeID(a,b,c,d)		( (int) ( ( (int) (a) ) << 24 | ( (int) (b) ) << 16 |	\
 								( (int) (c) ) << 8 | ( (int) (d) ) ) )
-
 
 #define 	vIFF_ID_FORM		MakeID('F','O','R','M')
 #define 	vIFF_ID_CAT			MakeID('C','A','T',' ')
@@ -38,7 +36,6 @@
 #define	mIFF_FILE_FORMOPEN	(1<<0)		/* in a form */
 #define	mIFF_FILE_CHUNKOPEN	(1<<1)		/* in a chunk */
 #define	mIFF_FILE_LOADED	(1<<2)		/* file is in memory */
-
 
 typedef struct
 {
@@ -67,7 +64,6 @@ typedef	struct {
 		int			file_size;
 		int			file_pos;
 		char		*mem_file;
-
 
 } IFF_FILE;
 
@@ -122,6 +118,5 @@ int					IFF_CloseChunk ( IFF_FILE * );
 	#define	LtEn16(L)	(L)
 
 #endif
-
 
 #endif	/* __IFF_H */

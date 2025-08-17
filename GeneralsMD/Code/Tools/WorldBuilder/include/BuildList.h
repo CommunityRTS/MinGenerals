@@ -48,7 +48,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(BuildList)
@@ -79,7 +78,6 @@ protected:
 	afx_msg void OnExport();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 
 protected:
 	Int					m_curSide;

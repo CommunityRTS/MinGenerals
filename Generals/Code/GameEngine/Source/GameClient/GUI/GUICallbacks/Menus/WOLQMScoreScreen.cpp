@@ -42,8 +42,6 @@
 //#include "GameNetwork/WOL.h"
 //#include "GameNetwork/WOLmenus.h"
 
-
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentWOLQMScoreID = NAMEKEY_INVALID;
@@ -102,7 +100,6 @@ void WOLQMScoreScreenShutdown( WindowLayout *layout, void *userData )
 	//progressLayout = NULL;
 
 }  // WOLQMScoreScreenShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Status Menu update method */
@@ -172,7 +169,6 @@ WindowMsgHandledType WOLQMScoreScreenSystem( GameWindow *window, UnsignedInt msg
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

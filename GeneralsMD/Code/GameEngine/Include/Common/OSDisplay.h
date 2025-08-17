@@ -40,7 +40,6 @@ enum OSDisplayButtonType
 	OSDBT_OK										= 0x00000001,
 	OSDBT_CANCEL								= 0x00000002,
 
-
 	OSDBT_ERROR									= 0x80000000
 };
 

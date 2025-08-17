@@ -134,7 +134,6 @@ RTS3DScene::RTS3DScene()
 	m_heatVisionOnlyPass->Set_Material(heatVisionMtl);
 	m_heatVisionOnlyPass->Set_Shader(heatVisionShader);
 
-
 //	VertexMaterialClass *frenzyMtl = NEW_REF(VertexMaterialClass,());
 //	frenzyMtl->Set_Lighting(TRUE);
 //	frenzyMtl->Set_Ambient(  0, 0, 0 );
@@ -147,7 +146,6 @@ RTS3DScene::RTS3DScene()
 //	frenzyShader.Set_Depth_Compare(ShaderClass::PASS_EQUAL);
 //	frenzyShader.Set_Depth_Mask(ShaderClass::DEPTH_WRITE_DISABLE);
 //	m_frenzyMaterialPass->Set_Shader(frenzyShader);
-
 
 	//Allocate memory to hold queue of visible renderobjects that need to be drawn last
 	//because they are forced translucent.
@@ -233,7 +231,6 @@ RTS3DScene::~RTS3DScene()
 	}
 
 }  // end ~RTS3DScene
-
 
 void	RTS3DScene::setGlobalLight(LightClass *pLight, Int lightIndex)
 {
@@ -412,7 +409,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 	if (currentFrame <= TheGlobalData->m_defaultOcclusionDelay)
 		currentFrame = TheGlobalData->m_defaultOcclusionDelay+1;	//make sure occlusion is enabled when game starts (frame 0).
 
-
 	if (ShaderClass::Is_Backface_Culling_Inverted())
 	{	//we are rendering reflections
 		///@todo: Have better flag to detect reflection pass
@@ -586,8 +582,6 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 	Bool doExtraFlagsPop=FALSE;
 	LightClass **sceneLights=m_globalLight;
 
-
-
 	if (robj->Class_ID() == RenderObjClass::CLASSID_IMAGE3D	)
 	{	robj->Render(rinfo);	//notify decals system that this track is visible
 		return;	//decals are not lit by this system yet so skip rest of lighting
@@ -655,7 +649,6 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		}
 
 		lightEnv.Reset(sph.Center, ambient);
-
 
 		// HANDLE THE SPECIAL DRAWABLE-LEVEL COLORING SETTINGS FIRST
 
@@ -1100,7 +1093,6 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 #endif
    }
    Visibility_Checked = false;
-
 
 	RefRenderObjListIterator it(&UpdateList);
 	// allow all objects in the update list to do their "every frame" processing
@@ -1645,7 +1637,6 @@ RefRenderObjListIterator * RTS3DScene::createLightsIterator(void)
 	return it;
 }
 
-
 //=============================================================================
 // RTS3DScene::destroyLightsIterator
 //=============================================================================
@@ -1655,7 +1646,6 @@ void RTS3DScene::destroyLightsIterator(RefRenderObjListIterator * it)
 {
 	delete it;
 }
-
 
 //=============================================================================
 // RTS3DScene::addDynamicLight
@@ -1729,9 +1719,7 @@ void RTS3DScene::draw( )
 	}
 	WW3D::Render( this, m_camera );
 
-
 }  // end Customized_Render
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -1801,10 +1789,7 @@ void RTS2DScene::draw( )
 	}
 	WW3D::Render( this, m_camera );
 
-
 }  // end Customized_Render
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -1841,8 +1826,6 @@ void RTS3DInterfaceScene::Customized_Render( RenderInfoClass &rinfo )
 
 }  // end Customized_Render
 
-
-
 /// The following is an :archive" of a partial attempt at detecting the mapshroud hack
 /*
  *
@@ -1867,7 +1850,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 	if (TheGameLogic) currentFrame = TheGameLogic->getFrame();
 	if (currentFrame <= TheGlobalData->m_defaultOcclusionDelay)
 		currentFrame = TheGlobalData->m_defaultOcclusionDelay+1;	//make sure occlusion is enabled when game starts (frame 0).
-
 
 	if (ShaderClass::Is_Backface_Culling_Inverted())
 	{	//we are rendering reflections
@@ -1919,7 +1901,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 
 				UnsignedByte isVisible = 0;
 
-
         //Cheater Foil
         isVisible |= (UnsignedByte)(camera->Cull_Sphere(robj->Get_Bounding_Sphere()) == FALSE);
         isVisible |= (UnsignedByte)(draw->isDrawableEffectivelyHidden());
@@ -1939,7 +1920,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 //						}
 						//assume normal rendering.
 						drawInfo->m_flags = DrawableInfo::ERF_IS_NORMAL;	//clear any rendering flags that may be in effect.
-
 
 						if (draw->getEffectiveOpacity() != 1.0f && m_translucentObjectsCount < TheGlobalData->m_maxVisibleTranslucentObjects)
 						{	drawInfo->m_flags |= DrawableInfo::ERF_IS_TRANSLUCENT;	//object is translucent
@@ -1974,7 +1954,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 							}
 						}
 
-
 					}
 				}
 
@@ -1993,7 +1972,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 
    Visibility_Checked = true;
 }
-
 
  *
  */

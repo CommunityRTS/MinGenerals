@@ -160,7 +160,6 @@ void RebuildHoleBehavior::startRebuildProcess( const ThingTemplate *rebuild, Obj
 
 } /// end startRebuildProcess
 
-
 //----------------------------------------------------------------------------------------------
 void RebuildHoleBehavior::transferBombs( Object *reconstruction )
 {

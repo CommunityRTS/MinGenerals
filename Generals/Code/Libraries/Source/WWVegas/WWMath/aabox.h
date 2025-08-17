@@ -71,7 +71,6 @@ class TriClass;
 class PlaneClass;
 struct CastResultStruct;
 
-
 /*
 ** AABoxClass
 **
@@ -165,9 +164,6 @@ public:
 	Vector3	MaxCorner;
 };
 
-
-
-
 /***********************************************************************************************
  * AABoxClass::Transform -- transform an aabox                                                 *
  *                                                                                             *
@@ -189,7 +185,6 @@ WWINLINE void	AABoxClass::Transform(const Matrix3D & tm)
 	tm.Transform_Center_Extent_AABox(oldcenter,oldextent,&Center,&Extent);
 }
 
-
 /***********************************************************************************************
  * AABoxClass::Translate -- translate an aabox                                                 *
  *                                                                                             *
@@ -206,7 +201,6 @@ WWINLINE void	AABoxClass::Translate(const Vector3 & trans)
 {
 	Center += trans;
 }
-
 
 /***********************************************************************************************
  * AABoxClass::operator== -- Comparison operator                                               *
@@ -225,7 +219,6 @@ WWINLINE  bool AABoxClass::operator== (const AABoxClass &src)
 	return (Center == src.Center) && (Extent == src.Extent);
 }
 
-
 /***********************************************************************************************
  * AABoxClass::operator!= -- Comparison operator                                               *
  *                                                                                             *
@@ -242,7 +235,6 @@ WWINLINE bool AABoxClass::operator!= (const AABoxClass &src)
 {
 	return (Center != src.Center) || (Extent != src.Extent);
 }
-
 
 /***********************************************************************************************
  * AABoxClass::Init -- create a box which bounds the given points		                          *
@@ -275,7 +267,6 @@ WWINLINE void AABoxClass::Init(Vector3 * points,int num)
 	Extent = (Max - Min) * 0.5f;
 }
 
-
 /***********************************************************************************************
  * AABoxClass::Init -- initialize from a min-max form of a box                                 *
  *                                                                                             *
@@ -293,7 +284,6 @@ WWINLINE void AABoxClass::Init(const MinMaxAABoxClass & mmbox)
 	Center = (mmbox.MaxCorner + mmbox.MinCorner) * 0.5f;
 	Extent = (mmbox.MaxCorner - mmbox.MinCorner) * 0.5f;
 }
-
 
 /***********************************************************************************************
  * AABoxClass::Init -- Init from a line segment                                                *
@@ -342,7 +332,6 @@ WWINLINE void AABoxClass::Init_Min_Max(const Vector3 & min,const Vector3 & max)
 	Extent = (max - min) * 0.5f;
 }
 
-
 /***********************************************************************************************
  * AABoxClass::Add_Point -- expand the box to contain the given point                          *
  *                                                                                             *
@@ -372,7 +361,6 @@ WWINLINE void AABoxClass::Add_Point(const Vector3 & point)
 	Extent = (Max - Min) / 2.0f;
 }
 
-
 /***********************************************************************************************
  * AABoxClass::Add_Box -- expand this box to enclose the passed box                            *
  *                                                                                             *
@@ -396,7 +384,6 @@ WWINLINE void AABoxClass::Add_Box(const AABoxClass & b)
 	Center = (newmax + newmin) * 0.5f;
 	Extent = (newmax - newmin) * 0.5f;
 }
-
 
 /***********************************************************************************************
  * AABoxClass::Add_Box -- Expand this box to enclose the passed box                            *
@@ -532,7 +519,6 @@ WWINLINE void MinMaxAABoxClass::Init(Vector3 * points,int num)
 	}
 }
 
-
 /***********************************************************************************************
  * MinMaxAABoxClass::Init -- initializes this box from a center-extent box                     *
  *                                                                                             *
@@ -551,7 +537,6 @@ WWINLINE void MinMaxAABoxClass::Init(const AABoxClass & box)
 	MaxCorner = box.Center + box.Extent;
 }
 
-
 /***********************************************************************************************
  * MinMaxAABoxClass::Add_Point -- updates this box so it encloses the given point              *
  *                                                                                             *
@@ -569,7 +554,6 @@ WWINLINE void MinMaxAABoxClass::Add_Point(const Vector3 & point)
 	MinCorner.Update_Min(point);
 	MaxCorner.Update_Max(point);
 }
-
 
 /***********************************************************************************************
  * MinMaxAABoxClass::Add_Box -- update this box to enclose the given box                       *
@@ -590,7 +574,6 @@ WWINLINE void MinMaxAABoxClass::Add_Box(const MinMaxAABoxClass & box)
 	MinCorner.Update_Min(box.MinCorner);
 	MaxCorner.Update_Max(box.MaxCorner);
 }
-
 
 /***********************************************************************************************
  * MinMaxAABoxClass::Add_Box -- update this box to enclose the given box                       *
@@ -636,7 +619,6 @@ WWINLINE void MinMaxAABoxClass::Add_Box(const Vector3 & min_corner,const Vector3
 	MaxCorner.Update_Max(max_corner);
 }
 
-
 /***********************************************************************************************
  * MinMaxAABoxClass::Transform -- Updates this box to enclose its transformed version          *
  *                                                                                             *
@@ -656,7 +638,6 @@ WWINLINE void MinMaxAABoxClass::Transform(const Matrix3D & tm)
 	tm.Transform_Min_Max_AABox(oldmin,oldmax,&MinCorner,&MaxCorner);
 }
 
-
 /***********************************************************************************************
  * MinMaxAABoxClass::Translate -- translates the box                                           *
  *                                                                                             *
@@ -674,6 +655,5 @@ WWINLINE void MinMaxAABoxClass::Translate(const Vector3 & pos)
 	MinCorner+=pos;
 	MaxCorner+=pos;
 }
-
 
 #endif

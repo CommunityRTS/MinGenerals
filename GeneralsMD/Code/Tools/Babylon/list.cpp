@@ -20,7 +20,6 @@
 // list.cpp
 //
 
-
 #include "stdAfx.h"
 #include <assert.h>
 #include "list.h"
@@ -295,7 +294,6 @@ void				List::Empty			( void )
 	assert ( IsHead ());
 	Remove ();
 }
-
 
 ListNode*		List::Find			( void *item )
 {

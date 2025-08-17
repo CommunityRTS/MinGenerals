@@ -19,7 +19,6 @@
 // RoadOptions.cpp : implementation file
 //
 
-
 #include "stdafx.h"
 #include "resource.h"
 #include "Lib\BaseType.h"
@@ -47,7 +46,6 @@ Bool RoadOptions::m_doJoin = false;		///< Is a join to different road type.
 /////////////////////////////////////////////////////////////////////////////
 // RoadOptions dialog
 
-
 RoadOptions::RoadOptions(CWnd* pParent /*=NULL*/)
 {
 	m_currentRoadName = "Road";
@@ -56,12 +54,10 @@ RoadOptions::RoadOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 RoadOptions::~RoadOptions(void)
 {
 	m_currentRoadName.clear();
 }
-
 
 void RoadOptions::DoDataExchange(CDataExchange* pDX)
 {
@@ -70,7 +66,6 @@ void RoadOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(RoadOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(RoadOptions)
@@ -84,7 +79,6 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // RoadOptions data access method.
-
 
 void RoadOptions::updateLabel(void)
 {
@@ -203,7 +197,6 @@ void RoadOptions::applyToSelection(void)
 	pDoc->AddAndDoUndoable(pUndo);
 	REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // RoadOptions message handlers
@@ -569,7 +562,6 @@ BOOL RoadOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 
 	return CDialog::OnNotify(wParam, lParam, pResult);
 }
-
 
 void RoadOptions::OnTightCurve()
 {

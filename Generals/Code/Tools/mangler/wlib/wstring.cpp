@@ -95,7 +95,6 @@ bit8 Wstring::operator==(IN Wstring &other) RO
    return(TRUE);
 }
 
-
 bit8 Wstring::operator!=(IN char *other) RO
 {
  if(strcmp(str, other) != 0)
@@ -103,7 +102,6 @@ bit8 Wstring::operator!=(IN char *other) RO
  else
    return(FALSE);
 }
-
 
 bit8 Wstring::operator!=(IN Wstring &other) RO
 {
@@ -119,13 +117,11 @@ bit8 Wstring::operator!=(IN Wstring &other) RO
    return(FALSE);
 }
 
-
 Wstring &Wstring::operator=(IN char *other)
 {
   set(other);
   return(*this);
 }
-
 
 Wstring &Wstring::operator=(IN Wstring &other)
 {
@@ -135,7 +131,6 @@ Wstring &Wstring::operator=(IN Wstring &other)
  set(other.get());
  return(*this);
 }
-
 
 bit8 Wstring::cat(IN char *s)
 {
@@ -156,7 +151,6 @@ bit8 Wstring::cat(IN char *s)
 
   return(TRUE);
 }
-
 
 bit8 Wstring::cat(uint32 size, IN char *s)
 {
@@ -314,7 +308,6 @@ uint32 Wstring::length(void) RO
   return((uint32)strlen(str));
 }
 
-
 // Insert at given position and shift old stuff to right
 bit8 Wstring::insert(char *instring, uint32 pos)
 {
@@ -342,7 +335,6 @@ bit8 Wstring::insert(char k, uint32 pos)
   return(insert(temp,pos));
 }
 
-
 // Joe Howes (05/19/2000):  This function inserts commas to nicely format a
 // large number (i.e.  1234567890 -> 1,234,567,890).  It doesn't really care
 // if the string is really a number or not.
@@ -351,7 +343,6 @@ bit8 Wstring::beautifyNumber()
 	int len = length();
 	int accum = 3 - (len % 3);
 	int numcommas = 0;
-
 
         if( accum == 3 )  accum = -1;
         for(int i = 0; i < len; i++)
@@ -366,7 +357,6 @@ bit8 Wstring::beautifyNumber()
 
 	return(TRUE);
 }
-
 
 // This function replaces any occurences of the string pointed to by
 // `replaceThis' with the string pointed to by `withThis'.  If an error
@@ -404,7 +394,6 @@ bit8 Wstring::replace(IN char *replaceThis,IN char *withThis)
   return(set(dest.get()));
 }
 
-
 bit8 Wstring::set(IN char *s)
 {
  //uint32 len;
@@ -414,7 +403,6 @@ bit8 Wstring::set(IN char *s)
 
  return(TRUE);
 }
-
 
 bit8 Wstring::set(char c, uint32 index)
 {
@@ -426,7 +414,6 @@ bit8 Wstring::set(char c, uint32 index)
  return TRUE;
 }
 
-
 char Wstring::set(uint32 size, IN char *string)
 {
  //uint32 len;
@@ -437,7 +424,6 @@ char Wstring::set(uint32 size, IN char *string)
 
  return(TRUE);
 }
-
 
 // Added by Joe Howes.  Takes a printf formatted string and a set of args.
 // The expanded string must not exceed 1k or twice the length of the format
@@ -461,7 +447,6 @@ char Wstring::setFormatted(IN char *msg, ...)
 	return(TRUE);
 }
 
-
 // This function converts all alphabetical characters in the string to lower
 // case.
 void Wstring::toLower(void)
@@ -476,7 +461,6 @@ void Wstring::toLower(void)
   }
 }
 
-
 // This function converts all alphabetical characters in the string to upper
 // case.
 void Wstring::toUpper(void)
@@ -490,7 +474,6 @@ void Wstring::toUpper(void)
       str[i] = (sint8)toupper(str[i]);
   }
 }
-
 
 //  This function truncates the string so its length will match the specified
 // `len'.  If an error occurs, FALSE is returned.  Otherwise, TRUE is returned.

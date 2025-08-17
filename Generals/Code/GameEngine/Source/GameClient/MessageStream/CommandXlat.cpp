@@ -77,7 +77,6 @@
 #include "GameLogic/Module/SpawnBehavior.h"
 #include "GameLogic/Module/SpecialPowerModule.h"
 
-
 #include "Common/ThingFactory.h"
 #include "GameLogic/Module/ContainModule.h"
 
@@ -91,7 +90,6 @@
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 /*non-static*/ Real TheSkateDistOverride = 0.0f;
@@ -152,7 +150,6 @@ static Bool canSelectionSalvage( const Object *targetObj)
 		{
 			continue;
 		}
-
 
 		Object *obj = draw->getObject();
 		if (!obj)
@@ -634,9 +631,6 @@ void pickAndPlayUnitVoiceResponse( const DrawableList *list, GameMessage::Type m
 
 	}//next drawable in list
 
-
-
-
 	if (!soundToPlayPtr)
 		return;
 
@@ -694,7 +688,6 @@ void pickAndPlayUnitVoiceResponse( const DrawableList *list, GameMessage::Type m
 		}
 	}
 }
-
 
 //------------------------------------------------------------------------------------
 /**
@@ -758,8 +751,6 @@ static void viewCommandCenter( void )
 	}
 }
 
-
-
 //----------------- Select and View Hero -----------------------------------
 
 struct HeroHolder
@@ -769,7 +760,6 @@ struct HeroHolder
 
 void amIAHero(Object* obj, void* heroHolder)
 {
-
 
 	if (!obj || ((HeroHolder*)heroHolder)->hero != NULL)
 	{
@@ -781,8 +771,6 @@ void amIAHero(Object* obj, void* heroHolder)
 		((HeroHolder*)heroHolder)->hero = obj;
 	}
 }
-
-
 
 static Object *iNeedAHero( void )
 {
@@ -1062,7 +1050,6 @@ GameMessage::Type CommandTranslator::issueSpecialPowerCommand( const CommandButt
 		}
 	}
 
-
 	return msgType;
 }
 
@@ -1250,8 +1237,6 @@ CommandTranslator::CommandTranslator() :
 CommandTranslator::~CommandTranslator()
 {
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 GameMessage::Type CommandTranslator::evaluateForceAttack( Drawable *draw, const Coord3D *pos, CommandEvaluateType type )
@@ -1716,9 +1701,7 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
 
 					healMsg->appendObjectIDArgument( obj->getID() );
 
-
 					pickAndPlayUnitVoiceResponse( TheInGameUI->getAllSelectedDrawables(), GameMessage::MSG_GET_REPAIRED );
-
 
 				}  // end if
 
@@ -2183,7 +2166,6 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
 	return msgType;
 
 }  // end evaluateContextCommand
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -3101,7 +3083,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			TheInGameUI->setWaypointMode( false );
 			break;
 
-
 		//-----------------------------------------------------------------------------------------
 		case GameMessage::MSG_META_BEGIN_FORCEATTACK:
 			TheInGameUI->setForceAttackMode( true );
@@ -3183,7 +3164,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			m_teamExists = true;
 			break;
 		}
-
 
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DESTROY_SELECTED_GROUP:
@@ -3368,7 +3348,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
 
 		}  // end case GameMessage::MSG_MOUSE_LEFT_CLICK
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 		//------------------------------------------------------------------------- BEGIN DEMO MESSAGES
@@ -4511,7 +4490,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
 		}
 
-
 		//------------------------------------------------------------------------------- DEMO MESSAGES
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_META_DEBUG_VTUNE_OFF:
@@ -4588,9 +4566,7 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
 #endif // DUMP_PERF_STATS
 
-
 	}  // end switch( msg->type )
-
 
 	return disp;
 

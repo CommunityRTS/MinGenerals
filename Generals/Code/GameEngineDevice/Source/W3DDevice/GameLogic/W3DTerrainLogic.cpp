@@ -246,7 +246,6 @@ void W3DTerrainLogic::getMaximumPathfindExtent( Region3D *extent ) const
 	extent->hi.z = m_mapMaxZ;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void W3DTerrainLogic::getExtentIncludingBorder( Region3D *extent ) const

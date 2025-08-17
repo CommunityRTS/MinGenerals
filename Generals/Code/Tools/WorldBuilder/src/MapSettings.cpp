@@ -32,7 +32,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // MapSettings dialog
 
-
 MapSettings::MapSettings(CWnd* pParent /*=NULL*/)
 	: CDialog(MapSettings::IDD, pParent)
 {
@@ -41,7 +40,6 @@ MapSettings::MapSettings(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void MapSettings::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -49,7 +47,6 @@ void MapSettings::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(MapSettings, CDialog)
 	//{{AFX_MSG_MAP(MapSettings)
@@ -84,7 +81,6 @@ BOOL MapSettings::OnInitDialog()
 		timeofday->AddString(TimeOfDayNames[i]);
 	}
 	timeofday->SetCurSel(TheGlobalData->m_timeOfDay-TIME_OF_DAY_FIRST);
-
 
 	CComboBox *weather = (CComboBox*)GetDlgItem(IDC_MAP_WEATHER);
 	weather->ResetContent();

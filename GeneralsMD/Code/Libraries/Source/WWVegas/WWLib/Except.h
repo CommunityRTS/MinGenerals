@@ -73,15 +73,12 @@ extern unsigned long ExceptionReturnStack;
 extern unsigned long ExceptionReturnAddress;
 extern unsigned long ExceptionReturnFrame;
 
-
 typedef struct tThreadInfoType {
 	char				ThreadName[128];
 	unsigned long	ThreadID;
 	HANDLE			ThreadHandle;
 	bool				Main;
 } ThreadInfoType;
-
-
 
 #endif	//_MSC_VER
 

@@ -41,14 +41,12 @@
 #include "MeshDeformSaveDefs.H"
 #include "MeshDeformDefs.H"
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Constants
 //
 ///////////////////////////////////////////////////////////////////////////
 const int MAX_DEFORM_KEY_FRAMES			= 10;
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -65,7 +63,6 @@ MeshDeformSetClass::~MeshDeformSetClass (void)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Set_Current_Key_Frame
@@ -80,7 +77,6 @@ MeshDeformSetClass::Set_Current_Key_Frame (int index)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -110,7 +106,6 @@ MeshDeformSetClass::Set_Vertex_Position
 	m_SetMembers.Set (index, 1);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -142,7 +137,6 @@ MeshDeformSetClass::Set_Vertex_Color
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Set_Members
@@ -171,7 +165,6 @@ MeshDeformSetClass::Update_Set_Members (void)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -205,7 +198,6 @@ MeshDeformSetClass::Collapse_Keyframe_Data (int keyframe)
 		}
 	}
 
-
 	//
 	//	Collapse the vertex color data
 	//
@@ -227,7 +219,6 @@ MeshDeformSetClass::Collapse_Keyframe_Data (int keyframe)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -253,7 +244,6 @@ MeshDeformSetClass::Reset_Key_Frame_Verts (int keyframe)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Reset_Key_Frame_Colors
@@ -277,7 +267,6 @@ MeshDeformSetClass::Reset_Key_Frame_Colors (int keyframe)
 	Update_Set_Members ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -364,7 +353,6 @@ MeshDeformSetClass::Update_Current_Data (void)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Key_Frame
@@ -424,7 +412,6 @@ MeshDeformSetClass::Update_Key_Frame (int key_frame)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Init_Key_Frames
@@ -443,7 +430,6 @@ MeshDeformSetClass::Init_Key_Frames (void)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -464,7 +450,6 @@ MeshDeformSetClass::Free_Key_Frames (void)
 	m_KeyFrames.Delete_All ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -492,7 +477,6 @@ MeshDeformSetClass::Copy_Vertex_Array (Mesh &mesh)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -549,7 +533,6 @@ MeshDeformSetClass::Resize_Vertex_Array (int count, int color_count)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Set_State
@@ -563,7 +546,6 @@ MeshDeformSetClass::Set_State (float state)
 	Set_Current_Key_Frame ((key_frame >= 0) ? (key_frame - 1) : -1);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -622,7 +604,6 @@ MeshDeformSetClass::Determine_Interpolation_Indicies
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -721,7 +702,6 @@ MeshDeformSetClass::Apply_Position_Changes
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Apply_Color_Changes
@@ -805,7 +785,6 @@ MeshDeformSetClass::Apply_Color_Changes
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Apply_Color_Changes
@@ -887,7 +866,6 @@ MeshDeformSetClass::Apply_Color_Changes
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Mesh
@@ -930,7 +908,6 @@ MeshDeformSetClass::Update_Mesh (TriObject &tri_obj)
 		for (vert_color = 0; vert_color < m_pMesh->numCVerts; vert_color ++) {
 			m_pMesh->vertCol[vert_color] = tri_obj.mesh.vertCol[vert_color];
 		}
-
 
 		/*for (int index = 0; index < m_pMesh->numCVerts; index ++) {
 			m_pMesh->vertCol[index] = tri_obj.mesh.vertCol[index];
@@ -1006,15 +983,10 @@ MeshDeformSetClass::Update_Mesh (TriObject &tri_obj)
 			m_pMesh->vertCol[index] = tri_obj.mesh.vertCol[index];
 		}*/
 
-
-
-
-
 		/*for (int vert = 0; vert < m_VertexCount; vert ++) {
 			tri_obj.mesh.verts[vert] += (1.0F * m_pVertexDeltaArray[vert]);
 			m_pMesh->verts[vert] = tri_obj.mesh.verts[vert];
 		}
-
 
 		//
 		// Transform the vertex colors based on the current deform state
@@ -1040,7 +1012,6 @@ MeshDeformSetClass::Update_Mesh (TriObject &tri_obj)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1113,7 +1084,6 @@ MeshDeformSetClass::Update_Members (DEFORM_CHANNELS flags)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Select_Members
@@ -1131,7 +1101,6 @@ MeshDeformSetClass::Select_Members (void)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1194,7 +1163,6 @@ MeshDeformSetClass::Restore_Members (void)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Is_Empty
@@ -1215,7 +1183,6 @@ MeshDeformSetClass::Is_Empty (void) const
 	// Return the true/false result code
 	return is_empty;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1308,7 +1275,6 @@ MeshDeformSetClass::Save
 	m_State = old_state;
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1424,7 +1390,6 @@ MeshDeformSetClass::Save (ISave *save_obj)
 	return result;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Load
@@ -1437,7 +1402,6 @@ MeshDeformSetClass::Load (ILoad *load_obj)
 	Free_Key_Frames ();
 	Init_Key_Frames ();
 	DWORD bytes = 0L;
-
 
 	//
 	//	Is this the chunk we were expecting?

@@ -76,7 +76,6 @@
  *   DistLODClass::Decrement_Lod -- moves to a lower detail LOD                                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "distlod.h"
 #include "nstrdup.h"
 #include "ww3d.h"
@@ -94,7 +93,6 @@
 ** Loader Instance
 */
 DistLODLoaderClass			_DistLODLoader;
-
 
 RenderObjClass * DistLODPrototypeClass::Create(void)
 {
@@ -153,7 +151,6 @@ PrototypeClass *DistLODLoaderClass::Load_W3D( ChunkLoadClass &cload )
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODDefClass -- default constructor for DistLODDefClass                                  *
  *                                                                                             *
@@ -173,7 +170,6 @@ DistLODDefClass::DistLODDefClass(void) :
 	Lods(NULL)
 {
 }
-
 
 /***********************************************************************************************
  * DistLODDefClass::DistLODDefClass -- manual constructor for DistLODDefClass                  *
@@ -208,7 +204,6 @@ DistLODDefClass::DistLODDefClass(const char * name,int lodcount,DistLODNodeDefSt
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODDefClass::~DistLODDefClass -- destructor for DistLODDefClass                         *
  *                                                                                             *
@@ -225,7 +220,6 @@ DistLODDefClass::~DistLODDefClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * DistLODDefClass::Free -- releases all memory in use by this object                          *
@@ -256,7 +250,6 @@ void DistLODDefClass::Free(void)
 	}
 	LodCount = 0;
 }
-
 
 /***********************************************************************************************
  * DistLODDefClass::Load -- initialize this object from a W3D file                             *
@@ -316,7 +309,6 @@ WW3DErrorType DistLODDefClass::Load_W3D(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * DistLODDefClass::read_header -- read the header from a W3D file                             *
  *                                                                                             *
@@ -355,7 +347,6 @@ bool DistLODDefClass::read_header(ChunkLoadClass & cload)
 	return true;
 }
 
-
 /***********************************************************************************************
  * DistLODDefClass::read_node -- read a model node description from a W3D file                 *
  *                                                                                             *
@@ -372,7 +363,6 @@ bool DistLODDefClass::read_node(ChunkLoadClass & cload,DistLODNodeDefStruct * no
 {
 	return true;
 }
-
 
 /***********************************************************************************************
  * DistLODClass::DistLODClass -- constructor                                                   *
@@ -408,7 +398,6 @@ DistLODClass::DistLODClass(const DistLODDefClass & def)
 	Update_Obj_Space_Bounding_Volumes();
 }
 
-
 /***********************************************************************************************
  * DistLODClass::DistLODClass -- copy constructor                                              *
  *                                                                                             *
@@ -441,7 +430,6 @@ DistLODClass::DistLODClass(const DistLODClass & that) :
 	Update_Obj_Space_Bounding_Volumes();
 }
 
-
 /***********************************************************************************************
  * DistLODClass::~DistLODClass -- destructor                                                   *
  *                                                                                             *
@@ -458,7 +446,6 @@ DistLODClass::~DistLODClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Free -- releases memory in use                                                *
@@ -489,7 +476,6 @@ void DistLODClass::Free(void)
 	LodCount = 0;
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Get_Num_Polys -- returns the number of polys in this model                    *
  *                                                                                             *
@@ -507,7 +493,6 @@ int DistLODClass::Get_Num_Polys(void) const
 {
 	return Lods[CurLod].Model->Get_Num_Polys();
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Render -- Render this LOD.                                                    *
@@ -531,7 +516,6 @@ void DistLODClass::Render(RenderInfoClass & rinfo)
 	Lods[CurLod].Model->Render(rinfo);
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Special_Render -- custom render function                                      *
  *                                                                                             *
@@ -550,7 +534,6 @@ void DistLODClass::Special_Render(SpecialRenderInfoClass & rinfo)
 	Lods[CurLod].Model->Special_Render(rinfo);
 }
 
-
 /***********************************************************************************************
  * DistLODCLass::Get_Num_Sub_Objects -- returns the number of subobjects (levels of detail)    *
  *                                                                                             *
@@ -567,7 +550,6 @@ int DistLODClass::Get_Num_Sub_Objects(void) const
 {
 	return LodCount;
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Get_Sub_Object -- returns pointer to the specified sub-object (LOD)           *
@@ -609,7 +591,6 @@ int DistLODClass::Add_Sub_Object_To_Bone(RenderObjClass * subobj,int bone_index)
 	return 0;
 }
 
-
 /***********************************************************************************************
  * DistLODCLass::Set_Transform -- sets the transform for this model                            *
  *                                                                                             *
@@ -632,7 +613,6 @@ void DistLODClass::Set_Transform(const Matrix3D &m)
 		Lods[i].Model->Set_Transform(m);
 	}
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Set_Position -- set the position of this object                               *
@@ -657,7 +637,6 @@ void DistLODClass::Set_Position(const Vector3 &v)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Set_Animation -- set the animation state of this model                        *
  *                                                                                             *
@@ -677,7 +656,6 @@ void	DistLODClass::Set_Animation( void )
 		Lods[i].Model->Set_Animation();
 	}
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Set_Animation -- set the animation state of this model                        *
@@ -699,7 +677,6 @@ void DistLODClass::Set_Animation( HAnimClass * motion,float frame,int mode)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Set_Animation -- set the animation state to a blend of two anims              *
  *                                                                                             *
@@ -719,7 +696,6 @@ void DistLODClass::Set_Animation( HAnimClass * motion0,float frame0,HAnimClass *
 		Lods[i].Model->Set_Animation(motion0,frame0,motion1,frame1,percentage);
 	}
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Set_Animation -- set the animation state to a combination of anims            *
@@ -741,7 +717,6 @@ void DistLODClass::Set_Animation( HAnimComboClass * anim_combo)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Peek_Animation													                          *
  *                                                                                             *
@@ -758,7 +733,6 @@ HAnimClass *	DistLODClass::Peek_Animation( void )
 {
 	return Lods[0].Model->Peek_Animation();
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Get_Num_Bones -- returns the number of bones                                  *
@@ -777,7 +751,6 @@ int DistLODClass::Get_Num_Bones(void)
 	return Lods[0].Model->Get_Num_Bones();
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Get_Bone_Name -- returns the name of the specified bone                       *
  *                                                                                             *
@@ -794,7 +767,6 @@ const char * DistLODClass::Get_Bone_Name(int bone_index)
 {
 	return Lods[0].Model->Get_Bone_Name(bone_index);
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Get_Bone_Index -- returns the index of the given bone (if found)              *
@@ -814,7 +786,6 @@ int DistLODClass::Get_Bone_Index(const char * bonename)
 	return Lods[0].Model->Get_Bone_Index(bonename);
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Get_Bone_Transform -- returns the transform of the given bone                 *
  *                                                                                             *
@@ -833,7 +804,6 @@ const Matrix3D &	DistLODClass::Get_Bone_Transform(const char * bonename)
 	return Lods[0].Model->Get_Bone_Transform(bonename);
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Get_Bone_Transform -- returns the transform of the given bone                 *
  *                                                                                             *
@@ -851,7 +821,6 @@ const Matrix3D &	DistLODClass::Get_Bone_Transform(int boneindex)
    // Highest LOD is used since lowest may be a Null3DObjClass.
 	return Lods[0].Model->Get_Bone_Transform(boneindex);
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Capture_Bone -- take control of a bone                                        *
@@ -873,7 +842,6 @@ void DistLODClass::Capture_Bone(int bindex)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Release_Bone -- release control of a bone                                     *
  *                                                                                             *
@@ -894,7 +862,6 @@ void DistLODClass::Release_Bone(int bindex)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Is_Bone_Captured -- check whether the given bone is captured                  *
  *                                                                                             *
@@ -912,7 +879,6 @@ bool DistLODClass::Is_Bone_Captured(int bindex) const
    // Highest LOD is used since lowest may be a Null3DObjClass.
 	return Lods[0].Model->Is_Bone_Captured(bindex);
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Control_Bone -- set the transform for a captured bone                         *
@@ -957,7 +923,6 @@ bool DistLODClass::Cast_Ray(RayCollisionTestClass & raytest)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Cast_AABox -- perform an AABox cast against this model                        *
  *                                                                                             *
@@ -981,7 +946,6 @@ bool DistLODClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Cast_OBBox -- perform an OBBox cast against this model                        *
  *                                                                                             *
@@ -1003,7 +967,6 @@ bool DistLODClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODCLass::Get_Num_Snap_Points -- returns number of snap points in this model            *
  *                                                                                             *
@@ -1021,7 +984,6 @@ int DistLODClass::Get_Num_Snap_Points(void)
 	return Lods[0].Model->Get_Num_Snap_Points();
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Get_Snap_Point -- returns the i'th snap point                                 *
  *                                                                                             *
@@ -1038,7 +1000,6 @@ void DistLODClass::Get_Snap_Point(int index,Vector3 * set)
 {
 	Lods[0].Model->Get_Snap_Point(index,set);
 }
-
 
 /***********************************************************************************************
  * DistLODCLass::Scale -- scale this model; passes on to each LOD                              *
@@ -1060,7 +1021,6 @@ void DistLODClass::Scale(float scale)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Scale -- scale this model; passes on to each LOD                              *
  *                                                                                             *
@@ -1080,7 +1040,6 @@ void DistLODClass::Scale(float scalex, float scaley, float scalez)
 		Lods[i].Model->Scale(scalex,scaley,scalez);
 	}
 }
-
 
 /***********************************************************************************************
  * DistLODClass::Update_LOD -- adjusts the current LOD based on the distance                   *
@@ -1109,7 +1068,6 @@ void DistLODClass::Update_Lod(const CameraClass & camera)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Increment_Lod -- moves to a higher detail LOD                                 *
  *                                                                                             *
@@ -1136,7 +1094,6 @@ void DistLODClass::Increment_Lod(void)
 	}
 }
 
-
 /***********************************************************************************************
  * DistLODClass::Decrement_Lod -- moves to a lower detail LOD                                  *
  *                                                                                             *
@@ -1161,5 +1118,4 @@ void DistLODClass::Decrement_Lod(void)
 		}
 	}
 }
-
 

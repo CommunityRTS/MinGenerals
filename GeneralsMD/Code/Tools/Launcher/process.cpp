@@ -92,7 +92,6 @@ bit8 Wait_Process(Process &process, DWORD *exit_code)
     return(FALSE);
 }
 
-
 //
 // Get the process to run from the config object
 //
@@ -126,7 +125,6 @@ bit8 Read_Process_Info(ConfigFile &config,OUT Process &info, IN char *key)
  strcpy(info.directory,dir.get());
  strcpy(info.args,args.get());
  return(TRUE);
-
 
 /*********************************************************
   FILE     *in;

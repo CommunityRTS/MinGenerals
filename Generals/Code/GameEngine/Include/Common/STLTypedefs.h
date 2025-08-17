@@ -61,7 +61,6 @@ class STLSpecialAlloc;
 
 //-----------------------------------------------------------------------------
 
-
 // FORWARD DECLARATIONS
 class Object;
 enum NameKeyType;

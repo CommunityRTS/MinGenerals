@@ -269,8 +269,6 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 				height = 0.0f;
 		}
 
-
-
 		Bool hitATree = FALSE;
 		// Here we want to make sure we crash if we collide with a tree on the way down
 		PhysicsBehavior *phys = us->getPhysics();
@@ -284,8 +282,6 @@ UpdateSleepTime JetSlowDeathBehavior::update( void )
 				hitATree = TRUE;
 			}
 		}
-
-
 
 		// when we've hit the ground, we're totally done
 		if( height <= 0.0f || hitATree )

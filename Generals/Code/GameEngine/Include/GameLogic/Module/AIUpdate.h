@@ -61,7 +61,6 @@ class AssaultTransportAIInterface;
 enum AIStateType;
 enum ObjectID;
 
-
 //-------------------------------------------------------------------------------------------------
 const Real FAST_AS_POSSIBLE = 999999.0f;
 
@@ -132,7 +131,6 @@ static const char *TheAutoAcquireEnemiesNames[] =
 	NULL
 };
 #endif
-
 
 //-------------------------------------------------------------------------------------------------
 enum MoodMatrixParameters
@@ -287,7 +285,6 @@ protected:
 	virtual void privateBusy( CommandSourceType cmdSource );	///< Transition to the busy state
 	virtual void privateMoveAwayFromUnit( Object *unit, CommandSourceType cmdSource );	///< Move out of the way of a unit.
 
-
 public:
 	AIUpdateInterface( Thing *thing, const ModuleData* moduleData );
 	// virtual destructor prototype provided by memory pool declaration
@@ -319,7 +316,6 @@ public:
 #endif
 
 	virtual void joinTeam( void );			///< This unit just got added to a team & needs to catch up.
-
 
 	// this is present solely for some transports to override, so that they can land before
 	// allowing people to exit...
@@ -355,7 +351,6 @@ public:
 														 Player *owningPlayer,
 														 Bool isRebuild ) { return NULL; }///< construct a building
 
-
 	void ignoreObstacle( const Object *obj );			///< tell the pathfinder to ignore the given object as an obstacle
 	void ignoreObstacleID( ObjectID id );			///< tell the pathfinder to ignore the given object as an obstacle
 
@@ -378,7 +373,6 @@ public:
 	*/
 	virtual void addTargeter(ObjectID id, Bool add) { return; }
 	virtual Bool isTemporarilyPreventingAimSuccess() const { return false; }
-
 
 	void setPriorWaypointID( UnsignedInt id )   { m_priorWaypointID = id; };
 	void setCurrentWaypointID( UnsignedInt id ) { m_currentWaypointID = id; };

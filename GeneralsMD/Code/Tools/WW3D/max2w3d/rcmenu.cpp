@@ -39,11 +39,9 @@
  *   RCMenuClass::Toggle_Geometry -- toggle the "export geometry" option                       *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "rcmenu.h"
 #include "w3dutil.h"
 #include "util.h"
-
 
 RCMenuClass TheRCMenu;
 
@@ -185,5 +183,4 @@ void RCMenuClass::Toggle_Geometry(INode * node)
 		wdata->Enable_Export_Geometry(true);
 	}
 }
-
 

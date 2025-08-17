@@ -29,7 +29,6 @@ extern "C" {
 #include "gnu_regex.h"
 }
 
-
 // The regular expression syntax options that RegularExpressionClass uses.
 // The dirty details of each option are described in "gnu_regex.h"
 #define OUR_SYNTAX_OPTIONS																									\
@@ -42,7 +41,6 @@ extern "C" {
 	RE_NO_BK_PARENS |					/* ( ) are group markers and \( \) are literals              */	\
 	RE_NO_BK_VBAR |					/* | is the OR operator and \| is a literal                  */	\
 	RE_NO_EMPTY_RANGES				/* [z-a] is an invalid range but [a-z] is valid              */
-
 
 /*
 ** Definition of private DataStruct for RegularExpressionClass
@@ -79,7 +77,6 @@ struct RegularExpressionClass::DataStruct
 		IsValid = false;
 	}
 
-
 	// The regular expression that has been compiled.
 	StringClass	ExprString;
 
@@ -90,8 +87,6 @@ struct RegularExpressionClass::DataStruct
 	// True if CompiledExpr is valid.
 	bool			IsValid;
 };
-
-
 
 /*
 ** RegularExpressionClass Implementation
@@ -109,7 +104,6 @@ RegularExpressionClass::RegularExpressionClass (const char *expression)
 		Compile(expression);
 }
 
-
 RegularExpressionClass::RegularExpressionClass (const RegularExpressionClass &copy)
 :	Data(0)
 {
@@ -125,13 +119,11 @@ RegularExpressionClass::RegularExpressionClass (const RegularExpressionClass &co
 	}
 }
 
-
 RegularExpressionClass::~RegularExpressionClass (void)
 {
 	delete Data;
 	Data = 0;
 }
-
 
 bool RegularExpressionClass::Compile (const char *expression)
 {
@@ -163,13 +155,11 @@ bool RegularExpressionClass::Compile (const char *expression)
 	return false;
 }
 
-
 bool RegularExpressionClass::Is_Valid (void) const
 {
 	assert(Data);
 	return Data->IsValid;
 }
-
 
 bool RegularExpressionClass::Match (const char *string) const
 {
@@ -199,7 +189,6 @@ bool RegularExpressionClass::Match (const char *string) const
 	return true;
 }
 
-
 /*
 ** Operators
 */
@@ -218,7 +207,6 @@ RegularExpressionClass & RegularExpressionClass::operator = (const RegularExpres
 	// Return this object.
 	return *this;
 }
-
 
 bool RegularExpressionClass::operator == (const RegularExpressionClass &rhs) const
 {
@@ -241,10 +229,8 @@ bool RegularExpressionClass::operator == (const RegularExpressionClass &rhs) con
 	return true;
 }
 
-
 inline bool RegularExpressionClass::operator != (const RegularExpressionClass &rhs) const
 {
 	return !(*this == rhs);
 }
-
 

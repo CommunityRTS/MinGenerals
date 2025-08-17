@@ -50,7 +50,6 @@
  *   HTreeClass::Get_Parent_Index -- returns index of the parent of the given bone             *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "htree.h"
 #include "hanim.h"
 #include "hcanim.h"
@@ -99,8 +98,6 @@ void HTreeClass::Init_Default(void)
 	Name[0] = 0;
 	return ;
 
-
-
 }
 
 /***********************************************************************************************
@@ -119,10 +116,7 @@ HTreeClass::~HTreeClass(void)
 {
 	Free();
 
-
-
 }
-
 
 /***********************************************************************************************
  * HTreeClass::HTreeClass -- copy constructor                                                  *
@@ -243,7 +237,6 @@ Error:
 	return LOAD_ERROR;
 }
 
-
 /***********************************************************************************************
  * HTreeClass::read_pivots -- reads the pivots out of a file                                   *
  *                                                                                             *
@@ -342,7 +335,6 @@ bool HTreeClass::read_pivots(ChunkLoadClass & cload,bool pre30)
 	return true;
 }
 
-
 /***********************************************************************************************
  * HTreeClass::Free -- de-allocate all memory in use                                           *
  *                                                                                             *
@@ -366,7 +358,6 @@ void HTreeClass::Free(void)
 	// Also clean up other members:
 	ScaleFactor = 1.0f;
 }
-
 
 /***********************************************************************************************
  * HTreeClass::Simple_Evaluate_Pivot -- Returns the transform of a pivot at the given frame.	  *
@@ -451,9 +442,6 @@ bool HTreeClass::Simple_Evaluate_Pivot
 
 	return retval;
 }
-
-
-
 
 /***********************************************************************************************
  * HTreeClass::Base_Update -- Computes the base pose transform for each pivot                  *
@@ -622,7 +610,6 @@ void HTreeClass::Anim_Update(const Matrix3D & root,HRawAnimClass * motion,float 
 	}
 }
 
-
 /***********************************************************************************************
  * HTreeClass::Blend_Update -- computes each pivot as a blend of two anims                     *
  *                                                                                             *
@@ -692,8 +679,6 @@ void HTreeClass::Blend_Update
 		}
 	}
 }
-
-
 
 /***********************************************************************************************
  * HTreeClass::Combo_Update -- compute each pivot's transform using an anim combo              *
@@ -844,7 +829,6 @@ void HTreeClass::Combo_Update
 	}
 }
 
-
 /***********************************************************************************************
  * HTreeClass::Find_Bone -- Find a bone by name                                                *
  *                                                                                             *
@@ -867,7 +851,6 @@ int HTreeClass::Get_Bone_Index(const char * name) const
 	return 0;
 }
 
-
 /***********************************************************************************************
  * HTreeClass::Get_Bone_Name -- get the name of a bone from its index                          *
  *                                                                                             *
@@ -887,7 +870,6 @@ const char * HTreeClass::Get_Bone_Name(int boneidx) const
 
 	return Pivot[boneidx].Name;
 }
-
 
 /***********************************************************************************************
  * HTreeClass::Get_Parent_Index -- returns index of the parent of the given bone               *
@@ -915,7 +897,6 @@ int HTreeClass::Get_Parent_Index(int boneidx) const
 	}
 }
 
-
 // Scale this HTree by a constant factor:
 void HTreeClass::Scale(float factor)
 {
@@ -933,8 +914,6 @@ void HTreeClass::Scale(float factor)
 	// Set state used later to scale animations:
 	ScaleFactor *= factor;
 }
-
-
 
 void HTreeClass::Capture_Bone(int boneindex)
 {
@@ -989,7 +968,6 @@ void HTreeClass::Control_Bone(int boneindex,const Matrix3D & relative_tm,bool wo
 	Pivot[boneindex].CapTransform = relative_tm;
 #endif
 }
-
 
 // Morph the bones on the HTree using weights from a number of other HTrees
 HTreeClass * HTreeClass::Create_Morphed(	int num_morph_sources,

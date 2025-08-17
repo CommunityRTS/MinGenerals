@@ -439,7 +439,6 @@ Object::Object( const ThingTemplate *tt, const ObjectStatusMaskType &objectStatu
       m_stealth = stealth;
     }
 
-
 		AIUpdateInterface* ai = newMod->getAIUpdateInterface();
 		if (ai)
 		{
@@ -502,11 +501,8 @@ Object::Object( const ThingTemplate *tt, const ObjectStatusMaskType &objectStatu
 	//disable occlusion for some time after object is created to allow them to exit the factory/building.
 	m_safeOcclusionFrame = TheGameLogic->getFrame()+tt->getOcclusionDelay();
 
-
 	m_soleHealingBenefactorID = INVALID_ID; ///< who is the only other object that can give me this non-stacking heal benefit?
 	m_soleHealingBenefactorExpirationFrame = 0; ///< on what frame can I accept healing (thus to switch) from a new benefactor
-
-
 
 }  // end Object
 
@@ -552,7 +548,6 @@ void Object::initObject()
 			controller->applyBattlePlanBonusesForObject( this );
 		}
 	}
-
 
 	//For each special power module that we have, add it's type to the specialpower bits. This is
 	//for optimal access later.
@@ -1003,7 +998,6 @@ void Object::setStatus( ObjectStatusMaskType objectStatus, Bool set )
 			}
 		}
 
-
 		// when an object's construction status changes, it needs to have its partition data updated,
 		// in order to maintain the shroud correctly.
 		if( m_status.test( OBJECT_STATUS_UNDER_CONSTRUCTION ) != oldStatus.test( OBJECT_STATUS_UNDER_CONSTRUCTION ) )
@@ -1162,7 +1156,6 @@ Bool Object::canCrushOrSquish(Object *otherObj, CrushSquishTestType testType ) c
 		}
 	}
 
-
 	UnsignedByte crushableLevel = otherObj->getCrushableLevel();
 
 	if( testType == TEST_CRUSH_ONLY || testType == TEST_CRUSH_OR_SQUISH )
@@ -1187,7 +1180,6 @@ UnsignedByte Object::getCrushableLevel() const
 {
 	return getTemplate()->getCrushableLevel();
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** Topple an object, if possible */
@@ -1463,7 +1455,6 @@ CanAttackResult Object::getAbleToUseWeaponAgainstTarget( AbleToAttackType attack
 	return m_weaponSet.getAbleToUseWeaponAgainstTarget( attackType, this, victim, pos, commandSource, specificSlot );
 }
 
-
 //=============================================================================
 Bool Object::chooseBestWeaponForTarget(const Object* target, WeaponChoiceCriteria criteria, CommandSourceType cmdSource )
 {
@@ -1522,7 +1513,6 @@ void Object::notifyFiringTrackerShotFired( const Weapon* weaponFired, ObjectID v
   if ( m_firingTracker )
     m_firingTracker->shotFired( weaponFired, victimID );
 }
-
 
 //=============================================================================
 void Object::preFireCurrentWeapon( const Object *victim )
@@ -1859,7 +1849,6 @@ void Object::attemptDamage( DamageInfo *damageInfo )
 		}
 	}
 
-
 	/// @todo track damage dealt/attempted
 
 	//
@@ -1937,7 +1926,6 @@ Bool Object::attemptHealingFromSoleBenefactor ( Real amount, const Object* sourc
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Real Object::estimateDamage( DamageInfoInput& damageInfo ) const
 {
@@ -2004,8 +1992,6 @@ void Object::setCaptured(Bool isCaptured)
 
 	// No need to see if we should skip updates, this flag has no effect on skipping updates.
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 Bool Object::isStructure(void) const
@@ -2199,7 +2185,6 @@ void Object::setDisabledUntil( DisabledType type, UnsignedInt frame )
 				if (autoHeal)
 					autoHeal->undoUpgrade();
 
-
 			}
 		}
 
@@ -2273,7 +2258,6 @@ Bool Object::clearDisabled( DisabledType type )
 		}
 	}
 
-
 	// an edge-test for disabledness, for type. This DECREMENTS m_pauseCount
 	// srj sez: HELD nevers disables special powers.
 	if ( type != DISABLED_HELD && isDisabledByType( type ) )
@@ -2333,7 +2317,6 @@ Bool Object::clearDisabled( DisabledType type )
 	}
 	return TRUE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //Checks any timers and clears disabled statii that have expired.
@@ -2683,8 +2666,6 @@ void Object::setTriggerAreaFlagsForChangeInPosition()
 
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 Bool Object::isInList(Object **pListHead) const
@@ -2837,7 +2818,6 @@ void Object::friend_notifyOfNewMapBoundary(void)
 		m_privateStatus |= OFF_MAP;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void Object::calcNaturalRallyPoint(Coord2D *pt)
@@ -2924,10 +2904,8 @@ void Object::scoreTheKill( const Object *victim )
 		return;
 	}
 
-
 	if ( victim->isKindOf( KINDOF_IGNORED_IN_GUI ) )
 		return;
-
 
 	Player* controller = getControllingPlayer();
 
@@ -3030,7 +3008,6 @@ Bool Object::isSelectable() const
 //						&& !isEffectivelyDead()
 //						&& !getTemplate()->isKindOf(KINDOF_DRONE)//Most drones are unselectable from being slaved, but the SpyDrone needs help
 //						);
-
 
 	if (getTemplate()->isKindOf(KINDOF_ALWAYS_SELECTABLE))
     return TRUE;
@@ -3191,7 +3168,6 @@ Bool Object::isAbleToAttack() const
 	if( containedBy && containedBy->getContain() && !containedBy->getContain()->isPassengerAllowedToFire( getID() ) )
 		return false;
 
-
 	// We can't fire if under construction
 	if( testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION) )
 		return false;
@@ -3229,10 +3205,7 @@ Bool Object::isAbleToAttack() const
       }
     }
 
-
 	}
-
-
 
 	//We can't fire if all our weapons are disabled!
 	//Currently, only turreted weapons can be disabled.
@@ -3278,7 +3251,6 @@ Bool Object::isAbleToAttack() const
 			return FALSE;
 		}
 	}
-
 
 	//***************************************
 	//********* TRUE CONDITIONS *************
@@ -3440,7 +3412,6 @@ Bool Object::getHealthBoxDimensions(Real &healthBoxHeight, Real &healthBoxWidth)
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /**
  * Update this object instance with properties from the map object
@@ -3574,7 +3545,6 @@ void Object::updateObjValuesFromMapProperties(Dict* properties)
 			valInt = 0.0f;
 		m_shroudClearingRange = INT_TO_REAL(valInt);
 	}
-
 
 	Int upgradeNum = 0;
 	do
@@ -3923,7 +3893,6 @@ void Object::crc( Xfer *xfer )
 	}
 #endif DEBUG_CRC
 
-
 #ifdef DEBUG_CRC
 	if (doLogging)
 	{
@@ -3932,16 +3901,6 @@ void Object::crc( Xfer *xfer )
 		DUMPMATRIX3D(mtx);
 	}
 #endif DEBUG_CRC
-
-
-
-
-
-
-
-
-
-
 
 	xfer->xferUser(&m_id,															sizeof(m_id));
 #ifdef DEBUG_CRC
@@ -4217,7 +4176,6 @@ void Object::xfer( Xfer *xfer )
 				m_xferContainedByID = INVALID_ID;
 		}
 
-
 		xfer->xferObjectID( &m_xferContainedByID );
 	}
 
@@ -4379,7 +4337,6 @@ void Object::xfer( Xfer *xfer )
 		}  // end for, i module count recorded in file
 
 	}  // end else, load
-
 
 	if ( version >= 3 )
 	{
@@ -4598,7 +4555,6 @@ void Object::onDie( DamageInfo *damageInfo )
 	Drawable *draw = getDrawable();
 	if (draw) draw->setTerrainDecalFadeTarget(0.0f, -0.03f);//fade...
 	//if (draw) draw->setTerrainDecal(TERRAIN_DECAL_NONE);//pop!
-
 
 	// objects that were spawned from something, need to tell their spawner that they have died
 	Object* spawner = TheGameLogic->findObjectByID( getProducerID() );
@@ -4842,7 +4798,6 @@ void Object::addValue()
 	if( getStatusBits().test( OBJECT_STATUS_UNDER_CONSTRUCTION ) || isEffectivelyDead() || getShroudClearingRange() <= 0.0f )
 		return;
 
-
 	m_partitionLastValue->m_where = *getPosition();
 	m_partitionLastValue->m_data = getTemplate()->friend_getBuildCost();
 
@@ -4892,7 +4847,6 @@ void Object::addThreat()
 	if( getStatusBits().test( OBJECT_STATUS_UNDER_CONSTRUCTION ) || isEffectivelyDead() || getShroudClearingRange() <= 0.0f )
 		return;
 
-
 	m_partitionLastThreat->m_where = *getPosition();
 	m_partitionLastThreat->m_data = getTemplate()->getThreatValue();
 
@@ -4927,8 +4881,6 @@ void Object::removeThreat()
 	m_partitionLastThreat->reset();
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 void Object::look()
 {
@@ -4944,8 +4896,6 @@ void Object::look()
 		// I removed the check for objects under construction by request of designers since
 		// they want constructing objects to have a reduced sight range now. -MW
 		// dead or blind things don't reveal shroud
-
-
 
 		// Some things get Destroyed directly without hitting Death.
 		if( !isDestroyed() && !isEffectivelyDead() )
@@ -5974,7 +5924,6 @@ SpecialPowerUpdateInterface* Object::findSpecialPowerWithOverridableDestination(
 	return NULL;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // Search our special ability updates for a specific one.
 // ------------------------------------------------------------------------------------------------
@@ -6250,7 +6199,6 @@ void Object::goInvulnerable( UnsignedInt time )
 {
 	const Bool WITHOUT_DEFECTOR_FX = FALSE;
 
-
 	friend_setUndetectedDefector( time > 0 );
 
 	if (m_defectionHelper)
@@ -6287,13 +6235,11 @@ RadarPriorityType Object::getRadarPriority( void ) const
 		if( isKindOf( KINDOF_CAPTURABLE ) )
 			priority = RADAR_PRIORITY_STRUCTURE;
 
-
 	}  // end if
 
 	// Carbombs will show up as units regardless of their default priority
 	if ( testStatus( OBJECT_STATUS_IS_CARBOMB ) )
 		priority = RADAR_PRIORITY_UNIT;
-
 
 	// return the priority we're going to use
 	return priority;

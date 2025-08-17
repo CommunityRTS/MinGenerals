@@ -757,7 +757,6 @@ void EditWindow::mouseEvent( UnsignedInt windowsMessage,
 
 					}  // end else
 
-
 				}  // end if
 				else
 				{
@@ -1303,7 +1302,6 @@ void EditWindow::drawUIFeedback( void )
 				// snap move location to grid if on
  				if( (TheEditor->getMode() == MODE_DRAG_MOVE) && TheEditor->isGridSnapOn() )
 					TheEditor->gridSnapLocation( &moveLoc, &moveLoc );
-
 
 				// keep location legal
  				TheEditor->computeSafeLocation( window, moveLoc.x, moveLoc.y,

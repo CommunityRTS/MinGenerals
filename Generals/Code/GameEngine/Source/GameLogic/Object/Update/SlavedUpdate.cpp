@@ -110,7 +110,6 @@ void SlavedUpdate::onSlaverDamage( const DamageInfo *info )
 		ai->aiGoProne( info, CMD_FROM_AI );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SlavedUpdate::update( void )
 {

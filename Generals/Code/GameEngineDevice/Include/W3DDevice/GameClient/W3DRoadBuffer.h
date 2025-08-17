@@ -71,12 +71,10 @@
 //           Type Defines
 //-----------------------------------------------------------------------------
 
-
 enum {bottomLeft=0, bottomRight=1, topLeft=2, topRight=3, NUM_CORNERS=4};
 #define MAX_LINKS 6
 #define DEFAULT_ROAD_SCALE (8.0f)
 #define MIN_ROAD_SEGMENT (0.25f)
-
 
 struct TRoadPt
 {

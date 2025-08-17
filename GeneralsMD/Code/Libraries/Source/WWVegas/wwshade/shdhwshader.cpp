@@ -102,7 +102,6 @@ void ShdHWShader::Shell_Run(char* cmd)
 #endif
 }
 
-
 //**********************************************************************************************
 //! Preprocess and assemble a HW shader from file
 /*! 5/27/02 5:39p KJM Created
@@ -117,7 +116,6 @@ void ShdHWShader::Preprocess_And_Assemble_Shader_From_File
 	char shell_command[_MAX_PATH];
 	char temp_path[_MAX_PATH];
 	char temp_file[_MAX_PATH];
-
 
    GetTempPath(_MAX_PATH, temp_path);
 	GetTempFileName(temp_path,"shd",1,temp_file);
@@ -220,7 +218,6 @@ DWORD ShdHWVertexShader::Create
 
 	return Shader;
 }
-
 
 //**********************************************************************************************
 //! Create Vertex Shader from a dword constant and vertex stream declaration
@@ -330,7 +327,6 @@ DWORD ShdHWPixelShader::Create(char* file_name)
 	return Shader;
 }
 
-
 //**********************************************************************************************
 //! Create Pixel Shader from a dword constant
 /*! 07/19/02 3:39p KJM Created
@@ -365,7 +361,6 @@ DWORD ShdHWPixelShader::Create(DWORD* shader_code_str)
 
 	return Shader;
 }
-
 
 //**********************************************************************************************
 //! Apply generic lighting

@@ -37,7 +37,6 @@
 #include "GameLogic/Module/DieModule.h"
 #include "GameLogic/Weapon.h"
 
-
 //-------------------------------------------------------------------------------------------------
 class EMPUpdateModuleData : public UpdateModuleData
 {
@@ -140,19 +139,7 @@ protected:
 
 	//static Bool s_lastInstanceSpunPositive;/// so that only every other instance spins positive direction
 
-
 };
-
-
-
-
-
-
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 class LeafletDropBehaviorModuleData : public UpdateModuleData
@@ -162,7 +149,6 @@ public:
 	UnsignedInt m_disabledDuration;
   Real m_radius;
 	const ParticleSystemTemplate *m_leafletFXParticleSystem;
-
 
 	LeafletDropBehaviorModuleData()
 	{
@@ -181,8 +167,6 @@ public:
 			{ "DisabledDuration",	INI::parseDurationUnsignedInt,	NULL, offsetof( LeafletDropBehaviorModuleData, m_disabledDuration ) },
       { "AffectRadius",     INI::parseReal,                 NULL, offsetof( LeafletDropBehaviorModuleData, m_radius ) },
       { "LeafletFXParticleSystem", INI::parseParticleSystemTemplate,  NULL, offsetof( LeafletDropBehaviorModuleData, m_leafletFXParticleSystem ) },
-
-
 
       { 0, 0, 0, 0 }
 		};
@@ -214,29 +198,11 @@ public:
 	// DieModuleInterface
 	virtual void onDie( const DamageInfo *damageInfo );
 
-
-
 protected:
 
 	UnsignedInt m_startFrame;			///< frame we die on
   Bool  m_fxFired; ///< have we done our fx yet
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif // __EMPUPDATE_H_
-
 

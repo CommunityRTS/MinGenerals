@@ -77,7 +77,6 @@
 #include "GameLogic/Module/SpawnBehavior.h"
 #include "GameLogic/Module/SpecialPowerModule.h"
 
-
 #include "Common/ThingFactory.h"
 #include "GameLogic/Module/ContainModule.h"
 
@@ -92,10 +91,7 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 #define dont_ALLOW_ALT_F4
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 /*non-static*/ Real TheSkateDistOverride = 0.0f;
@@ -156,7 +152,6 @@ static Bool canSelectionSalvage( const Object *targetObj)
 		{
 			continue;
 		}
-
 
 		Object *obj = draw->getObject();
 		if (!obj)
@@ -219,7 +214,6 @@ static CanAttackResult canObjectForceAttack( Object *obj, const Object *victim, 
       }
 
     } // end if spawnsRweapons
-
 
     return result;
 	}
@@ -693,9 +687,6 @@ void pickAndPlayUnitVoiceResponse( const DrawableList *list, GameMessage::Type m
 
 	}//next drawable in list
 
-
-
-
 	if (!soundToPlayPtr)
 		return;
 
@@ -753,7 +744,6 @@ void pickAndPlayUnitVoiceResponse( const DrawableList *list, GameMessage::Type m
 		}
 	}
 }
-
 
 //------------------------------------------------------------------------------------
 /**
@@ -817,8 +807,6 @@ static void viewCommandCenter( void )
 	}
 }
 
-
-
 //----------------- Select and View Hero -----------------------------------
 
 struct HeroHolder
@@ -828,7 +816,6 @@ struct HeroHolder
 
 void amIAHero(Object* obj, void* heroHolder)
 {
-
 
 	if (!obj || ((HeroHolder*)heroHolder)->hero != NULL)
 	{
@@ -840,8 +827,6 @@ void amIAHero(Object* obj, void* heroHolder)
 		((HeroHolder*)heroHolder)->hero = obj;
 	}
 }
-
-
 
 static Object *iNeedAHero( void )
 {
@@ -1143,8 +1128,6 @@ GameMessage::Type CommandTranslator::issueSpecialPowerCommand( const CommandButt
 		}
 	}
 
-
-
 	return msgType;
 }
 
@@ -1332,8 +1315,6 @@ CommandTranslator::CommandTranslator() :
 CommandTranslator::~CommandTranslator()
 {
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 GameMessage::Type CommandTranslator::evaluateForceAttack( Drawable *draw, const Coord3D *pos, CommandEvaluateType type )
@@ -1678,7 +1659,6 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
 			}
 		}
 
-
 		// ********************************************************************************************
 		else if( TheInGameUI->canSelectedObjectsOverrideSpecialPowerDestination( pos, InGameUI::SELECTION_ANY, SPECIAL_INVALID ) )
 		{
@@ -1826,9 +1806,7 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
 
 					healMsg->appendObjectIDArgument( obj->getID() );
 
-
 					pickAndPlayUnitVoiceResponse( TheInGameUI->getAllSelectedDrawables(), GameMessage::MSG_GET_REPAIRED );
-
 
 				}  // end if
 
@@ -2280,7 +2258,6 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
             }
           }
 
-
 				}
 			}
 
@@ -2329,7 +2306,6 @@ GameMessage::Type CommandTranslator::evaluateContextCommand( Drawable *draw,
 	return msgType;
 
 }  // end evaluateContextCommand
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -2926,10 +2902,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			disp = DESTROY_MESSAGE;
 			break;
 
-
-
-
-
 /*
 			TheInGameUI->deselectAllDrawables();
 
@@ -3441,7 +3413,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 
 		}  // end clear message text
 
-
 #endif
 
 		//-----------------------------------------------------------------------------------------
@@ -3477,7 +3448,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 //			DEBUG_ASSERTCRASH( TheInGameUI->isInWaypointMode(), ("Clearing m_waypointMode but it's already clear!") );
 			TheInGameUI->setWaypointMode( false );
 			break;
-
 
 		//-----------------------------------------------------------------------------------------
 		case GameMessage::MSG_META_BEGIN_FORCEATTACK:
@@ -3560,7 +3530,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			m_teamExists = true;
 			break;
 		}
-
 
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_DESTROY_SELECTED_GROUP:
@@ -3791,8 +3760,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 
 		}  // end case GameMessage::MSG_MOUSE_LEFT_CLICK
 
-
-
 #ifdef ALLOW_ALT_F4
 		case GameMessage::MSG_META_DEMO_INSTANT_QUIT:
     {
@@ -3809,8 +3776,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
     }
 #endif
-
-
 
 		//------------------------------------------------------------------------------- DEMO MESSAGES
 
@@ -4967,7 +4932,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
 		}
 
-
 		//------------------------------------------------------------------------------- DEMO MESSAGES
 		// --------------------------------------------------------------------------------------------
 		case GameMessage::MSG_META_DEBUG_VTUNE_OFF:
@@ -5041,7 +5005,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 
 			TheInGameUI->message( UnicodeString(L"Time to run %d ObjectID lookups is %f.  Next index is %d."), numberLookups, timeToUpdate, (Int)TheGameLogic->getObjectIDCounter() );
 
-
 			QueryPerformanceCounter((LARGE_INTEGER *)&startTime64);
 			QueryPerformanceFrequency((LARGE_INTEGER *)&freq64);
 			numberLookups = 100000;
@@ -5054,7 +5017,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			timeToUpdate = ((double)(endTime64-startTime64) / (double)(freq64));
 
 			TheInGameUI->message( UnicodeString(L"Time to run %d ObjectID lookups is %f.  Next index is %d."), numberLookups, timeToUpdate, (Int)TheGameLogic->getObjectIDCounter() );
-
 
 			QueryPerformanceCounter((LARGE_INTEGER *)&startTime64);
 			QueryPerformanceFrequency((LARGE_INTEGER *)&freq64);
@@ -5091,7 +5053,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 
 			TheInGameUI->message( UnicodeString(L"Time to run %d DrawableID lookups is %f.  Next index is %d."), numberLookups, timeToUpdate, (Int)TheGameClient->getDrawableIDCounter() );
 
-
 			QueryPerformanceCounter((LARGE_INTEGER *)&startTime64);
 			QueryPerformanceFrequency((LARGE_INTEGER *)&freq64);
 			numberLookups = 100000;
@@ -5104,7 +5065,6 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			timeToUpdate = ((double)(endTime64-startTime64) / (double)(freq64));
 
 			TheInGameUI->message( UnicodeString(L"Time to run %d DrawableID lookups is %f.  Next index is %d."), numberLookups, timeToUpdate, (Int)TheGameClient->getDrawableIDCounter() );
-
 
 			QueryPerformanceCounter((LARGE_INTEGER *)&startTime64);
 			QueryPerformanceFrequency((LARGE_INTEGER *)&freq64);
@@ -5152,9 +5112,7 @@ GameMessageDisposition CommandTranslator::translateGameMessage(const GameMessage
 			break;
 #endif // DUMP_PERF_STATS
 
-
 	}  // end switch( msg->type )
-
 
 	return disp;
 

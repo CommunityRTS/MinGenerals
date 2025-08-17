@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -46,7 +45,6 @@
 #include "always.h"
 #include "matrix3d.h"
 #include "quat.h"
-
 
 /*********************************************************************
 
@@ -60,7 +58,6 @@
 	      rotating frame.
 
 *********************************************************************/
-
 
 /* static axes */
 extern int	EulerOrderXYZs;
@@ -89,7 +86,6 @@ extern int	EulerOrderZXYr;
 extern int	EulerOrderZXZr;
 extern int	EulerOrderZYXr;
 extern int	EulerOrderZYZr;
-
 
 /*********************************************************************
 
@@ -122,6 +118,5 @@ private:
 	int		Order;
 
 };
-
 
 #endif /*EULER_H*/

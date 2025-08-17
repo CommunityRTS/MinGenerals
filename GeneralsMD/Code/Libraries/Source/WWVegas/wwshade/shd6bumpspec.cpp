@@ -104,7 +104,6 @@ void Shd6BumpSpecClass::Shutdown()
 	Vertex_Shader.Destroy();
 }
 
-
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6 specular with gloss map (no bump)
 /*! 7/10/02 5:39p KJM Created

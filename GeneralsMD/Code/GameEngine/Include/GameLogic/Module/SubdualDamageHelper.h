@@ -64,5 +64,4 @@ protected:
 	UnsignedInt m_healingStepCountdown;
 };
 
-
 #endif  // end __SubdualDamageHelper_H_

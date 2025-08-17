@@ -311,7 +311,6 @@ public:
 
   Bool                              m_receivesDynamicLights; ///< just like it sounds... it sets a property of Drawable, actually
 
-
 	W3DModelDrawModuleData();
 	~W3DModelDrawModuleData();
 	void validateStuffForTimeAndWeather(const Drawable* draw, Bool night, Bool snowy) const;
@@ -448,7 +447,6 @@ protected:
 	Real getCurAnimDistanceCovered() const;
 	Bool setCurAnimDurationInMsec(Real duration);
 
-
 	inline Bool getFullyObscuredByShroud() const { return m_fullyObscuredByShroud; }
 
 private:
@@ -477,18 +475,15 @@ private:
 		}
 	};
 
-
 	struct ParticleSysTrackerType
 	{
 		ParticleSystemID id;
 		Int				boneIndex;
 	};
 
-
 	typedef std::vector<WeaponRecoilInfo>	WeaponRecoilInfoVec;
 	typedef std::vector<ParticleSysTrackerType>	ParticleSystemIDVec;
 	//typedef std::vector<ParticleSystemID>	ParticleSystemIDVec;
-
 
 	const ModelConditionInfo*			m_curState;
 	const ModelConditionInfo*			m_nextState;

@@ -93,7 +93,6 @@ void SpyVisionSpecialPower::doSpecialPower( UnsignedInt commandOptions )
 	// call the base class action cause we are *EXTENDING* functionality
 	SpecialPowerModule::doSpecialPower( commandOptions );
 
-
 	// get the source of this power
 	Object *source = getObject();
 

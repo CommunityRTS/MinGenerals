@@ -35,7 +35,6 @@
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/Object.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -167,7 +166,6 @@ void ExperienceTracker::addExperiencePoints( Int experienceGain, Bool canScaleFo
 	Int amountToGain = experienceGain;
 	if ( canScaleForBonus )
 		amountToGain *= m_experienceScalar;
-
 
 	m_currentExperience += amountToGain;
 

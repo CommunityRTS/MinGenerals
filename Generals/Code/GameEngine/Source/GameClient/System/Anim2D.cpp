@@ -343,7 +343,6 @@ Anim2D::Anim2D( Anim2DTemplate *animTemplate, Anim2DCollection *collectionSystem
 	if( m_collectionSystem )
 		m_collectionSystem->registerAnimation( this );
 
-
 }  // end Anim2D
 
 // ------------------------------------------------------------------------------------------------
@@ -662,7 +661,6 @@ void Anim2D::draw( Int x, Int y, Int width, Int height )
 	// sanity
 	DEBUG_ASSERTCRASH( image != NULL, ("Anim2D::draw - Image not found for frame '%d' on animation '%s'\n",
 										 m_currentFrame, m_template->getName().str()) );
-
 
 	// draw image to the display
 	Color color = GameMakeColor( 255, 255, 255, 255 * m_alpha );

@@ -59,8 +59,6 @@
 #define SHATTER_DEBUG_SAY(x)
 #endif
 
-
-
 #define SHATTER_PATTERN_FORMAT	"ShatterPlanes%d"
 
 #define BPT_FRONT						0x01
@@ -69,7 +67,6 @@
 #define BPT_BOTH						0x08
 #define BPT_EPSILON					0.0001f
 #define BPT_COINCIDENCE_EPSILON	0.000001f
-
 
 /**
 ** Mesh Material Parameters
@@ -91,8 +88,6 @@ public:
 	Vector2 *					UV[MeshMatDescClass::MAX_PASSES][MeshMatDescClass::MAX_TEX_STAGES];
 //	Vector3i *					UVIndexArray[MeshMatDescClass::MAX_PASSES];
 };
-
-
 
 /**
 ** VertexClass
@@ -200,7 +195,6 @@ protected:
 	int						BackLeafIndex;
 };
 
-
 /***********************************************************************************************
 **
 ** Static Variables
@@ -218,7 +212,6 @@ static SimpleDynVecClass<PolygonClass>				ClipPools[MAX_MESH_FRAGMENTS];
 static SimpleDynVecClass<DynamicMeshClass	*>		MeshFragments(MAX_MESH_FRAGMENTS);
 static SimpleVecClass<Vector3>						TmpVertPositions(256);
 static SimpleVecClass<Vector3>						TmpVertNormals(256);
-
 
 /***********************************************************************************************
 **
@@ -264,7 +257,6 @@ MeshMtlParamsClass::MeshMtlParamsClass(MeshModelClass * model)
 MeshMtlParamsClass::~MeshMtlParamsClass(void)
 {
 }
-
 
 /***********************************************************************************************
 **
@@ -381,8 +373,6 @@ void VertexClass::Intersect_Plane
 	plane.Compute_Intersection(p0.Position,p1.Position,&alpha);
 	VertexClass::Lerp(p0,p1,alpha,res);
 }
-
-
 
 /***********************************************************************************************
 **
@@ -614,7 +604,6 @@ void PolygonClass::Split(const PlaneClass & plane,PolygonClass & front,PolygonCl
 	}
 }
 
-
 bool PolygonClass::Is_Degenerate(void)
 {
 	int i,j;
@@ -677,7 +666,6 @@ bool PolygonClass::Salvage_Degenerate(void)
 
 	return !Is_Degenerate();
 }
-
 
 /***********************************************************************************************
 **
@@ -787,9 +775,6 @@ void BSPClass::Clip_Polygon(const PolygonClass & polygon)
 	}
 }
 
-
-
-
 /***********************************************************************************************
 **
 ** ShatterSystem Implementation - this is the interface with the outside world
@@ -851,7 +836,6 @@ void ShatterSystem::Shutdown(void)
 	}
 	ShatterPatterns.Delete_All();
 }
-
 
 void ShatterSystem::Shatter_Mesh(MeshClass * mesh,const Vector3 & point,const Vector3 & direction)
 {
@@ -974,7 +958,6 @@ void ShatterSystem::Shatter_Mesh(MeshClass * mesh,const Vector3 & point,const Ve
 	** Build a description of the material parameters for the mesh
 	*/
 	MeshMtlParamsClass mtl_params(model);
-
 
 	SHATTER_DEBUG_SAY(("****************************************************\n"));
 	SHATTER_DEBUG_SAY((" Clipping model: %s\n",model->Get_Name()));
@@ -1162,7 +1145,6 @@ void ShatterSystem::Process_Clip_Pools
 			}
 
 			REF_PTR_RELEASE(matinfo);
-
 
 			/*
 			** Add the polygons and vertices to the mesh, transform the vertices

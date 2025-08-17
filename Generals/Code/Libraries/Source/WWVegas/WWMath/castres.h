@@ -45,7 +45,6 @@
 #include "vector3.h"
 #include "bittype.h"
 
-
 /**
 ** CastResultStruct
 ** Result of a volume or ray cast operation will be stored in the following structure
@@ -70,6 +69,5 @@ struct CastResultStruct
 	Vector3	ContactPoint;				// This will be set to the point of collision if ComputeContactPoint is true
 
 };
-
 
 #endif

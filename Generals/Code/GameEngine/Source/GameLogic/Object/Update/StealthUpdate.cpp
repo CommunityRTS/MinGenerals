@@ -57,13 +57,11 @@
 #include "GameLogic/Module/PhysicsUpdate.h"
 #include "GameLogic/Module/ContainModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //-------------------------------------------------------------------------------------------------
 void StealthUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
@@ -212,7 +210,6 @@ Bool StealthUpdate::allowedToStealth() const
 	return true;
 }
 
-
 //---------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------------------------------
@@ -232,16 +229,12 @@ void StealthUpdate::hintDetectableWhileUnstealthed()
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------
-
 
 Real StealthUpdate::getFriendlyOpacity() const
 {
 	return getStealthUpdateModuleData()->m_friendlyOpacityMin;
 }
-
 
 //=============================================================================
 // indicate how the given unit is "stealthed" with respect to a given player.
@@ -268,7 +261,6 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		stealthed:	(sv)		(i)
 		detected:		(sd)		(sd)
 
-
 		Or, to put it another way:
 
 		If normal, you always appear normal.
@@ -279,9 +271,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		In this state we render outselves visible and we ovlerlay the detection effect as a warning
 		we'll call this STEALTHLOOK_VISIBLE_FRIENDLY_DETECTED
 
-
 	*/
-
 
 	if (obj->isEffectivelyDead())
 		return STEALTHLOOK_NONE;			// making sure he turns visible when he dies
@@ -461,7 +451,6 @@ UpdateSleepTime StealthUpdate::update( void )
 		return calcSleepTime();
 	}
 
-
 	if (allowedToStealth())
 	{
 		// If I can stealth, don't attempt to Stealth until the timer is zero.
@@ -498,9 +487,7 @@ UpdateSleepTime StealthUpdate::update( void )
 
 		hintDetectableWhileUnstealthed();
 
-
 	}
-
 
 	Bool detectedStatusChangedThisFrame = FALSE;
 	if (m_detectionExpiresFrame > now)
@@ -552,8 +539,6 @@ UpdateSleepTime StealthUpdate::update( void )
 		}
 
 	}
-
-
 
 	if (draw)
 	{

@@ -930,8 +930,6 @@ GameWindow *GUIEditWindowManager::duplicateWindow( GameWindow *source,
 		comboDataCopy.listboxData = new ListboxData;
 		memset ( comboDataCopy.listboxData, 0, sizeof(ListboxData));
 
-
-
 		comboDataCopy.entryCount = comboData->entryCount;
 		comboDataCopy.isEditable = comboData->isEditable;
 		comboDataCopy.maxChars = comboData->maxChars;
@@ -955,8 +953,6 @@ GameWindow *GUIEditWindowManager::duplicateWindow( GameWindow *source,
 		comboDataCopy.entryData->maxTextLen = comboData->entryData->maxTextLen;
 		comboDataCopy.entryData->numericalOnly = comboData->entryData->numericalOnly;
 
-
-
 		duplicate =
 			TheWindowManager->gogoGadgetComboBox( parent,
 																					 status,
@@ -979,7 +975,6 @@ GameWindow *GUIEditWindowManager::duplicateWindow( GameWindow *source,
 			ComboBoxData *sourceComboData = (ComboBoxData *)source->winGetUserData();
 			WinInstanceData *instData;
 			WinInstanceData *sourceInstData;
-
 
 			// drop down button
 			GameWindow *dropDownButton = comboData->dropDownButton;

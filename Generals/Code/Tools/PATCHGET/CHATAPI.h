@@ -34,7 +34,6 @@
 #define	ARRAY_SIZE(x)		int(sizeof(x)/sizeof(x[0]))
 #define size_of(typ,id) sizeof(((typ*)0)->id)
 
-
 void Startup_Chat(void);
 void Shutdown_Chat(void);
 void Update_If_Required(void);

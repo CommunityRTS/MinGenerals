@@ -85,13 +85,11 @@
 
 #include "GameNetwork/NetworkInterface.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 #define MAX_PATH_SUBJECTS 64
 static Bool theBuildPlan = false;
@@ -281,7 +279,6 @@ void GameLogic::clearGameData( Bool showScoreScreen )
 	setGameMode(GAME_NONE);
 //	m_background->bringForward();
 //	if(shellGame)
-
 
 	if (TheGlobalData->m_initialFile.isEmpty() == FALSE)
 	{
@@ -591,7 +588,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			if( targetObject == NULL )
 				break;
 
-
 			// issue command for either single object or for selected group
 			if( currentlySelectedGroup )
 			{
@@ -651,7 +647,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 					// lock it just till the weapon is empty or the attack is "done"
 				if (currentlySelectedGroup->setWeaponLockForGroup( weaponSlot, LOCKED_TEMPORARILY ))
  					currentlySelectedGroup->groupAttackPosition( &targetLoc, maxShotsToFire, CMD_FROM_PLAYER );
-
 
 			}  // end if, command for group
 
@@ -960,9 +955,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			break;
 		}
 #endif
-
-
-
 
 #ifdef ALLOW_SURRENDER
 		//---------------------------------------------------------------------------------------------
@@ -1277,7 +1269,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 					currentlySelectedGroup->groupAttackPosition( pos, NO_MAX_SHOTS_LIMIT, CMD_FROM_PLAYER );
 				}
 
-
 			}
 
 			break;
@@ -1425,7 +1416,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			static AudioEventRTS placeBuilding(AsciiString("PlaceBuilding"));
 			placeBuilding.setObjectID(constructorObject->getID());
 			TheAudio->addAudioEvent( &placeBuilding );
-
 
 // no, this is bad, don't do here, do when POSTING message
 //		pickAndPlayUnitVoiceResponse( TheInGameUI->getAllSelectedDrawables(), msg->getType() );
@@ -1922,7 +1912,6 @@ void GameLogic::logicMessageDispatcher( GameMessage *msg, void *userData )
 			player->processAddTeamGameMessage(msg->getType() - GameMessage::MSG_ADD_TEAM0, msg);
 			break;
 		}
-
 
 		//---------------------------------------------------------------------------------------------
 		case GameMessage::MSG_LOGIC_CRC:

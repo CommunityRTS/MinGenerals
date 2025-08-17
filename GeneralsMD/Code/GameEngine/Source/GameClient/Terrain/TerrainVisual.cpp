@@ -31,14 +31,11 @@
 #include "Common/Xfer.h"
 #include "GameClient/TerrainVisual.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
 
 // GLOBALS ////////////////////////////////////////////////////////////////////////////////////////
 TerrainVisual *TheTerrainVisual = NULL;
@@ -134,12 +131,6 @@ void TerrainVisual::loadPostProcess( void )
 
 }  // end loadPostProcess
 
-
-
-
-
-
-
 SeismicSimulationFilterBase::SeismicSimStatusCode DomeStyleSeismicFilter::filterCallback( WorldHeightMapInterfaceClass *heightMap, const SeismicSimulationNode *node )
 {
 
@@ -147,7 +138,6 @@ SeismicSimulationFilterBase::SeismicSimStatusCode DomeStyleSeismicFilter::filter
 
   if ( heightMap == NULL )
     return SEISMIC_STATUS_INVALID;
-
 
   if ( life == 0 )
     return SEISMIC_STATUS_ACTIVE;
@@ -166,7 +156,6 @@ SeismicSimulationFilterBase::SeismicSimStatusCode DomeStyleSeismicFilter::filter
     UnsignedInt workspaceWidth = radius*2;
     Real *workspace = NEW( Real[ sqr(workspaceWidth) ] );
     Real *workspaceEnd = workspace + sqr(workspaceWidth);
-
 
     for ( Real *t = workspace; t < workspaceEnd; ++t ) *t = 0.0f;// clear the workspace
 

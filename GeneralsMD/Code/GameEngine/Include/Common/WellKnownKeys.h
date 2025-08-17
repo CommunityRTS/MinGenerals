@@ -151,7 +151,6 @@ DEFINE_KEY(teamUnitMinCount3)
 */
 DEFINE_KEY(teamUnitMaxCount3)
 
-
 /**
 	Which: Team
 	Type: AsciiString
@@ -443,9 +442,6 @@ DEFINE_KEY(teamExecutesActionsOnCreate)
 */
 DEFINE_KEY(teamGenericScriptHook)
 
-
-
-
 // ---------------------------------------------------------------------------------------
 // well-known keys in MapObject dicts.
 // ---------------------------------------------------------------------------------------
@@ -527,14 +523,12 @@ DEFINE_KEY(waypointPathLabel2)
 */
 DEFINE_KEY(waypointPathLabel3)
 
-
 /**
 	Which: MapObject Properties
 	Type: Bool
 	Usage: If object is a waypoint, bi-directional flag.
 */
 DEFINE_KEY(waypointPathBiDirectional)
-
 
 /**
 	Which: MapObject Properties
@@ -662,7 +656,6 @@ DEFINE_KEY(objectVeterancy)
 */
 DEFINE_KEY(objectTime)
 
-
 /**
 	Which: MapObject Properties
 	Type: Int
@@ -788,8 +781,6 @@ DEFINE_KEY(objectSoundAmbientMaxRange)
 */
 DEFINE_KEY(objectSoundAmbientPriority)
 
-
-
 // ---------------------------------------------------------------------------------------
 // well-known keys in Player dicts.
 // ---------------------------------------------------------------------------------------
@@ -904,7 +895,6 @@ DEFINE_KEY(playerIsPreorder)
 DEFINE_KEY(weather)
 DEFINE_KEY(mapName)
 DEFINE_KEY(compression)
-
 
 // ---------------------------------------------------------------------------------------
 // well-known Waypoints.

@@ -95,7 +95,6 @@ typedef void (*GameLogicFuncPtr)( Object *obj, void *userData );
 typedef std::hash_map<ObjectID, Object *, rts::hash<ObjectID>, rts::equal_to<ObjectID> > ObjectPtrHash;
 typedef ObjectPtrHash::const_iterator ObjectPtrIter;
 
-
 // ------------------------------------------------------------------------------------------------
 /**
  * The implementation of GameLogic
@@ -402,8 +401,6 @@ inline Object* GameLogic::findObjectByID( ObjectID id )
 
 	return (*it).second;
 }
-
-
 
 // the singleton
 extern GameLogic *TheGameLogic;

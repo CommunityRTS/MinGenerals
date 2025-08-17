@@ -52,7 +52,6 @@
 class CollectionDefClass;
 class SnapPointsClass;
 
-
 /*
 ** CollectionClass
 ** This is a render object which contains a collection of render objects.
@@ -108,7 +107,6 @@ public:
 	virtual void		 			Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
 	virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & box) const;
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface - Attributes, Options, Properties, etc
 	/////////////////////////////////////////////////////////////////////////////
@@ -130,7 +128,6 @@ protected:
 	SphereClass										BoundSphere;
 	AABoxClass										BoundBox;
 };
-
 
 /*
 ** CollectionLoaderClass

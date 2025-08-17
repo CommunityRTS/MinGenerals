@@ -35,10 +35,8 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "euler.h"
 #include <float.h>
-
 
 /*********************************************************************
 
@@ -65,7 +63,6 @@
 #define EULER_PARITY(order)		(((unsigned)(order) >> 2) & 1)
 
 #define EULER_BUILD_ORDER(i,p,r,f) (((((((i) << 1) + (p)) << 1) + (r)) << 1) + (f))
-
 
 /* static axes */
 int	EulerOrderXYZs = EULER_BUILD_ORDER(0, EULER_PARITY_EVEN, EULER_REPEAT_NO,  EULER_FRAME_STATIC);
@@ -103,8 +100,6 @@ static int _euler_axis_k(int order);
 static int _euler_axis_h(int order);
 static void _mat_to_array(const Matrix3 & tm, float M[3][4]);
 static void _array_to_mat(float M[3][4], Matrix3 & tm);
-
-
 
 EulerAnglesClass::EulerAnglesClass(const Matrix3 & M,int order)
 {
@@ -193,8 +188,6 @@ void EulerAnglesClass::From_Matrix(const Matrix3 & tm, int order)
 	}
 }
 
-
-
 void EulerAnglesClass::To_Matrix(Matrix3 & tm)
 {
 	float M[3][4] = {
@@ -244,7 +237,6 @@ void EulerAnglesClass::To_Matrix(Matrix3 & tm)
 	}
 	_array_to_mat(M,tm);
 }
-
 
 static int _euler_safe[] = { 0,1,2,0 };
 static int _euler_next[] = { 1,2,0,1 };
@@ -330,5 +322,4 @@ void _array_to_mat(float M[3][4], Matrix3 & tm)
 		tm.SetRow(k, row);
 	}
 }
-
 

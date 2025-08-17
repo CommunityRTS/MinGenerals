@@ -188,7 +188,6 @@ WindowMsgHandledType GadgetPushButtonInput( GameWindow *window,
 				else
 					BitSet( instData->m_state, WIN_STATE_SELECTED );
 
-
 			}  // end if
 			else
 			{
@@ -248,7 +247,6 @@ WindowMsgHandledType GadgetPushButtonInput( GameWindow *window,
 				buttonClick.setEventName(pData->altSound);
 			else
 				buttonClick.setEventName("GUIClick");
-
 
 			if( BitTest( instData->getStatus(), WIN_STATUS_RIGHT_CLICK ) )
 			{
@@ -388,7 +386,6 @@ WindowMsgHandledType GadgetPushButtonInput( GameWindow *window,
 							BitSet( instData->m_state, WIN_STATE_SELECTED );
 
 						}  // end else
-
 
 					}  // end else
 
@@ -684,7 +681,6 @@ void GadgetButtonDrawOverlayImage( GameWindow *g, const Image *image )
 	pData->overlayImage = image;
 	g->winSetUserData(pData);
 }
-
 
 // GadgetButtonSetData ======================================================
 /** Sets random data that the user can contain on the button */

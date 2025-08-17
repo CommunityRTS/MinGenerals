@@ -50,12 +50,9 @@ class SphereClass;
 struct W3dEmitterLinePropertiesStruct;
 struct VertexFormatXYZDUV1;
 
-
 // The maximum allowable level of subdivision. This should be no more than 7 to avoid increasing
 // the chunk buffer size too much
 #define MAX_SEGLINE_SUBDIV_LEVELS 7
-
-
 
 /**
 ** SegLineRendererClass
@@ -114,7 +111,6 @@ public:
 	void					Set_Freeze_Random(int onoff)							{ if (onoff) { Bits |= FREEZE_RANDOM; } else { Bits &= ~FREEZE_RANDOM; }; }
 	void					Set_Disable_Sorting(int onoff)						{ if (onoff) { Bits |= DISABLE_SORTING; } else { Bits &= ~DISABLE_SORTING; }; }
 	void					Set_End_Caps(int onoff)									{ if (onoff) { Bits |= END_CAPS; } else { Bits &= ~END_CAPS; }; }
-
 
 	void					Render(	RenderInfoClass & rinfo,
 										const Matrix3D & transform,
@@ -184,8 +180,6 @@ private:
 	VertexFormatXYZDUV1 *m_vertexBuffer;
 };
 
-
-
 inline SegLineRendererClass::TextureMapMode SegLineRendererClass::Get_Texture_Mapping_Mode(void) const
 {
 	return (TextureMapMode)((Bits & TEXTURE_MAP_MODE_MASK) >> TEXTURE_MAP_MODE_OFFSET);
@@ -206,7 +200,6 @@ inline void SegLineRendererClass::Set_UV_Offset_Rate(const Vector2 &rate)
 {
 	UVOffsetDeltaPerMS = rate * 0.001f;
 }
-
 
 #endif //SEGLINERENDERER_H
 

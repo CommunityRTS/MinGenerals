@@ -175,8 +175,6 @@ void W3DGadgetProgressBarDraw( GameWindow *window, WinInstanceData *instData )
 
 	}  // end if
 
-
-
 }  // end W3DGadgetProgressBarDraw
 
 // W3DGadgetProgressBarImageDraw ==============================================
@@ -220,7 +218,6 @@ void W3DGadgetProgressBarImageDrawA( GameWindow *window, WinInstanceData *instDa
 																				x + width, origin.y + size.y );
 				x += width;
 	}
-
 
 }
 
@@ -365,7 +362,6 @@ void W3DGadgetProgressBarImageDraw( GameWindow *window, WinInstanceData *instDat
 		TheDisplay->enableClipping(FALSE);
 	}
 
-
 	// draw left end
 	start.x = origin.x + xOffset;
 	start.y = origin.y + yOffset;
@@ -377,7 +373,6 @@ void W3DGadgetProgressBarImageDraw( GameWindow *window, WinInstanceData *instDat
 	end.x = start.x + rightSize.x;
 	end.y = start.y + size.y;
 	TheWindowManager->winDrawImage(backRight, start.x, start.y, end.x, end.y);
-
 
 	ICoord2D barWindowSize;  // end point of bar from window origin
 

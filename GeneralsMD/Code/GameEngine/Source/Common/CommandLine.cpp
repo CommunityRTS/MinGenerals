@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file in the GameEngine
 
 #include "Common/ArchiveFileSystem.h"
@@ -38,8 +37,6 @@
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
 
 Bool TheDebugIgnoreSyncErrors = FALSE;
 extern Int DX8Wrapper_PreserveFPU;
@@ -138,7 +135,6 @@ Int parseNoMusic(char *args[], int)
 	}
 	return 1;
 }
-
 
 //=============================================================================
 //=============================================================================
@@ -619,7 +615,6 @@ Int parseParticleEdit(char *args[], int)
 	return 1;
 }
 
-
 Int parseBuildMapCache(char *args[], int)
 {
 	if (TheWritableGlobalData)
@@ -629,7 +624,6 @@ Int parseBuildMapCache(char *args[], int)
 	return 1;
 }
 
-
 #if defined(_DEBUG) || defined(_INTERNAL) || defined(_ALLOW_DEBUG_CHEATS_IN_RELEASE)
 Int parsePreload( char *args[], int num )
 {
@@ -638,7 +632,6 @@ Int parsePreload( char *args[], int num )
 	return 1;
 }
 #endif
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 Int parseDisplayDebug(char *args[], int)
@@ -659,7 +652,6 @@ Int parseFile(char *args[], int num)
 	}
 	return 2;
 }
-
 
 Int parsePreloadEverything( char *args[], int num )
 {
@@ -880,7 +872,6 @@ Int parseShowTeamDot( char *args[], int num )
 	return 1;
 }
 
-
 #if defined(_DEBUG) || defined(_INTERNAL)
 Int parseSelectAll( char *args[], int num )
 {
@@ -902,7 +893,6 @@ Int parseRunAhead( char *args[], Int num )
 	return 3;
 }
 #endif
-
 
 Int parseSeed(char *args[], int num)
 {
@@ -1240,7 +1230,6 @@ static CommandLineParam params[] =
   { "-preload", parsePreload },
 #endif
 
-
 };
 
 // parseCommandLine ===========================================================
@@ -1293,5 +1282,4 @@ void parseCommandLine(int argc, char *argv[])
 
 	TheArchiveFileSystem->loadMods();
 }
-
 

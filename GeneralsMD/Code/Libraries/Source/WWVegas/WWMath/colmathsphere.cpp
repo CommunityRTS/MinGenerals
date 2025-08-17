@@ -42,7 +42,6 @@
  *   CollisionMath::Overlap_Test -- Sphere - OBBox overlap test                                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colmath.h"
 #include "aaplane.h"
 #include "plane.h"
@@ -52,7 +51,6 @@
 #include "aabox.h"
 #include "obbox.h"
 #include "wwdebug.h"
-
 
 // Sphere Intersection fucntions.  Does the sphere intersect the passed in object
 /***********************************************************************************************
@@ -80,7 +78,6 @@ bool CollisionMath::Intersection_Test(const SphereClass & sphere,const AABoxClas
 	if (WWMath::Fabs(dc.Z) < box.Extent.Z + sphere.Radius) return false;
 	return true;
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- Sphere - OBBox intersection                             *
@@ -136,7 +133,6 @@ CollisionMath::Overlap_Test(const SphereClass & sphere,const Vector3 & point)
 	return ON;
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Overlap_Test -- sphere line overlap test                                     *
  *                                                                                             *
@@ -156,7 +152,6 @@ CollisionMath::Overlap_Test(const SphereClass & /*sphere*/,const LineSegClass & 
 	return POS;
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Overlap_Test -- sphere triangle overlap test                                 *
  *                                                                                             *
@@ -175,7 +170,6 @@ CollisionMath::Overlap_Test(const SphereClass & /*sphere*/,const TriClass & /*tr
 	WWASSERT(0); //TODO
 	return POS;
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Overlap_Test -- Sphere - Sphere overlap test                                 *
@@ -206,7 +200,6 @@ CollisionMath::Overlap_Test(const SphereClass & sphere,const SphereClass & spher
 	return retval;
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Overlap_Test -- Sphere - AABox overlap test                                  *
  *                                                                                             *
@@ -226,7 +219,6 @@ CollisionMath::Overlap_Test(const SphereClass & sphere,const AABoxClass & aabox)
 	return ( Intersection_Test(sphere,aabox) ? BOTH : POS );
 }
 
-
 /***********************************************************************************************
  * CollisionMath::Overlap_Test -- Sphere - OBBox overlap test                                  *
  *                                                                                             *
@@ -245,5 +237,4 @@ CollisionMath::Overlap_Test(const SphereClass & sphere,const OBBoxClass & obbox)
 	// TODO: overlap function that detects containment?
 	return ( Intersection_Test(sphere,obbox) ? BOTH : POS );
 }
-
 

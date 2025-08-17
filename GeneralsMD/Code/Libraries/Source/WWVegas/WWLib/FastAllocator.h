@@ -27,7 +27,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-
 #ifndef FASTALLOCATOR_H
 #define FASTALLOCATOR_H
 
@@ -36,8 +35,6 @@
 #endif
 
 //#define MEMORY_OVERWRITE_TEST
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Include files
@@ -54,8 +51,6 @@
 //
 class FastFixedAllocator;    //Allocates and deletes items of a fixed size.
 class FastAllocatorGeneral;  //Allocates and deletes items of any size. Can use as a fast replacement for global new/delete.
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // StackAllocator
@@ -202,9 +197,6 @@ protected:
 };
 ///////////////////////////////////////////////////////////////////////////////
 
-
-
-
 ///////////////////////////////////////////////////////////////////////////////
 // class FastFixedAllocator
 //
@@ -342,12 +334,6 @@ WWINLINE void FastFixedAllocator::grow()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // class FastAllocatorGeneral
@@ -511,12 +497,6 @@ WWINLINE void* FastAllocatorGeneral::Realloc(void* pAlloc, unsigned int n){
    return NULL;
 }
 
-
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////////
 // FastSTLAllocator
 //
@@ -601,10 +581,6 @@ template<class T>
 WWINLINE bool operator!=(const FastSTLAllocator<T>&, const FastSTLAllocator<T>&) { return false; }
 ///////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
 /*
 ///////////////////////////////////////////////////////////////////////////////
 // Example usage of fast allocators in STL.
@@ -624,8 +600,6 @@ WWINLINE bool operator!=(const FastSTLAllocator<T>&, const FastSTLAllocator<T>&)
 #include <hash_set> //Uncomment this if you have hash containers available.
 #include <hash_map>
 using namespace std;
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Here's how you declare a custom allocator for every regular STL container class:
@@ -652,7 +626,6 @@ typedef basic_string<char, char_traits<char>, FastSTLAllocator<char> > CharStrin
 //bitset and valarray don't allow custom allocators.
 
 ///////////////////////////////////////////////////////////////////////////////
-
 
 void main(){
    IntArray intArray;
@@ -721,15 +694,5 @@ void main(){
 }
 */
 
-
-
 #endif //sentry
-
-
-
-
-
-
-
-
 

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -60,7 +59,6 @@ public:
 	WWINLINE const	int&	operator[] (int n) const;
 	WWINLINE int&			operator[] (int n);
 };
-
 
 WWINLINE Vector3i::Vector3i(void)
 {
@@ -109,7 +107,6 @@ public:
 	WWINLINE const	unsigned short &	operator[] (int n) const;
 	WWINLINE unsigned short & operator[] (int n);
 };
-
 
 WWINLINE Vector3i16::Vector3i16(void)
 {

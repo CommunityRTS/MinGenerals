@@ -46,12 +46,10 @@
 */
 #include	"bool.h"
 
-
 /*
 ** Make the inline depth 255
 */
 #pragma inline_depth(255)
-
 
 /*
 **	Turn off some unneeded warnings.
@@ -103,8 +101,6 @@
 // warnings as errors, don't warn me about this!
 #pragma warning(disable : 4711)
 
-
-
 #define M_E         2.71828182845904523536
 #define M_LOG2E     1.44269504088896340736
 #define M_LOG10E    0.434294481903251827651
@@ -119,7 +115,6 @@
 #define M_2_SQRTPI  1.12837916709551257390
 #define M_SQRT2     1.41421356237309504880
 #define M_SQRT_2    0.707106781186547524401
-
 
 #endif
 

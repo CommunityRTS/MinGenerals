@@ -756,7 +756,6 @@ Bool Radar::localPixelToRadar( const ICoord2D *pixel, ICoord2D *radar )
 		//
 		radar->y = (size.y - radar->y) * RADAR_CELL_HEIGHT / size.y;
 
-
 	}  // end if
 	else
 	{
@@ -1337,7 +1336,6 @@ Bool Radar::tryEvent( RadarEventType event, const Coord3D *pos )
 	return TRUE;
 
 }  // end tryEvent
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------

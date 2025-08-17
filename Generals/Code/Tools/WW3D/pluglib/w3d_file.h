@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef W3D_FILE_H
 #define W3D_FILE_H
 
@@ -44,7 +43,6 @@
 #ifndef BITTYPE_H
 #include "bittype.h"
 #endif
-
 
 /********************************************************************************
 
@@ -80,7 +78,6 @@ Version 1.0:
 
 	MESH CONNECTIONS - (blueprint for a hierarchical model) contained these chunks:
 
-
 Version 2.0:
 
 	MESHES:
@@ -115,7 +112,6 @@ Version 2.0:
 		W3D_CHUNK_SKIN_CONNECTION,				// skins connected to the hierarchy
 		W3D_CHUNK_CONNECTION_AUX_DATA			// extension of the connection header
 
-
 Dec 12, 1997
 
 	Changed MESH_CONNECTIONS chunks into HMODEL chunks because the name
@@ -124,7 +120,6 @@ Dec 12, 1997
 
 	Added W3D_CHUNK_LODMODEL.  An LOD Model contains a set of names for
 	render objects, each with a specified distance range.
-
 
 Feb 6, 1998
 
@@ -162,18 +157,13 @@ June 22, 1998
 		- W3D_CHUNK_TILE_INSTANCES
 			- W3D_CHUNK_TILE_INSTANCE
 
-
-
 ********************************************************************************/
-
 
 #define W3D_MAKE_VERSION(major,minor)		(((major) << 16) | (minor))
 #define W3D_GET_MAJOR_VERSION(ver)			((ver)>>16)
 #define W3D_GET_MINOR_VERSION(ver)			((ver) & 0xFFFF)
 
 #define W3D_CURRENT_VERSION W3D_MAKE_VERSION(3,0)
-
-
 
 /********************************************************************************
 
@@ -259,13 +249,11 @@ enum {
 
 };
 
-
 struct W3dChunkHeader
 {
 	uint32		ChunkType;			// Type of chunk (see above enumeration)
 	uint32		ChunkSize;			// Size of the chunk, (not including the chunk header)
 };
-
 
 /********************************************************************************
 
@@ -390,7 +378,6 @@ struct W3dMaterial2Struct
 	char			Pad[12];								// expansion room
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // MATERIAL ATTRIBUTES (version 3.0 onward)
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -462,7 +449,6 @@ struct W3dMaterial3Struct
 	float32					FogCoeff;					// effect of fog (0.0=not fogged, 1.0=fogged) (default = 1)
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // A map, only occurs as part of a material, will be preceeded by its name.
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -472,7 +458,6 @@ struct W3dMap3Struct
 	uint16					FrameCount;					// Number of frames (1 if not animated)
 	float32					FrameRate;					// Frame rate, frames per second in floating point
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // A triangle, occurs inside the W3D_CHUNK_SURRENDER_TRIANGLES chunk
@@ -487,7 +472,6 @@ struct W3dSurrenderTriStruct
 	W3dRGBStruct			Gouraud[3];			// Pre-set shading values (OBSOLETE!!!)
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // A triangle, occurs inside the W3D_CHUNK_TRIANGLES chunk
 // This is NEW for Version 3.
@@ -499,7 +483,6 @@ struct W3dTriStruct
 	W3dVectorStruct		Normal;				// plane normal
 	float32					Dist;					// plane distance
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Flags for the Mesh Attributes member
@@ -516,7 +499,6 @@ struct W3dTriStruct
 #define W3D_MESH_FLAG_COLLISION_TYPE_PROJECTILE		0x00000020			// projectiles (rays) collide with this
 
 #define W3D_MESH_FLAG_HIDDEN								0x00001000			// this mesh is hidden by default
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Original (Obsolete) Mesh Header
@@ -583,7 +565,6 @@ struct W3dMeshHeaderStruct
 	char						HierarchyModelName[W3D_NAME_LEN];
 	uint32					FutureUse[24];		// Reserved for future use
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Version 3 Mesh Header, trimmed out some of the junk that was in the
@@ -663,7 +644,6 @@ struct W3dMeshDamageColorStruct
 	W3dRGBStruct		NewColor;
 };
 
-
 /********************************************************************************
 
 	WHT ( Westwood Hierarchy Tree )
@@ -718,7 +698,6 @@ struct W3dPivotFixupStruct
 {
 	float32					TM[4][3];				// this is a direct dump of a MAX 3x4 matrix
 };
-
 
 /********************************************************************************
 
@@ -816,7 +795,6 @@ struct W3dHModelNodeStruct
 	uint16					PivotIdx;
 };
 
-
 /********************************************************************************
 
 	(LODModel - Level-Of-Detail Model)
@@ -840,12 +818,9 @@ struct W3dLODStruct
 	float32					LODMax;
 };
 
-
 /********************************************************************************
 
 	TileMap
-
-
 
 ********************************************************************************/
 
@@ -883,7 +858,5 @@ struct W3dTileMapPartitionStruct
 	W3dVectorStruct	Min;							// min corner of the bounding box
 	W3dVectorStruct	Max;							// max corner of the bounding box
 };
-
-
 
 #endif

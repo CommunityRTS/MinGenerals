@@ -45,7 +45,6 @@
 #include	<string.h>
 #include	<assert.h>
 
-
 /*
 **	Byte order controlled long integer. This integer is constructed
 **	so that character 0 (C0) is the most significant byte of the
@@ -61,7 +60,6 @@ typedef union {
 		unsigned char C0;
 	} Char;
 } Int;
-
 
 /***********************************************************************************************
  * BlowfishEngine::~BlowfishEngine -- Destructor for the Blowfish engine.                      *
@@ -84,7 +82,6 @@ BlowfishEngine::~BlowfishEngine(void)
 		Submit_Key(NULL, 0);
 	}
 }
-
 
 /***********************************************************************************************
  * BlowfishEngine::Submit_Key -- Submit a key that will allow data processing.                 *
@@ -187,7 +184,6 @@ void BlowfishEngine::Submit_Key(void const * key, int length)
 	IsKeyed = true;
 }
 
-
 /***********************************************************************************************
  * BlowfishEngine::Encrypt -- Encrypt an arbitrary block of data.                              *
  *                                                                                             *
@@ -253,7 +249,6 @@ int BlowfishEngine::Encrypt(void const * plaintext, int length, void * cyphertex
 	return(length);
 }
 
-
 /***********************************************************************************************
  * BlowfishEngine::Decrypt -- Decrypt an arbitrary block of data.                              *
  *                                                                                             *
@@ -318,7 +313,6 @@ int BlowfishEngine::Decrypt(void const * cyphertext, int length, void * plaintex
 	}
 	return(length);
 }
-
 
 /***********************************************************************************************
  * BlowfishEngine::Process_Block -- Process a block of data using Blowfish algorithm.          *
@@ -405,7 +399,6 @@ void BlowfishEngine::Process_Block(void const * plaintext, void * cyphertext, un
 	*out = left.Char.C3;
 }
 
-
 /***********************************************************************************************
  * BlowfishEngine::Sub_Key_Encrypt -- Encrypts a block for use in S-Box processing.            *
  *                                                                                             *
@@ -444,7 +437,6 @@ void BlowfishEngine::Sub_Key_Encrypt(unsigned long & left, unsigned long & right
 	left = r.Long ^ P_Encrypt[ROUNDS+1];
 	right = l.Long ^ P_Encrypt[ROUNDS];
 }
-
 
 /*
 **	These tables have the bytes stored in machine endian format. Because of this,

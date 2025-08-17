@@ -45,7 +45,6 @@
 
 #include "GameClient/Line2D.h"
 
-
 #include "W3DDevice/GameClient/HeightMap.h"
 
 RampTool::RampTool() : Tool(ID_RAMPTOOL, IDC_RAMP )
@@ -177,9 +176,7 @@ void RampTool::applyRamp(CWorldBuilderDoc* pDoc)
 	REF_PTR_RELEASE(pUndo); // belongs to pDoc now.
 	REF_PTR_RELEASE(worldHeightDup);
 
-
 	// Once we've applied the ramp, its no longer a mutable thing, so blow away the feedback
 	DrawObject::setDoRampFeedback(false);
 }
-
 

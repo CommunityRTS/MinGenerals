@@ -114,8 +114,6 @@ void TransportContainModuleData::buildFieldParse(MultiIniFieldParse& p)
   p.add(dataFieldParse);
 }
 
-
-
 // PRIVATE ////////////////////////////////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------------------------------
@@ -175,7 +173,6 @@ Bool TransportContain::isValidContainerFor(const Object* rider, Bool checkCapaci
 			}
 		}
 	}
-
 
 	// extend functionality
 	if( OpenContain::isValidContainerFor( rider, checkCapacity ) == false )

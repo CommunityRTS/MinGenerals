@@ -46,7 +46,6 @@
 #ifndef __WSYS_STRING_H
 #define __WSYS_STRING_H
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -57,12 +56,9 @@
 //           Forward References
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //           Type Defines
 //----------------------------------------------------------------------------
-
 
 class WSYS_String
 {
@@ -100,8 +96,6 @@ class WSYS_String
 	Char*								get( void ) const;
 };
 
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
@@ -111,6 +105,5 @@ inline const Char& WSYS_String::operator[] (Int index) const{ return m_data[inde
 inline Char& WSYS_String::operator[] (Int index) { return m_data[index];};
 inline WSYS_String::operator const Char * (void) const { return m_data;};
 inline WSYS_String::operator Char * (void) const {return m_data;};
-
 
 #endif // __WSYS_STRING_H

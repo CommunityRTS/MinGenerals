@@ -66,5 +66,4 @@ public:	// Methods specific to MeshMoldTool.
 
 };
 
-
 #endif //MESHMOLDTOOL_H

@@ -69,12 +69,9 @@
 #include	<tchar.h>
 #include	<stdio.h>
 
-
 CDControlClass CDControl;
 
-
 void Last_Error_Text ( LPTSTR szPrefix, HRESULT hr );
-
 
 /***********************************************************************************************
  * CDControlClass::CDControlClass -- Class constructor                                         *
@@ -91,7 +88,6 @@ void Last_Error_Text ( LPTSTR szPrefix, HRESULT hr );
 CDControlClass::CDControlClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * CDControlClass::~CDControlClass -- Class destructor                                         *
@@ -1110,7 +1106,4 @@ void Last_Error_Text ( LPTSTR szPrefix, HRESULT hr )
 	LocalFree( szMessage );
 
 }
-
-
-
 

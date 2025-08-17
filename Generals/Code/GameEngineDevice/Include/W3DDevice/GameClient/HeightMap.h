@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __HEIGHTMAP_H_
@@ -114,7 +113,6 @@ public:
 	virtual void ReleaseResources(void);	///< Release all dx8 resources so the device can be reset.
 	virtual void ReAcquireResources(void);  ///< Reacquire all resources after device reset.
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface (W3D methods)
 	/////////////////////////////////////////////////////////////////////////////
@@ -130,7 +128,6 @@ public:
 
 	virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
 	virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & aabox) const;
-
 
 	virtual void					On_Frame_Update(void);
 	virtual void					Notify_Added(SceneClass * scene);
@@ -267,7 +264,6 @@ protected:
 
 	// STL is "smart." This is a variable sized bitset. Very memory efficient.
 	std::vector<bool> m_showAsVisibleCliff;
-
 
 	DX8IndexBufferClass			*m_indexBuffer;	///<indices defining triangles in a VB tile.
 #ifdef PRE_TRANSFORM_VERTEX

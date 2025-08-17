@@ -40,15 +40,11 @@
 MessageStream *TheMessageStream = NULL;
 CommandList *TheCommandList = NULL;
 
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
 
 //------------------------------------------------------------------------------------------------
 // GameMessage
@@ -66,7 +62,6 @@ GameMessage::GameMessage( GameMessage::Type type )
 	m_argCount = 0;
 	m_list = 0;
 }
-
 
 /**
  * Destructor
@@ -376,7 +371,6 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
 	CHECK_IF(MSG_META_TOGGLE_CAMERA_TRACKING_DRAWABLE)
 	CHECK_IF(MSG_META_DEMO_INSTANT_QUIT)
 
-
 #if defined(_ALLOW_DEBUG_CHEATS_IN_RELEASE)//may be defined in GameCommon.h
     CHECK_IF(MSG_CHEAT_RUNSCRIPT1)
 		CHECK_IF(MSG_CHEAT_RUNSCRIPT2)
@@ -399,10 +393,8 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
     CHECK_IF(MSG_CHEAT_SHOW_HEALTH)
     CHECK_IF(MSG_CHEAT_TOGGLE_MESSAGE_TEXT)
 
-
 #endif
     CHECK_IF(MSG_META_TOGGLE_FAST_FORWARD_REPLAY)
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 	CHECK_IF(MSG_META_DEMO_TOGGLE_BEHIND_BUILDINGS)
@@ -518,7 +510,6 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
 	CHECK_IF(MSG_META_DEBUG_WIN)
 	CHECK_IF(MSG_META_DEMO_TOGGLE_DEBUG_STATS)
 #endif // defined(_DEBUG) || defined(_INTERNAL)
-
 
 #if defined(_INTERNAL) || defined(_DEBUG)
 	CHECK_IF(MSG_META_DEMO_TOGGLE_AUDIODEBUG)
@@ -683,7 +674,6 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
 	return commandName;
 }
 
-
 //------------------------------------------------------------------------------------------------
 // GameMessageList
 //
@@ -799,7 +789,6 @@ Bool GameMessageList::containsMessageOfType( GameMessage::Type type )
 //------------------------------------------------------------------------------------------------
 // MessageStream
 //
-
 
 /**
  * Constructor
@@ -995,7 +984,6 @@ void MessageStream::removeTranslator( TranslatorID id )
 		}
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -1105,7 +1093,6 @@ void MessageStream::propagateMessages( void )
 		}
 	}
 
-
 	// transfer all messages that reached the end of the stream to TheCommandList
 	TheCommandList->appendMessageList( m_firstMessage );
 
@@ -1114,7 +1101,6 @@ void MessageStream::propagateMessages( void )
 	m_lastMessage = NULL;
 
 }
-
 
 //------------------------------------------------------------------------------------------------
 // CommandList

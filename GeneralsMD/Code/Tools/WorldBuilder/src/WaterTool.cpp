@@ -50,8 +50,6 @@ WaterTool::WaterTool(void)
 
 }
 
-
-
 /// Destructor
 WaterTool::~WaterTool(void)
 {
@@ -87,7 +85,6 @@ void WaterTool::activate()
 	doIt = true;
 }
 
-
 #define WATER_FILL
 #define INTENSE_DEBUG
 
@@ -118,8 +115,6 @@ void WaterTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldB
 
 }
 
-
-
 /** Set the cursor. */
 void WaterTool::setCursor(void)
 {
@@ -137,8 +132,6 @@ void WaterTool::setCursor(void)
 		Tool::setCursor();
 	}
 }
-
-
 
 /// Left button move code.
 void WaterTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

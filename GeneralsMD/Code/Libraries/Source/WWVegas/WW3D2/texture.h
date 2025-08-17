@@ -39,7 +39,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -219,7 +218,6 @@ protected:
 	bool IsProcedural;
 	bool IsReducible;
 
-
 	unsigned InactivationTime;	// In milliseconds
 	unsigned ExtendedInactivationTime;	// This is set by the engine, if needed
 	unsigned LastInactivationSyncTime;
@@ -257,7 +255,6 @@ private:
 	TextureLoadTaskClass* ThumbnailLoadTask;
 
 };
-
 
 /*************************************************************************
 **                             TextureClass

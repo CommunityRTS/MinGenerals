@@ -50,7 +50,6 @@ HiveStructureBodyModuleData::HiveStructureBodyModuleData()
 	m_damageTypesToSwallow = DAMAGE_TYPE_FLAGS_NONE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 HiveStructureBody::HiveStructureBody( Thing *thing, const ModuleData* moduleData )
 							: StructureBody( thing, moduleData )

@@ -99,7 +99,6 @@ private:
 	Int sendGameResults( UnsignedInt IP, UnsignedShort port, const std::string& results );
 };
 
-
 //-------------------------------------------------------------------------
 
 GameResultsQueue::GameResultsQueue() : m_requestCount(0), m_responseCount(0)
@@ -205,7 +204,6 @@ Bool GameResultsQueue::areGameResultsBeingSent( void )
 	return m_requestCount > 0;
 }
 
-
 //-------------------------------------------------------------------------
 // Wrap ladder results in HTTP POST
 static WrapHTTP( const std::string& hostname, std::string& results )
@@ -221,7 +219,6 @@ static WrapHTTP( const std::string& hostname, std::string& results )
 	_snprintf( szHdr, 255, HEADER, hostname.c_str(), results.length() );
 	results = szHdr + results;
 } //WrapHTTP
-
 
 //-------------------------------------------------------------------------
 
@@ -405,6 +402,5 @@ Int GameResultsThreadClass::sendGameResults( UnsignedInt IP, UnsignedShort port,
 
 	return results.length();
 }
-
 
 //-------------------------------------------------------------------------

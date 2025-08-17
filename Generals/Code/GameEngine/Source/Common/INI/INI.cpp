@@ -144,7 +144,6 @@ static const BlockParse theTypeTable[] =
 	{ NULL,									NULL },		// keep this last!
 };
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1436,7 +1435,6 @@ void INI::parseLookupList( INI* ini, void * /*instance*/, void *store, const voi
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //-------------------------------------------------------------------------------------------------
 void MultiIniFieldParse::add(const FieldParse* f, UnsignedInt e)
 {
@@ -1514,7 +1512,6 @@ void INI::initFromINIMulti( void *what, const MultiIniFieldParse& parseTableList
 						} catch (...) {
 							DEBUG_CRASH( ("[LINE: %d - FILE: '%s'] Error reading field '%s' of block '%s'\n",
 																 INI::getLineNum(), INI::getFilename().str(), field, m_curBlockStart) );
-
 
 							char buff[1024];
 							sprintf(buff, "[LINE: %d - FILE: '%s'] Error reading field '%s'\n", INI::getLineNum(), INI::getFilename().str(), field);
@@ -1946,7 +1943,6 @@ Bool INI::isEndOfBlock( char *bufferToCheck )
 	int endStringLength = strlen(endString);
 	char restoreChar;
 	char *tempBuff = bufferToCheck;
-
 
 	while (isspace(*tempBuff)) {
 		++tempBuff;

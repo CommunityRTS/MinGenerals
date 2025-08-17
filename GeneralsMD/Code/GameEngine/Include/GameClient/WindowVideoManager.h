@@ -68,7 +68,6 @@ class VideoBuffer;
 // TYPE DEFINES ///////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 
-
 enum WindowVideoPlayType
 {
 	WINDOW_PLAY_MOVIE_ONCE = 0,
@@ -118,7 +117,6 @@ private:
 
 };
 
-
 class WindowVideoManager : public SubsystemInterface
 {
 public:
@@ -130,7 +128,6 @@ public:
 	virtual void reset( void );
 	virtual void update( void );
 	//===============================================================================================
-
 
 	void playMovie( GameWindow *win, AsciiString movieName, WindowVideoPlayType playType );
 	void hideMovie( GameWindow *win );							///< If the window becomes hidden while we're playing, stop the movie but test to see if we should resume
@@ -163,7 +160,6 @@ private:
 	Bool m_stopAllMovies;														///< Maintains is we're in a stop all Movies State
 	Bool m_pauseAllMovies;													///< Maintains if we're in a pause all movies state
 
-
 };
 
 //-----------------------------------------------------------------------------
@@ -177,8 +173,6 @@ inline WindowVideoPlayType WindowVideo::getPlayType ( void ){ return m_playType;
 inline WindowVideoStates WindowVideo::getState( void ){ return m_state; };
 
 inline void WindowVideo::setPlayType(WindowVideoPlayType playType){ m_playType = playType; };
-
-
 
 //-----------------------------------------------------------------------------
 // EXTERNALS //////////////////////////////////////////////////////////////////

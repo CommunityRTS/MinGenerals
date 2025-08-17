@@ -63,10 +63,8 @@
 #include "dazzlesave.h"
 #include <bitarray.h>
 
-
 const int		OPTIMIZATION_FACECOUNT_LIMIT	= 256;			// TODO: what should this number be...
 const float		OPTIMIZATION_COMBINING_DISTANCE = 20.0f;		// TODO: need a smarter method for combining...
-
 
 /**
 ** MeshGeometryExportTaskClass
@@ -183,10 +181,6 @@ protected:
 	Box3					WorldBounds;		// World-space bounding box
 };
 
-
-
-
-
 /**
 ** CollisionBoxGeometryExportTaskClass
 ** Export task for INodes which are to generate W3D AABoxes or OBBoxes
@@ -225,10 +219,6 @@ protected:
 
 };
 
-
-
-
-
 /**
 ** DazzleGeometryExportTaskClass
 ** Export task for INodes which are to generate W3D Dazzle objects
@@ -266,9 +256,6 @@ protected:
 
 };
 
-
-
-
 /**
 ** NullGeometryExportTaskClass
 ** Export task for INodes which are to generate W3D NULL objects.  Note that this
@@ -296,7 +283,6 @@ protected:
 	virtual int	Get_Geometry_Type(void) { return NULLOBJ; }
 
 };
-
 
 /**
 ** AggregateGeometryExportTaskClass
@@ -330,7 +316,6 @@ protected:
 	virtual int	Get_Geometry_Type(void) { return AGGREGATE; }
 
 };
-
 
 /**
 ** ProxyExportTaskClass
@@ -372,10 +357,6 @@ protected:
 	virtual int	Get_Geometry_Type(void) { return PROXY; }
 
 };
-
-
-
-
 
 /***********************************************************************************************
 **
@@ -421,7 +402,6 @@ GeometryExportTaskClass::GeometryExportTaskClass(INode * node,GeometryExportCont
 	}
 }
 
-
 /***********************************************************************************************
  * GeometryExportTaskClass::GeometryExportTaskClass -- Copy Constructor                        *
  *                                                                                             *
@@ -444,7 +424,6 @@ GeometryExportTaskClass::GeometryExportTaskClass(const GeometryExportTaskClass &
 	Set_W3D_Name(ContainerName,that.ContainerName);
 }
 
-
 /***********************************************************************************************
  * GeometryExportTaskClass::~GeometryExportTaskClass -- Destructor                             *
  *                                                                                             *
@@ -459,7 +438,6 @@ GeometryExportTaskClass::GeometryExportTaskClass(const GeometryExportTaskClass &
 GeometryExportTaskClass::~GeometryExportTaskClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * GeometryExportTaskClass::Get_Full_Name -- Composes the full name of this robj               *
@@ -485,7 +463,6 @@ void GeometryExportTaskClass::Get_Full_Name(char * buffer,int size)
 
 	strncpy(buffer,tmp,size);
 }
-
 
 /***********************************************************************************************
  * GeometryExportTaskClass::Create_Task -- virtual constructor for export tasks                *
@@ -537,7 +514,6 @@ GeometryExportTaskClass::Create_Task(INode * node,GeometryExportContextClass & c
 
 	return NULL;
 }
-
 
 /***********************************************************************************************
  * GeometryExportTaskClass::Optimize_Geometry -- Optimizes the export tasks                    *
@@ -650,8 +626,6 @@ void GeometryExportTaskClass::Optimize_Geometry
 		i++;
 	}
 
-
-
 	/*
 	** Generate names for each of the meshes that were created
 	*/
@@ -670,7 +644,6 @@ void GeometryExportTaskClass::Optimize_Geometry
 	simple_meshes.Delete_All();
 
 }
-
 
 /***********************************************************************************************
  * GeometryExportTaskClass::Generate_Name -- create a name for this object                     *
@@ -723,7 +696,6 @@ void GeometryExportTaskClass::Generate_Name(char * root,int index,GeometryExport
 	*/
 	sprintf(Name + strlen(Name),"%c",'a'+Get_Lod_Level(context.Origin));
 }
-
 
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Update_Cached_Data -- updates the cached material pointer, etc *
@@ -823,7 +795,6 @@ void	MeshGeometryExportTaskClass::Update_Cached_Data(void)
 	WorldBounds = Box3(boxmin,boxmax) * Node->GetObjectTM(CurTime);
 }
 
-
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Is_Single_Material -- Tests if this mesh uses a single materia *
  *                                                                                             *
@@ -840,7 +811,6 @@ bool MeshGeometryExportTaskClass::Is_Single_Material(void)
 {
 	return ((SingleMtl != NULL) || (Node->GetMtl() == NULL));
 }
-
 
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Get_Single_Material -- returns pointer to the material         *
@@ -916,7 +886,6 @@ void MeshGeometryExportTaskClass::Split(DynamicVectorClass<MeshGeometryExportTas
 	}
 }
 
-
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Reduce_To_Single_Material -- deletes polys                     *
  *                                                                                             *
@@ -955,7 +924,6 @@ void MeshGeometryExportTaskClass::Reduce_To_Single_Material(int mat_id)
 	Update_Cached_Data();
 }
 
-
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Can_Combine -- can this mesh combine with anything             *
  *                                                                                             *
@@ -989,7 +957,6 @@ bool MeshGeometryExportTaskClass::Can_Combine(void)
 	}
 	return true;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Can_Combine_With -- can this mesh be combined with the given m *
@@ -1051,7 +1018,6 @@ bool MeshGeometryExportTaskClass::Can_Combine_With(MeshGeometryExportTaskClass *
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryExportTaskClass::Combine_Mesh -- Add the given mesh into this mesh              *

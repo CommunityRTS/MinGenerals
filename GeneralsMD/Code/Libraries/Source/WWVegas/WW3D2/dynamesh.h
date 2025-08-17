@@ -32,7 +32,6 @@
  *                                                                         *
  *-------------------------------------------------------------------------*/
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -370,7 +369,6 @@ public:
 		color_list[index] = DX8Wrapper::Convert_Color_Clamp(color);
 	}
 
-
 	/*
 	** The following are a bunch of inlined functions for setting & clearing the mesh model's various flags
 	*/
@@ -518,7 +516,6 @@ int DynamicMeshClass::Set_Vertex_Color(const Vector3 & color, int color_array_in
 	Set_Vertex_Color(Vector4(color.X,color.Y,color.Z,1),color_array_index);
 	return 0;
 }
-
 
 /*
 ** Dynamic Screen Meshes

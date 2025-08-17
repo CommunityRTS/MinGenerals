@@ -77,7 +77,6 @@ class RandomClass {
 		};
 };
 
-
 /*
 **	This class functions like a 'magic' number where it returns a different value every
 **	time it is read. It is nearly identical in function to the RandomClass, but has the
@@ -113,7 +112,6 @@ class Random2Class {
 		int Index2;
 		int Table[250];
 };
-
 
 /*
 **	This class functions like a 'magic' number where it returns a different value every
@@ -189,7 +187,6 @@ class Random4Class {
 		unsigned int mt[624]; // state vector
 		int mti;			 // index
 };
-
 
 /***********************************************************************************************
  * Pick_Random_Number -- Picks a random number between two values (inclusive).                 *

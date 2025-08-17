@@ -25,11 +25,9 @@
 
 #include "winblows.h"
 
-
 HINSTANCE Global_instance;
 LPSTR     Global_commandline;
 int       Global_commandshow;
-
 
 /*
  * WinMain - initialization, message loop
@@ -49,7 +47,6 @@ int PASCAL WinMain( HINSTANCE instance, HINSTANCE, char *command_line, int comma
     GetModuleFileName(instance,(char *)&path_to_exe,512);
     argc=1;
     argv[0]=path_to_exe;
-
 
     int   command_scan=0;
     char  command_char;
@@ -82,7 +79,6 @@ int PASCAL WinMain( HINSTANCE instance, HINSTANCE, char *command_line, int comma
     return(main(argc,argv));
 
 } /* WinMain */
-
 
 int Print_WM(UINT message,char *out)
 {

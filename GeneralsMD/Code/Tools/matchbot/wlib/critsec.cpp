@@ -20,8 +20,6 @@
 #include <assert.h>
 #include "wlib/wdebug.h"
 
-
-
 CritSec::CritSec()
 {
 #ifdef _UNIX

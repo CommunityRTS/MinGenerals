@@ -52,9 +52,7 @@ public:
 	/// the client update callback
 	virtual void clientUpdate( void );
 
-
 protected:
-
 
 	UnsignedInt m_life;
 

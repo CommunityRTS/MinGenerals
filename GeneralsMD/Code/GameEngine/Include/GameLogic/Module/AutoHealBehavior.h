@@ -173,7 +173,6 @@ protected:
 
 	virtual Bool isSubObjectsUpgrade() { return false; }
 
-
 private:
 
 	void pulseHealObject( Object *obj );

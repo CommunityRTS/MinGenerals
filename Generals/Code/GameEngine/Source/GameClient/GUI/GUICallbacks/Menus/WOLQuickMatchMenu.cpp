@@ -105,7 +105,6 @@ static NameKeyType staticTextNumPlayersID = NAMEKEY_INVALID;
 static NameKeyType comboBoxSideID = NAMEKEY_INVALID;
 static NameKeyType comboBoxColorID = NAMEKEY_INVALID;
 
-
 // Window Pointers ------------------------------------------------------------------------
 static GameWindow *parentWOLQuickMatch = NULL;
 static GameWindow *buttonBack = NULL;
@@ -142,7 +141,6 @@ static Int minPoints = 0;
 
 static const LadderInfo * getLadderInfo( void );
 
-
 // [SKB: Jul 01 2003 @ 7:7pm] :
 // German2 now has fewer maps.  When trying to do a QM with a Retail version
 // the bool string sent to the QMBot is almost always a different size.  This
@@ -155,7 +153,6 @@ static const LadderInfo * getLadderInfo( void );
 typedef std::vector<Int> MapListboxIndex;
 static MapListboxIndex mapListboxIndex;
 #endif
-
 
 static Bool isInfoShown(void)
 {
@@ -241,7 +238,6 @@ enum{ MAX_DISCONNECTS_COUNT = 5 };
 static Int MAX_DISCONNECTS[MAX_DISCONNECTS_COUNT] = {MAX_DISCONNECTS_ANY, MAX_DISCONNECTS_5,
 																											MAX_DISCONNECTS_10, MAX_DISCONNECTS_25,
 																											MAX_DISCONNECTS_50};
-
 
 void UpdateStartButton(void)
 {
@@ -709,7 +705,6 @@ static void saveQuickMatchOptions( void )
 	GadgetComboBoxGetSelectedPos(comboBoxMaxDisconnects, &selected);
 	pref.setMaxDisconnects(selected);
 
-
 	pref.write();
 }
 
@@ -858,7 +853,6 @@ void WOLQuickMatchMenuInit( WindowLayout *layout, void *userData )
 	unselectedImage = TheMappedImageCollection->findImageByName("CustomMatch_deselected");
 	QuickMatchPreferences pref;
 
-
 	UnicodeString s;
 //	s.format(L"%d", pref.getMaxDisconnects());
 //	GadgetTextEntrySetText(textEntryMaxDisconnects, s);
@@ -978,7 +972,6 @@ void WOLQuickMatchMenuShutdown( WindowLayout *layout, void *userData )
 
 	RaiseGSMessageBox();
 }  // WOLQuickMatchMenuShutdown
-
 
 #ifdef PERF_TEST
 static const char* getMessageString(Int t)
@@ -1462,7 +1455,6 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 	switch( msg )
 	{
 
-
 		case GWM_CREATE:
 			{
 
@@ -1723,7 +1715,6 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 						numDiscons += it->second;
 					}
 					req.QM.discons = numDiscons;
-
 
 					strncpy(req.QM.pings, TheGameSpyInfo->getPingString().str(), 17);
 					req.QM.pings[16] = 0;

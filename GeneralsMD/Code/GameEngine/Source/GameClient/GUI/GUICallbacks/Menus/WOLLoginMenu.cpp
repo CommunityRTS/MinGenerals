@@ -347,7 +347,6 @@ static void shutdownComplete( WindowLayout *layout )
 
 }  // end if
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentWOLLoginID =						NAMEKEY_INVALID;
@@ -491,8 +490,6 @@ void WOLLoginMenuInit( WindowLayout *layout, void *userData )
 
 	GadgetTextEntrySetText(textEntryYear, UnicodeString::TheEmptyString);
 
-
-
 	GameWindowList tabList;
 	tabList.push_front(comboBoxEmail);
 	tabList.push_back(comboBoxLoginName);
@@ -581,7 +578,6 @@ void WOLLoginMenuInit( WindowLayout *layout, void *userData )
 
 	}
 #endif // ALLOW_NON_PROFILED_LOGIN
-
 
 #ifdef ALLOW_NON_PROFILED_LOGIN
 	if (GameSpyUseProfiles)
@@ -742,7 +738,6 @@ void WOLLoginMenuShutdown( WindowLayout *layout, void *userData )
 	TheTransitionHandler->reverse("GameSpyLoginProfileFade");
 
 }  // WOLLoginMenuShutdown
-
 
 // this is used to check if we've got all the pings
 static void checkLogin( void )
@@ -1011,7 +1006,6 @@ WindowMsgHandledType WOLLoginMenuSystem( GameWindow *window, UnsignedInt msg,
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{
@@ -1531,5 +1525,4 @@ WindowMsgHandledType WOLLoginMenuSystem( GameWindow *window, UnsignedInt msg,
 
 	return MSG_HANDLED;
 }// WOLLoginMenuSystem
-
 

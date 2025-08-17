@@ -25,7 +25,6 @@
 // EditCondition.h : header file
 //
 
-
 class Condition;
 class SidesList;
 /////////////////////////////////////////////////////////////////////////////
@@ -42,7 +41,6 @@ public:
 	enum { IDD = IDD_ScriptCondition };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

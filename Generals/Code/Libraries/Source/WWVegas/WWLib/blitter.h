@@ -71,7 +71,6 @@ class Blitter {
 		void Blit(void * dest, void const * source, int length) const {if (dest < source) BlitBackward(dest, source, length); else BlitForward(dest, source, length);}
 };
 
-
 /*
 **	This is the blitter object interface for dealing with RLE compressed pixel data. For
 **	every type of RLE compressed blitter operation desired, there would be an object created
@@ -88,7 +87,5 @@ class RLEBlitter {
 		*/
 		virtual void Blit(void * dest, void const * source, int length, int leadskip=0) const = 0;
 };
-
-
 
 #endif

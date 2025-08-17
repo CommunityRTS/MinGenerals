@@ -270,7 +270,6 @@ void Shell::push( AsciiString filename, Bool shutdownImmediate )
 	if(TheGameSpyInfo)
 			GameSpyCloseAllOverlays();
 
-
 #ifdef DEBUG_LOGGING
 	DEBUG_LOG(("Shell:push(%s) - stack was\n", filename.str()));
 	for (Int i=0; i<m_screenCount; ++i)
@@ -332,7 +331,6 @@ void Shell::pop( void )
 	WindowLayout *screen = top();
 	if(TheGameSpyInfo)
 			GameSpyCloseAllOverlays();
-
 
 	// sanity
 	if( screen == NULL )
@@ -456,7 +454,6 @@ void Shell::showShell( Bool runInit )
 	//			top()->bringForward();
 	//
 	//	}
-
 
 	if (!TheGlobalData->m_shellMapOn && m_screenCount == 0)
   {
@@ -624,7 +621,6 @@ void Shell::doPush( AsciiString layoutFile )
 	newScreen->runInit( NULL );
 	newScreen->bringForward();
 
-
 }  // end doPush
 
 //-------------------------------------------------------------------------------------------------
@@ -716,7 +712,6 @@ void Shell::shutdownComplete( WindowLayout *screen, Bool impendingPush )
 
 }  // end shutdownComplete
 
-
 void Shell::registerWithAnimateManager( GameWindow *win, AnimTypes animType, Bool needsToFinish, UnsignedInt delayMS)
 {
 	if(!m_animateWindowManager)
@@ -768,7 +763,6 @@ Bool Shell::isAnimReversed( void )
 	else
 		return TRUE;
 }
-
 
 void Shell::loadScheme( AsciiString name )
 {

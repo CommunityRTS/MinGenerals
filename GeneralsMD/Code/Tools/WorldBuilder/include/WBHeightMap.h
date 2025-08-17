@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef __WBHEIGHTMAP_H_
 #define __WBHEIGHTMAP_H_
 

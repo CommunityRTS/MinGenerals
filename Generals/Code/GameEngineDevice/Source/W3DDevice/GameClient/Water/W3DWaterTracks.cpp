@@ -225,7 +225,6 @@ void WaterTracksObj::init( Real width, Real length, Vector2 &start, Vector2 &end
 	m_backSlowDownAcc = (2.0f*m_waveInitialHeight/(m_timeToStop*m_timeToStop));//((m_waveInitialHeight - m_velocity*m_timeToStop)*2.0f)/(m_timeToStop*m_timeToStop);
 	m_timeToCompress = waveTypeInfo[m_type].m_timeToCompress;	//time for back of wave to continue moving forward after front starts retreating.
 
-
 	if (m_type == WaveTypeStationary)
 	{	//this is a stationary wave slightly behind starting point
 		m_timeToRetreat = 1000; //time to fade out.
@@ -771,7 +770,6 @@ void WaterTracksRenderSystem::reset(void)
 		mod = nextMod;
 	}  // end while
 
-
 	// free all attached things and used modules
 	assert( m_usedModules == NULL );
 }
@@ -797,7 +795,6 @@ void WaterTracksRenderSystem::shutdown( void )
 
 		mod = nextMod;
 	}  // end while
-
 
 	// free all attached things and used modules
 	assert( m_usedModules == NULL );
@@ -848,7 +845,6 @@ void WaterTracksRenderSystem::update()
 		mod = nextMod;
 	}  // end while
 }
-
 
 void TestWaterUpdate(void);
 void setFPMode( void );

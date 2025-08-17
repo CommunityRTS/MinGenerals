@@ -29,7 +29,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // SelectMacrotexture dialog
 
-
 SelectMacrotexture::SelectMacrotexture(CWnd* pParent /*=NULL*/)
 	: CDialog(SelectMacrotexture::IDD, pParent)
 {
@@ -38,7 +37,6 @@ SelectMacrotexture::SelectMacrotexture(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void SelectMacrotexture::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -46,7 +44,6 @@ void SelectMacrotexture::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(SelectMacrotexture, CDialog)
 	//{{AFX_MSG_MAP(SelectMacrotexture)
@@ -120,7 +117,6 @@ BOOL SelectMacrotexture::OnInitDialog()
 
  		}
 	}
-
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE

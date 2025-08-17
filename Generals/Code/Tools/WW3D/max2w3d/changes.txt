@@ -409,4 +409,3 @@ Version 1,0,4,8: Feb 15, 1999
 Greg:	Improved the strip generation algorithm.  Now actually turns a cube into 6
 		strips instead of 12 individual triangles.  Still needs work though...
 
-

@@ -40,7 +40,6 @@
 class ThingTemplate;
 class WeaponTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class AutoFindHealingUpdateModuleData : public ModuleData
@@ -80,7 +79,6 @@ public:
 protected:
 	Int m_nextScanFrames;
 };
-
 
 #endif
 

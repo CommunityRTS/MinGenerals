@@ -45,7 +45,6 @@
 
 #include "GameLogic/Module/ProductionUpdate.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -356,5 +355,4 @@ GameMessageDisposition PlaceEventTranslator::translateGameMessage(const GameMess
 
 	return disp;
 }
-
 

@@ -81,8 +81,6 @@ static void updateAllTeams(SidesList& sides, AsciiString oldpname, AsciiString n
 	}
 }
 
-
-
 static void ensureValidPlayerName(Dict *d)
 {
 	// ensure there are no illegal chars in it. (in particular, no spaces!)
@@ -220,7 +218,6 @@ static const char* calcRelationStr(SidesList& sides, int t1, int t2)
 	SidesInfo* ti2;
 	AsciiString t2name;
 
-
 	//	we use the relationship between our player's default teams.
 	ti1 = sides.getSideInfo(t1);
 	ti2 = sides.getSideInfo(t2);
@@ -237,7 +234,6 @@ static const char* calcRelationStr(SidesList& sides, int t1, int t2)
 /////////////////////////////////////////////////////////////////////////////
 // PlayerListDlg dialog
 
-
 PlayerListDlg::PlayerListDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(PlayerListDlg::IDD, pParent), m_updating(0)
 {
@@ -246,7 +242,6 @@ PlayerListDlg::PlayerListDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void PlayerListDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -254,7 +249,6 @@ void PlayerListDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(PlayerListDlg, CDialog)
 	//{{AFX_MSG_MAP(PlayerListDlg)
@@ -589,7 +583,6 @@ void PlayerListDlg::updateTheUI(void)
 
 	--m_updating;
 }
-
 
 BOOL PlayerListDlg::OnInitDialog()
 {

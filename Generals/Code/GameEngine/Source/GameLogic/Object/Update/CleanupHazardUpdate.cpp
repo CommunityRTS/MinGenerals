@@ -96,7 +96,6 @@ CleanupHazardUpdate::~CleanupHazardUpdate( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CleanupHazardUpdate::onObjectCreated()
 {

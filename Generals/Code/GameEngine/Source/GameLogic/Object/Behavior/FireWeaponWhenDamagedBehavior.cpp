@@ -27,7 +27,6 @@
 // Desc:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #define DEFINE_SLOWDEATHPHASE_NAMES
@@ -95,7 +94,6 @@ FireWeaponWhenDamagedBehavior::FireWeaponWhenDamagedBehavior( Thing *thing, cons
 			d->m_reactionWeaponRubble,						PRIMARY_WEAPON);
 		m_reactionWeaponRubble->reloadAmmo( obj );
 	}
-
 
 	if ( d->m_continuousWeaponPristine )
 	{

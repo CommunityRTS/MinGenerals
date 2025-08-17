@@ -46,19 +46,16 @@
  *   CollisionMath::Intersection_Test -- Intersection check for an AABox and a triangle        *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colmath.h"
 #include "aabox.h"
 #include "tri.h"
 #include "wwdebug.h"
-
 
 /*
 ** Separating Axes have to be rejected if their length is smaller than some epsilon.
 ** Otherwise, erroneous results can be reported.
 */
 #define AXISLEN_EPSILON2	WWMATH_EPSILON * WWMATH_EPSILON	// squared length of a separating axis must be larger than this
-
 
 /*
 ** Axes used in Box-Tri intersection tests
@@ -87,7 +84,6 @@ enum
 	AXIS_A2E2
 };
 
-
 /******************************************************************************************
 
 	AABox->Triangle collision
@@ -107,7 +103,6 @@ enum
 	constructor of this object and testing determined that re-using the same static
 	struct was slightly faster anyway.
 	NOTE: this makes the code not Thread-Safe!!!!
-
 
 ******************************************************************************************/
 
@@ -248,7 +243,6 @@ static inline bool aabtri_separation_test
 	return false;
 }
 
-
 /***********************************************************************************************
  * aabtri_check_axis -- project the aab and tri onto an arbitrary axis                         *
  *                                                                                             *
@@ -302,7 +296,6 @@ static inline bool aabtri_check_axis(void)
 	return aabtri_separation_test(/*CollisionContext,*/lp,leb0,leb1);
 }
 
-
 /***********************************************************************************************
  * aabtri_check_cross_axis -- projects aab and tri onto a "cross" axis                         *
  *                                                                                             *
@@ -355,7 +348,6 @@ static inline bool aabtri_check_cross_axis
 
 	return aabtri_separation_test(/*CollisionContext,*/lp,leb0,leb1);
 }
-
 
 /***********************************************************************************************
  * aabtri_check_basis_axis -- projects the aab and tri onto a basis axis                       *
@@ -411,7 +403,6 @@ static inline bool aabtri_check_basis_axis
 
 	return aabtri_separation_test(/*CollisionContext,*/lp,leb0,leb1);
 }
-
 
 /***********************************************************************************************
  * aabtri_check_normal_axis -- project the box and tri onto the tri-normal                     *
@@ -845,8 +836,6 @@ exit:
 	return false;
 }
 
-
-
 /*
 ** AABTIntersectStruct
 ** Scratchpad variables for the AABox-Triangle intersection functions.  One instance
@@ -876,7 +865,6 @@ struct AABTIntersectStruct
 		Vector3::Cross_Product(E[0],E[1],&N);
 	}
 
-
 	Vector3					D;						// Vector from the center of the box to v0
 	float						AE[3][3];			// Dot products of the Basis vectors and edges
 	float						AN[3];				// Dot products of the Basis vectors and the normal
@@ -896,7 +884,6 @@ private:
 };
 
 static AABTIntersectStruct IntersectContext;
-
 
 /***********************************************************************************************
  * aabtri_intersect_cross_axis -- intersection check for a "cross-product" axis                *
@@ -938,7 +925,6 @@ static inline bool aabtri_intersect_cross_axis
 
 	return (lp - leb0 > -WWMATH_EPSILON);
 }
-
 
 /***********************************************************************************************
  * aabtri_intersect_basis_axis -- intersection check for a basis axis                          *
@@ -984,7 +970,6 @@ static inline bool aabtri_intersect_basis_axis
 	return (lp - leb0 > -WWMATH_EPSILON);
 }
 
-
 /***********************************************************************************************
  * aabtri_intersect_normal_axis -- intersection check for the triangle normal                  *
  *                                                                                             *
@@ -1023,7 +1008,6 @@ static inline bool aabtri_intersect_normal_axis
 
 	return (lp - leb0 > -WWMATH_EPSILON);
 }
-
 
 /***********************************************************************************************
  * CollisionMath::Intersection_Test -- Intersection check for an AABox and a triangle          *

@@ -234,7 +234,6 @@ PointGroupClass & PointGroupClass::operator = (const PointGroupClass & that)
 	return *this;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Set_Arrays -- Set point location/color/enable arrays. *
  *                                                                        *
@@ -318,7 +317,6 @@ void PointGroupClass::Set_Point_Size(float size)
 	DefaultPointSize = size;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Get_Point_Size -- Get default point size.             *
  *                                                                        *
@@ -335,7 +333,6 @@ float PointGroupClass::Get_Point_Size(void)
 {
 	return DefaultPointSize;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Set_Point_Color -- Set default point color.           *
@@ -388,7 +385,6 @@ void PointGroupClass::Set_Point_Alpha(float alpha)
 	DefaultPointAlpha = alpha;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Get_Point_Alpha -- Get default point alpha.           *
  *                                                                        *
@@ -405,7 +401,6 @@ float PointGroupClass::Get_Point_Alpha(void)
 {
 	return DefaultPointAlpha;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Set_Point_Orientation -- Set default point orientation*
@@ -426,7 +421,6 @@ void PointGroupClass::Set_Point_Orientation(unsigned char orientation)
 	DefaultPointOrientation = orientation;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Get_Point_Orientation -- Get default point orientation*
  *                                                                        *
@@ -443,7 +437,6 @@ unsigned char PointGroupClass::Get_Point_Orientation(void)
 {
 	return DefaultPointOrientation;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Set_Point_Frame -- Set default point frame.           *
@@ -464,7 +457,6 @@ void PointGroupClass::Set_Point_Frame(unsigned char frame)
 	DefaultPointFrame = frame;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Get_Point_Frame -- Get default point frame.           *
  *                                                                        *
@@ -481,7 +473,6 @@ unsigned char PointGroupClass::Get_Point_Frame(void)
 {
 	return DefaultPointFrame;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Set_Point_Mode -- Set point rendering method.         *
@@ -500,7 +491,6 @@ void PointGroupClass::Set_Point_Mode(PointModeEnum mode)
 	PointMode = mode;
 }
 
-
 /**************************************************************************
  * PointGroupClass::Get_Point_Mode -- Get point rendering method.         *
  *                                                                        *
@@ -517,7 +507,6 @@ PointGroupClass::PointModeEnum PointGroupClass::Get_Point_Mode(void)
 {
 	return PointMode;
 }
-
 
 /**************************************************************************
  * Set_Flag -- PointGroupClass::Set given flag to on or off.              *
@@ -592,7 +581,6 @@ TextureClass * PointGroupClass::Get_Texture(void)
 	return Texture;
 }
 
-
 /***********************************************************************************************
  * PointGroupClass::Peek_Texture -- Peeks texture                                              *
  *                                                                                             *
@@ -636,7 +624,6 @@ void PointGroupClass::Set_Shader(ShaderClass shader)
 {
 	Shader = shader;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Get_Shader -- Get shader used.                        *
@@ -707,7 +694,6 @@ unsigned char PointGroupClass::Get_Frame_Row_Column_Count_Log2(void)
 {
 	return FrameRowColumnCountLog2;
 }
-
 
 /**************************************************************************
  * PointGroupClass::Set_Frame_Row_Column_Count_Log2 -- what it says.      *
@@ -989,12 +975,6 @@ void PointGroupClass::Render(RenderInfoClass &rinfo)
 	DX8Wrapper::Set_Transform(D3DTS_VIEW,view);
 }
 
-
-
-
-
-
-
 /**************************************************************************
  * PointGroupClass::Update_Arrays -- Update all arrays used in rendering  *
  *                                                                        *
@@ -1070,7 +1050,6 @@ void PointGroupClass::Update_Arrays(
 
 	vert = 0;
 	Vector3 *vertex_loc = &VertexLoc[0];
-
 
 	/// @todo lorenzen sez: this switch statement may be done more compactly another way... look into it
 
@@ -1417,7 +1396,6 @@ void PointGroupClass::Update_Arrays(
 	}
 }
 
-
 /**************************************************************************
  * PointGroupClass::_Init -- Create static data.                          *
  *                                                                        *
@@ -1581,7 +1559,6 @@ void PointGroupClass::_Init(void)
 	PointMaterial=VertexMaterialClass::Get_Preset(VertexMaterialClass::PRELIT_DIFFUSE);
 }
 
-
 /**************************************************************************
  * PointGroupClass::_Shutdown -- Destroy static data.                     *
  *                                                                        *
@@ -1610,11 +1587,6 @@ void PointGroupClass::_Shutdown(void)
 	VertexDiffuse.Clear();
 	VertexUV.Clear();
 }
-
-
-
-
-
 
 /**************************************************************************
  * PointGroupClass::RenderVolumeParticles -- draw a point group.sandwich  *
@@ -1687,15 +1659,9 @@ void PointGroupClass::RenderVolumeParticle(RenderInfoClass &rinfo, unsigned int 
 		Matrix4 view;
 		DX8Wrapper::Get_Transform(D3DTS_VIEW,view);
 
-
-
 	//// VOLUME_PARTICLE LOOP ///////////////
 	for ( int t = 0; t < depth; ++t )
 	{
-
-
-
-
 
 		// If there is an active point table, use it to compress the point
 		// locations/colors/alphas/sizes/orientations/frames.
@@ -1758,10 +1724,6 @@ void PointGroupClass::RenderVolumeParticle(RenderInfoClass &rinfo, unsigned int 
 				current_frame = PointFrame->Get_Array();
 			}
 		}
-
-
-
-
 
 		// Transform the point locations from worldspace to camera space if needed
 		// (i.e. if they are not already in camera space):
@@ -1847,7 +1809,6 @@ void PointGroupClass::RenderVolumeParticle(RenderInfoClass &rinfo, unsigned int 
 			indexbuffer = sort ? static_cast <IndexBufferClass*> (SortingTris) : static_cast <IndexBufferClass*> (Tris);
 		}
 
-
 		float nudge = 0;
 
 		current = 0;
@@ -1862,7 +1823,6 @@ void PointGroupClass::RenderVolumeParticle(RenderInfoClass &rinfo, unsigned int 
 				int i;
 				unsigned char *vb=(unsigned char*)Lock.Get_Formatted_Vertex_Array();
 				const FVFInfoClass& fvfinfo = PointVerts.FVF_Info();
-
 
 				for (i = current; i < current + delta; i++)
 				{
@@ -1889,29 +1849,17 @@ void PointGroupClass::RenderVolumeParticle(RenderInfoClass &rinfo, unsigned int 
 
 			/// @todo lorenzen sez: precompute these params, above
 
-
 			if ( sort )
 					SortingRendererClass::Insert_Triangles (0, delta / verticesperprimitive, 0, delta);
 			else
 				DX8Wrapper::Draw_Triangles (0, delta / verticesperprimitive, 0, delta);
 
-
 			current+=delta;
 		} // loop while (current<vnum)
 
-
-
 	}// next volume layer
-
-
-
 
 	// restore the matrices
 	DX8Wrapper::Set_Transform(D3DTS_VIEW,view);
 }
-
-
-
-
-
 

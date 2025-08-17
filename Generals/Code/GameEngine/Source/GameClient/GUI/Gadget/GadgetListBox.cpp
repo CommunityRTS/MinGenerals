@@ -86,7 +86,6 @@ typedef struct _AddMessageStruct
 	Int height;			// set to -1 if we want the defaults
 } AddMessageStruct;
 
-
 typedef struct _TextAndColor
 {
 	UnicodeString string;			// Holds a unicode String
@@ -217,7 +216,6 @@ static Int getListboxBottomEntry( ListboxData *list )
 
 	return 0;
 }
-
 
 // removeSelection ============================================================
 /** Remove Selection from a multiple selection list */
@@ -748,7 +746,6 @@ WindowMsgHandledType GadgetListBoxInput( GameWindow *window, UnsignedInt msg,
 								}
 
 							}
-
 
 						}
 
@@ -1737,7 +1734,6 @@ WindowMsgHandledType GadgetListBoxSystem( GameWindow *window, UnsignedInt msg,
 				list->listData[i].cell = NULL;
 			}
 
-
 			//
 			// copy the cells up
 			//
@@ -1754,7 +1750,6 @@ WindowMsgHandledType GadgetListBoxSystem( GameWindow *window, UnsignedInt msg,
 			{
 				list->listData[list->endPos + i].cell = NULL;
 			}
-
 
 			if( list->multiSelect )
 			{
@@ -2044,7 +2039,6 @@ WindowMsgHandledType GadgetListBoxSystem( GameWindow *window, UnsignedInt msg,
 			break;
 		}//case GLM_GET_ITEM_DATA:
 
-
 		default:
 			return MSG_IGNORED;
 
@@ -2186,7 +2180,6 @@ UnicodeString GadgetListBoxGetTextAndColor( GameWindow *listbox, Color *color, I
 	pos.x = column;
 	pos.y = row;
 	TheWindowManager->winSendSystemMsg( listbox, GLM_GET_TEXT, (WindowMsgData)&pos, (WindowMsgData)&tAndC );
-
 
 		*color = tAndC.color;
 		return tAndC.string;
@@ -2478,7 +2471,6 @@ void GadgetListBoxRemoveMultiSelect( GameWindow *listbox )
 void GadgetListBoxSetListLength( GameWindow *listbox, Int newLength )
 {
 	ListboxData *listboxData = (ListboxData *)listbox->winGetUserData();
-
 
 //	ListboxData *listboxData = (ListboxData *)listbox->winGetUserData();
 //	ListEntry *newData = (ListEntry *)malloc(newLength * sizeof(ListEntry));

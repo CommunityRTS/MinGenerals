@@ -56,7 +56,6 @@
 #include "GameLogic/Module/DamageModule.h"
 #include "GameLogic/Module/DieModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -213,11 +212,9 @@ void ActiveBody::setCorrectDamageState()
 		TheAI->pathfinder()->removeObjectFromPathfindMap(getObject());
 		TheAI->pathfinder()->addObjectToPathfindMap(getObject());
 
-
 		// here we make sure nobody collides with us, ever again...			//Lorenzen
 		//THis allows projectiles shot from infantry that are inside rubble to get out of said rubble safely
 		getObject()->setStatus( OBJECT_STATUS_NO_COLLISIONS );
-
 
 	}
 }
@@ -398,7 +395,6 @@ void ActiveBody::attemptDamage( DamageInfo *damageInfo )
 			// do the damage simplistic damage subtraction
 			internalChangeHealth( -amount );
 		}
-
 
 #ifdef ALLOW_SURRENDER
 //*****************************************************************************************
@@ -771,7 +767,6 @@ void ActiveBody::createParticleSystems( const AsciiString &boneBaseName,
     // DTEH: Moved back to GameClientRandomValue because of desync problems. July 27th 2003.
     Int boneIndex = GameClientRandomValue( 0, maxSystems - i - 1 );
 
-
 		// find the actual bone location to use and mark that bone index as used
 		Int count = 0;
 		for( Int j = 0; j < numBones; j++ )
@@ -1029,7 +1024,6 @@ Real ActiveBody::getInitialHealth() const
 {
 	return m_initialHealth;
 }  // return initial health
-
 
 // ------------------------------------------------------------------------------------------------
 /** Set or unset the overridable indestructible flag in the body */

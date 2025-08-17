@@ -103,7 +103,6 @@ mul COL, COL, V_DIFFUSE
 mul COL, COL, c[CV_DIFFUSE]
 add oD1, COL, c[CV_AMBIENT]
 
-
 // Scale to 0-1
 add LIGHT_LOCAL, LIGHT_LOCAL, c[CV_CONST].yyy
 mul LIGHT_LOCAL, LIGHT_LOCAL, c[CV_CONST].zzz
@@ -115,8 +114,6 @@ add oD0, LIGHT_LOCAL, c[CV_BUMPINESS].yyy
 // place negated bump light intensity in alpha channel
 add oD0.w, c[CV_CONST].y, -LIGHT_0.w
 
-
 mov oT0, V_TEXTURE
 mov oT1, V_TEXTURE
-
 

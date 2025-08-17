@@ -105,7 +105,6 @@ Bool SalvageCrateCollide::executeCrateBehavior( Object *other )
 		TheAudio->addAudioEvent(&soundToPlay);
 	}
 
-
 	return TRUE;
 }
 

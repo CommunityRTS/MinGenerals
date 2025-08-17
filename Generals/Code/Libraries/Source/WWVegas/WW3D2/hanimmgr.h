@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -103,7 +102,6 @@ private:
 
 	friend	class		HAnimManagerIterator;
 };
-
 
 /*
 ** An Iterator to get to all loaded HAnims in a HAnimManager

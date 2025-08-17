@@ -48,7 +48,6 @@
 // Singletons.
 TGAToDXTClass _TGAToDXTConverter;
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 //	TGAToDXTClass
@@ -63,7 +62,6 @@ TGAToDXTClass::TGAToDXTClass()
 	WWASSERT (Buffer != NULL);
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 //	~TGAToDXTClass
@@ -74,7 +72,6 @@ TGAToDXTClass::~TGAToDXTClass()
 	// Clean-up.
 	delete [] Buffer;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -196,7 +193,6 @@ TGAToDXTClass::ErrorCode TGAToDXTClass::Convert (const char *inputpathname, cons
 	return error_code;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 //	Write
@@ -225,7 +221,6 @@ void TGAToDXTClass::Write (const char *outputpathname)
 	BufferCount = 0;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 //	ReadDTXnFile
@@ -236,7 +231,6 @@ void ReadDTXnFile (DWORD datacount, void *data)
 	// Not implemented.
 	WWASSERT (false);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -264,6 +258,5 @@ void WriteDTXnFile (DWORD datacount, void *data)
 	memcpy (_TGAToDXTConverter.Buffer + _TGAToDXTConverter.BufferCount, data, datacount);
 	_TGAToDXTConverter.BufferCount += datacount;
 }
-
 
 #endif

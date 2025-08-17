@@ -36,7 +36,6 @@ typedef enum
 
 } LogFormat;
 
-
 typedef struct
 {
 	int new_strings;
@@ -53,8 +52,6 @@ typedef struct
 	int updated_listeners;
 	int updated_maxlen;
 	int changes;
-
-
 
 } UPDATEINFO;
 
@@ -74,8 +71,6 @@ class CBabylonDlg : public CDialog
 	int max_index;
 	CComboBox *combo;
 	int operate_always;
-
-
 
 // Construction
 public:

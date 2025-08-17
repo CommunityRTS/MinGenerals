@@ -138,7 +138,6 @@ Bool GetLocalChatConnectionAddress(AsciiString serverName, UnsignedShort serverP
 		tcpConnRemPort
 	};
 
-
 	/*
 	** Locals.
 	*/
@@ -230,7 +229,6 @@ Bool GetLocalChatConnectionAddress(AsciiString serverName, UnsignedShort serverP
 		return(false);
 	}
 
-
 	RFC1157VarBindList *bind_list_ptr = (RFC1157VarBindList *) SnmpUtilMemAllocPtr(sizeof(RFC1157VarBindList));
 	RFC1157VarBind *bind_ptr = (RFC1157VarBind *) SnmpUtilMemAllocPtr(sizeof(RFC1157VarBind));
 
@@ -274,7 +272,6 @@ Bool GetLocalChatConnectionAddress(AsciiString serverName, UnsignedShort serverP
 	bind_ptr->name.ids = mib_ii_name;
 	bind_list_ptr->list = bind_ptr;
 	bind_list_ptr->len = 1;
-
 
 	/*
 	** We start with the tcpConnLocalAddress field.
@@ -827,7 +824,6 @@ void GameSpyStagingRoom::launchGame( void )
 
 	TheNetwork->parseUserList(this);
 
-
 	if (TheGameLogic->isInGame()) {
 		TheGameLogic->clearGameData();
 	}
@@ -849,7 +845,6 @@ void GameSpyStagingRoom::launchGame( void )
 		PopBackToLobby();
 		return;
 	}
-
 
 	// shutdown the top, but do not pop it off the stack
 //		TheShell->hideShell();

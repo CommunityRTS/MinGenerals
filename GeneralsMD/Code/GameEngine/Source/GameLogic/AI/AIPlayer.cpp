@@ -631,8 +631,6 @@ Object *AIPlayer::buildStructureWithDozer(const ThingTemplate *bldgPlan, BuildLi
 																						angle,
 																						m_player );
 
-
-
 #if defined _DEBUG || defined _INTERNAL
 	if (TheGlobalData->m_debugAI == AI_DEBUG_PATHS)
 	{
@@ -788,7 +786,6 @@ void AIPlayer::processBaseBuilding( void )
 
 				if (bldg == NULL)
 				{
-
 
 #ifdef USE_DOZER
 					// dozer-construct the building
@@ -1041,7 +1038,6 @@ Bool AIPlayer::isLocationSafe(const Coord3D *pos, const ThingTemplate *tthing )
 
 }  // isSupplySourceSafe
 
-
 // ------------------------------------------------------------------------------------------------
 /** Invoked when a unit I am training comes into existence */
 // ------------------------------------------------------------------------------------------------
@@ -1280,9 +1276,7 @@ Bool AIPlayer::computeSuperweaponTarget(const SpecialPowerTemplate *power, Coord
 
   success = ( cash > -1 );
 
-
   return success;
-
 
 }
 
@@ -1785,7 +1779,6 @@ void AIPlayer::buildUpgrade(const AsciiString &upgrade)
 		return;
 	}
 
-
 	// No money.
 	if( TheUpgradeCenter->canAffordUpgrade( m_player, curUpgrade ) == FALSE ) {
 		AsciiString msg = TheNameKeyGenerator->keyToName(m_player->getPlayerNameKey());
@@ -1858,7 +1851,6 @@ void AIPlayer::buildBySupplies(Int minimumCash, const AsciiString& thingName)
 			bestSupplyWarehouse = curWarehouse;
 		}
 	}
-
 
 	if (bestSupplyWarehouse && tTemplate) {
 		Coord3D location;
@@ -2212,7 +2204,6 @@ Object *AIPlayer::findSupplyCenter(Int minimumCash)
 				PartitionFilterAcceptByKindOf f1(MAKE_KINDOF_MASK(KINDOF_CASH_GENERATOR), KINDOFMASK_NONE);
 				PartitionFilterPlayer f2(m_player, true);	// Only find your own units.
 				PartitionFilterOnMap filterMapStatus;
-
 
 				PartitionFilter *filters[] = { &f1, &f2, &filterMapStatus, 0 };
 
@@ -3000,7 +2991,6 @@ void AIPlayer::doUpgradesAndSkills( void )
 		}
 	}
 
-
 }
 
 //----------------------------------------------------------------------------------------------------------
@@ -3194,7 +3184,6 @@ void AIPlayer::queueDozer( void )
 	m_player->setCanBuildUnits(canBuildUnits);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Difficulty level for this player */
 //-------------------------------------------------------------------------------------------------
@@ -3202,7 +3191,6 @@ enum GameDifficulty AIPlayer::getAIDifficulty(void) const
 {
 	return m_difficulty;
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -3229,7 +3217,6 @@ Object * AIPlayer::findDozer( const Coord3D *pos )
 				if (ai==NULL) {
 					continue;
 				}
-
 
 				DozerAIInterface* dozerAI = ai->getDozerAIInterface();
 				if (dozerAI) {
@@ -3776,7 +3763,6 @@ void WorkOrder::loadPostProcess( void )
 {
 
 }  // end loadPostProcess
-
 
 //----------------------------------------------------------------------------------------------------------
 /**

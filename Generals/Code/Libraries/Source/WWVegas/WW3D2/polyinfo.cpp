@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "polyinfo.h"
 #include "texture.h"
 #include "vertmaterial.h"
@@ -69,7 +68,6 @@ void PolygonInfoClass::Set_Shader(ShaderClass *shader)
 	Shader = W3DNEW ShaderClass(* shader);
 }
 
-
 PolygonInfoClass::~PolygonInfoClass()
 {
 	if(Texture)
@@ -81,5 +79,4 @@ PolygonInfoClass::~PolygonInfoClass()
 	if(Shader)
 		delete Shader;
 }
-
 

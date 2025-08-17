@@ -30,7 +30,6 @@
 /////////////////////////////////////////////////////////////////////////////
 /// GlobalLightOptions dialog trivial construstor - Create does the real work.
 
-
 GlobalLightOptions::GlobalLightOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(GlobalLightOptions::IDD, pParent)
 {
@@ -47,7 +46,6 @@ void GlobalLightOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 static void calcNewLight(Int lr, Int fb, Vector3 *newLight)
 {
@@ -294,7 +292,6 @@ void GlobalLightOptions::OnResetLights()
 	TheWritableGlobalData->m_terrainObjectsLighting[1][2].lightPos.y = 0.00f;
 	TheWritableGlobalData->m_terrainObjectsLighting[1][2].lightPos.z = -1.00f;
 
-
 	TheWritableGlobalData->m_terrainLighting[2][0].ambient.red = 0.2196f;
 	TheWritableGlobalData->m_terrainLighting[2][0].ambient.green = 0.2039f;
 	TheWritableGlobalData->m_terrainLighting[2][0].ambient.blue = 0.1725f;
@@ -352,7 +349,6 @@ void GlobalLightOptions::OnResetLights()
 	TheWritableGlobalData->m_terrainObjectsLighting[2][2].lightPos.y = -0.4800f;
 	TheWritableGlobalData->m_terrainObjectsLighting[2][2].lightPos.z = -0.3400f;
 
-
 	TheWritableGlobalData->m_terrainLighting[3][0].ambient.red = 0.25f;
 	TheWritableGlobalData->m_terrainLighting[3][0].ambient.green = 0.23f;
 	TheWritableGlobalData->m_terrainLighting[3][0].ambient.blue = 0.20f;
@@ -409,7 +405,6 @@ void GlobalLightOptions::OnResetLights()
 	TheWritableGlobalData->m_terrainObjectsLighting[3][2].lightPos.x = 0.00f;
 	TheWritableGlobalData->m_terrainObjectsLighting[3][2].lightPos.y = 0.00f;
 	TheWritableGlobalData->m_terrainObjectsLighting[3][2].lightPos.z = -1.00f;
-
 
 	TheWritableGlobalData->m_terrainLighting[4][0].ambient.red = 0.10f;
 	TheWritableGlobalData->m_terrainLighting[4][0].ambient.green = 0.10f;
@@ -535,8 +530,6 @@ BOOL GlobalLightOptions::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
-
 /** Displays the current values in the fields. */
 void GlobalLightOptions::stuffValuesIntoFields(Int lightIndex)
 {
@@ -551,7 +544,6 @@ void GlobalLightOptions::stuffValuesIntoFields(Int lightIndex)
 
 	Vector3 light(tl->lightPos.x, tl->lightPos.y, tl->lightPos.z);
 	light.Normalize();
-
 
 	Real angleAzimuth = atan2(light.Y,light.X);//WWMath::Asin(light.Y);
 	azimuth = angleAzimuth*180.0f/PI;//90-(angleFB/PI)*180;
@@ -614,7 +606,6 @@ void GlobalLightOptions::stuffValuesIntoFields(Int lightIndex)
 	}
 	showLightFeedback(lightIndex);
 }
-
 
 /** Gets the new edit control text, converts it to an int, then updates
 		the slider and brush tool. */
@@ -726,7 +717,6 @@ void GlobalLightOptions::OnChangeColorEdit()
 	applyColor(K_ACCENT2);
 
 }
-
 
 void GlobalLightOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {
@@ -848,7 +838,6 @@ void GlobalLightOptions::PopSliderFinished(const long sliderID, long theVal)
 
 }
 
-
 BEGIN_MESSAGE_MAP(GlobalLightOptions, CDialog)
 	//{{AFX_MSG_MAP(GlobalLightOptions)
 	ON_WM_MOVE()
@@ -879,8 +868,6 @@ BEGIN_MESSAGE_MAP(GlobalLightOptions, CDialog)
 	ON_BN_CLICKED(IDC_GlobalLightingReset, OnResetLights)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
-
 
 void GlobalLightOptions::OnRadioEverything()
 {

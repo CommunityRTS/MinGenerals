@@ -42,5 +42,4 @@ typedef signed long		sint32;
 typedef float			float32;
 typedef double			float64;
 
-
 #endif //BITTYPE_H

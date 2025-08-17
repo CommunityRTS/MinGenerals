@@ -39,18 +39,15 @@
 //-------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 
-
 class GarrisonContainModuleData : public OpenContainModuleData
 {
 public:
-
 
 	struct InitialRoster
 	{
 		AsciiString templateName;
 		Int count;
 	};
-
 
 	Bool m_doIHealObjects;
 	Real m_framesForFullHeal;
@@ -91,7 +88,6 @@ public:
 		self->m_initialRoster.count = count;
 	};
 
-
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -127,7 +123,6 @@ public:
 	virtual void onContaining( Object *obj, Bool wasSelected );				///< object now contains 'obj'
 	virtual void onRemoving( Object *obj );					///< object no longer contains 'obj'
   virtual void onSelling( void );
-
 
 	// A Garrison Contain must eject all passengers when it crosses the ReallyDamaged threshold.
 	virtual void onBodyDamageStateChange( const DamageInfo* damageInfo,
@@ -187,7 +182,6 @@ private:
 
 	enum { MAX_GARRISON_POINTS = 40 };
 
-
 	//
 	// The max units inside any garrisoned structure is 10.  Since the units will "move around"
 	// the inside of the structure to be close to their targets, we need a max of 10 garrison points
@@ -210,7 +204,6 @@ private:
 			DrawableID	effectID;						///< for loading
 		};
 	};
-
 
   struct StationPointData
   {

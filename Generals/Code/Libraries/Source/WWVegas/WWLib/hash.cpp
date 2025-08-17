@@ -131,7 +131,6 @@ int	HashTableClass::Hash( const char * key )
 	return CRC_Stringi( key ) & (HashTableSize-1);
 }
 
-
 /*
 **
 */
@@ -162,5 +161,4 @@ void	HashTableIteratorClass::Advance_Next(void)
 		NextEntry = Table.HashTable[ Index ];
 	}
 }
-
 

@@ -51,7 +51,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 GameInfo *TheGameInfo = NULL;
 
 // GameSlot ----------------------------------------
@@ -179,7 +178,6 @@ Int GameSlot::getApparentStartPos( void ) const
 	}
 	return m_startPos;
 }
-
 
 void GameSlot::unAccept( void )
 {
@@ -339,7 +337,6 @@ void GameInfo::markPlayerAsPreorder(Int index)
 	if (index >= 0 && index < MAX_SLOTS)
 		m_preorderMask |= 1 << index;
 }
-
 
 void GameInfo::clearSlotList( void )
 {
@@ -876,7 +873,6 @@ Bool GameInfo::isSandbox(void)
 	return TRUE;
 }
 
-
 // Convenience Functions ----------------------------------------
 
 static const char slotListID		= 'S';
@@ -996,7 +992,6 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 
 	//DEBUG_LOG(("Saw options of %s\n", options.str()));
 	DEBUG_LOG(("ParseAsciiStringToGameInfo - parsing [%s]\n", options.str()));
-
 
 	while ( (keyValPair = strtok_r(bufPtr, ";", &strPos)) != NULL )
 	{
@@ -1435,7 +1430,6 @@ Bool ParseAsciiStringToGameInfo(GameInfo *game, AsciiString options)
 	return false;
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 
@@ -1456,7 +1450,6 @@ void SkirmishGameInfo::xfer( Xfer *xfer )
 	const XferVersion currentVersion = 2;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
-
 
 	xfer->xferInt(&m_preorderMask);
 	xfer->xferInt(&m_crcInterval);
@@ -1532,7 +1525,6 @@ void SkirmishGameInfo::xfer( Xfer *xfer )
 	xfer->xferInt(&m_mapMask);
 	xfer->xferInt(&m_seed);
 
-
 }  // end xfer
 
 // ------------------------------------------------------------------------------------------------
@@ -1541,5 +1533,4 @@ void SkirmishGameInfo::xfer( Xfer *xfer )
 void SkirmishGameInfo::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 

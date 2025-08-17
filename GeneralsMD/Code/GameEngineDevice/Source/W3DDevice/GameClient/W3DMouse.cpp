@@ -27,7 +27,6 @@
 // Desc:   W3D Mouse cursor implementations
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #include "Common/GameMemory.h"
 #include "WW3D2/DX8Wrapper.h"
 #include "WW3D2/RendObj.h"
@@ -338,7 +337,6 @@ void W3DMouse::init( void )
 	setCursor(ARROW);	//set default starting cursor image
 
 	WWASSERT(!thread.Is_Running());
-
 
 	isThread=FALSE;
 	if (m_currentRedrawMode == RM_DX8)

@@ -34,9 +34,7 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "nullsave.h"
-
 
 NullSaveClass::NullSaveClass
 (
@@ -58,8 +56,6 @@ NullSaveClass::NullSaveClass
 	strcat(NullData.Name,mesh_name);
 }
 
-
-
 int NullSaveClass::Write_To_File(ChunkSaveClass & csave)
 {
 	csave.Begin_Chunk(W3D_CHUNK_NULL_OBJECT);
@@ -67,6 +63,4 @@ int NullSaveClass::Write_To_File(ChunkSaveClass & csave)
 	csave.End_Chunk();
 	return 0;
 }
-
-
 

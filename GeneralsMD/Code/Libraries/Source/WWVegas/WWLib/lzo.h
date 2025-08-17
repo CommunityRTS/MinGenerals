@@ -52,21 +52,17 @@
 
 #define LZO_BUFFER_SIZE(s) ((s) + ((((s) / 0x400) + 1) * 16))
 
-
 int lzo1x_1_compress ( 	const lzo_byte *in,
 								lzo_uint  in_len,
                          lzo_byte *out,
 								lzo_uint *out_len,
                          lzo_voidp wrkmem);
 
-
 int lzo1x_decompress	(  const lzo_byte *in,
 								lzo_uint  in_len,
 								lzo_byte *out,
 								lzo_uint *out_len,
                          lzo_voidp);
-
-
 
 //
 // LZOCompressor
@@ -100,7 +96,5 @@ private:
 	static lzo_byte WorkBuffer[LZO1X_MEM_COMPRESS + 1];
 	static lzo_byte * EOWorkBuffer;
 };
-
-
 
 #endif

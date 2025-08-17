@@ -26,7 +26,6 @@
 #include "always.h"
 #include "thread.h"
 
-
 // Always use mutex or critical section when accessing the same data from multiple threads!
 
 // ----------------------------------------------------------------------------

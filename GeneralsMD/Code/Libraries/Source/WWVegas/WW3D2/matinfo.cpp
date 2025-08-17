@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "matinfo.h"
 #include "wwdebug.h"
 #include "meshmdl.h"
@@ -59,12 +58,10 @@ MaterialInfoClass::MaterialInfoClass(const MaterialInfoClass & src)
 	}
 }
 
-
 MaterialInfoClass::~MaterialInfoClass(void)
 {
 	Free();
 }
-
 
 MaterialInfoClass * MaterialInfoClass::Clone(void) const
 {
@@ -107,7 +104,6 @@ void MaterialInfoClass::Set_Texture_Reduction_Factor(float trf)
 	}
 }
 
-
 void MaterialInfoClass::Process_Texture_Reduction(void)
 {
 	for (int i = 0; i < Textures.Count(); i++) {
@@ -129,7 +125,6 @@ void MaterialInfoClass::Free(void)
 	}
 	Textures.Delete_All();
 }
-
 
 MaterialRemapperClass::MaterialRemapperClass(MaterialInfoClass * src,MaterialInfoClass * dest) :
 	TextureCount(0),
@@ -295,7 +290,6 @@ void MaterialCollectorClass::Collect_Materials(MeshModelClass * mesh)
 			REF_PTR_RELEASE(mat);
 		}
 
-
 		// Shaders (single or per poly...)
 		if (mesh->Has_Shader_Array(pass)) {
 			for (int poly_index=0; poly_index < mesh->Get_Polygon_Count(); poly_index++) {
@@ -305,7 +299,6 @@ void MaterialCollectorClass::Collect_Materials(MeshModelClass * mesh)
 			ShaderClass sh = mesh->Get_Single_Shader(pass);
 			Add_Shader(sh);
 		}
-
 
 		// Textures per pass, per stage (either array or single...)
 		for (int stage = 0; stage < MeshMatDescClass::MAX_TEX_STAGES; stage++) {

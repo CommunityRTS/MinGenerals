@@ -42,8 +42,6 @@
 #include "GameNetwork/IPEnumeration.h"
 //#include "GameNetwork/WOL.h"
 
-
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentWOLMessageWindowID = NAMEKEY_INVALID;
@@ -52,7 +50,6 @@ static NameKeyType buttonCancelID = NAMEKEY_INVALID;
 // Window Pointers ------------------------------------------------------------------------
 static GameWindow *parentWOLMessageWindow = NULL;
 static GameWindow *buttonCancel = NULL;
-
 
 //-------------------------------------------------------------------------------------------------
 /** Initialize the WOLMessage Window */
@@ -63,7 +60,6 @@ void WOLMessageWindowInit( WindowLayout *layout, void *userData )
 	buttonCancelID = TheNameKeyGenerator->nameToKey( AsciiString( "WOLMessageWindow.wnd:ButtonCancel" ) );
 	parentWOLMessageWindow = TheWindowManager->winGetWindowFromId( NULL, parentWOLMessageWindowID );
 	buttonCancel = TheWindowManager->winGetWindowFromId( NULL,  buttonCancelID);
-
 
 	// Show Menu
 	layout->hide( FALSE );
@@ -85,7 +81,6 @@ void WOLMessageWindowShutdown( WindowLayout *layout, void *userData )
 	// our shutdown is complete
 	TheShell->shutdownComplete( layout );
 }  // WOLMessageWindowShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOLMessage Window update method */
@@ -156,7 +151,6 @@ WindowMsgHandledType WOLMessageWindowSystem( GameWindow *window, UnsignedInt msg
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

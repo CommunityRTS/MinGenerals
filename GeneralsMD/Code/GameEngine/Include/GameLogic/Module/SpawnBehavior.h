@@ -214,7 +214,6 @@ private:
 	objectIDList m_spawnIDs;				///< My darling little spawns.  I need to keep track of them explicitly for the Slave type stuff
 	Bool m_active;									///< Am I currently turned on
 
-
 	Object *reclaimOrphanSpawn( void );		///< find existing orphaned spawn object if present
 
 	Bool m_aggregateHealth;			///< should I calc an offset for the healthbox, averaging all my spawn

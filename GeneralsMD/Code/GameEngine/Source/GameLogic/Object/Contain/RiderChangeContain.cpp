@@ -54,7 +54,6 @@
 #include "GameLogic/Module/StealthUpdate.h"
 #include "GameLogic/Module/RiderChangeContain.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -118,8 +117,6 @@ void RiderChangeContainModuleData::buildFieldParse(MultiIniFieldParse& p)
 	};
   p.add(dataFieldParse);
 }
-
-
 
 // PRIVATE ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -441,9 +438,6 @@ const Object *RiderChangeContain::friend_getRider() const
 
 	return NULL;
 }
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

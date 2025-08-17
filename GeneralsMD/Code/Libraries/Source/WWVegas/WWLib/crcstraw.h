@@ -61,5 +61,4 @@ class CRCStraw : public Straw
 		CRCStraw & operator = (CRCStraw const & pipe);
 };
 
-
 #endif

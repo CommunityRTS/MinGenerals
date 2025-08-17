@@ -262,5 +262,3 @@ HWND InitPushButtonPropertiesDialog( GameWindow *window )
 
 }  // end InitPushButtonPropertiesDialog
 
-
-

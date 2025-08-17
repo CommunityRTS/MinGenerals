@@ -82,7 +82,6 @@ static Bool hasAttackedMeAndICanReturnFire( State *thisState, void* /*userData*/
 	// stops attacking us, then we want our timer to kick us off of him and make us go attack
 	// other units instead.
 
-
 	if (!target) {
 		return FALSE;
 	}
@@ -128,7 +127,6 @@ static Object *findBestTunnel(Player *ownerPlayer, const Coord3D *pos)
 	return bestTunnel;
 }
 
-
 //-- ExitConditions -------------------------------------------------------------------------------
 /**
  * This returns true if the conditions specified have been met, false otherwise.
@@ -143,7 +141,6 @@ Bool TunnelNetworkExitConditions::shouldExit(const StateMachine* machine) const
 
 	return false;
 }
-
 
 //-- AITNGuardMachine -------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------

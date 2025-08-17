@@ -138,8 +138,6 @@ void LaserUpdate::updateStartPos()
 			return;
 		}
 
-
-
 		m_startPos.x = startPosMatrix.Get_X_Translation();
 		m_startPos.y = startPosMatrix.Get_Y_Translation();
 		m_startPos.z = startPosMatrix.Get_Z_Translation();
@@ -241,7 +239,6 @@ void LaserUpdate::setDecayFrames( UnsignedInt decayFrames )
 		m_currentWidthScalar = 1.0f;
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void LaserUpdate::initLaser( const Object *parent, const Object *target, const Coord3D *startPos, const Coord3D *endPos, AsciiString parentBoneName, Int sizeDeltaFrames )

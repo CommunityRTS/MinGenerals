@@ -49,7 +49,6 @@ int GroveOptions::getNumTrees(void)
 	return atoi(buff);
 }
 
-
 int GroveOptions::getNumType(int type)
 {
 	static char buff[ARBITRARY_BUFF_SIZE];
@@ -170,7 +169,6 @@ GroveOptions::~GroveOptions()
 {
 	TheGroveOptions = NULL;
 }
-
 
 void GroveOptions::_setTreesToLists(void)
 {
@@ -331,7 +329,6 @@ void GroveOptions::_setDefaultPlacementAllowed(void)
 	}
 }
 
-
 void GroveOptions::_updateTreeWeights(void)
 {
 	static char buff[ARBITRARY_BUFF_SIZE];
@@ -445,7 +442,6 @@ void GroveOptions::_updatePlacementAllowed(void)
 		AfxGetApp()->WriteProfileInt("GroveOptions", "AllowWaterPlace", pButt->GetCheck());
 	}
 
-
 }
 
 void GroveOptions::OnOK()
@@ -455,7 +451,6 @@ void GroveOptions::OnOK()
 
 void GroveOptions::OnClose()
 {
-
 
 }
 

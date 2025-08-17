@@ -326,7 +326,6 @@ public:
 		}
 	}
 
-
 };
 
 #endif // __BitFlags_H_

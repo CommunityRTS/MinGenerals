@@ -64,7 +64,6 @@ FrameGrabClass::FrameGrabClass(const char *filename, MODE mode, int width, int h
 		return;
 	}
 
-
     // Create a stream using AVIFileCreateStream.
 	AVIStreamInfo.fccType = streamtypeVIDEO;
 	AVIStreamInfo.fccHandler = mmioFOURCC('M','S','V','C');
@@ -147,13 +146,11 @@ void FrameGrabClass::GrabRawFrame(void * /*BitmapPointer*/)
 
 }
 
-
 void FrameGrabClass::ConvertGrab(void *BitmapPointer)
 {
 	ConvertFrame(BitmapPointer);
 	Grab( Bitmap );
 }
-
 
 void FrameGrabClass::Grab(void *BitmapPointer)
 {
@@ -162,7 +159,6 @@ void FrameGrabClass::Grab(void *BitmapPointer)
 	else
 		GrabRawFrame(BitmapPointer);
 }
-
 
 void FrameGrabClass::ConvertFrame(void *BitmapPointer)
 {

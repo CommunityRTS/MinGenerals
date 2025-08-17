@@ -119,7 +119,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 	if( control->winGetInputFunc() != GadgetPushButtonInput )
 		return CBC_COMMAND_NOT_USED;
 
-
 	if( commandButton == NULL )
 		return CBC_COMMAND_NOT_USED;
 
@@ -708,7 +707,6 @@ CBCommandStatus ControlBar::processCommandUI( GameWindow *control,
 				switchToContext( CB_CONTEXT_NONE, NULL );
 				break;
 			}
-
 
 			GameMessage *msg = TheMessageStream->appendMessage( GameMessage::MSG_PURCHASE_SCIENCE );
 			msg->appendIntegerArgument( st );

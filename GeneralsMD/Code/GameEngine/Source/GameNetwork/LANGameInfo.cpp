@@ -54,7 +54,6 @@ LANGameSlot::LANGameSlot()
 	m_lastHeard = 0;
 }
 
-
 LANPlayer * LANGameSlot::getUser( void )
 {
 	if (isHuman())
@@ -195,7 +194,6 @@ void LANGameInfo::resetAccepted( void )
 	}
 }
 // Misc game-related functionality --------------------
-
 
 void LANDisplayGameList( GameWindow *gameListbox, LANGameInfo *gameList )
 {

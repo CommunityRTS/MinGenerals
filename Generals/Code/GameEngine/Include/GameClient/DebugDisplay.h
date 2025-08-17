@@ -46,7 +46,6 @@
 #ifndef __GAMECLIENT_DEBUGDISPLAY_H
 #define __GAMECLIENT_DEBUGDISPLAY_H
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -54,17 +53,13 @@
 #include "Lib/BaseType.h"
 #include <stdio.h>
 
-
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //           Type Defines
 //----------------------------------------------------------------------------
-
 
 //===============================
 // DebugDisplayInterface
@@ -103,7 +98,6 @@ class DebugDisplayInterface
 
 		virtual void drawText( Int x, Int y, Char *text ) = 0;			///< Render null ternimated string at current cursor position
 };
-
 
 //===============================
 // DebugDisplay
@@ -146,11 +140,8 @@ class DebugDisplay : public DebugDisplayInterface
 extern void AudioDebugDisplay( DebugDisplayInterface *debugDisplay, void *userData, FILE *fp );
 #endif
 
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
-
 
 #endif // __GAMECLIENT_DEBUGDISPLAY_H

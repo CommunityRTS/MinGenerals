@@ -94,7 +94,6 @@ public:
 
 	SpecialPowerTemplate *m_specialPowerTemplate;
 
-
 	AsciiString		m_powerupSoundName;
 	AsciiString		m_unpackToReadySoundName;
 	AsciiString		m_firingToIdleSoundName;
@@ -234,7 +233,6 @@ protected:
 	Bool						m_manualTargetMode;
 	Bool						m_clientShroudedLastFrame;
 };
-
 
 #endif
 

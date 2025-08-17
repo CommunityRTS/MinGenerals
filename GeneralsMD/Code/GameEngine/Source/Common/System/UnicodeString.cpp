@@ -123,7 +123,6 @@ void UnicodeString::ensureUniqueBufferOfSize(int numCharsNeeded, Bool preserveDa
 	validate();
 }
 
-
 // -----------------------------------------------------
 void UnicodeString::releaseBuffer()
 {

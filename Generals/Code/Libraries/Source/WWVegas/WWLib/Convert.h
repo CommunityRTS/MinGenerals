@@ -63,7 +63,6 @@ typedef enum {
 	SHAPE_NOTRANS			= 0x0020			// A non transparent but otherwise standard shape
 } ShapeFlags_Type;
 
-
 /*
 **	This class is the data that represents the marriage between a source art
 **	palette and a destination palette/pixel-format. Facilities provied by this

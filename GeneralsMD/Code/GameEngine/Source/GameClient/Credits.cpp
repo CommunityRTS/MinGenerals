@@ -62,7 +62,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //-----------------------------------------------------------------------------
 // DEFINES ////////////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
@@ -101,7 +100,6 @@ void INI::parseCredits( INI *ini )
 
 }  // end parseCommandButtonDefinition
 
-
 CreditsLine::CreditsLine()
 {
 	m_useSecond = FALSE;
@@ -121,7 +119,6 @@ CreditsLine::~CreditsLine()
 	m_displayString = NULL;
 	m_secondDisplayString = NULL;
 }
-
 
 CreditsManager::CreditsManager(void)
 {
@@ -191,7 +188,6 @@ void CreditsManager::update( void )
 
 	if(m_framesSinceStarted%m_scrollRatePerFrames != 0)
 		return;
-
 
 	Int y = 0;
 	Int yTest = 0;
@@ -412,8 +408,6 @@ void CreditsManager::addBlank( void )
 	cLine->m_style = CREDIT_STYLE_BLANK;
 	m_creditLineList.push_back(cLine);
 }
-
-
 
 void CreditsManager::parseBlank( INI* ini, void *instance, void *store, const void *userData )
 {

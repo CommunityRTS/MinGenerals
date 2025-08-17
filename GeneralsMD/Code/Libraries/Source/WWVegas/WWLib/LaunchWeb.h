@@ -44,5 +44,4 @@ bool LaunchWebBrowser(const char* url);
 }
 #endif
 
-
 #endif // __LAUNCHWEB_H__

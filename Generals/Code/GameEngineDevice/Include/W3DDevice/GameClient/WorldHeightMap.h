@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // WorldHeightMap.h
 // Class to encapsulate height map.
 // Author: John Ahlquist, April 2001
@@ -41,7 +40,6 @@
 #include "Common/STLTypedefs.h"
 typedef std::vector<ICoord2D> VecICoord2D;
 
-
 /** MapObject class
 Not ref counted.  Do not store pointers to this class.  */
 
@@ -55,7 +53,6 @@ Not ref counted.  Do not store pointers to this class.  */
 
 // For backwards compatiblity.
 #define TEX_PATH_LEN 256
-
 
 /// Struct in memory.
 typedef struct {
@@ -81,7 +78,6 @@ typedef struct {
 } TCliffInfo;
 
 #define NUM_TEXTURE_CLASSES 256
-
 
 class TextureClass;
 class ChunkInputStream;
@@ -127,7 +123,6 @@ protected:
 	Short  *m_blendTileNdxes;  ///< matches m_Data, indexes into m_blendedTiles.  0 means no blend info.
 	Short  *m_cliffInfoNdxes;  ///< matches m_Data, indexes into m_cliffInfo.	 0 means no cliff info.
 	Short  *m_extraBlendTileNdxes;  ///< matches m_Data, indexes into m_extraBlendedTiles.  0 means no blend info.
-
 
 	Int m_numBitmapTiles;	// Number of tiles initialized from bitmaps in m_SourceTiles.
 	Int m_numEdgeTiles;	// Number of tiles initialized from bitmaps in m_SourceTiles.
@@ -216,7 +211,6 @@ public:  // height map info.
 	static Int getMaxHeightValue(void) {return K_MAX_HEIGHT;}
 
 	UnsignedByte *getDataPtr(void) {return m_data;}
-
 
 	Int getXExtent(void) {return m_width;}	///<number of vertices in x
 	Int getYExtent(void) {return m_height;}	///<number of vertices in y

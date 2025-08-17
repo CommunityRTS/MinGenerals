@@ -56,13 +56,10 @@
 //         Externals
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Defines
 //----------------------------------------------------------------------------
 #define MUSIC_PATH "Data\\Audio\\Tracks"  // directory path to the music files
-
 
 //----------------------------------------------------------------------------
 //         Private Types
@@ -79,7 +76,6 @@ const FieldParse MusicTrack::m_musicTrackFieldParseTable[] =
 	{ "Ambient",								INI::parseBool,											NULL, offsetof( MusicTrack, ambient ) },
 	{ NULL,											NULL,																NULL, 0 },
 };
-
 
 //-------------------------------------------------------------------------------------------------
 MusicManager::MusicManager()

@@ -310,7 +310,6 @@ static ShortVectorIStruct* Get_Polygon_Index_Array(unsigned count)
 	return polygon_index_array;
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // Insert triangles to the sorting system.
@@ -329,7 +328,6 @@ void SortingRendererClass::Insert_Triangles(
 		return;
 	}
 
-
 	DX8_RECORD_SORTING_RENDER(polygon_count,vertex_count);
 
 	SortingNodeStruct* state=Get_Sorting_Struct();
@@ -339,7 +337,6 @@ void SortingRendererClass::Insert_Triangles(
  	WWASSERT(
 		((state->sorting_state.index_buffer_type==BUFFER_TYPE_SORTING || state->sorting_state.index_buffer_type==BUFFER_TYPE_DYNAMIC_SORTING) &&
 		(state->sorting_state.vertex_buffer_type==BUFFER_TYPE_SORTING || state->sorting_state.vertex_buffer_type==BUFFER_TYPE_DYNAMIC_SORTING)));
-
 
 	state->bounding_sphere=bounding_sphere;
 	state->start_index=start_index;
@@ -359,7 +356,6 @@ void SortingRendererClass::Insert_Triangles(
 		&vec,
 		&mtx);
 	state->transformed_center=Vector3(transformed_vec[0],transformed_vec[1],transformed_vec[2]);
-
 
 	/// @todo lorenzen sez use a bucket sort here... and stop copying so much data so many times
 
@@ -475,7 +471,6 @@ static void Apply_Render_State(RenderStateStruct& render_state)
 
 	DX8Wrapper::_Set_DX8_Transform(D3DTS_WORLD,render_state.world);
 	DX8Wrapper::_Set_DX8_Transform(D3DTS_VIEW,render_state.view);
-
 
 	if (!render_state.material->Get_Lighting())
 		return;	//no point changing lights if they are ignored.
@@ -725,7 +720,6 @@ void SortingRendererClass::Flush()
 	DynamicIBAccessClass::_Reset(false);
 	DynamicVBAccessClass::_Reset(false);
 
-
 	DX8Wrapper::Set_Transform(D3DTS_VIEW,old_view);
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,old_world);
 
@@ -772,7 +766,6 @@ void SortingRendererClass::Deinit()
 	temp_index_array=NULL;
 	temp_index_array_count=0;
 }
-
 
 // ----------------------------------------------------------------------------
 //
@@ -824,7 +817,6 @@ void SortingRendererClass::Insert_VolumeParticle(
 		&mtx);
 	state->transformed_center=Vector3(transformed_vec[0],transformed_vec[1],transformed_vec[2]);
 
-
 	// BUT WHAT IS THE DEAL WITH THE VERTCOUNT AND POLYCOUNT BEING N BUT TRANSFORMED CENTER COUNT == 1
 
 	//THE TRANSFORMED CENTER[2] IS THE ZBUFFER DEPTH
@@ -863,10 +855,4 @@ void SortingRendererClass::Insert_VolumeParticle(
 //	}
 //#endif
 }
-
-
-
-
-
-
 

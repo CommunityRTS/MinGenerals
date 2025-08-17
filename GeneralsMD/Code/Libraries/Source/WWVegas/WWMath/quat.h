@@ -48,7 +48,6 @@
 #include "vector3.h"
 #include "matrix3d.h"
 
-
 class Quaternion
 {
 private:
@@ -227,7 +226,6 @@ WWINLINE Matrix3D &Build_Matrix3D(const Quaternion & q, Matrix3D &out)
 
 Matrix4x4  Build_Matrix4(const Quaternion & quat);
 
-
 // Some values can be cached if you are performing multiple slerps
 // between the same two quaternions...
 struct SlerpInfoStruct
@@ -310,8 +308,5 @@ WWINLINE Quaternion & Quaternion::operator = (const Quaternion & source)
   return *this;
 }
 
-
 #endif /* QUAT_H */
-
-
 

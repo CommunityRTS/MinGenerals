@@ -63,7 +63,6 @@ class GrantUpgradeCreate : public CreateModule
 	MEMORY_POOL_GLUE_WITH_USERLOOKUP_CREATE( GrantUpgradeCreate, "GrantUpgradeCreate" );
 	MAKE_STANDARD_MODULE_MACRO_WITH_MODULE_DATA( GrantUpgradeCreate, GrantUpgradeCreateModuleData );
 
-
 public:
 
 	GrantUpgradeCreate( Thing *thing, const ModuleData* moduleData );

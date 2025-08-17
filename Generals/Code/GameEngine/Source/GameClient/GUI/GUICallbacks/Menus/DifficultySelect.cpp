@@ -122,7 +122,6 @@ static void SetDifficultyRadioButton( void )
 
 }
 
-
 void DifficultySelectInit( WindowLayout *layout, void *userData )
 {
 	AsciiString parentName( "DifficultySelect.wnd:DifficultySelectParent" );
@@ -153,7 +152,6 @@ void DifficultySelectInit( WindowLayout *layout, void *userData )
 	TheWindowManager->winSetModal(parent);
 
 }  // end SkirmishMapSelectMenuInit
-
 
 //-------------------------------------------------------------------------------------------------
 /** Map select menu input callback */

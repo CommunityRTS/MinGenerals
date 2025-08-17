@@ -45,18 +45,11 @@
 #include "Common/KindOf.h"
 #include "GameClient/ParticleSys.h"
 
-
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //	Static member initialization
@@ -223,7 +216,6 @@ void EMPUpdate::doDisableAttack( void )
 
 			//Disable the target for a specified amount of time.
 			curVictim->setDisabledUntil( DISABLED_EMP, TheGameLogic->getFrame() + data->m_disabledDuration );
-
 
 			Drawable *drw = curVictim->getDrawable();
 			if ( drw )

@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __BASE_HEIGHTMAP_H_
@@ -65,7 +64,6 @@ typedef struct {
 	Int minY, maxY;
 } TBounds;
 
-
 class LightMapTerrainTextureClass;
 class CloudMapTerrainTextureClass;
 class W3DDynamicLight;
@@ -103,7 +101,6 @@ public:
 	virtual void ReleaseResources(void);	///< Release all dx8 resources so the device can be reset.
 	virtual void ReAcquireResources(void);  ///< Reacquire all resources after device reset.
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface (W3D methods)
 	/////////////////////////////////////////////////////////////////////////////
@@ -113,7 +110,6 @@ public:
 	virtual bool					Cast_Ray(RayCollisionTestClass & raytest); // This CANNOT be Bool, as it will not inherit properly if you make Bool == Int
 	virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
 	virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & aabox) const;
-
 
 	virtual void					On_Frame_Update(void);
 	virtual void					Notify_Added(SceneClass * scene);
@@ -135,7 +131,6 @@ public:
     REF_PTR_RELEASE( m_map );
 	  REF_PTR_SET(m_map, pMap);	//update our heightmap pointer in case it changed since last call.
   }
-
 
 	inline UnsignedByte getClipHeight(Int x, Int y) const
 	{
@@ -228,7 +223,6 @@ public:
 
 	Bool doesNeedFullUpdate(void) {return m_needFullUpdate;}
 
-
 	virtual int updateBlock(Int x0, Int y0, Int x1, Int y1, WorldHeightMap *pMap, RefRenderObjListIterator *pLightsIterator) = 0;
 
 protected:
@@ -278,7 +272,6 @@ protected:
 
 	// STL is "smart." This is a variable sized bitset. Very memory efficient.
 	std::vector<bool> m_showAsVisibleCliff;
-
 
 	ShaderClass m_shaderClass; ///<shader or rendering state for heightmap
 	VertexMaterialClass	  	  *m_vertexMaterialClass;	///< vertex shader (lighting) for terrain

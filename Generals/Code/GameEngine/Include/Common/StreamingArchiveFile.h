@@ -46,8 +46,6 @@
 #ifndef __STREAMINGARCHIVEFILE_H
 #define __STREAMINGARCHIVEFILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -57,8 +55,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -87,7 +83,6 @@ class StreamingArchiveFile : public RAMFile
 		StreamingArchiveFile();
 		//virtual				~StreamingArchiveFile();
 
-
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
 		virtual void	close( void );																			///< Close the file
 		virtual Int		read( void *buffer, Int bytes );										///< Read the specified number of bytes in to buffer: See File::read
@@ -108,12 +103,8 @@ class StreamingArchiveFile : public RAMFile
 		virtual File* convertToRAMFile() { DEBUG_CRASH(("Are you sure you meant to readEntireAndClose on a streaming file?")); return this; }
 };
 
-
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __STREAMINGARCHIVEFILE_H

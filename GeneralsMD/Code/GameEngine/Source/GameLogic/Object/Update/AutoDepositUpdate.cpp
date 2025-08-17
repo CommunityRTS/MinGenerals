@@ -86,7 +86,6 @@ void parseUpgradePair( INI *ini, void *instance, void *store, const void *userDa
 	else
 		throw INI_INVALID_DATA;
 
-
 	token = ini->getNextTokenOrNull( ini->getSepsColon() );
 	if ( stricmp(token, "Boost") == 0 )
 		info.amount = INI::scanInt(ini->getNextToken( ini->getSepsColon() ));
@@ -204,7 +203,6 @@ UpdateSleepTime AutoDepositUpdate::update( void )
           pos.x += GameClientRandomValue(-width,width);
           pos.y += GameClientRandomValue(-depth,depth);
         }
-
 
         Color color = getObject()->getControllingPlayer()->getPlayerColor() | GameMakeColor( 0, 0, 0, 230 );
 			  TheInGameUI->addFloatingText( moneyString, &pos, color );

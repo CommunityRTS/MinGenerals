@@ -317,7 +317,6 @@ void SendProtectMessage(HANDLE process, DWORD threadID)
 	CDAPFN_ENDMARK(SendProtectMessage);
 }
 
-
 void ShutdownProtect(void)
 {
 	if (mMappedFile)

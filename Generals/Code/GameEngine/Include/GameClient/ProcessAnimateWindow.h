@@ -106,7 +106,6 @@ Real m_speedUpRatio;  // how fast the windows speed up
 
 };
 
-
 //-----------------------------------------------------------------------------
 
 class ProcessAnimateWindowSlideFromLeft : public ProcessAnimateWindow
@@ -128,7 +127,6 @@ Real m_slowDownRatio;  // how fast the windows slow down (smaller slows quicker)
 Real m_speedUpRatio;  // how fast the windows speed up
 
 };
-
 
 //-----------------------------------------------------------------------------
 
@@ -172,7 +170,6 @@ Real m_slowDownRatio;  // how fast the windows slow down (smaller slows quicker)
 Real m_speedUpRatio;  // how fast the windows speed up
 
 };
-
 
 //-----------------------------------------------------------------------------
 
@@ -253,7 +250,6 @@ Real m_slowDownRatio;  // how fast the windows slow down (smaller slows quicker)
 Real m_speedUpRatio;  // how fast the windows speed up
 
 };
-
 
 //-----------------------------------------------------------------------------
 // INLINING ///////////////////////////////////////////////////////////////////

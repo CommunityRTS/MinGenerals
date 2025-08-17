@@ -26,7 +26,6 @@
 #include "WW3D2/camera.h"
 #include "WW3D2/assetmgr.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -479,7 +478,6 @@ void W3DSnowManager::renderAsQuads(RenderInfoClass &rinfo, Int cubeOriginX, Int 
 		Vector2(1.0f, 1.0f),
 		Vector2(1.0f, 0.0f)
 	};
-
 
 	//pre-multiple the offsets by particle size
 	for (Int i=0; i<4; i++)

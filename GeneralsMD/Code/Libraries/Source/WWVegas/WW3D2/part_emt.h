@@ -67,7 +67,6 @@ template<class T> struct ParticlePropertyStruct {
 	T *				Values;
 };
 
-
 /*
 ** Utility function for copying the contents of one keyframe struct into another.
 */
@@ -93,7 +92,6 @@ void Copy_Emitter_Property_Struct
 
 	return ;
 }
-
 
 /**
 ** ParticleEmitterClass: This is a renderobject which emits particles
@@ -161,7 +159,6 @@ class ParticleEmitterClass : public RenderObjClass
 		virtual void			Set_Force_Visible(int onoff)		{ RenderObjClass::Set_Force_Visible (onoff); Update_On_Visibilty (); }
 
 		virtual void			Set_LOD_Bias(float bias)			{ if (Buffer) Buffer->Set_LOD_Bias(bias); }
-
 
 		// These are not part of the renderobject interface:
 		// You can use Reset() to re-cycle a particle emitter.  Make sure its transform is
@@ -352,5 +349,4 @@ class ParticleEmitterClass : public RenderObjClass
 };
 
 #endif // PART_EMT_H
-
 

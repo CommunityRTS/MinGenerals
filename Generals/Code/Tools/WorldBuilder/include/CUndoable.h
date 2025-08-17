@@ -76,7 +76,6 @@ protected:
 	Bool									m_offsetObjects;			///< If true, apply m_objOffset.
 	Coord3D								m_objOffset;					///< Offset to adjust all objects.
 
-
 public:
 		WBDocUndoable(CWorldBuilderDoc *pDoc, WorldHeightMapEdit *pNewHtMap, Coord3D *pObjOffset = NULL);
 
@@ -107,7 +106,6 @@ public:
 		virtual void Do(void);
 		virtual void Undo(void);
 };
-
 
 ///                            ModifyObjectUndoable
 /** An undoable that actually undoes something.  Modifies an object's
@@ -242,7 +240,6 @@ public:
 
 };
 
-
 ///                            DeleteObjectUndoable
 /** An undoable that actually undoes something.  Deletes an object. */
 // Helper class
@@ -260,7 +257,6 @@ public:
 	MapObject				 *m_priorObject;
 	DeleteInfo			 *m_next;
 };
-
 
 class DeleteObjectUndoable : public Undoable
 {
@@ -388,6 +384,5 @@ public:
 		virtual void Do(void);
 		virtual void Undo(void);
 };
-
 
 #endif //CUNDOABLE_H

@@ -27,7 +27,6 @@
 // Desc:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #define DEFINE_SLOWDEATHPHASE_NAMES
@@ -231,10 +230,7 @@ void SlowDeathBehavior::beginSlowDeath(const DamageInfo *damageInfo)
 				draw->setTerrainDecalFadeTarget( 0.0f, -0.2f );
 			}
 
-
-
 		}
-
 
 		// Ask game detail manager if we need to speedup all deaths to improve performance
 		Real timeScale = TheGameLODManager->getSlowDeathScale();
@@ -270,7 +266,6 @@ void SlowDeathBehavior::beginSlowDeath(const DamageInfo *damageInfo)
 
 		if (d->m_flingForce > 0)
 		{
-
 
 			//Just in case this is a stingersoldier or other HELD object, lets set them free so they will fly
 			// with their own physics during slow death
@@ -410,7 +405,6 @@ UpdateSleepTime SlowDeathBehavior::update()
 
 	UnsignedInt now = TheGameLogic->getFrame();
 
-
 	if ((m_flags & (1<<FLUNG_INTO_AIR)) != 0)
 	{
 		if ((m_flags & (1<<BOUNCED)) == 0)
@@ -446,8 +440,6 @@ UpdateSleepTime SlowDeathBehavior::update()
 					}
 				}
 			}
-
-
 
 		}
 	}
@@ -504,7 +496,6 @@ void SlowDeathBehavior::onDie( const DamageInfo *damageInfo )
 		}
 	}
 	DEBUG_ASSERTCRASH(total > 0, ("Hmm, this is wrong"));
-
 
 	// this returns a value from 1...total, inclusive
 	Int roll = GameLogicRandomValue(1, total);

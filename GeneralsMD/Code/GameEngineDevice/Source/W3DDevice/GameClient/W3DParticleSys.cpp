@@ -48,7 +48,6 @@
 
 //-------------------------------------------------------------------------------------------------
 
-
 #include "Common/QuickTrig.h"
 W3DParticleSystemManager::W3DParticleSystemManager()
 {
@@ -144,7 +143,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 
 	unsigned int personalities[MAX_POINTS_PER_GROUP];
 
-
 	m_fieldParticleCount = 0;
 
 	SmudgeSet *set=NULL;
@@ -207,8 +205,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 		const Coord3D *pos;
 		const RGBColor *color;
 		Real psize;
-
-
 
 		//set-up all the per-particle
 		for (Particle *p = sys->getFirstParticle(); p; p = p->m_systemNext)
@@ -293,7 +289,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 			RGBAArray[0].Z = 0;
 			RGBAArray[0].W = 0;
 
-
 			//RENDER STREAK!
 			m_streakLine->Render( rinfo );
 
@@ -346,7 +341,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 			}
 		}
 
-
 		/// @todo lorenzen sez: this should be debug only:
 		//add particle count to total
 		m_onScreenParticleCount += count;
@@ -367,7 +361,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 		Color colorEnd = GameMakeColor( 255, 128, 128, 255 );
 		TheDisplay->drawLine( pixelStart.x, pixelStart.y, pixelEnd.x, pixelEnd.y, 1.0f, colorStart, colorEnd );
 	*/
-
 
 	}// next system
 

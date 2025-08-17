@@ -40,7 +40,6 @@
 #include "MeshDeformSet.H"
 #include "MeshDeform.H"
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	VertexRestoreClass
@@ -68,7 +67,6 @@ VertexRestoreClass::VertexRestoreClass
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Free_Vertex_Array
@@ -81,7 +79,6 @@ VertexRestoreClass::Free_Vertex_Array (void)
 	m_RedoVertexList.Delete_All ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -120,7 +117,6 @@ VertexRestoreClass::Restore (int is_undo)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Redo
@@ -153,7 +149,6 @@ VertexRestoreClass::Redo (void)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	EndHold
@@ -171,7 +166,6 @@ VertexRestoreClass::EndHold (void)
 	return ;
 }
 
-
 /***************************************************************************************/
 /*
 /*	End VertexRestoreClass
@@ -183,7 +177,6 @@ VertexRestoreClass::EndHold (void)
 /*	Start VertexPositionRestoreClass
 /*
 /***************************************************************************************/
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -204,7 +197,6 @@ VertexPositionRestoreClass::VertexPositionRestoreClass
 	Copy_Vertex_State (m_VertexList);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -228,7 +220,6 @@ VertexPositionRestoreClass::Copy_Vertex_State (DEFORM_LIST &list)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Apply_Vertex_Data
@@ -250,8 +241,6 @@ VertexPositionRestoreClass::Apply_Vertex_Data (DEFORM_LIST &list)
 	return ;
 }
 
-
-
 /***************************************************************************************/
 /*
 /*	End VertexPositionRestoreClass
@@ -263,7 +252,6 @@ VertexPositionRestoreClass::Apply_Vertex_Data (DEFORM_LIST &list)
 /*	Start VertexColorRestoreClass
 /*
 /***************************************************************************************/
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -284,7 +272,6 @@ VertexColorRestoreClass::VertexColorRestoreClass
 	Copy_Vertex_State (m_VertexList);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -307,7 +294,6 @@ VertexColorRestoreClass::Copy_Vertex_State (DEFORM_LIST &list)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //

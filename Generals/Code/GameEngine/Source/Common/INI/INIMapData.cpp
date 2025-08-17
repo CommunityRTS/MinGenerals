@@ -47,4 +47,3 @@ void INI::parseMapDataDefinition( INI* ini )
 {
 }  // end parseMapData
 
-

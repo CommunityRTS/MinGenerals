@@ -56,7 +56,6 @@ m_curUpdateTime(0)
 	}
 }
 
-
 SubsystemInterface::~SubsystemInterface()
 {
 	if (TheSubsystemList) {
@@ -112,7 +111,6 @@ void SubsystemInterface::DRAW(void)
 
 }
 #endif
-
 
 //-----------------------------------------------------------------------------
 SubsystemInterfaceList::SubsystemInterfaceList()

@@ -43,8 +43,6 @@
 #include "camera.h"
 #include "dx8fvf.h"
 
-
-
 /*
 ** DynamicMeshModel implementation
 */
@@ -91,7 +89,6 @@ DynamicMeshModel::DynamicMeshModel(const DynamicMeshModel &src) :
 {
 	// Copy the material info structure.
 	MatInfo = NEW_REF(MaterialInfoClass, (*(src.MatInfo)));
-
 
 	// [SKB: Feb 21 2002 @ 11:47pm] :
 	// Moved before the remapping cause I don't like referencing null.
@@ -660,7 +657,6 @@ void DynamicMeshClass::Get_Vertex(int index, float &x, float &y, float &z)
 	z = loc[index][2];
 }
 
-
 /*
 ** Offset the entire mesh
 */
@@ -829,5 +825,4 @@ void DynamicScreenMeshClass::Reset( void )
 	Reset_Flags();
 	Reset_Mesh_Counters();
 }
-
 

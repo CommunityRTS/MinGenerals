@@ -61,7 +61,6 @@ void parseFactionObjectCreationList( INI *ini, void *instance, void *store, cons
 	else
 		throw INI_INVALID_DATA;
 
-
 	token = ini->getNextTokenOrNull( ini->getSepsColon() );
 	if ( stricmp(token, "OCL") == 0 )
 		ini->parseObjectCreationList( ini, instance, &info.m_ocl, NULL );

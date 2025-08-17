@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -117,7 +116,6 @@ struct VertexFormatXYZNDUV2;
 ** Texture, Shader, Material,
 ** TextureArray, MaterialArray, ShaderArray
 */
-
 
 /**
 ** GapFillerClass
@@ -346,12 +344,6 @@ protected:
 	friend class DX8MeshRendererClass;
 	friend class DX8PolygonRendererClass;
 };
-
-
-
-
-
-
 
 #endif
 

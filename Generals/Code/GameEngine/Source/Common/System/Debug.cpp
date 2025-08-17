@@ -45,7 +45,6 @@
 // SYSTEM INCLUDES
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 // USER INCLUDES
 #define DEBUG_THREADSAFE
 #ifdef DEBUG_THREADSAFE
@@ -655,7 +654,6 @@ void ReleaseCrash(const char *reason)
 {
 	/// do additional reporting on the crash, if possible
 
-
 	char prevbuf[ _MAX_PATH ];
 	char curbuf[ _MAX_PATH ];
 
@@ -722,7 +720,6 @@ void ReleaseCrashLocalized(const AsciiString& p, const AsciiString& m)
 
 	UnicodeString prompt = TheGameText->fetch(p);
 	UnicodeString mesg = TheGameText->fetch(m);
-
 
 	/// do additional reporting on the crash, if possible
 

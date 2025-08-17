@@ -454,7 +454,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 
 				}  // end about
 
-
 				// --------------------------------------------------------------------
 				default:
 				{

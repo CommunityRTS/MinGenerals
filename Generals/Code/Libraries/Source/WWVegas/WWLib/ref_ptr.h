@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -325,7 +324,6 @@ class RefCountPtr
 				rhs.Referent->Add_Ref();
 			}
 
-
 			if (Referent) {
 				Referent->Release_Ref();
 			}
@@ -431,6 +429,5 @@ bool operator !=(DummyPtrType * dummy, const RefCountPtr<RHS> & rhs)
 
 	return 0 != rhs.Peek();
 }
-
 
 #endif

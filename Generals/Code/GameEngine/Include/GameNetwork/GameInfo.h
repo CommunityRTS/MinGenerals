@@ -258,7 +258,6 @@ void				GameInfo::setGameInProgress( Bool inProgress )	{ m_inProgress = inProgre
 AsciiString GameInfoToAsciiString( const GameInfo *game );
 Bool ParseAsciiStringToGameInfo( GameInfo *game, AsciiString options );
 
-
 /**
   * The SkirmishGameInfo class holds information about the skirmish game and
 	* the contents of its slot list.

@@ -83,7 +83,6 @@ class GraphDraw
 
 extern GraphDraw *TheGraphDraw;
 
-
 #endif /* PERF_TIMERS */
 
 #endif /* __GRAPHDRAW_H__ */

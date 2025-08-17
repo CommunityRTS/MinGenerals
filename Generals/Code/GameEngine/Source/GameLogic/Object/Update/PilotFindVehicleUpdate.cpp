@@ -48,8 +48,6 @@
 #include "GameLogic\Module\AIUpdate.h"
 #include "GameLogic\Module\CollideModule.h"
 
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 PilotFindVehicleUpdateModuleData::PilotFindVehicleUpdateModuleData()
@@ -87,7 +85,6 @@ PilotFindVehicleUpdate::~PilotFindVehicleUpdate( void )
 {
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void PilotFindVehicleUpdate::onObjectCreated()
@@ -132,7 +129,6 @@ UpdateSleepTime PilotFindVehicleUpdate::update()
 	}
 	return UPDATE_SLEEP(data->m_scanFrames);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Object* PilotFindVehicleUpdate::scanClosestTarget()

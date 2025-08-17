@@ -42,8 +42,6 @@
 #include "resource.h"
 #include "util.h"
 
-
-
 /*****************************************************************
 *
 *		PS2 GameMtl Class Descriptor

@@ -35,7 +35,6 @@
 // TileTool class.
 //
 
-
 /// Constructor
 TileTool::TileTool(void) :
 	Tool(ID_TILE_TOOL, IDC_TILE_CURSOR)
@@ -57,7 +56,6 @@ void TileTool::activate()
 	DrawObject::setDoBrushFeedback(true);
 	DrawObject::setBrushFeedbackParms(true, 1, 0);
 }
-
 
 /// Common mouse down code for left and right clicks.
 void TileTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

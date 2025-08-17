@@ -68,7 +68,6 @@ enum AllowPlayerRelationship
 	ALLOW_NEUTRAL					= 0x08		///< allow objects that m_obj considers neutral
 };
 
-
 //-------------------------------------------------------------------------------------------------
 /**
 	This is a singleton class that maintains the list of Players.
@@ -167,7 +166,6 @@ private:
 	Player				*m_players[MAX_PLAYER_COUNT];
 
 };
-
 
 // ----------------------------------------------------------------------------------------------
 extern PlayerList *ThePlayerList;	///< singleton instance of PlayerList

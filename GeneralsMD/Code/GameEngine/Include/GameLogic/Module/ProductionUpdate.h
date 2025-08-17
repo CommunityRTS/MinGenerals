@@ -242,7 +242,6 @@ public:
 
 protected:
 
-
 	void addToProductionQueue( ProductionEntry *production );				///< add to *END* of production queue list
 	void removeFromProductionQueue( ProductionEntry *production );	///< remove production from the queue list
 

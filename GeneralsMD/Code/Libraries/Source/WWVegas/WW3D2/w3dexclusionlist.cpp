@@ -35,12 +35,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "w3dexclusionlist.h"
 #include "proto.h"
 #include "htree.h"
 #include "hanim.h"
-
 
 W3DExclusionListClass::W3DExclusionListClass(const DynamicVectorClass<StringClass> & names) :
 	Names(names)
@@ -74,13 +72,11 @@ bool	W3DExclusionListClass::Is_Excluded(PrototypeClass * proto) const
 	return Is_Excluded(root_name);
 }
 
-
 bool	W3DExclusionListClass::Is_Excluded(HTreeClass * htree) const
 {
 	// plain old name...
 	return Is_Excluded(htree->Get_Name());
 }
-
 
 bool	W3DExclusionListClass::Is_Excluded(HAnimClass * hanim) const
 {
@@ -96,10 +92,8 @@ bool	W3DExclusionListClass::Is_Excluded(HAnimClass * hanim) const
 	}
 }
 
-
 bool W3DExclusionListClass::Is_Excluded(const char * root_name) const
 {
 	return NameHash.Exists(StringClass(root_name));
 }
-
 

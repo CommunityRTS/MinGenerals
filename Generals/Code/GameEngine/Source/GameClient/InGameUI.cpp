@@ -92,7 +92,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // ------------------------------------------------------------------------------------------------
 static const Real placementOpacity = 0.45f;
 static const RGBColor illegalBuildColor = { 1.0, 0.0, 0.0 };
@@ -826,7 +825,6 @@ InGameUI::InGameUI()
 {
 	Int i;
 
-
   m_inputEnabled = true;
 	m_isDragSelecting = false;
 	m_nextMoveHint = 0;
@@ -952,7 +950,6 @@ InGameUI::InGameUI()
 	m_namedTimerReadyFont = "Arial";
 	m_namedTimerReadyPointSize = 10;
 	m_namedTimerReadyBold = FALSE;
-
 
 	m_namedTimerNormalColor	= GameMakeColor(255, 255,   0, 255);
 	m_namedTimerReadyColor	= GameMakeColor(255,   0, 255, 255);
@@ -1115,7 +1112,6 @@ void InGameUI::init( void )
 
 	m_soloNexusSelectedDrawableID = INVALID_DRAWABLE_ID;
 
-
 }  // end init
 
 //-------------------------------------------------------------------------------------------------
@@ -1252,7 +1248,6 @@ void InGameUI::handleRadiusCursor()
 	* wall pieces on the map where we want to put all of them */
 //-------------------------------------------------------------------------------------------------
 
-
 void InGameUI::evaluateSoloNexus( Drawable *newlyAddedDrawable )
 {
 
@@ -1273,7 +1268,6 @@ void InGameUI::evaluateSoloNexus( Drawable *newlyAddedDrawable )
 
 		Drawable *draw = (*it);
 		const Object *obj = draw->getObject();
-
 
 		if ( ! obj )
 			continue;
@@ -1299,9 +1293,7 @@ void InGameUI::evaluateSoloNexus( Drawable *newlyAddedDrawable )
 
 	}  // end for
 
-
 }
-
 
 void InGameUI::handleBuildPlacements( void )
 {
@@ -1361,7 +1353,6 @@ void InGameUI::handleBuildPlacements( void )
 		m_placeIcon[ 0 ]->setPosition( &world );
 		m_placeIcon[ 0 ]->setOrientation( angle );
 
-
 		//
 		// check to see if this is a legal location to build something at and tint or "un-tint"
 		// the cursor icons as appropriate.  This involves a pathfind which could be
@@ -1392,9 +1383,6 @@ void InGameUI::handleBuildPlacements( void )
 			else
 				m_placeIcon[ 0 ]->colorTint( NULL );
 
-
-
-
 			// Add the bibs around the structure.
 			if (lbc != LBC_OK)
 			{
@@ -1403,8 +1391,6 @@ void InGameUI::handleBuildPlacements( void )
 				TheTerrainVisual->removeFactionBibDrawable(m_placeIcon[0]);
 			}
 		}  // end if
-
-
 
 		//
 		// we have additional place icons when we're placing down a line of walls or other
@@ -1776,7 +1762,6 @@ void InGameUI::update( void )
 		TheTacticalView->zoomOut();
 	}
 
-
 }  // end update
 
 //-------------------------------------------------------------------------------------------------
@@ -2073,7 +2058,6 @@ void InGameUI::createMoveHint( const GameMessage *msg )
 				m_moveHint[ i ].frame != 0 )
 			expireHint( MOVE_HINT, i );
 
-
 	if( getSelectCount() == 1 )
 	{
 		Drawable *draw = getFirstSelectedDrawable();
@@ -2209,7 +2193,6 @@ void InGameUI::createMouseoverHint( const GameMessage *msg )
 				m_mousedOverDrawableID = draw->getID();
 #endif
 
-
 			const Player* player = NULL;
 			const ThingTemplate *thingTemplate = obj->getTemplate();
 
@@ -2249,7 +2232,6 @@ void InGameUI::createMouseoverHint( const GameMessage *msg )
 					}
 				}
 			}
-
 
 			UnicodeString str = thingTemplate->getDisplayName();
 			UnicodeString displayName = thingTemplate->getDisplayName();
@@ -2449,7 +2431,6 @@ void InGameUI::createCommandHint( const GameMessage *msg )
 	Bool underWindow = false;
 	if (io && TheWindowManager)
 		window = TheWindowManager->getWindowUnderCursor(io->pos.x, io->pos.y);
-
 
 	while (window)
 	{
@@ -3068,7 +3049,6 @@ void InGameUI::selectDrawable( Drawable *draw )
 		// we now have one more selected drawable
 		incrementSelectCount();
 
-
 		// evaluate whether our selection consists of exactly one angry mob
 		evaluateSoloNexus( draw );
 
@@ -3140,10 +3120,8 @@ void InGameUI::deselectAllDrawables( Bool postMsg )
 	// keep our list all tidy
 	m_selectedDrawables.clear();
 
-
 	// our selection can no longer consist of exactly one angry mob
 	m_soloNexusSelectedDrawableID = INVALID_DRAWABLE_ID;
-
 
 	///@todo don't we want to not emit this message if there wasn't a group at all? (CBD)
 	/** @todo also, we probably are sending this message too much, we should come up with
@@ -3158,8 +3136,6 @@ void InGameUI::deselectAllDrawables( Bool postMsg )
 		groupMsg->appendBooleanArgument( true );
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Return the list of all the currently selected Drawable pointers. */
@@ -3381,8 +3357,6 @@ void InGameUI::postDraw( void )
 
 		Int bottomMargin = (Int)( (Real)TheTacticalView->getHeight() * 0.82f );
 
-
-
 		Bool marginExceeded = FALSE;
 
 		for (Int i=0; i<MAX_PLAYER_COUNT; ++i)
@@ -3517,9 +3491,6 @@ void InGameUI::postDraw( void )
 						}
 					}
 				}
-
-
-
 
 			}
 		}
@@ -4333,7 +4304,6 @@ Bool InGameUI::canSelectedObjectsOverrideSpecialPowerDestination( const Coord3D 
 	return false;
 }
 
-
 //------------------------------------------------------------------------------
 Bool InGameUI::canSelectedObjectsEffectivelyUseWeapon( const CommandButton *command, const Object *objectToInteractWith, const Coord3D *position, SelectionRules rule ) const
 {
@@ -4621,7 +4591,6 @@ Int InGameUI::selectMatchingUnits()
 		if( draw && draw->getObject() && draw->getObject()->isLocallyControlled() )
 		{
 
-
 			//drawableList.insert( draw->getObject()->getTemplate()->getName() );
 			drawableList.insert( draw->getTemplate() );
 		}
@@ -4773,7 +4742,6 @@ void InGameUI::addFloatingText(const UnicodeString& text,const Coord3D *pos, Col
 		newFTD->m_pos3D.y = pos->y;
 		newFTD->m_text = text;
 		newFTD->m_dString->setText(text);
-
 
 		if(m_floatingTextTimeOut <= 0)
 			newFTD->m_frameTimeOut = TheGameLogic->getFrame() +  DEFAULT_FLOATING_TEXT_TIMEOUT;
@@ -5014,7 +4982,6 @@ void InGameUI::clearPopupMessageData( void )
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------------------------------------
 /** Floating Text Constructor */
 //-------------------------------------------------------------------------------------------------
@@ -5226,7 +5193,6 @@ void InGameUI::updateAndDrawWorldAnimations( void )
 
 }  // end updateAndDrawWorldAnimations
 
-
 Object *InGameUI::findIdleWorker( Object *obj)
 {
 	if(!obj)
@@ -5271,7 +5237,6 @@ void InGameUI::removeIdleWorker( Object *obj, Int playerNumber )
 
 	if(m_idleWorkers[playerNumber].empty())
 		return;
-
 
 	ObjectListIt it = m_idleWorkers[playerNumber].begin();
 	while(it != m_idleWorkers[playerNumber].end())
@@ -5338,7 +5303,6 @@ void InGameUI::selectNextIdleWorker( void )
 
 		deselectAllDrawables();
 		GameMessage *teamMsg = TheMessageStream->appendMessage( GameMessage::MSG_CREATE_SELECTED_GROUP );
-
 
 		//New group or add to group? Passed in value is true if we are creating a new group.
 		teamMsg->appendBooleanArgument( TRUE );
@@ -5439,7 +5403,6 @@ void InGameUI::recreateControlBar( void )
 		TheControlBar->init();
 	}
 
-
 }
 
 void InGameUI::disableTooltipsUntil(UnsignedInt frameNum)
@@ -5457,7 +5420,6 @@ Bool InGameUI::areTooltipsDisabled() const
 {
 	return (TheGameLogic->getFrame() < m_tooltipsDisabledUntil);
 }
-
 
 WindowMsgHandledType IdleWorkerSystem( GameWindow *window, UnsignedInt msg,
 																				WindowMsgData mData1, WindowMsgData mData2 )
@@ -5493,5 +5455,4 @@ WindowMsgHandledType IdleWorkerSystem( GameWindow *window, UnsignedInt msg,
 	return MSG_HANDLED;
 
 }
-
 

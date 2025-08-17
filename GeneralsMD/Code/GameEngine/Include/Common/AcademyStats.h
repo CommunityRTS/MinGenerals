@@ -77,7 +77,6 @@ enum AcademyClassificationType
 };
 extern const char *TheAcademyClassificationTypeNames[]; //Change above, change this!
 
-
 // ----------------------------------------------------------------------------------------------
 class AcademyStats : public Snapshot
 {

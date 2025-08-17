@@ -336,7 +336,6 @@ Bool Thing::isSignificantlyAboveTerrain() const
 	return (getHeightAboveTerrain() > -(3*3)*TheGlobalData->m_gravity);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void Thing::convertBonePosToWorldPos(const Coord3D* bonePos, const Matrix3D* boneTransform, Coord3D* worldPos, Matrix3D* worldTransform) const
 {

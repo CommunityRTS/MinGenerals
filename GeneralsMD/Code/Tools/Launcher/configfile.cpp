@@ -25,7 +25,6 @@ Author      : Neal Kettler
 Start Date  : June 9, 1997
 Last Update : June 17, 1997
 
-
 This class will read in a config file and store the key value pairs for
 later access.  This is a fairly simple class, the config file is assumed
 to be of the form:
@@ -116,8 +115,6 @@ bit8 ConfigFile::getInt(char *key,sint32 &value)
   return(getInt(sKey,value));
 }
 
-
-
 // Get a config entry as an integer
 bit8 ConfigFile::getInt(Wstring &key,sint16 &value)
 {
@@ -136,8 +133,6 @@ bit8 ConfigFile::getInt(char *key,sint16 &value)
   sKey.set(key);
   return(getInt(sKey,value));
 }
-
-
 
 /************* Static functions below **************/
 

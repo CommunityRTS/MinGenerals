@@ -40,5 +40,3 @@ void INI::parseSpecialPowerDefinition( INI *ini )
 	SpecialPowerStore::parseSpecialPowerDefinition(ini);
 }
 
-
-

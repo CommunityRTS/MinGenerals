@@ -567,7 +567,6 @@ public:
 	virtual void Apply(int uv_array_index);
 };
 
-
 /*
 ** Utility functions
 */

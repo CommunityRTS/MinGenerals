@@ -38,7 +38,6 @@
 #include "MeshDeformSaveSet.H"
 #include "Util.H"
 
-
 ////////////////////////////////////////////////////////////////////////
 //
 //	Reset
@@ -58,7 +57,6 @@ MeshDeformSaveSetClass::Reset (void)
 	m_CurrentKeyFrame = NULL;
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////
 //
@@ -81,7 +79,6 @@ MeshDeformSaveSetClass::Begin_Keyframe (float state)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 //
 //	End_Keyframe
@@ -93,7 +90,6 @@ MeshDeformSaveSetClass::End_Keyframe (void)
 	m_CurrentKeyFrame = NULL;
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////
 //
@@ -130,7 +126,6 @@ MeshDeformSaveSetClass::Add_Vert
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 //
 //	Replace_Deform_Data
@@ -156,7 +151,6 @@ MeshDeformSaveSetClass::Replace_Deform_Data
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////
 //
 //	Get_Deform_Count
@@ -178,5 +172,4 @@ MeshDeformSaveSetClass::Get_Deform_Count (void) const
 
 	return count;
 }*/
-
 

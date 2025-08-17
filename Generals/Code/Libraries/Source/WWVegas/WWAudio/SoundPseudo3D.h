@@ -41,9 +41,7 @@
 #ifndef __SOUND_PSEUDO_3DOBJ_H
 #define __SOUND_PSEUDO_3DOBJ_H
 
-
 #include "Sound3D.H"
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -158,6 +156,5 @@ class SoundPseudo3DClass : public Sound3DClass
 		//	Private member data
 		//////////////////////////////////////////////////////////////////////
 };
-
 
 #endif //__SOUND_PSEUDO_3DOBJ_H

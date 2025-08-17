@@ -30,11 +30,9 @@ This is where all the code is for applying various types of patches.
 
 \*****************************************************************************/
 
-
 #include "patch.h"
 #include <shellapi.h>
 #include <direct.h>
-
 
 //
 // For the text box showing patch info
@@ -92,7 +90,6 @@ BOOL CALLBACK Update_Info_Proc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lPara
       return(0);
     break;
 
-
     case WM_COMMAND:
       switch(wParam) {
         case IDOK:
@@ -113,15 +110,8 @@ BOOL CALLBACK Update_Info_Proc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lPara
   return(FALSE);
 }
 
-
-
-
-
-
-
 // Restart the computer for certain types of patches
 void Shutdown_Computer_Now(void);
-
 
 __declspec(dllexport) LPVOID CALLBACK PatchCallBack(UINT ID, LPVOID Param);
 
@@ -210,7 +200,6 @@ void Apply_Patch(char *patchfile,ConfigFile &config,int skuIndex)
 
     DBGMSG("Patch SKU = "<<skuIndex);
 
-
     PATCHFUNC patchFunc;
     patchFunc=(PATCHFUNC)GetProcAddress(hInst,"RTPatchApply32@12");
     if (patchFunc==NULL)
@@ -252,7 +241,6 @@ void Apply_Patch(char *patchfile,ConfigFile &config,int skuIndex)
       version=atol(cptr);
     DBGMSG("VERSION TO = "<<version);
 
-
     char      string[256];
     Wstring   key;
     // Get the InstallPath from the specified registry key
@@ -280,7 +268,6 @@ void Apply_Patch(char *patchfile,ConfigFile &config,int skuIndex)
       DBGMSG("Can't open reg key for writing");
     regRetval=RegSetValueEx(regKey,"Version",0,REG_DWORD,(uint8 *)&version,
         sizeof(version));
-
 
     // Create blocking DLG for update info
 #ifdef USE_NOTEPAD
@@ -345,8 +332,6 @@ void Apply_Patch(char *patchfile,ConfigFile &config,int skuIndex)
   }
 }
 
-
-
 void Shutdown_Computer_Now(void)
 {
   HANDLE hToken;
@@ -393,8 +378,6 @@ void Shutdown_Computer_Now(void)
     DispatchMessage( &msg );
   }
 }
-
-
 
 //
 // Callback during the patching process

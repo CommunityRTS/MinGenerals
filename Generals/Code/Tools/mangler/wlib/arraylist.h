@@ -88,7 +88,6 @@ class ArrayList
   // Replace one obj with another
   bit8             replace(IN T &node, sint32 pos);
 
-
   // Get a node without removing from the list
   bit8             get(OUT T &node,sint32 pos) RO;
   bit8             getHead(OUT T &node) RO;
@@ -124,7 +123,6 @@ class ArrayList
   bit8             growVector(void);   // Expand the number of slots
   bit8             shrinkVector(void); // Reduce the number of slots
 };
-
 
 //Create the empty list
 template <class T>
@@ -171,7 +169,6 @@ ArrayList<T> &ArrayList<T>::operator=(IN ArrayList<T> &other)
   }
   return(*this);
 }
-
 
 // Remove all the entries and free the memory
 template <class T>
@@ -221,7 +218,6 @@ bit8 ArrayList<T>::setSize(sint32 newsize, IN T &filler)
   return(true);
 }
 
-
 // When adding into a position, the new node goes at the zero based slot
 // specified by pos. All other nodes get moved one slot down.
 template <class T>
@@ -249,7 +245,6 @@ bit8 ArrayList<T>::add(IN T &node,sint32 pos)
   return(TRUE);
 }
 
-
 // Add to the first node, all others get shifted down one slot
 template <class T>
 bit8 ArrayList<T>::addHead(IN T &node)
@@ -257,14 +252,12 @@ bit8 ArrayList<T>::addHead(IN T &node)
   return(add(node,0));
 }
 
-
 // Append to the end of the list
 template <class T>
 bit8 ArrayList<T>::addTail(IN T &node)
 {
   return(add(node,length()));
 }
-
 
 // addSortedX only works (properly) if evrerything else in the list is added
 // using addSorted.
@@ -275,7 +268,6 @@ bit8 ArrayList<T>::addSortedAsc(IN T &node)
 	return(add(node, pos));
 }
 
-
 // addSortedX only works (properly) if evrerything else in the list is added
 // using addSorted.
 template <class T>
@@ -285,7 +277,6 @@ bit8 ArrayList<T>::addSortedDes(IN T &node)
 	return(add(node, pos));
 }
 
-
 // This is the binary search used by addSorted
 template <class T>
 sint32 ArrayList<T>::_sortedLookup(IN T &target, int ascending)
@@ -294,7 +285,6 @@ sint32 ArrayList<T>::_sortedLookup(IN T &target, int ascending)
 	T* 	lowtarget;
 	T* 	hightarget;
 	T* 	midtarget;
-
 
 	// Trivial cases
 	if( Entries_ == 0 )
@@ -374,7 +364,6 @@ sint32 ArrayList<T>::_sortedLookup(IN T &target, int ascending)
 	}
 }
 
-
 /*// addNumSortedX works in much the same way as addSortedX, except that I needed
 // it for a very specific thing.  I needed a list of strings numerically sorted,
 // not alphabetically sorted.  Furthermore these strings were composed of numbers
@@ -401,7 +390,6 @@ bit8 ArrayList<T>::addNumSortedAsc(IN T &node, char delim, int fields)
         return(add(node, pos));
 }
 
-
 // See addNumSortedAsc comment above.
 template <class T>
 bit8 ArrayList<T>::addSortedDes(IN T &node, char delim, int fields)
@@ -409,7 +397,6 @@ bit8 ArrayList<T>::addSortedDes(IN T &node, char delim, int fields)
         sint32 pos = _sortedLookup(node, delim, fields, 0);
         return(add(node, pos));
 }
-
 
 // This is the binary search used by addSorted
 template <class T>
@@ -419,7 +406,6 @@ sint32 ArrayList<T>::_numSortedLookup(IN T &target, char delim, int fields, int 
 	T* 	lowtarget;
 	T* 	hightarget;
 	T* 	midtarget;
-
 
 	// Trivial case
 	if( Entries_ == 0 )
@@ -495,7 +481,6 @@ sint32 ArrayList<T>::_numSortedLookup(IN T &target, char delim, int fields, int 
 	}
 }*/
 
-
 //
 // Delete an item at this index and construct a new one in it's place
 //
@@ -517,8 +502,6 @@ bit8 ArrayList<T>::replace(IN T &node, sint32 pos)
 
   return(TRUE);
 }
-
-
 
 // Remove at the zero based index specified by 'pos'.  When removing from
 // a slot, all others get shifted up by one.
@@ -546,7 +529,6 @@ bit8 ArrayList<T>::remove(sint32 pos)
   return(TRUE);
 }
 
-
 // Remove at the zero based index specified by 'pos'.  When removing from
 // a slot, all others get shifted up by one.
 template <class T>
@@ -559,14 +541,12 @@ bit8 ArrayList<T>::remove(OUT T &node, sint32 pos)
   return(remove(pos));
 }
 
-
 // Remove the first node of the list
 template <class T>
 bit8 ArrayList<T>::removeHead(OUT T &node)
 {
   return(remove(node,0));
 }
-
 
 // Remove the last node of the list
 template <class T>
@@ -587,7 +567,6 @@ bit8 ArrayList<T>::getPointer(OUT T **node,sint32 pos) RO
   return(TRUE);
 }
 
-
 // get a copy of an item
 template <class T>
 bit8 ArrayList<T>::get(OUT T &node,sint32 pos) RO
@@ -598,14 +577,12 @@ bit8 ArrayList<T>::get(OUT T &node,sint32 pos) RO
   return(TRUE);
 }
 
-
 // get a copy of the first node of the list
 template <class T>
 bit8 ArrayList<T>::getHead(OUT T &node) RO
 {
   return(get(node,0));
 }
-
 
 // get a copy of the last node
 template <class T>
@@ -666,7 +643,6 @@ bit8 ArrayList<T>::growVector(void)
   return(TRUE);
 }
 
-
 // Shrink the vector by a factor of 2X
 template <class T>
 bit8 ArrayList<T>::shrinkVector(void)
@@ -704,6 +680,5 @@ bit8 ArrayList<T>::shrinkVector(void)
 
   return(TRUE);
 }
-
 
 #endif

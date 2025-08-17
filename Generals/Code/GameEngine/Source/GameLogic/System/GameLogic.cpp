@@ -121,7 +121,6 @@ FILE *g_UT_commaLog=NULL;
 #include "../../gameenginedevice/include/W3DDevice/GameClient/Module/W3DModelDraw.h"
 #endif
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -135,7 +134,6 @@ enum { OBJ_HASH_SIZE	= 8192 };
 GameLogic *TheGameLogic = NULL;
 
 static void findAndSelectCommandCenter(Object *obj, void* alreadyFound);
-
 
 // ------------------------------------------------------------------------------------------------
 /** This enum is for loading screen bar progress */
@@ -287,7 +285,6 @@ Bool GameLogic::isInSinglePlayerGame( void )
 		(TheRecorder && TheRecorder->getMode() == RECORDERMODETYPE_PLAYBACK && TheRecorder->getGameMode() == GAME_SINGLE_PLAYER));
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Destroy all objects immediately */
 //-------------------------------------------------------------------------------------------------
@@ -368,7 +365,6 @@ void GameLogic::init( void )
 	ThePartitionManager = NEW PartitionManager;
 	ThePartitionManager->init();
 	ThePartitionManager->setName("ThePartitionManager");
-
 
 	// Create system for holding deleted objects that are
 	// still in the partition manager because player has a fogged
@@ -1841,7 +1837,6 @@ void GameLogic::startNewGame( Bool saveGame )
 	DEBUG_LOG(("%s", Buf));
 	#endif
 
-
 	// final step, run newMap for all players
 	if( saveGame == FALSE )
 		ThePlayerList->newMap();
@@ -1984,7 +1979,6 @@ void GameLogic::startNewGame( Bool saveGame )
 		TheTacticalView->lookAt( &thePos );
 #endif
 
-
 	// @todo remove this hack
 //	TheGlobalData->m_inGame = TRUE;
 
@@ -2064,10 +2058,6 @@ static void findAndSelectCommandCenter(Object *obj, void* alreadyFound)
 //-----------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------
 
-
-
-
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 void GameLogic::loadMapINI( AsciiString mapName )
@@ -2105,7 +2095,6 @@ void GameLogic::loadMapINI( AsciiString mapName )
 		--extension;
 	}
 	*extension = 0;
-
 
 	sprintf(fullFledgeFilename, "%s\\map.ini", filename);
 	if (TheFileSystem->doesFileExist(fullFledgeFilename)) {
@@ -2729,7 +2718,6 @@ static void unitTimings(void)
 	static Int unitTypes = INFANTRY;
 	AsciiString sides[8];
 
-
 	Int sideCount = 0;
   #define SINGLE_UNIT "OxFooble."
 
@@ -2747,7 +2735,6 @@ static void unitTimings(void)
 
 	sides[sideCount] = "";
 	static bool veryFirstTime = true;
-
 
 	static Int side = 0;
 
@@ -2780,8 +2767,6 @@ static void unitTimings(void)
 		QueryPerformanceCounter((LARGE_INTEGER *)&endTime64);
 		double timeToUpdate = ((double)(endTime64-startTime64) / (double)(freq64));
 		timeToUpdate *= FACTOR;
-
-
 
 		if (mode == LOGIC) {
 			timeLogic = timeToUpdate;
@@ -2834,8 +2819,6 @@ static void unitTimings(void)
 			drawCallNoSpawn = (float)drawCallTotal / (float)(TIME_FRAMES * 100);  // 100 units for TIME_FRAMES
 		}
 		if (g_UT_curThing==NULL) return;
-
-
 
 		char foo[1024];
 		AsciiString thingName = g_UT_curThing->getName();
@@ -4525,5 +4508,4 @@ void GameLogic::loadPostProcess( void )
 	remakeSleepyUpdate();
 
 }  // end loadPostProcess
-
 

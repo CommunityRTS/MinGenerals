@@ -75,7 +75,6 @@ public:
 	// our object changed position... react as appropriate.
 	virtual void containReactToTransformChange() = 0;
 
-
 	// containment is the basis for many complex systems, it helps us to have a formal
 	// place where we can monitor the outside world if we need to
 
@@ -88,12 +87,9 @@ public:
 	virtual Bool isHealContain() const = 0;
 	virtual Bool isImmuneToClearBuildingAttacks() const = 0;
 
-
 	///< if my object gets selected, then my visible passengers should, too
 	///< this gets called from
 	virtual void clientVisibleContainedFlashAsSelected() = 0;
-
-
 
 	/**
 		this is used for containers that must do something to allow people to enter or exit...

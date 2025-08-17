@@ -53,7 +53,6 @@
 #include "GameClient/InGameUI.h"
 #include "GameClient/ControlBar.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -141,7 +140,6 @@ SpecialPowerModule::SpecialPowerModule( Thing *thing, const ModuleData *moduleDa
 																 getObject()->getID(),
 																 getSpecialPowerModuleData()->m_specialPowerTemplate );
 	}
-
 
 }  // end SpecialPowerModule
 
@@ -381,7 +379,6 @@ Bool SpecialPowerModule::isScriptOnly() const
 	return modData->m_scriptedSpecialPowerOnly;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** A special power has been used ... start the recharge process by computing the frame
 	* we will become fully available on in the future again */
@@ -527,7 +524,6 @@ void SpecialPowerModule::markSpecialPowerTriggered( const Coord3D *location )
 {
 	triggerSpecialPower( location );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -851,8 +847,6 @@ void SpecialPowerModule::loadPostProcess( void )
 	// extend base class
 	BehaviorModule::loadPostProcess();
 
-
-
 	// Now, if we find that we have just come into being,
 	// but there is already a science granted for our shared superweapon,
 	// lets make sure TheIngameUI knows about our public timer
@@ -868,10 +862,5 @@ void SpecialPowerModule::loadPostProcess( void )
 																 getObject()->getID(),
 																 getSpecialPowerModuleData()->m_specialPowerTemplate );
 	}
-
-
-
-
-
 
 }  // end loadPostProcess

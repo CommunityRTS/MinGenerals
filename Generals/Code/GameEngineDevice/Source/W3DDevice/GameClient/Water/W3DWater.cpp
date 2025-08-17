@@ -65,7 +65,6 @@
 #include "W3DDevice/GameClient/W3DScene.h"
 #include "W3DDevice/GameClient/W3DCustomScene.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -177,7 +176,6 @@ void doSkyBoxSet(Bool startDraw)
 		TheWritableGlobalData->m_drawSkyBox = startDraw;
 }
 
-
 #define DONUT_SIDES	90
 #define INNER_RADIUS 200.0f
 #define OUTER_RADIUS 250.0f
@@ -190,7 +188,6 @@ void doSkyBoxSet(Bool startDraw)
 #define NOISE_FREQ	(2.0f*PI/WAVE_FREQ)
 
 #define NOISE_REPEAT_FACTOR ((float)(1.0f/(16.0f)))
-
 
 static Bool wireframeForDebug = 0;
 
@@ -205,9 +202,7 @@ void WaterRenderObjClass::setupJbaWaterShader(void)
 	m_riverTexture->Set_Min_Filter(TextureClass::FILTER_TYPE_BEST);
 	m_riverTexture->Set_Mip_Mapping(TextureClass::FILTER_TYPE_BEST);
 
-
 //	Setting *setting=&m_settings[m_tod];
-
 
 	DX8Wrapper::Apply_Render_State_Changes();	//force update of view and projection matrices
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 0, D3DTSS_ALPHAOP,   D3DTOP_ADD );
@@ -260,9 +255,6 @@ void WaterRenderObjClass::setupJbaWaterShader(void)
 		DX8Wrapper::_Get_D3D_Device8()->SetPixelShader(m_riverWaterPixelShader);
 	}
 }
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Destructor. Releases w3d assets. */
@@ -365,8 +357,6 @@ WaterRenderObjClass::WaterRenderObjClass(void)
 	m_waterSparklesTexture=0;
 	m_riverXOffset=0;
 	m_riverYOffset=0;
-
-
 
 }
 
@@ -747,7 +737,6 @@ HRESULT WaterRenderObjClass::generateIndexBuffer(Int sizeX, Int sizeY)
 
 	m_numIndices=psize*((psize+1)*2)+(psize*2)-2;
 
-
 	Int x,z,s_toggle=1;
 	for (z=step; z<size; z+=step)
 	{
@@ -1049,8 +1038,6 @@ Int WaterRenderObjClass::init(Real waterLevel, Real dx, Real dy, SceneClass *par
 	//Setup material for regular water
 	m_vertexMaterialClass=VertexMaterialClass::Get_Preset(VertexMaterialClass::PRELIT_DIFFUSE);
 
-
-
 	m_shaderClass = zFillAlphaShader;//ShaderClass::_PresetAlphaShader;ShaderClass::_PresetOpaqueShader;//detailOpaqueShader;
 	m_shaderClass.Set_Cull_Mode(ShaderClass::CULL_MODE_DISABLE);	//water should be visible from both sides
 
@@ -1192,8 +1179,6 @@ void WaterRenderObjClass::update( void )
 		m_iBumpFrame = 0;
 	}
 
-
-
 	// we only process some things if the logic frame has changed
 	if( lastLogicFrame != currLogicFrame )
 	{
@@ -1276,7 +1261,6 @@ void WaterRenderObjClass::update( void )
 	}  // end if, a logic frame has passed
 
 }  // end update
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1424,7 +1408,6 @@ void WaterRenderObjClass::renderMirror(CameraClass *cam)
 
 	//generate a new camera matrix from reflected vectors
 	Matrix3D reflectedTransform(rRight,rUp,rN,rPos);
-
 
 	DX8Wrapper::Set_Render_Target(m_pReflectionTexture);
 
@@ -1767,7 +1750,6 @@ void WaterRenderObjClass::drawSea(RenderInfoClass & rinfo)
 	DX8Wrapper::Set_Texture(0,NULL);	//we'll be setting our own textures, so reset W3D
 	DX8Wrapper::Set_Texture(1,NULL);	//we'll be setting our own textures, so reset W3D
 
-
 	DX8Wrapper::Apply_Render_State_Changes();	//force update of view and projection matrices
 
 	Vector3 camTran;
@@ -1950,7 +1932,6 @@ void WaterRenderObjClass::drawSea(RenderInfoClass & rinfo)
 
 }
 
-
 #define FEATHER_LAYER_COUNT (5.0f)
 #define FEATHER_THICKNESS   (4.0f)
 
@@ -1993,7 +1974,6 @@ void WaterRenderObjClass::renderWater(void)
 					else
 						drawTrapezoidWater(points);
 
-
 				}
 			}
 		}
@@ -2026,7 +2006,6 @@ void WaterRenderObjClass::renderSky(void)
 
 	fu= m_uOffset + (SKYPLANE_SIZE * 2) * setting->skyTexelsPerUnit;
 	fv= m_vOffset + (SKYPLANE_SIZE * 2) * setting->skyTexelsPerUnit;
-
 
 	VertexMaterialClass *vmat=VertexMaterialClass::Get_Preset(VertexMaterialClass::PRELIT_DIFFUSE);
 	DX8Wrapper::Set_Material(vmat);
@@ -2119,14 +2098,11 @@ void WaterRenderObjClass::renderSkyBody(Matrix3D *mat)
 
 	angle = acos(angle);
 
-
 	Matrix3D tm(1);
 	tm.Set(rotAxis,angle);
 	tm.Adjust_Translation(Vector3(SKYBODY_X,SKYBODY_Y,SKYBODY_HEIGHT));
 
-
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);
-
 
 	VertexMaterialClass *vmat=VertexMaterialClass::Get_Preset(VertexMaterialClass::PRELIT_DIFFUSE);
 	DX8Wrapper::Set_Material(vmat);
@@ -2138,7 +2114,6 @@ void WaterRenderObjClass::renderSkyBody(Matrix3D *mat)
 	m_shader2.Set_Depth_Mask(ShaderClass::DEPTH_WRITE_DISABLE);	//sky is always behind everything so no need to update z-buffer
 
 	DX8Wrapper::Set_Shader(m_shader2);
-
 
 //	DX8Wrapper::Set_Shader(ShaderClass::/*_PresetAdditiveShader*//*_PresetOpaqueShader*/_PresetAlphaShader);
 //	DX8Wrapper::Set_Texture(0,setting->skyBodyTexture);
@@ -2365,13 +2340,11 @@ void WaterRenderObjClass::renderWaterMesh(void)
 	DX8Wrapper::Apply_Render_State_Changes();	//force update of view and projection matrices
 #endif
 
-
 //	m_pDev->SetRenderState(D3DRS_ZFUNC,D3DCMP_ALWAYS);	//used to display grid under map.
 
 	m_pDev->SetIndices(m_indexBufferD3D,m_vertexBufferD3DOffset);
 	m_pDev->SetStreamSource(0,m_vertexBufferD3D,sizeof(MaterMeshVertexFormat));
 	m_pDev->SetVertexShader(WATER_MESH_FVF);
-
 
 	if (TheTerrainRenderObject->getShroud() && !m_trapezoidWaterPixelShader)
 	{	//we have a shroud to apply and can't do it inside the pixel shader.
@@ -2703,7 +2676,6 @@ void WaterRenderObjClass::drawRiverWater(PolygonTrigger *pTrig)
 		}
 	}
 
-
 	Real shadeR, shadeG, shadeB;
 	shadeR = TheGlobalData->m_terrainAmbient[0].red;
 	shadeG = TheGlobalData->m_terrainAmbient[0].green;
@@ -2839,8 +2811,6 @@ void WaterRenderObjClass::drawRiverWater(PolygonTrigger *pTrig)
 	DX8Wrapper::_Get_D3D_Device8()->GetRenderState(D3DRS_CULLMODE, &cull);
 	DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 
-
-
 	if (wireframeForDebug) {
 		DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_FILLMODE,D3DFILL_WIREFRAME);
 	}
@@ -2850,7 +2820,6 @@ void WaterRenderObjClass::drawRiverWater(PolygonTrigger *pTrig)
 	}
 
 	if (m_riverWaterPixelShader) DX8Wrapper::_Get_D3D_Device8()->SetPixelShader(NULL);
-
 
 	//do second pass to apply the shroud on water plane
 	if (TheTerrainRenderObject->getShroud())
@@ -2866,7 +2835,6 @@ void WaterRenderObjClass::drawRiverWater(PolygonTrigger *pTrig)
 		W3DShaderManager::resetShader(W3DShaderManager::ST_SHROUD_TEXTURE);
 	}
 	DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_CULLMODE, cull);
-
 
 }
 
@@ -3055,7 +3023,6 @@ void WaterRenderObjClass::drawTrapezoidWater(Vector3 points[4])
 		// It needs to be set proportional to the number of feather layers
 		// this comes from TheGlobalData->m_featherWater, which is a count of layers
 
-
 		Int Alpha = 0;
 		if ( TheGlobalData->m_featherWater == 5) Alpha = 80;
 		if ( TheGlobalData->m_featherWater == 4) Alpha = 110;
@@ -3151,8 +3118,6 @@ void WaterRenderObjClass::drawTrapezoidWater(Vector3 points[4])
 
 //#endif // OLD VS NEW WATER
 
-
-
 	Matrix3D tm(1);
 
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);	//position the water surface
@@ -3167,12 +3132,9 @@ void WaterRenderObjClass::drawTrapezoidWater(Vector3 points[4])
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND, D3DBLEND_INVDESTALPHA );
 	}
 
-
  	DWORD cull;
 	DX8Wrapper::_Get_D3D_Device8()->GetRenderState(D3DRS_CULLMODE, &cull);
 	DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-
-
 
 //#ifdef FEATHER_WATER // the NEW WATER a'la LORENZEN
 
@@ -3194,9 +3156,6 @@ void WaterRenderObjClass::drawTrapezoidWater(Vector3 points[4])
 //#endif //WAVY_WATER
 		DX8Wrapper::Draw_Triangles(	0,rectangleCount*2, 0,	(rectangleCount+1)*2);//lorenzen thinks this is where to itereate the soft shoreline effect
 	}
-
-
-
 
 	if (false) {
 		DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_FILLMODE,D3DFILL_WIREFRAME);
@@ -3234,8 +3193,6 @@ void WaterRenderObjClass::drawTrapezoidWater(Vector3 points[4])
 	}
 	DX8Wrapper::_Get_D3D_Device8()->SetRenderState(D3DRS_CULLMODE, cull);
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 //debug version where moon rotates with the camera	(always upright on screen)
@@ -3386,5 +3343,4 @@ void WaterRenderObjClass::loadPostProcess( void )
 {
 
 }  // end loadPostProcess
-
 

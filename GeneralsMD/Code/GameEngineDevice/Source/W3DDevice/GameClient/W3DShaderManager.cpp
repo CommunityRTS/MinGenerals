@@ -989,7 +989,6 @@ Bool ScreenMotionBlurFilter::postRender(enum FilterModes mode, Coord2D &scrollDe
 	v[2].color = 0xffffffff;
 	v[3].color = 0xffffffff;
 
-
 	if (m_additive) {
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_SRCALPHA);
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND,D3DBLEND_ONE);
@@ -1030,7 +1029,6 @@ Bool ScreenMotionBlurFilter::postRender(enum FilterModes mode, Coord2D &scrollDe
 		}
 		pan = true;
 	}
-
 
 	m_skipRender = false;
 	if (!pan && m_lastFrame != TheGameLogic->getFrame()) {
@@ -1619,10 +1617,8 @@ void TerrainShader2Stage::updateNoise1(D3DXMATRIX *destMatrix,D3DXMATRIX *curVie
 	m_xOffset += m_xSlidePerSecond*delta/1000;
 	m_yOffset += m_ySlidePerSecond*delta/1000;
 
-
 	//m_xOffset += m_xSlidePerSecond*delta/500;
 	//m_yOffset += m_ySlidePerSecond*delta/500;
-
 
 	//m_yOffset = sinf( (float)m_curTick * 0.0001f );
 	//m_xOffset = cosf( (float)m_curTick * 0.0001f );
@@ -1726,7 +1722,6 @@ Int TerrainShader2Stage::set(Int pass)
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_ALPHABLENDENABLE,true);
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_DESTCOLOR);
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND,D3DBLEND_ZERO);
-
 
 			D3DXMATRIX inv;
 			float det;
@@ -2143,7 +2138,6 @@ void TerrainShaderPixelShader::reset(void)
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_DISABLE);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_PASSTHRU|3);
 
-
 	DX8Wrapper::Invalidate_Cached_Render_States();
 }
 
@@ -2375,7 +2369,6 @@ void RoadShaderPixelShader::reset(void)
 
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_DISABLE);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_PASSTHRU|3);
-
 
 	DX8Wrapper::Invalidate_Cached_Render_States();
 }
@@ -3184,7 +3177,6 @@ Real W3DShaderManager::GetCPUBenchTime(void)
 	return ((double)(endTime64-startTime64)/(double)(freq64));
 }
 
-
 // W3DShaderManager::setShroudTex =======================================================
 /** Puts the shroud texture into a texture stage.
  */
@@ -3242,8 +3234,6 @@ Int W3DShaderManager::setShroudTex(Int stage)
 	return FALSE;
 }
 
-
-
 Int FlatTerrainShader2Stage::init( void )
 {
 	//no special device validation needed - anything in our min spec should handle this.
@@ -3274,7 +3264,6 @@ void FlatTerrainShader2Stage::reset(void)
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 1, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_DISABLE);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 1, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_PASSTHRU|1);
 }
-
 
 Int FlatTerrainShader2Stage::set(Int pass)
 {
@@ -3398,7 +3387,6 @@ Int FlatTerrainShader2Stage::set(Int pass)
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_DESTCOLOR);
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND,D3DBLEND_ZERO);
 
-
 			D3DXMATRIX inv;
 			float det;
 
@@ -3463,11 +3451,6 @@ Int FlatTerrainShader2Stage::set(Int pass)
 
 	return TRUE;
 }
-
-
-
-
-
 
 Int FlatTerrainShaderPixelShader::shutdown(void)
 {
@@ -3562,9 +3545,6 @@ Int FlatTerrainShaderPixelShader::set(Int pass)
 	DX8Wrapper::Set_Texture(1, W3DShaderManager::getShaderTexture(2));
 	//force WW3D2 system to set it's states so it won't later overwrite our custom settings.
 	DX8Wrapper::Apply_Render_State_Changes();
-
-
-
 
 	DX8Wrapper::Set_DX8_Texture_Stage_State( curStage, D3DTSS_ADDRESSU, D3DTADDRESS_CLAMP);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( curStage, D3DTSS_ADDRESSV, D3DTADDRESS_CLAMP);
@@ -3726,11 +3706,6 @@ void FlatTerrainShaderPixelShader::reset(void)
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_DISABLE);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 3, D3DTSS_TEXCOORDINDEX, D3DTSS_TCI_PASSTHRU|3);
 
-
 	DX8Wrapper::Invalidate_Cached_Render_States();
 }
-
-
-
-
 

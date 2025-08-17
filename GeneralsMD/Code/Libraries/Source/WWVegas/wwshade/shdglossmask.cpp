@@ -55,7 +55,6 @@
 DECLARE_FORCE_LINK(GlossMaskShader);
 REGISTER_SHDDEF(ShdGlossMaskDefClass,SHDDEF_CLASSID_GLOSSMASK,"Gloss Mask");
 
-
 // Save-Load methods for ShdDefClass
 enum
 {
@@ -159,7 +158,6 @@ bool ShdGlossMaskDefClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 void ShdGlossMaskDefClass::Init()
 {
 	Shd6GlossMaskClass::Init();
@@ -174,8 +172,6 @@ ShdInterfaceClass* ShdGlossMaskDefClass::Create() const
 {
 	return new Shd6GlossMaskClass(this);
 }
-
-
 
 Matrix4x4				Shd6GlossMaskClass::View_Projection_Matrix;
 
@@ -220,7 +216,6 @@ void Shd6GlossMaskClass::Shutdown()
 {
 }
 
-
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6
 /*! 7/12/02 3:39p KJM Created
@@ -262,7 +257,6 @@ void Shd6GlossMaskClass::Apply_Shared(int pass, RenderInfoClass& rinfo)
 		DX8Wrapper::Set_DX8_Texture_Stage_State(1, D3DTSS_COLOROP,   D3DTOP_DISABLE );
 		DX8Wrapper::Set_DX8_Texture_Stage_State(1, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
 	}
-
 
 	DX8Wrapper::Set_DX8_Render_State(D3DRS_LIGHTING, TRUE);
 

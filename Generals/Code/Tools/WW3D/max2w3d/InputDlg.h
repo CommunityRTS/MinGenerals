@@ -34,14 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #ifndef INPUTDLG_H
 #define INPUTDLG_H
 
 #include "dllmain.h"
 #include "resource.h"
-
 
 /////////////////////////////////////////////////////////////////////////////
 // InputDlg dialog - a generic input box for MAXScript
@@ -81,6 +78,5 @@ protected:
 	LRESULT OnInitDialog (WPARAM wParam, LPARAM lParam);
 	BOOL OnOK (void);
 };
-
 
 #endif

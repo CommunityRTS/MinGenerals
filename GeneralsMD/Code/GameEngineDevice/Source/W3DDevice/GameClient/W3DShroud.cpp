@@ -142,7 +142,6 @@ void W3DShroud::init(WorldHeightMap *pMap, Real worldCellSizeX, Real worldCellSi
 		TextureLoader::Validate_Texture_Size((unsigned int &)dstTextureWidth,(unsigned int &)dstTextureHeight, depth);
 	}
 
-
 	UnsignedInt srcWidth,srcHeight;
 
 	srcWidth=m_numCellsX;
@@ -617,7 +616,6 @@ void W3DShroud::render(CameraClass *cam)
 	}
 
 #endif //LOAD_DUMMY_SHROUD
-
 
 	WorldHeightMap *hm=TheTerrainRenderObject->getMap();
 	Int visStartX=REAL_TO_INT_FLOOR((Real)(hm->getDrawOrgX()-hm->getBorderSizeInline())*MAP_XY_FACTOR/m_cellWidth);	//start of rendered heightmap rectangle

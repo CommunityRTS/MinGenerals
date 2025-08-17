@@ -34,7 +34,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditAction dialog
 
-
 EditAction::EditAction(CWnd* pParent /*=NULL*/)
 	: CDialog(EditAction::IDD, pParent)
 {
@@ -43,7 +42,6 @@ EditAction::EditAction(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditAction::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -51,7 +49,6 @@ void EditAction::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditAction, CDialog)
 	//{{AFX_MSG_MAP(EditAction)
@@ -63,11 +60,9 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // EditAction message handlers
 
-
 BOOL EditAction::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
 
 //	CDC *pDc =GetDC();
 
@@ -99,7 +94,6 @@ BOOL EditAction::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void EditAction::formatScriptActionText(Int parameterNdx)
 {
@@ -182,8 +176,6 @@ void EditAction::formatScriptActionText(Int parameterNdx)
 	m_myEditCtrl.SetSel(startSel, endSel);
 	m_updating = false;
 }
-
-
 
 BOOL EditAction::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

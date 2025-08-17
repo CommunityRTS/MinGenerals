@@ -84,7 +84,6 @@ static void BTREE_writebits(struct BTreeEncodeContext *EC,
 	}
 }
 
-
 static void BTREE_adjcount(unsigned char *s, unsigned char *bend, BTREEWORD *count)
 {
 
@@ -255,7 +254,6 @@ static void BTREE_joinnodes(struct BTreeEncodeContext *EC,
 	}
 	EC->bufend = d-2;
 }
-
 
 /* find 48 most common nodes */
 
@@ -431,7 +429,6 @@ static void BTREE_treepack(struct BTreeEncodeContext *EC,
 		}
 	}
 
-
 /* sort codes with least used codes first */
 /* primary key is count, secondary key is higher code */
 
@@ -474,7 +471,6 @@ static void BTREE_treepack(struct BTreeEncodeContext *EC,
 /* init best array */
 
 	bestval[0] = (unsigned int) -1;
-
 
 /* count file (pass 2) */
 
@@ -679,8 +675,6 @@ static int BTREE_compressfile(struct BTreeEncodeContext *EC,
 
     return(outfile->len);
 }
-
-
 
 /****************************************************************/
 /*  Encode Function                                             */

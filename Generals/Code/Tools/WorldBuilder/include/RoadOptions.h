@@ -47,7 +47,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(RoadOptions)
@@ -71,7 +70,6 @@ protected:
 	afx_msg void OnApplyRoad();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 
 protected:
 	static RoadOptions *m_staticThis;

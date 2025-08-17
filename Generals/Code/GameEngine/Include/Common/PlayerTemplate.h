@@ -58,7 +58,6 @@
 #include "Common/NameKeyGenerator.h"
 #include "Common/STLTypedefs.h"
 
-
 // ----------------------------------------------------------------------------------------------
 
 class INI;
@@ -127,9 +126,7 @@ public:
 
 	AsciiString getLoadScreenMusic( void ) const {return m_loadScreenMusic;	}
 
-
 	static const FieldParse* getFieldParse();
-
 
 protected:
 
@@ -200,7 +197,6 @@ public:
 	const PlayerTemplate* getNthPlayerTemplate(Int i) const;
 	const PlayerTemplate* findPlayerTemplate(NameKeyType namekey) const;
 	inline Int getPlayerTemplateCount() const { return m_playerTemplates.size(); }
-
 
 	// This function will fill outStringList with all the sides found in all the templates
 	void getAllSideStrings(AsciiStringList *outStringList);

@@ -41,10 +41,6 @@
  *   GameMtlTextureDlg::Update_Texture_Buttons -- update the texture buttons text              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
-
-
 #include "GameMtlTextureDlg.h"
 #include "GameMtl.h"
 #include "dllmain.h"
@@ -52,7 +48,6 @@
 #include <Max.h>
 #include <bmmlib.h>
 #include <stdmat.h>
-
 
 /***********************************************************************************************
  * GameMtlTextureDlg::GameMtlTextureDlg -- constructor                                         *
@@ -102,7 +97,6 @@ GameMtlTextureDlg::GameMtlTextureDlg
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtlTextureDlg::~GameMtlTextureDlg -- destructor                                         *
  *                                                                                             *
@@ -136,7 +130,6 @@ GameMtlTextureDlg::~GameMtlTextureDlg()
 	ReleaseICustButton(Stage0DisplayButton);
 	ReleaseICustButton(Stage1DisplayButton);
 }
-
 
 /***********************************************************************************************
  * GameMtlTextureDlg::Dialog_Proc -- windows message handler                                   *
@@ -484,7 +477,6 @@ BOOL GameMtlTextureDlg::Dialog_Proc (HWND dlg_wnd, UINT message, WPARAM wparam, 
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * GameMtlTextureDlg::ReloadDialog -- reload the contents of all of the controls in this dialo *
  *                                                                                             *
@@ -548,7 +540,6 @@ void GameMtlTextureDlg::ReloadDialog(void)
 	Enable_Stage(1,TheMtl->Get_Texture_Enable(PassIndex,1));
 }
 
-
 /***********************************************************************************************
  * GameMtlTextureDlg::ActivateDlg -- activate/deactivate this dialog                           *
  *                                                                                             *
@@ -565,7 +556,6 @@ void GameMtlTextureDlg::ActivateDlg(BOOL onOff)
 {
 	// no color swatches to activate.
 }
-
 
 /***********************************************************************************************
  * GameMtlTextureDlg::Enable_Stage -- enable or disable a texture stage                        *
@@ -630,7 +620,6 @@ void GameMtlTextureDlg::Enable_Stage(int stage,BOOL onoff)
 
 	}
 }
-
 
 /***********************************************************************************************
  * GameMtlTextureDlg::Update_Texture_Buttons -- update the texture buttons text                *

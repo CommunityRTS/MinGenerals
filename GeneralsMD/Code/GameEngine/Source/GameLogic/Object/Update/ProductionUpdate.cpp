@@ -320,8 +320,6 @@ Bool ProductionUpdate::queueUpgrade( const UpgradeTemplate *upgrade )
 	// add this upgrade as in progress in the player
 	player->addUpgrade( upgrade, UPGRADE_STATUS_IN_PRODUCTION );
 
-
-
 	return TRUE;  // queued
 
 }  // end queueUpgrade
@@ -1204,7 +1202,6 @@ void ProductionUpdate::setHoldDoorOpen(ExitDoorType exitDoor, Bool holdIt)
 
 	// interface not found
 	return NULL;
-
 
 }  // end getProductionUpdateInterfaceFromObject
 

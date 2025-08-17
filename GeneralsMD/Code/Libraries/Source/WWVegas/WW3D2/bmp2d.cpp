@@ -71,7 +71,6 @@ Bitmap2DObjClass::Bitmap2DObjClass
 	// Hector Yee 2/22/01
 	// Set_Aspect(resh/(float)resw);
 
-
 	// load up the surfaces file name
 	TextureClass *tex = WW3DAssetManager::Get_Instance()->Get_Texture(filename, MIP_LEVELS_1);
 	if (!tex->Is_Initialized())
@@ -135,7 +134,6 @@ Bitmap2DObjClass::Bitmap2DObjClass
 	}
 
 	Enable_Sort();
-
 
 	// If we want to be able to colorize this bitmap later (by setting
 	// emissive color for the vertex material, or via a vertex emissive color

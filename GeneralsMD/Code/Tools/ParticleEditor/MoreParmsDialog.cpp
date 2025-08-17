@@ -68,7 +68,6 @@ void MoreParmsDialog::performUpdate( IN Bool toUI )
 		return;
 	}
 
-
 	{	// Update all fields on this panel.
 		CWnd *pWnd;
 
@@ -624,7 +623,6 @@ void MoreParmsDialog::performUpdate( IN Bool toUI )
 				}
 			}
 		}
-
 
 	}
 }

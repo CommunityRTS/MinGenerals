@@ -45,12 +45,10 @@
 //#include	<ctype.h>
 #include	<string.h>
 
-
 #if !defined(__BORLANDC__) && !defined(_MSC_VER)
 // Disable the "temporary object used to initialize a non-constant reference" warning.
 #pragma warning 665 9
 #endif
-
 
 /***********************************************************************************************
  * Read_Line -- Read a text line from the file.                                                *
@@ -78,7 +76,6 @@ int Read_Line(FileClass & file, char * buffer, int len, bool & eof)
 	FileStraw fs(file);
 	return(Read_Line(fs, buffer, len, eof));
 }
-
 
 /***********************************************************************************************
  * Read_Line -- Reads a text line from the straw object specified.                             *

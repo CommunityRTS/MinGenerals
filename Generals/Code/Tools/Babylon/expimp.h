@@ -73,7 +73,6 @@ typedef struct
 
 } RPOPTIONS;
 
-
 #define CSF_ID ( ('C'<<24) | ('S'<<16) | ('F'<<8) | (' ') )
 #define CSF_LABEL ( ('L'<<24) | ('B'<<16) | ('L'<<8) | (' ') )
 #define CSF_STRING ( ('S'<<24) | ('T'<<16) | ('R'<<8) | (' ') )

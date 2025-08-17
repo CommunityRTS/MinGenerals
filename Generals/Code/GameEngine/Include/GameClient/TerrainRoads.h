@@ -38,7 +38,6 @@
 
 #include "GameLogic/Module/BodyModule.h"
 
-
 // FORWARD DECLARATIONS ///////////////////////////////////////////////////////////////////////////
 struct FieldParse;
 class AsciiString;

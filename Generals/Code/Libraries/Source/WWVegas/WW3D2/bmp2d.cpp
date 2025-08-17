@@ -65,7 +65,6 @@ Bitmap2DObjClass::Bitmap2DObjClass
 	// Hector Yee 2/22/01
 	// Set_Aspect(resh/(float)resw);
 
-
 	// load up the surfaces file name
 	SurfaceClass *surface=NEW_REF(SurfaceClass,(filename));
 
@@ -121,7 +120,6 @@ Bitmap2DObjClass::Bitmap2DObjClass
 	}
 
 	Enable_Sort();
-
 
 	// If we want to be able to colorize this bitmap later (by setting
 	// emissive color for the vertex material, or via a vertex emissive color

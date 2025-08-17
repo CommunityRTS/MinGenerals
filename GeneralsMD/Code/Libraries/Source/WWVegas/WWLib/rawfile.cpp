@@ -51,7 +51,6 @@
  *   RawFileClass::Write -- Writes the specified data to the buffer specified.                 *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include	"always.h"
 #include	"rawfile.h"
 #include	<direct.h>
@@ -67,7 +66,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #endif
-
 
 #if 0		//#ifdef NEVER    (gth) the MAX sdk must #define NEVER! yikes :-)
 	/*
@@ -128,7 +126,6 @@
 	EUCLEAN,				// not used
 #endif
 
-
 /***********************************************************************************************
  * RawFileClass::RawFileClass -- Default constructor for a file object.                        *
  *                                                                                             *
@@ -155,8 +152,6 @@ RawFileClass::RawFileClass(void) :
 	Time(0)
 {
 }
-
-
 
 /***********************************************************************************************
  * RawFileClass::Is_Open -- Checks to see if the file is open or not.                          *
@@ -331,7 +326,6 @@ char const * RawFileClass::Set_Name(char const * filename)
 	return(Filename);
 }
 
-
 /***********************************************************************************************
  * RawFileClass::Open -- Assigns name and opens file in one operation.                         *
  *                                                                                             *
@@ -358,7 +352,6 @@ int RawFileClass::Open(char const * filename, int rights)
 	Set_Name(filename);
 	return(Open(rights));
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Open -- Opens the file object with the rights specified.                      *
@@ -468,7 +461,6 @@ int RawFileClass::Open(int rights)
 	return(true);
 }
 
-
 /***********************************************************************************************
  * RawFileClass::Is_Available -- Checks to see if the specified file is available to open.     *
  *                                                                                             *
@@ -543,7 +535,6 @@ bool RawFileClass::Is_Available(int forced)
 	return(true);
 }
 
-
 /***********************************************************************************************
  * RawFileClass::Close -- Perform a closure of the file.                                       *
  *                                                                                             *
@@ -587,7 +578,6 @@ void RawFileClass::Close(void)
 		Handle = NULL_HANDLE;
 	}
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Read -- Reads the specified number of bytes into a memory buffer.             *
@@ -655,7 +645,6 @@ int RawFileClass::Read(void * buffer, int size)
 			readok=ReadFile(Handle, buffer, size, &(unsigned long&)bytesread, NULL);
 		#endif
 
-
 		if (! readok) {
 			size -= bytesread;
 			total += bytesread;
@@ -675,7 +664,6 @@ int RawFileClass::Read(void * buffer, int size)
 	if (opened) Close();
 	return(bytesread);
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Write -- Writes the specified data to the buffer specified.                   *
@@ -747,7 +735,6 @@ int RawFileClass::Write(void const * buffer, int size)
 	*/
 	return(byteswritten);
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Seek -- Reposition the file pointer as indicated.                             *
@@ -821,7 +808,6 @@ int RawFileClass::Seek(int pos, int dir)
 	*/
 	return(Raw_Seek(pos, dir));
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Size -- Determines size of file (in bytes).                                   *
@@ -899,7 +885,6 @@ int RawFileClass::Size(void)
 	return(BiasLength);
 }
 
-
 /***********************************************************************************************
  * RawFileClass::Create -- Creates an empty file.                                              *
  *                                                                                             *
@@ -935,7 +920,6 @@ int RawFileClass::Create(void)
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Delete -- Deletes the file object from the disk.                              *
@@ -1069,7 +1053,6 @@ unsigned long RawFileClass::Get_Date_Time(void)
 	return retval;
 }
 
-
 /***********************************************************************************************
  * RawFileClass::Set_Date_Time -- Sets the date and time the file was last modified.           *
  *                                                                                             *
@@ -1104,7 +1087,6 @@ bool RawFileClass::Set_Date_Time(unsigned long datetime)
 	return(false);
 #endif
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Bias -- Bias a file with a specific starting position and length.             *
@@ -1150,7 +1132,6 @@ void RawFileClass::Bias(int start, int length)
 		RawFileClass::Seek(0, SEEK_SET);
 	}
 }
-
 
 /***********************************************************************************************
  * RawFileClass::Raw_Seek -- Performs a seek on the unbiased file                              *

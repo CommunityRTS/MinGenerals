@@ -46,13 +46,11 @@
 #include "GameLogic/Object.h"
 #include "GameLogic/PartitionManager.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -108,7 +106,6 @@ OverlordContain::~OverlordContain( void )
 
 }
 
-
 void OverlordContain::onObjectCreated( void )
 {
   OverlordContain::createPayload();
@@ -119,7 +116,6 @@ void OverlordContain::onObjectCreated( void )
 void OverlordContain::createPayload()
 {
 	OverlordContainModuleData* self = (OverlordContainModuleData*)getOverlordContainModuleData();
-
 
   // Any number of different passengers can be loaded here at init time
 	Object* object = getObject();
@@ -198,12 +194,9 @@ ContainModuleInterface *OverlordContain::getRedirectedContain() const
 	return NULL;// Or say no if they have no contain.
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
-
 
 //-------------------------------------------------------------------------------------------------
 void OverlordContain::onDie( const DamageInfo *damageInfo )
@@ -369,7 +362,6 @@ void OverlordContain::onContaining( Object *obj, Bool wasSelected )
 	{
 		TransportContain::onContaining( obj, wasSelected );
 
-
     if ( obj->isKindOf( KINDOF_PORTABLE_STRUCTURE ) )
     {
   		activateRedirectedContain();//Am now carrying something
@@ -377,7 +369,6 @@ void OverlordContain::onContaining( Object *obj, Bool wasSelected )
 			// And this contain style explicitly sucks XP from our little friend.
 			if( getOverlordContainModuleData()->m_experienceSinkForRider  &&  obj->getExperienceTracker() )
 				obj->getExperienceTracker()->setExperienceSink(getObject()->getID());
-
 
       if ( obj->isKindOf( KINDOF_PORTABLE_STRUCTURE ) && getObject()->testStatus( OBJECT_STATUS_STEALTHED ) )
       {
@@ -391,11 +382,7 @@ void OverlordContain::onContaining( Object *obj, Bool wasSelected )
         }
       }
 
-
-
-
     }
-
 
     return;
 	}
@@ -523,7 +510,6 @@ const Object *OverlordContain::friend_getRider() const
  	if( m_containListSize > 0 )
  		return m_containList.front();
 
-
 	return NULL;
 }
 
@@ -538,7 +524,6 @@ void OverlordContain::deactivateRedirectedContain()
 {
 	m_redirectionActivated = FALSE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -573,7 +558,6 @@ void OverlordContain::clientVisibleContainedFlashAsSelected()
 
 }
 
-
 Bool OverlordContain::isPassengerAllowedToFire( ObjectID id ) const
 {
 	Object *passenger = TheGameLogic->findObjectByID(id);
@@ -585,14 +569,11 @@ Bool OverlordContain::isPassengerAllowedToFire( ObjectID id ) const
 			return FALSE;
 	}
 
-
   if ( getObject() && getObject()->getContainedBy() ) // nested containment voids firing, always
     return FALSE;
 
   return TransportContain::isPassengerAllowedToFire();
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

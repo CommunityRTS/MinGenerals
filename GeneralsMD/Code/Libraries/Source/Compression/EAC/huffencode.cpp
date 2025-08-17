@@ -91,7 +91,6 @@ static void HUFF_deltabytes(const void *source,void *dest,int len)
 	}
 }
 
-
 static void HUFF_writebits(struct HuffEncodeContext *EC,
                     struct HUFFMemStruct *dest,
                     unsigned int	  bitpattern,
@@ -384,7 +383,6 @@ static void HUFF_init(struct HuffEncodeContext *EC)
 	}
 }
 
-
 static void HUFF_analysis(struct HuffEncodeContext *EC,
                    unsigned int opt,
                    unsigned int chainsaw)
@@ -521,7 +519,6 @@ static void HUFF_analysis(struct HuffEncodeContext *EC,
 		}
 	}
 
-
 /* copy delta clue bytes */
 
 	if (EC->dclues)
@@ -563,8 +560,6 @@ static void HUFF_analysis(struct HuffEncodeContext *EC,
 /* make a first approximation tree */
 
 	HUFF_maketree(EC);
-
-
 
 /* remove implied rep clues */
 
@@ -847,7 +842,6 @@ static void HUFF_analysis(struct HuffEncodeContext *EC,
 		++pattern;
 	}
 }
-
 
 static void HUFF_pack(struct HuffEncodeContext *EC,
                struct HUFFMemStruct *dest,
@@ -1143,7 +1137,6 @@ static int HUFF_packfile(struct HuffEncodeContext *EC,
     {
     	/* simple fb6 header */
 
-
     	if (ulen==infile->len)
     	{
     		if (deltaed==0) 		uptype = 0x30fb;
@@ -1170,7 +1163,6 @@ static int HUFF_packfile(struct HuffEncodeContext *EC,
 
     return(outfile->len);
 }
-
 
 /****************************************************************/
 /*  Encode Function                                             */

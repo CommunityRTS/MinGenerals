@@ -123,7 +123,6 @@ void UndeadBody::startSecondLife(DamageInfo *damageInfo)
 	}
 	DEBUG_ASSERTCRASH(total > 0, ("Hmm, this is wrong"));
 
-
 	// this returns a value from 1...total, inclusive
 	Int roll = GameLogicRandomValue(1, total);
 
@@ -142,7 +141,6 @@ void UndeadBody::startSecondLife(DamageInfo *damageInfo)
 	}
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

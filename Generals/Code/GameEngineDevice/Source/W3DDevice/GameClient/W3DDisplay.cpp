@@ -240,8 +240,6 @@ void StatDumpClass::dumpStats()
 	fprintf( m_fp, "    -Slowest 2 script times %.5f msec, %.5f msec \n", slowScript1*1000, slowScript2*1000 );
 	fprintf( m_fp, "\n" );
 
-
-
 	//PartitionMgr stats
 	double gcoTimeThisFrameTotal, gcoTimeThisFrameAvg;
 	ThePartitionManager->getPMStats(gcoTimeThisFrameTotal, gcoTimeThisFrameAvg);
@@ -308,8 +306,6 @@ StatDumpClass TheStatDump("StatisticsDump.txt");
 //**** End Statistical Dump ***************************************************************
 //*****************************************************************************************
 //*****************************************************************************************
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFINITIONS ////////////////////////////////////////////////////////////////
@@ -659,7 +655,6 @@ void W3DDisplay::init( void )
 	m_assetManager->Register_Prototype_Loader(&_AggregateLoader);
 	m_assetManager->Set_WW3D_Load_On_Demand( true );
 
-
 	if (TheGlobalData->m_incrementalAGPBuf)
 	{
 		SortingRendererClass::SetMinVertexBufferSize(1);
@@ -952,7 +947,6 @@ void W3DDisplay::gatherDebugStats( void )
 		if (fps<0.1) fps = 0.1;
 
 		double ms = 1000.0f/fps;
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 		double cumuTime = ((double)(time64 - m_timerAtCumuFPSStart) / (double)(freq64));
@@ -1333,14 +1327,11 @@ void W3DDisplay::gatherDebugStats( void )
 		// selected object info stats
 		unibuffer.format( L"Select Info: '%d' drawables selected", TheInGameUI->getSelectCount() );
 
-
-
 		//Sorry, guys. I need a special kluge here to get constantdebug results for angry mob.
 		//Do no be cross with me.
 		//if there is not exactly one drawable selected it will report on the moused-over drawable
 		if (TheInGameUI->getSelectCount() == 1)
 			draw = TheInGameUI->getFirstSelectedDrawable();
-
 
 		if( draw )
 		{
@@ -1420,7 +1411,6 @@ void W3DDisplay::drawDebugStats( void )
 
 #endif
 
-
 	Int w, h;
 	for (int i = 0; i < linesOfStrings; i++)
 	{
@@ -1448,7 +1438,6 @@ void W3DDisplay::drawFPSStats( void )
 		m_benchmarkDisplayString->draw( x, y, textColor, dropColor );
 	}
 }
-
 
 //=============================================================================
 void StatDebugDisplay( DebugDisplayInterface *, void *, FILE *fp )
@@ -1557,7 +1546,6 @@ void W3DDisplay::calculateTerrainLOD( void )
 
 }
 
-
 Real W3DDisplay::getAverageFPS()
 {
 	return m_averageFPS;
@@ -1583,7 +1571,6 @@ void W3DDisplay::draw( void )
 	if (ApplicationHWnd && ::IsIconic(ApplicationHWnd)) {
 		return;
 	}
-
 
 	updateAverageFPS();
 	if (TheGlobalData->m_enableDynamicLOD && TheGameLogic->getShowDynamicLOD())
@@ -1639,7 +1626,6 @@ AGAIN:
 	if(loc.Y<0) theLightYOffset = -theLightYOffset;
 	theDynamicLight->Set_Position(loc);
 #endif
-
 
 	/// @todo Make more explicit drawing layers(ground, ground UI, objects, object UI, overlay UI)
 
@@ -1722,7 +1708,6 @@ AGAIN:
 		now = timeGetTime();
 		prevTime = now - minTime;		 // do the first frame immediately.
 	}
-
 
 	do {
 
@@ -1849,7 +1834,6 @@ AGAIN:
 					drawFPSStats();
 				}
 #endif
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 				if (TheGlobalData->m_debugShowGraphicalFramerate)
@@ -2071,7 +2055,6 @@ void W3DDisplay::drawLine( Int startX, Int startY,
 	m_2DRender->Render();
 
 }  // end drawLine
-
 
 // W3DDisplay::drawOpenRect ===================================================
 //=============================================================================
@@ -2300,7 +2283,6 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 
 }
 
-
 //--------------------------------------------------------------------------------------------------------------------
 // W3DDisplay::drawRemainingRectClock
 // Variation added by Kris -- October 2002
@@ -2478,7 +2460,6 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 	m_2DRender->Render();
 }
 
-
 // W3DDisplay::drawImage ======================================================
 /** Draws an images at the screen coordinates and keeps it within the end
 	* screen coords specified */
@@ -2549,7 +2530,6 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 
 			if( BitTest( image->getStatus(), IMAGE_STATUS_ROTATED_90_CLOCKWISE ) )
 			{
-
 
 				//
 				//	Clip the polygons to the specified area
@@ -2704,7 +2684,6 @@ VideoBuffer*	W3DDisplay::createVideoBuffer( void )
 	return buffer;
 }
 
-
 //============================================================================
 // W3DDisplay::drawVideoBuffer
 //============================================================================
@@ -2795,7 +2774,6 @@ static void CreateBMPFile(LPTSTR pszFile, char *image, Int width, Int height)
     pbmi->bmiHeader.biCompression = BI_RGB;
     pbmi->bmiHeader.biSizeImage = (pbmi->bmiHeader.biWidth + 7) /8 * pbmi->bmiHeader.biHeight * 24;
     pbmi->bmiHeader.biClrImportant = 0;
-
 
     pbih = (PBITMAPINFOHEADER) pbmi;
     lpBits = (LPBYTE) image;
@@ -2980,7 +2958,6 @@ void W3DDisplay::toggleMovieCapture(void)
 {
 	WW3D::Toggle_Movie_Capture("Movie",30);
 }
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 

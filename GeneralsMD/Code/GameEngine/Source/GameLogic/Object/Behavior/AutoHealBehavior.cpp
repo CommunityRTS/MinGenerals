@@ -27,7 +27,6 @@
 // Desc:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #include "Common/Thing.h"
@@ -303,12 +302,10 @@ void AutoHealBehavior::pulseHealObject( Object *obj )
 
 	const AutoHealBehaviorModuleData *data = getAutoHealBehaviorModuleData();
 
-
 	if ( data->m_radius == 0.0f )
 		obj->attemptHealing(data->m_healingAmount, getObject());
 	else
 		obj->attemptHealingFromSoleBenefactor( data->m_healingAmount, getObject(), data->m_healingDelay );
-
 
 	if( data->m_unitHealPulseParticleSystemTmpl )
 	{

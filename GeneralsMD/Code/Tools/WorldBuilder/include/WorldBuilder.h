@@ -69,7 +69,6 @@
 
 #define NONE_STRING "<none>"
 
-
 enum {THREE_D_VIEW_WIDTH=800, THREE_D_VIEW_HEIGHT=600};
 enum {MAX_OBJECTS_IN_MAP = 3000};
 
@@ -186,14 +185,12 @@ public:
 	/// Note - the app owns this, and will delete it on close.
 	void setMapObjPasteList(MapObject *list) { deletePasteObjList(); m_pasteMapObjList = list; };
 
-
 	/// Handles command messages.
 	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra,
 						  AFX_CMDHANDLERINFO* pHandlerInfo);
 };
 
 inline CWorldBuilderApp *WbApp() { return (CWorldBuilderApp*)::AfxGetApp(); }
-
 
 /////////////////////////////////////////////////////////////////////////////
 

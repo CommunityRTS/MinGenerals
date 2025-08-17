@@ -67,12 +67,10 @@
  *   CameraClass::Apply_D3D_State -- sets the D3D states controlled by the camera              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "camera.h"
 #include "ww3d.h"
 #include "matrix4.h"
 #include "dx8wrapper.h"
-
 
 /***********************************************************************************************
  * CameraClass::CameraClass -- constructor                                                     *
@@ -99,7 +97,6 @@ CameraClass::CameraClass(void) :
 	Set_Transform(Matrix3D(1));
 	Set_View_Plane(DEG_TO_RADF(50.0f));
 }
-
 
 /***********************************************************************************************
  * CameraClass::CameraClass -- copy constructor                                                *
@@ -133,7 +130,6 @@ CameraClass::CameraClass(const CameraClass & src) :
 	// just being paraniod in case any parent class doesn't completely copy the entire state...
 	FrustumValid = false;
 }
-
 
 /***********************************************************************************************
  * CameraClass::operator == -- assignment operator                                             *
@@ -170,7 +166,6 @@ CameraClass & CameraClass::operator = (const CameraClass & that)
 	return * this;
 }
 
-
 /***********************************************************************************************
  * CameraClass::~CameraClass -- destructor                                                     *
  *                                                                                             *
@@ -186,7 +181,6 @@ CameraClass & CameraClass::operator = (const CameraClass & that)
 CameraClass::~CameraClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * CameraClass::Clone -- virtual copy constructor                                              *
@@ -204,7 +198,6 @@ RenderObjClass * CameraClass::Clone(void) const
 {
 	return NEW_REF( CameraClass, (*this) );
 }
-
 
 /***********************************************************************************************
  * CameraClass::Get_Obj_Space_Bounding_Sphere -- returns the object space bounding sphere      *
@@ -224,7 +217,6 @@ void CameraClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const
 	sphere.Radius = ZFar;		// could optimize this but its not really used.
 }
 
-
 /***********************************************************************************************
  * CameraClass::Get_Object_Space_Bounding_Box -- returns the object space bounding box         *
  *                                                                                             *
@@ -242,7 +234,6 @@ void CameraClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 	box.Center.Set(0,0,0);
 	box.Extent.Set(ZFar,ZFar,ZFar);	// could optimize this but its not really used.
 }
-
 
 /***********************************************************************************************
  * CameraClass::Set_Transform -- set the transform of the camera                               *
@@ -264,7 +255,6 @@ void CameraClass::Set_Transform(const Matrix3D &m)
 	FrustumValid = false;
 }
 
-
 /***********************************************************************************************
  * CameraClass::Set_Position -- Set the position of the camera                                 *
  *                                                                                             *
@@ -284,7 +274,6 @@ void CameraClass::Set_Position(const Vector3 &v)
 	RenderObjClass::Set_Position(v);
 	FrustumValid = false;
 }
-
 
 /***********************************************************************************************
  * CameraClass::Set_View_Plane -- control over the view plane                                  *
@@ -307,7 +296,6 @@ void CameraClass::Set_View_Plane(const Vector2 & vmin,const Vector2 & vmax)
 	AspectRatio = (vmax.X - vmin.X) / (vmax.Y - vmin.Y);
 	FrustumValid = false;
 }
-
 
 /***********************************************************************************************
  * CameraClass::Set_View_Plane -- set the viewplane using fov angles                           *
@@ -340,7 +328,6 @@ void CameraClass::Set_View_Plane(float hfov,float vfov)
 	FrustumValid = false;
 }
 
-
 /***********************************************************************************************
  * CameraClass::Set_Aspect_Ratio -- sets the aspect ratio of the camera                        *
  *                                                                                             *
@@ -361,7 +348,6 @@ void CameraClass::Set_Aspect_Ratio(float width_to_height)
 	FrustumValid = false;
 }
 
-
 /***********************************************************************************************
  * CameraClass::Get_View_Plane -- get the corners of the current view plane                    *
  *                                                                                             *
@@ -379,7 +365,6 @@ void CameraClass::Get_View_Plane(Vector2 & set_min,Vector2 & set_max) const
 	set_min = ViewPlane.Min;
 	set_max = ViewPlane.Max;
 }
-
 
 /***********************************************************************************************
  * CameraClass::Project -- project a point from ws to the view plane                           *
@@ -503,7 +488,6 @@ void CameraClass::Un_Project(Vector3 & dest,const Vector2 & view_point) const
 	Matrix3D::Transform_Vector(Transform,point,&dest);
 }
 
-
 /***********************************************************************************************
  * CameraClass::Transform_To_View_Space -- transforms the given world space point to camera sp *
  *                                                                                             *
@@ -521,7 +505,6 @@ void CameraClass::Transform_To_View_Space(Vector3 & dest,const Vector3 & ws_poin
 	Update_Frustum();
 	Matrix3D::Transform_Vector(CameraInvTransform,ws_point,&dest);
 }
-
 
 /***********************************************************************************************
  * CameraClass::Rotate_To_View_Space -- rotates the given world space vector to camera space   *
@@ -541,8 +524,6 @@ void CameraClass::Rotate_To_View_Space(Vector3 & dest,const Vector3 & ws_vector)
 	Matrix3D::Rotate_Vector(CameraInvTransform,ws_vector,&dest);
 }
 
-
-
 /***********************************************************************************************
  * CameraClass::Get_Near_Clip_Bounding_Box -- returns an obb that contains near clip plane     *
  *                                                                                             *
@@ -561,7 +542,6 @@ const OBBoxClass & CameraClass::Get_Near_Clip_Bounding_Box(void) const
 	return NearClipBBox;
 }
 
-
 /***********************************************************************************************
  * CameraClass::Cull_Box -- tests whether the given box can be culled                          *
  *                                                                                             *
@@ -579,7 +559,6 @@ bool CameraClass::Cull_Box(const AABoxClass & box) const
 	const FrustumClass & frustum = Get_Frustum();
 	return CollisionMath::Overlap_Test(frustum,box) == CollisionMath::OUTSIDE;
 }
-
 
 /***********************************************************************************************
  * CameraClass::Update_Frustum -- updates the frustum parameters                               *
@@ -642,7 +621,6 @@ void CameraClass::Update_Frustum(void) const
 	}
 }
 
-
 /***********************************************************************************************
  * CameraClass::Device_To_View_Space -- converts the given device coordinate to view space     *
  *                                                                                             *
@@ -680,7 +658,6 @@ void CameraClass::Device_To_View_Space(const Vector2 & device_coord,Vector3 * se
 	set_view->Z = -1.0f;
 }
 
-
 /***********************************************************************************************
  * CameraClass::Device_To_World_Space -- converts given device coord to world space            *
  *                                                                                             *
@@ -699,7 +676,6 @@ void CameraClass::Device_To_World_Space(const Vector2 & device_coord,Vector3 * w
 	Device_To_View_Space(device_coord,&vs);
 	Matrix3D::Transform_Vector(Transform,vs,world_coord);
 }
-
 
 /***********************************************************************************************
  * CameraClass::Apply -- sets the D3D states controlled by the camera                          *

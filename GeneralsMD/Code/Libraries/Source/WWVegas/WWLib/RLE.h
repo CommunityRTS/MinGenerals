@@ -60,4 +60,3 @@ class RLEEngine
 
 #endif
 
-

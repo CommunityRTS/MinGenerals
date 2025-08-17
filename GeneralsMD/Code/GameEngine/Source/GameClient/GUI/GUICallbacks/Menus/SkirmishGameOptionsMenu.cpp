@@ -30,7 +30,6 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/BattleHonors.h"
 #include "Common/FileSystem.h"
 #include "Common/GameEngine.h"
@@ -337,8 +336,6 @@ void SkirmishPreferences::setStartingCash( const Money & startingCash )
   (*this)[startingCashKey] = option;
 }
 
-
-
 Bool SkirmishPreferences::write(void)
 {
 	if (!TheSkirmishGameInfo)
@@ -562,7 +559,6 @@ void MapSelectorTooltip(GameWindow *window,
 	const Image *image = TheMappedImageCollection->findImageByName("TecBuilding");
 	const Image *image2 = TheMappedImageCollection->findImageByName("Cash");
 
-
 	ICoord2DList::iterator it = TheSupplyAndTechImageLocations.m_techPosList.begin();
 	ICoord2DList::iterator it2 = TheSupplyAndTechImageLocations.m_supplyPosList.begin();
 
@@ -598,7 +594,6 @@ void MapSelectorTooltip(GameWindow *window,
 
 }
 
-
 void positionStartSpotControls( GameWindow *win, GameWindow *mapWindow, Coord3D *pos, MapMetaData *mmd, GameWindow *buttonMapStartPositions[])
 {
 	if(!win || !mmd || !mapWindow || !buttonMapStartPositions)
@@ -620,8 +615,6 @@ void positionStartSpotControls( GameWindow *win, GameWindow *mapWindow, Coord3D 
 
 	position = (pos->y - mmd->m_extent.lo.y) / (mmd->m_extent.hi.y - mmd->m_extent.lo.y);
 	gadgetPos.y = ((1- position) * smallHeight) - gadgetSize.y /2 + ul.y;// + winMapPos.y;
-
-
 
 	// loop through and make sure we're not on top of anyone else
 	for(Int i = 0; i < MAX_SLOTS; ++i)
@@ -709,7 +702,6 @@ void positionAdditionalImages( MapMetaData *mmd, GameWindow *mapWindow, Bool for
 		TheSupplyAndTechImageLocations.m_techPosList.push_front(markerPos);
 		it++;
 	}
-
 
 	//TheSupplyAndTechImageLocations
 }
@@ -1059,7 +1051,6 @@ static void handleLimitSuperweaponsClick()
   }
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Initialize the Gadgets Options Menu */
 //-------------------------------------------------------------------------------------------------
@@ -1160,7 +1151,6 @@ void InitSkirmishGameGadgets( void )
 		comboBoxTeamID[i] = TheNameKeyGenerator->nameToKey( tmpString );
 		comboBoxTeam[i] = TheWindowManager->winGetWindowFromId( parentSkirmishGameOptions, comboBoxTeamID[i] );
 		DEBUG_ASSERTCRASH(comboBoxTeam[i], ("Could not find the comboBoxTeam[%d]",i ));
-
 
 //		tmpString.format("SkirmishGameOptionsMenu.wnd:ButtonStartPosition%d", i);
 //		buttonStartPositionID[i] = TheNameKeyGenerator->nameToKey( tmpString );
@@ -1468,7 +1458,6 @@ void SkirmishGameOptionsMenuShutdown( WindowLayout *layout, void *userData )
 
 	TheShell->reverseAnimatewindow();
 
-
 	// hide menu
 //	layout->hide( TRUE );
 
@@ -1550,7 +1539,6 @@ WindowMsgHandledType SkirmishGameOptionsMenuInput( GameWindow *window, UnsignedI
 	}  // end switch( msg )
 	return MSG_IGNORED;
 }//WindowMsgHandledType SkirmishGameOptionsMenuInput( GameWindow *window, UnsignedInt msg,
-
 
 //-------------------------------------------------------------------------------------------------
 /** Skirmish Game Options menu window system callback */

@@ -87,7 +87,6 @@
  *   OBBoxRenderObjClass::Get_Box -- returns the cached world-space box                        *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "boxrobj.h"
 #include "w3d_util.h"
 #include "wwdebug.h"
@@ -103,7 +102,6 @@
 #include "dx8fvf.h"
 #include "sortingrenderer.h"
 #include "visrasterizer.h"
-
 
 #define NUM_BOX_VERTS	8
 #define NUM_BOX_FACES	12
@@ -153,18 +151,14 @@ static Vector3						_BoxVertexNormals[NUM_BOX_VERTS] =
 	Vector3( WWMATH_OOSQRT3,-WWMATH_OOSQRT3,-WWMATH_OOSQRT3 ),
 };
 
-
-
 bool										BoxRenderObjClass::IsInitted			= false;
 int										BoxRenderObjClass::DisplayMask		= 0;
 static VertexMaterialClass *		_BoxMaterial								= NULL;
 static ShaderClass					_BoxShader;
 
-
 /*
 ** BoxRenderObjClass Implementation
 */
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::BoxRenderObjClass -- Constructor                                         *
@@ -185,7 +179,6 @@ BoxRenderObjClass::BoxRenderObjClass(void)
 	ObjSpaceCenter.Set(0,0,0);
 	ObjSpaceExtent.Set(1,1,1);
 }
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::BoxRenderObjClass -- Constructor - init from a definition                *
@@ -209,7 +202,6 @@ BoxRenderObjClass::BoxRenderObjClass(const W3dBoxStruct & def)
 	Set_Collision_Type(col_bits<<1);
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::BoxRenderObjClass -- Copy constructor                                    *
  *                                                                                             *
@@ -226,7 +218,6 @@ BoxRenderObjClass::BoxRenderObjClass(const BoxRenderObjClass & src)
 {
 	*this = src;
 }
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::operator -- assignment operator                                          *
@@ -252,7 +243,6 @@ BoxRenderObjClass & BoxRenderObjClass::operator = (const BoxRenderObjClass & tha
 	return *this;
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Get_Num_Polys -- returns number of polygons                              *
  *                                                                                             *
@@ -270,7 +260,6 @@ int BoxRenderObjClass::Get_Num_Polys(void) const
 	return 12;
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Get_Name -- returns name                                                 *
  *                                                                                             *
@@ -287,7 +276,6 @@ const char * BoxRenderObjClass::Get_Name(void) const
 {
 	return Name;
 }
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::Set_Name -- sets the name                                                *
@@ -308,7 +296,6 @@ void BoxRenderObjClass::Set_Name(const char * name)
 	strcpy(Name,name);
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Set_Color -- Sets the color of the box                                   *
  *                                                                                             *
@@ -325,7 +312,6 @@ void BoxRenderObjClass::Set_Color(const Vector3 & color)
 {
 	Color = color;
 }
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::Init_Box_Render_System -- global initialization needed for boxes to work *
@@ -362,7 +348,6 @@ void BoxRenderObjClass::Init(void)
 	IsInitted = true;
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Shutdown -- cleanup box render system                                    *
  *                                                                                             *
@@ -386,7 +371,6 @@ void BoxRenderObjClass::Shutdown(void)
 	IsInitted = false;
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Set_Box_Display_Mask -- Sets global display mask for all boxes           *
  *                                                                                             *
@@ -407,7 +391,6 @@ void BoxRenderObjClass::Set_Box_Display_Mask(int mask)
 	DisplayMask = mask;
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::Get_Box_Display_Mask -- returns the display mask                         *
  *                                                                                             *
@@ -424,7 +407,6 @@ int BoxRenderObjClass::Get_Box_Display_Mask(void)
 {
 	return DisplayMask;
 }
-
 
 /***********************************************************************************************
  * BoxRenderObjClass::render_box -- submits the box to the GERD                                *
@@ -515,7 +497,6 @@ void BoxRenderObjClass::render_box(RenderInfoClass & rinfo,const Vector3 & cente
 	}
 }
 
-
 /***********************************************************************************************
  * BoxRenderObjClass::vis_render_box -- submits box to the GERD for VIS                        *
  *                                                                                             *
@@ -568,7 +549,6 @@ AABoxRenderObjClass::AABoxRenderObjClass(void)
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::AABoxRenderObjClass -- Constructor - init from a definition            *
  *                                                                                             *
@@ -587,7 +567,6 @@ AABoxRenderObjClass::AABoxRenderObjClass(const W3dBoxStruct & def) :
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::AABoxRenderObjClass -- copy constructor                                *
  *                                                                                             *
@@ -604,7 +583,6 @@ AABoxRenderObjClass::AABoxRenderObjClass(const AABoxRenderObjClass & src)
 {
 	*this = src;
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::AABoxRenderObjClass -- Constructor from a wwmath aabox                 *
@@ -625,7 +603,6 @@ AABoxRenderObjClass::AABoxRenderObjClass(const AABoxClass & box)
 	Set_Position(box.Center);
 	update_cached_box();
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::operator -- assignment operator                                        *
@@ -648,7 +625,6 @@ AABoxRenderObjClass & AABoxRenderObjClass::operator = (const AABoxRenderObjClass
 	return *this;
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Clone -- clones the box                                                *
  *                                                                                             *
@@ -666,7 +642,6 @@ RenderObjClass * AABoxRenderObjClass::Clone(void) const
 	return W3DNEW AABoxRenderObjClass(*this);
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Class_ID -- returns the class-id for AABox's                           *
  *                                                                                             *
@@ -683,7 +658,6 @@ int AABoxRenderObjClass::Class_ID(void) const
 {
 	return RenderObjClass::CLASSID_AABOX;
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Render -- render this box                                              *
@@ -704,7 +678,6 @@ void AABoxRenderObjClass::Render(RenderInfoClass & rinfo)
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,temp);
 	render_box(rinfo,ObjSpaceCenter,ObjSpaceExtent);
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Special_Render -- special render this box (vis)                        *
@@ -729,7 +702,6 @@ void AABoxRenderObjClass::Special_Render(SpecialRenderInfoClass & rinfo)
 	}
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Set_Transform -- set the transform for this box                        *
  *                                                                                             *
@@ -747,7 +719,6 @@ void AABoxRenderObjClass::Set_Transform(const Matrix3D &m)
 	RenderObjClass::Set_Transform(m);
 	update_cached_box();
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Set_Position -- Set the position of this box                           *
@@ -767,7 +738,6 @@ void AABoxRenderObjClass::Set_Position(const Vector3 &v)
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::update_cached_box -- update the world-space version of this box        *
  *                                                                                             *
@@ -785,7 +755,6 @@ void AABoxRenderObjClass::update_cached_box(void)
 	CachedBox.Center = Transform.Get_Translation() + ObjSpaceCenter;
 	CachedBox.Extent = ObjSpaceExtent;
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Cast_Ray -- cast a ray against this box                                *
@@ -809,7 +778,6 @@ bool AABoxRenderObjClass::Cast_Ray(RayCollisionTestClass & raytest)
 	return false;
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Cast_AABox -- cast an AABox against this box                           *
  *                                                                                             *
@@ -831,7 +799,6 @@ bool AABoxRenderObjClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Cast_OBBox -- cast an OBBox against this box                           *
@@ -855,7 +822,6 @@ bool AABoxRenderObjClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	return false;
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Intersect_AABox -- intersect this box with an AABox                    *
  *                                                                                             *
@@ -873,7 +839,6 @@ bool AABoxRenderObjClass::Intersect_AABox(AABoxIntersectionTestClass & boxtest)
 	if ((Get_Collision_Type() & boxtest.CollisionType) == 0) return false;
 	return CollisionMath::Intersection_Test(CachedBox,boxtest.Box);
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Intersect_OBBox -- Intersect this box with an OBBox                    *
@@ -893,7 +858,6 @@ bool AABoxRenderObjClass::Intersect_OBBox(OBBoxIntersectionTestClass & boxtest)
 	return CollisionMath::Intersection_Test(CachedBox,boxtest.Box);
 }
 
-
 /***********************************************************************************************
  * AABoxRenderObjClass::Get_Obj_Space_Bounding_Sphere -- return the object-space bounding sphe *
  *                                                                                             *
@@ -910,7 +874,6 @@ void AABoxRenderObjClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) co
 {
 	sphere.Init(ObjSpaceCenter,ObjSpaceExtent.Length());
 }
-
 
 /***********************************************************************************************
  * AABoxRenderObjClass::Get_Obj_Space_Bounding_Box -- returns the obj-space bounding box       *
@@ -929,7 +892,6 @@ void AABoxRenderObjClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 	box.Init(ObjSpaceCenter,ObjSpaceExtent);
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::OBBoxRenderObjClass -- Constructor                                     *
  *                                                                                             *
@@ -946,7 +908,6 @@ OBBoxRenderObjClass::OBBoxRenderObjClass(void)
 {
 	update_cached_box();
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::OBBoxRenderObjClass -- Constructor - initiallize from a definition     *
@@ -966,7 +927,6 @@ OBBoxRenderObjClass::OBBoxRenderObjClass(const W3dBoxStruct & def) :
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::OBBoxRenderObjClass -- copy constructor                                *
  *                                                                                             *
@@ -983,7 +943,6 @@ OBBoxRenderObjClass::OBBoxRenderObjClass(const OBBoxRenderObjClass & that)
 {
 	*this = that;
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::OBBoxRenderObjClass -- constructor - initialize from a wwmath obbox    *
@@ -1004,7 +963,6 @@ OBBoxRenderObjClass::OBBoxRenderObjClass(const OBBoxClass & box)
 	Set_Transform(Matrix3D(box.Basis,box.Center));
 	update_cached_box(); // cached box should == box!
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::operator -- assignment operator                                        *
@@ -1027,7 +985,6 @@ OBBoxRenderObjClass & OBBoxRenderObjClass::operator = (const OBBoxRenderObjClass
 	return *this;
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Clone -- clone this obbox                                              *
  *                                                                                             *
@@ -1045,7 +1002,6 @@ RenderObjClass * OBBoxRenderObjClass::Clone(void) const
 	return W3DNEW OBBoxRenderObjClass(*this);
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Class_ID -- returns the class ID of OBBoxRenderObjClass                *
  *                                                                                             *
@@ -1062,7 +1018,6 @@ int OBBoxRenderObjClass::Class_ID(void) const
 {
 	return RenderObjClass::CLASSID_OBBOX;
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Render -- render this obbox                                            *
@@ -1082,7 +1037,6 @@ void OBBoxRenderObjClass::Render(RenderInfoClass & rinfo)
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);
 	render_box(rinfo,ObjSpaceCenter,ObjSpaceExtent);
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Special_Render -- special render (vis)                                 *
@@ -1105,7 +1059,6 @@ void OBBoxRenderObjClass::Special_Render(SpecialRenderInfoClass & rinfo)
 	}
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Set_Transform -- set the transform for this box                        *
  *                                                                                             *
@@ -1123,7 +1076,6 @@ void OBBoxRenderObjClass::Set_Transform(const Matrix3D &m)
 	RenderObjClass::Set_Transform(m);
 	update_cached_box();
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Set_Position -- set the position of this box                           *
@@ -1143,7 +1095,6 @@ void OBBoxRenderObjClass::Set_Position(const Vector3 &v)
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::update_cached_box -- update the cached world-space box                 *
  *                                                                                             *
@@ -1162,7 +1113,6 @@ void OBBoxRenderObjClass::update_cached_box(void)
 	CachedBox.Extent.Set(ObjSpaceExtent);
 	CachedBox.Basis.Set(Transform);
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Cast_Ray -- cast a ray against this box                                *
@@ -1186,7 +1136,6 @@ bool OBBoxRenderObjClass::Cast_Ray(RayCollisionTestClass & raytest)
 	return false;
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Cast_AABox -- cast a swept aabox against this box                      *
  *                                                                                             *
@@ -1208,7 +1157,6 @@ bool OBBoxRenderObjClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Cast_OBBox -- cast a swept obbox against this bo                       *
@@ -1232,7 +1180,6 @@ bool OBBoxRenderObjClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	return false;
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Intersect_AABox -- test this box for intersection with an AAbox        *
  *                                                                                             *
@@ -1250,7 +1197,6 @@ bool OBBoxRenderObjClass::Intersect_AABox(AABoxIntersectionTestClass & boxtest)
 	if ((Get_Collision_Type() & boxtest.CollisionType) == 0) return false;
 	return CollisionMath::Intersection_Test(CachedBox,boxtest.Box);
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Intersect_OBBox -- test this box for intersection with an OBBox        *
@@ -1270,7 +1216,6 @@ bool OBBoxRenderObjClass::Intersect_OBBox(OBBoxIntersectionTestClass & boxtest)
 	return CollisionMath::Intersection_Test(CachedBox,boxtest.Box);
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Get_Obj_Space_Bounding_Sphere -- return the obj-space bounding sphere  *
  *                                                                                             *
@@ -1288,7 +1233,6 @@ void OBBoxRenderObjClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) co
 	sphere.Init(ObjSpaceCenter,ObjSpaceExtent.Length());
 }
 
-
 /***********************************************************************************************
  * OBBoxRenderObjClass::Get_Obj_Space_Bounding_Box -- returns the obj-space bounding box       *
  *                                                                                             *
@@ -1305,7 +1249,6 @@ void OBBoxRenderObjClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 {
 	box.Init(ObjSpaceCenter,ObjSpaceExtent);
 }
-
 
 /***********************************************************************************************
  * OBBoxRenderObjClass::Get_Box -- returns the cached world-space box                          *
@@ -1371,5 +1314,4 @@ RenderObjClass * BoxPrototypeClass::Create(void)
 ** Global instance of the box loader
 */
 BoxLoaderClass _BoxLoader;
-
 

@@ -38,5 +38,4 @@ public:
 	static IDirect3DSurface8* _Create_Missing_Surface();	// Create new surface which contain missing texture image
 };
 
-
 #endif // DX8_MISSING_TEXTURE

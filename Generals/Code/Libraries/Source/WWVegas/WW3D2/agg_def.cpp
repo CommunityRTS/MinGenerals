@@ -32,7 +32,6 @@
  *                                                                                             *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "agg_def.h"
 #include "htree.h"
 #include "w3derr.h"
@@ -45,20 +44,17 @@
 
 #include <windows.h>
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Local constants
 //
 const char * const EMPTY_STRING			= "";
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Global variable initialization
 //
 AggregateLoaderClass	_AggregateLoader;
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -73,7 +69,6 @@ AggregateDefClass::AggregateDefClass (void)
 	m_MiscInfo.OriginalClassID = RenderObjClass::CLASSID_HLOD;
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -92,7 +87,6 @@ AggregateDefClass::AggregateDefClass (const AggregateDefClass &src)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	AggregateDefClass
@@ -108,7 +102,6 @@ AggregateDefClass::AggregateDefClass (RenderObjClass &base_model)
 	Initialize (base_model);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -127,7 +120,6 @@ AggregateDefClass::~AggregateDefClass (void)
 	Free_Subobject_List ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -171,7 +163,6 @@ AggregateDefClass::operator= (const AggregateDefClass &src)
 	return *this;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Free_Subobject_List
@@ -191,7 +182,6 @@ AggregateDefClass::Free_Subobject_List (void)
 	m_SubobjectList.Delete_All ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -219,7 +209,6 @@ AggregateDefClass::Create (void)
 	// Return a pointer to the new aggregate
 	return pmodel;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -274,7 +263,6 @@ AggregateDefClass::Find_Subobject
 	return parent_model;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Attach_Subobjects
@@ -307,7 +295,6 @@ AggregateDefClass::Attach_Subobjects (RenderObjClass &base_model)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Create_Render_Object
@@ -333,7 +320,6 @@ AggregateDefClass::Create_Render_Object (const char *passet_name)
 	// Return a pointer to the render object
 	return prender_obj;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -371,7 +357,6 @@ AggregateDefClass::Load_Assets (const char *passet_name)
 	return retval;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Initialize
@@ -393,7 +378,6 @@ AggregateDefClass::Initialize (RenderObjClass &base_model)
 	m_MiscInfo.Flags = 0;
 	m_MiscInfo.Flags |= base_model.Is_Sub_Objects_Match_LOD_Enabled () ? W3D_AGGREGATE_FORCE_SUB_OBJ_LOD : 0;
 
-
 	// Pass the aggregate name along
 	Set_Name (base_model.Get_Name ());
 
@@ -409,8 +393,6 @@ AggregateDefClass::Initialize (RenderObjClass &base_model)
 	REF_PTR_RELEASE (pvanilla_model);
 	return ;
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -497,7 +479,6 @@ AggregateDefClass::Build_Subobject_List
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Is_Object_In_List
@@ -528,7 +509,6 @@ AggregateDefClass::Is_Object_In_List
 	return retval;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Load
@@ -537,7 +517,6 @@ WW3DErrorType
 AggregateDefClass::Load_W3D (ChunkLoadClass &chunk_load)
 {
 	W3dTextureReplacerHeaderStruct header = { 0 };
-
 
 	while (chunk_load.Open_Chunk()) {
 
@@ -577,7 +556,6 @@ AggregateDefClass::Load_W3D (ChunkLoadClass &chunk_load)
 	return WW3D_ERROR_OK;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Read_Header
@@ -603,7 +581,6 @@ AggregateDefClass::Read_Header (ChunkLoadClass &chunk_load)
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -636,7 +613,6 @@ AggregateDefClass::Read_Info (ChunkLoadClass &chunk_load)
 	return ret_val;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Read_Subobject
@@ -662,7 +638,6 @@ AggregateDefClass::Read_Subobject (ChunkLoadClass &chunk_load)
 	return ret_val;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Add_Subobject
@@ -679,7 +654,6 @@ AggregateDefClass::Add_Subobject (const W3dAggregateSubobjectStruct &subobj_info
 	m_SubobjectList.Add (pnew_entry);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -702,7 +676,6 @@ AggregateDefClass::Read_Class_Info (ChunkLoadClass &chunk_load)
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -733,7 +706,6 @@ AggregateDefClass::Save_W3D (ChunkSaveClass &chunk_save)
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -767,7 +739,6 @@ AggregateDefClass::Save_Header (ChunkSaveClass &chunk_save)
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -805,7 +776,6 @@ AggregateDefClass::Save_Info (ChunkSaveClass &chunk_save)
 	return ret_val;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Save_Subobject
@@ -830,7 +800,6 @@ AggregateDefClass::Save_Subobject
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -859,7 +828,6 @@ AggregateDefClass::Save_Class_Info (ChunkSaveClass &chunk_save)
 	// Return the WW3D_ERROR_TYPE return code
 	return ret_val;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //

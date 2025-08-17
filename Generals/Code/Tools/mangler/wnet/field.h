@@ -97,5 +97,3 @@ class FieldClass
    FieldClass     *Next;               // pointer to the next field in the field list
 };
 
-
-

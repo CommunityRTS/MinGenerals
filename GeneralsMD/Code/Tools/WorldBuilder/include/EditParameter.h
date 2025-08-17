@@ -43,7 +43,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(EditParameter)
@@ -101,7 +100,6 @@ protected:
 	static void loadConditionParameter(Script *pScr, Parameter::ParameterType type, CComboBox *pCombo);
 	static Bool loadActionParameter(Script *pScr, Parameter::ParameterType type, CComboBox *pCombo, AsciiString match);
 	static Bool loadFlags(CComboBox *pCombo, AsciiString match = AsciiString::TheEmptyString);
-
 
 protected:
 	Parameter		*m_parameter;

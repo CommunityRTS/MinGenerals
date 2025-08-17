@@ -148,8 +148,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	frameRect.top = ::AfxGetApp()->GetProfileInt(OPTIONS_PANEL_SECTION, "Top", frameRect.top);
 	frameRect.left =::AfxGetApp()->GetProfileInt(OPTIONS_PANEL_SECTION, "Left", frameRect.left);
 
-
-
 	m_brushOptions.Create(IDD_BRUSH_OPTIONS, this);
 	m_brushOptions.SetWindowPos(NULL, frameRect.left, frameRect.top,	0, 0, SWP_NOZORDER|SWP_NOSIZE);
 	m_brushOptions.GetWindowRect(&frameRect);
@@ -161,7 +159,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_featherOptions.GetWindowRect(&frameRect);
 	if (m_optionsPanelWidth < frameRect.Width()) m_optionsPanelWidth = frameRect.Width();
 	if (m_optionsPanelHeight < frameRect.Height()) m_optionsPanelHeight = frameRect.Height();
-
 
 	m_noOptions.Create(IDD_NO_OPTIONS, this);
 	m_noOptions.SetWindowPos(NULL, frameRect.left, frameRect.top,	0, 0, SWP_NOZORDER|SWP_NOSIZE);
@@ -462,7 +459,6 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame message handlers
-
 
 #if DEAD
 	void CMainFrame::OnEditContouroptions()

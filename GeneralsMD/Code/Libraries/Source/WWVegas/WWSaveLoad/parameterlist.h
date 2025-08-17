@@ -34,13 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
-
-
 
 #ifndef __PARAMETER_LIST_H
 #define __PARAMETER_LIST_H
@@ -84,7 +80,6 @@ private:
 	/////////////////////////////////////////////////////////////////////
 	//DynamicVectorClass<ParameterClass *>		m_Parameters;
 };
-
 
 /////////////////////////////////////////////////////////////////////
 // ~ParameterListClass
@@ -155,7 +150,6 @@ ParameterListClass::Free_Parameters (void)
 //	m_Parameters.Delete_All ();
 	return ;
 }
-
 
 #endif //__PARAMETER_LIST_H
 

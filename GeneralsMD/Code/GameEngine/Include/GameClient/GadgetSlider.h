@@ -266,7 +266,6 @@ inline Color GadgetSliderGetEnabledSelectedThumbBorderColor( GameWindow *g )
 																								return WIN_COLOR_UNDEFINED;
 																						}
 
-
 // disabled
 inline void GadgetSliderSetDisabledThumbImage( GameWindow *g, const Image *image )
 																						{

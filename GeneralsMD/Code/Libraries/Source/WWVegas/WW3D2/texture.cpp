@@ -74,7 +74,6 @@ static unsigned unused_texture_id;
 static unsigned TexturesAppliedPerFrame;
 const unsigned MAX_TEXTURES_APPLIED_PER_FRAME=2;
 
-
 /*!
  * KM General base constructor for texture classes
  */
@@ -111,7 +110,6 @@ TextureBaseClass::TextureBaseClass
 {
 }
 
-
 //**********************************************************************************************
 //! Base texture class destructor
 /*! KJM
@@ -131,9 +129,6 @@ TextureBaseClass::~TextureBaseClass(void)
 
 	DX8TextureManagerClass::Remove(this);
 }
-
-
-
 
 //**********************************************************************************************
 //! Invalidate old unused textures
@@ -182,10 +177,6 @@ void TextureBaseClass::Invalidate_Old_Unused_Textures(unsigned invalidation_time
 		}
 	}
 }
-
-
-
-
 
 //**********************************************************************************************
 //! Invalidate this texture
@@ -280,7 +271,6 @@ void TextureBaseClass::Set_D3D_Base_Texture(IDirect3DBaseTexture8* tex)
 	}
 }
 
-
 //**********************************************************************************************
 //! Load locked surface
 /*!
@@ -293,7 +283,6 @@ void TextureBaseClass::Load_Locked_Surface()
 	TextureLoader::Request_Thumbnail(this);
 	Initialized=false;
 }
-
 
 //**********************************************************************************************
 //! Is missing texture
@@ -315,7 +304,6 @@ bool TextureBaseClass::Is_Missing_Texture()
 	return flag;
 }
 
-
 //**********************************************************************************************
 //! Set texture name
 /*!
@@ -324,9 +312,6 @@ void TextureBaseClass::Set_Texture_Name(const char * name)
 {
 	Name=name;
 }
-
-
-
 
 //**********************************************************************************************
 //! Get priority
@@ -347,7 +332,6 @@ unsigned int TextureBaseClass::Get_Priority(void)
 #endif
 }
 
-
 //**********************************************************************************************
 //! Set priority
 /*!
@@ -366,7 +350,6 @@ unsigned int TextureBaseClass::Set_Priority(unsigned int priority)
 	return 0;
 #endif
 }
-
 
 //**********************************************************************************************
 //! Get reduction mip levels
@@ -390,8 +373,6 @@ unsigned TextureBaseClass::Get_Reduction() const
 	}
 	return reduction;
 }
-
-
 
 //**********************************************************************************************
 //! Apply NULL texture state
@@ -457,7 +438,6 @@ int TextureBaseClass::_Get_Total_Texture_Size()
 
 // ----------------------------------------------------------------------------
 
-
 //**********************************************************************************************
 //! Get total lightmap texture size
 /*!
@@ -479,7 +459,6 @@ int TextureBaseClass::_Get_Total_Lightmap_Texture_Size()
 	}
 	return total_texture_size;
 }
-
 
 //**********************************************************************************************
 //! Get total procedural texture size
@@ -523,7 +502,6 @@ int TextureBaseClass::_Get_Total_Texture_Count()
 
 // ----------------------------------------------------------------------------
 
-
 //**********************************************************************************************
 //! Get total light map texture count
 /*!
@@ -565,7 +543,6 @@ int TextureBaseClass::_Get_Total_Procedural_Texture_Count()
 
 	return texture_count;
 }
-
 
 //**********************************************************************************************
 //! Get total locked surface count
@@ -661,8 +638,6 @@ TextureClass::TextureClass
 	}
 	LastAccessed=WW3D::Get_Sync_Time();
 }
-
-
 
 // ----------------------------------------------------------------------------
 TextureClass::TextureClass
@@ -863,7 +838,6 @@ void TextureClass::Init()
 		LastInactivationSyncTime=0;
 	}
 
-
 	if (!Peek_D3D_Base_Texture())
 	{
 		if (!WW3D::Get_Thumbnail_Enabled() || MipLevelCount==MIP_LEVELS_1)
@@ -923,7 +897,6 @@ void TextureClass::Apply_New_Surface
 	surface->Release();
 
 }
-
 
 //**********************************************************************************************
 //! Apply texture states
@@ -1045,7 +1018,6 @@ unsigned TextureClass::Get_Texture_Memory_Usage() const
 	}
 	return size;
 }
-
 
 // Utility functions
 TextureClass* Load_Texture(ChunkLoadClass & cload)
@@ -1180,7 +1152,6 @@ void setup_texture_attributes(TextureClass * tex, W3dTextureInfoStruct * texinfo
 	if (tex->Get_Filter().Get_V_Addr_Mode() == TextureFilterClass::TEXTURE_ADDRESS_CLAMP) texinfo->Attributes |= W3DTEXTURE_CLAMP_V;
 }
 
-
 void Save_Texture(TextureClass * texture,ChunkSaveClass & csave)
 {
 	const char * filename;
@@ -1201,7 +1172,6 @@ void Save_Texture(TextureClass * texture,ChunkSaveClass & csave)
 		csave.End_Chunk();
 	}
 }
-
 
 /*!
  *	KJM depth stencil texture constructor
@@ -1257,7 +1227,6 @@ ZTextureClass::ZTextureClass
 
 	LastAccessed=WW3D::Get_Sync_Time();
 }
-
 
 //**********************************************************************************************
 //! Apply depth stencil texture
@@ -1338,8 +1307,6 @@ unsigned ZTextureClass::Get_Texture_Memory_Usage() const
 	return size;
 }
 
-
-
 /*************************************************************************
 **                             CubeTextureClass
 *************************************************************************/
@@ -1409,8 +1376,6 @@ CubeTextureClass::CubeTextureClass
 	}
 	LastAccessed=WW3D::Get_Sync_Time();
 }
-
-
 
 // ----------------------------------------------------------------------------
 CubeTextureClass::CubeTextureClass
@@ -1621,7 +1586,6 @@ void CubeTextureClass::Apply_New_Surface
 	}
 }
 
-
 /*************************************************************************
 **                             VolumeTextureClass
 *************************************************************************/
@@ -1693,8 +1657,6 @@ VolumeTextureClass::VolumeTextureClass
 	}
 	LastAccessed=WW3D::Get_Sync_Time();
 }
-
-
 
 // ----------------------------------------------------------------------------
 VolumeTextureClass::VolumeTextureClass
@@ -1871,9 +1833,6 @@ CubeTextureClass::CubeTextureClass(IDirect3DBaseTexture8* d3d_texture)
 	LastAccessed=WW3D::Get_Sync_Time();
 }
 #endif
-
-
-
 
 //**********************************************************************************************
 //! Apply new surface to texture

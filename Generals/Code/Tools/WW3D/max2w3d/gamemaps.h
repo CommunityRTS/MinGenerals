@@ -35,16 +35,13 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef GAMEMAPS_H
 #define GAMEMAPS_H
 
 #include <Max.h>
 #include "stdmat.h"
 
-
 ClassDesc * Get_Game_Maps_Desc();
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -68,7 +65,6 @@ public:
 	void		Update(TimeValue t, Interval &ivalid)	{ if (IsActive()) Map->Update(t,ivalid); };
 	float		GetAmount(TimeValue t) 						{ return Amount; }
 };
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -102,7 +98,6 @@ public:
 	void					SetReference(int i, RefTargetHandle rtarg)	{ TextureSlot[i].Map = (Texmap*)rtarg; }
 	int					SubNumToRefNum(int subNum) 						{ return subNum; }
 
-
 	BOOL					AssignController(Animatable *control,int subAnim);
 	RefTargetHandle	Clone(RemapDir &remap);
 	RefResult			NotifyRefChanged( Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message);
@@ -110,6 +105,5 @@ public:
 	IOResult				Save(ISave * isave);
 	IOResult				Load(ILoad * iload);
 };
-
 
 #endif /*GAMEMAPS_H*/

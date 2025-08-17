@@ -69,8 +69,6 @@ char *LANnextScreen = NULL;
 static Int	initialGadgetDelay = 2;
 static Bool justEntered = FALSE;
 
-
-
 LANPreferences::LANPreferences( void )
 {
 	// note, the superclass will put this in the right dir automatically, this is just a leaf name
@@ -268,7 +266,6 @@ void LANPreferences::setStartingCash( const Money & startingCash )
 
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 
-
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentLanLobbyID = NAMEKEY_INVALID;
 static NameKeyType buttonBackID = NAMEKEY_INVALID;
@@ -282,7 +279,6 @@ static NameKeyType textEntryPlayerNameID = NAMEKEY_INVALID;
 static NameKeyType textEntryChatID = NAMEKEY_INVALID;
 static NameKeyType listboxPlayersID = NAMEKEY_INVALID;
 static NameKeyType staticTextGameInfoID = NAMEKEY_INVALID;
-
 
 // Window Pointers ------------------------------------------------------------------------
 static GameWindow *parentLanLobby = NULL;
@@ -338,7 +334,6 @@ static void playerTooltip(GameWindow *window,
 	TheMouse->setCursorTooltip( tooltip );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Initialize the Lan Lobby Menu */
 //-------------------------------------------------------------------------------------------------
@@ -363,7 +358,6 @@ void LanLobbyMenuInit( WindowLayout *layout, void *userData )
 	listboxChatWindowID = TheNameKeyGenerator->nameToKey( AsciiString( "LanLobbyMenu.wnd:ListboxChatWindowLanLobby" ) );
 	listboxGamesID = TheNameKeyGenerator->nameToKey( AsciiString( "LanLobbyMenu.wnd:ListboxGames" ) );
 	staticTextGameInfoID = TheNameKeyGenerator->nameToKey( AsciiString( "LanLobbyMenu.wnd:StaticTextGameInfo" ) );
-
 
 	// Get pointers to the window buttons
 	parentLanLobby = TheWindowManager->winGetWindowFromId( NULL, parentLanLobbyID );
@@ -495,7 +489,6 @@ void LanLobbyMenuInit( WindowLayout *layout, void *userData )
 	if(win)
 		win->winHide(TRUE);
 
-
 	// animate controls
 	//TheShell->registerWithAnimateManager(parentLanLobby, WIN_ANIMATION_SLIDE_TOP, TRUE);
 //	TheShell->registerWithAnimateManager(buttonHost, WIN_ANIMATION_SLIDE_LEFT, TRUE, 600);
@@ -572,7 +565,6 @@ void LanLobbyMenuShutdown( WindowLayout *layout, void *userData )
 //		TheShell->showShellMap(TRUE);
 }  // LanLobbyMenuShutdown
 
-
 //-------------------------------------------------------------------------------------------------
 /** Lan Lobby menu update method */
 //-------------------------------------------------------------------------------------------------
@@ -610,7 +602,6 @@ void LanLobbyMenuUpdate( WindowLayout * layout, void *userData)
 		TheWindowManager->winSendSystemMsg(buttonBack->winGetParent(), GBM_SELECTED,
 																			 (WindowMsgData)buttonBack, buttonBackID);
 	}
-
 
 }// LanLobbyMenuUpdate
 
@@ -673,7 +664,6 @@ WindowMsgHandledType LanLobbyMenuSystem( GameWindow *window, UnsignedInt msg,
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

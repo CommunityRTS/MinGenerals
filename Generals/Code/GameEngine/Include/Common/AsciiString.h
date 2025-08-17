@@ -120,7 +120,6 @@ public:
 		MAX_LEN = 32767							///< max total len of any AsciiString, in chars
 	};
 
-
 	/**
 		This is a convenient global used to indicate the empty
 		string, so we don't need to construct temporaries

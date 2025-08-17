@@ -70,7 +70,6 @@ R4 - Ok
 Rand() - starts breaking in 24 dimensions
 */
 
-
 /***********************************************************************************************
  * RandomClass::RandomClass -- Constructor for the random number class.                        *
  *                                                                                             *
@@ -91,7 +90,6 @@ RandomClass::RandomClass(unsigned seed) :
 	Seed(seed)
 {
 }
-
 
 /***********************************************************************************************
  * RandomClass::operator() -- Fetches the next random number in the sequence.                  *
@@ -123,7 +121,6 @@ int RandomClass::operator ()(void)
 	return((Seed >> THROW_AWAY_BITS) & (~((~0) << SIGNIFICANT_BITS)));
 }
 
-
 /***********************************************************************************************
  * RandomClass::operator() -- Ranged random number generator.                                  *
  *                                                                                             *
@@ -147,7 +144,6 @@ int RandomClass::operator() (int minval, int maxval)
 {
 	return(Pick_Random_Number(*this, minval, maxval));
 }
-
 
 /***********************************************************************************************
  * Random2Class::Random2Class -- Constructor for the random class.                             *
@@ -173,7 +169,6 @@ Random2Class::Random2Class(unsigned seed) :
 		Table[index] = random;
 	}
 }
-
 
 /***********************************************************************************************
  * Random2Class::operator -- Randomizer function that returns value.                           *
@@ -204,7 +199,6 @@ int Random2Class::operator() (void)
 	return(val);
 }
 
-
 /***********************************************************************************************
  * Random2Class::operator -- Generates a random number between two values.                     *
  *                                                                                             *
@@ -227,7 +221,6 @@ int Random2Class::operator() (int minval, int maxval)
 	return(Pick_Random_Number(*this, minval, maxval));
 }
 
-
 /*
 **	This is the seed table for the Random3Class generator. These ensure
 **	that the algorithm is not vulnerable to being primed with a weak seed
@@ -248,7 +241,6 @@ int Random3Class::Mix2[20] = {
 	0x0fc8e2263, 0x0390f5e8c, 0x058ffd802, 0x0ac0a5eba,
 	0x0ac4874f6, 0x0a9df0913, 0x086be4c74, 0x0ed2c123b
 };
-
 
 /***********************************************************************************************
  * Random3Class::Random3Class -- Initializer for the random number generator.                  *
@@ -279,7 +271,6 @@ Random3Class::Random3Class(unsigned seed1, unsigned seed2) :
 	Index(seed2)
 {
 }
-
 
 /***********************************************************************************************
  * Random3Class::operator -- Random number generator function.                                 *
@@ -312,7 +303,6 @@ int Random3Class::operator() (void)
 	}
 	return(hiword);
 }
-
 
 /***********************************************************************************************
  * Random3Class::operator -- Generates a random number between two values.                     *

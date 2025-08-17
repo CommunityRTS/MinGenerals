@@ -41,7 +41,6 @@
 enum ParticleSystemID;
 class FXList;
 
-
 //-------------------------------------------------------------------------------------------------
 class MissileAIUpdateModuleData : public AIUpdateModuleData
 {
@@ -105,7 +104,6 @@ public:
 	virtual UpdateSleepTime update();
 	virtual void onDelete( void );
 
-
 protected:
 
 	void detonate();
@@ -144,7 +142,6 @@ private:
 
 	void tossExhaust();
 	void switchToState(MissileStateType s);
-
 
 };
 

@@ -55,7 +55,6 @@ void WBPopupSliderButton::SetupPopSliderButton
 
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // WBPopupSliderButton
 
@@ -67,7 +66,6 @@ WBPopupSliderButton::WBPopupSliderButton()
 WBPopupSliderButton::~WBPopupSliderButton()
 {
 }
-
 
 BEGIN_MESSAGE_MAP(WBPopupSliderButton, CButton)
 	//{{AFX_MSG_MAP(WBPopupSliderButton)
@@ -86,11 +84,6 @@ point;
 	// just create the slider; it will delete itself when the user is done scrolling
 	PopupSlider::New(this, m_sliderStyle, m_owner, m_controlID);
 }
-
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // defines and typedefs
@@ -119,7 +112,6 @@ point;
 // PopupSlider static member variables
 
 PopupSlider *PopupSlider::gPopupSlider = 0;
-
 
 /////////////////////////////////////////////////////////////////////////////
 // internal routines
@@ -213,7 +205,6 @@ void PopupSlider::MoveThumbUnderMouse(int xNew)
 	InvalidateRect(&iconRect, FALSE);
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // PopupSlider static member functions
 
@@ -295,7 +286,6 @@ PopupSlider::~PopupSlider()
 	}
 }
 
-
 BEGIN_MESSAGE_MAP(PopupSlider, CWnd)
 	//{{AFX_MSG_MAP(PopupSlider)
 	ON_WM_PAINT()
@@ -306,7 +296,6 @@ BEGIN_MESSAGE_MAP(PopupSlider, CWnd)
 	ON_WM_KEYDOWN()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 
 /////////////////////////////////////////////////////////////////////////////
 // PopupSlider message handlers
@@ -323,7 +312,6 @@ BOOL PopupSlider::Create(const RECT& rect, CWnd* pParentWnd)
 		mIcon = (HICON) LoadImage(AfxGetResourceHandle(),
 				MAKEINTRESOURCE(IDI_Thumb),
 				IMAGE_ICON, 0, 0, LR_LOADMAP3DCOLORS);
-
 
 		DWORD dwExStyle = WS_EX_TOPMOST;
 		DWORD dwStyle = WS_POPUP;
@@ -345,7 +333,6 @@ BOOL PopupSlider::Create(const RECT& rect, CWnd* pParentWnd)
 							  pParentWnd->GetSafeHwnd(),
 							  NULL, NULL))
 			throw(-1);
-
 
 		// New code to center the slider's thumb under the parent window
 		if(pParentWnd) {
@@ -456,7 +443,6 @@ nFlags;
 	}
 	mSetOrigPt = true;
 
-
 	if (rc.PtInRect((POINT) point)) {
 		CRect iconRect;
 		GetThumbIconRect(&iconRect);
@@ -532,7 +518,6 @@ void PopupSlider::OnDestroy()
 
 	CWnd::OnDestroy();
 }
-
 
 void PopupSlider::OnMouseMove(UINT nFlags, CPoint point)
 {

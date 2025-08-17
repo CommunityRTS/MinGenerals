@@ -34,13 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colboxsave.h"
 #include "w3d_file.h"
 #include "util.h"
 #include "w3dappdata.h"
 #include "errclass.h"
-
 
 CollisionBoxSaveClass::CollisionBoxSaveClass
 (
@@ -142,8 +140,6 @@ CollisionBoxSaveClass::CollisionBoxSaveClass
 	BoxData.Extent.Z = extent.z;
 }
 
-
-
 int CollisionBoxSaveClass::Write_To_File(ChunkSaveClass & csave)
 {
 	csave.Begin_Chunk(W3D_CHUNK_BOX);
@@ -151,6 +147,4 @@ int CollisionBoxSaveClass::Write_To_File(ChunkSaveClass & csave)
 	csave.End_Chunk();
 	return 0;
 }
-
-
 

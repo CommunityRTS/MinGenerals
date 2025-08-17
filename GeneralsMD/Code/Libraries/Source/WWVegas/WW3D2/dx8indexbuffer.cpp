@@ -181,7 +181,6 @@ void IndexBufferClass::Copy(unsigned short* indices,unsigned first_index,unsigne
 //
 // ----------------------------------------------------------------------------
 
-
 IndexBufferClass::WriteLockClass::WriteLockClass(IndexBufferClass* index_buffer_, int flags) : index_buffer(index_buffer_)
 {
 	DX8_THREAD_ASSERT();

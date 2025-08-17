@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef GEOMETRYEXPORTCONTEXT_H
 #define GEOMETRYEXPORTCONTEXT_H
 
@@ -48,7 +47,6 @@ class HierarchySaveClass;
 class INodeListClass;
 class Progress_Meter_Class;
 struct W3dExportOptionsStruct;
-
 
 /**
 ** ExportContextClass
@@ -108,8 +106,6 @@ public:
 	int								numHouseColors;		///MW: number of used house colors
 	char	*						materialColorTexture; //MW: texture to hold material colors
 };
-
-
 
 #endif //GEOMETRYEXPORTCONTEXT_H
 

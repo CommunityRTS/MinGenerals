@@ -427,7 +427,6 @@ void PhysicsBehavior::applyFrictionalForces()
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool PhysicsBehavior::handleBounce(Real oldZ, Real newZ, Real groundZ, Coord3D* bounceForce)
 {
@@ -776,7 +775,6 @@ UpdateSleepTime PhysicsBehavior::update()
 			obj->clearDisabled(DISABLED_FREEFALL);
 		obj->clearModelConditionState(MODELCONDITION_FREEFALL);
 	}
-
 
 	// If we are effectively dead, we shouldn't recall kill.
 	if (d->m_killWhenRestingOnGround && !airborneAtEnd && isVerySmall3D(m_vel))
@@ -1138,7 +1136,6 @@ void PhysicsBehavior::onCollide( Object *other, const Coord3D *loc, const Coord3
 		}
 	}
 
-
 	if (checkForOverlapCollision(other))
 	{
 		// we should overlap them, rather than bounce them, so punt here.
@@ -1196,7 +1193,6 @@ void PhysicsBehavior::onCollide( Object *other, const Coord3D *loc, const Coord3
 		// We don't overlap at all.  How did we get here?
 		return;
 	}
-
 
 	m_lastCollidee = other->getID();
 
@@ -1325,7 +1321,6 @@ Bool PhysicsBehavior::checkForOverlapCollision(Object *other)
 	//This is the most Supreme Truth... that unless I am moving right now, I may not crush anyhing!
 	if ( isVerySmall3D( *getVelocity() ) )
 		return false;
-
 
   Object* crusherMe = getObject();
   Object* crusheeOther = other;

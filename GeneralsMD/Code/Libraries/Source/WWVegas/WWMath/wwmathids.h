@@ -60,7 +60,5 @@ enum
 	WWMATH_CHUNKID_VEHICLECURVE
 };
 
-
-
 #endif //WWMATHIDS_H
 

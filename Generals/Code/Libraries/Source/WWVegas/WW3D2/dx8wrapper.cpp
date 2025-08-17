@@ -206,7 +206,6 @@ void Non_Fatal_Log_DX8_ErrorCode(unsigned res,const char * file,int line)
 	}
 }
 
-
 bool DX8Wrapper::Init(void * hwnd)
 {
 	WWASSERT(!IsInitted);
@@ -411,7 +410,6 @@ void DX8Wrapper::Do_Onetime_Device_Dependent_Shutdowns(void)
 
 }
 
-
 bool DX8Wrapper::Create_Device(void)
 {
 	WWASSERT(D3DDevice == NULL);	// for now, once you've created a device, you're stuck with it!
@@ -510,7 +508,6 @@ void DX8Wrapper::Release_Device(void)
 
 		DX8CALL(SetStreamSource(0, NULL, 0));	//release reference count on last rendered vertex buffer
 		DX8CALL(SetIndices(NULL,0));	//release reference count on last rendered index buffer
-
 
 		/*
 		** Release the current vertex and index buffers
@@ -695,7 +692,6 @@ void DX8Wrapper::Get_Format_Name(unsigned int format, StringClass *tex_format)
 		default:	break;
 		}
 }
-
 
 bool DX8Wrapper::Set_Render_Device(int dev, int width, int height, int bits, int windowed,
 								   bool resize_window,bool reset_device, bool restore_assets)
@@ -1173,7 +1169,6 @@ bool DX8Wrapper::Registry_Load_Render_Device( const char * sub_key, char *device
 	return false;
 }
 
-
 bool DX8Wrapper::Find_Color_And_Z_Mode(int resx,int resy,int bitdepth,D3DFORMAT * set_colorbuffer,D3DFORMAT * set_backbuffer,D3DFORMAT * set_zmode)
 {
 	static D3DFORMAT _formats16[] =
@@ -1231,7 +1226,6 @@ bool DX8Wrapper::Find_Color_And_Z_Mode(int resx,int resy,int bitdepth,D3DFORMAT 
 	*/
 	return Find_Z_Mode(*set_colorbuffer,*set_backbuffer, set_zmode);
 };
-
 
 // find the resolution mode with at least resx,resy with the highest supported
 // refresh rate
@@ -1353,7 +1347,6 @@ bool DX8Wrapper::Test_Z_Mode(D3DFORMAT colorbuffer,D3DFORMAT backbuffer, D3DFORM
 	return true;
 }
 
-
 void DX8Wrapper::Reset_Statistics()
 {
 	matrix_changes	= 0;
@@ -1468,7 +1461,6 @@ void DX8Wrapper::End_Scene(bool flip_frames)
 	Set_Material(NULL);
 }
 
-
 void DX8Wrapper::Flip_To_Primary(void)
 {
 	// If we are fullscreen and the current frame is odd then we need
@@ -1512,7 +1504,6 @@ void DX8Wrapper::Flip_To_Primary(void)
 		}
 	}
 }
-
 
 void DX8Wrapper::Clear(bool clear_color, bool clear_z_stencil, const Vector3 &color, float dest_alpha, float z, unsigned int stencil)
 {
@@ -2154,7 +2145,6 @@ IDirect3DSurface8 * DX8Wrapper::_Create_DX8_Surface(const char *filename_)
 	return surface;
 }
 
-
 /***********************************************************************************************
  * DX8Wrapper::_Update_Texture -- Copies a texture from system memory to video memory          *
  *                                                                                             *
@@ -2352,7 +2342,6 @@ SurfaceClass * DX8Wrapper::_Get_DX8_Back_Buffer(unsigned int num)
 	return surf;
 }
 
-
 TextureClass *
 DX8Wrapper::Create_Render_Target (int width, int height, bool alpha)
 {
@@ -2432,7 +2421,6 @@ DX8Wrapper::Create_Render_Target (int width, int height, bool alpha)
 
 	return tex;
 }
-
 
 void
 DX8Wrapper::Set_Render_Target (TextureClass * texture)
@@ -2548,7 +2536,6 @@ DX8Wrapper::Set_Render_Target(IDirect3DSurface8 *render_target)
 
 	return ;
 }
-
 
 IDirect3DSwapChain8 *
 DX8Wrapper::Create_Additional_Swap_Chain (HWND render_window)

@@ -31,7 +31,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-
 #if _MSC_VER >= 1000
 #pragma once
 #endif // _MSC_VER >= 1000
@@ -80,7 +79,6 @@ protected:
 	char					m_filename[_MAX_PATH];	///< The file name only
 
 };
-
 
 /*
 ** W3DFileSystem is a derived FileFactoryClass which

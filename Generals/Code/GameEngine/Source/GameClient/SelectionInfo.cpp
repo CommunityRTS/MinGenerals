@@ -101,7 +101,6 @@ extern Bool contextCommandForNewSelection(const DrawableList *currentlySelectedD
 		return FALSE;
 	}
 
-
 	Player *localPlayer = ThePlayerList->getLocalPlayer();
 	DrawableListCIt it;
 	for (it = currentlySelectedDrawables->begin(); it != currentlySelectedDrawables->end(); ++it) {

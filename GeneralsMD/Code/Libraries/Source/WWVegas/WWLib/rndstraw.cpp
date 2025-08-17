@@ -50,7 +50,6 @@
 #include	<limits.h>
 #include	<string.h>
 
-
 /***********************************************************************************************
  * RandomStraw::RandomStraw -- Constructor for the random straw class.                         *
  *                                                                                             *
@@ -73,7 +72,6 @@ RandomStraw::RandomStraw(void) :
 	Reset();
 }
 
-
 /***********************************************************************************************
  * RandomStraw::~RandomStraw -- Destructor for random straw class.                             *
  *                                                                                             *
@@ -93,7 +91,6 @@ RandomStraw::~RandomStraw(void)
 {
 	Reset();
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Reset -- Reset the data to known initial state.                                *
@@ -116,7 +113,6 @@ void RandomStraw::Reset(void)
 	Current = 0;
 	memset(Random, '\0', sizeof(Random));
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Seed_Bits_Needed -- Fetches the number of seed bits needed.                    *
@@ -147,7 +143,6 @@ int RandomStraw::Seed_Bits_Needed(void) const
 	}
 	return(0);
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Seed_Bit -- Add a random bit to the accumulated seed value.                    *
@@ -180,7 +175,6 @@ void RandomStraw::Seed_Bit(int seed)
 	}
 }
 
-
 /***********************************************************************************************
  * RandomStraw::Seed_Byte -- Submit 8 bits to the random number seed.                          *
  *                                                                                             *
@@ -202,7 +196,6 @@ void RandomStraw::Seed_Byte(char seed)
 		seed >>= 1;
 	}
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Seed_Short -- Submit 16 bits to the random number seed.                        *
@@ -226,7 +219,6 @@ void RandomStraw::Seed_Short(short seed)
 	}
 }
 
-
 /***********************************************************************************************
  * RandomStraw::Seed_Long -- Submit 32 bits to the random number seed.                         *
  *                                                                                             *
@@ -248,7 +240,6 @@ void RandomStraw::Seed_Long(long seed)
 		seed >>= 1;
 	}
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Scramble_Seed -- Masks any coorelation between the seed bits.                  *
@@ -282,7 +273,6 @@ void RandomStraw::Scramble_Seed(void)
 		memmove(((char *)&Random[0]) + index, digest, tocopy);
 	}
 }
-
 
 /***********************************************************************************************
  * RandomStraw::Get -- Fetch random data.                                                      *

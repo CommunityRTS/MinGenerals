@@ -108,7 +108,6 @@ protected:
 	unsigned						type;
 };
 
-
 // HY 2/14/01
 // Created
 class DynamicIBAccessClass : public W3DMPO
@@ -154,7 +153,6 @@ public:
 	friend WriteLockClass;
 };
 
-
 /**
 ** DX8IndexBufferClass
 ** This class wraps a DX8 index buffer.
@@ -184,8 +182,6 @@ public:
 private:
 	IDirect3DIndexBuffer8*	index_buffer;		// actual dx8 index buffer
 };
-
-
 
 class SortingIndexBufferClass : public IndexBufferClass
 {

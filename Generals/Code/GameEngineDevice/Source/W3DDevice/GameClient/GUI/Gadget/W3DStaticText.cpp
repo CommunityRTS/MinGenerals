@@ -109,7 +109,6 @@ static void drawStaticTextText( GameWindow *window, WinInstanceData *instData,
 	else
 		text->setUseHotkey(FALSE, 0);
 
-
 	// how much space will this text take up
 	text->getSize( &textWidth, &textHeight );
 
@@ -138,7 +137,6 @@ static void drawStaticTextText( GameWindow *window, WinInstanceData *instData,
 		text->draw( textPos.x, textPos.y, textColor, textDropColor );
 
 	}  // end else
-
 
 }  // end drawStaticTextText
 
@@ -208,8 +206,6 @@ void W3DGadgetStaticTextDraw( GameWindow *window, WinInstanceData *instData )
   if( tData->text && (textColor != WIN_COLOR_UNDEFINED) )
 		drawStaticTextText( window, instData, textColor, textOutlineColor );
 
-
-
 }  // end W3DGadgetStaticTextDraw
 
 // W3DGadgetStaticTextImageDraw ===============================================
@@ -259,8 +255,6 @@ void W3DGadgetStaticTextImageDraw( GameWindow *window, WinInstanceData *instData
 	// draw the text
   if( tData->text && (textColor != WIN_COLOR_UNDEFINED) )
 		drawStaticTextText( window, instData, textColor, textOutlineColor );
-
-
 
 }  // end W3DGadgetStaticTextImageDraw
 

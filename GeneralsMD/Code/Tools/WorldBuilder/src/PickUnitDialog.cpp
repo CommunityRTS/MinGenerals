@@ -34,7 +34,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // PickUnitDialog dialog
 
-
 ReplaceUnitDialog::ReplaceUnitDialog(CWnd* pParent /*=NULL*/)
 	: PickUnitDialog(IDD, pParent)
 {
@@ -107,7 +106,6 @@ void PickUnitDialog::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(PickUnitDialog, CDialog)
 	//{{AFX_MSG_MAP(PickUnitDialog)

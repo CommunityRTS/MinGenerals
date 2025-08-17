@@ -85,7 +85,6 @@ const char *EncryptString(const char *String)
 
 }
 
-
 #ifdef UNIT_TEST
 void main(void)
 {

@@ -37,7 +37,6 @@
 #include "soundstreamhandle.h"
 #include "audiblesound.h"
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	SoundStreamHandleClass
@@ -50,7 +49,6 @@ SoundStreamHandleClass::SoundStreamHandleClass (void)	:
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	~SoundStreamHandleClass
@@ -60,7 +58,6 @@ SoundStreamHandleClass::~SoundStreamHandleClass (void)
 {
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -87,7 +84,6 @@ SoundStreamHandleClass::Initialize (SoundBufferClass *buffer)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Start_Sample
@@ -101,7 +97,6 @@ SoundStreamHandleClass::Start_Sample (void)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -117,7 +112,6 @@ SoundStreamHandleClass::Stop_Sample (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Resume_Sample
@@ -131,7 +125,6 @@ SoundStreamHandleClass::Resume_Sample (void)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -153,7 +146,6 @@ SoundStreamHandleClass::End_Sample (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_Pan
@@ -167,7 +159,6 @@ SoundStreamHandleClass::Set_Sample_Pan (S32 pan)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -186,7 +177,6 @@ SoundStreamHandleClass::Get_Sample_Pan (void)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_Volume
@@ -200,7 +190,6 @@ SoundStreamHandleClass::Set_Sample_Volume (S32 volume)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -219,7 +208,6 @@ SoundStreamHandleClass::Get_Sample_Volume (void)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_Loop_Count
@@ -234,7 +222,6 @@ SoundStreamHandleClass::Set_Sample_Loop_Count (U32 count)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -253,7 +240,6 @@ SoundStreamHandleClass::Get_Sample_Loop_Count (void)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_MS_Position
@@ -267,7 +253,6 @@ SoundStreamHandleClass::Set_Sample_MS_Position (U32 ms)
 	}
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -284,7 +269,6 @@ SoundStreamHandleClass::Get_Sample_MS_Position (S32 *len, S32 *pos)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_User_Data
@@ -299,7 +283,6 @@ SoundStreamHandleClass::Set_Sample_User_Data (S32 i, U32 val)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -318,7 +301,6 @@ SoundStreamHandleClass::Get_Sample_User_Data (S32 i)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Get_Sample_Playback_Rate
@@ -336,7 +318,6 @@ SoundStreamHandleClass::Get_Sample_Playback_Rate (void)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Set_Sample_Playback_Rate
@@ -351,7 +332,6 @@ SoundStreamHandleClass::Set_Sample_Playback_Rate (S32 rate)
 
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //

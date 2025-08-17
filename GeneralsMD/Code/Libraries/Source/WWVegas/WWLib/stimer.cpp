@@ -48,12 +48,10 @@
 #pragma warning (pop)
 #endif
 
-
 long SystemTimerClass::operator () (void) const
 {
 	return TIMEGETTIME()/16;
 }
-
 
 SystemTimerClass::operator long (void) const
 {

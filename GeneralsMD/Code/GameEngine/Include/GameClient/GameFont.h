@@ -61,7 +61,6 @@ class FontLibrary : public SubsystemInterface
 
 public:
 
-
 public:
 
 	FontLibrary( void );

@@ -64,7 +64,6 @@ const DynamicAudioEventInfo * DynamicAudioEventInfo::getDynamicAudioEventInfo() 
   return this;
 }
 
-
 /** Override; change the name of this audio event*/
 void DynamicAudioEventInfo::overrideAudioName( const AsciiString & newName )
 {

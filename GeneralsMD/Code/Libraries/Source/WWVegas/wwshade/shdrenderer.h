@@ -123,7 +123,6 @@ public:
 	RendererListContainerClass* Peek_Renderer_List_Container(int pass) { return RendererListContainer[pass]; }
 };
 
-
 /**
 ** ShdRenderer
 */
@@ -160,7 +159,6 @@ public:
 	/////////////////////////////////////////////////////////////////////////////////////
 	virtual void Flush()=0;
 };
-
 
 /**
 ** ShdDX8Renderer

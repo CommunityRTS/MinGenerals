@@ -44,7 +44,6 @@
 #include	"point.h"
 #include	"rect.h"
 
-
 /******************************************************************************
 **	These are the control flags for Fancy_Text_Print function.
 */
@@ -123,8 +122,6 @@ typedef enum TextFormatType {
 #define TPF_CENTER_BOTTOM_ALIGNMENT	(TextFormatType)( DT_CENTER	| DT_BOTTOM		| DT_SINGLELINE )
 #define TPF_CENTER_JUSTIFY			(TextFormatType)( DT_CENTER	| DT_VCENTER	| DT_SINGLELINE )
 
-
-
 /******************************************************************************
 **	These are the control flags for Fancy_Text_Print function.
 */
@@ -134,7 +131,6 @@ typedef enum SpecialEffectType {
 	TPF_BURST_MODE			=0x0002,		// Print text one letter at a time like a typewriter.
 	TPF_SPECIAL_WRAP		=0x0003,		// Begin at a specified point but start next line at a point before the starting point.
 } SpecialEffectType;
-
 
 /******************************************************************************
 ** Global DC.  Use it or create your own!
@@ -162,7 +158,6 @@ extern	unsigned long GREEN_COLOR;
 extern	unsigned long BLUE_COLOR;
 extern	unsigned long INDIGO_COLOR;
 extern	unsigned long VIOLET_COLOR;
-
 
 /******************************************************************************
 **	This is a True Type Font class object to create and use True Type fonts.
@@ -265,7 +260,6 @@ class TTFontClass
 		char  szFilename[ MAX_PATH ];
 };
 
-
 //-------------------------------------------------------------------------
 //	Global functions.
 //-------------------------------------------------------------------------
@@ -284,7 +278,6 @@ class FontManagerClass
 		TTFontClass * Get_Font	( TextPrintType flags )	{ return( Font_From_TPF( flags ));  };
 };
 
-
 /******************************************************************************
 ** FontManager Class Pointer.
 */
@@ -299,6 +292,5 @@ extern TTFontClass 			*TTTextFontPtr;
 extern TTFontClass 			*TTTextFontPtr640;
 extern TTFontClass 			*TTTextFontPtr800;
 extern TTFontClass 			*TTLicenseFontPtr;
-
 
 #endif

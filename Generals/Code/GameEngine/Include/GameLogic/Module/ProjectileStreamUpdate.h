@@ -65,7 +65,6 @@ public:
 
 protected:
 
-
 	void cullFrontOfList();
 	Bool considerDying();
 
@@ -74,7 +73,6 @@ protected:
 	Int m_firstValidIndex;
 	ObjectID m_owningObject;
 };
-
 
 #endif
 

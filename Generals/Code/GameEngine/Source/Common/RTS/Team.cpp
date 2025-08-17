@@ -741,7 +741,6 @@ TeamTemplateInfo::TeamTemplateInfo(Dict *d) :
 	m_productionCondition = d->getAsciiString(TheKey_teamProductionCondition, &exists);
 	m_executeActions = d->getBool(TheKey_teamExecutesActionsOnCreate, &exists);
 
-
 	// Which scripts to attempt during run?
 	for (int i = 0; i < MAX_GENERIC_SCRIPTS; ++i) {
 		AsciiString keyName;
@@ -751,7 +750,6 @@ TeamTemplateInfo::TeamTemplateInfo(Dict *d) :
 			m_teamGenericScripts[i].clear();
 		}
 	}
-
 
 	// reinforcement team info.
 	m_transportUnitType = d->getAsciiString(TheKey_teamTransport, &exists);
@@ -1010,7 +1008,6 @@ Int TeamPrototype::countTeamInstances( void )
 	return count;
 }
 
-
 // ------------------------------------------------------------------------
 Bool TeamPrototype::hasAnyBuildings() const
 {
@@ -1113,7 +1110,6 @@ void TeamPrototype::damageTeamMembers(Real amount)
 		iter.cur()->damageTeamMembers(amount);
 	}
 }
-
 
 // ------------------------------------------------------------------------
 void TeamPrototype::moveTeamTo(Coord3D destination)
@@ -1353,7 +1349,6 @@ Team::Team(TeamPrototype *proto, TeamID id ) :
 		m_shouldAttemptGenericScript[i] = true;
 	}
 
-
 }
 
 // ------------------------------------------------------------------------
@@ -1445,7 +1440,6 @@ void Team::getTeamAsAIGroup(AIGroup *pAIGroup)
 		}
 	}
 }
-
 
 // ------------------------------------------------------------------------
 Int Team::getTargetableCount() const
@@ -2739,8 +2733,6 @@ void Team::loadPostProcess( void )
 	m_xferMemberIDList.clear();
 
 }  // end loadPostProcess
-
-
 
 // ------------------------------------------------------------------------
 // ------------------------------------------------------------------------

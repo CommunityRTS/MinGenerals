@@ -52,7 +52,6 @@ FloodFillTool::~FloodFillTool(void)
 	}
 }
 
-
 /// Shows the terrain materials options panel.
 void FloodFillTool::activate()
 {
@@ -74,8 +73,6 @@ void FloodFillTool::setCursor(void)
 		Tool::setCursor();
 	}
 }
-
-
 
 /// Left click code.  Sets m_textureClassToDraw and calls eitherMouseDown()
 /// Perform the tool behavior on mouse down.

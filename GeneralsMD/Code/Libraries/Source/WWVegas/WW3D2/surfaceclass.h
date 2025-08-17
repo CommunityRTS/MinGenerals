@@ -151,4 +151,3 @@ class SurfaceClass : public W3DMPO, public RefCountClass
 
 #endif
 
-

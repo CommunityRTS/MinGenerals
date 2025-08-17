@@ -68,7 +68,6 @@
  *   RenderObjClass::Add_Dependencies_To_List -- Add dependent files to the list.              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "rendobj.h"
 #include "assetmgr.h"
 #include "_mono.h"
@@ -89,8 +88,6 @@
 #include "saveload.h"
 #include "ww3dids.h"
 #include "intersec.h"
-
-
 
 // Definitions of static members:
 const float	RenderObjClass::AT_MIN_LOD = FLT_MAX;
@@ -145,7 +142,6 @@ static inline bool Check_Is_Transform_Identity(const Matrix3D& m)
 		((unsigned&)m[2][3]^(unsigned&)zero);
 	return !d;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::RenderObjClass -- constructor                                               *
@@ -205,7 +201,6 @@ RenderObjClass::RenderObjClass(const RenderObjClass & src) :
 	// follows for things like the Container pointer.
 }
 
-
 /***********************************************************************************************
  * RenderObjClass -- assignment operator                                                       *
  *                                                                                             *
@@ -232,7 +227,6 @@ RenderObjClass & RenderObjClass::operator = (const RenderObjClass & that)
 	}
 	return *this;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Calculate_Texture_Reduction_Factor -- calculate texture reduction factor.   *
@@ -335,7 +329,6 @@ float RenderObjClass::Get_Screen_Size(CameraClass &camera)
 	return WWMATH_PI * radius * radius * width_factor * height_factor;
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Get_Scene -- returns the (add_ref'd) scene pointer                          *
  *                                                                                             *
@@ -355,7 +348,6 @@ SceneClass * RenderObjClass::Get_Scene(void)
 	}
 	return Scene;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Set_Container -- sets the container pointer                                 *
@@ -417,7 +409,6 @@ void RenderObjClass::Set_Transform(const Matrix3D &m)
 	Invalidate_Cached_Bounding_Volumes();
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Set_Position -- Sets the position of this object                            *
  *                                                                                             *
@@ -437,7 +428,6 @@ void RenderObjClass::Set_Position(const Vector3 &v)
 	IsTransformIdentity=Check_Is_Transform_Identity(Transform);
 	Invalidate_Cached_Bounding_Volumes();
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Validate_Transform -- If the transform is dirty, this causes it to be re-ca *
@@ -501,7 +491,6 @@ Vector3 RenderObjClass::Get_Position(void) const
 	return Transform.Get_Translation();
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Get_Sub_Object -- returns pointer to first sub-obj with given name          *
  *                                                                                             *
@@ -555,7 +544,6 @@ RenderObjClass * RenderObjClass::Get_Sub_Object_By_Name(const char * name, int *
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Add_Sub_Object_To_Bone -- add an object to a named bone                     *
  *                                                                                             *
@@ -575,7 +563,6 @@ int RenderObjClass::Add_Sub_Object_To_Bone(RenderObjClass * subobj,const char * 
 	int bindex = Get_Bone_Index(bname);
 	return Add_Sub_Object_To_Bone(subobj,bindex);
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Remove_Sub_Objects_From_Bone -- remove all objects from a named bone        *
@@ -603,7 +590,6 @@ int RenderObjClass::Remove_Sub_Objects_From_Bone(const char * bname)
 	}
 	return remove_count;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Prepare_LOD -- prepare object for predictive and texture LOD processing.    *
@@ -634,7 +620,6 @@ void RenderObjClass::Prepare_LOD(CameraClass &camera)
 	PredictiveLODOptimizerClass::Add_Cost(Get_Cost());
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Get_Cost -- get object rendering cost for predictive LOD processing.        *
  *                                                                                             *
@@ -652,7 +637,6 @@ float RenderObjClass::Get_Cost(void) const
 	float cost = (polycount != 0)? polycount : 0.000001f;
 	return cost;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Calculate_Cost_Value_Arrays -- calc arrays for predictive LOD processing.   *
@@ -681,7 +665,6 @@ int RenderObjClass::Calculate_Cost_Value_Arrays(float screen_area, float *values
 
 	return 0;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Update_Sub_Object_Bits -- updates our bits according to our sub-objects     *
@@ -731,7 +714,6 @@ void RenderObjClass::Update_Sub_Object_Bits(void)
 	}
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Update_Sub_Object_Transforms -- re-evaluate the transforms my sub-objects   *
  *                                                                                             *
@@ -750,7 +732,6 @@ void RenderObjClass::Update_Sub_Object_Bits(void)
 void RenderObjClass::Update_Sub_Object_Transforms(void)
 {
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Add -- Generic add for render objects                                       *
@@ -807,7 +788,6 @@ void RenderObjClass::Remove(void)
 #endif
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Notify_Added -- notifies the object that it is in a scene                   *
  *                                                                                             *
@@ -837,7 +817,6 @@ void RenderObjClass::Notify_Added(SceneClass * scene)
 	Scene = scene;
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Notify_Removed -- notifies an object that it has been removed               *
  *                                                                                             *
@@ -858,7 +837,6 @@ void RenderObjClass::Notify_Removed(SceneClass * scene)
 {
 	Scene = NULL;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Update_Cached_Bounding_Volumes -- default collision sphere.                 *
@@ -888,7 +866,6 @@ void RenderObjClass::Update_Cached_Bounding_Volumes(void) const
 	Validate_Cached_Bounding_Volumes();
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Get_Obj_Space_Bounding_Sphere -- default collision sphere.                  *
  *                                                                                             *
@@ -907,7 +884,6 @@ void RenderObjClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const
 	sphere.Center.Set(0,0,0);
 	sphere.Radius = 1.0f;
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Get_Obj_Space_Bounding_Box -- default collision box.                        *
@@ -972,7 +948,6 @@ bool RenderObjClass::Intersect(IntersectionClass *Intersection, IntersectionResu
 	return false;
 }
 
-
 /***********************************************************************************************
  * RenderObjClass::Intersect_Sphere -- tests for intersection with the bounding sphere         *
  *                                                                                             *
@@ -990,7 +965,6 @@ bool RenderObjClass::Intersect_Sphere(IntersectionClass *Intersection, Intersect
 	SphereClass sphere = Get_Bounding_Sphere();
 	return Intersection->Intersect_Sphere(sphere, Final_Result);
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Intersect_Sphere_Quick -- tests for intersection with the bounding sphere   *
@@ -1045,7 +1019,6 @@ bool RenderObjClass::Build_Dependency_List (DynamicVectorClass<StringClass> &fil
 	// Return the true/false result code
 	return (file_list.Count () > 0);
 }
-
 
 /***********************************************************************************************
  * RenderObjClass::Build_Texture_List -- Builds a list of texture files this obj depends on.   *
@@ -1153,10 +1126,7 @@ void RenderObjClass::Add_Dependencies_To_List
 	return;
 }
 
-
-
 /****************************************************************************************
-
 
 	RenderObjClass - Persistant object support.
 
@@ -1164,7 +1134,6 @@ void RenderObjClass::Add_Dependencies_To_List
 	the name of the render object that was saved.  At load time, it will ask the
 	asset manager for that object again.  If the asset manager fails to re-create the
 	object,
-
 
 ****************************************************************************************/
 
@@ -1263,7 +1232,6 @@ void RenderObjPersistFactoryClass::Save(ChunkSaveClass & csave,PersistClass * ob
 	csave.End_Chunk();
 }
 
-
 /*
 ** RenderObj save-load.
 */
@@ -1288,5 +1256,4 @@ bool RenderObjClass::Load (ChunkLoadClass &cload)
 	WWASSERT(0); // this should never hit with the persist factory we're using.
 	return true;
 }
-
 

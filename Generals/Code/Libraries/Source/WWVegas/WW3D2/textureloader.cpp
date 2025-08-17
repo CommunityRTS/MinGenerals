@@ -170,8 +170,6 @@ void TextureLoader::Validate_Texture_Size(unsigned& width, unsigned& height)
 	height=poweroftwoheight;
 }
 
-
-
 IDirect3DTexture8* TextureLoader::Load_Thumbnail(const StringClass& filename,WW3DFormat texture_format)
 {
 	ThumbnailClass* thumb=ThumbnailClass::Peek_Instance(filename);
@@ -410,7 +408,6 @@ IDirect3DSurface8* TextureLoader::Load_Surface_Immediate(
 
 	return d3d_surface;
 }
-
 
 // ----------------------------------------------------------------------------
 //
@@ -1095,7 +1092,6 @@ void TextureLoadTaskClass::Begin_Texture_Load()
 				Add_Task_To_Delete_List(this);
 				return;
 			}
-
 
 			unsigned bpp;
 			WW3DFormat src_format,dest_format;

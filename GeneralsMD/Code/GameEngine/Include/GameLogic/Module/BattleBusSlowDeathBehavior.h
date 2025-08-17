@@ -89,5 +89,4 @@ protected:
 
 };
 
-
 #endif  // end __BUS_SLOW_DEATH_BEHAVIOR_H_

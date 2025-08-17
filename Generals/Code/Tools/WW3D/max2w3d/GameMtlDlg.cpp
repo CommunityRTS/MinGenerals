@@ -144,7 +144,6 @@ GameMtlDlg::~GameMtlDlg()
 	TheMtl->SetParamDlg(NULL);
 }
 
-
 /***********************************************************************************************
  * GameMtlDlg::ClassID -- Returns the ClassID of GameMtl                                       *
  *                                                                                             *
@@ -465,7 +464,6 @@ BOOL	GameMtlDlg::SurfaceTypeProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM 
 	return FALSE;
 }
 
-
 BOOL	GameMtlDlg::PassCountProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
@@ -624,7 +622,6 @@ static BOOL CALLBACK PassCountDialogDlgProc(HWND hwndDlg, UINT msg, WPARAM wPara
 	return TRUE;
 }
 
-
 /***********************************************************************************************
  * GameMtlDlg::Build_Dialog -- Adds the dialog to the material editor                          *
  *                                                                                             *
@@ -680,6 +677,4 @@ void GameMtlDlg::Build_Dialog()
 
 	ReloadDialog();
 }
-
-
 

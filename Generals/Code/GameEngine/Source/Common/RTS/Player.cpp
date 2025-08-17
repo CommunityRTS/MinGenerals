@@ -98,7 +98,6 @@
 #include "GameLogic/Module/BattlePlanUpdate.h"
 #include "GameLogic/VictoryConditions.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -1058,7 +1057,6 @@ void Player::becomingTeamMember(Object *obj, Bool yes)
 		}
 	}
 
-
 	if (obj->isKindOf(KINDOF_DOZER)
 			&& obj->getAIUpdateInterface()
 			&& obj->getAIUpdateInterface()->isIdle())
@@ -1154,7 +1152,6 @@ Bool Player::isSkirmishAIPlayer( void )
 	return FALSE;
 #endif
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -1284,7 +1281,6 @@ void Player::onUnitCreated( Object *factory, Object *unit )
 		m_ai->onUnitProduced( factory, unit );
 #endif
 }  // end onUnitCreated
-
 
 //-------------------------------------------------------------------------------------------------
 /** Is the nearest supply source safe? */
@@ -1905,7 +1901,6 @@ void Player::ungarrisonAllUnits(CommandSourceType source)
 	}
 }
 
-
 //=============================================================================
 void Player::setUnitsShouldIdleOrResume(Bool idle)
 {
@@ -1974,7 +1969,6 @@ void Player::sellEverythingUnderTheSun(void)
 		}
 	}
 }
-
 
 //=============================================================================
 Bool Player::allowedToBuild(const ThingTemplate *tmplate) const
@@ -2690,7 +2684,6 @@ void Player::removeUpgrade( const UpgradeTemplate *upgradeTemplate )
 
 }  // end removeUpgrade
 
-
 //-------------------------------------------------------------------------------------------------
 Bool Player::okToPlayRadarEdgeSound( void )
 {
@@ -2817,9 +2810,6 @@ void Player::onPowerBrownOutChange( Bool brownOut )
 	iterateObjects( doPowerDisable, &brownOut );// This function is so cool.
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 // SEVERAL OBJECTS (LIKE MULTIPLE COMMAND CENTERS) MAY HAVE MATCHING SETS OF SPECIAL POWERS
@@ -2856,7 +2846,6 @@ void Player::resetOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *tem
 	addNewSharedSpecialPowerTimer( temp, now );
 }
 
-
 void Player::expressSpecialPowerReadyFrame( const SpecialPowerTemplate *temp, UnsignedInt frame )
 {
 	SpecialPowerReadyTimerType *timer;
@@ -2874,10 +2863,6 @@ void Player::expressSpecialPowerReadyFrame( const SpecialPowerTemplate *temp, Un
 	addNewSharedSpecialPowerTimer( temp, frame );
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 UnsignedInt Player::getOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *temp)
 {
@@ -2887,7 +2872,6 @@ UnsignedInt Player::getOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate
 
 	SpecialPowerReadyTimerType *timer;
 	SpecialPowerReadyTimerListIterator it;
-
 
 	UnsignedInt count = 0;
 	UnsignedInt timerID = 0xfacade;
@@ -3198,7 +3182,6 @@ void Player::applyBattlePlanBonusesForPlayerObjects( const BattlePlanBonuses *bo
 	DUMPBATTLEPLANBONUSES(m_battlePlanBonuses, this, NULL);
 	iterateObjects( localApplyBattlePlanBonusesToObject, (void*)bonus );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Create a hotkey team based on this GameMessage */
@@ -3930,11 +3913,6 @@ void Player::xfer( Xfer *xfer )
 	// score keeper
 	xfer->xferSnapshot( &m_scoreKeeper );
 
-
-
-
-
-
 	// size of and data for kindof percent production change list
 	UnsignedShort percentProductionChangeCount = m_kindOfPercentProductionChangeList.size();
 	xfer->xferUnsignedShort( &percentProductionChangeCount );
@@ -3995,9 +3973,6 @@ void Player::xfer( Xfer *xfer )
 
 	}  // end else, load
 
-
-
-
 	///////////////////////////////////////////////////////////////////////////
 	if ( version < 4 )
 	{
@@ -4043,9 +4018,6 @@ void Player::xfer( Xfer *xfer )
 		}
 	}
 	///////////////////////////////////////////////////////////////////////////
-
-
-
 
 	// squads
 	UnsignedShort squadCount = NUM_HOTKEY_SQUADS;

@@ -40,8 +40,6 @@
 #ifndef __WSYS_STDFILESYSTEM_H
 #define __WSYS_STDFILESYSTEM_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -54,11 +52,9 @@
 #include "wsys_FileSystem.h"
 #endif
 
-
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -80,13 +76,10 @@ class StdFileSystem	: public FileSystem
 		virtual					~StdFileSystem();
 		virtual	File*		open( const Char *filename, Int access = 0 );		///< Creates a StdFile object and opens the file with it: See FileSystem::open
 
-
 };
 
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
-
 
 #endif // __WSYS_STDFILESYSTEM_H

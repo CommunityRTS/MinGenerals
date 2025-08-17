@@ -231,8 +231,6 @@ void SidesList::clear(void)
 	emptyTeams();
 }
 
-
-
 /**
 * SidesList::ParseSidesDataChunk - read a Sides chunk.
 * Format is the newer CHUNKY format.
@@ -317,7 +315,6 @@ Bool SidesList::ParseSidesDataChunk(DataChunkInput &file, DataChunkInfo *info, v
 	DEBUG_ASSERTCRASH(file.atEndOfChunk(), ("Incorrect data file length."));
 	return true;
 }
-
 
 /**
 * SidesList::WriteSidesDataChunk - Writes a Sides chunk.
@@ -547,10 +544,8 @@ void SidesList::prepareForMP_or_Skirmish(void)
 				}
 		}
 
-
 	}
 }
-
 
 Bool SidesList::isPlayerDefaultTeam(TeamsInfo *t)
 {
@@ -933,7 +928,6 @@ m_buildingName(AsciiString::TheEmptyString)
 	}
 }
 
-
 /**
  BuildListInfo - Destructor - note - if linked, deletes linked items.
 */
@@ -973,7 +967,6 @@ void BuildListInfo::parseStructure(INI *ini, void *instance, void* /*store*/, co
 	ini->initFromINI(buildInfo, myFieldParse);
 	((AISideBuildList*)instance)->addInfo(buildInfo);
 }
-
 
 /**
  BuildListInfo - Duplicate - note - if linked, duplicates linked items.

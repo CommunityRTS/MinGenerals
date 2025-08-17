@@ -55,7 +55,6 @@ TerrainMaterial::TerrainMaterial(CWnd* pParent /*=NULL*/) :
 	//}}AFX_DATA_INIT
 }
 
-
 void TerrainMaterial::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -63,7 +62,6 @@ void TerrainMaterial::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(TerrainMaterial, COptionsPanel)
 	//{{AFX_MSG_MAP(TerrainMaterial)
@@ -87,7 +85,6 @@ void TerrainMaterial::setFgTexClass(Int texClass)
 		updateTextureSelection();
 	}
 }
-
 
 /// Set backgroundground texture and invalidate swatches.
 void TerrainMaterial::setBgTexClass(Int texClass)
@@ -192,7 +189,6 @@ Bool TerrainMaterial::setTerrainTreeViewSelection(HTREEITEM parent, Int selectio
 	}
 	return(false);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // TerrainMaterial message handlers
@@ -338,7 +334,6 @@ void TerrainMaterial::addTerrain(char *pPath, Int terrainNdx, HTREEITEM parent)
 	char label[_MAX_PATH];
 	sprintf(label, "%d%% %s", percent, buffer);
 
-
 	if( doAdd )
 	{
 		if (percent<3 && defaultMaterialIndex==0) {
@@ -428,7 +423,6 @@ void TerrainMaterial::GetPopSliderInfo(const long sliderID, long *pMin, long *pM
 	}	// switch
 }
 
-
 void TerrainMaterial::PopSliderChanged(const long sliderID, long theVal)
 {
 	CString str;
@@ -459,7 +453,6 @@ void TerrainMaterial::PopSliderFinished(const long sliderID, long theVal)
 	}	// switch
 
 }
-
 
 BOOL TerrainMaterial::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

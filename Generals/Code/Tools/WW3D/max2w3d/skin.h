@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef SKIN_H
 #define SKIN_H
 
@@ -45,12 +44,10 @@
 #include "namedsel.h"
 #include "w3d_file.h"
 
-
 #define SKIN_OBJ_CLASS_ID		Class_ID(0x32b37e0c, 0x5a9612e4)
 #define SKIN_MOD_CLASS_ID 		Class_ID(0x6bad4898, 0x0d1d6ced)
 extern ClassDesc * Get_Skin_Obj_Desc();
 extern ClassDesc * Get_Skin_Mod_Desc();
-
 
 /*
 
@@ -369,7 +366,6 @@ public:
 
 	int SubObjSelLevel;
 
-
 	/*
 	** Bone Influence Dialog panel variables
 	*/
@@ -397,9 +393,6 @@ public:
 	*/
 	friend BOOL CALLBACK _bone_influence_dialog_thunk(HWND hWnd,UINT message,WPARAM wParam,LPARAM lParam);
 };
-
-
-
 
 #endif
 

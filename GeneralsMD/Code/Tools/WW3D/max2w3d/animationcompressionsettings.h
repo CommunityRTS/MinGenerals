@@ -36,14 +36,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef __ANIMATION_COMPRESSION_SETTINGS_H
 #define __ANIMATION_COMPRESSION_SETTINGS_H
 
 #include <windows.h>
 #include <max.h>
 #include "w3dutil.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -59,7 +57,6 @@ public:
 	//////////////////////////////////////////////////////////////////
 	AnimationCompressionSettingsDialogClass (Interface *maxinterface, HWND parent_wnd = NULL);
 	~AnimationCompressionSettingsDialogClass (void);
-
 
 	//////////////////////////////////////////////////////////////////
 	//	Public methods
@@ -90,7 +87,6 @@ private:
 	HWND								Wnd;
 	HWND								ParentWnd;
 };
-
 
 #endif //__ANIMATION_COMPRESSION_SETTINGS_H
 

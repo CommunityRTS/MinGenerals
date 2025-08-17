@@ -41,7 +41,6 @@
 enum ParticleSystemID;
 class FXList;
 
-
 //-------------------------------------------------------------------------------------------------
 class MissileAIUpdateModuleData : public AIUpdateModuleData
 {
@@ -136,7 +135,6 @@ private:
 
 	void tossExhaust();
 	void switchToState(MissileStateType s);
-
 
 };
 

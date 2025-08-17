@@ -26,8 +26,6 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // Workbooks properties
 
@@ -123,7 +121,6 @@ LPDISPATCH Workbooks::Get_Default(const VARIANT& Index)
 		&Index);
 	return result;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // _Application properties
@@ -2094,7 +2091,6 @@ void _Application::SetEnableEvents(BOOL bNewValue)
 		 bNewValue);
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // _Workbook properties
 
@@ -3007,7 +3003,6 @@ BOOL _Workbook::GetIsInplace()
 	return result;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // _Worksheet properties
 
@@ -3671,7 +3666,6 @@ LPDISPATCH _Worksheet::GetAutoFilter()
 	InvokeHelper(0x319, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&result, NULL);
 	return result;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Range properties
@@ -5111,7 +5105,6 @@ LPDISPATCH Range::GetHyperlinks()
 	return result;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // Border properties
 
@@ -5198,7 +5191,6 @@ void Border::SetWeight(const VARIANT& newValue)
 	InvokeHelper(0x78, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
 		 &newValue);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Borders properties
@@ -5335,7 +5327,6 @@ LPDISPATCH Borders::Get_Default(long Index)
 		Index);
 	return result;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Interior properties

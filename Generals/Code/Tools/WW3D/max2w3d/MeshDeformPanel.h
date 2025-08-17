@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef __MESH_DEFORM_PANEL_H
 #define __MESH_DEFORM_PANEL_H
 
@@ -112,6 +111,5 @@ class MeshDeformPanelClass
 		ICustButton *				m_pLockSetsButton;
 		MeshDeformClass *			m_pMeshDeformer;
 };
-
 
 #endif //__MESH_DEFORM_PANEL_H

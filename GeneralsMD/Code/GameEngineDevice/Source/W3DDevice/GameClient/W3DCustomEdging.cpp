@@ -73,7 +73,6 @@
 
 static ShaderClass detailAlphaTestShader(SC_ALPHA_DETAIL);
 
-
 #define SC_NO_ALPHA ( SHADE_CNST(ShaderClass::PASS_ALWAYS, ShaderClass::DEPTH_WRITE_DISABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_ONE, \
 	ShaderClass::DSTBLEND_ZERO, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_MODULATE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_DISABLE, \
@@ -211,7 +210,6 @@ void W3DCustomEdging::loadEdgingsInVertexAndIndexBuffers(WorldHeightMap *pMap, I
 			Bool flipForBlend;
 			pMap->getAlphaUVData(column-pMap->getDrawOrgX(), row-pMap->getDrawOrgY(), UA, VA, alpha, &flipForBlend, false);
 
-
 			Int startVertex = m_curNumEdgingVertices;
 			for (j=0; j<2; j++) {
 				for (i=0; i<2; i++) {
@@ -299,7 +297,6 @@ W3DCustomEdging::W3DCustomEdging(void)
 	m_initialized = true;
 }
 
-
 //=============================================================================
 // W3DCustomEdging::freeEdgingBuffers
 //=============================================================================
@@ -336,9 +333,6 @@ void W3DCustomEdging::clearAllEdging(void)
 	m_curNumEdgingIndices=0;
 	m_anythingChanged = true;
 }
-
-
-
 
 //=============================================================================
 // W3DCustomEdging::drawEdging
@@ -435,5 +429,4 @@ void W3DCustomEdging::drawEdging(WorldHeightMap *pMap, Int minX, Int maxX, Int m
 		DX8Wrapper::Draw_Triangles(	m_curEdgingIndexOffset, m_curNumEdgingIndices/3, 0,	m_curNumEdgingVertices);
 	}
 }
-
 

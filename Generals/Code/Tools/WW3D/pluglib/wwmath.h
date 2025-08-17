@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -58,7 +57,6 @@
 #define WWMATH_OOSQRT2		0.707106781f
 #define WWMATH_OOSQRT3		0.577350269f
 
-
 /*
 **	Macros to convert between degrees and radians
 */
@@ -77,8 +75,6 @@
 #ifndef DEG_TO_RADF
 #define DEG_TO_RADF(x)	(((float)x)*WWMATH_PI/180.0f)
 #endif
-
-
 
 /*
 ** Some simple math functions which work on the built-in types.
@@ -204,7 +200,6 @@ inline double	WWMath::Lerp(double a, double b, float lerp )
 {
 	return (a + (b - a)*lerp);
 }
-
 
 inline long WWMath::Float_To_Long	(float f)
 {

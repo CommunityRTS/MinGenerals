@@ -34,7 +34,6 @@
 #include "EditCoordParameter.h"
 #include "EditObjectParameter.h"
 
-
 #include "Common/AudioEventInfo.h"
 #include "Common/BorderColors.h"
 #include "Common/File.h"
@@ -96,7 +95,6 @@ void EditParameter::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditParameter, CDialog)
 	//{{AFX_MSG_MAP(EditParameter)
@@ -363,7 +361,6 @@ AsciiString EditParameter::getWarningText(Parameter *pParm, Bool isAction)
 			//Not sure if I need to do anything here.
 			break;
 
-
 		case Parameter::BOUNDARY:
 			if (TheTerrainRenderObject->getMap()->getAllBoundaries().size() <= pParm->getInt()) {
 				warningText.format("Border %s does not exist.", BORDER_COLORS[pParm->getInt() % BORDER_COLORS_SIZE]);
@@ -391,14 +388,12 @@ AsciiString EditParameter::getWarningText(Parameter *pParm, Bool isAction)
 		case Parameter::REVEALNAME:
 			break;
 
-
 	}
 	if (warningText.isNotEmpty()) {
 		warningText.concat("  ");
 	}
 	return warningText;
 }
-
 
 AsciiString EditParameter::getInfoText(Parameter *pParm)
 {
@@ -483,8 +478,6 @@ AsciiString EditParameter::getInfoText(Parameter *pParm)
 	return infoText;
 }
 
-
-
 void EditParameter::OnChangeEdit()
 {
 
@@ -494,7 +487,6 @@ void EditParameter::OnEditchangeCombo()
 {
 
 }
-
 
 void EditParameter::loadConditionParameter(Script *pScr, Parameter::ParameterType type, CComboBox *pCombo)
 {
@@ -790,7 +782,6 @@ Bool EditParameter::loadSciences(CComboBox *pCombo, AsciiString match)
 			retVal = true;
 		}
 	}
-
 
 	return retVal;
 }
@@ -1124,7 +1115,6 @@ Bool EditParameter::loadRevealNamesParameter(Script *pScr, CComboBox *pCombo, As
 	return found;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool EditParameter::loadAudioType(Parameter::ParameterType  comboType, CComboBox *pCombo, AsciiString match)
 {
@@ -1199,7 +1189,6 @@ Bool EditParameter::getMovieComment(AsciiString match, AsciiString& outCommentFr
 
 	return retVal;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool EditParameter::loadTriggerAreas(CComboBox *pCombo, AsciiString match)
@@ -1278,7 +1267,6 @@ Bool EditParameter::loadFontNames(CComboBox *pCombo, AsciiString match)
 	if (pCombo) pCombo->ResetContent();
 	Bool didMatch = false;
 	GameFont *font;
-
 
 	// create the font library
 	TheFontLibrary = new W3DFontLibrary;
@@ -1927,7 +1915,6 @@ BOOL EditParameter::OnInitDialog()
 			showList = true;
 			break;
 
-
     case Parameter::LEFT_OR_RIGHT:
 			captionText = "Evacuate Container Side Choices:";
 			pList->InsertString(-1,"Left");
@@ -1936,7 +1923,6 @@ BOOL EditParameter::OnInitDialog()
 			pList->SetCurSel(m_parameter->getInt() - 1);
 			showList = true;
 			break;
-
 
 		case Parameter::RELATION:
 			captionText = "Relation:";
@@ -2106,7 +2092,6 @@ BOOL EditParameter::OnInitDialog()
 			break;
 		}
 
-
 	}
 	if (showCombo) {
 		pCombo->ShowWindow(SW_SHOW);
@@ -2269,11 +2254,9 @@ void EditParameter::OnOK()
 			m_parameter->friend_setInt(pList->GetCurSel() + RADAR_EVENT_CONSTRUCTION);
 			break;
 
-
     case Parameter::LEFT_OR_RIGHT:
       m_parameter->friend_setInt(pList->GetCurSel() + 1);
       break;
-
 
 		case Parameter::LOCALIZED_TEXT:
 			pCombo->GetWindowText(txt);

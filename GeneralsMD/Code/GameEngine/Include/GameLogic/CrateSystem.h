@@ -83,7 +83,6 @@ private:
 
 typedef OVERRIDE<CrateTemplate> CrateTemplateOverride;
 
-
 /**
 		System responsible for Crates as code objects - ini, new/delete etc
 */
@@ -102,8 +101,6 @@ public:
 
 	CrateTemplate *newCrateTemplate( AsciiString name );
 	CrateTemplate *newCrateTemplateOverride( CrateTemplate *crateToOverride );
-
-
 
 	static void parseCrateTemplateDefinition(INI* ini);
 

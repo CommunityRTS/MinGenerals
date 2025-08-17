@@ -74,10 +74,8 @@ const FieldParse WaterTransparencySetting::m_waterTransparencySettingFieldParseT
 	{ "SkyboxTextureW",							INI::parseAsciiString,NULL,			offsetof( WaterTransparencySetting, m_skyboxTextureW ) },
 	{ "SkyboxTextureT",							INI::parseAsciiString,NULL,			offsetof( WaterTransparencySetting, m_skyboxTextureT ) },
 
-
 	{ 0, 0, 0, 0 },
 };
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -130,5 +128,4 @@ WaterSetting::~WaterSetting( void )
 {
 
 }  // end WaterSetting
-
 

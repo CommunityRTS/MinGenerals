@@ -45,7 +45,6 @@
 #include	"lcw.h"
 #include	<string.h>
 
-
 /***************************************************************************
  * Uncompress_Data -- Uncompresses data from one buffer to another.        *
  *                                                                         *
@@ -108,5 +107,4 @@ unsigned long __cdecl Uncompress_Data(void const *src, void *dst)
 
 	return(uncomp_size);
 }
-
 

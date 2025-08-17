@@ -146,14 +146,12 @@ struct TTriggerInfo
 
 //----------------------------------------------------
 
-
 enum CrushSquishTestType
 {
 	TEST_CRUSH_ONLY,
 	TEST_SQUISH_ONLY,
 	TEST_CRUSH_OR_SQUISH
 };
-
 
 // ---------------------------------------------------
 /**
@@ -293,7 +291,6 @@ public:
 	SpawnBehaviorInterface* getSpawnBehaviorInterface() const;
 	ProjectileUpdateInterface* getProjectileUpdateInterface() const;
 
-
 	// special case for the AIUpdateInterface, since it will be referred to a great deal
 	inline AIUpdateInterface *getAIUpdateInterface() { return m_ai; }
 	inline const AIUpdateInterface* getAIUpdateInterface() const { return m_ai; }
@@ -367,7 +364,6 @@ public:
 	enum FormationID getFormationID(void) const {return m_formationID;}
 	void setFormationOffset(const Coord2D& offset) {m_formationOffset = offset;}
 	void getFormationOffset(Coord2D* offset) const {*offset = m_formationOffset;}
-
 
 //THIS FUNCTION BELONGS AT THE OBJECT LEVEL BECAUSE THERE IS AT LEAST ONE SPECIAL UNIT
 //(ANGRY MOB) WHICH NEEDS LOGIC-SIDE POSITION CALC'S...
@@ -468,7 +464,6 @@ public:
 
 	/// People are faking their commandsets, and, Surprise!, they are authoritative.  Challenge everything.
 	Bool Object::canProduceUpgrade( const UpgradeTemplate *upgrade );
-
 
 	// Weapons & Damage -------------------------------------------------------------------------------------------------
 	void reloadAllAmmo(Bool now);
@@ -638,7 +633,6 @@ protected:
 
 	void onDisabledEdge(Bool becomingDisabled);
 	// All of our cheating for radars and power go here.
-
 
 	// snapshot methods
 	void crc( Xfer *xfer );

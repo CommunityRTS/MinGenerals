@@ -50,7 +50,6 @@
 
 static SegLineRendererClass _LineRenderer;
 
-
 /*
 ** StreakLineClass implementation:
 */
@@ -98,19 +97,11 @@ StreakLineClass & StreakLineClass::operator = (const StreakLineClass &that)
 //{
 //}
 
-
-
-
-
 void StreakLineClass::Reset_Line(void)
 {
 	LineRenderer.Reset_Line();
 	StreakRenderer.Reset_Line();
 }
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
@@ -193,21 +184,12 @@ void StreakLineClass::Set_LocsWidthsColors( unsigned int num_points,
 
 	}
 
-
 	Invalidate_Cached_Bounding_Volumes();
 }
 
-
-
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
 
 // These are segment points, and include the start and end point of the
 // entire line. Therefore there must be at least two.
@@ -249,7 +231,6 @@ void StreakLineClass::Delete_Point(unsigned int point_idx)
 		PointLocations.Delete(point_idx);
 	}
 }
-
 
 TextureClass * StreakLineClass::Get_Texture(void)
 {
@@ -403,7 +384,6 @@ void StreakLineClass::Set_Freeze_Random(int onoff)
 {
 	LineRenderer.Set_Freeze_Random(onoff);
 }
-
 
 void StreakLineClass::Set_Disable_Sorting(int onoff)
 {
@@ -631,8 +611,6 @@ void StreakLineClass::Set_Texture_Reduction_Factor(float trf)
 	if (LineRenderer.Peek_Texture()) LineRenderer.Peek_Texture()->Set_Reduction_Factor(trf);
 }*/
 
-
-
 void StreakLineClass::Render_Seg_Line(RenderInfoClass & rinfo)
 {
 	// Line must have at least two points to be valid
@@ -652,7 +630,6 @@ void StreakLineClass::Render_Seg_Line(RenderInfoClass & rinfo)
 		);
 }
 
-
 void StreakLineClass::Render_Streak_Line(RenderInfoClass & rinfo)
 {
 
@@ -669,7 +646,6 @@ void StreakLineClass::Render_Streak_Line(RenderInfoClass & rinfo)
 
 	SphereClass bounding_sphere;
 	Get_Obj_Space_Bounding_Sphere(bounding_sphere);
-
 
 //	StreakRenderer.Render(
 //		rinfo,
@@ -689,7 +665,6 @@ void StreakLineClass::Render_Streak_Line(RenderInfoClass & rinfo)
 		Personalities
 		);
 }
-
 
 bool StreakLineClass::Cast_Ray(RayCollisionTestClass & raytest)
 {
@@ -741,5 +716,4 @@ bool StreakLineClass::Cast_Ray(RayCollisionTestClass & raytest)
 
 	return retval;
 }
-
 

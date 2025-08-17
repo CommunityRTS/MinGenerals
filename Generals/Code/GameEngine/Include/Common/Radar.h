@@ -292,5 +292,3 @@ extern Radar *TheRadar;  ///< the radar singleton extern
 
 #endif  // __RADAR_H_
 
-
-

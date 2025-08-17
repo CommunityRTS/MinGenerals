@@ -74,7 +74,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(ScriptDialog)
@@ -89,7 +88,6 @@ public:
 
 	static void patchScriptParametersForGC(Script *pScript);
 	static void ScriptDialog::checkParametersForGC(void);
-
 
 	/// To allow CSDTreeCtrl access to these member functions of ScriptDialog
 	Script *friend_getCurScript(void);

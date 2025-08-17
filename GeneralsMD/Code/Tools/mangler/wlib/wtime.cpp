@@ -97,7 +97,6 @@ void Wtime::Update(void)
  #endif
 }
 
-
 // Parses a date string that's in modified RFC 1123 format
 // Can have a +minutes after the normal time
 // eg: Thu, 20 Jun 1996 17:33:49 +100
@@ -156,7 +155,6 @@ bit8 Wtime::ParseDate(char *in)
   if ((sint32)sec==-1)
     return(FALSE);
 
-
   // The next part of the time is OPTIONAL (+minutes)
 
   // first skip past the seconds
@@ -182,7 +180,6 @@ bit8 Wtime::ParseDate(char *in)
   sec+=minOffset*60;  // add the minutes as seconds
   return(TRUE);
 }
-
 
 // This takes the standard Microsoft time formatting string
 // make sure the out string is big enough
@@ -381,8 +378,6 @@ bit8 Wtime::FormatTime(char *out, char *format)
   return(TRUE);
 }
 
-
-
 // In addition to PrintTime & PrintDate there is the 'Print' function
 //   which prints both in RFC 1123 format
 
@@ -452,7 +447,6 @@ void Wtime::GetTimevalMT(struct timeval &tv)
   tv.tv_sec=sec;
   tv.tv_usec=usec;
 }
-
 
 uint32 Wtime::GetSecond(void) const
 {
@@ -526,7 +520,6 @@ uint32 Wtime::GetYear(void) const
     return((tptr->tm_year)+2000);
 }
 
-
 bit8 Wtime::GetSign(void) const
 {
   return(sign);
@@ -549,7 +542,6 @@ int   Wtime::Compare(const Wtime &other) const
   else
     return(-1);
 }
-
 
 bit8 Wtime::operator == ( const Wtime &other ) const
 {
@@ -605,7 +597,6 @@ bit8 Wtime::operator >= ( const Wtime &other ) const
     return(FALSE);
 }
 
-
 // None of the operators pay attention to sign
 //   only the functions that begin with 'Signed'
 void Wtime::SignedAdd(const Wtime &other)
@@ -653,8 +644,6 @@ void Wtime::SignedAdd(const Wtime &other)
     sign=NEGATIVE;
   }
 }
-
-
 
 // None of the operators pay attention to sign
 //   only the functions that begin with 'Signed'
@@ -704,8 +693,6 @@ void Wtime::SignedSubtract(const Wtime &other)
   }
 }
 
-
-
 Wtime &Wtime::operator += (const Wtime &other)
 {
   sec+=other.sec;
@@ -753,7 +740,6 @@ Wtime Wtime::operator + (Wtime &other)
   return(temp);
 }
 
-
 Wtime   &Wtime::operator = (const Wtime &other)
 {
   sign=other.sign;
@@ -762,20 +748,17 @@ Wtime   &Wtime::operator = (const Wtime &other)
   return *this;
 }
 
-
 Wtime &Wtime::operator += (const uint32 other)
 {
   sec+=other;
   return *this;
 }
 
-
 Wtime &Wtime::operator -= (const uint32 other)
 {
   sec-=other;
   return *this;
 }
-
 
 Wtime Wtime::operator - (uint32 other)
 {
@@ -784,14 +767,12 @@ Wtime Wtime::operator - (uint32 other)
   return(temp);
 }
 
-
 Wtime Wtime::operator + (uint32 other)
 {
   Wtime temp(*this);
   temp+=other;
   return(temp);
 }
-
 
 Wtime &Wtime::operator = (const uint32 other)
 {

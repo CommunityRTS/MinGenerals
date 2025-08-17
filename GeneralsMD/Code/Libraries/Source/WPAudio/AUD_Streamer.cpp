@@ -64,8 +64,6 @@ DBG_DECLARE_TYPE ( AudioStreamer );
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
@@ -119,8 +117,6 @@ typedef struct AudioStreamerTag
 
 } AudioStreamer;
 
-
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
@@ -132,8 +128,6 @@ static int initialized = FALSE;
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Private Prototypes                                               **
@@ -337,7 +331,6 @@ static int recalcBuffering ( AudioStreamer *as, TimeStamp buffering, AudioFormat
 	DBG_ASSERT ( stm );
 	DBG_ASSERT ( format );
 
-
 	size = (uint) AudioFormatBytes ( format, buffering );
 	as->frame_size = AudioFormatBytes ( format, AudioChannelFrameTime ( as->channel )*2 );
 	if ( as->frame_size < MIN_FRAME_SIZE )
@@ -374,7 +367,6 @@ static int recalcBuffering ( AudioStreamer *as, TimeStamp buffering, AudioFormat
 int		AudioStreamerInit ( void )
 {
 	ListInit ( &streams );
-
 
 	thread = AUD_ThreadCreate ( "Streamer Thread", AUD_THREAD_PRI_HIGH, service_streams );
 
@@ -453,7 +445,6 @@ AudioStreamer* AudioStreamerCreate ( AudioDevice *dev, TimeStamp buffering )
 	LockInit ( &as->pause );
 	LockInit ( &as->lock );
 	strcpy ( as->stream_name, "Audio Stream" );
-
 
 	if ( !as->channel )
 	{
@@ -713,7 +704,6 @@ int						AudioStreamerStart ( AudioStreamer *as )
 	}
 
 	STM_AccessGetBlock ( as->out );
-
 
 	as->sample.Data = (char *) as->out->Block.Data;
 	as->sample.Bytes = AudioFormatBytes ( &as->format, AudioChannelFrameTime ( as->channel ));
@@ -1582,8 +1572,6 @@ static void streamDump ( AudioStreamer *as, int index, void (*print) ( char *tex
 	seconds = (int) IN_SECONDS(time);
 	time -= SECONDS(seconds);
 	time = (int) IN_MSECONDS(time);
-
-
 
 	sprintf ( buffer, "%.12s %4d Kb %.31s \n", AudioStreamerName( as ), total/1024, name);
 	print ( buffer );

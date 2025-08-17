@@ -418,7 +418,6 @@ WindowMsgHandledType WOLMapSelectMenuSystem( GameWindow *window, UnsignedInt msg
 					// get text of the map to load
 					map = GadgetListBoxGetText( winMapWindow, selected, 0 );
 
-
 					// set the map name in the global data map name
 					AsciiString asciiMap;
 					const char *mapFname = (const char *)GadgetListBoxGetItemData( winMapWindow, selected );

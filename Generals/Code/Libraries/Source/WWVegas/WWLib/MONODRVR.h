@@ -49,7 +49,6 @@
 #pragma warning (pop)
 #endif
 
-
 /*
 **	This is the identifier for the Monochrome Display Driver.
 */
@@ -85,10 +84,8 @@ typedef enum MonoFlagType
 	MONOFLAG_COUNT			// Used to indicate the number of mono flags available.
 } MonoFlagType;
 
-
 /*
 	Here is a "C" example of how to use the Monochrome Display Driver.
-
 
 int main(int argc, char *argv[])
 {
@@ -127,5 +124,4 @@ int main(int argc, char *argv[])
 }
 
 */
-
 

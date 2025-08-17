@@ -75,7 +75,6 @@ Text2DObjClass::Text2DObjClass(FontClass &font, const char *str, float screen_x,
 	Set_Text(font, text, screen_x, screen_y, fore, back, conv, center, clamp);
 }
 
-
 /**************************************************************************
  * T2DOC::Text2DObjClass -- Constructor for 2D text objects               *
  *                                                                        *
@@ -104,7 +103,6 @@ void Text2DObjClass::Set_Text(FontClass &font, const char *str, float screen_x, 
 	va_start(args, clamp);
 	vsprintf(text, str, args);
 	va_end(args);
-
 
 	// if we didn't build a new texture than all the polygons will be just
 	// fine so we don't need to do anything.

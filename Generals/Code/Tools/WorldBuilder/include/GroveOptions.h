@@ -32,7 +32,6 @@ typedef std::pair<AsciiString, UnicodeString>							PairNameDisplayName;
 typedef std::vector<PairNameDisplayName>									VecPairNameDisplayName;
 typedef std::vector<PairNameDisplayName>::iterator				VecPairNameDisplayNameIt;
 
-
 // This is a utility function useful to get a display string from a pair of AsciiString
 // UnicodeStrings. It attempts to use the UnicodeString, and if that fails then turns
 // to the AsciiString

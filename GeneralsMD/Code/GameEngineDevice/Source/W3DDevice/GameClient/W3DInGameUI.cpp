@@ -58,7 +58,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 #ifdef _DEBUG
 #include "W3DDevice/GameClient/HeightMap.h"
 #include "WW3D2/DX8IndexBuffer.h"
@@ -105,7 +104,6 @@ protected:
 	ShaderClass::DSTBLEND_ONE_MINUS_SRC_ALPHA, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_MODULATE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_ENABLE, \
 	ShaderClass::DETAILCOLOR_DISABLE, ShaderClass::DETAILALPHA_DISABLE) )
-
 
 DebugHintObject::~DebugHintObject(void)
 {
@@ -162,7 +160,6 @@ RenderObjClass * DebugHintObject::Clone(void) const
 	DEBUG_CRASH(("oops"));
 	return NEW DebugHintObject(*this);
 }
-
 
 void DebugHintObject::freeMapResources(void)
 {
@@ -260,7 +257,6 @@ void DebugHintObject::Render(RenderInfoClass & rinfo)
 	}
 }
 #endif // _DEBUG
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // DEFINITIONS
@@ -361,7 +357,6 @@ void W3DInGameUI::init( void )
 			motd->winHide( TRUE );
 
 		}  // end if*/
-
 
 }  // end init
 
@@ -647,9 +642,6 @@ void W3DInGameUI::drawPlaceAngle( View *view )
 	ICoord2D start, end;
 	getPlacementPoints( &start, &end );
 
-
-
-
 	Coord3D vector;
 	vector.x = end.x - start.x;
 	vector.y = end.y - start.y;
@@ -696,7 +688,6 @@ void W3DInGameUI::drawPlaceAngle( View *view )
 		if ( m_placeIcon[ 0 ] )
 			m_buildingPlacementArrow->Set_Transform( *m_placeIcon[ 0 ]->getTransformMatrix() );
 	}
-
 
 	//m_buildingPlacementArrow->Set_Transform(
 

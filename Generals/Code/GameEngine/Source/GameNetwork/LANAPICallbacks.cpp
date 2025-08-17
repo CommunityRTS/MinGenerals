@@ -68,7 +68,6 @@ const Color chatSystemColor =  GameMakeColor(255,255,255,255);
 const Color acceptTrueColor =  GameMakeColor(0,255,0,255);
 const Color acceptFalseColor =  GameMakeColor(255,0,0,255);
 
-
 UnicodeString LANAPIInterface::getErrorStringFromReturnType( ReturnType ret )
 {
 	switch (ret)
@@ -275,7 +274,6 @@ void LANAPI::OnGameOptions( UnsignedInt playerIP, Int playerSlot, AsciiString op
 	if (m_currentGame->getIP(playerSlot) != playerIP)
 		return; // He's not in our game?!?
 
-
 	if (m_currentGame->isGameInProgress())
 		return; // we don't want to process any game options while in game.
 
@@ -464,7 +462,6 @@ void LANAPI::OnGameOptions( UnsignedInt playerIP, Int playerSlot, AsciiString op
 		}
 	}
 }
-
 
 /*
 void LANAPI::OnSlotList( ReturnType ret, LANGameInfo *theGame )

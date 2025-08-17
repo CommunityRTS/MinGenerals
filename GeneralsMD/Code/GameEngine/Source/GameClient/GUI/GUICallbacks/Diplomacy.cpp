@@ -142,7 +142,6 @@ static void releaseWindowPointers( void )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 
 static void updateFunc( WindowLayout *layout, void *param )
@@ -201,7 +200,6 @@ void ShowDiplomacy( Bool immediate )
 	if (!TheInGameUI->getInputEnabled() || TheGameLogic->isIntroMoviePlaying() ||
 			TheGameLogic->isLoadingMap())
 		return;
-
 
 	if (TheInGameUI->isQuitMenuVisible())
 		return;
@@ -340,7 +338,6 @@ void ToggleDiplomacy( Bool immediate )
 		ShowDiplomacy( immediate );
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -597,6 +594,4 @@ void PopulateInGameDiplomacyPopup( void )
 		++rowNum;
 	}
 }
-
-
 

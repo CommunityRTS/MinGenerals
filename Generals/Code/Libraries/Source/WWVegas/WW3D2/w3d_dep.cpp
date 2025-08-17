@@ -58,13 +58,11 @@ public:
   static void deallocate(void* __p, size_t) { ::operator delete(__p); }
 };
 
-
 #include "w3d_dep.h"
 #include "w3d_file.h"
 #include <assert.h>
 #include <chunkio.h>
 #include "ffactory.h"
-
 
 /*
 ** Forward declarations.
@@ -85,7 +83,6 @@ static void Scan_HLOD (ChunkLoadClass &cload, StringList &files, const char *w3d
 
 static void Get_W3D_Name (const char *filename, char *w3d_name);
 static const char * Make_W3D_Filename (const char *w3d_name);
-
 
 /***********************************************************************************************
  * Get_W3D_Dependencies -- Scans a W3D file to determine which other files it depends on.      *
@@ -140,7 +137,6 @@ bool Get_W3D_Dependencies (const char *w3d_filename, StringList &files)
 	return true;
 }
 
-
 /***********************************************************************************************
  * Scan_Chunk -- Chooses the correct chunk loader for this chunk.                              *
  *                                                                                             *
@@ -188,7 +184,6 @@ static void Scan_Chunk (ChunkLoadClass &cload, StringList &files, const char *w3
 		break;
 	}
 }
-
 
 /***********************************************************************************************
  * Scan_Mesh -- Scans a mesh for references to other files.                                    *
@@ -290,7 +285,6 @@ static void Scan_Mesh_Textures (ChunkLoadClass &cload, StringList &files, const 
 	}
 }
 
-
 /***********************************************************************************************
  * Scan_Anim -- Scans an animation for references to other files.                              *
  *                                                                                             *
@@ -322,7 +316,6 @@ static void Scan_Anim (ChunkLoadClass &cload, StringList &files, const char *w3d
 		cload.Close_Chunk();
 	}
 }
-
 
 /***********************************************************************************************
  * Scan_Compressed_Anim -- Scans a compressed animation mesh for references to other files.    *
@@ -356,7 +349,6 @@ static void Scan_Compressed_Anim (ChunkLoadClass &cload, StringList &files, cons
 	}
 }
 
-
 /***********************************************************************************************
  * Scan_HModel -- Scans an HModel for references to other files.                               *
  *                                                                                             *
@@ -389,7 +381,6 @@ static void Scan_HModel (ChunkLoadClass &cload, StringList &files, const char *w
 	}
 }
 
-
 /***********************************************************************************************
  * Scan_Emitter -- Scans an emitter for references to other files.                             *
  *                                                                                             *
@@ -417,7 +408,6 @@ static void Scan_Emitter (ChunkLoadClass &cload, StringList &files, const char *
 		cload.Close_Chunk();
 	}
 }
-
 
 /***********************************************************************************************
  * Scan_Aggregate -- Scans an aggregate for references to other files.                         *
@@ -466,7 +456,6 @@ static void Scan_Aggregate (ChunkLoadClass &cload, StringList &files, const char
 	}
 }
 
-
 /***********************************************************************************************
  * Scan_HLOD -- Scans an HLOD for references to other files.                                   *
  *                                                                                             *
@@ -497,7 +486,6 @@ static void Scan_HLOD (ChunkLoadClass &cload, StringList &files, const char *w3d
 		cload.Close_Chunk();
 	}
 }
-
 
 /***********************************************************************************************
  * Get_W3D_Name -- Gets a W3D object name from a W3D filename.                                 *
@@ -537,7 +525,6 @@ static void Get_W3D_Name (const char *filename, char *w3d_name)
 	strncpy(w3d_name, start, num_chars < W3D_NAME_LEN ? num_chars : W3D_NAME_LEN-1);
 	strupr(w3d_name);
 }
-
 
 /***********************************************************************************************
  * Make_W3D_Filename -- Converts a W3D object name into a W3D filename.                        *

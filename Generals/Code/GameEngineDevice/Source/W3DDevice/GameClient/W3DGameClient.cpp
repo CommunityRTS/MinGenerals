@@ -185,7 +185,6 @@ void W3DGameClient::setTimeOfDay( TimeOfDay tod )
 
 }  // end setTimeOfDay
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void W3DGameClient::setTeamColor(Int red, Int green, Int blue)

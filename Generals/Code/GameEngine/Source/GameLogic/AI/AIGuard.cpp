@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // FILE: AIGuard.cpp
 /*---------------------------------------------------------------------------*/
 /* EA Pacific                                                                */
@@ -80,7 +79,6 @@ static Bool hasAttackedMeAndICanReturnFire( State *thisState, void* /*userData*/
 	// We use the clearable last attacker because we should continue attacking the guy. But if he
 	// stops attacking us, then we want our timer to kick us off of him and make us go attack
 	// other units instead.
-
 
 	if (!target) {
 		return FALSE;
@@ -158,7 +156,6 @@ Bool ExitConditions::shouldExit(const StateMachine* machine) const
 
 	return false;
 }
-
 
 //-- AIGuardMachine -------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------

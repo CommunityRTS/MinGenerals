@@ -191,7 +191,6 @@ static const char *getCurrentTimeString(void)
 //Dump the stats
 //=============================================================================
 
-
 static Bool s_notFirstDump = FALSE;
 
 void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
@@ -200,7 +199,6 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
 	{
 		return;
 	}
-
 
   Bool beBrief = brief & s_notFirstDump;
   s_notFirstDump = TRUE;
@@ -222,7 +220,6 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
   if ( flagSpikes && fps<20.0f )
   	fprintf( m_fp, "                                                                      FPS OUT OF TOLERANCE\n" );
 
-
 	//Rendering stats
 	fprintf( m_fp, "Draws: %d \nSkins: %d \nSortedPolys: %d \nSkinPolys: %d\n",(Int)Debug_Statistics::Get_Draw_Calls(),
 		(Int)Debug_Statistics::Get_DX8_Skin_Renders(),
@@ -239,7 +236,6 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
     if ( Debug_Statistics::Get_DX8_Skin_Renders()>100 )
   	  fprintf( m_fp, "                                                                      SKINS OUT OF TOLERANCE(100)\n" );
   }
-
 
 	//Object stats
 	UnsignedInt objCount = TheGameLogic->getObjectCount();
@@ -274,8 +270,6 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
   	fprintf( m_fp, "                                                                      SLOW SCRIPT OUT OF TOLERANCE(0.2)\n" );
 	fprintf( m_fp, "\n" );
 
-
-
 	//PartitionMgr stats
 	double gcoTimeThisFrameTotal, gcoTimeThisFrameAvg;
 	ThePartitionManager->getPMStats(gcoTimeThisFrameTotal, gcoTimeThisFrameAvg);
@@ -297,7 +291,6 @@ void StatDumpClass::dumpStats( Bool brief, Bool flagSpikes )
   	fprintf( m_fp, "                                                                      PARTICLES OUT OF TOLERANCE(CAP-10)\n" );
   if ( flagSpikes && onScreenParticleCount > TheGlobalData->m_maxParticleCount - 10 )
   	fprintf( m_fp, "                                                                      ON_SCREEN_PARTICLES OUT OF TOLERANCE(CAP-10)\n" );
-
 
 	// polygons this frame
 	Int polyPerFrame = Debug_Statistics::Get_DX8_Polygons();
@@ -358,8 +351,6 @@ StatDumpClass TheStatDump("StatisticsDump.txt");
 //**** End Statistical Dump ***************************************************************
 //*****************************************************************************************
 //*****************************************************************************************
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // DEFINITIONS ////////////////////////////////////////////////////////////////
@@ -471,7 +462,6 @@ W3DDisplay::~W3DDisplay()
 #define MIN_DISPLAY_RESOLUTION_X	800
 #define MIN_DISPLAY_RESOLUTOIN_Y	600
 
-
 Bool IS_FOUR_BY_THREE_ASPECT( Real x, Real y )
 {
   if ( y == 0 )
@@ -481,7 +471,6 @@ Bool IS_FOUR_BY_THREE_ASPECT( Real x, Real y )
   return (( aspectRatio > 1.332f) && ( aspectRatio < 1.334f));
 
 }
-
 
 /*Return number of screen modes supported by the current device*/
 Int W3DDisplay::getDisplayModeCount(void)
@@ -724,7 +713,6 @@ void W3DDisplay::init( void )
 	m_assetManager->Register_Prototype_Loader(&_ParticleEmitterLoader );
 	m_assetManager->Register_Prototype_Loader(&_AggregateLoader);
 	m_assetManager->Set_WW3D_Load_On_Demand( true );
-
 
 	if (TheGlobalData->m_incrementalAGPBuf)
 	{
@@ -1018,7 +1006,6 @@ void W3DDisplay::gatherDebugStats( void )
 		if (fps<0.1) fps = 0.1;
 
 		double ms = 1000.0f/fps;
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 		double cumuTime = ((double)(time64 - m_timerAtCumuFPSStart) / (double)(freq64));
@@ -1401,14 +1388,11 @@ void W3DDisplay::gatherDebugStats( void )
 		// selected object info stats
 		unibuffer.format( L"Select Info: '%d' drawables selected", TheInGameUI->getSelectCount() );
 
-
-
 		//Sorry, guys. I need a special kluge here to get constantdebug results for angry mob.
 		//Do no be cross with me.
 		//if there is not exactly one drawable selected it will report on the moused-over drawable
 		if (TheInGameUI->getSelectCount() == 1)
 			draw = TheInGameUI->getFirstSelectedDrawable();
-
 
 		if( draw )
 		{
@@ -1439,11 +1423,6 @@ void W3DDisplay::gatherDebugStats( void )
 													 locoInfo->m_accelerationRoll, locoInfo->m_accelerationRollRate );
 				unibuffer.concat( unibuffer2 );
 			}
-
-
-
-
-
 
 			// (gth) compute some stats about the rendering cost of this drawable
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -1507,7 +1486,6 @@ void W3DDisplay::drawDebugStats( void )
 
 #endif
 
-
 	Int w, h;
 	for (int i = 0; i < linesOfStrings; i++)
 	{
@@ -1535,7 +1513,6 @@ void W3DDisplay::drawFPSStats( void )
 		m_benchmarkDisplayString->draw( x, y, textColor, dropColor );
 	}
 }
-
 
 //=============================================================================
 void StatDebugDisplay( DebugDisplayInterface *, void *, FILE *fp )
@@ -1644,7 +1621,6 @@ void W3DDisplay::calculateTerrainLOD( void )
 
 }
 
-
 Real W3DDisplay::getAverageFPS()
 {
 	return m_averageFPS;
@@ -1670,7 +1646,6 @@ void W3DDisplay::draw( void )
 	if (ApplicationHWnd && ::IsIconic(ApplicationHWnd)) {
 		return;
 	}
-
 
 	updateAverageFPS();
 	if (TheGlobalData->m_enableDynamicLOD && TheGameLogic->getShowDynamicLOD())
@@ -1708,9 +1683,6 @@ AGAIN:
     }
   }
 
-
-
-
 #endif
 
 	// compute debug statistics for display later
@@ -1740,7 +1712,6 @@ AGAIN:
 	if(loc.Y<0) theLightYOffset = -theLightYOffset;
 	theDynamicLight->Set_Position(loc);
 #endif
-
 
 	/// @todo Make more explicit drawing layers(ground, ground UI, objects, object UI, overlay UI)
 
@@ -1824,7 +1795,6 @@ AGAIN:
 		prevTime = now - minTime;		 // do the first frame immediately.
 	}
 
-
 	do {
 
 		{
@@ -1854,7 +1824,6 @@ AGAIN:
                                            //MOVE WITH THE CLIENT TRANSFORMS, NOW.
                                            //REVOLUTIONARY!
                                            //-LORENZEN
-
 
 			if (TheWaterRenderObj && TheGlobalData->m_waterType == 2)
 				TheWaterRenderObj->updateRenderTargetTextures(primaryW3DView->get3DCamera());	//do a render into each texture
@@ -1964,7 +1933,6 @@ AGAIN:
 					drawFPSStats();
 				}
 #endif
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 				if (TheGlobalData->m_debugShowGraphicalFramerate)
@@ -2213,7 +2181,6 @@ void W3DDisplay::drawLine( Int startX, Int startY,
 
 }  // end drawLine
 
-
 // W3DDisplay::drawOpenRect ===================================================
 //=============================================================================
 void W3DDisplay::drawOpenRect( Int startX, Int startY, Int width, Int height,
@@ -2441,7 +2408,6 @@ void W3DDisplay::drawRectClock(Int startX, Int startY, Int width, Int height, In
 
 }
 
-
 //--------------------------------------------------------------------------------------------------------------------
 // W3DDisplay::drawRemainingRectClock
 // Variation added by Kris -- October 2002
@@ -2619,7 +2585,6 @@ void W3DDisplay::drawRemainingRectClock(Int startX, Int startY, Int width, Int h
 	m_2DRender->Render();
 }
 
-
 // W3DDisplay::drawImage ======================================================
 /** Draws an images at the screen coordinates and keeps it within the end
 	* screen coords specified */
@@ -2690,7 +2655,6 @@ void W3DDisplay::drawImage( const Image *image, Int startX, Int startY,
 
 			if( BitTest( image->getStatus(), IMAGE_STATUS_ROTATED_90_CLOCKWISE ) )
 			{
-
 
 				//
 				//	Clip the polygons to the specified area
@@ -2845,7 +2809,6 @@ VideoBuffer*	W3DDisplay::createVideoBuffer( void )
 	return buffer;
 }
 
-
 //============================================================================
 // W3DDisplay::drawVideoBuffer
 //============================================================================
@@ -2939,7 +2902,6 @@ static void CreateBMPFile(LPTSTR pszFile, char *image, Int width, Int height)
     pbmi->bmiHeader.biCompression = BI_RGB;
     pbmi->bmiHeader.biSizeImage = (pbmi->bmiHeader.biWidth + 7) /8 * pbmi->bmiHeader.biHeight * 24;
     pbmi->bmiHeader.biClrImportant = 0;
-
 
     pbih = (PBITMAPINFOHEADER) pbmi;
     lpBits = (LPBYTE) image;
@@ -3124,7 +3086,6 @@ void W3DDisplay::toggleMovieCapture(void)
 {
 	WW3D::Toggle_Movie_Capture("Movie",30);
 }
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 

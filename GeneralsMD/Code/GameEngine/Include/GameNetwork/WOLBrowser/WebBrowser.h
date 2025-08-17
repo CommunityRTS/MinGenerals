@@ -74,8 +74,6 @@ public:
 
 };
 
-
-
 class WebBrowser :
 		public FEBDispatch<WebBrowser, IBrowserDispatch, &IID_IBrowserDispatch>,
 		public SubsystemInterface

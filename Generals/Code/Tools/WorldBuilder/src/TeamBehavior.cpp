@@ -37,7 +37,6 @@ TeamBehavior::TeamBehavior()
 	//}}AFX_DATA_INIT
 }
 
-
 void TeamBehavior::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -45,7 +44,6 @@ void TeamBehavior::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(TeamBehavior, CPropertyPage)
 	//{{AFX_MSG_MAP(TeamBehavior)
@@ -103,7 +101,6 @@ void TeamBehavior::setupScript(NameKeyType keyScript, int idcScript)
 	pCombo->SetCurSel(stringNdx);
 }
 
-
 BOOL TeamBehavior::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
@@ -154,7 +151,6 @@ BOOL TeamBehavior::OnInitDialog()
 
 	CComboBox *pCombo = (CComboBox*)GetDlgItem(IDC_ENEMY_INTERACTIONS);
 	pCombo->SetCurSel(m_teamDict->getInt(TheKey_teamAggressiveness, &exists) - AI_SLEEP);
-
 
 	return FALSE;  // return TRUE unless you set the focus to a control
 								// EXCEPTION: OCX Property Pages should return FALSE

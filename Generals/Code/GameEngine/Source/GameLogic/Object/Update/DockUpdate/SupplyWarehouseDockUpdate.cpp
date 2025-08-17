@@ -69,7 +69,6 @@ SupplyWarehouseDockUpdateModuleData::SupplyWarehouseDockUpdateModuleData( void )
 
 }  // end buildFieldParse
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 SupplyWarehouseDockUpdate::SupplyWarehouseDockUpdate( Thing *thing, const ModuleData* moduleData ) : DockUpdate( thing, moduleData )
@@ -134,7 +133,6 @@ Bool SupplyWarehouseDockUpdate::action( Object* docker, Object *drone )
 	else
 		++m_boxesStored; //take it back, since there was noone to gain the box
   									 //this is important so that I have one less boxes as perceived by the docker when he gains one
-
 
 	return FALSE;
 }

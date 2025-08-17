@@ -37,7 +37,6 @@
 #include "GameClient/DisplayString.h"
 #include "GameClient/DisplayStringManager.h"
 
-
 Int	IMECandidateWindowLineSpacing = 2;
 
 static DisplayString *Dstring = NULL;
@@ -139,7 +138,6 @@ void IMECandidateTextAreaDraw( GameWindow *window, WinInstanceData *instData )
 		textBorder	= window->winGetEnabledTextBorderColor();
 
 	}  // end else, just enabled
-
 
 	{
 		Real borderWidth = 1.0f;

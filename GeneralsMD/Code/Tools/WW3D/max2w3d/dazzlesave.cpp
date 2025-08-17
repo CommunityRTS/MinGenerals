@@ -36,13 +36,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "dazzlesave.h"
 #include "w3d_file.h"
 #include "util.h"
 #include "w3dappdata.h"
 #include "errclass.h"
-
 
 DazzleSaveClass::DazzleSaveClass
 (
@@ -75,8 +73,6 @@ DazzleSaveClass::DazzleSaveClass
 	strncpy(DazzleType,dazzle_data->DazzleType,sizeof(DazzleType));
 }
 
-
-
 int DazzleSaveClass::Write_To_File(ChunkSaveClass & csave)
 {
 	csave.Begin_Chunk(W3D_CHUNK_DAZZLE);
@@ -92,6 +88,4 @@ int DazzleSaveClass::Write_To_File(ChunkSaveClass & csave)
 	csave.End_Chunk();
 	return 0;
 }
-
-
 

@@ -39,14 +39,12 @@
  *   MeshConnectionsClass::Get_Proxy_Data -- name and transform for the specified proxy object *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "meshcon.h"
 #include "util.h"
 #include "SnapPoints.h"
 #include "w3dappdata.h"
 #include "geometryexporttask.h"
 #include "geometryexportcontext.h"
-
 
 /***********************************************************************************************
  * MeshConnectionsClass::MeshConnectionsClass -- Constructor                                   *
@@ -97,7 +95,6 @@ MeshConnectionsClass::MeshConnectionsClass
 	}
 }
 
-
 /***********************************************************************************************
  * MeshConnectionsClass::~MeshConnectionsClass -- Destructor                                   *
  *                                                                                             *
@@ -113,7 +110,6 @@ MeshConnectionsClass::MeshConnectionsClass
 MeshConnectionsClass::~MeshConnectionsClass(void)
 {
 }
-
 
 /***********************************************************************************************
  * MeshConnectionsClass::Get_Sub_Object_Data -- Returns the name and bone index for a given obj*
@@ -142,7 +138,6 @@ bool MeshConnectionsClass::Get_Sub_Object_Data (int mesh_idx, char **out_name, i
 	return true;
 }
 
-
 /***********************************************************************************************
  * MeshConnectionsClass::Get_Aggregate_Data -- name and bone for the given aggregate           *
  *                                                                                             *
@@ -169,7 +164,6 @@ bool MeshConnectionsClass::Get_Aggregate_Data(int mesh_idx, char **out_name, int
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * MeshConnectionsClass::Get_Proxy_Data -- name and transform for the specified proxy object   *

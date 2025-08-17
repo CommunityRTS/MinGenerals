@@ -57,7 +57,6 @@
 //external declarations of the Gadgets the callbacks can use
 WindowLayout *popupCommunicatorLayout = NULL;
 
-
 //-------------------------------------------------------------------------------------------------
 /** Input procedure for the left HUD */
 //-------------------------------------------------------------------------------------------------
@@ -263,7 +262,6 @@ WindowMsgHandledType LeftHUDInput( GameWindow *window, UnsignedInt msg,
 
 				const DrawableList *drawableList = TheInGameUI->getAllSelectedLocalDrawables(); // locally-owned only
 
-
  				// see if the user wants to move the tactical view
  				if (	drawableList->empty()
  					||	(! TheGlobalData->m_useAlternateMouse && msg == GWM_RIGHT_DOWN)
@@ -319,7 +317,6 @@ WindowMsgHandledType LeftHUDInput( GameWindow *window, UnsignedInt msg,
 				}  // end else
 
 			}
-
 
 	break;
 

@@ -45,4 +45,3 @@ void INI::parseWeaponTemplateDefinition( INI* ini )
 	WeaponStore::parseWeaponTemplateDefinition(ini);
 }
 
-

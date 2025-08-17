@@ -22,9 +22,7 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
-
 
 #ifndef __HEIGHTMAP_H_
 #define __HEIGHTMAP_H_
@@ -47,15 +45,12 @@
 // Adjust the triangles to make cliff sides most attractive.  jba.
 #define FLIP_TRIANGLES 1
 
-
 /// Custom render object that draws the heightmap and handles intersection tests.
 /**
 Custom W3D render object that's used to process the terrain.  It handles
 virtually everything to do with the terrain, including: drawing, lighting,
 scorchmarks and intersection tests.
 */
-
-
 
 class HeightMapRenderObjClass : public BaseHeightMapRenderObjClass
 {
@@ -69,7 +64,6 @@ public:
 	virtual void ReleaseResources(void);	///< Release all dx8 resources so the device can be reset.
 	virtual void ReAcquireResources(void);  ///< Reacquire all resources after device reset.
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface (W3D methods)
 	/////////////////////////////////////////////////////////////////////////////
@@ -82,7 +76,6 @@ public:
 	virtual void updateCenter(CameraClass *camera, RefRenderObjListIterator *pLightsIterator);
 
 	void renderExtraBlendTiles(void);			///< render 3-way blend tiles that have blend of 3 textures.
-
 
 	virtual void staticLightingChanged(void);
 	virtual	void adjustTerrainLOD(Int adj);
@@ -109,7 +102,6 @@ protected:
 	Int	m_numBlockColumnsInLastVB;///<a VB tile may be partially filled, this indicates how many 2x2 vertex blocks are filled.
 	Int	m_numBlockRowsInLastVB;///<a VB tile may be partially filled, this indicates how many 2x2 vertex blocks are filled.
 
-
 	UnsignedInt doTheDynamicLight(VERTEX_FORMAT *vb, VERTEX_FORMAT *vbMirror, Vector3*light, Vector3*normal, W3DDynamicLight *pLights[], Int numLights);
 	Int getXWithOrigin(Int x);
 	Int getYWithOrigin(Int x);
@@ -123,8 +115,6 @@ protected:
 	void renderTerrainPass(CameraClass *pCamera);	///< renders additional terrain pass.
 	Int	getNumExtraBlendTiles(Bool visible) { return visible?m_numVisibleExtraBlendTiles:m_numExtraBlendTiles;}
 	void freeIndexVertexBuffers(void);
-
-
 
 };
 

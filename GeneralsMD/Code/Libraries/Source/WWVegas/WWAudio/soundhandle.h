@@ -52,7 +52,6 @@ class SoundStreamHandleClass;
 class SoundBufferClass;
 class ListenerHandleClass;
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	SoundHandleClass
@@ -124,6 +123,5 @@ protected:
 	///////////////////////////////////////////////////////////////////
 	SoundBufferClass *	Buffer;
 };
-
 
 #endif //__SOUNDHANDLE_H

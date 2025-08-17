@@ -28,7 +28,6 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Lib/BaseType.h"
 #include "Common/RandomValue.h"
 #include "Common/CRC.h"
@@ -77,7 +76,6 @@ static UnsignedInt randomValue(UnsignedInt *seed)
 {
 	UnsignedInt ax;
 	UnsignedInt c = 0;
-
 
 	ADC(ax, seed[5], seed[4], c);   /*  mov     ax,seed+20  */
 	/*  add     ax,seed+16  */
@@ -394,7 +392,6 @@ Real GameClientRandomVariable::getValue( void ) const
 	}
 }
 
-
 //--------------------------------------------------------------------------------------------------------------
 // GameLogicRandomVariable
 //
@@ -437,5 +434,4 @@ Real GameLogicRandomVariable::getValue( void ) const
 			return 0.0f;
 	}
 }
-
 

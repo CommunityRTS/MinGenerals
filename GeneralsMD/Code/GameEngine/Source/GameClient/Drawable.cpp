@@ -114,7 +114,6 @@ static const char *TheDrawableIconNames[] =
 	NULL
 };
 
-
 /**
  * Returns a special DynamicAudioEventInfo which can be used to mark a sound as "no sound".
  * E.g. if m_customSoundAmbientInfo equals the value returned from this function, we
@@ -134,8 +133,6 @@ static DynamicAudioEventInfo  * getNoSoundMarker()
 
   return marker;
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -333,12 +330,10 @@ void Drawable::saturateRGB(RGBColor& color, Real factor)
 
 }
 
-
 //--- A MACRO TO APPLY TO TheTacticalView->getZoom() ------ To Clamp the return to a visually pleasing size
 //--- so that icons, emoticons, health bars, pips, etc, look reasonably solid and don't shimmer or tweed
 //#define CLAMP_ICON_ZOOM_FACTOR(n) (MAX(0.80f, MIN(1.00f, n)))
 #define CLAMP_ICON_ZOOM_FACTOR(n) (n)//nothing
-
 
 //-------------------------------------------------------------------------------------------------
 /** Drawables are lightweight, graphical entities which live on the GameClient,
@@ -1065,7 +1060,6 @@ const Vector3 * Drawable::getSelectionColor( void )	const
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** fades the object out gradually...how gradually is determined by number of frames */
 //-------------------------------------------------------------------------------------------------
@@ -1087,7 +1081,6 @@ void Drawable::fadeIn( UnsignedInt frames )		///< decloak object
 	m_timeToFade = frames;
 	m_timeElapsedFade = 0;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 const Real Drawable::getScale (void) const
@@ -1138,8 +1131,6 @@ void Drawable::setEffectiveOpacity( Real pulseFactor, Real explicitOpacity /* = 
 	m_effectiveStealthOpacity = m_stealthOpacity + pulseAmount;
 }		///< get alpha/opacity value used to override defaults when drawing.
 
-
-
 //-------------------------------------------------------------------------------------------------
 void Drawable::imitateStealthLook( Drawable& otherDraw )
 {
@@ -1152,14 +1143,6 @@ void Drawable::imitateStealthLook( Drawable& otherDraw )
   m_secondMaterialPassOpacity = otherDraw.getSecondMaterialPassOpacity();
 
 }
-
-
-
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** update is called once per frame */
@@ -1194,7 +1177,6 @@ void Drawable::updateDrawable( void )
 		}
 	}
 
-
 	if ( getTerrainDecalType() != TERRAIN_DECAL_NONE )
 	{
 		DrawModule** dm = getDrawModules();
@@ -1226,7 +1208,6 @@ void Drawable::updateDrawable( void )
 	}
 	else
 		m_decalOpacity = 0;
-
 
 	{
 
@@ -1564,7 +1545,6 @@ void Drawable::calcPhysicsXformHoverOrWings( const Locomotor *locomotor, Physics
 	const Real LATERAL_ACCEL_COEFF = locomotor->getLateralAccelCoef();
 	const Real UNIFORM_AXIAL_DAMPING = locomotor->getUniformAxialDamping();
 
-
 	// get object from logic
 	Object *obj = getObject();
 	if (obj == NULL)
@@ -1642,8 +1622,6 @@ void Drawable::calcPhysicsXformHoverOrWings( const Locomotor *locomotor, Physics
 	else if (m_locoInfo->m_accelerationRoll < -ACCEL_PITCH_LIMIT)
 		m_locoInfo->m_accelerationRoll = -ACCEL_PITCH_LIMIT;
 
-
-
 	const Real RUDDER_CORRECTION_DEGREE   = locomotor->getRudderCorrectionDegree();
 	const Real RUDDER_CORRECTION_RATE     = locomotor->getRudderCorrectionRate();
 	const Real ELEVATOR_CORRECTION_DEGREE = locomotor->getElevatorCorrectionDegree();
@@ -1651,7 +1629,6 @@ void Drawable::calcPhysicsXformHoverOrWings( const Locomotor *locomotor, Physics
 
   info.m_totalYaw = RUDDER_CORRECTION_DEGREE * sin( m_locoInfo->m_yawModulator += RUDDER_CORRECTION_RATE );
   info.m_totalPitch += ELEVATOR_CORRECTION_DEGREE * cos( m_locoInfo->m_pitchModulator += ELEVATOR_CORRECTION_RATE );
-
 
 	info.m_totalZ = 0.0f;
 }
@@ -1800,8 +1777,6 @@ void Drawable::calcPhysicsXformTreads( const Locomotor *locomotor, PhysicsXformI
 		if (physics->getPreviousOverlap() != INVALID_ID && m_locoInfo->m_overlapZ > 0.0f)
 			m_locoInfo->m_pitchRate += LEAVE_OVERLAP_PITCH_KICK;
 	}
-
-
 
 	Real dot = normal.x * dir->x + normal.y * dir->y;
 	Real groundPitch = dot * (PI/2.0f);
@@ -2360,7 +2335,6 @@ void Drawable::calcPhysicsXformMotorcycle( const Locomotor *locomotor, PhysicsXf
 	// compute total pitch and roll of tank
 	info.m_totalPitch = m_locoInfo->m_pitch + m_locoInfo->m_accelerationPitch;
 
-
   // THis logic had recently been added to Drawable::applyPhysicsXform(), which was naughty, since it clamped the roll in every drawable in the game
   // Now only motorcycles enjoy this constraint
   Real unclampedRoll = m_locoInfo->m_roll + m_locoInfo->m_accelerationRoll;
@@ -2505,7 +2479,6 @@ void Drawable::calcPhysicsXformMotorcycle( const Locomotor *locomotor, PhysicsXf
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** decodes the current previous damage type and sets the ambient sound set from that. */
 //-------------------------------------------------------------------------------------------------
@@ -2545,7 +2518,6 @@ void Drawable::validatePos() const
 	}
 }
 #endif
-
 
 //=============================================================================
 void Drawable::setStealthLook(StealthLookType look)
@@ -2629,7 +2601,6 @@ void Drawable::setStealthLook(StealthLookType look)
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** default draw is to just call the database defined draw */
 //-------------------------------------------------------------------------------------------------
@@ -2646,14 +2617,11 @@ void Drawable::draw( View *view )
 		  m_secondMaterialPassOpacity = 0.0f;
   }
 
-
 	if (m_hidden || m_hiddenByStealth || getFullyObscuredByShroud())
 		return;	// my, that was easy
 
 	if ( getObject() && !getObject()->isEffectivelyDead() )
 		setShadowsEnabled( m_stealthLook != STEALTHLOOK_VISIBLE_DETECTED );
-
-
 
 #ifdef _DEBUG
 	validatePos();
@@ -2727,7 +2695,6 @@ static Bool computeHealthRegion( const Drawable *draw, IRegion2D& region )
 
 }  // end computeHealthRegion
 
-
 // ------------------------------------------------------------------------------------------------
 
 Bool Drawable::drawsAnyUIText( void )
@@ -2752,7 +2719,6 @@ Bool Drawable::drawsAnyUIText( void )
 
 	return FALSE;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** This is called as part of the "post draw" phase when drawable a drawable.  It is there
@@ -2786,7 +2752,6 @@ void Drawable::drawIconUI( void )
 			return;
 		drawHealing( healthBarRegion );//call so dead things can kill their healing icons
 		drawBombed( healthBarRegion );
-
 
 		//Disabled for multiplay!
 		//drawBattlePlans( healthBarRegion );
@@ -2900,8 +2865,6 @@ void Drawable::drawAmmo( const IRegion2D *healthBarRegion )
 
 	if (!s_fullAmmo || !s_emptyAmmo)
 		return;
-
-
 
 #ifdef SCALE_ICONS_WITH_ZOOM_ML
 	Real scale = TheGlobalData->m_ammoPipScaleFactor / CLAMP_ICON_ZOOM_FACTOR( TheTacticalView->getZoom() );
@@ -3017,7 +2980,6 @@ void Drawable::drawBattlePlans( const IRegion2D *healthBarRegion )
 	{
 		return;
 	}
-
 
 	Player *player = obj->getControllingPlayer();
 	if( player && player->getNumBattlePlansActive() > 0 && player->doesObjectQualifyForBattlePlan( obj ) )
@@ -3153,13 +3115,11 @@ void Drawable::drawUIText()
 
 		m_groupNumber = TheDisplayStringManager->getGroupNumeralString(groupNum);
 
-
 		m_groupNumber->draw(xPos, yPos, color,
 												TheDrawGroupInfo->m_colorForTextDropShadow,
 												TheDrawGroupInfo->m_dropShadowOffsetX,
 												TheDrawGroupInfo->m_dropShadowOffsetY);
 	}
-
 
 	if ( obj->getFormationID() != NO_FORMATION_ID )
 	{
@@ -3176,7 +3136,6 @@ void Drawable::drawUIText()
 
 		Real scale = 1.3f/CLAMP_ICON_ZOOM_FACTOR( TheTacticalView->getZoom() );
 		screenCenter.x += (healthBoxWidth * scale * 0.5f) + 10 ;
-
 
 		DisplayString *formationMarker = TheDisplayStringManager->getFormationLetterString();
 		//static DisplayString *formationMarker = TheDisplayStringManager->getGroupNumeralString( 5 );
@@ -3218,7 +3177,6 @@ void Drawable::drawUIText()
 
 					m_groupNumber = TheDisplayStringManager->getGroupNumeralString(index);
 
-
 					m_groupNumber->draw(xPos, yPos, color,
 															TheDrawGroupInfo->m_colorForTextDropShadow,
 															TheDrawGroupInfo->m_dropShadowOffsetX,
@@ -3241,7 +3199,6 @@ void Drawable::drawHealing(const IRegion2D* healthBarRegion)
 	// we do show show icons for things that explicitly forbid it
 	if( obj->isKindOf( KINDOF_NO_HEAL_ICON ) || obj->getStatusBits().test( OBJECT_STATUS_SOLD ) )
 		return;
-
 
 	// see if healing has been done to us recently
 	Bool showHealing = FALSE;
@@ -3346,9 +3303,6 @@ void Drawable::drawEnthusiastic(const IRegion2D* healthBarRegion)
 		if (obj->testWeaponBonusCondition( WEAPONBONUSCONDITION_SUBLIMINAL ) == TRUE )// unless...
 			iconIndex = ICON_ENTHUSIASTIC_SUBLIMINAL;
 
-
-
-
 		if( getIconInfo()->m_icon[ iconIndex ] == NULL )
 			getIconInfo()->m_icon[ iconIndex ] = newInstance(Anim2D)( s_animationTemplates[ iconIndex ], TheAnim2DCollection );
 
@@ -3403,7 +3357,6 @@ void Drawable::drawDemoralized(const IRegion2D* healthBarRegion)
 {
 
 	const Object *obj = getObject();
-
 
 	//
 	// Demoralized
@@ -3460,7 +3413,6 @@ void Drawable::drawBombed(const IRegion2D* healthBarRegion)
 {
 
 	const Object *obj = getObject();
-
 
 	UnsignedInt now = TheGameLogic->getFrame();
 
@@ -3600,7 +3552,6 @@ void Drawable::drawBombed(const IRegion2D* healthBarRegion)
 						Int frameWidth = getIconInfo()->m_icon[ ICON_BOMB_REMOTE ]->getCurrentFrameWidth();
 						Int frameHeight = getIconInfo()->m_icon[ ICON_BOMB_REMOTE ]->getCurrentFrameHeight();
 
-
 						// adjust the width to be a % of the health bar region size
 						Int size = REAL_TO_INT( barWidth * 0.65f );
 						frameHeight = REAL_TO_INT((INT_TO_REAL(size) / INT_TO_REAL(frameWidth)) * frameHeight);
@@ -3639,7 +3590,6 @@ void Drawable::drawDisabled(const IRegion2D* healthBarRegion)
 {
 
 	const Object *obj = getObject();
-
 
 	//
 	// Disabled Emoticon /Lightning
@@ -3726,7 +3676,6 @@ void Drawable::drawConstructPercent( const IRegion2D *healthBarRegion )
 	if( m_lastConstructDisplayed != obj->getConstructionPercent() )
 	{
 		UnicodeString buffer;
-
 
 		buffer.format( TheGameText->fetch("CONTROLBAR:UnderConstructionDesc"), obj->getConstructionPercent());
 		m_constructDisplayString->setText( buffer );
@@ -3816,7 +3765,6 @@ void Drawable::drawVeterancy( const IRegion2D *healthBarRegion )
 #else
 	Real objScale = 1.0f;
 #endif
-
 
 	Real vetBoxWidth  = image->getImageWidth()*objScale;
 	Real vetBoxHeight = image->getImageHeight()*objScale;
@@ -3938,11 +3886,7 @@ void Drawable::drawHealthBar(const IRegion2D* healthBarRegion)
 			color =        GameMakeColor( 255.0 * inColor.red, 255.0 * inColor.green, 255.0 * inColor.blue, 255);
 			outlineColor = GameMakeColor( 255.0 * outColor.red, 255.0 * outColor.green, 255.0 * outColor.blue, 255);
 
-
 		}
-
-
-
 
 ///		Real scale = 1.3f / TheTacticalView->getZoom();
 		Real healthBoxWidth = healthBarRegion->hi.x - healthBarRegion->lo.x;
@@ -4292,7 +4236,6 @@ void Drawable::setInstanceMatrix( const Matrix3D *instance )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /**
  * Return the Drawable's world transform.
@@ -4378,7 +4321,6 @@ void	Drawable::setTimeOfDay(TimeOfDay tod)
 	replaceModelConditionFlags(c);
 }
 
-
 /**
  * If you wish to change some parameters of the default ambient sound, but keep the rest,
  * this function will give you the default ambient sound's info
@@ -4454,7 +4396,6 @@ void Drawable::clearCustomSoundAmbient( bool restartSound )
   }
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Attach and start playing an ambient sound to this drawable */
 //-------------------------------------------------------------------------------------------------
@@ -4506,7 +4447,6 @@ void Drawable::startAmbientSound(BodyDamageType dt, TimeOfDay tod, Bool onlyIfPe
 		  }
 	  }
   }
-
 
 	if( trySound && m_ambientSound )
 	{
@@ -4619,7 +4559,6 @@ void Drawable::enableAmbientSoundFromScript( Bool enable )
     stopAmbientSound();
   }
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** add self to the linked list */
@@ -5049,7 +4988,6 @@ void Drawable::xfer( Xfer *xfer )
 
 			}  // end if
 
-
 		}  // end if
 		else
 		{
@@ -5071,7 +5009,6 @@ void Drawable::xfer( Xfer *xfer )
 		}  // end else
 
 	}  // end if
-
 
 	// particle
 	// we don't need to worry about this, the particle itself will set it upon loading
@@ -5155,7 +5092,6 @@ void Drawable::xfer( Xfer *xfer )
 
 	// stealth look
 	xfer->xferUser( &m_stealthLook, sizeof( StealthLookType ) );
-
 
 	// flash count
 	xfer->xferInt( &m_flashCount );
@@ -5302,7 +5238,6 @@ void Drawable::xfer( Xfer *xfer )
 		}
 	}
 
-
 	//
 	// when saving we should never have dirty modules, but when loading we will force the modules
 	// to be dirty just to be sure that they get re-evaluated after the load
@@ -5328,7 +5263,6 @@ void Drawable::xfer( Xfer *xfer )
   {
     xfer->xferBool( &m_ambientSoundEnabledFromScript );
   }
-
 
   if ( version >= 7 )
   {

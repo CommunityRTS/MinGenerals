@@ -269,7 +269,6 @@ void PopulatePlayerTemplateComboBox(Int comboBox, GameWindow *comboArray[], Game
 		if (disallowLockedGenerals && startsLocked)
 			continue;
 
-
 		AsciiString side;
 		side.format("SIDE:%s", fac->getSide().str());
 		if (seenSides.find(side) != seenSides.end())

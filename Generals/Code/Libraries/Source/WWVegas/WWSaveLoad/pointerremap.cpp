@@ -34,14 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "pointerremap.h"
 #include "refcount.h"
 #include "wwdebug.h"
 
-
 const int POINTER_TABLES_GROWTH_STEP = 4096;
-
 
 PointerRemapClass::PointerRemapClass(void)
 {
@@ -206,5 +203,4 @@ int __cdecl PointerRemapClass::ptr_request_compare_function(void const * ptr1, v
 	}
 	return(1);
 }
-
 

@@ -68,14 +68,6 @@ wchar_t *localeStringsMissing[ MISSING_STRING_HINTS_MAX ] =
 	{ L"19 UNKNOWN MESSAGE"	}
 };
 
-
-
-
-
-
-
-
-
 /****************************************************************************/
 /* DEFINES			                                                        */
 /****************************************************************************/
@@ -89,7 +81,6 @@ wchar_t *localeStringsMissing[ MISSING_STRING_HINTS_MAX ] =
 #define		LANGUAGE_IS_DBCS(l)	(((l)==IDL_JAPANESE)||((l)==IDL_KOREAN)||((l)==IDL_CHINESE))		// [OYO]
 #define		CODEPAGE_IS_DBCS(C)	((C==932)||(C==949)||(C==950))										// [OYO]
 
-
 /****************************************************************************/
 /* GLOBAL VARIABLES                                                         */
 /****************************************************************************/
@@ -100,12 +91,10 @@ int			LanguageID		= 0;
 int			PrimaryLanguage = LANG_NEUTRAL;
 int			SubLanguage		= SUBLANG_DEFAULT;
 
-
 /****************************************************************************/
 /* LOCALE API                                                               */
 /****************************************************************************/
 wchar_t *	Remove_Quotes_Around_String ( wchar_t *old_string );
-
 
 //=============================================================================
 // These are wrapper functions around the LOCALE_ functions.  I made these to
@@ -120,7 +109,6 @@ bool Locale_Use_Multi_Language_Files ( void )
 	return false;
 #endif
 }
-
 
 /****************************************************************************/
 /* initialization															*/
@@ -414,6 +402,4 @@ wchar_t *Remove_Quotes_Around_String ( wchar_t *old_string )
 
 	return( old_string );
 }
-
-
 

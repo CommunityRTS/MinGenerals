@@ -57,7 +57,6 @@
 #define	IFFize_WORD(a)			Reverse_Word(a)
 #define	IFFize_LONG(a)			Reverse_Long(a)
 
-
 //lint -strong(AJX,PicturePlaneType)
 typedef enum {
 	BM_AMIGA,	// Bit plane format (8K per bitplane).
@@ -93,7 +92,6 @@ typedef struct {
 	short	Skip;			// Number of bytes to skip before data.
 } CompHeaderType;
 
-
 /*=========================================================================*/
 /* The following prototypes are for the file: IFF.CPP								*/
 /*=========================================================================*/
@@ -104,13 +102,11 @@ unsigned long __cdecl Get_Iff_Chunk_Size(int fh, long id);
 unsigned long __cdecl Read_Iff_Chunk(int fh, long id, void *buffer, unsigned long maxsize);
 void __cdecl Write_Iff_Chunk(int file, long id, void *buffer, long length);
 
-
 /*=========================================================================*/
 /* The following prototypes are for the file: LOADPICT.CPP						*/
 /*=========================================================================*/
 
 //int __cdecl Load_Picture(char const *filename, BufferClass& scratchbuf, BufferClass& destbuf, unsigned char *palette=NULL, PicturePlaneType format=BM_DEFAULT);
-
 
 /*=========================================================================*/
 /* The following prototypes are for the file: LOAD.CPP							*/
@@ -128,8 +124,6 @@ void __cdecl Set_Uncomp_Buffer(int buffer_segment, int size_of_buffer);
 /*=========================================================================*/
 
 //bool Write_LBM_File(int lbmhandle, BufferClass& buff, int bitplanes, unsigned char *palette);
-
-
 
 /*========================= Assembly Functions ============================*/
 
@@ -159,7 +153,5 @@ extern unsigned long __cdecl LCW_Uncompress(void *source, void *dest, unsigned l
 }
 #endif
 /*=========================================================================*/
-
-
 
 #endif //IFF_H

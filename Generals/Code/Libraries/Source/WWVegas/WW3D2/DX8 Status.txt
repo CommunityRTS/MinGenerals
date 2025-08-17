@@ -11,7 +11,6 @@ LIMITATIONS/POTENTIAL PROBLEMS:
 - HY: Simplescene supports only four global lights
 - HY: WW3D Spoltlights have an approximate inverse linear attentuation instead of max linear attentuation
 
-
 UPDATED TODO LIST:
 agg_def:
 	- Texture replacement feature needs to be implemented
@@ -154,7 +153,6 @@ MeshMatDescClass::MAX_PASSES and MeshBuilderClass::MAX_PASSES. We need to clean 
 Features we are removing support for (will need application changes):
 	- indirect textures (we will provide a (slow) function to swap textures)
 
-
 Ok, the WW3D2 skeleton program compiles and links now with no references to SR.  Some files I took more care on, others I blocked out the entire file for later.  Every piece of code is wrapped with #ifdef WW3D_DX8 with a matching #endif and comment, there should be no typo's in the #ifdef's because I used a macro to insert them all (so we can do searches and safely assume that we see all of them).
 Here are some (raw) notes I took while commenting out all references to SR:
 
@@ -228,7 +226,6 @@ X - vertexbuffer.cpp - not sure what this is, uses srVectorProcessor
  -- if the vertex material detects a null mapper the defaults are set.
 - Make Dynamesh support Cast_Ray so that the E&B intersection code works!
 
-
 Shaders have been converted to Shader->Apply() and the state is being tracked by the shader class.
 Materials have been converted to Material->Apply() which calls Mapper->Apply()
 
@@ -255,7 +252,6 @@ SOLUTION: There will be a custom alpha sorting/rendering system.  RenderObjects 
 UNIX - It looks like Neal has put some effort into making ww3d compile under Unix.  We will probably make life very difficult for him if there are DX8 calls all over the place :-)
 SOLUTION: UNIX version of E&B will not use WW3D2.  It only needs collision detection so we'll implement a custom solution.
 
-
 Optimizations:
 ==============
 * Currently we search a linear list for textures with the same name every time we ask
@@ -263,7 +259,6 @@ the asset manager for a new texture. We should probably use the hashtable templa
 for this instead.
 * The VectorProcessorClass stuff is completely unoptimized - we might want to
 optimize this in future.
-
 
 ********* NEW STUFF ************
 DX8 Features which we currently do not support and might want to in future:

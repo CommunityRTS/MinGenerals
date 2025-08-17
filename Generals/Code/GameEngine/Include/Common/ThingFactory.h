@@ -114,7 +114,6 @@ private:
 	*/
 	ThingTemplate* newOverride( ThingTemplate *thingTemplate );
 
-
 	/**
 		This now does a search through the hashmap, and returns the associated thing template
 		This should speed up load times dramatically, as we've been wasting lots of time in this
@@ -134,7 +133,6 @@ private:
 
 // EXTERN /////////////////////////////////////////////////////////////////////////////////////////
 extern ThingFactory *TheThingFactory;  ///< the template singleton
-
 
 #endif // __THINGFACTORY_H_
 

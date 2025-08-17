@@ -45,7 +45,6 @@
 #include "w3dutil.h"
 #include "resource.h"
 
-
 class MeshConnectionsClass;
 class GeometryExportTaskClass;
 
@@ -117,6 +116,5 @@ private:
 	void End_Progress_Bar(void);
 
 };
-
 
 #endif

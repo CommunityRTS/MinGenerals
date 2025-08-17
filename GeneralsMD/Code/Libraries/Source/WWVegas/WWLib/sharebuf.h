@@ -41,7 +41,6 @@
 #define SHAREBUF_H
 #include "refcount.h"
 
-
 /*
 ** SharedBufferClass - a templatized class for buffers which are shared
 ** between different objects. This is essentially just a C array with a
@@ -146,6 +145,5 @@ void ShareBufferClass<T>::Clear(void)
 {
 	memset(Array,0,Count * sizeof(T));
 }
-
 
 #endif // SHAREBUF_H

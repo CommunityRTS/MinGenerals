@@ -48,7 +48,6 @@
 #include	"xsurface.h"
 //#include	<stdlib.h>
 
-
 /***********************************************************************************************
  * Buffer_Size -- Determines size of buffer for given dimensions.                              *
  *                                                                                             *
@@ -73,7 +72,6 @@ int Buffer_Size(Surface const & surface, int width, int height)
 {
 	return(width * height * surface.Bytes_Per_Pixel());
 }
-
 
 /***********************************************************************************************
  * To_Buffer -- Copies a graphic region into a linear RAM buffer.                              *
@@ -103,7 +101,6 @@ bool To_Buffer(Surface const & surface, Rect const & rect, Buffer & buffer)
 	return(from.Blit_From(Rect(0, 0, rect.Width, rect.Height), surface, rect));
 }
 
-
 /***********************************************************************************************
  * From_Buffer -- Copy graphic data from a buffer to a surface.                                *
  *                                                                                             *
@@ -130,8 +127,6 @@ bool From_Buffer(Surface & surface, Rect const & rect, Buffer const & buffer)
 	BSurface from(rect.Width, rect.Height, surface.Bytes_Per_Pixel(), buffer);
 	return(surface.Blit_From(rect, from, Rect(0, 0, rect.Width, rect.Height)));
 }
-
-
 
 /***********************************************************************************************
  * Bit_Blit -- Blits data to a surface w/ clipping.                                            *
@@ -168,7 +163,6 @@ bool Bit_Blit(Surface & dest, Rect const & destrect, Surface const & source, Rec
 {
 	return(Bit_Blit(dest, dest.Get_Rect(), destrect, source, source.Get_Rect(), sourcerect, blitter));
 }
-
 
 /***********************************************************************************************
  * Bit_Blit -- Blit a block of pixels to the destination surface.                              *
@@ -271,7 +265,6 @@ bool Bit_Blit(Surface & dest, Rect const & dcliprect, Rect const & ddrect, Surfa
 	return(true);
 }
 
-
 /***********************************************************************************************
  * RLE_Blit -- Blits RLE compressed data without extra clipping.                               *
  *                                                                                             *
@@ -304,7 +297,6 @@ bool RLE_Blit(Surface & dest, Rect const & destrect, Surface const & source, Rec
 {
 	return(RLE_Blit(dest, dest.Get_Rect(), destrect, source, source.Get_Rect(), sourcerect, blitter));
 }
-
 
 /***********************************************************************************************
  * RLE_Blit -- Blits a rectangle of RLE compressed data to a surface.                          *
@@ -411,5 +403,4 @@ bool RLE_Blit(Surface & dest, Rect const & dcliprect, Rect const & ddrect, Surfa
 
 	return(true);
 }
-
 

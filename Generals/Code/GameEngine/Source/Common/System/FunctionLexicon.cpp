@@ -72,7 +72,6 @@ static FunctionLexicon::TableEntry gameWinDrawTable[] =
 static FunctionLexicon::TableEntry gameWinSystemTable[] =
 {
 
-
 	{ NAMEKEY_INVALID, "PassSelectedButtonsToParentSystem",	PassSelectedButtonsToParentSystem },
 	{ NAMEKEY_INVALID, "PassMessagesToParentSystem",				PassMessagesToParentSystem },
 
@@ -226,7 +225,6 @@ static FunctionLexicon::TableEntry gameWinInputTable[] =
 // game window tooltip table ----------------------------------------------------------------------
 static FunctionLexicon::TableEntry gameWinTooltipTable[] =
 {
-
 
 	{ NAMEKEY_INVALID, "GameWinDefaultTooltip",		GameWinDefaultTooltip },
 

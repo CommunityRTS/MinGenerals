@@ -81,18 +81,15 @@
 #include <wpaudio/thread.h>
 #include <wpaudio/win32.h>
 
-
 /*****************************************************************************
 **							  	  Includes									**
 *****************************************************************************/
 
 #include <wpaudio/driver.h>       	/* prototypes for driver code */
 
-
 /*****************************************************************************
 **								   Externals								**
 *****************************************************************************/
-
 
 /*****************************************************************************
 **								   Defines									**
@@ -165,7 +162,6 @@ typedef struct _transfer
 
 typedef int (CB_TRANSFER) ( struct AudioDriverChannelTag *, uint8 *dst, int *dst_bytes, uint8 *src , int *src_bytes );
 
-
 typedef struct  AudioDriverChannelTag
 {
 						AudioChannel				*chan;			/* WCORE channel we belong to */
@@ -190,7 +186,6 @@ typedef struct  AudioDriverChannelTag
 	volatile	int									silence_left;	/* bytes of silence left to fill */
 						int									min_fill;		/* debug */
 
-
 	/* buffer */
 						AudioFormat					format;			/* current buffer format */
 						LPDIRECTSOUNDBUFFER dsbuf;			/* Direct sound buffer interface */
@@ -206,15 +201,11 @@ typedef struct  AudioDriverChannelTag
 	volatile	int									original_frame;
 	volatile	int									original_dst_pos;
 
-
 } AUD_DRV_CHAN;
-
-
 
 /*****************************************************************************
 **								 Private Data								**
 *****************************************************************************/
-
 
 static AUD_Thread			*thread = NULL;
 static Lock						drv_ref;
@@ -222,7 +213,6 @@ static Lock						drv_ref;
 #ifdef _DEBUG
 int mixer_skip = 0;
 #endif
-
 
 static 	AudioDriver _AUD_driver =
 {
@@ -306,7 +296,6 @@ static		CB_DECODE		IMA_decode_block;
 static		CB_DECODE		MS_decode_block;
 //static		int			AUD_set_dev_format ( AudioDevice *dev, AudioFormat *format );
 
-
 /*****************************************************************************
 **							   Private Functions							**
 *****************************************************************************/
@@ -315,7 +304,6 @@ static		CB_DECODE		MS_decode_block;
 /*                                                                */
 /*                                                                */
 /******************************************************************/
-
 
 static void transfer_init ( TRANSFER *trans )
 {
@@ -414,7 +402,6 @@ static int	ADPCM_transfer ( AUD_DRV_CHAN *ci, uint8 *dst, int *dst_bytes, uint8 
 	{
 		dbytes = *dst_bytes;
 	}
-
 
 	while ( !done )
 	{
@@ -526,7 +513,6 @@ static int	ADPCM_transfer ( AUD_DRV_CHAN *ci, uint8 *dst, int *dst_bytes, uint8 
 	}
 	return TRUE;
 }
-
 
 /******************************************************************/
 /*                                                                */
@@ -681,7 +667,6 @@ static		int	AUD_service_device ( AUD_Thread *thread, void *data )
 		}
 	#endif
 
-
 	if ( NotLocked ( &dev->channelAccess) )
 	{
 		TimeStamp now = AudioGetTime () ;
@@ -731,7 +716,6 @@ static		int			AUD_same_format ( AudioFormat *f1, AudioFormat *f2 )
 /*                                                                */
 /******************************************************************/
 
-
 void		AUD_set_wave_format ( WAVEFORMATEX *pcmwf, AudioFormat *format )
 {
     memset ( pcmwf, 0, sizeof(WAVEFORMATEX) );
@@ -756,7 +740,6 @@ static		int	AUD_create_pcm_buffer ( AUD_DRV_CHAN *ci,  AudioFormat *format )
 
 	DBG_Function ("DSND2:AUD_create_pcm_buffer");
 
-
 	AudioChannelSetFormat ( ci->chan, format );
 
 	if ( ci->dsbuf )
@@ -769,7 +752,6 @@ static		int	AUD_create_pcm_buffer ( AUD_DRV_CHAN *ci,  AudioFormat *format )
 		}
 		ci->chan->drv_format_changed = TRUE;
 	}
-
 
 	/* we need to recreate the buffer */
 	AUD_destroy_pcm_buffer ( ci );
@@ -825,15 +807,12 @@ static		int	AUD_create_pcm_buffer ( AUD_DRV_CHAN *ci,  AudioFormat *format )
 
 #endif
 
-
 	ci->buf_size = desc.dwBufferBytes;
 //	DBGPRINTF (("Sound buffer size = %d bytes\n", ci->buf_size ));
 
 	return vNO_ERROR;
 
 }
-
-
 
 /******************************************************************/
 /*                                                                */
@@ -957,7 +936,6 @@ static		void	AUD_new_buffer_src ( AUD_DRV_CHAN *ci )
 	{
 		return;
 	}
-
 
 	if ( !( format = ci->chan->sample->Format ) )
 	{
@@ -1108,8 +1086,6 @@ static		int	AUD_fill_buffer ( AUD_DRV_CHAN *ci,  int total_bytes )
 
 	DBG_Function ("DSND2:AUD_fill_buffer");
 
-
-
 	while ( total_bytes > 0  )
 	{
 		/* check for buffer wrap roun */
@@ -1146,7 +1122,6 @@ static		int	AUD_fill_buffer ( AUD_DRV_CHAN *ci,  int total_bytes )
 		}
 
 		dst = lpos1;
-
 
 		while ( bytes )
 		{
@@ -1248,8 +1223,6 @@ done:
 		locked = FALSE;
 	}
 
-
-
 	return result;
 
 }
@@ -1348,7 +1321,6 @@ static  int      audioLoad ( AudioSystem *system )
 	result = AUD_sound_object->SetCooperativeLevel( AudioGetWindowsHandle () , DSSCL_PRIORITY);
 	system->numUnits = 1;	/* tell WCORE that there is only 1 audio unit */
 
-
 	if ( !thread )
 	{
 		LockInit ( &drv_ref );
@@ -1363,7 +1335,6 @@ static  int      audioLoad ( AudioSystem *system )
 	{
 		LockAcquire ( &drv_ref );
 	}
-
 
 	return vNO_ERROR;
 }
@@ -1447,10 +1418,8 @@ static  int   audioOpen ( AudioDevice *dev )
 
 		}
 
-
 		AUD_primary_buffer->Play ( 0, 0, DSBPLAY_LOOPING );
 	}
-
 
 		dev->frames = vAUD_DRV_FRAMES;
 		dev->over_sample = vAUD_DRV_OVER_SAMPLE;
@@ -1561,7 +1530,6 @@ static  int		audioStart ( AudioChannel *chan )
 	AUD_new_buffer_src ( ci );
 	AUD_set_buffer_src ( ci  );		/* attach source to buffer */
 
-
 	if ( !AUD_fill_buffer ( ci, ci->buf_size ))	/* pre-fill buffer to max */
 	{
 		DBGPRINTF (( "Failed to prefill buffer\n"));
@@ -1612,7 +1580,6 @@ static  int		audioPause ( AudioChannel *chan )
 	{
 		ci->dsbuf->Stop ();
 	}
-
 
 	return vNO_ERROR;
 }
@@ -1675,7 +1642,6 @@ static  int		audioUpdate ( AudioChannel *chan )
 	HRESULT			stat;
 
 	ci = chan->drvData;
-
 
 	vol = AudioLevelApply ( &chan->attribs.VolumeLevel, 100 );
 
@@ -1821,7 +1787,6 @@ void	AudioCauseMixerDelay ( void )
 
 }
 
-
 #include <stdio.h>
 
 void		AudioDeviceDumpDXSNDDriver ( AudioDevice *dev, void (*print) ( const char *) )
@@ -1832,8 +1797,6 @@ void		AudioDeviceDumpDXSNDDriver ( AudioDevice *dev, void (*print) ( const char 
 
 	DBG_Function ("AudioDeviceDumpChannels");
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
-
-
 
 	LockAcquire ( &dev->channelAccess);
 
@@ -1862,7 +1825,6 @@ void		AudioDeviceDumpDXSNDDriver ( AudioDevice *dev, void (*print) ( const char 
 
 }
 #endif
-
 
 // IMA ADPCM Support
 
@@ -1977,7 +1939,6 @@ static int IMA_decode_block (  AUD_DRV_CHAN *ci )
 		data->out_bytes += 2;
 	}
 
-
 	if ( data->channels == 1 )
 	{
 		// 99.99% of the samples being played are mono
@@ -2034,7 +1995,6 @@ static int IMA_decode_block (  AUD_DRV_CHAN *ci )
 /* Microsoft ADPCM Support Functions Section                                      */
 /****************************************************************************/
 
-
 static const int adaptionTable[] = {
 	230, 230, 230, 230, 307, 409, 512, 614,
 	768, 614, 512, 409, 307, 230, 230, 230
@@ -2066,7 +2026,6 @@ static short MSAdpcmDecode( unsigned char nibble, MS_DATA *ms, int sample1, int 
 
 	return (short) newsample;
 }
-
 
 static int MS_decode_block (  AUD_DRV_CHAN *ci )
 {
@@ -2168,7 +2127,6 @@ static int MS_decode_block (  AUD_DRV_CHAN *ci )
 
 	return TRUE;
 }
-
 
 // Stubs
 

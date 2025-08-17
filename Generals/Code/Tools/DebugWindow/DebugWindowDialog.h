@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "Resource.h"
 #include <map>			// for std::pair
 #include <string>		// for std::string
@@ -28,7 +27,6 @@ typedef std::vector<std::string>			VecString;
 
 typedef std::vector<PairString>::iterator	VecPairStringIt;
 typedef std::vector<std::string>::iterator	VecStringIt;
-
 
 class DebugWindowDialog : public CDialog
 {
@@ -57,8 +55,6 @@ class DebugWindowDialog : public CDialog
 		bool					mStepping;
 		bool					mRunFast;
 
-
-
 		VecPairString	mVariables;
 		VecString		mMessages;
 
@@ -76,7 +72,5 @@ class DebugWindowDialog : public CDialog
 		afx_msg void OnClearWindows();
 		afx_msg void OnClose();
 		DECLARE_MESSAGE_MAP()
-
-
 
 };

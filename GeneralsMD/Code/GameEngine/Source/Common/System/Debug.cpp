@@ -45,7 +45,6 @@
 // SYSTEM INCLUDES
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 // USER INCLUDES
 #define DEBUG_THREADSAFE
 #ifdef DEBUG_THREADSAFE
@@ -715,7 +714,6 @@ void ReleaseCrash(const char *reason)
    "Technical Difficulties...",
    MB_OK|MB_SYSTEMMODAL|MB_ICONERROR);
 
-
 #endif
 
 	_exit(1);
@@ -731,7 +729,6 @@ void ReleaseCrashLocalized(const AsciiString& p, const AsciiString& m)
 
 	UnicodeString prompt = TheGameText->fetch(p);
 	UnicodeString mesg = TheGameText->fetch(m);
-
 
 	/// do additional reporting on the crash, if possible
 

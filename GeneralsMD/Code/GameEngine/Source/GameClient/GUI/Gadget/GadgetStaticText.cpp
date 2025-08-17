@@ -109,7 +109,6 @@ WindowMsgHandledType GadgetStaticTextInput( GameWindow *window, UnsignedInt msg,
   }
 	return MSG_HANDLED;
 
-
 }  // end GadgetStaticTextInput
 
 // GadgetStaticTextSystem =====================================================

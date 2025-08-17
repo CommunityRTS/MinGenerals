@@ -241,7 +241,6 @@ void GameInfoWindowInit( WindowLayout *layout, void *userData )
 
 }  // end MapSelectMenuInit
 
-
 //-------------------------------------------------------------------------------------------------
 /** GameInfo window system callback */
 //-------------------------------------------------------------------------------------------------
@@ -253,7 +252,6 @@ WindowMsgHandledType GameInfoWindowSystem( GameWindow *window, UnsignedInt msg,
 // might use these later
 //			GameWindow *control = (GameWindow *)mData1;
 //			Int controlID = control->winGetWindowId();
-
 
 		// --------------------------------------------------------------------------------------------
 		case GWM_CREATE:

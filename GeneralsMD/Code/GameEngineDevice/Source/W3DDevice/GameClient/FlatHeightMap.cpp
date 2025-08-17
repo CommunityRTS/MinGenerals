@@ -109,7 +109,6 @@ FlatHeightMapRenderObjClass *TheFlatHeightMap = NULL;
 
 static ShaderClass detailOpaqueShader(SC_DETAIL_BLEND);
 
-
 #define DEFAULT_MAX_BATCH_SHORELINE_TILES		512	//maximum number of terrain tiles rendered per call (must fit in one VB)
 #define DEFAULT_MAX_MAP_SHORELINE_TILES		4096	//default size of array allocated to hold all map shoreline tiles.
 
@@ -117,7 +116,6 @@ static ShaderClass detailOpaqueShader(SC_DETAIL_BLEND);
 inline Int IABS(Int x) {	if (x>=0) return x; return -x;};
 
 const Int CELLS_PER_TILE = 16; // In order to be efficient in texture, needs to be a power of 2. [3/24/2003]
-
 
 //-----------------------------------------------------------------------------
 //         Private Functions
@@ -134,9 +132,6 @@ Int FlatHeightMapRenderObjClass::freeMapResources(void)
 
 	return 0;
 }
-
-
-
 
 //-----------------------------------------------------------------------------
 //         Public Functions
@@ -167,7 +162,6 @@ m_updateState(STATE_IDLE)
 {
 	TheFlatHeightMap = this;
 }
-
 
 //=============================================================================
 // FlatHeightMapRenderObjClass::adjustTerrainLOD
@@ -229,7 +223,6 @@ void FlatHeightMapRenderObjClass::ReAcquireResources(void)
 
 }
 
-
 //=============================================================================
 // FlatHeightMapRenderObjClass::reset
 //=============================================================================
@@ -249,8 +242,6 @@ void FlatHeightMapRenderObjClass::oversizeTerrain(Int tilesToOversize)
 {
 	// Not needed with flat version. [3/20/2003]
 }
-
-
 
 //=============================================================================
 // HeightMapRenderObjClass::doPartialUpdate
@@ -288,7 +279,6 @@ void FlatHeightMapRenderObjClass::releaseTiles(void)
 	m_tilesHeight = 0;
 	m_numTiles = 0;
 }
-
 
 //=============================================================================
 // FlatHeightMapRenderObjClass::initHeightData
@@ -345,8 +335,6 @@ Int FlatHeightMapRenderObjClass::initHeightData(Int x, Int y, WorldHeightMap *pM
 	return 0;
 }
 
-
-
 //=============================================================================
 // FlatHeightMapRenderObjClass::On_Frame_Update
 //=============================================================================
@@ -402,7 +390,6 @@ void FlatHeightMapRenderObjClass::staticLightingChanged( void )
 		}
 	}
 }
-
 
 //=============================================================================
 // FlatHeightMapRenderObjClass::updateCenter
@@ -473,7 +460,6 @@ void FlatHeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
 		m_treeBuffer->setIsTerrain();
 	}
 
-
 #ifdef DO_UNIT_TIMINGS
 #pragma MESSAGE("*** WARNING *** DOING DO_UNIT_TIMINGS!!!!")
 	return;
@@ -495,7 +481,6 @@ void FlatHeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
 
 	//	tm.Scale(ObjSpaceExtent);
 	DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);
-
 
 	DX8Wrapper::Set_Material(m_vertexMaterialClass);
 	DX8Wrapper::Set_Shader(m_shaderClass);
@@ -520,8 +505,6 @@ void FlatHeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
  	{	//cloudmap only
  		st=W3DShaderManager::ST_FLAT_TERRAIN_BASE_NOISE1;
  	}
-
-
 
 	//Find number of passes required to render current shader
  	devicePasses=W3DShaderManager::getShaderPasses(st);

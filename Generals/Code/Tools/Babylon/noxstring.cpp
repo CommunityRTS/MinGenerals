@@ -70,7 +70,6 @@ char		DialogPath[_MAX_PATH];
 char		RootPath[_MAX_PATH];
 LangID	CurrentLanguage = LANGID_US;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // CNoxstringApp initialization
 

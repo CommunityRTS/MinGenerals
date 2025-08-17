@@ -137,14 +137,12 @@ struct TTriggerInfo
 
 //----------------------------------------------------
 
-
 enum CrushSquishTestType
 {
 	TEST_CRUSH_ONLY,
 	TEST_SQUISH_ONLY,
 	TEST_CRUSH_OR_SQUISH
 };
-
 
 // ---------------------------------------------------
 /**
@@ -271,7 +269,6 @@ public:
 	ContainModuleInterface* getContain() const { return m_contain; }
 	SpawnBehaviorInterface* getSpawnBehaviorInterface() const;
 
-
 	// special case for the AIUpdateInterface, since it will be referred to a great deal
 	inline AIUpdateInterface *getAIUpdateInterface() { return m_ai; }
 	inline const AIUpdateInterface* getAIUpdateInterface() const { return m_ai; }
@@ -341,7 +338,6 @@ public:
 	void setFormationOffset(const Coord2D& offset) {m_formationOffset = offset;}
 	void getFormationOffset(Coord2D* offset) const {*offset = m_formationOffset;}
 
-
 //THIS FUNCTION BELONGS AT THE OBJECT LEVEL BECAUSE THERE IS AT LEAST ONE SPECIAL UNIT
 //(ANGRY MOB) WHICH NEEDS LOGIC-SIDE POSITION CALC'S...
 //IT WOULD PROBABLY BE WISE TO MOVE ALL THE HARD-CODED DEFAULTS BELOW
@@ -396,7 +392,6 @@ public:
 	void setShroudRange( Real newShroudRange );	///< Access to setting someone's shrouding distance
 	Real getShroudClearingRange() const;				///< How far do you clear shroud?
 	void setShroudClearingRange( Real newShroudClearingRange );	///< Access to setting someone's clear shroud distance
-
 
 	// Both of these calls are intended to only be used by TerrainLogic, specifically setActiveBoundary()
 	void friend_prepareForMapBoundaryAdjust(void);
@@ -593,7 +588,6 @@ protected:
 
 	void onDisabledEdge(Bool becomingDisabled);
 	// All of our cheating for radars and power go here.
-
 
 	// snapshot methods
 	void crc( Xfer *xfer );

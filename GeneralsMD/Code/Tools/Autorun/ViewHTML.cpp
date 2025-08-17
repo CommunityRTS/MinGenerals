@@ -41,7 +41,6 @@
 //#include "debugprint.h"
 #include "wnd_file.h"
 
-
 /******************************************************************************
 *
 * NAME
@@ -99,7 +98,6 @@ bool ViewHTML(const char* url, bool wait, CallbackHook& callback)
 	strcpy( filename2, filename1 );
 	char* extPtr = strrchr(filename2, '.');
 	strcpy(extPtr, ".html");
-
 
 //	DebugPrint(filename);
 	Msg( __LINE__, TEXT(__FILE__), TEXT("filename = %s"), filename2 );

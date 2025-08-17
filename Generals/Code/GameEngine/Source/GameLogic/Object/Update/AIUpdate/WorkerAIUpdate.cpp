@@ -60,13 +60,11 @@
 #include "GameLogic/Module/SupplyWarehouseDockUpdate.h"
 #include "GameLogic/Module/WorkerAIUpdate.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // FORWARD DECLARATIONS ///////////////////////////////////////////////////////////////////////////
 enum
@@ -75,11 +73,9 @@ enum
 	AS_SUPPLY_TRUCK	///< When told explicitly by player or other object, I become a supply truck
 };
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -312,7 +308,6 @@ UpdateSleepTime WorkerAIUpdate::update( void )
 	return UPDATE_SLEEP_NONE;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -478,7 +473,6 @@ void WorkerAIUpdate::exitingSupplyTruckState()
  		// I'm not busy.  Both states are being polite, so I must force the switch.
 	}
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** Given our current task and repair target, can we accept this as a new repair target */
@@ -1036,7 +1030,6 @@ void WorkerAIUpdate::aiDoCommand(const AICommandParms* parms)
 
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -1096,7 +1089,6 @@ Bool WorkerAIUpdate::gainOneBox( Int remainingStock )
 			m_suppliesDepletedVoice.setPlayingHandle(TheAudio->addAudioEvent(&m_suppliesDepletedVoice));
 		}
 	}
-
 
 	Drawable *draw = getObject()->getDrawable();
 	if( draw )
@@ -1296,7 +1288,6 @@ StateReturnType ActAsDozerState::onExit()
 	return STATE_CONTINUE;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 StateReturnType ActAsSupplyTruckState::onEnter()
@@ -1393,9 +1384,6 @@ void WorkerAIUpdate::finishBuildingSound()
 	TheAudio->removeAudioEvent( m_buildingSound.getPlayingHandle() );
 }
 
-
-
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -1418,7 +1406,6 @@ void WorkerAIUpdate::xfer( Xfer *xfer )
 
  // extend base class
 	AIUpdateInterface::xfer(xfer);
-
 
 	//------------------------- xfer Dozer info
 
@@ -1449,7 +1436,6 @@ void WorkerAIUpdate::xfer( Xfer *xfer )
 		}
 	}
 	xfer->xferUser(&m_buildSubTask, sizeof(m_buildSubTask));
-
 
 	//------------------------- xfer Supply Truck info
 	xfer->xferSnapshot(m_supplyTruckStateMachine);

@@ -78,7 +78,6 @@ public:
 	};
 };
 
-
 /* ********* MapObject class ****************************/
 /*static*/ MapObject *MapObject::TheMapObjectListPtr = NULL;
 /*static*/ Dict MapObject::TheWorldDict;
@@ -126,7 +125,6 @@ MapObject::MapObject(Coord3D loc, AsciiString name, Real angle, Int flags, const
 		setBridgeRenderObject( (BridgeTowerType)i, NULL );
 
 }
-
 
 MapObject::~MapObject(void)
 {
@@ -301,7 +299,6 @@ void MapObject::fastAssignAllUniqueIDs(void)
 	while (actualNumObjects) {
 		MapObject *obj = objStack.top();
 
-
 		const char* thingName;
 		if (obj->getThingTemplate()) {
 			thingName = obj->getThingTemplate()->getName().str();
@@ -334,14 +331,11 @@ void MapObject::fastAssignAllUniqueIDs(void)
 	}
 }
 
-
-
 void MapObject::setThingTemplate(const ThingTemplate *thing)
 {
 	m_thingTemplate = thing;
 	m_objectName = thing->getName();
 }
-
 
 void MapObject::setName(AsciiString name)
 {
@@ -373,9 +367,7 @@ const ThingTemplate *MapObject::getThingTemplate( void ) const
 	return NULL;
 }
 
-
 /* ********* WorldHeightMap class ****************************/
-
 
 //
 // WorldHeightMap destructor .
@@ -429,7 +421,6 @@ void WorldHeightMap::freeListOfMapObjects(void)
 	}
 	MapObject::getWorldDict()->clear();
 }
-
 
 /**
  WorldHeightMap - create a new height map for class WorldHeightMap.
@@ -1038,7 +1029,6 @@ Bool WorldHeightMap::ParseBlendTileData(DataChunkInput &file, DataChunkInfo *inf
 	return true;
 }
 
-
 /**
 * WorldHeightMap::ParseObjectData - read a object info chunk.
 * Format is the newer CHUNKY format.
@@ -1106,7 +1096,6 @@ Bool WorldHeightMap::ParseObjectData(DataChunkInput &file, DataChunkInfo *info, 
 	if (pThisOne->getProperties()->getType(TheKey_scorchType) == Dict::DICT_INT)
 		pThisOne->setIsScorch();
 
-
 	if (pPrevious) {
 		DEBUG_ASSERTCRASH(MapObject::TheMapObjectListPtr != NULL && pPrevious->getNext() == NULL, ("Bad linkage."));
 		pPrevious->setNextMap(pThisOne);
@@ -1117,8 +1106,6 @@ Bool WorldHeightMap::ParseObjectData(DataChunkInput &file, DataChunkInfo *info, 
 	file.m_currentObject = pThisOne;
 	return true;
 }
-
-
 
 // Targa format:  Header
 
@@ -1142,8 +1129,6 @@ typedef struct {
 // followed by pixel data
 
 // followed by optional data.
-
-
 
 /// Count how many tiles come in from a targa file.
 Int WorldHeightMap::countTiles(InputStream *pStr)
@@ -1250,8 +1235,6 @@ Bool WorldHeightMap::readTiles(InputStream *pStr, TileData **tiles, Int numRows)
 	}
 	return(true);
 }
-
-
 
 /** updateTileTexturePositions - assigns each tile a location in the texture.
 */
@@ -1579,7 +1562,6 @@ Bool WorldHeightMap::getUVForTileIndex(Int ndx, Short tileNdx, float U[4], float
 		nU=nV=xU=xV = 0.0f;
 		Int tilesPerRow = TEXTURE_WIDTH/(2*TILE_PIXEL_EXTENT+TILE_OFFSET);
 		tilesPerRow *= 4;
-
 
 		getUVForNdx(tileNdx, &nU, &nV, &xU, &xV, fullTile);
 		U[0] = nU; U[1] = xU; U[2] = xU; U[3] = nU;
@@ -2059,7 +2041,6 @@ Int WorldHeightMap::getTextureClass(Int xIndex, Int yIndex, Bool baseClass)
 	return getTextureClassFromNdx(textureNdx);
 }
 
-
 /** Sets all the cliff flags in map based on height. */
 void WorldHeightMap::initCliffFlagsFromHeights()
 {
@@ -2167,5 +2148,4 @@ AsciiString WorldHeightMap::getTerrainNameAt(Real x, Real y)
 	}
 	return AsciiString::TheEmptyString;
 }
-
 

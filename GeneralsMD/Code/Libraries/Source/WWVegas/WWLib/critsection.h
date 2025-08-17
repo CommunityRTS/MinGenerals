@@ -73,5 +73,4 @@ private:
 	void Exit();
 };
 
-
 #endif

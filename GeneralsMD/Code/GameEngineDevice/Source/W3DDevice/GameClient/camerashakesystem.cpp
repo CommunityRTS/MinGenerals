@@ -100,7 +100,6 @@ const float MIN_PHI				= DEG_TO_RADF(0.0f);
 const float MAX_PHI				= DEG_TO_RADF(360.0f);
 const Vector3 AXIS_ROTATION	= Vector3(DEG_TO_RADF(7.5f),DEG_TO_RADF(15.0f),DEG_TO_RADF(5.0f));
 
-
 /************************************************************************************************
 **
 ** CameraShakeSystemClass::CameraShakerClass Implementation
@@ -134,7 +133,6 @@ CameraShakeSystemClass::CameraShakerClass::~CameraShakerClass(void)
 {
 }
 
-
 void CameraShakeSystemClass::CameraShakerClass::Compute_Rotations(const Vector3 & camera_position, Vector3 * set_angles)
 {
 	WWASSERT(set_angles != NULL);
@@ -150,11 +148,9 @@ void CameraShakeSystemClass::CameraShakerClass::Compute_Rotations(const Vector3 
 
 	float len2 = (camera_position - Position).Length2();
 
-
 	if (len2 > Radius*Radius) {
 		return;
 	}
-
 
 	/*
 	** f(t) = intensity(t,pos) * sin( omega(t) * t + phi );
@@ -176,7 +172,6 @@ void CameraShakeSystemClass::CameraShakerClass::Compute_Rotations(const Vector3 
 		(*set_angles) += secondary_angles;
 	}
 }
-
 
 /************************************************************************************************
 **
@@ -234,7 +229,6 @@ bool CameraShakeSystemClass::IsCameraShaking(void)
 	}
 	return(false);
 }
-
 
 void CameraShakeSystemClass::Timestep(float dt)
 {

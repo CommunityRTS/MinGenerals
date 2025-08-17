@@ -43,7 +43,6 @@
 #ifndef DLLIST_H
 #define DLLIST_H
 
-
 template <class T> class DLNodeClass;
 
 template <class T>
@@ -142,7 +141,6 @@ public:
 		list=0;
 	}
 
-
 	T* Succ() { return static_cast<T*>(succ); }
 	T* Pred() { return static_cast<T*>(pred); }
 	const T* Const_Succ() const { return static_cast<const T*>(succ); }
@@ -150,7 +148,6 @@ public:
 
 	DLListClass<T>* List() { return list; }
 };
-
 
 template <class T>
 inline void DLListClass<T>::Add_Head(DLNodeClass<T>* n)

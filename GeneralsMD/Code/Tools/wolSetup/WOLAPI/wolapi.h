@@ -18,7 +18,6 @@
 
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
-
 /* File created by MIDL compiler version 5.01.0164 */
 /* at Mon Nov 05 10:28:33 2001
  */
@@ -27,7 +26,6 @@
     error checks: allocation ref bounds_check enum stub_data
 */
 //@@MIDL_FILE_HEADING(  )
-
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
@@ -60,66 +58,55 @@ extern "C"{
 typedef interface IRTPatcher IRTPatcher;
 #endif 	/* __IRTPatcher_FWD_DEFINED__ */
 
-
 #ifndef __IRTPatcherEvent_FWD_DEFINED__
 #define __IRTPatcherEvent_FWD_DEFINED__
 typedef interface IRTPatcherEvent IRTPatcherEvent;
 #endif 	/* __IRTPatcherEvent_FWD_DEFINED__ */
-
 
 #ifndef __IChat_FWD_DEFINED__
 #define __IChat_FWD_DEFINED__
 typedef interface IChat IChat;
 #endif 	/* __IChat_FWD_DEFINED__ */
 
-
 #ifndef __IChatEvent_FWD_DEFINED__
 #define __IChatEvent_FWD_DEFINED__
 typedef interface IChatEvent IChatEvent;
 #endif 	/* __IChatEvent_FWD_DEFINED__ */
-
 
 #ifndef __IDownload_FWD_DEFINED__
 #define __IDownload_FWD_DEFINED__
 typedef interface IDownload IDownload;
 #endif 	/* __IDownload_FWD_DEFINED__ */
 
-
 #ifndef __IDownloadEvent_FWD_DEFINED__
 #define __IDownloadEvent_FWD_DEFINED__
 typedef interface IDownloadEvent IDownloadEvent;
 #endif 	/* __IDownloadEvent_FWD_DEFINED__ */
-
 
 #ifndef __INetUtil_FWD_DEFINED__
 #define __INetUtil_FWD_DEFINED__
 typedef interface INetUtil INetUtil;
 #endif 	/* __INetUtil_FWD_DEFINED__ */
 
-
 #ifndef __INetUtilEvent_FWD_DEFINED__
 #define __INetUtilEvent_FWD_DEFINED__
 typedef interface INetUtilEvent INetUtilEvent;
 #endif 	/* __INetUtilEvent_FWD_DEFINED__ */
-
 
 #ifndef __IChat2_FWD_DEFINED__
 #define __IChat2_FWD_DEFINED__
 typedef interface IChat2 IChat2;
 #endif 	/* __IChat2_FWD_DEFINED__ */
 
-
 #ifndef __IChat2Event_FWD_DEFINED__
 #define __IChat2Event_FWD_DEFINED__
 typedef interface IChat2Event IChat2Event;
 #endif 	/* __IChat2Event_FWD_DEFINED__ */
 
-
 #ifndef __IIGROptions_FWD_DEFINED__
 #define __IIGROptions_FWD_DEFINED__
 typedef interface IIGROptions IIGROptions;
 #endif 	/* __IIGROptions_FWD_DEFINED__ */
-
 
 #ifndef __RTPatcher_FWD_DEFINED__
 #define __RTPatcher_FWD_DEFINED__
@@ -132,7 +119,6 @@ typedef struct RTPatcher RTPatcher;
 
 #endif 	/* __RTPatcher_FWD_DEFINED__ */
 
-
 #ifndef __Chat_FWD_DEFINED__
 #define __Chat_FWD_DEFINED__
 
@@ -143,7 +129,6 @@ typedef struct Chat Chat;
 #endif /* __cplusplus */
 
 #endif 	/* __Chat_FWD_DEFINED__ */
-
 
 #ifndef __Download_FWD_DEFINED__
 #define __Download_FWD_DEFINED__
@@ -156,7 +141,6 @@ typedef struct Download Download;
 
 #endif 	/* __Download_FWD_DEFINED__ */
 
-
 #ifndef __IGROptions_FWD_DEFINED__
 #define __IGROptions_FWD_DEFINED__
 
@@ -167,7 +151,6 @@ typedef struct IGROptions IGROptions;
 #endif /* __cplusplus */
 
 #endif 	/* __IGROptions_FWD_DEFINED__ */
-
 
 #ifndef __NetUtil_FWD_DEFINED__
 #define __NetUtil_FWD_DEFINED__
@@ -180,7 +163,6 @@ typedef struct NetUtil NetUtil;
 
 #endif 	/* __NetUtil_FWD_DEFINED__ */
 
-
 #ifndef __Chat2_FWD_DEFINED__
 #define __Chat2_FWD_DEFINED__
 
@@ -191,7 +173,6 @@ typedef struct Chat2 Chat2;
 #endif /* __cplusplus */
 
 #endif 	/* __Chat2_FWD_DEFINED__ */
-
 
 /* header files for imported files */
 #include "oaidl.h"
@@ -205,7 +186,6 @@ void __RPC_USER MIDL_user_free( void __RPC_FAR * );
 
 /* interface IRTPatcher */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_IRTPatcher;
 
@@ -256,10 +236,7 @@ EXTERN_C const IID IID_IRTPatcher;
         CONST_VTBL struct IRTPatcherVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IRTPatcher_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -270,7 +247,6 @@ EXTERN_C const IID IID_IRTPatcher;
 #define IRTPatcher_Release(This)	\
     (This)->lpVtbl -> Release(This)
 
-
 #define IRTPatcher_ApplyPatch(This,destpath,filename)	\
     (This)->lpVtbl -> ApplyPatch(This,destpath,filename)
 
@@ -279,16 +255,12 @@ EXTERN_C const IID IID_IRTPatcher;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IRTPatcher_ApplyPatch_Proxy(
     IRTPatcher __RPC_FAR * This,
     /* [string][in] */ LPCSTR destpath,
     /* [string][in] */ LPCSTR filename);
-
 
 void __RPC_STUB IRTPatcher_ApplyPatch_Stub(
     IRpcStubBuffer *This,
@@ -296,10 +268,8 @@ void __RPC_STUB IRTPatcher_ApplyPatch_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IRTPatcher_PumpMessages_Proxy(
     IRTPatcher __RPC_FAR * This);
-
 
 void __RPC_STUB IRTPatcher_PumpMessages_Stub(
     IRpcStubBuffer *This,
@@ -307,17 +277,13 @@ void __RPC_STUB IRTPatcher_PumpMessages_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IRTPatcher_INTERFACE_DEFINED__ */
-
 
 #ifndef __IRTPatcherEvent_INTERFACE_DEFINED__
 #define __IRTPatcherEvent_INTERFACE_DEFINED__
 
 /* interface IRTPatcherEvent */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_IRTPatcherEvent;
 
@@ -370,10 +336,7 @@ EXTERN_C const IID IID_IRTPatcherEvent;
         CONST_VTBL struct IRTPatcherEventVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IRTPatcherEvent_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -384,7 +347,6 @@ EXTERN_C const IID IID_IRTPatcherEvent;
 #define IRTPatcherEvent_Release(This)	\
     (This)->lpVtbl -> Release(This)
 
-
 #define IRTPatcherEvent_OnProgress(This,filename,progress)	\
     (This)->lpVtbl -> OnProgress(This,filename,progress)
 
@@ -393,16 +355,12 @@ EXTERN_C const IID IID_IRTPatcherEvent;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IRTPatcherEvent_OnProgress_Proxy(
     IRTPatcherEvent __RPC_FAR * This,
     /* [in] */ LPCSTR filename,
     /* [in] */ int progress);
-
 
 void __RPC_STUB IRTPatcherEvent_OnProgress_Stub(
     IRpcStubBuffer *This,
@@ -410,11 +368,9 @@ void __RPC_STUB IRTPatcherEvent_OnProgress_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IRTPatcherEvent_OnTermination_Proxy(
     IRTPatcherEvent __RPC_FAR * This,
     /* [in] */ BOOL success);
-
 
 void __RPC_STUB IRTPatcherEvent_OnTermination_Stub(
     IRpcStubBuffer *This,
@@ -422,10 +378,7 @@ void __RPC_STUB IRTPatcherEvent_OnTermination_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IRTPatcherEvent_INTERFACE_DEFINED__ */
-
 
 #ifndef __IChat_INTERFACE_DEFINED__
 #define __IChat_INTERFACE_DEFINED__
@@ -621,7 +574,6 @@ typedef struct Ladder Ladder;
 typedef struct Highscore Highscore;
 
 typedef struct Squad Squad;
-
 
 EXTERN_C const IID IID_IChat;
 
@@ -1161,10 +1113,7 @@ EXTERN_C const IID IID_IChat;
         CONST_VTBL struct IChatVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IChat_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -1174,7 +1123,6 @@ EXTERN_C const IID IID_IChat;
 
 #define IChat_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IChat_PumpMessages(This)	\
     (This)->lpVtbl -> PumpMessages(This)
@@ -1373,21 +1321,16 @@ EXTERN_C const IID IID_IChat;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_PumpMessages_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_PumpMessages_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestServerList_Proxy(
     IChat __RPC_FAR * This,
@@ -1397,13 +1340,11 @@ void __RPC_STUB IChat_PumpMessages_Stub(
     /* [in] */ LPCSTR password,
     /* [in] */ int timeout);
 
-
 void __RPC_STUB IChat_RequestServerList_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestConnection_Proxy(
     IChat __RPC_FAR * This,
@@ -1411,19 +1352,16 @@ void __RPC_STUB IChat_RequestServerList_Stub(
     /* [in] */ int timeout,
     int domangle);
 
-
 void __RPC_STUB IChat_RequestConnection_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelList_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ int channelType,
     /* [in] */ int autoping);
-
 
 void __RPC_STUB IChat_RequestChannelList_Stub(
     IRpcStubBuffer *This,
@@ -1431,11 +1369,9 @@ void __RPC_STUB IChat_RequestChannelList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelCreate_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ Channel __RPC_FAR *channel);
-
 
 void __RPC_STUB IChat_RequestChannelCreate_Stub(
     IRpcStubBuffer *This,
@@ -1443,11 +1379,9 @@ void __RPC_STUB IChat_RequestChannelCreate_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelJoin_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ Channel __RPC_FAR *channel);
-
 
 void __RPC_STUB IChat_RequestChannelJoin_Stub(
     IRpcStubBuffer *This,
@@ -1455,10 +1389,8 @@ void __RPC_STUB IChat_RequestChannelJoin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelLeave_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestChannelLeave_Stub(
     IRpcStubBuffer *This,
@@ -1466,10 +1398,8 @@ void __RPC_STUB IChat_RequestChannelLeave_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUserList_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestUserList_Stub(
     IRpcStubBuffer *This,
@@ -1477,11 +1407,9 @@ void __RPC_STUB IChat_RequestUserList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPublicMessage_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ LPCSTR message);
-
 
 void __RPC_STUB IChat_RequestPublicMessage_Stub(
     IRpcStubBuffer *This,
@@ -1489,12 +1417,10 @@ void __RPC_STUB IChat_RequestPublicMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPrivateMessage_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ LPCSTR message);
-
 
 void __RPC_STUB IChat_RequestPrivateMessage_Stub(
     IRpcStubBuffer *This,
@@ -1502,10 +1428,8 @@ void __RPC_STUB IChat_RequestPrivateMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestLogout_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestLogout_Stub(
     IRpcStubBuffer *This,
@@ -1513,12 +1437,10 @@ void __RPC_STUB IChat_RequestLogout_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPrivateGameOptions_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ LPCSTR options);
-
 
 void __RPC_STUB IChat_RequestPrivateGameOptions_Stub(
     IRpcStubBuffer *This,
@@ -1526,11 +1448,9 @@ void __RPC_STUB IChat_RequestPrivateGameOptions_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPublicGameOptions_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ LPCSTR options);
-
 
 void __RPC_STUB IChat_RequestPublicGameOptions_Stub(
     IRpcStubBuffer *This,
@@ -1538,11 +1458,9 @@ void __RPC_STUB IChat_RequestPublicGameOptions_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPublicAction_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ LPCSTR action);
-
 
 void __RPC_STUB IChat_RequestPublicAction_Stub(
     IRpcStubBuffer *This,
@@ -1550,12 +1468,10 @@ void __RPC_STUB IChat_RequestPublicAction_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPrivateAction_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ LPCSTR action);
-
 
 void __RPC_STUB IChat_RequestPrivateAction_Stub(
     IRpcStubBuffer *This,
@@ -1563,11 +1479,9 @@ void __RPC_STUB IChat_RequestPrivateAction_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestGameStart_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users);
-
 
 void __RPC_STUB IChat_RequestGameStart_Stub(
     IRpcStubBuffer *This,
@@ -1575,11 +1489,9 @@ void __RPC_STUB IChat_RequestGameStart_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelTopic_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ LPCSTR topic);
-
 
 void __RPC_STUB IChat_RequestChannelTopic_Stub(
     IRpcStubBuffer *This,
@@ -1587,11 +1499,9 @@ void __RPC_STUB IChat_RequestChannelTopic_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetVersion_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ unsigned long __RPC_FAR *version);
-
 
 void __RPC_STUB IChat_GetVersion_Stub(
     IRpcStubBuffer *This,
@@ -1599,11 +1509,9 @@ void __RPC_STUB IChat_GetVersion_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUserKick_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat_RequestUserKick_Stub(
     IRpcStubBuffer *This,
@@ -1611,18 +1519,15 @@ void __RPC_STUB IChat_RequestUserKick_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUserIP_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat_RequestUserIP_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetGametypeInfo_Proxy(
     IChat __RPC_FAR * This,
@@ -1633,18 +1538,15 @@ void __RPC_STUB IChat_RequestUserIP_Stub(
     LPCSTR __RPC_FAR *name,
     LPCSTR __RPC_FAR *URL);
 
-
 void __RPC_STUB IChat_GetGametypeInfo_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestFind_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat_RequestFind_Stub(
     IRpcStubBuffer *This,
@@ -1652,12 +1554,10 @@ void __RPC_STUB IChat_RequestFind_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPage_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *user,
     LPCSTR message);
-
 
 void __RPC_STUB IChat_RequestPage_Stub(
     IRpcStubBuffer *This,
@@ -1665,12 +1565,10 @@ void __RPC_STUB IChat_RequestPage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetFindPage_Proxy(
     IChat __RPC_FAR * This,
     int findOn,
     int pageOn);
-
 
 void __RPC_STUB IChat_SetFindPage_Stub(
     IRpcStubBuffer *This,
@@ -1678,12 +1576,10 @@ void __RPC_STUB IChat_SetFindPage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetSquelch_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *user,
     int squelch);
-
 
 void __RPC_STUB IChat_SetSquelch_Stub(
     IRpcStubBuffer *This,
@@ -1691,11 +1587,9 @@ void __RPC_STUB IChat_SetSquelch_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetSquelch_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat_GetSquelch_Stub(
     IRpcStubBuffer *This,
@@ -1703,11 +1597,9 @@ void __RPC_STUB IChat_GetSquelch_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetChannelFilter_Proxy(
     IChat __RPC_FAR * This,
     int channelType);
-
 
 void __RPC_STUB IChat_SetChannelFilter_Stub(
     IRpcStubBuffer *This,
@@ -1715,10 +1607,8 @@ void __RPC_STUB IChat_SetChannelFilter_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestGameEnd_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestGameEnd_Stub(
     IRpcStubBuffer *This,
@@ -1726,11 +1616,9 @@ void __RPC_STUB IChat_RequestGameEnd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetLangFilter_Proxy(
     IChat __RPC_FAR * This,
     int onoff);
-
 
 void __RPC_STUB IChat_SetLangFilter_Stub(
     IRpcStubBuffer *This,
@@ -1738,12 +1626,10 @@ void __RPC_STUB IChat_SetLangFilter_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestChannelBan_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR name,
     int ban);
-
 
 void __RPC_STUB IChat_RequestChannelBan_Stub(
     IRpcStubBuffer *This,
@@ -1751,11 +1637,9 @@ void __RPC_STUB IChat_RequestChannelBan_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetGametypeList_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR __RPC_FAR *list);
-
 
 void __RPC_STUB IChat_GetGametypeList_Stub(
     IRpcStubBuffer *This,
@@ -1763,11 +1647,9 @@ void __RPC_STUB IChat_GetGametypeList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetHelpURL_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR __RPC_FAR *url);
-
 
 void __RPC_STUB IChat_GetHelpURL_Stub(
     IRpcStubBuffer *This,
@@ -1775,11 +1657,9 @@ void __RPC_STUB IChat_GetHelpURL_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetProductSKU_Proxy(
     IChat __RPC_FAR * This,
     unsigned long SKU);
-
 
 void __RPC_STUB IChat_SetProductSKU_Stub(
     IRpcStubBuffer *This,
@@ -1787,20 +1667,17 @@ void __RPC_STUB IChat_SetProductSKU_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetNick_Proxy(
     IChat __RPC_FAR * This,
     int num,
     LPCSTR __RPC_FAR *nick,
     LPCSTR __RPC_FAR *pass);
 
-
 void __RPC_STUB IChat_GetNick_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetNick_Proxy(
     IChat __RPC_FAR * This,
@@ -1809,18 +1686,15 @@ void __RPC_STUB IChat_GetNick_Stub(
     LPCSTR pass,
     int domangle);
 
-
 void __RPC_STUB IChat_SetNick_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetLobbyCount_Proxy(
     IChat __RPC_FAR * This,
     int __RPC_FAR *count);
-
 
 void __RPC_STUB IChat_GetLobbyCount_Stub(
     IRpcStubBuffer *This,
@@ -1828,11 +1702,9 @@ void __RPC_STUB IChat_GetLobbyCount_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestRawMessage_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR ircmsg);
-
 
 void __RPC_STUB IChat_RequestRawMessage_Stub(
     IRpcStubBuffer *This,
@@ -1840,12 +1712,10 @@ void __RPC_STUB IChat_RequestRawMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetAttributeValue_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR attrib,
     LPCSTR __RPC_FAR *value);
-
 
 void __RPC_STUB IChat_GetAttributeValue_Stub(
     IRpcStubBuffer *This,
@@ -1853,12 +1723,10 @@ void __RPC_STUB IChat_GetAttributeValue_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetAttributeValue_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR attrib,
     LPCSTR value);
-
 
 void __RPC_STUB IChat_SetAttributeValue_Stub(
     IRpcStubBuffer *This,
@@ -1866,11 +1734,9 @@ void __RPC_STUB IChat_SetAttributeValue_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetChannelExInfo_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR info);
-
 
 void __RPC_STUB IChat_SetChannelExInfo_Stub(
     IRpcStubBuffer *This,
@@ -1878,10 +1744,8 @@ void __RPC_STUB IChat_SetChannelExInfo_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_StopAutoping_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_StopAutoping_Stub(
     IRpcStubBuffer *This,
@@ -1889,11 +1753,9 @@ void __RPC_STUB IChat_StopAutoping_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSquadInfo_Proxy(
     IChat __RPC_FAR * This,
     unsigned long id);
-
 
 void __RPC_STUB IChat_RequestSquadInfo_Stub(
     IRpcStubBuffer *This,
@@ -1901,11 +1763,9 @@ void __RPC_STUB IChat_RequestSquadInfo_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSetTeam_Proxy(
     IChat __RPC_FAR * This,
     int team);
-
 
 void __RPC_STUB IChat_RequestSetTeam_Stub(
     IRpcStubBuffer *This,
@@ -1913,11 +1773,9 @@ void __RPC_STUB IChat_RequestSetTeam_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSetLocale_Proxy(
     IChat __RPC_FAR * This,
     Locale locale);
-
 
 void __RPC_STUB IChat_RequestSetLocale_Stub(
     IRpcStubBuffer *This,
@@ -1925,11 +1783,9 @@ void __RPC_STUB IChat_RequestSetLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUserLocale_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChat_RequestUserLocale_Stub(
     IRpcStubBuffer *This,
@@ -1937,11 +1793,9 @@ void __RPC_STUB IChat_RequestUserLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUserTeam_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChat_RequestUserTeam_Stub(
     IRpcStubBuffer *This,
@@ -1949,12 +1803,10 @@ void __RPC_STUB IChat_RequestUserTeam_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetNickLocale_Proxy(
     IChat __RPC_FAR * This,
     int nicknum,
     Locale __RPC_FAR *locale);
-
 
 void __RPC_STUB IChat_GetNickLocale_Stub(
     IRpcStubBuffer *This,
@@ -1962,12 +1814,10 @@ void __RPC_STUB IChat_GetNickLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetNickLocale_Proxy(
     IChat __RPC_FAR * This,
     int nicknum,
     Locale locale);
-
 
 void __RPC_STUB IChat_SetNickLocale_Stub(
     IRpcStubBuffer *This,
@@ -1975,12 +1825,10 @@ void __RPC_STUB IChat_SetNickLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetLocaleString_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR __RPC_FAR *loc_string,
     Locale locale);
-
 
 void __RPC_STUB IChat_GetLocaleString_Stub(
     IRpcStubBuffer *This,
@@ -1988,11 +1836,9 @@ void __RPC_STUB IChat_GetLocaleString_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_GetLocaleCount_Proxy(
     IChat __RPC_FAR * This,
     int __RPC_FAR *num);
-
 
 void __RPC_STUB IChat_GetLocaleCount_Stub(
     IRpcStubBuffer *This,
@@ -2000,11 +1846,9 @@ void __RPC_STUB IChat_GetLocaleCount_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetClientVersion_Proxy(
     IChat __RPC_FAR * This,
     unsigned long version);
-
 
 void __RPC_STUB IChat_SetClientVersion_Stub(
     IRpcStubBuffer *This,
@@ -2012,11 +1856,9 @@ void __RPC_STUB IChat_SetClientVersion_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_SetCodepageFilter_Proxy(
     IChat __RPC_FAR * This,
     int filter);
-
 
 void __RPC_STUB IChat_SetCodepageFilter_Stub(
     IRpcStubBuffer *This,
@@ -2024,10 +1866,8 @@ void __RPC_STUB IChat_SetCodepageFilter_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestBuddyList_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestBuddyList_Stub(
     IRpcStubBuffer *This,
@@ -2035,11 +1875,9 @@ void __RPC_STUB IChat_RequestBuddyList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestBuddyAdd_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *newbuddy);
-
 
 void __RPC_STUB IChat_RequestBuddyAdd_Stub(
     IRpcStubBuffer *This,
@@ -2047,11 +1885,9 @@ void __RPC_STUB IChat_RequestBuddyAdd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestBuddyDelete_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *buddy);
-
 
 void __RPC_STUB IChat_RequestBuddyDelete_Stub(
     IRpcStubBuffer *This,
@@ -2059,11 +1895,9 @@ void __RPC_STUB IChat_RequestBuddyDelete_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPublicUnicodeMessage_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ const unsigned short __RPC_FAR *message);
-
 
 void __RPC_STUB IChat_RequestPublicUnicodeMessage_Stub(
     IRpcStubBuffer *This,
@@ -2071,12 +1905,10 @@ void __RPC_STUB IChat_RequestPublicUnicodeMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPrivateUnicodeMessage_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ const unsigned short __RPC_FAR *message);
-
 
 void __RPC_STUB IChat_RequestPrivateUnicodeMessage_Stub(
     IRpcStubBuffer *This,
@@ -2084,11 +1916,9 @@ void __RPC_STUB IChat_RequestPrivateUnicodeMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPublicUnicodeAction_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ const unsigned short __RPC_FAR *action);
-
 
 void __RPC_STUB IChat_RequestPublicUnicodeAction_Stub(
     IRpcStubBuffer *This,
@@ -2096,12 +1926,10 @@ void __RPC_STUB IChat_RequestPublicUnicodeAction_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestPrivateUnicodeAction_Proxy(
     IChat __RPC_FAR * This,
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ const unsigned short __RPC_FAR *action);
-
 
 void __RPC_STUB IChat_RequestPrivateUnicodeAction_Stub(
     IRpcStubBuffer *This,
@@ -2109,12 +1937,10 @@ void __RPC_STUB IChat_RequestPrivateUnicodeAction_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestUnicodePage_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *user,
     const unsigned short __RPC_FAR *message);
-
 
 void __RPC_STUB IChat_RequestUnicodePage_Stub(
     IRpcStubBuffer *This,
@@ -2122,12 +1948,10 @@ void __RPC_STUB IChat_RequestUnicodePage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSetPlayerCount_Proxy(
     IChat __RPC_FAR * This,
     unsigned int currentPlayers,
     unsigned int maxPlayers);
-
 
 void __RPC_STUB IChat_RequestSetPlayerCount_Stub(
     IRpcStubBuffer *This,
@@ -2135,10 +1959,8 @@ void __RPC_STUB IChat_RequestSetPlayerCount_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestServerTime_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestServerTime_Stub(
     IRpcStubBuffer *This,
@@ -2146,11 +1968,9 @@ void __RPC_STUB IChat_RequestServerTime_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestInsiderStatus_Proxy(
     IChat __RPC_FAR * This,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChat_RequestInsiderStatus_Stub(
     IRpcStubBuffer *This,
@@ -2158,10 +1978,8 @@ void __RPC_STUB IChat_RequestInsiderStatus_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSetLocalIP_Proxy(
     IChat __RPC_FAR * This);
-
 
 void __RPC_STUB IChat_RequestSetLocalIP_Stub(
     IRpcStubBuffer *This,
@@ -2169,11 +1987,9 @@ void __RPC_STUB IChat_RequestSetLocalIP_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat_RequestSquadByName_Proxy(
     IChat __RPC_FAR * This,
     LPCSTR name);
-
 
 void __RPC_STUB IChat_RequestSquadByName_Stub(
     IRpcStubBuffer *This,
@@ -2181,17 +1997,13 @@ void __RPC_STUB IChat_RequestSquadByName_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IChat_INTERFACE_DEFINED__ */
-
 
 #ifndef __IChatEvent_INTERFACE_DEFINED__
 #define __IChatEvent_INTERFACE_DEFINED__
 
 /* interface IChatEvent */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_IChatEvent;
 
@@ -2710,10 +2522,7 @@ EXTERN_C const IID IID_IChatEvent;
         CONST_VTBL struct IChatEventVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IChatEvent_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -2723,7 +2532,6 @@ EXTERN_C const IID IID_IChatEvent;
 
 #define IChatEvent_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IChatEvent_OnServerList(This,res,servers)	\
     (This)->lpVtbl -> OnServerList(This,res,servers)
@@ -2871,16 +2679,12 @@ EXTERN_C const IID IID_IChatEvent;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnServerList_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Server __RPC_FAR *servers);
-
 
 void __RPC_STUB IChatEvent_OnServerList_Stub(
     IRpcStubBuffer *This,
@@ -2888,12 +2692,10 @@ void __RPC_STUB IChatEvent_OnServerList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUpdateList_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Update __RPC_FAR *updates);
-
 
 void __RPC_STUB IChatEvent_OnUpdateList_Stub(
     IRpcStubBuffer *This,
@@ -2901,12 +2703,10 @@ void __RPC_STUB IChatEvent_OnUpdateList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnServerError_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ LPCSTR ircmsg);
-
 
 void __RPC_STUB IChatEvent_OnServerError_Stub(
     IRpcStubBuffer *This,
@@ -2914,12 +2714,10 @@ void __RPC_STUB IChatEvent_OnServerError_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnConnection_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ LPCSTR motd);
-
 
 void __RPC_STUB IChatEvent_OnConnection_Stub(
     IRpcStubBuffer *This,
@@ -2927,12 +2725,10 @@ void __RPC_STUB IChatEvent_OnConnection_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnMessageOfTheDay_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ LPCSTR motd);
-
 
 void __RPC_STUB IChatEvent_OnMessageOfTheDay_Stub(
     IRpcStubBuffer *This,
@@ -2940,12 +2736,10 @@ void __RPC_STUB IChatEvent_OnMessageOfTheDay_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelList_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channels);
-
 
 void __RPC_STUB IChatEvent_OnChannelList_Stub(
     IRpcStubBuffer *This,
@@ -2953,12 +2747,10 @@ void __RPC_STUB IChatEvent_OnChannelList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelCreate_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channel);
-
 
 void __RPC_STUB IChatEvent_OnChannelCreate_Stub(
     IRpcStubBuffer *This,
@@ -2966,13 +2758,11 @@ void __RPC_STUB IChatEvent_OnChannelCreate_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelJoin_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channel,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChatEvent_OnChannelJoin_Stub(
     IRpcStubBuffer *This,
@@ -2980,13 +2770,11 @@ void __RPC_STUB IChatEvent_OnChannelJoin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelLeave_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channel,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChatEvent_OnChannelLeave_Stub(
     IRpcStubBuffer *This,
@@ -2994,13 +2782,11 @@ void __RPC_STUB IChatEvent_OnChannelLeave_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelTopic_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channel,
     /* [in] */ LPCSTR topic);
-
 
 void __RPC_STUB IChatEvent_OnChannelTopic_Stub(
     IRpcStubBuffer *This,
@@ -3008,20 +2794,17 @@ void __RPC_STUB IChatEvent_OnChannelTopic_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPrivateAction_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ LPCSTR action);
 
-
 void __RPC_STUB IChatEvent_OnPrivateAction_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPublicAction_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3030,13 +2813,11 @@ void __RPC_STUB IChatEvent_OnPrivateAction_Stub(
     User __RPC_FAR *user,
     /* [in] */ LPCSTR action);
 
-
 void __RPC_STUB IChatEvent_OnPublicAction_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserList_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3044,13 +2825,11 @@ void __RPC_STUB IChatEvent_OnPublicAction_Stub(
     /* [in] */ Channel __RPC_FAR *channel,
     /* [in] */ User __RPC_FAR *users);
 
-
 void __RPC_STUB IChatEvent_OnUserList_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPublicMessage_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3059,13 +2838,11 @@ void __RPC_STUB IChatEvent_OnUserList_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ LPCSTR message);
 
-
 void __RPC_STUB IChatEvent_OnPublicMessage_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPrivateMessage_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3073,19 +2850,16 @@ void __RPC_STUB IChatEvent_OnPublicMessage_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ LPCSTR message);
 
-
 void __RPC_STUB IChatEvent_OnPrivateMessage_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnSystemMessage_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ LPCSTR message);
-
 
 void __RPC_STUB IChatEvent_OnSystemMessage_Stub(
     IRpcStubBuffer *This,
@@ -3093,11 +2867,9 @@ void __RPC_STUB IChatEvent_OnSystemMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnNetStatus_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res);
-
 
 void __RPC_STUB IChatEvent_OnNetStatus_Stub(
     IRpcStubBuffer *This,
@@ -3105,12 +2877,10 @@ void __RPC_STUB IChatEvent_OnNetStatus_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnLogout_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT status,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChatEvent_OnLogout_Stub(
     IRpcStubBuffer *This,
@@ -3118,20 +2888,17 @@ void __RPC_STUB IChatEvent_OnLogout_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPrivateGameOptions_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ LPCSTR options);
 
-
 void __RPC_STUB IChatEvent_OnPrivateGameOptions_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPublicGameOptions_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3140,13 +2907,11 @@ void __RPC_STUB IChatEvent_OnPrivateGameOptions_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ LPCSTR options);
 
-
 void __RPC_STUB IChatEvent_OnPublicGameOptions_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnGameStart_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3155,13 +2920,11 @@ void __RPC_STUB IChatEvent_OnPublicGameOptions_Stub(
     /* [in] */ User __RPC_FAR *users,
     /* [in] */ int gameid);
 
-
 void __RPC_STUB IChatEvent_OnGameStart_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserKick_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3170,19 +2933,16 @@ void __RPC_STUB IChatEvent_OnGameStart_Stub(
     /* [in] */ User __RPC_FAR *kicked,
     /* [in] */ User __RPC_FAR *kicker);
 
-
 void __RPC_STUB IChatEvent_OnUserKick_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserIP_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ User __RPC_FAR *user);
-
 
 void __RPC_STUB IChatEvent_OnUserIP_Stub(
     IRpcStubBuffer *This,
@@ -3190,12 +2950,10 @@ void __RPC_STUB IChatEvent_OnUserIP_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnFind_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *chan);
-
 
 void __RPC_STUB IChatEvent_OnFind_Stub(
     IRpcStubBuffer *This,
@@ -3203,11 +2961,9 @@ void __RPC_STUB IChatEvent_OnFind_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPageSend_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res);
-
 
 void __RPC_STUB IChatEvent_OnPageSend_Stub(
     IRpcStubBuffer *This,
@@ -3215,13 +2971,11 @@ void __RPC_STUB IChatEvent_OnPageSend_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPaged_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *user,
     LPCSTR message);
-
 
 void __RPC_STUB IChatEvent_OnPaged_Stub(
     IRpcStubBuffer *This,
@@ -3229,19 +2983,16 @@ void __RPC_STUB IChatEvent_OnPaged_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnServerBannedYou_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     time_t bannedTill);
-
 
 void __RPC_STUB IChatEvent_OnServerBannedYou_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserFlags_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3250,13 +3001,11 @@ void __RPC_STUB IChatEvent_OnServerBannedYou_Stub(
     unsigned int flags,
     unsigned int mask);
 
-
 void __RPC_STUB IChatEvent_OnUserFlags_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelBan_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3264,13 +3013,11 @@ void __RPC_STUB IChatEvent_OnUserFlags_Stub(
     LPCSTR name,
     int banned);
 
-
 void __RPC_STUB IChatEvent_OnChannelBan_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnSquadInfo_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3278,19 +3025,16 @@ void __RPC_STUB IChatEvent_OnChannelBan_Stub(
     unsigned long id,
     Squad __RPC_FAR *squad);
 
-
 void __RPC_STUB IChatEvent_OnSquadInfo_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserLocale_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChatEvent_OnUserLocale_Stub(
     IRpcStubBuffer *This,
@@ -3298,12 +3042,10 @@ void __RPC_STUB IChatEvent_OnUserLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnUserTeam_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChatEvent_OnUserTeam_Stub(
     IRpcStubBuffer *This,
@@ -3311,12 +3053,10 @@ void __RPC_STUB IChatEvent_OnUserTeam_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnSetLocale_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     Locale newlocale);
-
 
 void __RPC_STUB IChatEvent_OnSetLocale_Stub(
     IRpcStubBuffer *This,
@@ -3324,12 +3064,10 @@ void __RPC_STUB IChatEvent_OnSetLocale_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnSetTeam_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     int newteam);
-
 
 void __RPC_STUB IChatEvent_OnSetTeam_Stub(
     IRpcStubBuffer *This,
@@ -3337,12 +3075,10 @@ void __RPC_STUB IChatEvent_OnSetTeam_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnBuddyList_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *buddy_list);
-
 
 void __RPC_STUB IChatEvent_OnBuddyList_Stub(
     IRpcStubBuffer *This,
@@ -3350,12 +3086,10 @@ void __RPC_STUB IChatEvent_OnBuddyList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnBuddyAdd_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *buddy_added);
-
 
 void __RPC_STUB IChatEvent_OnBuddyAdd_Stub(
     IRpcStubBuffer *This,
@@ -3363,19 +3097,16 @@ void __RPC_STUB IChatEvent_OnBuddyAdd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnBuddyDelete_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *buddy_deleted);
-
 
 void __RPC_STUB IChatEvent_OnBuddyDelete_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPublicUnicodeMessage_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3384,13 +3115,11 @@ void __RPC_STUB IChatEvent_OnBuddyDelete_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ const unsigned short __RPC_FAR *message);
 
-
 void __RPC_STUB IChatEvent_OnPublicUnicodeMessage_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPrivateUnicodeMessage_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3398,13 +3127,11 @@ void __RPC_STUB IChatEvent_OnPublicUnicodeMessage_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ const unsigned short __RPC_FAR *message);
 
-
 void __RPC_STUB IChatEvent_OnPrivateUnicodeMessage_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPrivateUnicodeAction_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3412,13 +3139,11 @@ void __RPC_STUB IChatEvent_OnPrivateUnicodeMessage_Stub(
     /* [in] */ User __RPC_FAR *user,
     /* [in] */ const unsigned short __RPC_FAR *action);
 
-
 void __RPC_STUB IChatEvent_OnPrivateUnicodeAction_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPublicUnicodeAction_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3427,13 +3152,11 @@ void __RPC_STUB IChatEvent_OnPrivateUnicodeAction_Stub(
     User __RPC_FAR *user,
     /* [in] */ const unsigned short __RPC_FAR *action);
 
-
 void __RPC_STUB IChatEvent_OnPublicUnicodeAction_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnPagedUnicode_Proxy(
     IChatEvent __RPC_FAR * This,
@@ -3441,19 +3164,16 @@ void __RPC_STUB IChatEvent_OnPublicUnicodeAction_Stub(
     User __RPC_FAR *user,
     const unsigned short __RPC_FAR *message);
 
-
 void __RPC_STUB IChatEvent_OnPagedUnicode_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnServerTime_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     time_t stime);
-
 
 void __RPC_STUB IChatEvent_OnServerTime_Stub(
     IRpcStubBuffer *This,
@@ -3461,12 +3181,10 @@ void __RPC_STUB IChatEvent_OnServerTime_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnInsiderStatus_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChatEvent_OnInsiderStatus_Stub(
     IRpcStubBuffer *This,
@@ -3474,12 +3192,10 @@ void __RPC_STUB IChatEvent_OnInsiderStatus_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnSetLocalIP_Proxy(
     IChatEvent __RPC_FAR * This,
     HRESULT res,
     LPCSTR message);
-
 
 void __RPC_STUB IChatEvent_OnSetLocalIP_Stub(
     IRpcStubBuffer *This,
@@ -3487,11 +3203,9 @@ void __RPC_STUB IChatEvent_OnSetLocalIP_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelListBegin_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res);
-
 
 void __RPC_STUB IChatEvent_OnChannelListBegin_Stub(
     IRpcStubBuffer *This,
@@ -3499,12 +3213,10 @@ void __RPC_STUB IChatEvent_OnChannelListBegin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelListEntry_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res,
     /* [in] */ Channel __RPC_FAR *channel);
-
 
 void __RPC_STUB IChatEvent_OnChannelListEntry_Stub(
     IRpcStubBuffer *This,
@@ -3512,11 +3224,9 @@ void __RPC_STUB IChatEvent_OnChannelListEntry_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChatEvent_OnChannelListEnd_Proxy(
     IChatEvent __RPC_FAR * This,
     /* [in] */ HRESULT res);
-
 
 void __RPC_STUB IChatEvent_OnChannelListEnd_Stub(
     IRpcStubBuffer *This,
@@ -3524,17 +3234,13 @@ void __RPC_STUB IChatEvent_OnChannelListEnd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IChatEvent_INTERFACE_DEFINED__ */
-
 
 #ifndef __IDownload_INTERFACE_DEFINED__
 #define __IDownload_INTERFACE_DEFINED__
 
 /* interface IDownload */
 /* [unique][helpstring][dual][uuid][object] */
-
 
 EXTERN_C const IID IID_IDownload;
 
@@ -3598,10 +3304,7 @@ EXTERN_C const IID IID_IDownload;
         CONST_VTBL struct IDownloadVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IDownload_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -3611,7 +3314,6 @@ EXTERN_C const IID IID_IDownload;
 
 #define IDownload_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IDownload_DownloadFile(This,server,login,password,file,localfile,regkey)	\
     (This)->lpVtbl -> DownloadFile(This,server,login,password,file,localfile,regkey)
@@ -3624,10 +3326,7 @@ EXTERN_C const IID IID_IDownload;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IDownload_DownloadFile_Proxy(
     IDownload __RPC_FAR * This,
@@ -3638,17 +3337,14 @@ EXTERN_C const IID IID_IDownload;
     LPCSTR localfile,
     LPCSTR regkey);
 
-
 void __RPC_STUB IDownload_DownloadFile_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IDownload_Abort_Proxy(
     IDownload __RPC_FAR * This);
-
 
 void __RPC_STUB IDownload_Abort_Stub(
     IRpcStubBuffer *This,
@@ -3656,10 +3352,8 @@ void __RPC_STUB IDownload_Abort_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IDownload_PumpMessages_Proxy(
     IDownload __RPC_FAR * This);
-
 
 void __RPC_STUB IDownload_PumpMessages_Stub(
     IRpcStubBuffer *This,
@@ -3667,17 +3361,13 @@ void __RPC_STUB IDownload_PumpMessages_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IDownload_INTERFACE_DEFINED__ */
-
 
 #ifndef __IDownloadEvent_INTERFACE_DEFINED__
 #define __IDownloadEvent_INTERFACE_DEFINED__
 
 /* interface IDownloadEvent */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_IDownloadEvent;
 
@@ -3751,10 +3441,7 @@ EXTERN_C const IID IID_IDownloadEvent;
         CONST_VTBL struct IDownloadEventVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IDownloadEvent_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -3764,7 +3451,6 @@ EXTERN_C const IID IID_IDownloadEvent;
 
 #define IDownloadEvent_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IDownloadEvent_OnEnd(This)	\
     (This)->lpVtbl -> OnEnd(This)
@@ -3783,14 +3469,10 @@ EXTERN_C const IID IID_IDownloadEvent;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IDownloadEvent_OnEnd_Proxy(
     IDownloadEvent __RPC_FAR * This);
-
 
 void __RPC_STUB IDownloadEvent_OnEnd_Stub(
     IRpcStubBuffer *This,
@@ -3798,18 +3480,15 @@ void __RPC_STUB IDownloadEvent_OnEnd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IDownloadEvent_OnError_Proxy(
     IDownloadEvent __RPC_FAR * This,
     int error);
-
 
 void __RPC_STUB IDownloadEvent_OnError_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IDownloadEvent_OnProgressUpdate_Proxy(
     IDownloadEvent __RPC_FAR * This,
@@ -3818,17 +3497,14 @@ void __RPC_STUB IDownloadEvent_OnError_Stub(
     int timetaken,
     int timeleft);
 
-
 void __RPC_STUB IDownloadEvent_OnProgressUpdate_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IDownloadEvent_OnQueryResume_Proxy(
     IDownloadEvent __RPC_FAR * This);
-
 
 void __RPC_STUB IDownloadEvent_OnQueryResume_Stub(
     IRpcStubBuffer *This,
@@ -3836,11 +3512,9 @@ void __RPC_STUB IDownloadEvent_OnQueryResume_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IDownloadEvent_OnStatusUpdate_Proxy(
     IDownloadEvent __RPC_FAR * This,
     int status);
-
 
 void __RPC_STUB IDownloadEvent_OnStatusUpdate_Stub(
     IRpcStubBuffer *This,
@@ -3848,17 +3522,13 @@ void __RPC_STUB IDownloadEvent_OnStatusUpdate_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IDownloadEvent_INTERFACE_DEFINED__ */
-
 
 #ifndef __INetUtil_INTERFACE_DEFINED__
 #define __INetUtil_INTERFACE_DEFINED__
 
 /* interface INetUtil */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_INetUtil;
 
@@ -4082,10 +3752,7 @@ EXTERN_C const IID IID_INetUtil;
         CONST_VTBL struct INetUtilVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define INetUtil_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -4095,7 +3762,6 @@ EXTERN_C const IID IID_INetUtil;
 
 #define INetUtil_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define INetUtil_RequestGameresSend(This,host,port,data,length)	\
     (This)->lpVtbl -> RequestGameresSend(This,host,port,data,length)
@@ -4138,10 +3804,7 @@ EXTERN_C const IID IID_INetUtil;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestGameresSend_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4150,13 +3813,11 @@ EXTERN_C const IID IID_INetUtil;
     unsigned char __RPC_FAR *data,
     int length);
 
-
 void __RPC_STUB INetUtil_RequestGameresSend_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestLadderSearch_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4170,13 +3831,11 @@ void __RPC_STUB INetUtil_RequestGameresSend_Stub(
     int number,
     int leading);
 
-
 void __RPC_STUB INetUtil_RequestLadderSearch_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestLadderList_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4188,13 +3847,11 @@ void __RPC_STUB INetUtil_RequestLadderSearch_Stub(
     int cond,
     int sort);
 
-
 void __RPC_STUB INetUtil_RequestLadderList_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestPing_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4202,17 +3859,14 @@ void __RPC_STUB INetUtil_RequestLadderList_Stub(
     int timeout,
     int __RPC_FAR *handle);
 
-
 void __RPC_STUB INetUtil_RequestPing_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtil_PumpMessages_Proxy(
     INetUtil __RPC_FAR * This);
-
 
 void __RPC_STUB INetUtil_PumpMessages_Stub(
     IRpcStubBuffer *This,
@@ -4220,19 +3874,16 @@ void __RPC_STUB INetUtil_PumpMessages_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_GetAvgPing_Proxy(
     INetUtil __RPC_FAR * This,
     unsigned long ip,
     int __RPC_FAR *avg);
-
 
 void __RPC_STUB INetUtil_GetAvgPing_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestNewNick_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4243,13 +3894,11 @@ void __RPC_STUB INetUtil_GetAvgPing_Stub(
     int newsletter,
     int shareinfo);
 
-
 void __RPC_STUB INetUtil_RequestNewNick_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestAgeCheck_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4258,13 +3907,11 @@ void __RPC_STUB INetUtil_RequestNewNick_Stub(
     int year,
     LPCSTR email);
 
-
 void __RPC_STUB INetUtil_RequestAgeCheck_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestWDTState_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4272,13 +3919,11 @@ void __RPC_STUB INetUtil_RequestAgeCheck_Stub(
     int port,
     unsigned char request);
 
-
 void __RPC_STUB INetUtil_RequestWDTState_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestLocaleLadderList_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4291,13 +3936,11 @@ void __RPC_STUB INetUtil_RequestWDTState_Stub(
     int sort,
     Locale locale);
 
-
 void __RPC_STUB INetUtil_RequestLocaleLadderList_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestLocaleLadderSearch_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4312,13 +3955,11 @@ void __RPC_STUB INetUtil_RequestLocaleLadderList_Stub(
     int leading,
     Locale locale);
 
-
 void __RPC_STUB INetUtil_RequestLocaleLadderSearch_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_RequestHighscore_Proxy(
     INetUtil __RPC_FAR * This,
@@ -4327,18 +3968,15 @@ void __RPC_STUB INetUtil_RequestLocaleLadderSearch_Stub(
     LPCSTR keys,
     unsigned long SKU);
 
-
 void __RPC_STUB INetUtil_RequestHighscore_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtil_SetGameResMD5_Proxy(
     INetUtil __RPC_FAR * This,
     int flag);
-
 
 void __RPC_STUB INetUtil_SetGameResMD5_Stub(
     IRpcStubBuffer *This,
@@ -4346,17 +3984,13 @@ void __RPC_STUB INetUtil_SetGameResMD5_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __INetUtil_INTERFACE_DEFINED__ */
-
 
 #ifndef __INetUtilEvent_INTERFACE_DEFINED__
 #define __INetUtilEvent_INTERFACE_DEFINED__
 
 /* interface INetUtilEvent */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_INetUtilEvent;
 
@@ -4478,10 +4112,7 @@ EXTERN_C const IID IID_INetUtilEvent;
         CONST_VTBL struct INetUtilEventVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define INetUtilEvent_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -4491,7 +4122,6 @@ EXTERN_C const IID IID_INetUtilEvent;
 
 #define INetUtilEvent_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define INetUtilEvent_OnPing(This,res,time,ip,handle)	\
     (This)->lpVtbl -> OnPing(This,res,time,ip,handle)
@@ -4516,10 +4146,7 @@ EXTERN_C const IID IID_INetUtilEvent;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnPing_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4528,13 +4155,11 @@ EXTERN_C const IID IID_INetUtilEvent;
     unsigned long ip,
     int handle);
 
-
 void __RPC_STUB INetUtilEvent_OnPing_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnLadderList_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4544,25 +4169,21 @@ void __RPC_STUB INetUtilEvent_OnPing_Stub(
     long timeStamp,
     int keyRung);
 
-
 void __RPC_STUB INetUtilEvent_OnLadderList_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnGameresSent_Proxy(
     INetUtilEvent __RPC_FAR * This,
     HRESULT res);
-
 
 void __RPC_STUB INetUtilEvent_OnGameresSent_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnNewNick_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4571,13 +4192,11 @@ void __RPC_STUB INetUtilEvent_OnGameresSent_Stub(
     LPCSTR nick,
     LPCSTR pass);
 
-
 void __RPC_STUB INetUtilEvent_OnNewNick_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnAgeCheck_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4585,13 +4204,11 @@ void __RPC_STUB INetUtilEvent_OnNewNick_Stub(
     int years,
     int consent);
 
-
 void __RPC_STUB INetUtilEvent_OnAgeCheck_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnWDTState_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4599,13 +4216,11 @@ void __RPC_STUB INetUtilEvent_OnAgeCheck_Stub(
     unsigned char __RPC_FAR *state,
     int length);
 
-
 void __RPC_STUB INetUtilEvent_OnWDTState_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE INetUtilEvent_OnHighscore_Proxy(
     INetUtilEvent __RPC_FAR * This,
@@ -4615,17 +4230,13 @@ void __RPC_STUB INetUtilEvent_OnWDTState_Stub(
     long timeStamp,
     int keyRung);
 
-
 void __RPC_STUB INetUtilEvent_OnHighscore_Stub(
     IRpcStubBuffer *This,
     IRpcChannelBuffer *_pRpcChannelBuffer,
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __INetUtilEvent_INTERFACE_DEFINED__ */
-
 
 #ifndef __IChat2_INTERFACE_DEFINED__
 #define __IChat2_INTERFACE_DEFINED__
@@ -4635,7 +4246,6 @@ void __RPC_STUB INetUtilEvent_OnHighscore_Stub(
 
 typedef unsigned long GID;
 
-
 enum GTYPE_
     {	SERVER	= 0,
 	CHANNEL	= 1,
@@ -4643,14 +4253,12 @@ enum GTYPE_
     };
 typedef enum GTYPE_ GTYPE;
 
-
 enum CHAN_CTYPE_
     {	ALLEXIT	= 0,
 	CREATOREXIT	= 1,
 	CLOSEC	= 2
     };
 typedef enum CHAN_CTYPE_ CHAN_CTYPE;
-
 
 EXTERN_C const IID IID_IChat2;
 
@@ -4764,10 +4372,7 @@ EXTERN_C const IID IID_IChat2;
         CONST_VTBL struct IChat2Vtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IChat2_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -4777,7 +4382,6 @@ EXTERN_C const IID IID_IChat2;
 
 #define IChat2_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IChat2_PumpMessages(This)	\
     (This)->lpVtbl -> PumpMessages(This)
@@ -4814,14 +4418,10 @@ EXTERN_C const IID IID_IChat2;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_PumpMessages_Proxy(
     IChat2 __RPC_FAR * This);
-
 
 void __RPC_STUB IChat2_PumpMessages_Stub(
     IRpcStubBuffer *This,
@@ -4829,12 +4429,10 @@ void __RPC_STUB IChat2_PumpMessages_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestConnection_Proxy(
     IChat2 __RPC_FAR * This,
     Server __RPC_FAR *server,
     int timeout);
-
 
 void __RPC_STUB IChat2_RequestConnection_Stub(
     IRpcStubBuffer *This,
@@ -4842,12 +4440,10 @@ void __RPC_STUB IChat2_RequestConnection_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestMessage_Proxy(
     IChat2 __RPC_FAR * This,
     GID who,
     LPCSTR message);
-
 
 void __RPC_STUB IChat2_RequestMessage_Stub(
     IRpcStubBuffer *This,
@@ -4855,12 +4451,10 @@ void __RPC_STUB IChat2_RequestMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_GetTypeFromGID_Proxy(
     IChat2 __RPC_FAR * This,
     GID id,
     GTYPE __RPC_FAR *type);
-
 
 void __RPC_STUB IChat2_GetTypeFromGID_Stub(
     IRpcStubBuffer *This,
@@ -4868,10 +4462,8 @@ void __RPC_STUB IChat2_GetTypeFromGID_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestChannelList_Proxy(
     IChat2 __RPC_FAR * This);
-
 
 void __RPC_STUB IChat2_RequestChannelList_Stub(
     IRpcStubBuffer *This,
@@ -4879,11 +4471,9 @@ void __RPC_STUB IChat2_RequestChannelList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestChannelJoin_Proxy(
     IChat2 __RPC_FAR * This,
     LPCSTR name);
-
 
 void __RPC_STUB IChat2_RequestChannelJoin_Stub(
     IRpcStubBuffer *This,
@@ -4891,11 +4481,9 @@ void __RPC_STUB IChat2_RequestChannelJoin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestChannelLeave_Proxy(
     IChat2 __RPC_FAR * This,
     Channel __RPC_FAR *chan);
-
 
 void __RPC_STUB IChat2_RequestChannelLeave_Stub(
     IRpcStubBuffer *This,
@@ -4903,11 +4491,9 @@ void __RPC_STUB IChat2_RequestChannelLeave_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestUserList_Proxy(
     IChat2 __RPC_FAR * This,
     Channel __RPC_FAR *chan);
-
 
 void __RPC_STUB IChat2_RequestUserList_Stub(
     IRpcStubBuffer *This,
@@ -4915,10 +4501,8 @@ void __RPC_STUB IChat2_RequestUserList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestLogout_Proxy(
     IChat2 __RPC_FAR * This);
-
 
 void __RPC_STUB IChat2_RequestLogout_Stub(
     IRpcStubBuffer *This,
@@ -4926,11 +4510,9 @@ void __RPC_STUB IChat2_RequestLogout_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestChannelCreate_Proxy(
     IChat2 __RPC_FAR * This,
     Channel __RPC_FAR *chan);
-
 
 void __RPC_STUB IChat2_RequestChannelCreate_Stub(
     IRpcStubBuffer *This,
@@ -4938,11 +4520,9 @@ void __RPC_STUB IChat2_RequestChannelCreate_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2_RequestRawCmd_Proxy(
     IChat2 __RPC_FAR * This,
     LPCSTR cmd);
-
 
 void __RPC_STUB IChat2_RequestRawCmd_Stub(
     IRpcStubBuffer *This,
@@ -4950,17 +4530,13 @@ void __RPC_STUB IChat2_RequestRawCmd_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IChat2_INTERFACE_DEFINED__ */
-
 
 #ifndef __IChat2Event_INTERFACE_DEFINED__
 #define __IChat2Event_INTERFACE_DEFINED__
 
 /* interface IChat2Event */
 /* [object][unique][helpstring][uuid] */
-
 
 EXTERN_C const IID IID_IChat2Event;
 
@@ -5082,10 +4658,7 @@ EXTERN_C const IID IID_IChat2Event;
         CONST_VTBL struct IChat2EventVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IChat2Event_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -5095,7 +4668,6 @@ EXTERN_C const IID IID_IChat2Event;
 
 #define IChat2Event_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IChat2Event_OnNetStatus(This,res)	\
     (This)->lpVtbl -> OnNetStatus(This,res)
@@ -5126,15 +4698,11 @@ EXTERN_C const IID IID_IChat2Event;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnNetStatus_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res);
-
 
 void __RPC_STUB IChat2Event_OnNetStatus_Stub(
     IRpcStubBuffer *This,
@@ -5142,13 +4710,11 @@ void __RPC_STUB IChat2Event_OnNetStatus_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnMessage_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     User __RPC_FAR *user,
     LPCSTR message);
-
 
 void __RPC_STUB IChat2Event_OnMessage_Stub(
     IRpcStubBuffer *This,
@@ -5156,12 +4722,10 @@ void __RPC_STUB IChat2Event_OnMessage_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnChannelList_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *list);
-
 
 void __RPC_STUB IChat2Event_OnChannelList_Stub(
     IRpcStubBuffer *This,
@@ -5169,13 +4733,11 @@ void __RPC_STUB IChat2Event_OnChannelList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnChannelJoin_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *chan,
     User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat2Event_OnChannelJoin_Stub(
     IRpcStubBuffer *This,
@@ -5183,11 +4745,9 @@ void __RPC_STUB IChat2Event_OnChannelJoin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnLogin_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res);
-
 
 void __RPC_STUB IChat2Event_OnLogin_Stub(
     IRpcStubBuffer *This,
@@ -5195,13 +4755,11 @@ void __RPC_STUB IChat2Event_OnLogin_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnUserList_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *chan,
     User __RPC_FAR *users);
-
 
 void __RPC_STUB IChat2Event_OnUserList_Stub(
     IRpcStubBuffer *This,
@@ -5209,13 +4767,11 @@ void __RPC_STUB IChat2Event_OnUserList_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnChannelLeave_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *chan,
     User __RPC_FAR *user);
-
 
 void __RPC_STUB IChat2Event_OnChannelLeave_Stub(
     IRpcStubBuffer *This,
@@ -5223,12 +4779,10 @@ void __RPC_STUB IChat2Event_OnChannelLeave_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnChannelCreate_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     Channel __RPC_FAR *chan);
-
 
 void __RPC_STUB IChat2Event_OnChannelCreate_Stub(
     IRpcStubBuffer *This,
@@ -5236,12 +4790,10 @@ void __RPC_STUB IChat2Event_OnChannelCreate_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring] */ HRESULT STDMETHODCALLTYPE IChat2Event_OnUnknownLine_Proxy(
     IChat2Event __RPC_FAR * This,
     HRESULT res,
     LPCSTR line);
-
 
 void __RPC_STUB IChat2Event_OnUnknownLine_Stub(
     IRpcStubBuffer *This,
@@ -5249,17 +4801,13 @@ void __RPC_STUB IChat2Event_OnUnknownLine_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IChat2Event_INTERFACE_DEFINED__ */
-
 
 #ifndef __IIGROptions_INTERFACE_DEFINED__
 #define __IIGROptions_INTERFACE_DEFINED__
 
 /* interface IIGROptions */
 /* [unique][helpstring][dual][uuid][object] */
-
 
 EXTERN_C const IID IID_IIGROptions;
 
@@ -5323,10 +4871,7 @@ EXTERN_C const IID IID_IIGROptions;
         CONST_VTBL struct IIGROptionsVtbl __RPC_FAR *lpVtbl;
     };
 
-
-
 #ifdef COBJMACROS
-
 
 #define IIGROptions_QueryInterface(This,riid,ppvObject)	\
     (This)->lpVtbl -> QueryInterface(This,riid,ppvObject)
@@ -5336,7 +4881,6 @@ EXTERN_C const IID IID_IIGROptions;
 
 #define IIGROptions_Release(This)	\
     (This)->lpVtbl -> Release(This)
-
 
 #define IIGROptions_Init(This)	\
     (This)->lpVtbl -> Init(This)
@@ -5355,14 +4899,10 @@ EXTERN_C const IID IID_IIGROptions;
 
 #endif /* COBJMACROS */
 
-
 #endif 	/* C style interface */
-
-
 
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IIGROptions_Init_Proxy(
     IIGROptions __RPC_FAR * This);
-
 
 void __RPC_STUB IIGROptions_Init_Stub(
     IRpcStubBuffer *This,
@@ -5370,10 +4910,8 @@ void __RPC_STUB IIGROptions_Init_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IIGROptions_Is_Auto_Login_Allowed_Proxy(
     IIGROptions __RPC_FAR * This);
-
 
 void __RPC_STUB IIGROptions_Is_Auto_Login_Allowed_Stub(
     IRpcStubBuffer *This,
@@ -5381,10 +4919,8 @@ void __RPC_STUB IIGROptions_Is_Auto_Login_Allowed_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IIGROptions_Is_Storing_Nicks_Allowed_Proxy(
     IIGROptions __RPC_FAR * This);
-
 
 void __RPC_STUB IIGROptions_Is_Storing_Nicks_Allowed_Stub(
     IRpcStubBuffer *This,
@@ -5392,10 +4928,8 @@ void __RPC_STUB IIGROptions_Is_Storing_Nicks_Allowed_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IIGROptions_Is_Running_Reg_App_Allowed_Proxy(
     IIGROptions __RPC_FAR * This);
-
 
 void __RPC_STUB IIGROptions_Is_Running_Reg_App_Allowed_Stub(
     IRpcStubBuffer *This,
@@ -5403,11 +4937,9 @@ void __RPC_STUB IIGROptions_Is_Running_Reg_App_Allowed_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
 /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IIGROptions_Set_Options_Proxy(
     IIGROptions __RPC_FAR * This,
     unsigned int options);
-
 
 void __RPC_STUB IIGROptions_Set_Options_Stub(
     IRpcStubBuffer *This,
@@ -5415,18 +4947,13 @@ void __RPC_STUB IIGROptions_Set_Options_Stub(
     PRPC_MESSAGE _pRpcMessage,
     DWORD *_pdwStubPhase);
 
-
-
 #endif 	/* __IIGROptions_INTERFACE_DEFINED__ */
-
-
 
 #ifndef __WOLAPILib_LIBRARY_DEFINED__
 #define __WOLAPILib_LIBRARY_DEFINED__
 
 /* library WOLAPILib */
 /* [helpstring][version][uuid] */
-
 
 EXTERN_C const IID LIBID_WOLAPILib;
 

@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "vxldbg.h"
 #include "resource.h"
 #include "dllmain.h"
@@ -75,7 +74,6 @@ void VoxelDebugWindowClass::Display_Window(void)
 							(LPARAM) this
 						);
 }
-
 
 bool VoxelDebugWindowClass::Dialog_Proc
 (
@@ -124,7 +122,6 @@ bool VoxelDebugWindowClass::Dialog_Proc
 
 			return 1;
 
-
 		/*******************************************************************
 		* WM_COMMAND
 		*
@@ -160,7 +157,6 @@ bool VoxelDebugWindowClass::Dialog_Proc
 					break;
 			}
 
-
 		/*******************************************************************
 		* WM_PAINT
 		*
@@ -178,7 +174,6 @@ bool VoxelDebugWindowClass::Dialog_Proc
 	}
 	return 0;
 }
-
 
 void VoxelDebugWindowClass::update_display(void)
 {
@@ -231,7 +226,6 @@ void VoxelDebugWindowClass::update_display(void)
 	ReleaseDC(WindowHWND, hdcwindow);
 	DeleteDC(hdcdib);
 }
-
 
 BOOL CALLBACK _dialog_proc
 (

@@ -95,7 +95,6 @@ static void reverseWord ( OLECHAR *fp, OLECHAR *lp )
 
 }
 
-
 static void translateCopy( OLECHAR *outbuf, OLECHAR *inbuf )
 {
 	int slash = FALSE;
@@ -158,8 +157,6 @@ static void translateCopy( OLECHAR *outbuf, OLECHAR *inbuf )
 
 	}
 
-
-
 	while( *inbuf != '\0' )
 	{
 
@@ -167,7 +164,6 @@ static void translateCopy( OLECHAR *outbuf, OLECHAR *inbuf )
 	}
 	*outbuf= 0;
 }
-
 
 static void writeLabel ( NoxLabel *label, int row )
 {
@@ -401,7 +397,6 @@ static int export_trans ( TransDB *db, LangID langid, TROPTIONS *options, void (
 	return count;
 }
 
-
 int ExportTranslations ( TransDB *db, const char *filename, LangID langid, TROPTIONS *options, CNoxstringDlg *dlg )
 {
 	int exports ;
@@ -449,11 +444,9 @@ int ExportTranslations ( TransDB *db, const char *filename, LangID langid, TROPT
 				format = "Exporting all missing %s dialog";
 				break;
 
-
 			default:
 				format = "Undefined switch";
 				break;
-
 
 		}
 		strcpy ( buffer2, format );
@@ -537,7 +530,6 @@ int ExportTranslations ( TransDB *db, const char *filename, LangID langid, TROPT
 
 	return exports;
 }
-
 
 static int import_trans ( TransDB *db, LangID langid, void (*cb) ( void ), CNoxstringDlg *dlg )
 {
@@ -626,7 +618,6 @@ static int import_trans ( TransDB *db, LangID langid, void (*cb) ( void ), CNoxs
 				nrow--;
 			}
 
-
 			if ( !olebuf2[0] || wcscmp ( text->Label ()->Name(), olebuf2))
 			{
 				sprintf ( buffer, "%S", olebuf );
@@ -668,7 +659,6 @@ static int import_trans ( TransDB *db, LangID langid, void (*cb) ( void ), CNoxs
 				text->AddTranslation ( trans );
 		}
 
-
 		if ( trans->Revision () == revision && !wcscmp ( trans->Get (), oletrans ))
 		{
 			// already up to date
@@ -679,7 +669,6 @@ static int import_trans ( TransDB *db, LangID langid, void (*cb) ( void ), CNoxs
 		trans->WaveInfo.SetValid ( FALSE );
 		trans->SetRevision ( revision );
 		changes_count++;
-
 
 		next:
 				count++;
@@ -784,7 +773,6 @@ static int update_sent_trans ( TransDB *db, LangID langid, void (*cb) ( void ), 
 			goto next;
 		}
 
-
 		// verify that the translated engish is the same as the current english
 		GetString ( row, CELL_ENGLISH, olebuf );
 		DecodeFormat ( olebuf );
@@ -810,7 +798,6 @@ static int update_sent_trans ( TransDB *db, LangID langid, void (*cb) ( void ), 
 				}
 				nrow--;
 			}
-
 
 			if ( !olebuf2[0] || wcscmp ( text->Label ()->Name(), olebuf2))
 			{
@@ -929,7 +916,6 @@ int ImportTranslations ( TransDB *db, const char *filename, CNoxstringDlg *dlg )
 			CloseWorkBook ();
 			return -1;
 		}
-
 
 		if ( dlg )
 		{
@@ -1256,10 +1242,8 @@ error:
 		fclose ( file );
 	}
 
-
 	return ok;
 }
-
 
 int GenerateGameFiles ( TransDB *db, const char *filepattern, GNOPTIONS *options, LangID *languages, CNoxstringDlg *dlg)
 {
@@ -1303,7 +1287,6 @@ int GenerateGameFiles ( TransDB *db, const char *filepattern, GNOPTIONS *options
 			dlgwarning = db->ReportDialog ( &dlgreport, langid );
 			trnwarning = db->ReportTranslations ( &trnreport, langid );
 		}
-
 
 		if ( options->format == GN_NOXSTR )
 		{
@@ -1477,7 +1460,6 @@ void ProcessWaves ( TransDB *db, const char *filename, CNoxstringDlg *dlg )
 
 }
 
-
 int GenerateReport ( TransDB *db, const char *filename, RPOPTIONS *options, LangID *languages, CNoxstringDlg *dlg)
 {
 	LangID langid;
@@ -1525,8 +1507,6 @@ int GenerateReport ( TransDB *db, const char *filename, RPOPTIONS *options, Lang
 		fprintf ( file, "Noxstring Report: %s %s\n", date, time);
 	}
 
-
-
 	while ( (langid = *languages++) != LANGID_UNKNOWN )
 	{
 		LANGINFO *info;
@@ -1536,7 +1516,6 @@ int GenerateReport ( TransDB *db, const char *filename, RPOPTIONS *options, Lang
 		info = GetLangInfo ( langid );
 
 		fprintf ( file, "\n\n%s Status:\n", info->name );
-
 
 		if ( options->translations )
 		{
@@ -1638,7 +1617,6 @@ int UpdateSentTranslations ( TransDB *db, const char *filename, CNoxstringDlg *d
 			CloseWorkBook ();
 			return -1;
 		}
-
 
 		if ( dlg )
 		{

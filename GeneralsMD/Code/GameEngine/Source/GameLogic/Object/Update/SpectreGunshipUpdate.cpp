@@ -63,23 +63,17 @@
 #include "GameLogic\Module\AIUpdate.h"
 #include "GameLogic\Module\ContainModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 #define ORBIT_INSERTION_SLOPE_MAX (0.8f)
 #define ORBIT_INSERTION_SLOPE_MIN (0.5f)
 #define ONE (1.0f)
 #define ZERO (0.0f)
 #define LOTS_OF_SHOTS (9999)
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -122,9 +116,6 @@ static Real zero = 0.0f;
 		{ "GattlingStrafeFXParticleSystem",	INI::parseParticleSystemTemplate, NULL, offsetof( SpectreGunshipUpdateModuleData, m_gattlingStrafeFXParticleSystem ) },
 		{ "AttackAreaDecal",		            RadiusDecalTemplate::parseRadiusDecalTemplate,	NULL, offsetof( SpectreGunshipUpdateModuleData, m_attackAreaDecalTemplate ) },
 		{ "TargetingReticleDecal",		      RadiusDecalTemplate::parseRadiusDecalTemplate,	NULL, offsetof( SpectreGunshipUpdateModuleData, m_targetingReticleDecalTemplate ) },
-
-
-
 
     { 0, 0, 0, 0 }
 	};
@@ -210,9 +201,7 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
 		setLogicalStatus( GUNSHIP_STATUS_INSERTING );
 	}
 
-
   Object * gunShip = getObject();
-
 
   if ( gunShip )
   {
@@ -231,7 +220,6 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
     friend_enableAfterburners(TRUE);
 
     setLogicalStatus( GUNSHIP_STATUS_INSERTING ); // The gunship is en route to the tharget area, from map-edge
-
 
     // TELL THE GUNNERS ABOARD THE GUNSHIP TO HOLD THEIR FIRE UNTIL ORBIT INSERTION
         ContainModuleInterface *shipContain = gunShip->getContain();
@@ -253,7 +241,6 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
         m_gattlingID = newGattling->getID();
       }
 
-
       Object *gattling = TheGameLogic->findObjectByID( m_gattlingID );
       if ( gattling )
         gattling->setDisabled ( DISABLED_PARALYZED );
@@ -262,15 +249,12 @@ Bool SpectreGunshipUpdate::initiateIntentToDoSpecialPower(const SpecialPowerTemp
 
   }
 
-
 	data->m_attackAreaDecalTemplate.createRadiusDecal( *getObject()->getPosition(), data->m_attackAreaRadius, getObject()->getControllingPlayer(), m_attackAreaDecal);
 	data->m_targetingReticleDecalTemplate.createRadiusDecal( *getObject()->getPosition(), data->m_targetingReticleRadius, getObject()->getControllingPlayer(), m_targetingReticleDecal);
-
 
 #if defined TRACKERS
 	data->m_targetingReticleDecalTemplate.createRadiusDecal( *getObject()->getPosition(), data->m_targetingReticleRadius, getObject()->getControllingPlayer(), m_howitzerTrackerDecal);
 #endif
-
 
 	SpecialPowerModuleInterface *spmInterface = getObject()->getSpecialPowerModule( specialPowerTemplate );
 	if( spmInterface )
@@ -317,7 +301,6 @@ Bool SpectreGunshipUpdate::isPointOffMap( const Coord3D& testPos ) const
 	return false;
 }
 
-
 // PARTITION FILTERS!
 //-----------------------------------------------------------------------------
 class PartitionFilterLiveMapEnemies : public PartitionFilter
@@ -350,10 +333,6 @@ public:
 };
 //-----------------------------------------------------------------------------
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** The update callback. */
 //-------------------------------------------------------------------------------------------------
@@ -365,12 +344,8 @@ UpdateSleepTime SpectreGunshipUpdate::update()
    if ( gunship )
    {
 
-
       if ( gunship->isEffectivelyDead() )
         return UPDATE_SLEEP_FOREVER;
-
-
-
 
       m_attackAreaDecal.update();
       m_targetingReticleDecal.update();
@@ -387,11 +362,8 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 				gattlingAI = gattling->getAIUpdateInterface();
       }
 
-
-
       if ( m_status == GUNSHIP_STATUS_INSERTING || m_status == GUNSHIP_STATUS_ORBITING )
       {
-
 
   //   init'l    apogee
   //   target *<-------->*
@@ -462,11 +434,9 @@ UpdateSleepTime SpectreGunshipUpdate::update()
         m_attackAreaDecal.setPosition( m_initialTargetPosition );
         m_targetingReticleDecal.setPosition( m_overrideTargetDestination );
 
-
 #if defined TRACKERS
 	 m_howitzerTrackerDecal.setPosition( m_gattlingTargetPosition );
 #endif
-
 
         if ( (m_status == GUNSHIP_STATUS_INSERTING) && (distanceToTarget < orbitalRadius ) )// close enough to shoot
         {
@@ -494,11 +464,9 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
       } // endif status == ORBITING || INSERTING
 
-
       if ( m_status == GUNSHIP_STATUS_ORBITING )
       {
         Object *validTargetObject = NULL;
-
 
         if ( TheGameLogic->getFrame() >= m_orbitEscapeFrame )
         {
@@ -507,7 +475,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
           // CEASE FIRE, RETURN TO BASE
           disengageAndDepartAO( gunship );
-
 
         }//endif escapeframe
         else
@@ -531,8 +498,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 	          filters[numFilters++] = &filterFogged;
 	          filters[numFilters] = NULL;
 
-
-
             // THIS WILL FIND A VALID TARGET WITHIN THE TARGETING RETICLE
 	          ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(&m_overrideTargetDestination,
               data->m_targetingReticleRadius,
@@ -548,8 +513,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
                 break;
               }
 	          }
-
-
 
             // WE WANT THE WIDE_RANGE AUTOACQUIRE POWER DISABLED FOR HUMAN PLAYERS
             // SO THAT THE SPECTREGUNSHIP REQUIRES BABYSITTING AT ALL TIMES
@@ -579,8 +542,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               }
             }
 
-
-
             //lets keep a constant barrage of gattling bullets on the current aim location
 				    if( gattlingAI )
 				    {
@@ -589,9 +550,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               else
   					    gattlingAI->aiAttackPosition( &m_gattlingTargetPosition, LOTS_OF_SHOTS, CMD_FROM_AI );
 				    }
-
-
-
 
             // IF THE GATTLING GUN HAS BEEN PLINKING THE TARGET LONG ENOUGH, LETS FOLLOW WITH A VOLLEY OF HOWITZER FIRE
             if ( m_okToFireHowitzerCounter > data->m_howitzerFollowLag )
@@ -612,23 +570,15 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               }
             }
 
-
           }//endif frame modulator
-
-
-
-
 
           // GATTLING TARGETING LOGIC------------------------------------------
 				  const ParticleSystemTemplate *tmp = data->m_gattlingStrafeFXParticleSystem;
 				  if (tmp && gattling && gattling->testStatus( OBJECT_STATUS_IS_FIRING_WEAPON) )
 				  {
 
-
-
             // I am going to wind my gattling gun toward the next good spot,
             //whether an object's position or a cursor position
-
 
             Coord3D delta = m_positionToShootAt;
             delta.sub( &m_gattlingTargetPosition );
@@ -645,7 +595,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
               delta.scale( data->m_strafingIncrement );
               m_gattlingTargetPosition.add( &delta );
             }
-
 
 			const Player *localPlayer = ThePlayerList->getLocalPlayer();
 
@@ -668,7 +617,6 @@ UpdateSleepTime SpectreGunshipUpdate::update()
 
           }
         }// end else
-
 
       }//not orbiting
       else if ( m_status == GUNSHIP_STATUS_DEPARTING )
@@ -695,19 +643,9 @@ UpdateSleepTime SpectreGunshipUpdate::update()
       cleanUp();
    }
 
-
-
-
-
-
-
-
-
-
 	return UPDATE_SLEEP_NONE;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void SpectreGunshipUpdate::friend_enableAfterburners(Bool v)
@@ -732,8 +670,6 @@ void SpectreGunshipUpdate::friend_enableAfterburners(Bool v)
 	}
 }
 
-
-
 Bool SpectreGunshipUpdate::isFairDistanceFromShip( Object *target )
 {
 
@@ -756,18 +692,11 @@ Bool SpectreGunshipUpdate::isFairDistanceFromShip( Object *target )
 
 }
 
-
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 void SpectreGunshipUpdate::cleanUp()
 {
   m_attackAreaDecal.clear();
   m_targetingReticleDecal.clear();
-
 
   Object *gattling = TheGameLogic->findObjectByID( m_gattlingID );
   if ( gattling )
@@ -777,10 +706,6 @@ void SpectreGunshipUpdate::cleanUp()
 	 m_howitzerTrackerDecal.clear();
 #endif
 }
-
-
-
-
 
 // --------------------------------------------------------------------------------------------------
 void SpectreGunshipUpdate::disengageAndDepartAO( Object *gunship )
@@ -802,15 +727,11 @@ void SpectreGunshipUpdate::disengageAndDepartAO( Object *gunship )
 
     shipAI->aiMoveToPosition( &exitPoint, CMD_FROM_AI );
 
-
-
   }
-
 
     Object *gattling = TheGameLogic->findObjectByID( m_gattlingID );
     if ( gattling )
       gattling->setDisabled ( DISABLED_PARALYZED );
-
 
     if ( shipAI)
     {
@@ -824,22 +745,17 @@ void SpectreGunshipUpdate::disengageAndDepartAO( Object *gunship )
       draw->clearAndSetModelConditionState( MODELCONDITION_DOOR_1_OPENING, MODELCONDITION_DOOR_1_CLOSING );
           friend_enableAfterburners(TRUE);
 
-
   cleanUp();
 
   return;
 
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 Bool SpectreGunshipUpdate::doesSpecialPowerHaveOverridableDestinationActive() const
 {
 	 return m_status < GUNSHIP_STATUS_DEPARTING;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -871,9 +787,6 @@ void SpectreGunshipUpdate::xfer( Xfer *xfer )
 	// extend base class
 	UpdateModule::xfer( xfer );
 
-
-
-
   // The initial target destination.
 	xfer->xferCoord3D( &m_initialTargetPosition );
 	// The manual override target destination.
@@ -884,7 +797,6 @@ void SpectreGunshipUpdate::xfer( Xfer *xfer )
 	xfer->xferUser( &m_status, sizeof( GunshipStatus ) );
 
   xfer->xferUnsignedInt( &m_orbitEscapeFrame );
-
 
 	if( version < 2 )
 	{

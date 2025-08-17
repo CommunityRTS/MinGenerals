@@ -59,7 +59,6 @@ class TriClass;
 class AABoxClass;
 class PlaneClass;
 
-
 /*
 ** OBBoxClass
 **
@@ -121,7 +120,6 @@ bool Oriented_Boxes_Intersect(const OBBoxClass & box0,const OBBoxClass & box1);
 bool Oriented_Boxes_Collide(const OBBoxClass & box0,const Vector3 & v0,const OBBoxClass & box1,const Vector3 & v1,float dt);
 bool Oriented_Box_Intersects_Tri(const OBBoxClass & box,const TriClass & tri);
 
-
 /***********************************************************************************************
  * OBBoxClass::Project_To_Axis -- compute projection onto the given axis                       *
  *                                                                                             *
@@ -143,7 +141,6 @@ inline float OBBoxClass::Project_To_Axis(const Vector3 & axis) const
 	// projection is the sum of the absolute values of the projections of the three extents
 	return (WWMath::Fabs(x) + WWMath::Fabs(y) + WWMath::Fabs(z));
 }
-
 
 /***********************************************************************************************
  * OBBoxClass::Transform -- transform an oriented box                                          *
@@ -172,7 +169,6 @@ inline void OBBoxClass::Transform
 	Matrix3x3::Multiply(tm,in.Basis,&(out->Basis));
 }
 
-
 /***********************************************************************************************
  * OBBoxClass::Compute_Point -- computes position of a parametricly defined point              *
  *                                                                                             *
@@ -199,7 +195,6 @@ inline void OBBoxClass::Compute_Point(float params[3],Vector3 * set_point) const
 	Matrix3x3::Rotate_Vector(Basis,point,set_point);
 	Vector3::Add(Center,*set_point,set_point);
 }
-
 
 /***********************************************************************************************
  * OBBoxClass::Compute_Axis_Aligned_Extent -- computes extent of an AABox enclosing this box   *
@@ -232,7 +227,6 @@ inline void OBBoxClass::Compute_Axis_Aligned_Extent(Vector3 * set_extent) const
 							WWMath::Fabs(Extent[2] * Basis[2][2]);
 }
 
-
 /***********************************************************************************************
  * OBBoxClass::operator== -- Comparison operator                                               *
  *                                                                                             *
@@ -249,7 +243,6 @@ inline bool OBBoxClass::operator== (const OBBoxClass &src)
 {
 	return (Center == src.Center) && (Extent == src.Extent) && (Basis == src.Basis);
 }
-
 
 /***********************************************************************************************
  * OBBoxClass::operator!= -- Comparison operator                                               *

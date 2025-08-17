@@ -26,7 +26,6 @@
 #include "EditObjectParameter.h"
 #include "EditParameter.h"
 
-
 #include "GameLogic/Scripts.h"
 #include "GameLogic/SidesList.h"
 #include "GameLogic/PolygonTrigger.h"
@@ -37,7 +36,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditObjectParameter dialog
 
-
 EditObjectParameter::EditObjectParameter(CWnd* pParent /*=NULL*/)
 	: CDialog(EditObjectParameter::IDD, pParent)
 {
@@ -46,7 +44,6 @@ EditObjectParameter::EditObjectParameter(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditObjectParameter::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -54,7 +51,6 @@ void EditObjectParameter::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditObjectParameter, CDialog)
 	//{{AFX_MSG_MAP(EditObjectParameter)
@@ -67,7 +63,6 @@ END_MESSAGE_MAP()
 BOOL EditObjectParameter::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
 
 	CWnd *pWnd = GetDlgItem(IDC_OBJECT_TREEVIEW);
 	CRect rect;
@@ -88,7 +83,6 @@ BOOL EditObjectParameter::OnInitDialog()
 		addObject(tTemplate);
 
 	}  // end for tTemplate
-
 
 	addObjectLists();
 
@@ -233,7 +227,6 @@ HTREEITEM EditObjectParameter::findOrAdd(HTREEITEM parent, const char *pLabel)
 	child = m_objectTreeView.InsertItem(&ins);
 	return(child);
 }
-
 
 void EditObjectParameter::OnOK()
 {

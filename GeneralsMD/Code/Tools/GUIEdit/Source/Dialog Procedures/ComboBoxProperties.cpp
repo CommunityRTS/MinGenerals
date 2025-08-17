@@ -71,8 +71,6 @@
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-
-
 // comboBoxPropertiesCallback ==================================================
 /** Dialog callback for properties */
 //=============================================================================
@@ -550,7 +548,6 @@ static LRESULT CALLBACK comboBoxPropertiesCallback( HWND hWndDialog,
 						if( newMaxDisplay != comboData->maxDisplay )
 							GadgetComboBoxSetMaxDisplay( window, newMaxDisplay );
 
-
 					}  // end if
 
           DestroyWindow( hWndDialog );
@@ -589,7 +586,6 @@ static LRESULT CALLBACK comboBoxPropertiesCallback( HWND hWndDialog,
   }  // end of switch
 
 }  // end comboBoxPropertiesCallback
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
@@ -717,8 +713,6 @@ HWND InitComboBoxPropertiesDialog( GameWindow *window )
 		StoreImageAndColor( COMBOBOX_LISTBOX_HILITE_SELECTED_ITEM_CENTER, image, WIN_COLOR_UNDEFINED, WIN_COLOR_UNDEFINED );
 		image = GadgetListBoxGetHiliteSelectedItemImageSmallCenter( listBox );
 		StoreImageAndColor( COMBOBOX_LISTBOX_HILITE_SELECTED_ITEM_SMALL_CENTER, image, WIN_COLOR_UNDEFINED, WIN_COLOR_UNDEFINED );
-
-
 
 		// --------------------------------------------------------------------------
 		GameWindow *upButton = GadgetListBoxGetUpButton( listBox );
@@ -978,6 +972,4 @@ HWND InitComboBoxPropertiesDialog( GameWindow *window )
 	return dialog;
 
 }  // end InitComboBoxPropertiesDialog
-
-
 

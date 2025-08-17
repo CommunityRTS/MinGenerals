@@ -20,7 +20,6 @@
 // Compress/Decompression header.
 // Author: Jeff Brown, January 1999
 
-
 #ifndef __compress_h
 #define __compress_h
 

@@ -191,10 +191,6 @@ Bool CrateCollide::isValidToExecute( const Object *other ) const
 	return TRUE;
 }
 
-
-
-
-
 void CrateCollide::doSabotageFeedbackFX( const Object *other, SabotageVictimType type )
 {
 
@@ -240,8 +236,6 @@ void CrateCollide::doSabotageFeedbackFX( const Object *other, SabotageVictimType
     draw->flashAsSelected();
 
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

@@ -58,7 +58,6 @@ class LockWeaponCreate : public CreateModule
 	MEMORY_POOL_GLUE_WITH_USERLOOKUP_CREATE( LockWeaponCreate, "LockWeaponCreate" );
 	MAKE_STANDARD_MODULE_MACRO_WITH_MODULE_DATA( LockWeaponCreate, LockWeaponCreateModuleData );
 
-
 public:
 
 	LockWeaponCreate( Thing *thing, const ModuleData* moduleData );

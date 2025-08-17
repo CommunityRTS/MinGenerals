@@ -29,7 +29,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // CDownload
 
-
 //
 // Kick off a download - copys the parameters for the download to the appropriate
 // data members, then sets the status flag to start the download when PumpMessages()
@@ -105,7 +104,6 @@ HRESULT CDownload::DownloadFile(LPCSTR server, LPCSTR username, LPCSTR password,
 	return S_OK;
 }
 
-
 //
 // Get the local filename of the last file we requested to download....
 //
@@ -118,7 +116,6 @@ HRESULT CDownload::GetLastLocalFile(char *local_file, int maxlen) {
 
 	return(S_OK);
 }
-
 
 //
 // Abort the current download - disconnects from the server and sets the
@@ -148,7 +145,6 @@ HRESULT CDownload::Abort()
 	return S_OK;
 }
 
-
 //
 // PumpMessages() does all the work - checks for possible resumption of a previous
 // download, connects to the server, finds the file and downloads it.
@@ -171,7 +167,6 @@ HRESULT CDownload::PumpMessages()
 	}
 
 	reenter = 1;
-
 
 	if( m_Status == DOWNLOADSTATUS_GO )
 	{
@@ -198,7 +193,6 @@ HRESULT CDownload::PumpMessages()
 
 		m_Status = DOWNLOADSTATUS_CONNECTING;
 	}
-
 
 	if( m_Status == DOWNLOADSTATUS_CONNECTING )
 	{
@@ -296,7 +290,6 @@ HRESULT CDownload::PumpMessages()
 				return DOWNLOAD_SUCCEEDED;
 			}
 
-
 			//
 			// Check if we can do a file resume
 			//
@@ -313,7 +306,6 @@ HRESULT CDownload::PumpMessages()
 				}
 			}
 			// end resume check
-
 
 			m_Status = DOWNLOADSTATUS_DOWNLOADING;
 
@@ -404,7 +396,6 @@ HRESULT CDownload::PumpMessages()
 
 		Listener->OnProgressUpdate( m_BytesRead, m_FileSize, timetaken, averagetimepredicted + 1);
 	}
-
 
 	if( m_Status == DOWNLOADSTATUS_FINISHING )
 	{

@@ -140,7 +140,6 @@ extern CritSec DebugLibSemaphore;
   DEBUGUNLOCK; \
 }
 
-
 // Just get a stream to the information device, no extra junk
 #define INFSTREAM(X)\
 {\
@@ -203,7 +202,6 @@ extern CritSec DebugLibSemaphore;
   DEBUGUNLOCK; \
 }
 
-
 #define DBGMSG(X)\
 {\
   DEBUGLOCK; \
@@ -254,7 +252,6 @@ extern CritSec DebugLibSemaphore;
        "]: " << ##V << " = " << V << endl; \
   DEBUGUNLOCK; \
 }
-
 
 #define DBGMSG(X)\
 {\

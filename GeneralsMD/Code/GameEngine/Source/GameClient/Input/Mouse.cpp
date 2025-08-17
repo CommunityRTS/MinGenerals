@@ -63,7 +63,6 @@ const char *Mouse::RedrawModeName[RM_MAX] = {
 	"Mouse:DX8",
 };
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -355,7 +354,6 @@ void Mouse::processMouseEvent( Int index )
 //		m_displayTooltip = FALSE;
 //	}
 
-
 	m_prevMouse = m_currMouse;
 
 }  // end processMouseEvent
@@ -389,7 +387,6 @@ void Mouse::checkForDrag( void )
 
 }  // end checkForDrag
 
-
 //-------------------------------------------------------------------------------------------------
 /** Check for mouse click, using allowed drag forgiveness */
 //-------------------------------------------------------------------------------------------------
@@ -398,7 +395,6 @@ Bool Mouse::isClick(const ICoord2D *anchor, const ICoord2D *dest, UnsignedInt pr
 	ICoord2D delta;
 	delta.x = anchor->x - dest->x;
 	delta.y = anchor->y - dest->y;
-
 
 	// if the mouse hasn't moved further than the tolerance distance
 	// or the click took less than the tolerance duration
@@ -410,8 +406,6 @@ Bool Mouse::isClick(const ICoord2D *anchor, const ICoord2D *dest, UnsignedInt pr
 	}
 	return TRUE;
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////////////////////////
@@ -627,7 +621,6 @@ void Mouse::mouseNotifyResolutionChange( void )
 	m_tooltipDisplayString->setWordWrap(120);
 
 }  // end reset
-
 
 //-------------------------------------------------------------------------------------------------
 /** Reset mouse system */
@@ -1043,7 +1036,6 @@ void Mouse::drawTooltip( void )
 		}
 	}  // end if
 
-
 }  // end drawTooltip
 
 // ------------------------------------------------------------------------------------------------
@@ -1225,5 +1217,4 @@ void INI::parseMouseDefinition( INI* ini )
 		ini->initFromINI( TheMouse, TheMouseFieldParseTable );
 	}
 }
-
 

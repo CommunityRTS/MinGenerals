@@ -109,7 +109,6 @@ EvaCheckInfo::EvaCheckInfo() :
 	m_framesToExpire(150) // 5 seconds at 30 fps
 {
 
-
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -122,7 +121,6 @@ const FieldParse EvaCheckInfo::s_evaEventInfo[] =
 	{ 0, 0, 0, 0 },
 
 };
-
 
 //-------------------------------------------------------------------------------------------------
 const ShouldPlayFunc Eva::s_shouldPlayFuncs[] =
@@ -354,7 +352,6 @@ Bool Eva::shouldPlayLowPower( Player *localPlayer )
 	//	if ( ! (localPlayer->canBuild(chinaReactorTemplate) || localPlayer->canBuild(americanReactorTemplate)) )
 	//		return FALSE
 	//}
-
 
 	return !localPlayer->getEnergy()->hasSufficientPower();
 }

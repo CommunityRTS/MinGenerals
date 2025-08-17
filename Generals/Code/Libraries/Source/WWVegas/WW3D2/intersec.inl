@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -25,7 +24,6 @@
 #define INTERSEC_INL
 
 #include "camera.h"
-
 
 /// debug code that will be tossed
 
@@ -292,7 +290,6 @@ inline bool IntersectionClass::_Point_In_Polygon(
 	}
 #endif
 
-
 	return intersect;
 }
 
@@ -324,7 +321,6 @@ inline bool IntersectionClass::_Point_In_Polygon(IntersectionResultClass *FinalR
 
 	return _Point_In_Polygon(FinalResult, loc1, loc2, loc3, axis_1, axis_2);
 }
-
 
 /*
 **	Determine the Z distance to the specified polygon.
@@ -377,7 +373,6 @@ inline bool IntersectionClass::Intersect_Polygon_Z(IntersectionResultClass *Resu
 	(Result->Intersection)[2] = (*RayLocation)[2] - Result->Range;
 	return _Point_In_Polygon(Result, PolygonNormal, v1, v2, v3);
 }
-
 
 /*
 **	Scale the normalized direction ray to the distance of intersection
@@ -432,8 +427,6 @@ inline bool IntersectionClass::Intersect_Plane(IntersectionResultClass *Result, 
 
 	return true;
 }
-
-
 
 /*
 **	Return the index of the largest normal component 0..2
@@ -522,7 +515,6 @@ inline bool IntersectionClass::Intersect_Polygon(IntersectionResultClass *Result
 	return Intersect_Polygon(Result, normal, v1,v2,v3);
 }
 
-
 // called after Interpolate_Intersection_Normal.
 // transform the intersection and the normal from model coords into world coords
 inline void IntersectionClass::Transform_Model_To_World_Coords(IntersectionResultClass *FinalResult)
@@ -544,8 +536,6 @@ inline void IntersectionClass::Transform_Model_To_World_Coords(IntersectionResul
 #endif
 }
 
-
-
 bool IntersectionClass::Intersect_Screen_Object(	IntersectionResultClass *Final_Result,
 											Vector4 &Area,
 											RenderObjClass *obj)
@@ -558,7 +548,6 @@ bool IntersectionClass::Intersect_Screen_Object(	IntersectionResultClass *Final_
 	}
 	return false;
 }
-
 
 /*
 **	Determines the point of intersection, if any between the line segments AB and CD.
@@ -732,7 +721,6 @@ void IntersectionClass::_Intersect_Lines_Z(
 /*
 	A failed attempt to use a graphics gem vol 2 example
 
-
 	// Compute a1, b1, c1, where line joining points 1 and 2
     // is "a1 x  +  b1 y  +  c1  =  0".
 	float a1 = B[AXIS_2] - A[AXIS_2];
@@ -825,9 +813,7 @@ inline float IntersectionClass::Intersect_Lines
 	return 0.0f;
 }
 
-
 #define EMIT(p,uv) OutPoints[outnum] = p; OutUVs[outnum] = uv; outnum++;
-
 
 inline int IntersectionClass::Clip_Triangle_To_LineXY(
 	int incount,
@@ -1091,6 +1077,5 @@ int IntersectionClass::_Intersect_Triangles_Z(
 
 }
 */
-
 
 #endif

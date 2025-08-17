@@ -139,17 +139,12 @@ public:
 	void unloadMusicFilesFromCD();
 protected:
 
-
 };
 
 extern FileSystem*	TheFileSystem;
 
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
-
 
 #endif // __WSYS_FILESYSTEM_H

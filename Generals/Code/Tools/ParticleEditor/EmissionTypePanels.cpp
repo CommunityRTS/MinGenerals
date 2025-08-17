@@ -38,7 +38,6 @@
 // Defines ////////////////////////////////////////////////////////////////////
 #define		ARBITRARY_BUFF_SIZE		128
 
-
 // EmissionPanelLine //////////////////////////////////////////////////////////
 EmissionPanelPoint::EmissionPanelPoint(UINT nIDTemplate, CWnd* pParentWnd) : ISwapablePanel(nIDTemplate, pParentWnd)
 {
@@ -67,7 +66,6 @@ void EmissionPanelPoint::OnParticleSystemEdit()
 
 BEGIN_MESSAGE_MAP(EmissionPanelPoint, ISwapablePanel)
 END_MESSAGE_MAP()
-
 
 // Defines ////////////////////////////////////////////////////////////////////
 #define		ARBITRARY_BUFF_SIZE		128
@@ -208,7 +206,6 @@ BEGIN_MESSAGE_MAP(EmissionPanelLine, ISwapablePanel)
 
 END_MESSAGE_MAP()
 
-
 // EmissionPanelBox ///////////////////////////////////////////////////////////
 EmissionPanelBox::EmissionPanelBox(UINT nIDTemplate, CWnd* pParentWnd) : ISwapablePanel(nIDTemplate, pParentWnd)
 {
@@ -295,7 +292,6 @@ BEGIN_MESSAGE_MAP(EmissionPanelBox, ISwapablePanel)
 	ON_EN_KILLFOCUS(IDC_PSEd_BoxHalfSizeZ, OnParticleSystemEdit)
 END_MESSAGE_MAP()
 
-
 // EmissionPanelSphere ////////////////////////////////////////////////////////
 EmissionPanelSphere::EmissionPanelSphere(UINT nIDTemplate, CWnd* pParentWnd) : ISwapablePanel(nIDTemplate, pParentWnd)
 {
@@ -350,8 +346,6 @@ void EmissionPanelSphere::OnParticleSystemEdit()
 BEGIN_MESSAGE_MAP(EmissionPanelSphere, ISwapablePanel)
 	ON_EN_KILLFOCUS(IDC_PSEd_SphereRadius, OnParticleSystemEdit)
 END_MESSAGE_MAP()
-
-
 
 // EmissionPanelCylinder //////////////////////////////////////////////////////
 EmissionPanelCylinder::EmissionPanelCylinder(UINT nIDTemplate, CWnd* pParentWnd) : ISwapablePanel(nIDTemplate, pParentWnd)

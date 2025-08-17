@@ -283,7 +283,6 @@ WWINLINE void BitmapHandlerClass::Read_B8G8R8A8(
 		palette_bpp);
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // Write color value of given type in BGRA (D3D) byte order. The source value
@@ -479,6 +478,5 @@ WWINLINE unsigned BitmapHandlerClass::Combine_A8R8G8B8(
 	bgra1+=bgra3;
 	return bgra1;
 }
-
 
 #endif

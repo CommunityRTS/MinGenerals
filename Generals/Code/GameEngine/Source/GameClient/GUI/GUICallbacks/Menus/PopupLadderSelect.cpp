@@ -148,7 +148,6 @@ static void handleLadderSelection( Int ladderID )
 	HandleCustomLadderSelection(ladderID);
 }
 
-
 enum PasswordMode
 {
 	PASS_NONE,
@@ -489,7 +488,6 @@ WindowMsgHandledType PopupLadderSelectSystem( GameWindow *window, UnsignedInt ms
 	return MSG_HANDLED;
 
 }
-
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////

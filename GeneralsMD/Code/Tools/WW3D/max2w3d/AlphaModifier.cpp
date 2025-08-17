@@ -57,7 +57,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 		return;
 	}
 
-
 	// Get a mesh from input object
 	TriObject *object = (TriObject*)os->obj;
 
@@ -81,7 +80,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 	// not implement this because of the complexity to the artist and the
 	// performance issues in game.
 	//pblock->GetValue(DL_EDIT_PASS, t, pass, valid);
-
 
 	// Start from 0.
 	pass -= 1;
@@ -111,7 +109,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 	// Tracks the state of the FIND check box.
 	int box_checked = 0;
 
-
 	if (Message == AM_UPDATE_DATA)
 	{
 		// The user has updated the dialog box, so update the data.
@@ -134,7 +131,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 	{
 		pblock->GetValue(DL_FIND_CHECK_BOX, t, box_checked, valid);
 	}
-
 
 	// The user is trying to find vertices with certain values.
 	if (box_checked)
@@ -177,7 +173,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 
 	}
 
-
 	// Always select the vertices that have been saved by the modifier.
 	// This must be done because the mesh changes each time ModfiyObject is called.
 	for (i = 0; i < numVert; i++)
@@ -202,9 +197,6 @@ void AlphaModifierClass::ModifyObject(TimeValue t, ModContext &mc, ObjectState *
 	Message = AM_NOTHING;
 }
 
-
-
-
 /*===========================================================================*\
  |	NotifyInputChanged is called each time the input object is changed in some way
  |	We can find out how it was changed by checking partID and message
@@ -217,7 +209,6 @@ void AlphaModifierClass::NotifyInputChanged(Interval changeInt, PartID partID, R
 		NotifyDependents(FOREVER, PART_OBJ, REFMSG_CHANGE);
 	}
 }
-
 
 /*===========================================================================*\
  |	Class Descriptor OSM
@@ -275,7 +266,6 @@ static ParamBlockDesc2 alpha_param_blk
 	end
 );
 
-
 /*===========================================================================*\
  |	Basic implementation of a dialog handler
 \*===========================================================================*/
@@ -324,11 +314,9 @@ BOOL AlphaModDlgProc::DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT msg,
 		default:
 			break;
 
-
 	}
 	return FALSE;
 }
-
 
 /*===========================================================================*\
  |	Constructor
@@ -342,7 +330,6 @@ AlphaModifierClass::AlphaModifierClass()
 	Message = 0;
 }
 
-
 /*===========================================================================*\
  |	Invalidate our UI (or the recently changed parameter)
 \*===========================================================================*/
@@ -351,8 +338,6 @@ void AlphaModifierClass::InvalidateUI()
 {
 	alpha_param_blk.InvalidateUI(pblock->LastNotifyParamID());
 }
-
-
 
 /*===========================================================================*\
  |	Open and Close dialog UIs
@@ -372,12 +357,9 @@ void AlphaModifierClass::EndEditParams( IObjParam *ip, ULONG flags,Animatable *n
 	AlphaCD.EndEditParams(ip, this, flags, next);
 }
 
-
-
 /*===========================================================================*\
  |	Standard clone
 \*===========================================================================*/
-
 
 RefTargetHandle AlphaModifierClass::Clone(RemapDir& remap)
 {
@@ -385,9 +367,6 @@ RefTargetHandle AlphaModifierClass::Clone(RemapDir& remap)
 	newmod->ReplaceReference(0,pblock->Clone(remap));
 	return(newmod);
 }
-
-
-
 
 /*===========================================================================*\
  |	Subanim & References support
@@ -452,9 +431,6 @@ RefResult AlphaModifierClass::NotifyRefChanged
 	return REF_SUCCEED;
 }
 
-
-
-
 /*===========================================================================*\
  |	The validity of our parameters
  |	Start at FOREVER, and intersect with the validity of each item
@@ -472,6 +448,4 @@ Interval AlphaModifierClass::LocalValidity(TimeValue t)
 {
 	return GetValidity(t);
 }
-
-
 

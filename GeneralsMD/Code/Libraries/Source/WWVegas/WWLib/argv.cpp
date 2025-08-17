@@ -306,7 +306,6 @@ void ArgvClass::Free()
 	Argc = -1;
 }
 
-
 /***********************************************************************************************
  * *ArgvClass::Find_Value -- Find value of argument given prefix.                              *
  *                                                                                             *
@@ -381,9 +380,6 @@ const char *ArgvClass::Get_Cur_Value(unsigned prefixlen, bool * val_in_next)
 	return (NULL);
 }
 
-
-
-
 /***********************************************************************************************
  * void ArgvClass::Update_Value -- Add/Replace a value                                         *
  *                                                                                             *
@@ -419,7 +415,6 @@ void ArgvClass::Update_Value(const char *attrib, const char *value)
 		Add_Value(attrib, value);
 }
 
-
 /***********************************************************************************************
  * void ArgvClass::Add_Value -- Add a value                                                    *
  *                                                                                             *
@@ -448,7 +443,6 @@ void ArgvClass::Add_Value(const char *attrib, const char *value)
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * bool ArgvClass::Remove_Value -- Remove a value                                              *
@@ -488,14 +482,4 @@ bool ArgvClass::Remove_Value(const char *attrib)
 	}
 	return(false);
 }
-
-
-
-
-
-
-
-
-
-
 

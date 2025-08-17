@@ -36,13 +36,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "parameter.h"
 #include "parametertypes.h"
 #include "simpleparameter.h"
 #include "wwstring.h"
 #include "definitionclassids.h"
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -217,7 +215,6 @@ StringParameterClass::StringParameterClass (const StringParameterClass &src)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -230,7 +227,6 @@ StringParameterClass::operator= (const StringParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -250,7 +246,6 @@ StringParameterClass::operator== (const StringParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -268,7 +263,6 @@ StringParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -285,7 +279,6 @@ StringParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Get_String
@@ -300,7 +293,6 @@ StringParameterClass::Get_String (void) const
 	}
 	return string;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -318,13 +310,11 @@ StringParameterClass::Set_String (const char * string)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of FilenameParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -336,7 +326,6 @@ FilenameParameterClass::FilenameParameterClass (StringClass *string)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -350,7 +339,6 @@ FilenameParameterClass::FilenameParameterClass (const FilenameParameterClass &sr
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -363,7 +351,6 @@ FilenameParameterClass::operator= (const FilenameParameterClass &src)
 	return *this;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -375,7 +362,6 @@ FilenameParameterClass::operator== (const FilenameParameterClass &src)
 	return StringParameterClass::operator== (src);
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -386,7 +372,6 @@ FilenameParameterClass::operator== (const ParameterClass &src)
 {
 	return StringParameterClass::operator== (src);
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -410,7 +395,6 @@ FilenameParameterClass::Copy_Value (const ParameterClass &src)
 //
 //*******************************************************************************************//
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	TextureFilenameParameterClass
@@ -422,7 +406,6 @@ TextureFilenameParameterClass::TextureFilenameParameterClass (StringClass *strin
 	Show_Texture(false)
 {
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -452,13 +435,11 @@ void TextureFilenameParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of SoundFilenameParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -470,7 +451,6 @@ SoundFilenameParameterClass::SoundFilenameParameterClass (StringClass *string)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -484,7 +464,6 @@ SoundFilenameParameterClass::SoundFilenameParameterClass (const SoundFilenamePar
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -497,7 +476,6 @@ SoundFilenameParameterClass::operator= (const SoundFilenameParameterClass &src)
 	return *this;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -509,14 +487,11 @@ SoundFilenameParameterClass::operator== (const SoundFilenameParameterClass &src)
 	return FilenameParameterClass::operator== (src);
 }
 
-
-
 //*******************************************************************************************//
 //
 //	Start of EnumParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -529,7 +504,6 @@ EnumParameterClass::EnumParameterClass (int *value)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	EnumParameterClass
@@ -541,7 +515,6 @@ EnumParameterClass::EnumParameterClass (const EnumParameterClass &src)
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -558,7 +531,6 @@ EnumParameterClass::operator= (const EnumParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -579,7 +551,6 @@ EnumParameterClass::operator== (const EnumParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -597,7 +568,6 @@ EnumParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -614,7 +584,6 @@ EnumParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Add_Value
@@ -626,7 +595,6 @@ EnumParameterClass::Add_Value (const char *display_name, int value)
 	m_List.Add (ENUM_VALUE(display_name, value));
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -668,14 +636,11 @@ EnumParameterClass::Add_Values (const char *first_name, int first_value, ...)
 	return ;
 }
 
-
-
 //*******************************************************************************************//
 //
 //	Start of PhysDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -700,7 +665,6 @@ PhysDefParameterClass::PhysDefParameterClass (const PhysDefParameterClass &src)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -713,7 +677,6 @@ PhysDefParameterClass::operator= (const PhysDefParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -734,7 +697,6 @@ PhysDefParameterClass::operator== (const PhysDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -752,7 +714,6 @@ PhysDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -767,13 +728,11 @@ PhysDefParameterClass::Copy_Value (const ParameterClass &/*src*/)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of ModelDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -798,7 +757,6 @@ ModelDefParameterClass::ModelDefParameterClass (const ModelDefParameterClass &sr
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -811,7 +769,6 @@ ModelDefParameterClass::operator= (const ModelDefParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -832,7 +789,6 @@ ModelDefParameterClass::operator== (const ModelDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -850,7 +806,6 @@ ModelDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -864,7 +819,6 @@ ModelDefParameterClass::Copy_Value (const ParameterClass &/*src*/)
 	//
 	return ;
 }
-
 
 //*******************************************************************************************//
 //
@@ -883,7 +837,6 @@ DefParameterClass::DefParameterClass (int *id)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	DefParameterClass
@@ -895,7 +848,6 @@ DefParameterClass::DefParameterClass (const DefParameterClass &src)
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -909,7 +861,6 @@ DefParameterClass::operator= (const DefParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -930,7 +881,6 @@ DefParameterClass::operator== (const DefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -948,7 +898,6 @@ DefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -965,14 +914,11 @@ DefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
-
 //*******************************************************************************************//
 //
 //	Start of GenericDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -985,7 +931,6 @@ GenericDefParameterClass::GenericDefParameterClass (int *id)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1000,7 +945,6 @@ GenericDefParameterClass::GenericDefParameterClass (const GenericDefParameterCla
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1012,7 +956,6 @@ GenericDefParameterClass::operator= (const GenericDefParameterClass &src)
 	DefParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1033,7 +976,6 @@ GenericDefParameterClass::operator== (const GenericDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1051,7 +993,6 @@ GenericDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -1068,13 +1009,11 @@ GenericDefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of GameObjDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1086,7 +1025,6 @@ GameObjDefParameterClass::GameObjDefParameterClass (int *id)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1100,7 +1038,6 @@ GameObjDefParameterClass::GameObjDefParameterClass (const GameObjDefParameterCla
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1112,7 +1049,6 @@ GameObjDefParameterClass::operator= (const GameObjDefParameterClass &src)
 	DefParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1133,7 +1069,6 @@ GameObjDefParameterClass::operator== (const GameObjDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1151,7 +1086,6 @@ GameObjDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -1168,13 +1102,11 @@ GameObjDefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of WeaponObjDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1186,7 +1118,6 @@ WeaponObjDefParameterClass::WeaponObjDefParameterClass (int *id)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1200,7 +1131,6 @@ WeaponObjDefParameterClass::WeaponObjDefParameterClass (const WeaponObjDefParame
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1213,7 +1143,6 @@ WeaponObjDefParameterClass::operator= (const WeaponObjDefParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1234,7 +1163,6 @@ WeaponObjDefParameterClass::operator== (const WeaponObjDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1252,7 +1180,6 @@ WeaponObjDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -1269,13 +1196,11 @@ WeaponObjDefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of AmmoObjDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1287,7 +1212,6 @@ AmmoObjDefParameterClass::AmmoObjDefParameterClass (int *id)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1301,7 +1225,6 @@ AmmoObjDefParameterClass::AmmoObjDefParameterClass (const AmmoObjDefParameterCla
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1314,7 +1237,6 @@ AmmoObjDefParameterClass::operator= (const AmmoObjDefParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1335,7 +1257,6 @@ AmmoObjDefParameterClass::operator== (const AmmoObjDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1353,7 +1274,6 @@ AmmoObjDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -1370,13 +1290,11 @@ AmmoObjDefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of ExplosionObjDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1388,7 +1306,6 @@ ExplosionObjDefParameterClass::ExplosionObjDefParameterClass (int *id)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1402,7 +1319,6 @@ ExplosionObjDefParameterClass::ExplosionObjDefParameterClass (const ExplosionObj
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1415,7 +1331,6 @@ ExplosionObjDefParameterClass::operator= (const ExplosionObjDefParameterClass &s
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1436,7 +1351,6 @@ ExplosionObjDefParameterClass::operator== (const ExplosionObjDefParameterClass &
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1454,7 +1368,6 @@ ExplosionObjDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	Copy_Value
@@ -1471,13 +1384,11 @@ ExplosionObjDefParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of SoundDefParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1502,7 +1413,6 @@ SoundDefParameterClass::SoundDefParameterClass (const SoundDefParameterClass &sr
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1514,7 +1424,6 @@ SoundDefParameterClass::operator= (const SoundDefParameterClass &src)
 	DefParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1535,7 +1444,6 @@ SoundDefParameterClass::operator== (const SoundDefParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1553,13 +1461,11 @@ SoundDefParameterClass::operator== (const ParameterClass &src)
 	return retval;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of ScriptParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1586,7 +1492,6 @@ ScriptParameterClass::ScriptParameterClass (const ScriptParameterClass &src)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator=
@@ -1600,7 +1505,6 @@ ScriptParameterClass::operator= (const ScriptParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1632,7 +1536,6 @@ ScriptParameterClass::operator== (const ScriptParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1649,7 +1552,6 @@ ScriptParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1668,13 +1570,11 @@ ScriptParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of DefIDListParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1689,7 +1589,6 @@ DefIDListParameterClass::DefIDListParameterClass (DynamicVectorClass<int> *list)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	DefIDListParameterClass
@@ -1703,7 +1602,6 @@ DefIDListParameterClass::DefIDListParameterClass (const DefIDListParameterClass 
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1720,7 +1618,6 @@ DefIDListParameterClass::operator= (const DefIDListParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1760,7 +1657,6 @@ DefIDListParameterClass::operator== (const DefIDListParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1777,7 +1673,6 @@ DefIDListParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1802,13 +1697,11 @@ DefIDListParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of ZoneParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1821,7 +1714,6 @@ ZoneParameterClass::ZoneParameterClass (OBBoxClass *box)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	ZoneParameterClass
@@ -1833,7 +1725,6 @@ ZoneParameterClass::ZoneParameterClass (const ZoneParameterClass &src)
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1848,7 +1739,6 @@ ZoneParameterClass::operator= (const ZoneParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1870,7 +1760,6 @@ ZoneParameterClass::operator== (const ZoneParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -1887,7 +1776,6 @@ ZoneParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1907,13 +1795,11 @@ ZoneParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of FilenameListParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1926,7 +1812,6 @@ FilenameListParameterClass::FilenameListParameterClass (DynamicVectorClass<Strin
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	FilenameListParameterClass
@@ -1938,7 +1823,6 @@ FilenameListParameterClass::FilenameListParameterClass (const FilenameListParame
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1953,7 +1837,6 @@ FilenameListParameterClass::operator= (const FilenameListParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -1987,7 +1870,6 @@ FilenameListParameterClass::operator== (const FilenameListParameterClass &src)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -2004,7 +1886,6 @@ FilenameListParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2023,13 +1904,11 @@ FilenameListParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of ScriptListParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2047,7 +1926,6 @@ ScriptListParameterClass::ScriptListParameterClass
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	ScriptListParameterClass
@@ -2060,7 +1938,6 @@ ScriptListParameterClass::ScriptListParameterClass (const ScriptListParameterCla
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2076,7 +1953,6 @@ ScriptListParameterClass::operator= (const ScriptListParameterClass &src)
 	ParameterClass::operator= (src);
 	return *this;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2100,7 +1976,6 @@ ScriptListParameterClass::operator== (const ScriptListParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2130,7 +2005,6 @@ ScriptListParameterClass::Are_Lists_Identical
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -2147,7 +2021,6 @@ ScriptListParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2167,13 +2040,11 @@ ScriptListParameterClass::Copy_Value (const ParameterClass &src)
 	return ;
 }
 
-
 //*******************************************************************************************//
 //
 //	Start of SeparatorParameterClass
 //
 //*******************************************************************************************//
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2185,7 +2056,6 @@ SeparatorParameterClass::SeparatorParameterClass (const SeparatorParameterClass 
 	(*this) = src;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2199,7 +2069,6 @@ SeparatorParameterClass::operator= (const SeparatorParameterClass &src)
 	return *this;
 }
 
-
 /////////////////////////////////////////////////////////////////////
 //
 //	operator==
@@ -2210,7 +2079,6 @@ SeparatorParameterClass::operator== (const SeparatorParameterClass &src)
 {
 	return true;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //
@@ -2228,7 +2096,6 @@ SeparatorParameterClass::operator== (const ParameterClass &src)
 
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////
 //

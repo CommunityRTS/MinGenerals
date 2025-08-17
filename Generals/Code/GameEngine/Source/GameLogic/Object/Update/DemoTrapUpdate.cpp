@@ -96,7 +96,6 @@ DemoTrapUpdate::~DemoTrapUpdate( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // Validate that we have the necessary data from the ini file.
 //-------------------------------------------------------------------------------------------------
@@ -170,7 +169,6 @@ UpdateSleepTime DemoTrapUpdate::update()
 		m_nextScanFrames--;
 		return UPDATE_SLEEP_NONE;
 	}
-
 
 	if( weaponSlot == data->m_manualModeWeaponSlot )
 	{

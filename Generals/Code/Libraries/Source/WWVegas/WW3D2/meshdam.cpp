@@ -34,16 +34,13 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if 0
-
 
 #include "meshdam.h"
 #include "w3d_file.h"
 #include "w3derr.h"
 #include "chunkio.h"
 //#include <sr.hpp>
-
 
 /***********************************************************************************************
  * DamageClass::DamageClass -- constructor                                                     *
@@ -66,7 +63,6 @@ DamageClass::DamageClass(void):
 	Colors(NULL)
 {
 }
-
 
 /***********************************************************************************************
  * DamageClass::~DamageClass -- destructor                                                     *
@@ -246,7 +242,6 @@ WW3DErrorType DamageClass::read_colors(ChunkLoadClass & cload,MeshModelClass * b
 			return WW3D_ERROR_LOAD_FAILED;
 		}
 
-
 		Colors[i].VertexIdx = dc.VertexIndex;
 
 		// TODO: check for existing vertex colors, store original here
@@ -261,6 +256,5 @@ WW3DErrorType DamageClass::read_colors(ChunkLoadClass & cload,MeshModelClass * b
 #endif
 	return WW3D_ERROR_OK;
 }
-
 
 #endif //0

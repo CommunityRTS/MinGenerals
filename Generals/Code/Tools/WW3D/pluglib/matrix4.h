@@ -52,7 +52,6 @@
  *   Matrix4::operator /= -- "divide equals" operator                                          *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -64,7 +63,6 @@
 #include "vector4.h"
 #include "matrix3d.h"
 #include "wwmatrix3.h"
-
 
 class Matrix4
 {
@@ -173,7 +171,6 @@ protected:
 
 };
 
-
 /***********************************************************************************************
  * Matrix4::Matrix4 -- Constructor, optionally initialize to Identitiy matrix                  *
  *                                                                                             *
@@ -244,7 +241,6 @@ inline Matrix4::Matrix4(const Vector4 & r0, const Vector4 & r1, const Vector4 & 
 	Init(r0,r1,r2,r3);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Make_Identity -- Initializes the matrix to Identity                                *
  *                                                                                             *
@@ -265,7 +261,6 @@ inline void Matrix4::Make_Identity(void)
 	Row[3].Set(0.0,0.0,0.0,1.0);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init -- Initializes from the contents of the give Matrix3D                         *
  *                                                                                             *
@@ -283,7 +278,6 @@ inline void Matrix4::Init(const Matrix3D & m)
 	Row[0] = m[0]; Row[1] = m[1]; Row[2] = m[2]; Row[3] = Vector4(0.0,0.0,0.0,1.0);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init -- Initializes the rows from the given Vector4s                               *
  *                                                                                             *
@@ -300,7 +294,6 @@ inline void Matrix4::Init(const Vector4 & r0, const Vector4 & r1, const Vector4 
 {
 	Row[0] = r0; Row[1] = r1; Row[2] = r2; Row[3] = r3;
 }
-
 
 /***********************************************************************************************
  * Matrix4::Init_Ortho -- Initialize to an orthographic projection matrix                      *
@@ -347,7 +340,6 @@ inline void Matrix4::Init_Ortho
 	Row[2][3] = -(zfar + znear) / (zfar - znear);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init_Perspective -- Initialize to a perspective projection matrix                  *
  *                                                                                             *
@@ -384,7 +376,6 @@ inline void Matrix4::Init_Perspective(float hfov,float vfov,float znear,float zf
 	Row[3][2] = -1.0f;
 	Row[3][3] = 0.0f;
 }
-
 
 /***********************************************************************************************
  * Matrix4::Init_Perspective -- Initialize to a perspective projection matrix                  *
@@ -665,8 +656,6 @@ inline Matrix4 operator * (const Matrix4 & a, const Matrix4 & b)
 
 inline Matrix4 Multiply(const Matrix4 & a, const Matrix4 & b)
 { return a*b; }
-
-
 
 /*
 ** Multiply a Matrix4 by a Vector3 (assumes w=1.0!!!). Yeilds a Vector4 result

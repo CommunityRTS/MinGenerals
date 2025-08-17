@@ -79,7 +79,6 @@ extern Int	IMECandidateWindowLineSpacing;
 //         Defines
 //----------------------------------------------------------------------------
 
-
 //#define DEBUG_IME
 
 //----------------------------------------------------------------------------
@@ -119,8 +118,6 @@ class IMEManager : public IMEManagerInterface
 		virtual Int						getSelectedCandidateIndex();		///< Returns the indexed of the currently selected candidate
 		virtual Int						getCandidatePageSize();					///< Returns the page size for the candidates list
 		virtual Int						getCandidatePageStart();				///< Returns the index of the first visibel candidate
-
-
 
 		/// Checks for and services IME messages. Returns TRUE if message serviced
 		virtual Bool serviceIMEMessage(	void *windowsHandle,
@@ -183,8 +180,6 @@ class IMEManager : public IMEManagerInterface
 		GameWindow						*m_candidateUpArrow;						///< up arrow
 		GameWindow						*m_candidateDownArrow;					///< down arrow
 
-
-
 	#ifdef DEBUG_IME
 		static MessageInfo		m_mainMessageInfo[];
 		static MessageInfo		m_notifyInfo[];
@@ -200,9 +195,6 @@ class IMEManager : public IMEManagerInterface
 		void					printSentenceStatus( void );
 	#endif
 };
-
-
-
 
 //----------------------------------------------------------------------------
 //         Private Data
@@ -259,7 +251,6 @@ IMEManager::MessageInfo IMEManager::m_requestInfo[] =
 #endif
 	{ NULL, 0 }
 };
-
 
 IMEManager::MessageInfo IMEManager::m_controlInfo[] =
 {
@@ -324,12 +315,9 @@ IMEManager::MessageInfo IMEManager::m_setSmodeInfo[] =
 
 IMEManagerInterface *TheIMEManager = NULL;
 
-
 //----------------------------------------------------------------------------
 //         Private Prototypes
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Private Functions
@@ -480,7 +468,6 @@ void IMEManager::printSentenceStatus( void )
 }
 #endif // DEBUG_IME
 
-
 //----------------------------------------------------------------------------
 //         Public Functions
 //----------------------------------------------------------------------------
@@ -493,7 +480,6 @@ IMEManagerInterface *CreateIMEManagerInterface( void )
 {
 	return NEW IMEManager;
 }
-
 
 //============================================================================
 // IMEManager::IMEManager
@@ -589,8 +575,6 @@ void IMEManager::init( void )
 
 		id = TheNameKeyGenerator->nameToKey( AsciiString( "IMECandidateWindow.wnd:DownArrow" ) );
 		m_candidateDownArrow = TheWindowManager->winGetWindowFromId(m_candidateWindow, id);
-
-
 
 		if ( m_candidateTextArea == NULL )
 		{
@@ -869,7 +853,6 @@ Bool IMEManager::serviceIMEMessage(	void *windowsHandle, UnsignedInt message,	In
 				return FALSE;
 			}
 
-
 			// --------------------------------------------------------------------
 			case WM_IME_NOTIFY:
 			{
@@ -1038,7 +1021,6 @@ GameWindow* IMEManager::getWindow( void )
 	return m_window;
 }
 
-
 //============================================================================
 // IMEManager::convertChartoWide
 //============================================================================
@@ -1059,7 +1041,6 @@ WideChar IMEManager::convertCharToWide( WPARAM wParam )
 		dcbsString[1] = 0;
 	}
 
-
 	WideChar uniString[2];
 
 	if ( MultiByteToWideChar( CP_ACP, 0, dcbsString, strlen( dcbsString ), uniString, 1 ) == 1 )
@@ -1078,7 +1059,6 @@ Bool IMEManager::isComposing( void )
 {
 	return m_composing;
 }
-
 
 void IMEManager::getCompositionString ( UnicodeString &string )
 {
@@ -1264,7 +1244,6 @@ void IMEManager::openCandidateList( Int candidateFlags )
 	Int wx, wy, wwidth, wheight, wcursorx, wcursory;
 	Int cx, cy, cwidth, cheight;
 	Int	textHeight = 20;
-
 
 	if ( m_window )
 	{

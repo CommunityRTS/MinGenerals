@@ -38,13 +38,11 @@
  *   LCWPipe::~LCWPipe -- Deconstructor for the LCW pipe object.                               *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include	"always.h"
 #include	"lcw.h"
 #include	"lcwpipe.h"
 #include	<assert.h>
 #include	<string.h>
-
 
 /***********************************************************************************************
  * LCWPipe::LCWPipe -- Constructor for the LCW processor pipe.                                 *
@@ -76,7 +74,6 @@ LCWPipe::LCWPipe(CompControl control, int blocksize) :
 	BlockHeader.CompCount = 0xFFFF;
 }
 
-
 /***********************************************************************************************
  * LCWPipe::~LCWPipe -- Deconstructor for the LCW pipe object.                                 *
  *                                                                                             *
@@ -99,7 +96,6 @@ LCWPipe::~LCWPipe(void)
 	delete [] Buffer2;
 	Buffer2 = NULL;
 }
-
 
 /***********************************************************************************************
  * LCWPipe::Put -- Send some data through the LCW processor pipe.                              *
@@ -235,7 +231,6 @@ int LCWPipe::Put(void const * source, int slen)
 
 	return(total);
 }
-
 
 /***********************************************************************************************
  * LCWPipe::Flush -- Flushes any partially accumulated block.                                  *

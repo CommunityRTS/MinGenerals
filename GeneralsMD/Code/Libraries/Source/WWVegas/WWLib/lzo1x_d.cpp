@@ -74,7 +74,6 @@
 #  define TEST_IP				(ip < ip_end)
 #endif
 
-
 /***********************************************************************
 // decompress a block of data.
 ************************************************************************/
@@ -117,7 +116,6 @@ int lzo1x_decompress     ( const lzo_byte * in, lzo_uint  in_len,
 first_literal_run:
 		do *op++ = *ip++; while (--t > 0);
 
-
 		t = *ip++;
 
 		if (t >= 16) {
@@ -135,7 +133,6 @@ first_literal_run:
 		*op++ = *m_pos;
 //		*op++ = *m_pos++;
 		goto match_done;
-
 
 		/* handle matches */
 		for (;;) {
@@ -217,7 +214,6 @@ eof_found:
 	*out_len = op - out;
 	return (ip == ip_end ? LZO_E_OK : LZO_E_ERROR);
 }
-
 
 /*
 vi:ts=4

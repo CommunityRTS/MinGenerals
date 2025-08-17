@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef PS2GAMEMTLSHADERDLG_H
 #define PS2GAMEMTLSHADERDLG_H
 

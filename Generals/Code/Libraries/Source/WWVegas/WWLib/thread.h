@@ -28,7 +28,6 @@
 
 #include "always.h"
 
-
 // ****************************************************************************
 //
 // To create a new thread just derive a new class from this and define

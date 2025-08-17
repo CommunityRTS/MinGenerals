@@ -85,10 +85,8 @@ public:
 	static Int getInterfaceMask() { return UpdateModule::getInterfaceMask() | MODULEINTERFACE_DIE; }
 	virtual DieModuleInterface* getDie() { return this; }
 
-
 	virtual UpdateSleepTime update();
 	virtual void onDie( const DamageInfo *damageInfo );
-
 
 private:
 

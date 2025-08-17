@@ -134,4 +134,3 @@ void W3DScienceModelDraw::loadPostProcess( void )
 
 }  // end loadPostProcess
 
-

@@ -59,5 +59,4 @@ public:
 	virtual void deactivate(); ///< Become not the current tool.
 };
 
-
 #endif //WAYPOINTTOOL_H

@@ -149,7 +149,6 @@ class MilesAudioManager : public AudioManager
 		MilesAudioManager();
 		virtual ~MilesAudioManager();
 
-
 		virtual void nextMusicTrack( void );
 		virtual void prevMusicTrack( void );
 		virtual Bool isMusicPlaying( void ) const;

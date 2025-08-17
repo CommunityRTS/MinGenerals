@@ -77,5 +77,4 @@ public:
 
 extern GameResultsInterface *TheGameResultsQueue;
 
-
 #endif // __GAMERESULTSTHREAD_H__

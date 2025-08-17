@@ -40,7 +40,6 @@
 
 #include <windows.h>
 
-
 /******************************************************************************
 **	Swaps two objects.
 */
@@ -53,7 +52,6 @@ void swap( T & left, T & right )
 	left  = right;
 	right = temp;
 }
-
 
 void		Fix_Single_Ampersands  			( LPSTR pszString, bool upper_case );
 void		Fix_Single_Ampersands  			( wchar_t *pszString, bool upper_case );
@@ -70,6 +68,5 @@ wchar_t *	Path_Remove_Back_Slash			( wchar_t *path );
 void		PlugInProductName				( char *szString, int nName );
 void		PlugInProductName				( char *szString, char *szName );
 void		PlugInProductName				( wchar_t *szString, const wchar_t *szName );
-
 
 #endif

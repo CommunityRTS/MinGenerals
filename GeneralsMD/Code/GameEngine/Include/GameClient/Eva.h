@@ -211,7 +211,6 @@ class Eva : public SubsystemInterface
 		void playMessage(EvaMessage messageToTest, UnsignedInt currentFrame);
 		void processPlayingMessages(UnsignedInt currentFrame);
 
-
 };
 
 extern Eva *TheEva;

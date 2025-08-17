@@ -159,7 +159,6 @@ AnimateWindowManager::~AnimateWindowManager( void )
 	clearWinList(m_winMustFinishList);
 }
 
-
 void AnimateWindowManager::init( void )
 {
 	clearWinList(m_winList);
@@ -239,7 +238,6 @@ void AnimateWindowManager::update( void )
 		it ++;
 	}
 }
-
 
 void AnimateWindowManager::registerGameWindow(GameWindow *win, AnimTypes animType, Bool needsToFinish, UnsignedInt ms, UnsignedInt delayMs)
 {
@@ -418,12 +416,9 @@ void AnimateWindowManager::resetToRestPosition( void )
 		it ++;
 	}
 
-
 }
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-
-
 

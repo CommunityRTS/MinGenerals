@@ -44,7 +44,6 @@
 #include "always.h"
 #include "vector3.h"
 
-
 /*
 ** This class is used to describe an "axis-aligned" plane.  I.e, the normal
 ** of the plane is one of the three coordinate axes.

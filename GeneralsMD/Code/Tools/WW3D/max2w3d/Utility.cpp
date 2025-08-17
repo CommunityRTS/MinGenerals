@@ -36,12 +36,10 @@
  *  wwInputBox  -- Retrive a string from the user in a nice friendly manner.                   *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 /*
 ** Utility.cpp - Implementation of a some convenient features the WIN32 API provides
 ** that the MAXScript API doesn't.
 */
-
 
 #include <MaxScrpt.h>
 #include <Arrays.h>
@@ -51,13 +49,11 @@
 #include "util.h"
 #include "InputDlg.h"
 
-
 /*
 ** Let MAXScript know we're implementing new built-in functions.
 */
 def_visible_primitive(get_absolute_path,	"wwGetAbsolutePath");
 def_visible_primitive(input_box,				"wwInputBox");
-
 
 /***********************************************************************************************
  * get_absolute_path_cf -- Returns the absolute path based on a relative one.                  *
@@ -93,7 +89,6 @@ Value * get_absolute_path_cf (Value **arg_list, int count)
 	vl.abs = new String(absolute);
 	return_value(vl.abs);
 }
-
 
 /***********************************************************************************************
  * input_box_cf -- Retrive a string from the user in a nice friendly manner.                   *

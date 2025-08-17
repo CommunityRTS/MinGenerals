@@ -778,7 +778,6 @@ void TextureClass::_Init_Filters()
 		DX8Wrapper::Set_DX8_Texture_Stage_State(stage,D3DTSS_MAXANISOTROPY,2);
 	}
 
-
 }
 
 void TextureClass::_Set_Default_Min_Filter(FilterType filter)
@@ -913,7 +912,6 @@ void setup_texture_attributes(TextureClass * tex, W3dTextureInfoStruct * texinfo
 	if (tex->Get_U_Addr_Mode() == TextureClass::TEXTURE_ADDRESS_CLAMP) texinfo->Attributes |= W3DTEXTURE_CLAMP_U;
 	if (tex->Get_V_Addr_Mode() == TextureClass::TEXTURE_ADDRESS_CLAMP) texinfo->Attributes |= W3DTEXTURE_CLAMP_V;
 }
-
 
 void Save_Texture(TextureClass * texture,ChunkSaveClass & csave)
 {

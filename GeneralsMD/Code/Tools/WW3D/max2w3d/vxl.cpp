@@ -38,7 +38,6 @@
 #include "vxl.h"
 #include "errclass.h"
 
-
 /*
 
 	This module will voxelize one or more meshes.  It is only used to compute
@@ -111,7 +110,6 @@ VoxelClass::VoxelClass
 	Point3 max;
 	compute_dimensions(meshlist,ParentTM,CurTime,&min,&max);
 
-
 	/*
 	** The voxelizer uses three values: offset, size,
 	** and scale:
@@ -128,14 +126,12 @@ VoxelClass::VoxelClass
 	Scale.y = Resolution / Size.y;
 	Scale.z = Resolution / Size.z;
 
-
 	/*
 	** Dimensions of a single voxel block
 	*/
 	BlockXDim = Size.x / Resolution;
 	BlockYDim = Size.y / Resolution;
 	BlockZDim = Size.z / Resolution;
-
 
 	/*
 	** Voxelize the meshes!
@@ -147,7 +143,6 @@ VoxelClass::VoxelClass
 	);
 
 }
-
 
 /************************************************************************
 * VoxelClass Destructor
@@ -165,7 +160,6 @@ VoxelClass::~VoxelClass()
 {
 	if (VisData != NULL) delete[] VisData;
 }
-
 
 /************************************************************************
 * VoxelClass::Quantize_Meshes
@@ -261,7 +255,6 @@ void VoxelClass::Set_Layer
 	if (vlayer.Get_Width() != (unsigned)XDim) return;
 	if (vlayer.Get_Height() != (unsigned)YDim) return;
 
-
 	// Copy the solid voxels into our voxel cube
 	for (unsigned j=0; j<vlayer.Get_Height(); j++) {
 		for (unsigned i=0; i<vlayer.Get_Width(); i++) {
@@ -350,7 +343,6 @@ void VoxelClass::Compute_Bounding_Box
 	}
 }
 
-
 /************************************************************************
 * VoxelClass::Compute_Visibility
 *
@@ -418,7 +410,6 @@ void VoxelClass::Compute_Visiblity
 		if (meter.Cancelled()) throw ErrorClass("Export Cancelled");
 	} // done with the X-Y layers
 
-
 	/////////////////////////////////////////////////////////////
 	// Now I'm going to tunnel up and down through the object.
 	// To do this, I will loop across the width of the object
@@ -445,7 +436,6 @@ void VoxelClass::Compute_Visiblity
 		if (meter.Cancelled()) throw ErrorClass("Export Cancelled");
 	} // done with the X-Z layers
 
-
 	///////////////////////////////////////////////////////////
 	// Now, we search for all of the VIS_UNKNOWN voxels and
 	// set them to VIS_SOLID and we are done voxelizing
@@ -465,7 +455,6 @@ void VoxelClass::Compute_Visiblity
 		if (meter.Cancelled()) throw ErrorClass("Export Cancelled");
 	}
 }
-
 
 /************************************************************************
 * VoxelClass::raw_read_vis
@@ -527,7 +516,6 @@ void VoxelClass::raw_set_vis(
 	return;
 }
 
-
 void compute_dimensions
 (
 	INodeListClass &	meshlist,
@@ -554,7 +542,6 @@ void compute_dimensions
 		TriObject *    tri = (TriObject *)obj->ConvertToType(curtime, triObjectClassID);
 		Mesh *         mesh = &(tri->mesh);
 		Matrix3        tm   = n->GetObjTMAfterWSM(curtime);
-
 
 		// Compute a matrix which takes vertices of this mesh into the
 		// specified parent space.

@@ -57,7 +57,6 @@
 #include "GameClient/GameWindowManager.h"
 #include "GameClient/MessageBox.h"
 
-
 GameWindow *MessageBoxYesNo(UnicodeString titleString,UnicodeString bodyString,GameWinMsgBoxFunc yesCallback,GameWinMsgBoxFunc noCallback)  ///< convenience function for displaying a Message box with Yes and No buttons
 {
 	return TheWindowManager->gogoMessageBox(-1,-1,-1,-1,MSG_BOX_NO | MSG_BOX_YES , titleString, bodyString, yesCallback, noCallback, NULL, NULL);
@@ -67,12 +66,10 @@ GameWindow *QuitMessageBoxYesNo(UnicodeString titleString,UnicodeString bodyStri
 	return TheWindowManager->gogoMessageBox(-1,-1,-1,-1,MSG_BOX_NO | MSG_BOX_YES , titleString, bodyString, yesCallback, noCallback, NULL, NULL, TRUE);
 }
 
-
 GameWindow *MessageBoxYesNoCancel(UnicodeString titleString,UnicodeString bodyString, GameWinMsgBoxFunc yesCallback, GameWinMsgBoxFunc noCallback, GameWinMsgBoxFunc cancelCallback)///< convenience function for displaying a Message box with Yes,No and Cancel buttons
 {
 	return TheWindowManager->gogoMessageBox(-1,-1,-1,-1,MSG_BOX_NO | MSG_BOX_YES | MSG_BOX_CANCEL , titleString, bodyString, yesCallback, noCallback, NULL, cancelCallback);
 }
-
 
 GameWindow *MessageBoxOkCancel(UnicodeString titleString,UnicodeString bodyString,GameWinMsgBoxFunc okCallback,GameWinMsgBoxFunc cancelCallback)///< convenience function for displaying a Message box with Ok and Cancel buttons
 {
@@ -84,16 +81,12 @@ GameWindow *MessageBoxOk(UnicodeString titleString,UnicodeString bodyString,Game
 	return TheWindowManager->gogoMessageBox(-1,-1,-1,-1,MSG_BOX_OK, titleString, bodyString, NULL, NULL, okCallback, NULL);
 }
 
-
 GameWindow *MessageBoxCancel(UnicodeString titleString,UnicodeString bodyString,GameWinMsgBoxFunc cancelCallback)///< convenience function for displaying a Message box with Cancel button
 {
 	return TheWindowManager->gogoMessageBox(-1,-1,-1,-1, MSG_BOX_CANCEL, titleString, bodyString, NULL, NULL, NULL, cancelCallback);
 }
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Message Box window system callback */
@@ -101,7 +94,6 @@ GameWindow *MessageBoxCancel(UnicodeString titleString,UnicodeString bodyString,
 WindowMsgHandledType MessageBoxSystem( GameWindow *window, UnsignedInt msg,
 										 WindowMsgData mData1, WindowMsgData mData2 )
 {
-
 
 	switch( msg )
 	{
@@ -185,7 +177,6 @@ WindowMsgHandledType MessageBoxSystem( GameWindow *window, UnsignedInt msg,
 WindowMsgHandledType QuitMessageBoxSystem( GameWindow *window, UnsignedInt msg,
 										 WindowMsgData mData1, WindowMsgData mData2 )
 {
-
 
 	switch( msg )
 	{

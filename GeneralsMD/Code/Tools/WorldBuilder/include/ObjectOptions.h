@@ -47,7 +47,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(ObjectOptions)
@@ -69,7 +68,6 @@ protected:
 	afx_msg void OnSelchangeOwningteam();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 
 protected:
 	static ObjectOptions *m_staticThis;

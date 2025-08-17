@@ -21,7 +21,6 @@
 // January, 2003
 // (c) Electronic Arts 2003
 
-
 #ifndef TEAM_OBJECT_PROPERTIES_H
 #define TEAM_OBJECT_PROPERTIES_H
 
@@ -33,7 +32,6 @@
 
 // Forward declarations.
 class Dict;
-
 
 // External Defines
 
@@ -48,7 +46,6 @@ public:
 	//{{AFX_DATA(MapObjectProps)
 	enum { IDD = IDD_TeamObjectProperties };
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

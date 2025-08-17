@@ -412,7 +412,6 @@ public:
 	Real m_standardMinefieldDensity;
 	Real m_standardMinefieldDistance;
 
-
 	Bool  m_showMetrics;								///< whether or not to show the metrics.
 	Money m_defaultStartingCash;				///< The amount of cash a player starts with by default.
 
@@ -453,8 +452,6 @@ public:
 	Bool m_specialPowerUsesDelay ;
 #endif
   Bool m_TiVOFastMode;            ///< When true, the client speeds up the framerate... set by HOTKEY!
-
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 	Bool m_wireframe;
@@ -514,7 +511,6 @@ public:
 	//-allAdvice feature
 	//Bool m_allAdvice;
 
-
 	// the trailing '\' is included!
   const AsciiString &getPath_UserData() const { return m_userDataDir; }
 
@@ -530,7 +526,6 @@ private:
 	GlobalData *m_next;									///< next instance (for overrides)
 	GlobalData *newOverride( void );		/** create a new override, copy data from previous
 																			override, and return it */
-
 
 	GlobalData(const GlobalData& that) { DEBUG_CRASH(("unimplemented")); }
 	GlobalData& operator=(const GlobalData& that) { DEBUG_CRASH(("unimplemented")); return *this; }

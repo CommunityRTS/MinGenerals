@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -115,8 +114,6 @@ private:
 	DynamicVectorClass<TextureClass *>			Textures;
 
 };
-
-
 
 /***********************************************************************************************
 ** MaterialRemapperClass
@@ -220,8 +217,6 @@ protected:
 	VertexMaterialClass *								LastMaterial;
 	TextureClass *											LastTexture;
 };
-
-
 
 inline int MaterialInfoClass::Add_Vertex_Material(VertexMaterialClass * vmat)
 {

@@ -42,7 +42,6 @@
 #include "palette.h"
 #include "win.h"
 
-
 class DIB8Class
 {
 public:
@@ -70,6 +69,5 @@ private:
 
 	BSurface *			Surface;	// Bsurface wrapped around the pixel buffer.
 };
-
 
 #endif /*DIB_H*/

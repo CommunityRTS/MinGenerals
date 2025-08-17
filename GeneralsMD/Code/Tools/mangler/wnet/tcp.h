@@ -54,7 +54,6 @@ typedef signed int SOCKET;
 
 #endif
 
-
 #ifdef AIX
 #include <sys/select.h>
 #endif
@@ -80,7 +79,6 @@ private:
   struct sockaddr_in addr;
   int         maxFD;              // value of the biggest FD
   int         clientCount;        // how many clients open
-
 
   sint32      inputDelay;         // default delay for semi-blocking reads
   sint32      outputDelay;        // default delay for semi-blocking writes
@@ -126,7 +124,6 @@ public:
 
   // for client list (if this is a server)
   fd_set clientList;
-
 
 // CODE ----------------
 

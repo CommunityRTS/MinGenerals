@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "stdAfx.h"
 #include "sys/stat.h"
 #include "iff.h"
@@ -26,7 +25,6 @@
 #include <stdio.h>
 
 #define IFF_RAWREAD(iff,data,size,label)		{if ( IFF_rawread ( (iff), (data), (size)) != (size)) goto label;}
-
 
 int		IFF_rawread ( IFF_FILE *iff, void *buffer, int bytes )
 {
@@ -94,7 +92,6 @@ IFF_FILE	*IFF_Open ( const char *name )
 {
 	IFF_FILE *iff = NULL;
 
-
 	if ( ! (iff = (IFF_FILE *) malloc ( sizeof (IFF_FILE))))
 	{
 		goto error;
@@ -107,7 +104,6 @@ IFF_FILE	*IFF_Open ( const char *name )
 	{
 		goto error;
 	}
-
 
 	return iff;
 
@@ -223,8 +219,6 @@ void	IFF_goto_chunk_end ( IFF_FILE *iff )
 		iff->ChunkSize = 0;
 	}
 }
-
-
 
 /******************************************************************/
 /*                                                                */
@@ -348,7 +342,6 @@ int		IFF_Read ( IFF_FILE *iff, void *buff, int size )
 	iff->FormSize -= read;
 	iff->next_byte += read;
 
-
 	return read;
 }
 
@@ -360,7 +353,6 @@ int		IFF_Read ( IFF_FILE *iff, void *buff, int size )
 IFF_FILE		*IFF_New ( const char *name )
 {
 	IFF_FILE *iff = NULL;
-
 
 	if ( ! (iff = (IFF_FILE *) malloc ( sizeof (IFF_FILE))))
 	{
@@ -431,7 +423,6 @@ int			IFF_NewChunk ( IFF_FILE *iff, int id )
 	chunk.Size = 	BgEn32 (90000);
 	chunk.ID =  	BgEn32 ( (int) id);
 
-
 	DO_WRITE ( iff->fp, &chunk, sizeof ( IFF_CHUNK ), error );
 
 	iff->flags |= mIFF_FILE_CHUNKOPEN;
@@ -468,7 +459,6 @@ int		IFF_Write ( IFF_FILE *iff, void *buff, int size )
 	iff->ChunkSize += val;
 	iff->FormSize += val;
 	iff->next_byte += val;
-
 
 	return val;
 }
@@ -510,7 +500,6 @@ error:
 
 	return FALSE;
 }
-
 
 /******************************************************************/
 /*                                                                */

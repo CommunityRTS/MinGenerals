@@ -66,7 +66,6 @@ class LogicalListenerClass;
 class LogicalSoundClass;
 class Matrix3D;
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //	Class IDs
 /////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +82,6 @@ typedef enum
 	CLASSID_COUNT
 } SOUND_CLASSID;
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //	Default values
 /////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +93,6 @@ const int DEF_CACHE_SIZE			= 1024;
 const int DEF_MAX_2D_BUFFER_SIZE	= 20000;
 const int DEF_MAX_3D_BUFFER_SIZE	= 100000;
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //	Constants
 /////////////////////////////////////////////////////////////////////////////////
@@ -104,7 +101,6 @@ enum
 	MAX_CACHE_HASH		= 256,
 	CACHE_HASH_MASK	= 0x000000FF
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -339,7 +335,6 @@ public:
 	Sound3DClass *		Create_3D_Sound (const char *filename, int classid_hint = CLASSID_3D);
 	Sound3DClass *		Create_3D_Sound (const char *string_id, unsigned char *raw_wave_data, unsigned long bytes, int classid_hint = CLASSID_3D);
 
-
 	//////////////////////////////////////////////////////////////////////
 	//	Logical-sound related methods
 	//////////////////////////////////////////////////////////////////////
@@ -514,7 +509,6 @@ private:
 		operator!= (const _CACHE_ENTRY_STRUCT &src) { return true; }
 	} CACHE_ENTRY_STRUCT;
 
-
 	typedef struct _LOGICAL_TYPE_STRUCT
 	{
 		StringClass				display_name;
@@ -581,6 +575,5 @@ private:
 	float													m_EffectsLevel;
 	int													m_ReverbRoomType;
 };
-
 
 #endif //__WWAUDIO_H

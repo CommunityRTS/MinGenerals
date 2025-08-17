@@ -88,7 +88,6 @@ void Set_SR_Transform(srNode * obj,const Matrix3D & tm)
 	obj->setRotation(srtm);
 }
 
-
 /***********************************************************************************************
  * Get_SR_Transform -- Creates a Matrix3D from a surrender object transform                    *
  *                                                                                             *
@@ -161,7 +160,6 @@ void Set_SR_Camera_Transform(srCamera * obj,const Matrix3D & transform)
 	obj->setRotation(srtm);
 }
 
-
 /***********************************************************************************************
  * Get_SR_Camera_Transform -- creates a Matrix3D from a surrender camera transform             *
  *                                                                                             *
@@ -200,7 +198,6 @@ Matrix3D Get_SR_Camera_Transform(srCamera * obj)
 	return tm;
 }
 
-
 /***********************************************************************************************
  * Push_Multiply_Westwood_Matrix -- push and multiply a matrix into the gerd                   *
  *                                                                                             *
@@ -222,7 +219,6 @@ void Push_Multiply_Westwood_Matrix(srGERD * gerd,const Matrix3D & tm)
 	Convert_Westwood_Matrix(tm,&srtm);
 	gerd->pushMultMatrix(srtm);
 }
-
 
 void Convert_Westwood_Matrix(const Matrix3D & tm,srMatrix4 * set_sr_tm)
 {
@@ -446,7 +442,6 @@ void Get_Camera_Frustum_Corners(const CameraClass * camera, Vector3 points[8])
 
 }
 
-
 /**************************************************************************
  * Get_ZClamped_Camera_Frustum_Corners -- Gets zclamped frustum corners.  *
  *                                                                        *
@@ -481,7 +476,6 @@ bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 	float startz = minz > znear ? minz : znear;
 	float endz = maxz < zfar ? maxz : zfar;
 
-
    // Forward is negative Z in our viewspace coordinate system.
 	znear = -startz;
 	zfar = -endz;
@@ -511,7 +505,5 @@ bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 
 	return true;
 }
-
-
 
 #endif //WW3D_DX8

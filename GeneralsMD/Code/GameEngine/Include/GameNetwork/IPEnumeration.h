@@ -57,7 +57,6 @@ protected:
 };
 EMPTY_DTOR(EnumeratedIP)
 
-
 /**
  * The IPEnumeration class is used to obtain a list of IP addresses on the
  * local machine.
@@ -77,6 +76,5 @@ protected:
 	EnumeratedIP *m_IPlist;
 	Bool m_isWinsockInitialized;
 };
-
 
 #endif // _IPENUMERATION_H_

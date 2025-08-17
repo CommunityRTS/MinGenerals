@@ -161,7 +161,6 @@ UpdateSleepTime CheckpointUpdate::update()
 			if ( radius < m_maxMinorRadius ) geom.setMinorRadius( radius + 0.333f );
 		}
 
-
 		obj->setGeometryInfo( geom );
 
 	} // end if draw

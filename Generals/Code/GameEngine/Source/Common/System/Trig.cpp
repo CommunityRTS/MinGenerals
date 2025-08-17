@@ -1593,7 +1593,6 @@ static Int arcCosLookup[2 * INT_ONE] = {
 	0x00000100, 0x000000EF, 0x000000DD, 0x000000CA, 0x000000B5, 0x0000009C, 0x00000080, 0x0000005A
 };
 
-
 static Int intArcCos( Int c )
 {
 	c += INT_ONE;
@@ -1749,5 +1748,4 @@ public:
 TrigInit trigInitializer;
 
 #endif // REGENERATE_TRIG_TABLES
-
 

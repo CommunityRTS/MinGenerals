@@ -109,7 +109,6 @@ public:
 		*/
 	virtual void update() = 0;
 
-
 	virtual void draw( void ){DEBUG_CRASH(("Shouldn't call base class.  jba."));}
 
 #ifdef DUMP_PERF_STATS

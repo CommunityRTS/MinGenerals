@@ -168,7 +168,6 @@ public:
 
 #endif // (gth) removing the generals memory stuff from W3D
 
-
 // Jani: MSVC doesn't necessarily inline code with inline keyword. Using __forceinline results better inlining
 // and also prints out a warning if inlining wasn't possible. __forceinline is MSVC specific.
 #if defined(_MSC_VER)
@@ -220,7 +219,6 @@ template <class T> T max(T a,T b)
 	}
 }
 
-
 /*
 **	This includes the minimum set of compiler defines and pragmas in order to bring the
 **	various compilers to a common behavior such that the C&C engine will compile without
@@ -238,7 +236,6 @@ template <class T> T max(T a,T b)
 #include	"watcom.h"
 #endif
 
-
 #ifndef	NULL
 	#define	NULL		0
 #endif
@@ -254,6 +251,5 @@ template <class T> T max(T a,T b)
 #ifndef size_of
 #define size_of(typ,id) sizeof(((typ*)0)->id)
 #endif
-
 
 #endif

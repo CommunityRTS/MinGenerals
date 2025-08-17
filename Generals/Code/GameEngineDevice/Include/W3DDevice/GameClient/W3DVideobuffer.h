@@ -44,7 +44,6 @@
 #ifndef __W3DDEVICE_GAMECLIENT_W3DVIDEOBUFFER_H_
 #define __W3DDEVICE_GAMECLIENT_W3DVIDEOBUFFER_H_
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -70,7 +69,6 @@ class SurfaceClass;
 	*/
 //===============================
 
-
 class W3DVideoBuffer : public VideoBuffer
 {
 	protected:
@@ -94,7 +92,6 @@ class W3DVideoBuffer : public VideoBuffer
 		static WW3DFormat TypeToW3DFormat( VideoBuffer::Type format );
 		static VideoBuffer::Type W3DFormatToType( WW3DFormat w3dFormat );
 };
-
 
 //----------------------------------------------------------------------------
 //           Inlining

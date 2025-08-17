@@ -92,5 +92,4 @@ class ResourceFileClass : public FileClass
 
 };
 
-
 #endif

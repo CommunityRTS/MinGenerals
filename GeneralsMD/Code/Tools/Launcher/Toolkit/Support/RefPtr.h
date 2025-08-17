@@ -164,7 +164,6 @@ class RefPtrBase
 		friend RefPtr<Type> Reinterpret_Cast(RefPtrBase&);
 	};
 
-
 template<typename Type> class RefPtr
 	: public RefPtrBase
 	{
@@ -238,7 +237,6 @@ template<typename Type> class RefPtr
 		friend RefPtr<Type> Reinterpret_Cast(RefPtrBase&);
 		friend RefPtr<Type> Const_Cast(RefPtrConst<Type>&);
 	};
-
 
 template<typename Type> class RefPtrConst
 	: public RefPtrBase
@@ -331,7 +329,6 @@ template<typename Type> class RefPtrConst
 			}
 	};
 
-
 template<typename Derived>
 RefPtr<Derived> Dynamic_Cast(RefPtrBase& base)
 	{
@@ -340,7 +337,6 @@ RefPtr<Derived> Dynamic_Cast(RefPtrBase& base)
 	return derived;
 	}
 
-
 template<typename Type>
 RefPtr<Type> Reinterpret_Cast(RefPtrBase& rhs)
 	{
@@ -348,7 +344,6 @@ RefPtr<Type> Reinterpret_Cast(RefPtrBase& rhs)
 	object.Attach(rhs.GetRefObject());
 	return object;
 	}
-
 
 template<typename Type>
 RefPtr<Type> Const_Cast(RefPtrConst<Type>& rhs)

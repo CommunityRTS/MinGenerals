@@ -61,7 +61,6 @@ public:
 	virtual PrototypeClass *	Load_W3D(ChunkLoadClass & cload);
 };
 
-
 extern ShdMeshLoaderClass			_ShdMeshLoader;
 extern ShdMeshLegacyLoaderClass	_ShdMeshLegacyLoader;
 

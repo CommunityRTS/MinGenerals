@@ -77,7 +77,6 @@
 #include "osdep.h"
 #endif
 
-
 /*
 ** Vector3 - 3-Dimensional Vectors
 */
@@ -86,11 +85,9 @@ class Vector3
 
 public:
 
-
 	float	X;
 	float Y;
 	float Z;
-
 
 	// Constructors
 	WWINLINE Vector3(void) {};
@@ -189,7 +186,6 @@ public:
 	WWINLINE unsigned	long	Convert_To_ABGR( void ) const;
 	WWINLINE unsigned	long	Convert_To_ARGB( void ) const;
 };
-
 
 /**************************************************************************
  * Scalar Multiply Operator -- Multiply a vector by a scalar              *
@@ -297,7 +293,6 @@ WWINLINE float Vector3::Dot_Product(const Vector3 &a,const Vector3 &b)
 				a.Z*b.Z;
 }
 
-
 /**************************************************************************
  * Vector Equality Operator -- Determine if two vectors are identical     *
  *                                                                        *
@@ -347,7 +342,6 @@ WWINLINE bool Equal_Within_Epsilon(const Vector3 &a,const Vector3 &b,float epsil
 				(WWMath::Fabs(a.Y - b.Y) < epsilon) &&
 				(WWMath::Fabs(a.Z - b.Z) < epsilon)	);
 }
-
 
 /**************************************************************************
  * Cross_Product -- compute the cross product of two vectors              *
@@ -471,7 +465,6 @@ WWINLINE float Vector3::Length2() const
 	return X*X + Y*Y + Z*Z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Quick_Length -- returns a quick approximation of the length                        *
  *                                                                                             *
@@ -499,7 +492,6 @@ WWINLINE float Vector3::Quick_Length(void) const
 
 	return max + (11.0f / 32.0f)*mid + (1.0f / 4.0f)*min;
 }
-
 
 /***********************************************************************************************
  * Swap -- swap two Vector3's                                                                  *
@@ -560,7 +552,6 @@ WWINLINE void Vector3::Add(const Vector3 &a,const Vector3 &b,Vector3 * set_resul
 	set_result->Z = a.Z + b.Z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Subtract -- Subtract two vector3's without return-by-value                         *
  *                                                                                             *
@@ -581,7 +572,6 @@ WWINLINE void Vector3::Subtract(const Vector3 &a,const Vector3 &b,Vector3 * set_
 	set_result->Z = a.Z - b.Z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Update_Min -- sets each component of the vector to the min of this and a           *
  *                                                                                             *
@@ -600,7 +590,6 @@ WWINLINE void Vector3::Update_Min(const Vector3 & a)
 	if (a.Y < Y) Y = a.Y;
 	if (a.Z < Z) Z = a.Z;
 }
-
 
 /***********************************************************************************************
  * Vector3::Update_Max -- Sets each component of the vector to the max of this and a           *
@@ -683,7 +672,6 @@ WWINLINE void Vector3::Scale(const Vector3 & scale)
 	Z *= scale.Z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Rotate_X -- rotates this vector around the X axis                                  *
  *                                                                                             *
@@ -700,7 +688,6 @@ WWINLINE void Vector3::Rotate_X(float angle)
 {
 	Rotate_X(sinf(angle),cosf(angle));
 }
-
 
 /***********************************************************************************************
  * Vector3::Rotate_X -- Rotates this vector around the x axis                                  *
@@ -723,7 +710,6 @@ WWINLINE void Vector3::Rotate_X(float s_angle,float c_angle)
 	Z = s_angle * tmp_y + c_angle * tmp_z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Rotate_Y -- Rotates this vector around the y axis                                  *
  *                                                                                             *
@@ -740,7 +726,6 @@ WWINLINE void Vector3::Rotate_Y(float angle)
 {
 	Rotate_Y(sinf(angle),cosf(angle));
 }
-
 
 /***********************************************************************************************
  * Vector3::Rotate_Y -- Rotates this vector around the Y axis                                  *
@@ -763,7 +748,6 @@ WWINLINE void Vector3::Rotate_Y(float s_angle,float c_angle)
 	Z = -s_angle * tmp_x + c_angle * tmp_z;
 }
 
-
 /***********************************************************************************************
  * Vector3::Rotate_Z -- Rotates this vector around the Z axis                                  *
  *                                                                                             *
@@ -780,7 +764,6 @@ WWINLINE void Vector3::Rotate_Z(float angle)
 {
 	Rotate_Z(sinf(angle),cosf(angle));
 }
-
 
 /***********************************************************************************************
  * Vector3::Rotate_Z -- Rotates this vector around the Z axis                                  *
@@ -802,7 +785,6 @@ WWINLINE void Vector3::Rotate_Z(float s_angle,float c_angle)
 	X = c_angle * tmp_x - s_angle * tmp_y;
 	Y = s_angle * tmp_x + c_angle * tmp_y;
 }
-
 
 /***********************************************************************************************
  * Vector3::Is_Valid -- Verifies that each component of this vector is a valid float           *

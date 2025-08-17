@@ -49,7 +49,6 @@ typedef union {
 	} QuadPart;
 } QuadValue;
 
-
 /***********************************************************************************************
  * Get_CPU_Rate -- Fetch the rate of CPU ticks per second.                                     *
  *                                                                                             *
@@ -83,7 +82,6 @@ unsigned long Get_CPU_Rate(unsigned long & high)
 	return(0);
 }
 
-
 unsigned long Get_CPU_Clock(unsigned long & high)
 {
 	int h;
@@ -97,9 +95,6 @@ unsigned long Get_CPU_Clock(unsigned long & high)
 	high = h;
 	return(l);
 }
-
-
-
 
 /*
 **
@@ -134,7 +129,6 @@ void RDTSC(void)
     }
 }
 
-
 int Get_RDTSC_CPU_Speed(void)
 {
 	LARGE_INTEGER t0,t1;
@@ -150,9 +144,7 @@ int Get_RDTSC_CPU_Speed(void)
 // DWORD	current = 0;				// Elapsed time during loop
 	LARGE_INTEGER count_freq;			// Hi-Res Performance Counter frequency
 
-
 	if ( !QueryPerformanceFrequency(&count_freq) ) return(0);
-
 
 	HANDLE process = GetCurrentProcess();
 	DWORD processPri = GetPriorityClass(process);
@@ -214,7 +206,6 @@ int Get_RDTSC_CPU_Speed(void)
 		ASM_RDTSC;
 		_asm	mov	stamp1, EAX
 
-
 		cycles = stamp1 - stamp0;					// # of cycles passed between reads
 
 		double bigticks = (double)((DWORD)t1.LowPart - (DWORD)t0.LowPart);
@@ -256,5 +247,4 @@ int Get_RDTSC_CPU_Speed(void)
 	return (norm_freq);
 
 }
-
 

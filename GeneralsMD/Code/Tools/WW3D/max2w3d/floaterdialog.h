@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef FLOATERDIALOG_H
 #define FLOATERDIALOG_H
 
@@ -68,8 +67,6 @@ private:
 	DLGPROC	ChildDialogProc;
 
 };
-
-
 
 #endif //FLOATERDIALOG_H
 

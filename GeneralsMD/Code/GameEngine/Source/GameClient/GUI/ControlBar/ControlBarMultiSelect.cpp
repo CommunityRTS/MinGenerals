@@ -46,8 +46,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** Reset the common command data */
 //-------------------------------------------------------------------------------------------------
@@ -109,7 +107,6 @@ void ControlBar::addCommonCommands( Drawable *draw, Bool firstDrawable )
 		return;
 
 	}  // end if
-
 
 	//
 	// easy case, if we're adding the first drawable we simply just add any of the commands
@@ -247,10 +244,8 @@ void ControlBar::populateMultiSelect( void )
 		// get the drawable
 		draw = *it;
 
-
 		if (draw->getObject()->isKindOf(KINDOF_IGNORED_IN_GUI)) // ignore these guys
 			continue;
-
 
 		//
 		// add command for this drawable, note that we also sanity check to make sure the
@@ -330,7 +325,6 @@ void ControlBar::updateContextMultiSelect( void )
 
 		if (draw->getObject()->isKindOf(KINDOF_IGNORED_IN_GUI)) // ignore these guys
 			continue;
-
 
 		// get the object
 		obj = draw->getObject();
@@ -427,6 +421,5 @@ void ControlBar::updateContextMultiSelect( void )
 	// After Every change to the m_commandWIndows, we need to show fill in the missing blanks with the images
 	// removed from multiplayer branch
 	//showCommandMarkers();
-
 
 }  // end updateContextMultiSelect

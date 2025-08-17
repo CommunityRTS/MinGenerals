@@ -81,17 +81,13 @@
 #include "WW3D2/MeshMdl.h"
 #include "WW3D2/Segline.h"
 
-
 #define MAX_DISPLAY_NODES 512
-
-
 
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //=============================================================================
 // W3DWaypointBuffer::W3DWaypointBuffer
@@ -105,7 +101,6 @@ W3DWaypointBuffer::W3DWaypointBuffer(void)
 	m_line = new SegmentedLineClass;
 
 	m_texture = WW3DAssetManager::Get_Instance()->Get_Texture( "EXLaser.tga" );
-
 
   setDefaultLineStyle();
 }
@@ -131,7 +126,6 @@ void W3DWaypointBuffer::freeWaypointBuffers()
 {
 }
 
-
 void W3DWaypointBuffer::setDefaultLineStyle( void )
 {
 	if( m_texture )
@@ -146,7 +140,6 @@ void W3DWaypointBuffer::setDefaultLineStyle( void )
 	m_line->Set_Texture_Mapping_Mode( SegLineRendererClass::TILED_TEXTURE_MAP );	//this tiles the texture across the line
 }
 
-
 //=============================================================================
 // W3DWaypointBuffer::drawWaypoints
 //=============================================================================
@@ -158,10 +151,7 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
   if ( ! TheInGameUI )
     return;
 
-
   setDefaultLineStyle();
-
-
 
 	if( TheInGameUI->isInWaypointMode() )
 	{
@@ -239,8 +229,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 				if ( ! obj->isLocallyControlled())
 					continue;
 
-
-
         // WAIT! before we go browsing the drawable list for buildings that want to draw their rally points
         // lets test for that very special case of having a listeningoutpost selected, and some enemy drawable moused-over
         if ( obj->isKindOf( KINDOF_REVEALS_ENEMY_PATHS ) )
@@ -260,7 +248,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
                 delta.sub( enemy->getPosition() );
                 if ( delta.length() <= obj->getVisionRange() ) // is listening outpost close enough to do this?
                 {
-
 
                   //////////////////////////////////////////////////////////////////////
                   AIUpdateInterface *ai = enemy->getAI();
@@ -319,9 +306,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
                   }
                   //////////////////////////////////////////////////////////////////////
 
-
-
-
                 }
               }
             }
@@ -329,9 +313,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 
           break;// dont even bother with the rest, since this one listening outpost satisfies the single path-line limit
         }
-
-
-
 
 				ExitInterface *exitInterface = obj->getObjectExitInterface();
 				if( exitInterface )
@@ -379,14 +360,12 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 							NRPDelta.y = naturalRallyPoint.y - exitPoint.y;
 							NRPDelta.z = 0.0f;
 
-
 							//This is a quick idiot test to se whether the rally line needs to wrap the box at all
 							Coord3D wayOutPoint = NRPDelta;
 							wayOutPoint.normalize();
 							wayOutPoint.scale( 99999.9f );
 							Real wayOutLength = wayOutPoint.length();
 							wayOutPoint.add(&naturalRallyPoint);
-
 
 							//if the rallypoint is closer to the wayoutpoint than it is to the natural rally point then we definitely do not wrap
 							Coord3D rallyToWayOutDelta = wayOutPoint;
@@ -467,8 +446,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 											}
 										}
 
-
-
 									}
 
 									if (pNearElbow)//did we find a nearest corner?
@@ -477,7 +454,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 										WW3D::Render(*m_waypointNodeRobj,localRinfo); //The little hockey puck
 										points[ numPoints ].Set( Vector3( pNearElbow->x, pNearElbow->y, ctr->z ) );
 										numPoints++;
-
 
 										//and for that matter did we find a far side coner?
 										if (pFarElbow)//did we find a nearest corner?
@@ -524,7 +500,6 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 					m_waypointNodeRobj->Set_Position(Vector3(naturalRallyPoint.x,naturalRallyPoint.y,naturalRallyPoint.z));
 					WW3D::Render(*m_waypointNodeRobj,localRinfo); //The little hockey puck
 
-
 					m_line->Set_Points( numPoints, points );
 					m_line->Render( localRinfo );
 
@@ -535,5 +510,4 @@ void W3DWaypointBuffer::drawWaypoints(RenderInfoClass &rinfo)
 
 	}
 }
-
 

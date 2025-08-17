@@ -24,7 +24,6 @@
 #include "wstypes.h"
 #include "winblows.h"
 
-
 //
 // Functions and data assocated with a loaded bitmap on a single window.
 //
@@ -41,6 +40,5 @@ class LoadBmp
    HPALETTE       PalHandle_;
    HWND           WindowHandle_;
 };
-
 
 #endif

@@ -211,7 +211,6 @@ ControlBarSchemeAnimation::~ControlBarSchemeAnimation( void )
 	m_animImage = NULL;
 }
 
-
 void ControlBarScheme::reset(void)
 {
 	for (Int i = 0; i < MAX_CONTROL_BAR_SCHEME_IMAGE_LAYERS; i++)
@@ -229,7 +228,6 @@ void ControlBarScheme::reset(void)
 		m_layer[i].clear();
 
 	}
-
 
 	ControlBarSchemeAnimationList::iterator it = m_animations.begin();
 
@@ -362,7 +360,6 @@ ControlBarScheme::ControlBarScheme(void)
 	m_minMaxButtonHightlited = NULL;
 	m_minMaxButtonPushed = NULL;
 
-
 	m_minMaxUL.x = 0;
 	m_minMaxLR.x = 0;
 
@@ -417,7 +414,6 @@ ControlBarScheme::ControlBarScheme(void)
 	m_moneyLR.x = 0;
 	m_moneyLR.y = 0;
 }
-
 
 void ControlBarScheme::init(void)
 {
@@ -820,7 +816,6 @@ void ControlBarScheme::drawBackground( Coord2D multi, ICoord2D offset )
 	}
 }
 
-
 //
 // Constructor for the manager
 //-----------------------------------------------------------------------------
@@ -912,7 +907,6 @@ void ControlBarSchemeManager::parseAnimatingPart(INI *ini, void *instance, void*
 	((ControlBarScheme*)instance)->addAnimation(schemeAnim);
 	((ControlBarScheme*)instance)->addImage(schemeAnim->m_animImage);
 }
-
 
 //
 // Create a new control bar and return it.  Link it into our control bar list
@@ -1215,7 +1209,6 @@ void ControlBarSchemeManager::setControlBarSchemeByPlayer(Player *p)
 		m_currentScheme->init();
 }
 
-
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
@@ -1250,7 +1243,6 @@ static void animSlideRight( ControlBarSchemeAnimation *anim )
 
 	// now lets find what position we should be at.
 	anim->m_animImage->m_position.x = startPos.x + (((anim->m_finalPos.x - startPos.x) * currentFrame) / anim->m_animDuration);
-
 
 }
 

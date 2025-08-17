@@ -28,7 +28,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // TeamReinforcement dialog
 
-
 TeamReinforcement::TeamReinforcement()
 	: CPropertyPage(TeamReinforcement::IDD)	,
 	m_teamDict(NULL)
@@ -38,7 +37,6 @@ TeamReinforcement::TeamReinforcement()
 	//}}AFX_DATA_INIT
 }
 
-
 void TeamReinforcement::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -46,7 +44,6 @@ void TeamReinforcement::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(TeamReinforcement, CPropertyPage)
 	//{{AFX_MSG_MAP(TeamReinforcement)
@@ -109,7 +106,6 @@ BOOL TeamReinforcement::OnInitDialog()
 		}
 	}
 	pCombo->SetCurSel(stringNdx);
-
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE

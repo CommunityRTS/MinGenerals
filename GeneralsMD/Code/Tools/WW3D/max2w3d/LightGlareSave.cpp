@@ -42,7 +42,6 @@
 #include "w3dappdata.h"
 #include "errclass.h"
 
-
 LightGlareSaveClass::LightGlareSaveClass
 (
 	char * mesh_name,
@@ -72,8 +71,6 @@ LightGlareSaveClass::LightGlareSaveClass
 	GlareData.Position.Z = offset_matrix.GetTrans().z;
 }
 
-
-
 int LightGlareSaveClass::Write_To_File(ChunkSaveClass & csave)
 {
 	csave.Begin_Chunk(W3D_CHUNK_LIGHTGLARE);
@@ -83,6 +80,4 @@ int LightGlareSaveClass::Write_To_File(ChunkSaveClass & csave)
 	csave.End_Chunk();
 	return 0;
 }
-
-
 

@@ -26,7 +26,6 @@
 // Author: Lorenzen
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #include "Common/Thing.h"
@@ -44,7 +43,6 @@
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/Object.h"
 #include "GameLogic/PartitionManager.h"
-
 
 #ifdef _INTERNAL
 // for occasional debugging...
@@ -101,7 +99,6 @@ GrantStealthBehavior::GrantStealthBehavior( Thing *thing, const ModuleData* modu
 
   m_currentScanRadius = d->m_startRadius;
 
-
   Object *obj = getObject();
 
 	{
@@ -131,8 +128,6 @@ GrantStealthBehavior::~GrantStealthBehavior( void )
 
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** The update callback. */
 //-------------------------------------------------------------------------------------------------
@@ -150,7 +145,6 @@ UpdateSleepTime GrantStealthBehavior::update( void )
 	PartitionFilterSameMapStatus filterMapStatus( self );
 	PartitionFilterAlive filterAlive;
 	PartitionFilter *filters[] = { &relationship, &filterAlive, &filterMapStatus, NULL };
-
 
   m_currentScanRadius += d->m_radiusGrowRate;
 
@@ -186,7 +180,6 @@ void GrantStealthBehavior::grantStealthToObject( Object *obj )
   if ( obj == getObject() )
     return;
 
-
 	const GrantStealthBehaviorModuleData *d = getGrantStealthBehaviorModuleData();
   if ( ! obj->isAnyKindOf( d->m_kindOf ) )
     return;
@@ -202,7 +195,6 @@ void GrantStealthBehavior::grantStealthToObject( Object *obj )
     }
 	}
 
-
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -213,7 +205,6 @@ void GrantStealthBehavior::crc( Xfer *xfer )
 
 	// extend base class
 	UpdateModule::crc( xfer );
-
 
 }  // end crc
 
@@ -233,7 +224,6 @@ void GrantStealthBehavior::xfer( Xfer *xfer )
 	// extend base class
 	UpdateModule::xfer( xfer );
 
-
 	// particle system id
 	xfer->xferUser( &m_radiusParticleSystemID, sizeof( ParticleSystemID ) );
 
@@ -250,6 +240,5 @@ void GrantStealthBehavior::loadPostProcess( void )
 
 	// extend base class
 	UpdateModule::loadPostProcess();
-
 
 }  // end loadPostProcess

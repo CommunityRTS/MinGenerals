@@ -36,11 +36,9 @@
 #include "Lib/BaseType.h"
 #include "Common/GameMemory.h"
 
-
 enum { TRANSLATOR_ID_INVALID = -1 };
 
 // how far the the cursor moves before a click becomes a drag
-
 
 typedef UnsignedInt TranslatorID;								///< Unique identifiers for message stream translators
 
@@ -572,7 +570,6 @@ public:
 //*********************************************************************************************************
 //*********************************************************************************************************
 
-
 		// Server to Client messages
 		MSG_TIMESTAMP,															///< The current frame number
 		MSG_OBJECT_CREATED,													///< (objectID, Int type) Cause a drawable to be created and bound to this ID
@@ -644,7 +641,6 @@ private:
 
 };
 
-
 /**
  * The GameMessageList class encapsulates the manipulation of lists of GameMessages.
  * Both MessageStream and CommandList derive from this class.
@@ -667,8 +663,6 @@ public:
 	virtual void insertMessage( GameMessage *msg, GameMessage *messageToInsertAfter );	// Insert message after messageToInsertAfter.
 	virtual void removeMessage( GameMessage *msg );			///< Remove message from the list
 	virtual Bool containsMessageOfType( GameMessage::Type type );	///< Return true if a message of type is in the message stream
-
-
 
 protected:
 	GameMessage *m_firstMessage;								///< The first message on the list
@@ -748,7 +742,6 @@ protected:
 
 };
 
-
 /**
  * The CommandList is the final set of messages that have made their way through
  * all of the Translators of the MessageStream, and reached the end.
@@ -781,7 +774,6 @@ extern MessageStream *TheMessageStream;
 // The list of commands awaiting execution by the GameLogic
 //
 extern CommandList *TheCommandList;
-
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------

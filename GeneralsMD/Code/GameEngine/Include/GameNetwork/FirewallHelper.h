@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 /***********************************************************************************************
  ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
  ***********************************************************************************************
@@ -173,8 +172,6 @@ class FirewallHelperClass {
 
 		} FirewallBehaviorType;
 
-
-
 		FirewallHelperClass(void);
 		virtual ~FirewallHelperClass(void);
 		Bool detectFirewall(void);
@@ -210,7 +207,6 @@ class FirewallHelperClass {
 		Bool detectionTest4Stage2Update(void);
 		Bool detectionTest5Update(void);
 
-
 		/*
 		** Behavior query functions.
 		*/
@@ -241,8 +237,6 @@ class FirewallHelperClass {
 			}
 			return(FALSE);
 		};
-
-
 
 	private:
 
@@ -304,11 +298,8 @@ class FirewallHelperClass {
 		Int m_currentTry;
 };
 
-
-
 extern FirewallHelperClass *TheFirewallHelper;
 FirewallHelperClass * createFirewallHelper();
-
 
 #endif	// __FIREWALLHELPER_H
 

@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "Common/Recorder.h"
@@ -198,7 +197,6 @@ Int DisconnectManager::getPingsRecieved()
 {
 	return m_pingsRecieved;
 }
-
 
 void DisconnectManager::updateDisconnectStatus(ConnectionManager *conMgr) {
 	for (Int i = 0; i < MAX_SLOTS; ++i) {

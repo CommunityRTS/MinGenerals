@@ -45,7 +45,6 @@ const char* NEUTRAL_TEAM_INTERNAL_STR = "team";
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 /////////////////////////////////////////////////////////////////////////////
 // MapObjectProps dialog
 
@@ -57,7 +56,6 @@ void MapObjectProps::makeMain()
 	if (TheMapObjectProps == NULL)
 		TheMapObjectProps = this;
 }
-
 
 MapObjectProps::MapObjectProps(Dict* dictToEdit, const char* title, CWnd* pParent /*=NULL*/) :
 	COptionsPanel(MapObjectProps::IDD, pParent),
@@ -72,7 +70,6 @@ MapObjectProps::MapObjectProps(Dict* dictToEdit, const char* title, CWnd* pParen
   m_defaultEntryIndex(0),
   m_defaultIsNone(true)
 {
-
 
   //{{AFX_DATA_INIT(MapObjectProps)
 		// NOTE: the ClassWizard will add member initialization here
@@ -100,7 +97,6 @@ void MapObjectProps::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(MapObjectProps, CDialog)
 	//{{AFX_MSG_MAP(MapObjectProps)
@@ -149,7 +145,6 @@ BEGIN_MESSAGE_MAP(MapObjectProps, CDialog)
 	ON_LBN_SELCHANGE(IDC_PROPERTIES, OnSelchangeProperties)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 
 static AsciiString getNthKeyStr(const Dict* d, int i)
 {
@@ -328,7 +323,6 @@ void MapObjectProps::_ScriptToDict(void)
     // Update is called by Do
   }
 }
-
 
 /// Move data from object to dialog controls
 void MapObjectProps::_DictToScale(void)
@@ -897,7 +891,6 @@ void MapObjectProps::_DictToHealth(void)
 	}
 }
 
-
 /// Move data from object to dialog controls
 void MapObjectProps::_DictToHPs(void)
 {
@@ -938,7 +931,6 @@ void MapObjectProps::_DictToEnabled(void)
 		pItem->SetCheck(enabled);
 	}
 }
-
 
 /// Move data from object to dialog controls
 void MapObjectProps::_DictToDestructible(void)
@@ -1135,7 +1127,6 @@ void MapObjectProps::_DictToStoppingDistance(void)
 	}
 }
 
-
 /// Move data from dialog controls to object
 void MapObjectProps::_HealthToDict(void)
 {
@@ -1177,7 +1168,6 @@ void MapObjectProps::_HealthToDict(void)
 	  // Update is called by Do
   }
 }
-
 
 /// Move data from dialog controls to object
 void MapObjectProps::_EnabledToDict(void)
@@ -1258,7 +1248,6 @@ void MapObjectProps::_TargetableToDict()
 	  // Update is called by Do
   }
 }
-
 
 /// Move data from dialog controls to object
 void MapObjectProps::_PoweredToDict(void)
@@ -1494,7 +1483,6 @@ void MapObjectProps::_StoppingDistanceToDict(void)
   }
 }
 
-
 void MapObjectProps::OnEditprop()
 {
 	int sel = getSel();
@@ -1585,7 +1573,6 @@ void MapObjectProps::OnDblclkProperties()
 {
 	OnEditprop();
 }
-
 
 static const Char NO_SOUND_STRING[] = "(None)";
 static const Char BASE_DEFAULT_STRING[] = "Default";
@@ -1738,7 +1725,6 @@ void MapObjectProps::InitSound(void)
   }
 
 } // end InitSound
-
 
 // Adds a series of Undoable's to the given MultipleUndoable which clears the
 // objectSoundAmbientCustomized flag and all the customization flags out of
@@ -1990,7 +1976,6 @@ void MapObjectProps::volumeToDict(void)
   }
 }
 
-
 /// Move data from dialog controls to object(s)
 void MapObjectProps::minRangeToDict(void)
 {
@@ -2065,7 +2050,6 @@ void MapObjectProps::priorityToDict(void)
     // Update is called by Doc
   }
 }
-
 
 /// Move data from object to dialog controls
 void MapObjectProps::dictToAttachedSound()
@@ -2188,7 +2172,6 @@ void MapObjectProps::dictToCustomize()
 
   customizeCheckbox->SetCheck( exists && customized ? 1 : 0 );
 }
-
 
 /// Move data from object to dialog controls
 void MapObjectProps::dictToLooping()
@@ -2405,7 +2388,6 @@ void MapObjectProps::dictToEnabled()
   enableCheckbox->SetCheck( 0 );
 }
 
-
 /// Move data from object to dialog controls
 void MapObjectProps::dictToMinVolume()
 {
@@ -2558,7 +2540,6 @@ void MapObjectProps::dictToVolume()
   volumeEdit->SetWindowText( volumeText );
 }
 
-
 /// Move data from object to dialog controls
 void MapObjectProps::dictToMinRange()
 {
@@ -2632,7 +2613,6 @@ void MapObjectProps::dictToMinRange()
   minRangeText.Format( "%d", REAL_TO_INT( audioEventInfo->m_minDistance ) );
   minRangeEdit->SetWindowText( minRangeText );
 }
-
 
 /// Move data from object to dialog controls
 void MapObjectProps::dictToMaxRange()
@@ -2785,22 +2765,17 @@ void MapObjectProps::dictToPriority()
   priorityComboBox->SetCurSel( audioEventInfo->m_priority );
 }
 
-
 // Special message to handle pages being resized to new sheet size
 // see knowledge base article Q143291
 const Int RESIZE_PAGE_MESSAGE = WM_USER + 117;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // MapObjectProps message handlers
-
-
 
 void MapObjectProps::enableButtons()
 {
 	// do nothing
 }
-
 
 /*static*/ MapObject *MapObjectProps::getSingleSelectedMapObject(void)
 {
@@ -2823,10 +2798,6 @@ void MapObjectProps::enableButtons()
 	return(NULL);
 }
 
-
-
-
-
 void MapObjectProps::OnOK()
 {
   // Make sure CPropertySheet functions don't close the window
@@ -2836,8 +2807,6 @@ void MapObjectProps::OnCancel()
 {
   // Make sure CPropertySheet functions don't close the window
 }
-
-
 
 void MapObjectProps::getAllSelectedDicts(void)
 {
@@ -2859,7 +2828,6 @@ void MapObjectProps::getAllSelectedDicts(void)
 			}
 		}
 
-
 		if (!pMapObj->isSelected() || pMapObj->isWaypoint() || pMapObj->isLight()) {
 			continue;
 		}
@@ -2867,7 +2835,6 @@ void MapObjectProps::getAllSelectedDicts(void)
 		m_selectedObject = pMapObj;
 	}
 }
-
 
 /// Move data from dialog controls to object
 void MapObjectProps::OnScaleOn()

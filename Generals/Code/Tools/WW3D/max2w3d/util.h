@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef UTIL_H
 #define UTIL_H
 
@@ -47,7 +46,6 @@
 
 #include "skin.h"
 #include "nodelist.h"
-
 
 /*
 ** Gets rid of very small numbers in the matrix
@@ -76,7 +74,6 @@ bool Is_Full_Path(char * path);
 */
 bool Is_Max_Tri_Mesh(INode * node);
 
-
 /*
 ** Origin support.
 */
@@ -97,7 +94,6 @@ int Get_Damage_State(INode *node);
 */
 INode *Find_Named_Node (char *nodename, INode *root);
 
-
 /*
 ** Macros
 */
@@ -112,6 +108,5 @@ INode *Find_Named_Node (char *nodename, INode *root);
 				delete [] pobject;				\
 				pobject = NULL;					\
 			}											\
-
 
 #endif

@@ -60,7 +60,6 @@ MetaMap *TheMetaMap = NULL;
 ///#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // DEFINES ////////////////////////////////////////////////////////////////////
 
 // PRIVATE TYPES //////////////////////////////////////////////////////////////////////////////////
@@ -269,7 +268,6 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEMO_VTUNE_OFF",														GameMessage::MSG_META_DEBUG_VTUNE_OFF },
 	/// End VTUNE
 
-
 	//lorenzen's feather water
 	{ "DEMO_TOGGLE_FEATHER_WATER",								GameMessage::MSG_META_DEBUG_TOGGLE_FEATHER_WATER },
 
@@ -295,7 +293,6 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEMO_TOGGLE_DEBUG_STATS",									GameMessage::MSG_META_DEMO_TOGGLE_DEBUG_STATS },
 #endif // defined(_DEBUG) || defined(_INTERNAL)
 
-
 #if defined(_INTERNAL) || defined(_DEBUG) || defined(_PLAYTEST)
 	{ "DEMO_TOGGLE_AUDIODEBUG",										GameMessage::MSG_META_DEMO_TOGGLE_AUDIODEBUG },
 #endif//defined(_INTERNAL) || defined(_DEBUG) || defined(_PLAYTEST)
@@ -303,10 +300,8 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEMO_PERFORM_STATISTICAL_DUMP",						GameMessage::MSG_META_DEMO_PERFORM_STATISTICAL_DUMP },
 #endif//DUMP_PERF_STATS
 
-
 	{ NULL, 0	}// keep this last!
 };
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
@@ -338,7 +333,6 @@ MetaEventTranslator::MetaEventTranslator() :
 	for (Int i = 0; i < NUM_MOUSE_BUTTONS; ++i) {
 		m_nextUpShouldCreateDoubleClick[i] = FALSE;
 	}
-
 
 }
 
@@ -460,7 +454,6 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 			m_lastKeyDown = key;
 		m_lastModState = newModState;
 	}
-
 
 	if (t > GameMessage::MSG_RAW_MOUSE_BEGIN && t < GameMessage::MSG_RAW_MOUSE_END )
 	{

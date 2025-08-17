@@ -37,7 +37,6 @@
 #include "GameLogic/Module/DamageModule.h"
 #include "GameLogic/Module/UpdateModule.h"
 
-
 //-------------------------------------------------------------------------------------------------
 class SupplyWarehouseCripplingBehaviorModuleData : public UpdateModuleData
 {

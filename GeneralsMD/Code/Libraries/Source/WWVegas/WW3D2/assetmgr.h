@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -75,7 +74,6 @@ struct StreamingTextureConfig;
 class TextureClass;
 class MetalMapManagerClass;
 
-
 /*
 ** AssetIterator
 **	This object can iterate through the 3D assets which
@@ -109,7 +107,6 @@ class RenderObjIterator : public AssetIterator
 public:
 	virtual int						Current_Item_Class_ID(void) = 0;
 };
-
 
 /*
 
@@ -179,7 +176,6 @@ public:
 	code only seems to be used by tools such as SView but is needed anyway...
 
 */
-
 
 class WW3DAssetManager
 {

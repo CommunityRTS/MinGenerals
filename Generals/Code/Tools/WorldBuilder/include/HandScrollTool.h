@@ -54,5 +54,4 @@ public:
 	virtual Bool followsTerrain(void) {return false;};
 };
 
-
 #endif //TOOL_H

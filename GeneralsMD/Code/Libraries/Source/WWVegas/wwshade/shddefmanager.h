@@ -48,7 +48,6 @@ class ShdDefFactoryClass;
 class ChunkSaveClass;
 class ChunkLoadClass;
 
-
 /**
 ** ShdDefManagerClass - This class contains a list of all constructed ShdDefFactories.
 ** This class is used to iterate through the shader definition factories in the material
@@ -85,7 +84,5 @@ private:
 
 	static ShdDefFactoryClass *		_FactoryListHead;
 };
-
-
 
 #endif SHDDEFMANAGER_H

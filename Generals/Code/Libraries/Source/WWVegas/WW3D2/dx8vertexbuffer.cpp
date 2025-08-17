@@ -127,7 +127,6 @@ unsigned VertexBufferClass::Get_Total_Allocated_Memory()
 	return _VertexBufferTotalSize;
 }
 
-
 // ----------------------------------------------------------------------------
 
 void VertexBufferClass::Add_Engine_Ref() const
@@ -292,7 +291,6 @@ SortingVertexBufferClass::~SortingVertexBufferClass()
 {
 	delete[] VertexBuffer;
 }
-
 
 // ----------------------------------------------------------------------------
 //

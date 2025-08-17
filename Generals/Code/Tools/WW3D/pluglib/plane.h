@@ -94,6 +94,4 @@ inline bool In_Front(const Vector3 & point,const PlaneClass & plane)
 	return (dist > plane.D);
 }
 
-
-
 #endif /*PLANE_H*/

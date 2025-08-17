@@ -51,7 +51,6 @@
 #include	<assert.h>
 #include <stdio.h>
 
-
 LPDIRECTDRAW DirectDrawObject = NULL;	// Pointer to the direct draw object
 LPDIRECTDRAW2 DirectDraw2Interface = NULL;  	// Pointer to direct draw 2 interface
 
@@ -123,7 +122,6 @@ void Set_Palette(PaletteClass const & pal, int time, void (*callback)())
 	*/
 	Set_Palette((void*)&newpal[0]);
 }
-
 
 /***********************************************************************************************
  * Process_DD_Result -- Does a message box based on the result of a DD command                 *
@@ -275,7 +273,6 @@ void Process_DD_Result(HRESULT result, int display_ok_msg)
 	MessageBox(MainWindow, str, "Direct X", MB_ICONEXCLAMATION|MB_OK);
 }
 
-
 /***********************************************************************************************
  * Check_Overlapped_Blit_Capability -- See if video driver supports blitting overlapped regions*
  *                                                                                             *
@@ -323,7 +320,6 @@ void Check_Overlapped_Blit_Capability(void)
 #endif
 }
 
-
 void Prep_Direct_Draw(void)
 {
 	//
@@ -342,8 +338,6 @@ void Prep_Direct_Draw(void)
 		}
 	}
 }
-
-
 
 /***********************************************************************************************
  * Set_Video_Mode -- Initializes Direct Draw and sets the required Video Mode                  *
@@ -453,7 +447,6 @@ void Reset_Video_Mode(void)
 	}
 }
 
-
 /***********************************************************************************************
  * Get_Free_Video_Memory -- returns amount of free video memory                                *
  *                                                                                             *
@@ -485,7 +478,6 @@ unsigned int Get_Free_Video_Memory(void)
 
 	return (0);
 }
-
 
 /***********************************************************************************************
  * Get_Video_Hardware_Caps -- returns bitmask of direct draw video hardware support            *
@@ -549,7 +541,6 @@ unsigned Get_Video_Hardware_Capabilities(void)
 	return (video);
 }
 
-
 /***********************************************************************************************
  * Wait_Vert_Blank -- Waits for the start (leading edge) of a vertical blank                   *
  *                                                                                             *
@@ -572,7 +563,6 @@ void Wait_Vert_Blank(void)
 		Process_DD_Result(result, false);
 	}
 }
-
 
 /***********************************************************************************************
  * Set_Palette -- set a direct draw palette                                                    *
@@ -619,7 +609,6 @@ void Set_Palette(void const * palette)
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * Wait_Blit -- waits for the DirectDraw blitter to become idle                                *

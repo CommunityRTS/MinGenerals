@@ -27,7 +27,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditGroup dialog
 
-
 EditGroup::EditGroup(ScriptGroup *pGroup, CWnd* pParent /*=NULL*/)
 	: CDialog(EditGroup::IDD, pParent),
 	m_scriptGroup(pGroup)
@@ -37,7 +36,6 @@ EditGroup::EditGroup(ScriptGroup *pGroup, CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditGroup::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -45,7 +43,6 @@ void EditGroup::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditGroup, CDialog)
 	//{{AFX_MSG_MAP(EditGroup)

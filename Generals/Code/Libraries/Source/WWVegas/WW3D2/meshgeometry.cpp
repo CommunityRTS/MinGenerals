@@ -84,7 +84,6 @@
  *   MeshGeometryClass::Generate_Rigid_APT -- generate an apt using backface culling           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "meshgeometry.h"
 #include "aabtree.h"
 #include "chunkio.h"
@@ -97,16 +96,13 @@
 #include "w3d_file.h"
 #include "vp.h"
 
-
 #if (OPTIMIZE_PLANEEQ_RAM)
 static SimpleVecClass<Vector4> _PlaneEQArray(1024);
 #endif
 
-
 #if (OPTIMIZE_VNORM_RAM)
 static SimpleVecClass<Vector3> _VNormArray(1024);
 #endif
-
 
 /***********************************************************************************************
  * MeshGeometryClass::MeshGeometryClass -- Constructor                                         *
@@ -143,7 +139,6 @@ MeshGeometryClass::MeshGeometryClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::MeshGeometryClass -- Copy Constructor                                    *
  *                                                                                             *
@@ -179,7 +174,6 @@ MeshGeometryClass::MeshGeometryClass(const MeshGeometryClass & that) :
 {
 	*this = that;
 }
-
 
 /***********************************************************************************************
  *  -- assignment operator                                                                     *
@@ -221,7 +215,6 @@ MeshGeometryClass & MeshGeometryClass::operator = (const MeshGeometryClass & tha
 	return * this;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::~MeshGeometryClass -- destructor                                         *
  *                                                                                             *
@@ -238,7 +231,6 @@ MeshGeometryClass::~MeshGeometryClass(void)
 {
 	Reset_Geometry(0,0);
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Reset_Geometry -- releases current resources and allocates space if need *
@@ -293,7 +285,6 @@ void MeshGeometryClass::Reset_Geometry(int polycount,int vertcount)
 	return ;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Get_Name -- returns the name                                             *
  *                                                                                             *
@@ -313,7 +304,6 @@ const char * MeshGeometryClass::Get_Name(void) const
 	}
 	return NULL;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Set_Name -- set the name of this model                                   *
@@ -338,7 +328,6 @@ void MeshGeometryClass::Set_Name(const char * newname)
 	}
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Get_User_Text -- get the user-text buffer                                *
  *                                                                                             *
@@ -358,7 +347,6 @@ const char * MeshGeometryClass::Get_User_Text(void)
 	}
 	return NULL;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Set_User_Text -- set the user text buffer                                *
@@ -383,7 +371,6 @@ void MeshGeometryClass::Set_User_Text(char * usertext)
 	}
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Get_Bounding_Box -- get the bounding box                                 *
  *                                                                                             *
@@ -403,7 +390,6 @@ void MeshGeometryClass::Get_Bounding_Box(AABoxClass * set_box)
 	set_box->Extent = (BoundBoxMax - BoundBoxMin) * 0.5f;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Get_Bounding_Sphere -- get the bounding sphere                           *
  *                                                                                             *
@@ -422,7 +408,6 @@ void MeshGeometryClass::Get_Bounding_Sphere(SphereClass * set_sphere)
 	set_sphere->Center = BoundSphereCenter;
 	set_sphere->Radius = BoundSphereRadius;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Generate_Rigid_APT -- generate an apt using backface culling             *
@@ -455,7 +440,6 @@ void MeshGeometryClass::Generate_Rigid_APT(const Vector3 & view_dir, SimpleDynVe
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Generate_Rigid_APT -- generate active polygon table                      *
@@ -496,7 +480,6 @@ void MeshGeometryClass::Generate_Rigid_APT(const OBBoxClass & local_box, SimpleD
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Generate_APT -- generate an apt for a box and view direction             *
@@ -578,7 +561,6 @@ void MeshGeometryClass::Generate_Skin_APT(const OBBoxClass & world_box, SimpleDy
 	}
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Contains -- test if the mesh contains the given point                    *
  *                                                                                             *
@@ -622,7 +604,6 @@ bool MeshGeometryClass::Contains(const Vector3 &point)
 	return yes > no;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Cast_Ray -- compute a ray intersection with this mesh                    *
  *                                                                                             *
@@ -647,7 +628,6 @@ bool MeshGeometryClass::Cast_Ray(RayCollisionTestClass & raytest)
 
 	return hit;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Cast_AABox -- cast an AABox against this mesh                            *
@@ -674,7 +654,6 @@ bool MeshGeometryClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	return hit;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Cast_OBBox -- Cast an obbox against this mesh                            *
  *                                                                                             *
@@ -700,7 +679,6 @@ bool MeshGeometryClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	return hit;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Intersect_OBBox -- test for intersection with the given OBBox            *
  *                                                                                             *
@@ -725,7 +703,6 @@ bool MeshGeometryClass::Intersect_OBBox(OBBoxIntersectionTestClass & boxtest)
 
 	return hit;
 }
-
 
 /***********************************************************************************************
  *   MeshGeometryClass::Cast_World_Space_AABox -- test for intersection with a worldspace AABox*
@@ -803,7 +780,6 @@ bool MeshGeometryClass::Cast_World_Space_AABox(AABoxCollisionTestClass & boxtest
 	return hit;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::cast_semi_infinite_axis_aligned_ray -- casts an axis aligned ray         *
  *                                                                                             *
@@ -868,7 +844,6 @@ int MeshGeometryClass::cast_semi_infinite_axis_aligned_ray(const Vector3 & start
 	return count;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::cast_aabox_identity -- aligned aabox test                                *
  *                                                                                             *
@@ -894,7 +869,6 @@ bool MeshGeometryClass::cast_aabox_identity(AABoxCollisionTestClass & boxtest, c
 		return cast_aabox_brute_force(newbox);
 	}
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::cast_aabox_z90 -- aabox test which is rotated about z by 90              *
@@ -934,7 +908,6 @@ bool MeshGeometryClass::cast_aabox_z90(AABoxCollisionTestClass & boxtest, const 
 	return hit;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::cast_aabox_z180 -- aabox test which is rotated about z by 180            *
  *                                                                                             *
@@ -971,7 +944,6 @@ bool MeshGeometryClass::cast_aabox_z180(AABoxCollisionTestClass & boxtest, const
 
 	return hit;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::cast_aabox_z270 -- aabox test which is rotated about z by 270            *
@@ -1010,7 +982,6 @@ bool MeshGeometryClass::cast_aabox_z270(AABoxCollisionTestClass & boxtest, const
 
 	return hit;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::intersect_obbox_brute_force -- brute force intersection check            *
@@ -1058,7 +1029,6 @@ bool MeshGeometryClass::intersect_obbox_brute_force(OBBoxIntersectionTestClass &
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::cast_ray_brute_force -- brute force ray-cast                             *
@@ -1113,7 +1083,6 @@ bool MeshGeometryClass::cast_ray_brute_force(RayCollisionTestClass & raytest)
 	}
 	return hit;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::cast_aabox_brute_force -- brute force aabox cast                         *
@@ -1172,7 +1141,6 @@ bool MeshGeometryClass::cast_aabox_brute_force(AABoxCollisionTestClass & boxtest
 	return false;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::cast_obbox_brute_force -- brute force obbox cast                         *
  *                                                                                             *
@@ -1230,7 +1198,6 @@ bool MeshGeometryClass::cast_obbox_brute_force(OBBoxCollisionTestClass & boxtest
 	return false;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Compute_Plane_Equations -- Recalculates the plane equations              *
  *                                                                                             *
@@ -1266,7 +1233,6 @@ void MeshGeometryClass::Compute_Plane_Equations(Vector4 * peq)
 	}
 	Set_Flag(DIRTY_PLANES,false);
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Compute_Vertex_Normals -- recompute the vertex normals                   *
@@ -1350,7 +1316,6 @@ void MeshGeometryClass::Compute_Vertex_Normals(Vector3 * vnorm)
 	Set_Flag(DIRTY_VNORMALS,false);
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Compute_Bounds -- recomputes the bounding volumes                        *
  *                                                                                             *
@@ -1388,8 +1353,6 @@ void MeshGeometryClass::Compute_Bounds(Vector3 * verts)
 	Set_Flag(DIRTY_BOUNDS,false);
 }
 
-
-
 /***********************************************************************************************
  * MeshGeometryClass::get_vert_normals -- get the vertex normal array                          *
  *                                                                                             *
@@ -1412,7 +1375,6 @@ Vector3 * MeshGeometryClass::get_vert_normals(void)
 	return VertexNorm->Get_Array();
 #endif
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Get_Vertex_Normal_Array -- validates and returns the vertex normal array *
@@ -1438,8 +1400,6 @@ const Vector3 * MeshGeometryClass::Get_Vertex_Normal_Array(void)
 	return get_vert_normals();
 #endif
 }
-
-
 
 /***********************************************************************************************
  * MeshGeometryClass::get_planes -- get the plane array memory (internal)                      *
@@ -1468,7 +1428,6 @@ Vector4 * MeshGeometryClass::get_planes(bool create)
 	return NULL;
 #endif
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Get_Plane_Array -- validates and returns the array of plane equations    *
@@ -1519,7 +1478,6 @@ void MeshGeometryClass::Compute_Plane(int pidx,PlaneClass * set_plane) const
 	set_plane->Set(verts[poly.I],verts[poly.J],verts[poly.K]);
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::Generate_Culling_Tree -- Generate an AABTree for this mesh               *
  *                                                                                             *
@@ -1544,7 +1502,6 @@ void MeshGeometryClass::Generate_Culling_Tree(void)
 		CullTree->Set_Mesh(this);
 	}
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::Load_W3D -- Load a mesh from a w3d file                                  *
@@ -1682,7 +1639,6 @@ Error:
 	return WW3D_ERROR_LOAD_FAILED;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_chunks -- read w3d chunks                                           *
  *                                                                                             *
@@ -1758,7 +1714,6 @@ WW3DErrorType MeshGeometryClass::read_chunks(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_vertices -- read the vertex chunk from a W3D file                   *
  *                                                                                             *
@@ -1791,7 +1746,6 @@ WW3DErrorType MeshGeometryClass::read_vertices(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_vertex_normals -- read the vertex normals chunk from a w3d file     *
  *                                                                                             *
@@ -1820,7 +1774,6 @@ WW3DErrorType MeshGeometryClass::read_vertex_normals(ChunkLoadClass & cload)
 
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::read_triangles -- read the triangles chunk from a w3d file               *
@@ -1870,7 +1823,6 @@ WW3DErrorType MeshGeometryClass::read_triangles(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_user_text -- read the user text chunk from a w3d file               *
  *                                                                                             *
@@ -1909,7 +1861,6 @@ WW3DErrorType MeshGeometryClass::read_user_text(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_vertex_influences -- read the vertex influences chunk from a w3d fi *
  *                                                                                             *
@@ -1940,7 +1891,6 @@ WW3DErrorType MeshGeometryClass::read_vertex_influences(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshGeometryClass::read_vertex_shade_indices -- read the vertex shade indices chunk         *
  *                                                                                             *
@@ -1966,7 +1916,6 @@ WW3DErrorType MeshGeometryClass::read_vertex_shade_indices(ChunkLoadClass & cloa
 	}
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshGeometryClass::read_aabtree -- read the AABTree chunk from a w3d file                   *

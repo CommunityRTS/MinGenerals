@@ -56,7 +56,6 @@
 DECLARE_FORCE_LINK(CubeMapShader);
 REGISTER_SHDDEF(ShdCubeMapDefClass,SHDDEF_CLASSID_CUBEMAP,"Cube Map");
 
-
 // Save-Load methods for ShdDefClass
 enum
 {
@@ -160,7 +159,6 @@ bool ShdCubeMapDefClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 void ShdCubeMapDefClass::Init()
 {
 	Shd6CubeMapClass::Init();
@@ -175,8 +173,6 @@ ShdInterfaceClass* ShdCubeMapDefClass::Create() const
 {
 	return new Shd6CubeMapClass(this);
 }
-
-
 
 Matrix4x4				Shd6CubeMapClass::View_Projection_Matrix;
 
@@ -224,7 +220,6 @@ void Shd6CubeMapClass::Init()
 void Shd6CubeMapClass::Shutdown()
 {
 }
-
 
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6

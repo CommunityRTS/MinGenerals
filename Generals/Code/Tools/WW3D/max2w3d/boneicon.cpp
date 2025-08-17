@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "boneicon.h"
 
 const int NumBoneIconVerts = 184;
@@ -233,7 +232,6 @@ VertexStruct BoneIconVerts[NumBoneIconVerts] = {
 	{    0.04,    -0.47,    -0.35 },
 	{    0.10,    -0.40,    -0.28 }
 };
-
 
 FaceStruct BoneIconFaces[NumBoneIconFaces] = {
 

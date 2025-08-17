@@ -69,7 +69,6 @@
 static ICoord2D dialogPos;
 static ICoord2D dialogSize;
 
-
 // PUBLIC DATA ////////////////////////////////////////////////////////////////
 HierarchyView *TheHierarchyView = NULL;  ///< the view singleton
 
@@ -610,7 +609,6 @@ HTREEITEM HierarchyView::findItemEntry( HTREEITEM node, GameWindow *window )
 	// end of recursion
 	if( node == NULL || window == NULL )
 		return NULL;
-
 
 #if USE_FAST_FIND_ITEM
 	return m_treeHash[window];
@@ -1307,8 +1305,4 @@ Bool HierarchyView::validateDragDropOperation( GameWindow *source,
 	return TRUE;
 
 }  // end validateDragDropOperation
-
-
-
-
 

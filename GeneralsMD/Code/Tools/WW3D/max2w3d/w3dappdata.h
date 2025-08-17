@@ -51,7 +51,6 @@
 #define W3D_APPDATA_2			2
 #define W3D_DAZZLE_APPDATA		3
 
-
 /*
 **	Classifying INodes for w3d exporting
 **
@@ -122,8 +121,6 @@ inline bool Is_Proxy(INode &node)
 	return (::strchr (node.GetName (), '~') != NULL);
 }
 
-
-
 /*
 ** AJA 9/24/99
 ** NOTE: Whenever you add a new W3DAppDataStruct, you must add an accessor function
@@ -142,7 +139,6 @@ inline bool Is_Proxy(INode &node)
 ** a script to duplicate a model INCLUDING all W3D app data, so that this information
 ** is preserved.
 */
-
 
 /*
 ** The W3DAppData0Struct contains a bitfield.  These #defines are
@@ -175,7 +171,6 @@ inline bool Is_Proxy(INode &node)
 
 #define DEFAULT_MESH_EXPORT_FLAGS		(EXPORT_BONE_FLAG | EXPORT_GEOMETRY_FLAG | GEOMETRY_TYPE_NORMAL_MESH)
 #define DEFAULT_EXPORT_FLAGS				0
-
 
 /*
 ** W3D Utility AppData sub-type 0  (OBSOLETE!)
@@ -211,8 +206,6 @@ struct W3DAppData0Struct
 	unsigned short ExportFlags;	// what was I thinking??? (gth)
 };
 
-
-
 /*
 ** W3D Utility AppData sub-type 1
 ** ----------------------------------------------------
@@ -236,8 +229,6 @@ struct W3DAppData1Struct
 	*/
 	char DamageRegion;
 };
-
-
 
 /*
 ** W3D Utility AppData sub-type 2
@@ -379,8 +370,6 @@ protected:
 	unsigned int UnUsed[4];
 };
 
-
-
 /*
 ** W3D Utility Dazzle App Data
 ** ----------------------------------------------------
@@ -409,7 +398,6 @@ struct W3DDazzleAppDataStruct
 	unsigned int	UnUsed[4];
 	char				DazzleType[128];
 };
-
 
 #endif
 

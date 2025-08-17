@@ -63,7 +63,6 @@ public:
 };  // end class ScriptActionsInterface
 extern ScriptActionsInterface *TheScriptActions;   ///< singleton definition
 
-
 //-----------------------------------------------------------------------------
 // ScriptActions
 //-----------------------------------------------------------------------------
@@ -379,7 +378,5 @@ protected:
 
 };  // end class ScriptActions
 
-
 #endif  // end __SCRIPTACTIONS_H_
-
 

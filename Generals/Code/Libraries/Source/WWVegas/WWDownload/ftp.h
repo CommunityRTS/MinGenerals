@@ -21,7 +21,6 @@
 #ifndef __FTP_H_
 #define __FTP_H_
 
-
 //#include "../resource.h"       // main symbols
 
 #include "winsock.h"
@@ -46,7 +45,6 @@
 // Temporary download file name
 
 #define FTP_TEMPFILENAME	"..\\__~DOWN_L~D"
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Cftp
@@ -89,7 +87,6 @@ private:
 
 	void		CloseSockets(void);
 	void		ZeroStuff(void);
-
 
 public:
 	Cftp();

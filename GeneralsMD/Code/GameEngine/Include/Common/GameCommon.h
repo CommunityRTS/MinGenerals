@@ -50,8 +50,6 @@
 #ifndef _GAMECOMMON_H_
 #define _GAMECOMMON_H_
 
-
-
 #define DONT_ALLOW_DEBUG_CHEATS_IN_RELEASE ///< Take of the DONT to get cheats back in to release
 
 //#define _CAMPEA_DEMO
@@ -501,7 +499,6 @@ enum Relationship
 	NEUTRAL,
 	ALLIES
 };
-
 
 // TheRelationShipNames is defined in Common/GameCommon.cpp
 extern const char *TheRelationshipNames[];

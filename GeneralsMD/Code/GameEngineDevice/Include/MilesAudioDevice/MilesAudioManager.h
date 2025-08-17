@@ -152,7 +152,6 @@ class MilesAudioManager : public AudioManager
 		MilesAudioManager();
 		virtual ~MilesAudioManager();
 
-
 		virtual void nextMusicTrack( void );
 		virtual void prevMusicTrack( void );
 		virtual Bool isMusicPlaying( void ) const;
@@ -226,9 +225,7 @@ class MilesAudioManager : public AudioManager
 
 		virtual void closeAnySamplesUsingFile( const void *fileToClose );
 
-
     virtual Bool has3DSensitiveStreamsPlaying( void ) const;
-
 
 	protected:
 		// 3-D functions

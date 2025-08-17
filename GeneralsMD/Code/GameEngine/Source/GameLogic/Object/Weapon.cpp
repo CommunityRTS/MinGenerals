@@ -160,7 +160,6 @@ static void parseAllVetLevelsPSys( INI* ini, void* /*instance*/, void * store, c
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 WeaponStore *TheWeaponStore = NULL;					///< the weapon store definition
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -596,7 +595,6 @@ Real WeaponTemplate::estimateWeaponTemplateDamage(
 		}
 	}
 
-
   // hmm.. must be shooting a firebase or such, if there is noone home to take the bullet, return 0!
   if ( victimObj->isKindOf( KINDOF_STRUCTURE) && damageType == DAMAGE_SNIPER )
   {
@@ -606,9 +604,6 @@ Real WeaponTemplate::estimateWeaponTemplateDamage(
         return 0.0f;
     }
   }
-
-
-
 
 	if (damageType == DAMAGE_SURRENDER || m_allowAttackGarrisonedBldgs)
 	{
@@ -1073,7 +1068,6 @@ UnsignedInt WeaponTemplate::fireWeaponTemplate
 			#endif
 			//end -extraLogging
 
-
 			return TheGameLogic->getFrame();
 		}
 		else
@@ -1094,7 +1088,6 @@ UnsignedInt WeaponTemplate::fireWeaponTemplate
 			#endif
 			//end -extraLogging
 
-
 			return when;
 		}
 	}
@@ -1111,7 +1104,6 @@ UnsignedInt WeaponTemplate::fireWeaponTemplate
 		{
 			owningPlayer->applyBattlePlanBonusesForObject( projectile );
 		}
-
 
 		//Store the project ID in the object as the last projectile fired!
 		if (projectileID)
@@ -2696,7 +2688,6 @@ Bool Weapon::privateFireWeapon(
 	return reloaded;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void Weapon::preFireWeapon( const Object *source, const Object *victim )
 {
@@ -3155,7 +3146,6 @@ void Weapon::transferNextShotStatsFrom( const Weapon &weapon )
 	m_status = weapon.getStatus();
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 void Weapon::crc( Xfer *xfer )
@@ -3346,7 +3336,6 @@ void Weapon::crc( Xfer *xfer )
 		logString.concat(tmp);
 	}
 #endif // DEBUG_CRC
-
 
 #ifdef DEBUG_CRC
 	if (doLogging)

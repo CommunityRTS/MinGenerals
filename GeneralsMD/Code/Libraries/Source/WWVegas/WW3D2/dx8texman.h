@@ -80,7 +80,6 @@ public:
 
 	TextureBaseClass* Get_Texture() const { return Texture; }
 
-
 protected:
 
 	unsigned int Width;
@@ -158,11 +157,9 @@ public:
 		);
 	}
 
-
 private:
 	WW3DZFormat ZFormat;
 };
-
 
 class DX8TextureManagerClass
 {

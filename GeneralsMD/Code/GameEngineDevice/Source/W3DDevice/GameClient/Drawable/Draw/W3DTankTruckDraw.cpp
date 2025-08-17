@@ -535,7 +535,6 @@ void W3DTankTruckDraw::doDrawModule(const Matrix3D* transformMtx)
 	const Coord3D *vel = physics->getVelocity();
 	Real speed = physics->getVelocityMagnitude();
 
-
 	const TWheelInfo *wheelInfo = getDrawable()->getWheelInfo();	// note, can return null!
 	if (wheelInfo && (m_frontLeftTireBone || m_rearLeftTireBone))
 	{

@@ -56,6 +56,4 @@ template <typename text> void EncodeFormat ( text *string );
 template <typename text> void DecodeFormat ( text *string );
 template <typename text> int IsFormatTypeChar(  text string1 );
 
-
-
 #endif // __OLESTRING_H

@@ -135,7 +135,6 @@ const Matrix3D	Matrix3D::RotateZ270
  	0.0,	0.0,	1.0,	0.0
 );
 
-
 /***********************************************************************************************
  * Matrix3D::Set -- Init a matrix3D from a matrix3 and a position                              *
  *                                                                                             *
@@ -154,7 +153,6 @@ void Matrix3D::Set(const Matrix3 & rot,const Vector3 & pos)
 	Row[2].Set( rot[2][0], rot[2][1], rot[2][2], pos[2]);
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Set -- Init a matrix3D from a quaternion and a position                           *
  *                                                                                             *
@@ -171,7 +169,6 @@ void Matrix3D::Set(const Quaternion & rot,const Vector3 & pos)
    Set_Rotation(rot);
    Set_Translation(pos);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Set_Rotation -- Sets the rotation part of the matrix                              *
@@ -200,7 +197,6 @@ void Matrix3D::Set_Rotation(const Matrix3 & m)
 	Row[2][2] = m[2][2];
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Set_Rotation -- Sets the rotation part of the matrix                              *
  *                                                                                             *
@@ -228,7 +224,6 @@ void Matrix3D::Set_Rotation(const Quaternion & q)
 	Row[2][2] =(float)(1.0 - 2.0 * (q[1] * q[1] + q[0] * q[0]));
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Get_X_Rotation -- approximates the rotation about the X axis                      *
  *                                                                                             *
@@ -245,7 +240,6 @@ float Matrix3D::Get_X_Rotation(void) const
 {
 	return WWMath::Atan2(Row[2][1], Row[1][1]);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Get_Y_Rotation -- approximates the rotation about the Y axis                      *
@@ -264,7 +258,6 @@ float Matrix3D::Get_Y_Rotation(void) const
 	return WWMath::Atan2(Row[0][2], Row[2][2]);
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Get_Z_Rotation -- approximates the rotation about the Z axis                      *
  *                                                                                             *
@@ -281,7 +274,6 @@ float Matrix3D::Get_Z_Rotation(void) const
 {
 	return WWMath::Atan2(Row[1][0], Row[0][0]);
 }
-
 
 /***********************************************************************************************
  * M3DC::Rotate_Vector -- Uses the 3x3 sub-matrix to rotate a vector                           *
@@ -302,7 +294,6 @@ Vector3 Matrix3D::Rotate_Vector(const Vector3 &vect) const
 		(Row[2][0]*vect[0] + Row[2][1]*vect[1] + Row[2][2]*vect[2])
 	);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Inverse_Rotate_Vector -- rotates a vector by the inverse of the 3x3 sub-matrix    *
@@ -495,7 +486,6 @@ void Matrix3D::Obj_Look_At(const Vector3 &p,const Vector3 &t,float roll)
 	Rotate_X(roll);
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Get_Inverse -- calculate the inverse of this matrix                               *
  *                                                                                             *
@@ -617,8 +607,6 @@ void Matrix3D::Copy_3x3_Matrix(float matrix[3][3])
 	Row[2][2] = matrix[2][2];
 	Row[2][3] = 0;
 }
-
-
 
 /***********************************************************************************************
  * Matrix3D::Multiply -- matrix multiplication without temporaries.                            *
@@ -1033,7 +1021,6 @@ void Matrix3D::Transform_Min_Max_AABox
 	}
 }
 
-
 /***********************************************************************************************
  * Matrix3D::Transform_Center_Extent_AABox -- compute transformed axis-aligned box             *
  *                                                                                             *
@@ -1073,7 +1060,6 @@ void Matrix3D::Transform_Center_Extent_AABox
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Is_Orthogonal -- checks whether this matrix is orthogonal                         *
@@ -1164,7 +1150,6 @@ void Matrix3D::Re_Orthogonalize(void)
 	Row[2][2] = z.Z;
 }
 
-
 /***********************************************************************************************
  * Lerp - linearly interpolate matrices (orientation is slerped)                               *
  *                                                                                             *
@@ -1193,7 +1178,6 @@ void Matrix3D::Lerp(const Matrix3D &A, const Matrix3D &B, float factor, Matrix3D
 	Slerp(rot,Build_Quaternion(A), Build_Quaternion(B), factor);
 	result.Set(rot, pos);
 }
-
 
 /***********************************************************************************************
  * Matrix3D::Solve_Linear_System -- 3x3 Gauss-Jordan elimination                               *

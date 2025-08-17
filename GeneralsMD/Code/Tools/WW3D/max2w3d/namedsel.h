@@ -38,7 +38,6 @@
 #ifndef NAMEDSEL_H
 #define NAMEDSEL_H
 
-
 #include "Max.h"
 
 /*
@@ -78,6 +77,5 @@ public:
 		NAMED_SEL_NAME_CHUNK =	0x0023
 	};
 };
-
 
 #endif /*NAMEDSEL_H*/

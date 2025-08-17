@@ -281,8 +281,6 @@ void PointerTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorl
 		}
 	}
 
-
-
 //	WorldHeightMapEdit *pMap = pDoc->GetHeightMap();
 	m_curObject = NULL;
 	MapObject *pObj = MapObject::getFirstMapObject();
@@ -488,7 +486,6 @@ void PointerTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWor
 	pDoc->updateAllViews();
 
 }
-
 
 /** Execute the tool on mouse up - if modifying, do the modify,
 else update the selection. */

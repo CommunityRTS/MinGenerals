@@ -105,7 +105,6 @@ void CleanupAreaPower::doSpecialPowerAtLocation( const Coord3D *loc, Real angle,
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CleanupAreaPower::crc( Xfer *xfer )
 {

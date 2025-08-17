@@ -38,7 +38,6 @@
 #include "Common/ObjectStatusTypes.h" // Precompiled header anyway, no detangling possibility
 #include "Common/Snapshot.h"
 
-
 // FORWARD REFERENCES /////////////////////////////////////////////////////////////////////////////
 class Object;
 class INI;
@@ -160,7 +159,6 @@ extern DamageTypeFlags DAMAGE_TYPE_FLAGS_NONE;
 extern DamageTypeFlags DAMAGE_TYPE_FLAGS_ALL;
 void initDamageTypeFlags();
 
-
 //-------------------------------------------------------------------------------------------------
 /** Death types, keep this in sync with TheDeathNames[] */
 //-------------------------------------------------------------------------------------------------
@@ -227,7 +225,6 @@ static const char *TheDeathNames[] =
 };
 #endif // end DEFINE_DEATH_NAMES
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 
@@ -292,7 +289,6 @@ public:
 	Real					 m_shockWaveAmount;				///< This represents the amount of shockwave created by the damage. 0 = no shockwave, 1.0 = shockwave equal to damage.
 	Real					 m_shockWaveRadius;			  ///< This represents the effect radius of the shockwave.
 	Real					 m_shockWaveTaperOff;			///< This represents the taper off effect of the shockwave at the tip of the radius. 0.0 means shockwave is 0% at the radius edge.
-
 
 protected:
 

@@ -65,7 +65,6 @@ public:
   WeaponTemplate *m_shockwaveWeaponTemplate; ///< a weapon that gets fired when the buster gets busted, intended to generate a shockwave effect only
   WeaponTemplate *m_occupantDamageWeaponTemplate; ///< a weapon to provide a damegeInfo that gets applied to each occupant of container struck as they are getting kicked out
 
-
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -92,8 +91,6 @@ public:
 	// die module methods
 	virtual DieModuleInterface *getDie( void ) { return this; }
 	virtual void onDie( const DamageInfo *damageInfo );
-
-
 
 protected:
   void bustTheBunker( void );

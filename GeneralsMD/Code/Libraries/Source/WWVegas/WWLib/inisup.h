@@ -37,7 +37,6 @@
 #pragma once
 #endif // _MSC_VER >= 1000
 
-
 /*
 **	This header defines generally unused member structures used by the INI class.
 **	Previously these were member structures of the INI class but they were separated
@@ -47,7 +46,6 @@
 #include	"listnode.h"
 #include	"index.h"
 #include "crc.h"
-
 
 /*
 **	The value entries for the INI file are stored as objects of this type.
@@ -84,5 +82,4 @@ struct INISection : public Node<INISection *> {
 		INISection(INISection const & rvalue);
 		INISection operator = (INISection const & rvalue);
 };
-
 

@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __NETCOMMANDREF_H
@@ -40,7 +39,6 @@
 #else
 #define NEW_NETCOMMANDREF(msg) newInstance(NetCommandRef)(msg)
 #endif
-
 
 class NetCommandRef : public MemoryPoolObject
 {

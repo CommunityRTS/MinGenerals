@@ -41,7 +41,6 @@
 
 // PUBLIC /////////////////////////////////////////////////////////////////////////////////////////
 
-
 // STATIC /////////////////////////////////////////////////////////////////////////////////////////
 const static Coord2D reallyFarPoint = { 1000000.0, 1000000.0 };
 
@@ -103,7 +102,6 @@ Bool ClipLine2D( ICoord2D *p1, ICoord2D *p2, ICoord2D *c1, ICoord2D *c2,
 	if (y1 > clipBottom)
 		clipCode1 |= CLIP_BOTTOM;
 
-
 	// Test second point
 	clipCode2 = 0;
 
@@ -118,7 +116,6 @@ Bool ClipLine2D( ICoord2D *p1, ICoord2D *p2, ICoord2D *c1, ICoord2D *c2,
 	else
 	if (y2 > clipBottom)
 		clipCode2 |= CLIP_BOTTOM;
-
 
 	// Both points inside window?
 	if ((clipCode1 | clipCode2) == 0)
@@ -226,7 +223,6 @@ Bool ClipLine2D( ICoord2D *p1, ICoord2D *p2, ICoord2D *c1, ICoord2D *c2,
 
 }  // end ClipLine2D
 
-
 // This solution uses the
 // http://www.faqs.org/faqs/graphics/algorithms-faq/
 // Subject 1.03
@@ -304,7 +300,6 @@ Bool PointInsideRect3D(const Coord3D *bl, const Coord3D *tl, const Coord3D *br, 
 	return PointInsideRect2D(&bl2d, &br2d, &tl2d, &tr2d, &pt);
 }
 
-
 // This function uses even-odd winding to determine whether a point is inside an area.
 Bool PointInsideArea2D(const Coord2D *ptToTest, const Coord2D *area, const Int numPointsInArea)
 {
@@ -365,7 +360,6 @@ void ScaleRect2D( Coord2D *tl, Coord2D *br, Real scaleFactor )
 	br->y += deltaHeight;
 }
 
-
 // Solution taken from http://astronomy.swin.edu.au/~pbourke/geometry/pointline/
 void ShortestDistancePointToSegment2D( const Coord2D *a, const Coord2D *b, const Coord2D *pt,
 																			 Real *outDistance, Coord2D *outPosition, Real *outU )
@@ -406,7 +400,6 @@ void ShortestDistancePointToSegment2D( const Coord2D *a, const Coord2D *b, const
 
 	intersectSegment.x = a->x + u * (b->x - a->x);
 	intersectSegment.y = a->y + u * (b->y - a->y);
-
 
 	if (outPosition) {
 		(*outPosition) = intersectSegment;

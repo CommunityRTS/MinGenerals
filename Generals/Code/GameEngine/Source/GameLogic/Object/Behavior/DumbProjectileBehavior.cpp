@@ -98,7 +98,6 @@ void DumbProjectileBehaviorModuleData::buildFieldParse(MultiIniFieldParse& p)
 
 		{ "FlightPathAdjustDistPerSecond", INI::parseVelocityReal, NULL, offsetof( DumbProjectileBehaviorModuleData, m_flightPathAdjustDistPerFrame ) },
 
-
 		{ 0, 0, 0, 0 }
 	};
 
@@ -239,7 +238,6 @@ static Bool calcTrajectory(
 
 		t0 = MAX(0,t0);
 		t1 = MAX(0,t1);
-
 
 		DEBUG_ASSERTCRASH(t0>=0&&t1>=0,("neg time"));
 

@@ -29,7 +29,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditCoordParameter dialog
 
-
 EditCoordParameter::EditCoordParameter(CWnd* pParent /*=NULL*/)
 	: CDialog(EditCoordParameter::IDD, pParent)
 {
@@ -38,7 +37,6 @@ EditCoordParameter::EditCoordParameter(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditCoordParameter::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -46,7 +44,6 @@ void EditCoordParameter::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditCoordParameter, CDialog)
 	//{{AFX_MSG_MAP(EditCoordParameter)

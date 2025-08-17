@@ -59,5 +59,4 @@ public:
 
 };
 
-
 #endif  // end __ObjectRepulsorHelper_H_

@@ -105,5 +105,4 @@ private:
 	Vector2								Diffuse_Bumpiness;
 };
 
-
 #endif //SHDBUMPDIFF_H

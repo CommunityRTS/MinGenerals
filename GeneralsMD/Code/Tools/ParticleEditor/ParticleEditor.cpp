@@ -91,7 +91,6 @@ CDebugWindowApp::~CDebugWindowApp()
 {
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // The one and only CDebugWindowApp object
 
@@ -167,7 +166,6 @@ void __declspec(dllexport) RemoveAllThingTemplates( void )
 	} catch (...) { }
 }
 
-
 void __declspec(dllexport) AppendThingTemplate( const char* thingTemplateName )
 {
 	try {
@@ -179,7 +177,6 @@ void __declspec(dllexport) AppendThingTemplate( const char* thingTemplateName )
 		}
 	} catch (...) {	}
 }
-
 
 Bool __declspec(dllexport) HasUpdatedSelectedParticleSystem( void )
 {
@@ -243,7 +240,6 @@ int __declspec(dllexport) GetNewParticleCap( void )
 	} catch (...) { }
 	return -1;
 }
-
 
 void __declspec(dllexport) GetSelectedParticleAsciiStringParm( int parmNum, char *bufferToCopyInto, ParticleSystemTemplate **whichTemplate)
 {
@@ -418,5 +414,4 @@ int __declspec(dllexport) NextParticleEditorBehavior( void )
 	} catch (...) {	}
 	return PEB_Error;
 }
-
 

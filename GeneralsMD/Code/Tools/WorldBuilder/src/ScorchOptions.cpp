@@ -36,14 +36,12 @@ ScorchOptions *ScorchOptions::m_staticThis = NULL;
 /////////////////////////////////////////////////////////////////////////////
 // ScorchOptions dialog
 
-
 ScorchOptions::ScorchOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(ScorchOptions)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
 }
-
 
 void ScorchOptions::DoDataExchange(CDataExchange* pDX)
 {
@@ -52,7 +50,6 @@ void ScorchOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ScorchOptions, CDialog)
 	//{{AFX_MSG_MAP(ScorchOptions)
@@ -117,7 +114,6 @@ BOOL ScorchOptions::OnInitDialog()
 	CDialog::OnInitDialog();
 	m_staticThis = this;
 
-
 	m_radiusPopup.SetupPopSliderButton(this, IDC_SIZE_POPUP, this);
 
 	CString str;
@@ -161,7 +157,6 @@ void ScorchOptions::OnChangeSizeEdit()
 	changeSize();
 }
 
-
 void ScorchOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {
 	switch (sliderID) {
@@ -191,7 +186,6 @@ void ScorchOptions::PopSliderChanged(const long sliderID, long theVal)
 			pEdit = m_staticThis->GetDlgItem(IDC_SIZE_EDIT);
 			if (pEdit) pEdit->SetWindowText(str);
 			break;
-
 
 		default:
 			// uh-oh!

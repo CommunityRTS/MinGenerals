@@ -105,11 +105,9 @@ template<typename Event> class Observer
 		NotifierColl mNotifiers;
 	};
 
-
 #define DECLARE_OBSERVER(Event) \
 	virtual void NotifyMe(Notifier<Event>& observer) \
 		{Notifier<Event>::AddObserver(observer);}
-
 
 template<typename Event> class Notifier
 	{
@@ -170,7 +168,6 @@ template<typename Event> class Notifier
 		ObserverColl mObservers;
 	};
 
-
 #define DECLARE_NOTIFIER(Event) \
 	virtual void NotifyObservers(Event& event) \
 		{Notifier<Event>::NotifyObservers(event);} \
@@ -178,7 +175,6 @@ template<typename Event> class Notifier
 		{Notifier<Event>::AddObserver(observer);} \
 	virtual void RemoveObserver(Observer<Event>& observer) \
 		{Notifier<Event>::RemoveObserver(observer);}
-
 
 /* The following template is useful for defining unique types to use as Events
  * from types such as strings or integers.

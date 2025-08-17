@@ -302,7 +302,6 @@ static const char *TheWeaponBonusFieldNames[] =
 };
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 class WeaponBonusSet : public MemoryPoolObject
 {
@@ -784,7 +783,6 @@ protected:
 	void computeBonus(const Object *source, WeaponBonusConditionFlags extraBonusFlags, WeaponBonus& bonus) const;
 
 	void rebuildScatterTargets();
-
 
 private:
 	const WeaponTemplate*			m_template;									///< the kind of weapon this is

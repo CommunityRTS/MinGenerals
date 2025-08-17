@@ -153,7 +153,6 @@ void HackInternetAIUpdate::aiDoCommand(const AICommandParms* parms)
 	AIUpdateInterface::aiDoCommand(parms);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void HackInternetAIUpdate::hackInternet()
 {
@@ -232,7 +231,6 @@ void HackInternetAIUpdate::loadPostProcess( void )
  // extend base class
 	AIUpdateInterface::loadPostProcess();
 }  // end loadPostProcess
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -337,11 +335,9 @@ void UnpackingState::onExit( StateExitType status )
 	owner->clearModelConditionState( MODELCONDITION_UNPACKING );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -567,7 +563,6 @@ StateReturnType HackInternetState::update()
 					pos.add( owner->getPosition() );
 					pos.z += 20.0f; //add a little z to make it show up above the unit.
 
-
           Object *internetCenter = owner->getContainedBy();
           if ( internetCenter )
           {
@@ -577,7 +572,6 @@ StateReturnType HackInternetState::update()
             pos.y += GameClientRandomValue(-depth,depth);
           }
 
-
 					TheInGameUI->addFloatingText( moneyString, &pos, GameMakeColor( 0, 255, 0, 255 ) );
 				}
 
@@ -586,7 +580,6 @@ StateReturnType HackInternetState::update()
 				TheAudio->addAudioEvent( &sound );
 			}
 		}
-
 
 		//Reset timer and start a new cycle.
 		m_framesRemaining = ai->getCashUpdateDelay();

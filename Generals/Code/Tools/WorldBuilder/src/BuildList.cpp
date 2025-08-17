@@ -40,10 +40,8 @@
 BuildList *BuildList::m_staticThis = NULL;
 Bool BuildList::m_updating = false;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // BuildList dialog
-
 
 BuildList::BuildList(CWnd* pParent /*=NULL*/)
 {
@@ -52,11 +50,9 @@ BuildList::BuildList(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 BuildList::~BuildList(void)
 {
 }
-
 
 void BuildList::DoDataExchange(CDataExchange* pDX)
 {
@@ -65,7 +61,6 @@ void BuildList::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(BuildList, COptionsPanel)
 	//{{AFX_MSG_MAP(BuildList)
@@ -87,8 +82,6 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // BuildList data access method.
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // BuildList message handlers
@@ -268,7 +261,6 @@ void BuildList::OnAddBuilding()
 	BuildListTool::addBuilding();
 }
 
-
 void BuildList::addBuilding(Coord3D loc, Real angle, AsciiString name)
 {
 	if (!m_staticThis) {
@@ -292,7 +284,6 @@ void BuildList::addBuilding(Coord3D loc, Real angle, AsciiString name)
 	WbView3d *p3View = pDoc->GetActive3DView();
 	p3View->invalBuildListItemInView(pBuildInfo);
 };
-
 
 void BuildList::setSelectedBuildList(BuildListInfo *pInfo)
 {
@@ -321,7 +312,6 @@ void BuildList::setSelectedBuildList(BuildListInfo *pInfo)
 		}
 	}
 };
-
 
 void BuildList::OnSelchangeBuildList()
 {
@@ -477,7 +467,6 @@ void BuildList::OnSelchangeBuildList()
 			pCombo->SetWindowText(str);
 		}
 	}
-
 
 }
 

@@ -36,7 +36,6 @@
  * WWShade.lib library interface                                                               *
  *---------------------------------------------------------------------------------------------*/
 
-
 #include "shdlib.h"
 #include "assetmgr.h"
 #include "shdloader.h"

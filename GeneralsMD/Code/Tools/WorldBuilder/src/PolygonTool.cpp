@@ -54,8 +54,6 @@ PolygonTool::PolygonTool(void) :
 {
 }
 
-
-
 /// Destructor
 PolygonTool::~PolygonTool(void)
 {
@@ -122,8 +120,6 @@ Bool PolygonTool::poly_pickPoly(PolygonTrigger *pTrig, Coord3D loc, Int toleranc
 	}
 	return false;
 }
-
-
 
 // Pick a polygon.
 PolygonTrigger *PolygonTool::pickPolygon(Coord3D loc, CPoint viewPt, WbView* pView) {
@@ -270,8 +266,6 @@ void PolygonTool::poly_pickOnMouseDown(CPoint viewPt, WbView* pView)
 	}
 }
 
-
-
 /// Perform the tool behavior on mouse down.
 void PolygonTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)
 {
@@ -406,8 +400,6 @@ void PolygonTool::setCursor(void)
 		Tool::setCursor();
 	}
 }
-
-
 
 /// Left button move code.
 void PolygonTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

@@ -54,7 +54,6 @@
 #include	"bfiofile.h"
 #include	<string.h>
 
-
 /***********************************************************************************************
  * BufferIOFileClass::BufferIOFileClass -- Filename based constructor for a file object.       *
  *                                                                                             *
@@ -93,7 +92,6 @@ BufferIOFileClass::BufferIOFileClass(char const * filename) :
 	BufferIOFileClass::Set_Name(filename);
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::BufferIOFileClass -- default constructor for a file object.              *
  *                                                                                             *
@@ -128,7 +126,6 @@ BufferIOFileClass::BufferIOFileClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::~BufferIOFileClass -- Destructor for the file object.                    *
  *                                                                                             *
@@ -147,7 +144,6 @@ BufferIOFileClass::~BufferIOFileClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Cache -- Load part or all of a file data into RAM.                       *
@@ -236,7 +232,6 @@ bool BufferIOFileClass::Cache( long size, void * ptr )
 			int opened = false;
 			long prevpos = 0;
 
-
 			if (FileSize <= BufferSize) {
 				readsize = FileSize;
 			} else {
@@ -309,7 +304,6 @@ bool BufferIOFileClass::Cache( long size, void * ptr )
 	return(false);
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Free -- Frees the allocated buffer.                                      *
  *                                                                                             *
@@ -343,7 +337,6 @@ void BufferIOFileClass::Free(void)
 	UseBuffer		= false;
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Commit -- Writes the cache to the file if it has changed.                *
  *                                                                                             *
@@ -361,7 +354,6 @@ void BufferIOFileClass::Free(void)
 bool BufferIOFileClass::Commit( void )
 {
 	long size;
-
 
 	if (UseBuffer) {
 		if (IsChanged) {
@@ -387,7 +379,6 @@ bool BufferIOFileClass::Commit( void )
 		return( false);
 	}
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Set_Name -- Checks for name changed for a cached file.                   *
@@ -422,7 +413,6 @@ char const * BufferIOFileClass::Set_Name(char const * filename)
 	return( File_Name());
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Is_Available -- Checks for existence of file cached or on disk.          *
  *                                                                                             *
@@ -444,7 +434,6 @@ bool BufferIOFileClass::Is_Available(int )
 
 	return(BASECLASS::Is_Available());
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Is_Open -- Determines if the file is open.                               *
@@ -469,7 +458,6 @@ bool BufferIOFileClass::Is_Open(void) const
 
 	return(BASECLASS::Is_Open());
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Open -- Assigns name and opens file in one operation.                    *
@@ -497,7 +485,6 @@ int BufferIOFileClass::Open(char const * filename, int rights)
 	Set_Name(filename);
 	return( BufferIOFileClass::Open( rights ));
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Open -- Opens the file object with the rights specified.                 *
@@ -565,7 +552,6 @@ int BufferIOFileClass::Open(int rights)
 
 	return( true);
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Write -- Writes data to the file cache.                                  *
@@ -709,7 +695,6 @@ int BufferIOFileClass::Write(void const * buffer, int size)
 	return( size);
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Read -- Reads data from the file cache.                                  *
  *                                                                                             *
@@ -828,7 +813,6 @@ int BufferIOFileClass::Read(void * buffer, int size)
 	return( size);
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Seek -- Moves the current file pointer in the file.                      *
  *                                                                                             *
@@ -916,7 +900,6 @@ int BufferIOFileClass::Seek(int pos, int dir)
 	return( BASECLASS::Seek(pos, dir));
 }
 
-
 /***********************************************************************************************
  * BufferIOFileClass::Size -- Determines size of file (in bytes).                              *
  *                                                                                             *
@@ -941,7 +924,6 @@ int BufferIOFileClass::Size(void)
 
 	return( BASECLASS::Size());
 }
-
 
 /***********************************************************************************************
  * BufferIOFileClass::Close -- Perform a closure of the file.                                  *

@@ -41,7 +41,6 @@
  *   GetString -- Gets a string out of the resources                                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include <stdio.h>
 #include <Max.h>
 #include "dllmain.h"
@@ -59,7 +58,6 @@
 
 #define DLLEXPORT __declspec(dllexport)
 
-
 /*****************************************************************************
 *	Globals
 *****************************************************************************/
@@ -67,8 +65,6 @@
 HINSTANCE					AppInstance = NULL;
 static int					ControlsInit = FALSE;
 static W3dClassDesc		W3d_Export_Class_Descriptor;
-
-
 
 /***********************************************************************************************
  * DllMain -- Entry point for the dll                                                          *
@@ -95,7 +91,6 @@ BOOL WINAPI DllMain(HINSTANCE	hinstDLL,ULONG /*fdwReason*/,LPVOID /*lpvReserved*
 
 	return  TRUE;
 }
-
 
 /***********************************************************************************************
  * LibDescription -- Returns description of this library                                       *
@@ -131,7 +126,6 @@ DLLEXPORT int LibNumberClasses()
 	return 9; //Moumine 7/24/2001    4:38:27 PM was 10. Removed Mesh_Deformation(#6)
 }
 
-
 /***********************************************************************************************
  * LibClassDesc -- Returns a ClassDesc for the specified class                                 *
  *                                                                                             *
@@ -164,7 +158,6 @@ DLLEXPORT ClassDesc * LibClassDesc(int i)
 	}
 }
 
-
 /***********************************************************************************************
  * LibVersion -- Returns the version number of this library                                    *
  *                                                                                             *
@@ -181,7 +174,6 @@ DLLEXPORT ULONG LibVersion()
 {
 	return VERSION_3DSMAX;
 }
-
 
 /***********************************************************************************************
  * Get_String -- Gets a string out of the resources                                            *
@@ -202,5 +194,4 @@ TCHAR * Get_String( int id )
 		return LoadString(AppInstance, id, buf, sizeof(buf)) ? buf : NULL;
 	return NULL;
 }
-
 

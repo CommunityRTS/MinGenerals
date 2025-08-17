@@ -261,7 +261,6 @@ void XferSave::skip( Int dataSize )
 	DEBUG_ASSERTCRASH( m_fileFP != NULL, ("XferSave - file pointer for '%s' is NULL\n",
 										 m_identifier.str()) );
 
-
 	// skip forward dataSize bytes
 	fseek( m_fileFP, dataSize, SEEK_CUR );
 

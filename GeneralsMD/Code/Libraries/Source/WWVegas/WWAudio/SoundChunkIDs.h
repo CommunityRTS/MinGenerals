@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -44,7 +43,6 @@
 
 #include "saveloadids.h"
 #include "definitionclassids.h"
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -66,7 +64,6 @@ enum
 	CHUNKID_LOGICALLISTENER
 };
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	These are the globally-unique class identifiers that the definition system
@@ -77,6 +74,5 @@ enum
 {
 	CLASSID_SOUND_DEF			= CLASSID_SOUND,
 };
-
 
 #endif //__SOUND_CHUNK_IDS_H

@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // FILE: W3DPushButton.cpp ////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 //
@@ -57,13 +56,11 @@
 #include "W3DDevice/GameClient/W3DDisplay.h"
 #include "W3DDevice/GameClient/W3DGadget.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // DEFINES ////////////////////////////////////////////////////////////////////
 
@@ -278,9 +275,6 @@ void W3DGadgetPushButtonDraw( GameWindow *window, WinInstanceData *instData )
 
 }  // end W3DGadgetPushButtonDraw
 
-
-
-
 // W3DGadgetPushButtonImageDraw ===============================================
 /** Draw pushbutton with user supplied images */
 //=============================================================================
@@ -357,7 +351,6 @@ void W3DGadgetPushButtonImageDrawOne( GameWindow *window,
 		}  // end else, enabled only
 	}
 
-
 	// draw the image
 	if( image )
 	{
@@ -365,7 +358,6 @@ void W3DGadgetPushButtonImageDrawOne( GameWindow *window,
 		// get window position
 		window->winGetScreenPosition( &start.x, &start.y );
 		window->winGetSize( &size.x, &size.y );
-
 
 		// offset position by image offset
 		start.x += instData->m_imageOffset.x;
@@ -408,7 +400,6 @@ void W3DGadgetPushButtonImageDrawOne( GameWindow *window,
 	// get window position
 	window->winGetScreenPosition( &start.x, &start.y );
 	window->winGetSize( &size.x, &size.y );
-
 
 	// if we have a video buffer, draw the video buffer
 	if ( instData->m_videoBuffer )
@@ -488,7 +479,6 @@ void W3DGadgetPushButtonImageDrawOne( GameWindow *window,
 	}
 }  // end W3DGadgetPushButtonImageDraw
 
-
 void W3DGadgetPushButtonImageDrawThree(GameWindow *window, WinInstanceData *instData )
 {
 
@@ -504,7 +494,6 @@ void W3DGadgetPushButtonImageDrawThree(GameWindow *window, WinInstanceData *inst
 	// get image offset
 	xOffset = instData->m_imageOffset.x;
 	yOffset = instData->m_imageOffset.y;
-
 
 	//
 	// get pointer to image we want to draw depending on our state,
@@ -667,7 +656,6 @@ void W3DGadgetPushButtonImageDrawThree(GameWindow *window, WinInstanceData *inst
 	// get window position
 	window->winGetScreenPosition( &start.x, &start.y );
 	window->winGetSize( &size.x, &size.y );
-
 
 	// if we have a video buffer, draw the video buffer
 	if ( instData->m_videoBuffer )

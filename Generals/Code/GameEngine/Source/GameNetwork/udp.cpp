@@ -205,7 +205,6 @@ Int UDP::getLocalAddr(UnsignedInt &ip, UnsignedShort &port)
   return(OK);
 }
 
-
 // private function
 Int UDP::SetBlocking(Int block)
 {
@@ -233,7 +232,6 @@ Int UDP::SetBlocking(Int block)
    return(OK);
   #endif
 }
-
 
 Int UDP::Write(const unsigned char *msg,UnsignedInt len,UnsignedInt IP,UnsignedShort port)
 {
@@ -317,7 +315,6 @@ Int UDP::Read(unsigned char *msg,UnsignedInt len,sockaddr_in *from)
   return(retval);
 }
 
-
 void UDP::ClearStatus(void)
 {
   #ifndef _WINDOWS
@@ -361,8 +358,6 @@ UDP::sockStat UDP::GetStatus(void)
   else     return(UNKNOWN);
  #endif
 }
-
-
 
 /*
 //
@@ -445,9 +440,6 @@ int UDP::Wait(Int sec,Int usec,fd_set &givenSet,fd_set &returnSet)
 }
 */
 
-
-
-
 // Set the kernel buffer sizes for incoming, and outgoing packets
 //
 // Linux seems to have a buffer max of 32767 bytes for this,
@@ -490,7 +482,6 @@ int UDP::GetInputBuffer(void)
      (char *)&arg,&len);
    return(arg);
 }
-
 
 int UDP::GetOutputBuffer(void)
 {

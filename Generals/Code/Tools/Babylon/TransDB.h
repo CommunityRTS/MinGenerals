@@ -121,7 +121,6 @@ class DBAttribs
 	int processed;
 	void *match;
 
-
 	public:
 
 	DBAttribs( void )													{ parent = NULL; changed = FALSE; processed = FALSE; match = NULL; };
@@ -138,7 +137,6 @@ class DBAttribs
 	void	Match ( void* new_match )						{ match = new_match; };
 	void	NotMatched ( void )									{ match = NULL; };
 
-
 };
 
 class TransDB;
@@ -154,7 +152,6 @@ class Translation : public DBAttribs
 	LangID				langid;
 	int						revision;
 	int						sent;
-
 
 	public:
 
@@ -262,11 +259,9 @@ class NoxText : public DBAttribs
 
 };
 
-
 class NoxLabel : public DBAttribs
 {
 	TransDB				*db;
-
 
 	OLEString			*name;
 	OLEString			*comment;
@@ -321,7 +316,6 @@ class NoxLabel : public DBAttribs
 	OLECHAR*			Speaker			( void )									{ return speaker->Get(); };
 	OLECHAR*			Listener		( void )									{ return listener->Get(); };
 
-
 	char*					NameSB	 		( void )									{ return name->GetSB (); };
 	char*					CommentSB		( void )									{ return comment->GetSB(); };
 	char*					ContextSB		( void )									{ return context->GetSB(); };
@@ -353,7 +347,6 @@ class TransDB : public DBAttribs
 	int						checked_for_errors;
 	int						last_error_count;
 	int						flags;
-
 
 	public:
 
@@ -407,7 +400,6 @@ class TransDB : public DBAttribs
 	void					AllowMultiText  ( int yes = TRUE) { yes ? flags |= TRANSDB_OPTION_MULTI_TEXT : flags &= ~(TRANSDB_OPTION_MULTI_TEXT ); };
 };
 
-
 class DupNode : public ListNode
 {
 	NoxText *original;
@@ -421,10 +413,6 @@ class DupNode : public ListNode
 
 };
 
-
-
 extern TransDB* FirstTransDB ( void );
-
-
 
 #endif // __TRANSDB_H

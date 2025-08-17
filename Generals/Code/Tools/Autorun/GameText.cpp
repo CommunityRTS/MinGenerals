@@ -58,13 +58,9 @@
 #include "WSYS_File.h"
 #include "WSYS_RAMFile.h"
 
-
-
 //----------------------------------------------------------------------------
 //         Externals
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Defines
@@ -125,7 +121,6 @@ struct NoString
 	std::wstring text;
 };
 
-
 //===============================
 // GameTextManager
 //===============================
@@ -179,8 +174,6 @@ static int _cdecl			compareLUT ( const void *,  const void*);
 //         Private Data
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Public Data
 //----------------------------------------------------------------------------
@@ -191,13 +184,9 @@ GameTextInterface *TheGameText = NULL;
 //         Private Prototypes
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Private Functions
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Public Functions
@@ -211,7 +200,6 @@ GameTextInterface* CreateGameTextInterface( void )
 {
 	return new GameTextManager;
 }
-
 
 //============================================================================
 // GameTextManager::GameTextManager
@@ -379,7 +367,6 @@ void GameTextManager::deinit( void )
 void GameTextManager::reset( void )
 {
 }
-
 
 //============================================================================
 // GameTextManager::stripSpaces
@@ -585,7 +572,6 @@ void GameTextManager::readToEndOfQuote( File *file, Char *in, Char *out, Char *w
 	}
 
 }
-
 
 //============================================================================
 // GameTextManager::reverseWord
@@ -868,7 +854,6 @@ Bool GameTextManager::parseCSF( Char *filename )
 
 		m_stringInfo[listCount].label = m_buffer;
 
-
 		if ( len > m_maxLabelLen )
 		{
 			m_maxLabelLen = len;
@@ -945,7 +930,6 @@ quit:
 	return ok;
 }
 
-
 //============================================================================
 // GameTextManager::parseStringFile
 //============================================================================
@@ -988,7 +972,6 @@ Bool GameTextManager::parseStringFile( char *filename )
 		m_stringInfo[listCount].label = m_buffer;
 		len = strlen ( m_buffer );
 
-
 		if ( len > m_maxLabelLen )
 		{
 			m_maxLabelLen = len;
@@ -1012,7 +995,6 @@ Bool GameTextManager::parseStringFile( char *filename )
 				m_buffer[ len ] = '\n';
 				m_buffer[ len+1] = 0;
 				readToEndOfQuote( &file, &m_buffer[1], m_buffer2, m_buffer3, MAX_UITEXT_LENGTH );
-
 
 				if ( readString )
 				{

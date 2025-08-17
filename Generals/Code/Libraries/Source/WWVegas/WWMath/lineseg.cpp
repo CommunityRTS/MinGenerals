@@ -115,9 +115,6 @@ void LineSegClass::Set_Random(const Vector3 & min,const Vector3 & max)
 	Length = DP.Length();
 }
 
-
-
-
 /***********************************************************************************************
  * LineSegClass::Find_Point_Closest_To -- Finds point on line closest to point supplied.       *
  *                                                                                             *
@@ -148,7 +145,6 @@ Vector3 LineSegClass::Find_Point_Closest_To(const Vector3 &pos) const
 	Vector3 point = P0 + (dotprod * Dir);
 	return(point);
 }
-
 
 /***********************************************************************************************
  * LineSegClass::Find_Intersection -- Finds the closest points on the two lines..				  *

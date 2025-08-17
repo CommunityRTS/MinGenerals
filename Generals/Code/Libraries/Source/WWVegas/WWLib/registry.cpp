@@ -85,7 +85,6 @@ void	RegistryClass::Set_Int( const char * name, int value )
 	}
 }
 
-
 bool	RegistryClass::Get_Bool( const char * name, bool def_value )
 {
 	return (Get_Int( name, def_value ) != 0);
@@ -95,7 +94,6 @@ void	RegistryClass::Set_Bool( const char * name, bool value )
 {
 	Set_Int( name, value ? 1 : 0 );
 }
-
 
 float	RegistryClass::Get_Float( const char * name, float def_value )
 {
@@ -126,7 +124,6 @@ int RegistryClass::Get_Bin_Size( const char * name )
 	::RegQueryValueEx( (HKEY)Key, name, NULL, NULL, NULL, &size );
 	return size;
 }
-
 
 void RegistryClass::Get_Bin( const char * name, void *buffer, int buffer_size )
 {
@@ -171,7 +168,6 @@ void	RegistryClass::Get_String( const char * name, StringClass &string, const ch
 
 	return ;
 }
-
 
 char *RegistryClass::Get_String( const char * name, char *value, int value_size,
    const char * default_string )
@@ -249,7 +245,6 @@ void	RegistryClass::Deleta_All_Values( void )
 	return ;
 }
 
-
 void	RegistryClass::Get_String( const WCHAR * name, WideStringClass &string, const WCHAR *default_string )
 {
 	assert( IsValid );
@@ -272,7 +267,6 @@ void	RegistryClass::Get_String( const WCHAR * name, WideStringClass &string, con
 
 	return ;
 }
-
 
 void	RegistryClass::Set_String( const WCHAR * name, const WCHAR *value )
 {

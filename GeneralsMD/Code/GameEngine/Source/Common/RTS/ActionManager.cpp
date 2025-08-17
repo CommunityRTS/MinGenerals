@@ -562,10 +562,8 @@ Bool ActionManager::canEnterObject( const Object *obj, const Object *objectToEnt
 		return FALSE;
 	}
 
-
   if (objectToEnter->isDisabledByType( DISABLED_SUBDUED ))
     return FALSE; // a microwave tank has soldered the doors shut
-
 
 	if( obj->isKindOf( KINDOF_STRUCTURE ) || obj->isKindOf( KINDOF_IMMOBILE ) )
 	{
@@ -716,7 +714,6 @@ Bool ActionManager::canEnterObject( const Object *obj, const Object *objectToEnt
 	return TRUE;
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -985,7 +982,6 @@ Bool ActionManager::canMakeObjectDefector( const Object *obj, const Object *obje
 		return FALSE;
 	}
 
-
 	return TRUE;
 }
 
@@ -1023,7 +1019,6 @@ Bool ActionManager::canCaptureBuilding( const Object *obj, const Object *objectT
 //		if ( cashSPI && cashSPI->isBusy() )
 //			return FALSE;
 //	}
-
 
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_INFANTRY_CAPTURE_BUILDING );
 	if (!spInterface)
@@ -1119,7 +1114,6 @@ Bool ActionManager::canDisableVehicleViaHacking( const Object *obj, const Object
 //	SpecialPowerModuleInterface *cashSPI = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_STEAL_CASH_HACK );
 //	if ( cashSPI && cashSPI->isBusy() )
 //		return FALSE;
-
 
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_DISABLE_VEHICLE_HACK );
 	if (checkSourceRequirements)
@@ -1241,7 +1235,6 @@ Bool ActionManager::canStealCashViaHacking( const Object *obj, const Object *obj
 //	if ( disableSPI && disableSPI->isBusy() )
 //		return FALSE;
 
-
 	SpecialPowerModuleInterface *spInterface = obj->findSpecialPowerModuleInterface( SPECIAL_BLACKLOTUS_STEAL_CASH_HACK );
 	if( !spInterface || spInterface->getPercentReady() < 1.0f )
 	{
@@ -1355,10 +1348,8 @@ Bool ActionManager::canDisableBuildingViaHacking( const Object *obj, const Objec
 		return FALSE;
 	}
 
-
 	if ( objectToHack->isKindOf( KINDOF_REBUILD_HOLE ) || objectToHack->testStatus( OBJECT_STATUS_UNDER_CONSTRUCTION ))
 		return FALSE;
-
 
 	//If the enemy unit is stealthed and not detected, then we can't attack it!
 	if( objectToHack->testStatus( OBJECT_STATUS_STEALTHED ) &&
@@ -1442,9 +1433,6 @@ Bool ActionManager::canSnipeVehicle( const Object *obj, const Object *objectToSn
 	return FALSE;
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 inline Bool isPointOnMap( const Coord3D  *testPos )
 {
@@ -1453,7 +1441,6 @@ inline Bool isPointOnMap( const Coord3D  *testPos )
 	return mapRegion.isInRegionNoZ( testPos );
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------

@@ -167,8 +167,6 @@ void W3DMainMenuDraw( GameWindow *window, WinInstanceData *instData )
 	window->winGetScreenPosition(&pos.x, &pos.y);
 	window->winGetSize(&size.x,&size.y);
 
-
-
 	IRegion2D	topHorizontal1 ={pos.x, pos.y, pos.x + size.x, pos.y	};
 	IRegion2D	topHorizontal1drop ={pos.x, pos.y+1, pos.x + size.x, pos.y+1	};
 
@@ -188,7 +186,6 @@ void W3DMainMenuDraw( GameWindow *window, WinInstanceData *instData )
 //	static IRegion2D	verticle5 ={pos.x + (size.x * .7250), pos.y + (size.y * .12), pos.x + (size.x * .7250), pos.y + (size.y * .86) 	};
 //	static IRegion2D	verticle6 ={pos.x + (size.x * .9062), pos.y + (size.y * .12), pos.x + (size.x * .9062), pos.y + (size.y * .86) 	};
 
-
 	TheDisplay->drawLine(topHorizontal1.lo.x,topHorizontal1.lo.y,topHorizontal1.hi.x,topHorizontal1.hi.y,2,color);
 	TheDisplay->drawLine(topHorizontal1drop.lo.x,topHorizontal1drop.lo.y,topHorizontal1drop.hi.x,topHorizontal1drop.hi.y,2,colorDrop);
 	TheDisplay->drawLine(topHorizontal2.lo.x,topHorizontal2.lo.y,topHorizontal2.hi.x,topHorizontal2.hi.y,1,color);
@@ -198,8 +195,6 @@ void W3DMainMenuDraw( GameWindow *window, WinInstanceData *instData )
 	TheDisplay->drawLine(bottomHorizontal2.lo.x,bottomHorizontal2.lo.y,bottomHorizontal2.hi.x,bottomHorizontal2.hi.y,2,color);
 	TheDisplay->drawLine(bottomHorizontal2drop.lo.x,bottomHorizontal2drop.lo.y,bottomHorizontal2drop.hi.x,bottomHorizontal2drop.hi.y,2,colorDrop);
 
-
-
 	TheDisplay->drawLine(verticle1.lo.x,verticle1.lo.y,verticle1.hi.x,verticle1.hi.y,3,color);
 	TheDisplay->drawLine(verticle2.lo.x,verticle2.lo.y,verticle2.hi.x,verticle2.hi.y,3,color);
 	TheDisplay->drawLine(verticle3.lo.x,verticle3.lo.y,verticle3.hi.x,verticle3.hi.y,3,color);
@@ -207,9 +202,6 @@ void W3DMainMenuDraw( GameWindow *window, WinInstanceData *instData )
 //	TheDisplay->drawLine(verticle5.lo.x,verticle5.lo.y,verticle5.hi.x,verticle5.hi.y,3,color);
 //	TheDisplay->drawLine(verticle6.lo.x,verticle6.lo.y,verticle6.hi.x,verticle6.hi.y,3,color);
 //	TheDisplay->drawLine(m_rightLineFromButton.lo.x,m_rightLineFromButton.lo.y,m_rightLineFromButton.hi.x,m_rightLineFromButton.hi.y,3,color1,color2);
-
-
-
 
 	advancePosition(NULL, TheMappedImageCollection->findImageByName("MainMenuPulse"),pos.x,pos.y,size.x, size.y);
 
@@ -231,8 +223,6 @@ void W3DMainMenuFourDraw( GameWindow *window, WinInstanceData *instData )
 	window->winGetScreenPosition(&pos.x, &pos.y);
 	window->winGetSize(&size.x,&size.y);
 
-
-
 	IRegion2D	topHorizontal1 ={pos.x, pos.y, pos.x + size.x, pos.y	};
 	IRegion2D	topHorizontal1drop ={pos.x, pos.y+1, pos.x + size.x, pos.y+1	};
 
@@ -252,7 +242,6 @@ void W3DMainMenuFourDraw( GameWindow *window, WinInstanceData *instData )
 //	static IRegion2D	verticle5 ={pos.x + (size.x * .7250), pos.y + (size.y * .12), pos.x + (size.x * .7250), pos.y + (size.y * .86) 	};
 //	static IRegion2D	verticle6 ={pos.x + (size.x * .9062), pos.y + (size.y * .12), pos.x + (size.x * .9062), pos.y + (size.y * .86) 	};
 
-
 	TheDisplay->drawLine(topHorizontal1.lo.x,topHorizontal1.lo.y,topHorizontal1.hi.x,topHorizontal1.hi.y,2,color);
 	TheDisplay->drawLine(topHorizontal1drop.lo.x,topHorizontal1drop.lo.y,topHorizontal1drop.hi.x,topHorizontal1drop.hi.y,2,colorDrop);
 	TheDisplay->drawLine(topHorizontal2.lo.x,topHorizontal2.lo.y,topHorizontal2.hi.x,topHorizontal2.hi.y,1,color);
@@ -262,8 +251,6 @@ void W3DMainMenuFourDraw( GameWindow *window, WinInstanceData *instData )
 	TheDisplay->drawLine(bottomHorizontal2.lo.x,bottomHorizontal2.lo.y,bottomHorizontal2.hi.x,bottomHorizontal2.hi.y,2,color);
 	TheDisplay->drawLine(bottomHorizontal2drop.lo.x,bottomHorizontal2drop.lo.y,bottomHorizontal2drop.hi.x,bottomHorizontal2drop.hi.y,2,colorDrop);
 
-
-
 	TheDisplay->drawLine(verticle1.lo.x,verticle1.lo.y,verticle1.hi.x,verticle1.hi.y,3,color);
 	TheDisplay->drawLine(verticle2.lo.x,verticle2.lo.y,verticle2.hi.x,verticle2.hi.y,3,color);
 	//TheDisplay->drawLine(verticle3.lo.x,verticle3.lo.y,verticle3.hi.x,verticle3.hi.y,3,color);
@@ -272,15 +259,11 @@ void W3DMainMenuFourDraw( GameWindow *window, WinInstanceData *instData )
 //	TheDisplay->drawLine(verticle6.lo.x,verticle6.lo.y,verticle6.hi.x,verticle6.hi.y,3,color);
 //	TheDisplay->drawLine(m_rightLineFromButton.lo.x,m_rightLineFromButton.lo.y,m_rightLineFromButton.hi.x,m_rightLineFromButton.hi.y,3,color1,color2);
 
-
-
-
 	advancePosition(NULL, TheMappedImageCollection->findImageByName("MainMenuPulse"),pos.x,pos.y,size.x, size.y);
 
 	//TheDisplay->drawLine();
 
 }
-
 
 void W3DMetalBarMenuDraw( GameWindow *window, WinInstanceData *instData )
 {
@@ -293,7 +276,6 @@ void W3DMetalBarMenuDraw( GameWindow *window, WinInstanceData *instData )
 	//W3DGameWinDefaultDraw( window, instData );
 //	TheDisplay->enableClipping(FALSE);
 }
-
 
 	//W3DGameWinDefaultDraw( window, instData );
 //
@@ -348,7 +330,6 @@ void W3DMetalBarMenuDraw( GameWindow *window, WinInstanceData *instData )
 //	//TheDisplay->drawLine();
 //
 
-
 void W3DClockDraw( GameWindow *window, WinInstanceData *instData )
 {
 	W3DGameWinDefaultDraw( window, instData );
@@ -370,7 +351,6 @@ void W3DClockDraw( GameWindow *window, WinInstanceData *instData )
 	DisplayString *dString;
 	dString = instData->getTextDisplayString();
 
-
 	dString->setFont(TheFontLibrary->getFont("Arial",16,0));
 
 	Int textWidth, textHeight;
@@ -391,8 +371,6 @@ void W3DClockDraw( GameWindow *window, WinInstanceData *instData )
 	textPos.y = pos.y + (size.y / 2) - (textHeight / 2);
 	dString->setClipRegion(&clockClipRegion);
 	dString->draw( textPos.x, textPos.y, GameMakeColor(255,255,255,255), GameMakeColor(0,0,0,255) );
-
-
 
 }
 
@@ -441,7 +419,6 @@ void W3DMainMenuMapBorder( GameWindow *window, WinInstanceData *instData )
 
 		}
 
-
 		x2 = maxX - BORDER_CORNER_SIZE;
 
 		// x == place to draw remainder if any
@@ -457,7 +434,6 @@ void W3DMainMenuMapBorder( GameWindow *window, WinInstanceData *instData )
 			x += (BORDER_LINE_SIZE / 2);
 
 		}
-
 
 		// x2 - x ... must now be less than a half piece
 		// check for equals and if not blit an adjusted half piece border pieces have
@@ -550,7 +526,6 @@ void W3DMainMenuMapBorder( GameWindow *window, WinInstanceData *instData )
 
 }
 
-
 //Specialized drawing function for the buttons with the weird drop shadow
 // W3DMainMenuButtonDropShadowDraw ===============================================
 /** Draw pushbutton with user supplied images */
@@ -570,7 +545,6 @@ void W3DMainMenuButtonDropShadowDraw( GameWindow *window,
 	// get image offset
 	xOffset = instData->m_imageOffset.x;
 	yOffset = instData->m_imageOffset.y;
-
 
 	//
 	// get pointer to image we want to draw depending on our state,
@@ -737,7 +711,6 @@ void W3DMainMenuButtonDropShadowDraw( GameWindow *window,
 	window->winGetScreenPosition( &start.x, &start.y );
 	window->winGetSize( &size.x, &size.y );
 
-
 	// if we have a video buffer, draw the video buffer
 	if ( instData->m_videoBuffer )
 	{
@@ -773,7 +746,6 @@ void W3DMainMenuButtonDropShadowDraw( GameWindow *window,
 
 //	TheDisplay->enableClipping(FALSE);
 }  // end W3DGadgetPushButtonImageDraw
-
 
 // drawButtonText =============================================================
 /** Draw button text to the screen */

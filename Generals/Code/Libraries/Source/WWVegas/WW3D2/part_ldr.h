@@ -32,14 +32,12 @@
  *                                                                                             *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
 #ifndef __PART_EMT_LDR_H
 #define __PART_EMT_LDR_H
-
 
 #include "proto.h"
 #include "rendobj.h"
@@ -48,13 +46,10 @@
 #include "w3d_util.h"
 #include "part_emt.h"
 
-
-
 // Forward declarations
 class ChunkLoadClass;
 class ChunkSaveClass;
 class Vector3Randomizer;
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -70,7 +65,6 @@ class Vector3Randomizer;
 }
 #endif //SAFE_FREE
 
-
 #define BYTE_TO_FLOAT(byte)	\
 	(((float)byte) / 255.0F)	\
 
@@ -84,7 +78,6 @@ class Vector3Randomizer;
 	rgba.R = FLOAT_TO_BYTE (vector3.X);		\
 	rgba.G = FLOAT_TO_BYTE (vector3.Y);		\
 	rgba.B = FLOAT_TO_BYTE (vector3.Z);		\
-
 
 ///////////////////////////////////////////////////////////////////////////////////
 //
@@ -105,13 +98,11 @@ class ParticleEmitterDefClass
 		ParticleEmitterDefClass (const ParticleEmitterDefClass &src);
 		virtual ~ParticleEmitterDefClass (void);
 
-
 		///////////////////////////////////////////////////////////
 		//
 		//	Public operators
 		//
 		const ParticleEmitterDefClass &operator= (const ParticleEmitterDefClass &src);
-
 
 		///////////////////////////////////////////////////////////
 		//
@@ -308,8 +299,6 @@ inline void ParticleEmitterDefClass::Set_Line_Texture_Mapping_Mode(int mode)
 	m_LineProperties.Flags |= ((mode << W3D_ELINE_TEXTURE_MAP_MODE_OFFSET) & W3D_ELINE_TEXTURE_MAP_MODE_MASK);
 }
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	ParticleEmitterPrototypeClass
@@ -346,7 +335,6 @@ class ParticleEmitterPrototypeClass : public W3DMPO, public PrototypeClass
 		ParticleEmitterDefClass	*	m_pDefinition;
 };
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	ParticleEmitterLoaderClass
@@ -359,12 +347,10 @@ class ParticleEmitterLoaderClass : public PrototypeLoaderClass
 		virtual PrototypeClass *	Load_W3D (ChunkLoadClass &chunk_load);
 };
 
-
 ///////////////////////////////////////////////////////////////////////////////////
 //
 //	Global variables
 //
 extern ParticleEmitterLoaderClass	_ParticleEmitterLoader;
-
 
 #endif //__PART_EMT_LDR_H

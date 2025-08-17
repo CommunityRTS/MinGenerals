@@ -246,8 +246,6 @@ static void resizeMaxItems( GameWindow *listbox, UnsignedInt newMaxItems )
 {
 //	ListboxData *listData = (ListboxData *)listbox->winGetUserData();
 
-
-
 }  // end resizeMaxItems
 
 // listboxPropertiesCallback ==================================================
@@ -588,7 +586,6 @@ static LRESULT CALLBACK listboxPropertiesCallback( HWND hWndDialog,
 						else if( wantMultiSelect == FALSE && listData->multiSelect == TRUE )
 							GadgetListBoxRemoveMultiSelect( window );
 
-
 						// Wordwrap
 						UnsignedInt bit = WIN_STATUS_ONE_LINE;
 						window->winClearStatus( bit );
@@ -683,7 +680,6 @@ static LRESULT CALLBACK listboxPropertiesCallback( HWND hWndDialog,
   }  // end of switch
 
 }  // end listboxPropertiesCallback
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
@@ -956,7 +952,6 @@ HWND InitListboxPropertiesDialog( GameWindow *window )
 	if( BitTest( window->winGetStatus(), WIN_STATUS_ONE_LINE ) )
 		CheckDlgButton( dialog, CHECK_NO_WORDWRAP, BST_CHECKED );
 
-
 	// select the button enabled state for display
 	SwitchToState( LISTBOX_ENABLED, dialog );
 
@@ -967,6 +962,4 @@ HWND InitListboxPropertiesDialog( GameWindow *window )
 	return dialog;
 
 }  // end InitListboxPropertiesDialog
-
-
 

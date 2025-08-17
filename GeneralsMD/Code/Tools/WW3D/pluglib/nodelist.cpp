@@ -48,9 +48,7 @@
 
 #include "nodelist.h"
 
-
 static AnyINodeFilter				_AnyFilter;
-
 
 /*******************************************************************************
 *	ListEntryClass
@@ -119,7 +117,6 @@ INodeListClass::INodeListClass(IScene * scene,TimeValue time,INodeFilterClass * 
 	scene->EnumTree(this);
 }
 
-
 /***********************************************************************************************
  * INodeListClass::INodeListClass -- Constructor                                               *
  *                                                                                             *
@@ -143,7 +140,6 @@ INodeListClass::INodeListClass(INode * root,TimeValue time,INodeFilterClass * no
 	}
 	Add_Tree(root);
 }
-
 
 /***********************************************************************************************
  * INodeListClass::INodeListClass -- A "copy" contstructor with filtering...                   *
@@ -196,7 +192,6 @@ INodeListClass::~INodeListClass(void)
 	ListHead = NULL;
 }
 
-
 /***********************************************************************************************
  * INode * INodeListClass::operator[] -- Array-like access to the list members                 *
  *                                                                                             *
@@ -221,7 +216,6 @@ INode * INodeListClass::operator[] ( int index ) const
 	}
 	return entry->Node;
 }
-
 
 /***********************************************************************************************
  * INodeListClass::Insert -- insert a list of nodes into this list                             *
@@ -265,7 +259,6 @@ void INodeListClass::Insert(INode * node)
 	}
 }
 
-
 /***********************************************************************************************
  * INodeListClass::Remove -- Remove the i'th element of the list                               *
  *                                                                                             *
@@ -296,7 +289,6 @@ void INodeListClass::Remove(int i)
 	}
 }
 
-
 /***********************************************************************************************
  * INodeListClass::Add_Tree -- Add a tree of INodes to the list                                *
  *                                                                                             *
@@ -319,7 +311,6 @@ void INodeListClass::Add_Tree(INode * root)
 	}
 }
 
-
 /***********************************************************************************************
  * INodeListClass::callback -- callback function for MAX                                       *
  *                                                                                             *
@@ -341,7 +332,6 @@ int INodeListClass::callback(INode * node)
 
 	return TREE_CONTINUE;	// Keep on enumerating....
 }
-
 
 void INodeListClass::Sort(const INodeCompareClass & node_compare)
 {

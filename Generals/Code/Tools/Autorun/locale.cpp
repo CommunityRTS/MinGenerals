@@ -44,7 +44,6 @@ typedef struct
 /* offset LOCALEFILE_HEADERCHUNK_LANGUAGE_OFFSET bytes from the start of the chunk to the language offset table */
 #define LOCALEFILE_HEADERCHUNK_LANGUAGE_OFFSET  sizeof(LOCALEFILE_HEADERCHUNK)
 
-
 typedef struct
 {
     unsigned int   ChunkID;        /* 'LOCI' LOCALEFILE_INDEXCHUNKID */
@@ -61,7 +60,6 @@ typedef struct
 /* offset LOCALEFILE_INDEXCHUNK_STRINGID_OFFSET bytes from the start of the chunk to the string id table */
 #define LOCALEFILE_INDEXCHUNK_STRINGID_OFFSET   sizeof(LOCALEFILE_INDEXCHUNK)
 
-
 typedef struct
 {
     unsigned int   ChunkID;        /* 'LOCL' LOCALEFILE_LANGUAGECHUNKID */
@@ -74,7 +72,6 @@ typedef struct
 
 /* offset LOCALEFILE_LANGUAGECHUNK_STRING_OFFSETbytes from the start of the chunk to the string offset table */
 #define LOCALEFILE_LANGUAGECHUNK_STRING_OFFSET   sizeof(LOCALEFILE_LANGUAGECHUNK)
-
 
 /*************************************************************************/
 /* LOCALE_INSTANCE declaration                                           */
@@ -304,7 +301,6 @@ int LOCALE_getbank(void)
     ASSERT(LOCALE_isinitialized()); /* must call LOCALE_init before calling this function */
     return lx->BankIndex;
 }
-
 
 /*
 ;
@@ -764,7 +760,6 @@ const char* LOCALE_getstring( int StringID )
 
 		Msg( __LINE__, __FILE__, "Locale_getstring:: D" );
 
-
     } else {
         p = NULL;
     }
@@ -773,7 +768,6 @@ const char* LOCALE_getstring( int StringID )
 
     return p;
 }
-
 
 /*
 ;

@@ -46,7 +46,6 @@
 
 #define CV_EYE_WORLD							28
 
-
 // inputs
 #define V_POSITION							v0
 #define V_NORMAL								v1
@@ -55,7 +54,6 @@
 #define V_S										v4
 #define V_T										v5
 #define V_SxT									v6
-
 
 // registers
 #define HALF_ANGLE			r0
@@ -73,12 +71,9 @@
 
 #define WORLD_NORMAL			r1
 
-
 #define OUTPUT_REG			r0
 
 // texture stages
 #define TEX_CUBEMAP t0
-
-
 
 #endif

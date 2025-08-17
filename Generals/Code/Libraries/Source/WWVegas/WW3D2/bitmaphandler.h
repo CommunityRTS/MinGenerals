@@ -386,5 +386,4 @@ WWINLINE unsigned BitmapHandlerClass::Combine_A8R8G8B8(
 	return bgra1;
 }
 
-
 #endif

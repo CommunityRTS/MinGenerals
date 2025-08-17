@@ -67,20 +67,16 @@
 #include "WW3D2/ColTest.h"
 #include "WW3D2/assetmgr.h"
 
-
-
 class TestSeismicFilter : public SeismicSimulationFilterBase
 {
 
   virtual SeismicSimStatusCode filterCallback( WorldHeightMapInterfaceClass *heightMap, const SeismicSimulationNode *node )
   {
 
-
     Int life = node->m_life;
 
     if ( heightMap == NULL )
       return SEISMIC_STATUS_INVALID;
-
 
     if ( life == 0 )
       return SEISMIC_STATUS_ACTIVE;
@@ -99,7 +95,6 @@ class TestSeismicFilter : public SeismicSimulationFilterBase
       UnsignedInt workspaceWidth = radius*2;
       Real *workspace = NEW( Real[ sqr(workspaceWidth) ] );
       Real *workspaceEnd = workspace + sqr(workspaceWidth);
-
 
       for ( Real *t = workspace; t < workspaceEnd; ++t ) *t = 0.0f;// clear the workspace
 
@@ -149,12 +144,8 @@ class TestSeismicFilter : public SeismicSimulationFilterBase
     return velocityOut;
   }
 
-
 };
 static TestSeismicFilter testSeismicFilter;
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -170,16 +161,6 @@ W3DTerrainVisual::W3DTerrainVisual()
 #ifdef DO_SEISMIC_SIMULATIONS
   m_clientHeightMap = NULL;
 #endif
-
-
-
-
-
-
-
-
-
-
 
 }  // end W3DTerrainVisual
 
@@ -365,9 +346,7 @@ void W3DTerrainVisual::update( void )
 	if( m_waterRenderObject )
 		m_waterRenderObject->update();
 
-
 }  // end update
-
 
 #ifdef DO_SEISMIC_SIMULATIONS
 
@@ -378,25 +357,19 @@ void W3DTerrainVisual::addSeismicSimulation( const SeismicSimulationNode& sim )
     // HERE WOULD BE A GREAT PLACE FOR AN IDIOT TEST:
   // REJECT SIMULATION NODES THAT ARE OFF SCREEN!!!!!!!!!!
 
-
   m_seismicSimulationList.push_back( sim );
 }
-
-
 
 void W3DTerrainVisual::handleSeismicSimulations( void )
 {
   if ( ! m_clientHeightMap || ! m_logicHeightMap || ! m_terrainRenderObject )
     return;
 
-
   if ( ! m_seismicSimulationList.empty() )
   {
     SeismicSimulationListIt it = m_seismicSimulationList.begin();
 
-
     m_clientHeightMap->clearSeismicUpdateFlags();
-
 
     while ( it != m_seismicSimulationList.end() )
 	  {
@@ -438,7 +411,6 @@ void W3DTerrainVisual::handleSeismicSimulations( void )
 
               Int heightToUse = m_clientHeightMap->getHeight( x, y ) + newSpeed ;
 
-
               if (heightToUse <= heightOfOriginal)
               {
                 heightToUse = heightOfOriginal;
@@ -468,10 +440,6 @@ void W3DTerrainVisual::handleSeismicSimulations( void )
 
 	  }
   }
-
-
-
-
 
 }
 
@@ -533,7 +501,6 @@ void W3DTerrainVisual::updateSeismicSimulations( void )
   }
 }
 
-
 #endif //#defined DO_SEISMIC_SIMULATIONS
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -541,8 +508,6 @@ void W3DTerrainVisual::updateSeismicSimulations( void )
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** load method for W3D visual terrain */
@@ -587,15 +552,11 @@ Bool W3DTerrainVisual::load( AsciiString filename )
 	if( m_terrainRenderObject == NULL )
 		return FALSE;
 
-
   ChunkInputStream *pStrm = &fileStrm;
 
   // allocate new height map data to read from file
   REF_PTR_RELEASE( m_logicHeightMap );
 	m_logicHeightMap = NEW WorldHeightMap(pStrm);
-
-
-
 
 #ifdef DO_SEISMIC_SIMULATIONS
 
@@ -607,13 +568,6 @@ Bool W3DTerrainVisual::load( AsciiString filename )
   m_clientHeightMap = NEW WorldHeightMap( pStrm );
 
 #endif
-
-
-
-
-
-
-
 
 	// Add any lights loaded by map.
 	MapObject *pMapObj = MapObject::getFirstMapObject();
@@ -647,7 +601,6 @@ Bool W3DTerrainVisual::load( AsciiString filename )
 		pMapObj = pMapObj->getNext();
 	}
 
-
 	RefRenderObjListIterator *it = W3DDisplay::m_3DScene->createLightsIterator();
 	// apply the heightmap to the terrain render object
 
@@ -662,7 +615,6 @@ Bool W3DTerrainVisual::load( AsciiString filename )
 																				 m_logicHeightMap,
 																				 it);
 #endif
-
 
 	if (it) {
 	 W3DDisplay::m_3DScene->destroyLightsIterator(it);
@@ -787,7 +739,6 @@ TerrainType *W3DTerrainVisual::getTerrainTile( Real x, Real y )
 {
 	TerrainType *tile = NULL;
 
-
 #ifdef DO_SEISMIC_SIMULATIONS
 	if( m_clientHeightMap )
 	{
@@ -801,9 +752,6 @@ TerrainType *W3DTerrainVisual::getTerrainTile( Real x, Real y )
 		tile = TheTerrainTypes->findTerrain( tileName );
 	}  // end if
 #endif
-
-
-
 
 	return tile;
 
@@ -946,7 +894,6 @@ void W3DTerrainVisual::setRawMapHeight(const ICoord2D *gridPos, Int height)
 		{
 			m_logicHeightMap->setRawHeight(x, y, height);
 			m_terrainRenderObject->staticLightingChanged(); // OOH! this could benefit from the new Seismic update code
-
 
 #ifdef DO_SEISMIC_SIMULATIONS
       if ( m_clientHeightMap )
@@ -1275,8 +1222,6 @@ void W3DTerrainVisual::xfer( Xfer *xfer )
 		xfer->xferSnapshot(m_terrainRenderObject);
 	}
 
-
-
          // XFER //
          // X  R //
          // X  R //
@@ -1290,10 +1235,6 @@ void W3DTerrainVisual::xfer( Xfer *xfer )
          // X  R //
          // X  R //
          // XFER //
-
-
-
-
 
 }  // end xfer
 

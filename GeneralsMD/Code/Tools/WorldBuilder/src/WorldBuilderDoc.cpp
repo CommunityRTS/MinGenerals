@@ -42,7 +42,6 @@
 #include "GameLogic/SidesList.h"
 #include "GameLogic/ScriptEngine.h"
 
-
 #include "Compression.h"
 #include "CUndoable.h"
 #include "LayersList.h"
@@ -127,7 +126,6 @@ BEGIN_MESSAGE_MAP(CWorldBuilderDoc, CDocument)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-
 /////////////////////////////////////////////////////////////////////////////
 // CWorldBuilderDoc construction/destruction
 
@@ -154,7 +152,6 @@ CWorldBuilderDoc::~CWorldBuilderDoc()
 	REF_PTR_RELEASE(m_heightMap);
 	REF_PTR_RELEASE(m_undoList);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CWorldBuilderDoc serialization
@@ -281,7 +278,6 @@ public:
 	}
 };
 
-
 void CWorldBuilderDoc::Serialize(CArchive& ar)
 {
 	ar.Flush();
@@ -295,7 +291,6 @@ void CWorldBuilderDoc::Serialize(CArchive& ar)
 
 			CompressedCachedMFCFileOutputStream theStream(ar.GetFile());
 			DataChunkOutput *chunkWriter = new DataChunkOutput(&theStream);
-
 
 			m_heightMap->saveToFile(*chunkWriter);
  			/***************WAYPOINTS DATA ***************/
@@ -533,7 +528,6 @@ void CWorldBuilderDoc::validate(void)
 		}
 	}
 
-
 #define FIX_TEAM(key)																	\
 	type = teamDict->getAsciiString(key, &exists);			\
 	if (exists) {																				\
@@ -628,7 +622,6 @@ void CWorldBuilderDoc::validate(void)
 				}
 			}
 		}
-
 
 		// the following code verifies and fixes the team name, player name, and faction linkages
 		Bool exists;
@@ -819,7 +812,6 @@ BOOL CWorldBuilderDoc::DoSave(LPCTSTR lpszPathName, BOOL bReplace)
 
 	return TRUE;        // success
 }
-
 
 /**
 * CWorldBuilderDoc::ParseWaypointDataChunk - read a waypoint chunk.
@@ -1039,14 +1031,12 @@ void CWorldBuilderDoc::OnUpdateEditUndo(CCmdUI* pCmdUI)
 	pCmdUI->Enable(canUndo);
 }
 
-
 void CWorldBuilderDoc::OnTsInfo()
 {
 	if (m_heightMap) {
 		m_heightMap->showTileStatusInfo();
 	}
 }
-
 
 void CWorldBuilderDoc::OnTsCanonical()
 {
@@ -1113,7 +1103,6 @@ void CWorldBuilderDoc::OnFileResize()
 	REF_PTR_RELEASE(htMapEditCopy);
 
 }
-
 
 void CWorldBuilderDoc::OnTsRemap()
 {
@@ -1227,7 +1216,6 @@ void CWorldBuilderDoc::Create3DView()
 	Get3DView()->updateHeightMapInView(m_heightMap, false, partialRange);
 #endif
 }
-
 
 BOOL CWorldBuilderDoc::OnNewDocument()
 {
@@ -1365,7 +1353,6 @@ void CWorldBuilderDoc::syncViewCenters(Real x, Real y)
 	}
 }
 
-
 void CWorldBuilderDoc::updateAllViews()
 {
 	POSITION pos = GetFirstViewPosition();
@@ -1467,7 +1454,6 @@ Bool CWorldBuilderDoc::getCellIndexFromCoord(Coord3D cpt, CPoint *ndxP)
 
 	yIndex += pMap->getBorderSize();
 
-
 	// If negative, outside of map so return default.
 	if (yIndex<0) {
 		inMap = false;
@@ -1479,7 +1465,6 @@ Bool CWorldBuilderDoc::getCellIndexFromCoord(Coord3D cpt, CPoint *ndxP)
 		inMap = false;
 		yIndex = pMap->getYExtent()-1;
 	}
-
 
 	ndxP->x = xIndex;
 	ndxP->y = yIndex;
@@ -1538,7 +1523,6 @@ Bool CWorldBuilderDoc::getAllIndexesInRect(const Coord3D* bl, const Coord3D* br,
 
 	return (allIndices->size() > 0);
 }
-
 
 //=============================================================================
 // CWorldBuilderView::getCellPositionFromPoint
@@ -1769,7 +1753,6 @@ void CWorldBuilderDoc::removeWaypointLink(Int waypointID1, Int waypointID2)
 	}
 }
 
-
 //=============================================================================
 // CWorldBuilderDoc::getWaypointByID
 //=============================================================================
@@ -1936,7 +1919,6 @@ Bool CWorldBuilderDoc::waypointLinkExists(Int waypointID1, Int waypointID2)
 	return false;
 }
 
-
 void CWorldBuilderDoc::OnViewReloadtextures()
 {
 	WW3D::_Invalidate_Textures();
@@ -2078,7 +2060,6 @@ static AsciiString formatScriptLabel(Script *pScr) {
 	fmt.concat(pScr->getName().str());
 	return fmt;
 }
-
 
 static void writeScript(FILE *theLogFile, const char * str)
 {
@@ -2620,7 +2601,6 @@ Bool AddUniqueAndNeighbors(CWorldBuilderDoc* pDoc, const Coord3D* bl, const Coor
 
 	return true;
 }
-
 
 void CWorldBuilderDoc::OnRemoveclifftexmapping()
 {

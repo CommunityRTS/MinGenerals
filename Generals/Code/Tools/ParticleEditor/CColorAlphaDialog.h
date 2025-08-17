@@ -38,7 +38,6 @@ class CColorAlphaDialog : public CDialog
 		// if false, updates the Particle System from the UI
 		void performUpdate( IN Bool toUI );
 
-
 	protected:
 		virtual BOOL OnInitDialog();
 

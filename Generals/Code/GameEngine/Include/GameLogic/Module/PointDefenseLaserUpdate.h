@@ -40,7 +40,6 @@
 class ThingTemplate;
 class WeaponTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class PointDefenseLaserUpdateModuleData : public ModuleData
@@ -87,7 +86,6 @@ protected:
 	Int m_nextScanFrames;
 	Int m_nextShotAvailableInFrames;
 };
-
 
 #endif
 

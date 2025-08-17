@@ -297,7 +297,6 @@ void PerfTimer::stopTimer( void )
 		m_lastFrame = frm;
 	}
 
-
 	if (TheGlobalData && TheGlobalData->m_showMetrics && m_endFrame > m_startFrame + PERFMETRICS_BETWEEN_METRICS) {
 		m_endFrame = m_startFrame + PERFMETRICS_BETWEEN_METRICS;
 	}
@@ -310,7 +309,6 @@ void PerfTimer::stopTimer( void )
 		outputInfo();
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 extern void StatMetricsDisplay( DebugDisplayInterface *dd, void *, FILE *fp );

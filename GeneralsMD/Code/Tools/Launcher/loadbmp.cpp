@@ -18,7 +18,6 @@
 
 #include"loadbmp.h"
 
-
 LoadBmp::LoadBmp()
 {
   BitmapHandle_=NULL;
@@ -51,7 +50,6 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
   UINT                 realize;
   RECT                 rect;
 
-
   // Set the member for future reference
   WindowHandle_=hwnd;
 
@@ -72,11 +70,9 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
   ReadFile(hBitmapFile, &bitmapHeader, sizeof(BITMAPFILEHEADER), &dwRead,
     (LPOVERLAPPED)NULL);
 
-
   // Retrieve the BITMAPFILEHEADER structure.
   ReadFile(hBitmapFile, &bitmapInfoHeader, sizeof(BITMAPINFOHEADER),
     &dwRead, (LPOVERLAPPED)NULL);
-
 
   // Allocate memory for the BITMAPINFO structure.
   HGLOBAL infoHeaderMem = GlobalAlloc(GHND, sizeof(BITMAPINFOHEADER) +
@@ -97,13 +93,11 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
   lpHeaderMem->bmiHeader.biClrUsed       = bitmapInfoHeader.biClrUsed;
   lpHeaderMem->bmiHeader.biClrImportant  = bitmapInfoHeader.biClrImportant;
 
-
   // Retrieve the color table.
   // 1 << bitmapInfoHeader.biBitCount == 2 ^ bitmapInfoHeader.biBitCount
   ReadFile(hBitmapFile, lpHeaderMem->bmiColors,
     ((1<<bitmapInfoHeader.biBitCount) * sizeof(RGBQUAD)),
     &dwRead, (LPOVERLAPPED) NULL);
-
 
   lpLogPalette=(LPLOGPALETTE)new char[(sizeof(LOGPALETTE)+
       sizeof(PALETTEENTRY)*256)];
@@ -122,7 +116,6 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
   PalHandle_=CreatePalette(lpLogPalette);
   delete(lpLogPalette);
 
-
   // Allocate memory for the required number of bytes.
   hmem2 = GlobalAlloc(GHND, (bitmapHeader.bfSize - bitmapHeader.bfOffBits));
 
@@ -131,7 +124,6 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
   // Retrieve the bitmap data.
   ReadFile(hBitmapFile, lpvBits, (bitmapHeader.bfSize - bitmapHeader.bfOffBits),
     &dwRead, (LPOVERLAPPED) NULL);
-
 
   // Create a bitmap from the data stored in the .BMP file.
   hdc=GetDC(hwnd);
@@ -143,7 +135,6 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
     return(FALSE);
   BitmapHandle_=CreateDIBitmap(hdc, &bitmapInfoHeader, CBM_INIT, lpvBits, lpHeaderMem, DIB_RGB_COLORS);
   ReleaseDC(hwnd,hdc);
-
 
   if (BitmapHandle_==NULL)
     return(FALSE);
@@ -163,7 +154,6 @@ bit8 LoadBmp::init(char *filename,HWND hwnd)
 
   return(TRUE);
 }
-
 
 bit8 LoadBmp::drawBmp(void)
 {
@@ -207,7 +197,6 @@ bit8 LoadBmp::drawBmp(void)
   SetStretchBltMode(ps.hdc,COLORONCOLOR);
   StretchBlt(ps.hdc,0,0,clientRect.right,clientRect.bottom,hdcMem,0,0,bm.bmWidth,
     bm.bmHeight,SRCCOPY);
-
 
   DeleteDC(hdcMem);
   EndPaint(WindowHandle_,&ps);

@@ -62,13 +62,11 @@ class FilteredSoundClass;
 class Listener3DClass;
 class AudibleSoundClass;
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //	Constants
 /////////////////////////////////////////////////////////////////////////////////
 const uint32	SOUND_OBJ_DEFAULT_ID	= 0;
 const uint32	SOUND_OBJ_START_ID	= 1000000000;
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -220,7 +218,6 @@ class SoundSceneObjClass : public MultiListObjectClass, public PersistClass, pub
 		static CriticalSectionClass							m_IDListMutex;
 };
 
-
 //////////////////////////////////////////////////////////////////////////////
 //
 //	On_Event
@@ -255,7 +252,6 @@ SoundSceneObjClass::On_Event
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////
 //
 //	Register_Callback
@@ -272,8 +268,6 @@ SoundSceneObjClass::Register_Callback
 	m_pCallback = callback;
 	return ;
 }
-
-
 
 #endif //__SOUND_SCENE_OBJ_H
 

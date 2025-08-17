@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 // WbView3d.h
 // Class to encapsulate height map.
 // Author: Steven Johnson, Aug 2001
@@ -200,7 +199,6 @@ private:
 
 	Real										m_curTrackingZ;
 
-
 	Bool										m_projection; ///< True if top down projection instead of "isometric" perspective.
 	Bool										m_showEntireMap; ///< True if drawing entire map instead of cached fast subset.
 	Bool										m_showShadows; ///< True if drawing shadows.
@@ -214,7 +212,6 @@ private:
 	Bool										m_showWeaponRanges;
 	Bool										m_highlightTestArt;
 	Bool										m_showLetterbox;
-
 
 	ID3DXFont*							m3DFont;
 	Int											m_pickPixels;
@@ -323,7 +320,6 @@ public:
 
 inline UINT WbView3d::getLastDrawTime() { return m_time; }
 inline Bool WbView3d::getShowWireframe() { return m_showWireframe; }
-
 
 /////////////////////////////////////////////////////////////////////////////
 

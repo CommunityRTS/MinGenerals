@@ -123,8 +123,6 @@ void DefaultProductionExitUpdate::exitObjectViaDoor( Object *newObj, ExitDoorTyp
 
 }
 
-
-
 Bool DefaultProductionExitUpdate::getExitPosition( Coord3D& exitPosition ) const
 {
 	const Object *obj = getObject();

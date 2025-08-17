@@ -44,7 +44,6 @@
 // Forward declarations
 class ChunkSaveClass;
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	MeshDeformSaveSetClass
@@ -58,7 +57,6 @@ class MeshDeformSaveSetClass
 		//	Public friends
 		//////////////////////////////////////////////////////////////////////
 		friend class MeshDeformSaveClass;
-
 
 	protected:
 
@@ -86,7 +84,6 @@ class MeshDeformSaveSetClass
 			float										state;
 			DynamicVectorClass<DEFORM_DATA>	deform_list;
 		} KEYFRAME;
-
 
 public:
 

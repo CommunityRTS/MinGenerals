@@ -49,7 +49,6 @@ class RTS3DScene;
 class RTS2DScene;
 class RTS3DInterfaceScene;
 
-
 //=============================================================================
 /** W3D implementation of the game display which is responsible for creating
   * all interaction with the screen and updating the display

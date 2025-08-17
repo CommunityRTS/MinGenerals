@@ -86,7 +86,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 
 enum
@@ -145,7 +144,6 @@ static NameKeyType buttonEasyID = NAMEKEY_INVALID;
 static NameKeyType buttonMediumID = NAMEKEY_INVALID;
 static NameKeyType buttonHardID = NAMEKEY_INVALID;
 static NameKeyType buttonDiffBackID = NAMEKEY_INVALID;
-
 
 // window pointers --------------------------------------------------------------------------------
 static GameWindow *parentMainMenu = NULL;
@@ -256,7 +254,6 @@ static void quitCallback( void )
 		TheMessageStream->appendMessage( GameMessage::MSG_CLEAR_GAME_DATA );
 }
 
-
 void setupGameStart(AsciiString mapName, GameDifficulty diff)
 {
 	startGame = TRUE;
@@ -341,8 +338,6 @@ static void shutdownComplete( WindowLayout *layout )
 	TheShell->shutdownComplete( layout );
 
 }  // end if
-
-
 
 /*
 static void TimetToFileTime( time_t t, LPFILETIME pft )
@@ -495,7 +490,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	buttonMedium = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonMediumID );
 	buttonHard = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonHardID );
 	buttonDiffBack = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonDiffBackID );
-
 
 //	GameWindow *labelVersion = TheWindowManager->winGetWindowFromId( parentMainMenu, versionID );
 
@@ -663,7 +657,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	// set keyboard focus to main parent
 	TheWindowManager->winSetFocus( parentMainMenu );
 
-
 }  // end MainMenuInit
 
 //-------------------------------------------------------------------------------------------------
@@ -682,7 +675,6 @@ void MainMenuShutdown( WindowLayout *layout, void *userData )
 //	if(winVidManager)
 	//		delete winVidManager;
 	//	winVidManager = NULL;
-
 
 	if( popImmediate )
 	{
@@ -778,7 +770,6 @@ void DoResolutionDialog()
 	resolutionNew.format(L": %dx%d\n", newDispSettings.xRes , newDispSettings.yRes);
 
 	resTimerString.concat(resolutionNew);
-
 
 	resAcceptMenu = TheWindowManager->gogoMessageBox( CORNER, CORNER, -1, -1,MSG_BOX_OK | MSG_BOX_CANCEL ,
 																									 TheGameText->fetch("GUI:Resolution"),
@@ -940,10 +931,6 @@ void MainMenuUpdate( WindowLayout *layout, void *userData )
 //			dropDownWindows[i]->winHide(TRUE);
 //	}
 
-
-
-
-
 	if (startGame && TheShell->isAnimFinished() && TheTransitionHandler->isFinished())
 	{
 		doGameStart();
@@ -954,7 +941,6 @@ void MainMenuUpdate( WindowLayout *layout, void *userData )
 	{
 		shutdownComplete(layout);
 	}
-
 
 	// We'll only be successful if we've requested to
 //	if(TheShell->isAnimReversed() && TheShell->isAnimFinished())
@@ -1023,7 +1009,6 @@ WindowMsgHandledType MainMenuInput( GameWindow *window, UnsignedInt msg,
 		}  // end char
 
 	}  // end switch( msg )
-
 
 	return MSG_IGNORED;
 

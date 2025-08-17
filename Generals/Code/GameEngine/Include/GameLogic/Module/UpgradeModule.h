@@ -199,5 +199,4 @@ protected:
 inline UpgradeModule::UpgradeModule( Thing *thing, const ModuleData* moduleData ) : BehaviorModule( thing, moduleData ) { }
 inline UpgradeModule::~UpgradeModule() { }
 
-
 #endif

@@ -66,5 +66,4 @@ protected:
 	void clearStatusCondition();
 };
 
-
 #endif  // end __StatusDamageHelper_H_

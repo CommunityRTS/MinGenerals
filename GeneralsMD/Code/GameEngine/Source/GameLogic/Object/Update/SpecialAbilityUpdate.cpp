@@ -70,7 +70,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 SpecialAbilityUpdate::SpecialAbilityUpdate( Thing *thing, const ModuleData* moduleData ) : SpecialPowerUpdateModule( thing, moduleData )
 {
@@ -177,7 +176,6 @@ Options:
   FlipObjectAfterUnPacking -- Simply rotates the object 180 degrees after unpacking (due to
                           special animation case). Used by colonel burton after planting charge.
 
-
   Lets use the Age of Kings Trebuchet as a simple example:
   Variation -- PersistentPrepTime (set to true in ini file)
   1 -- APPROACH:  Get within range before unpacking
@@ -248,7 +246,6 @@ UpdateSleepTime SpecialAbilityUpdate::update( void )
 				break;
 		}
   }
-
 
   //STEP 2 & 5(6) -- Handles packing and unpacking in progress. If packing
   //then ends the special ability once complete. Things that don't pack
@@ -337,8 +334,6 @@ UpdateSleepTime SpecialAbilityUpdate::update( void )
     return calcSleepTime();
   }
 
-
-
   //DETERMINE OUR PHASE! BRAIN LOGIC
   if( !isPreparationComplete() )
   {
@@ -366,7 +361,6 @@ UpdateSleepTime SpecialAbilityUpdate::update( void )
         //tell the special power module to restart the recharge timer
         if ( getDoesPersistenceRequireRecharge() )
           spm->startPowerRecharge();
-
 
       }
       else
@@ -434,7 +428,6 @@ UpdateSleepTime SpecialAbilityUpdate::update( void )
       {
         //STEP 4 -- TRIGGER (skipping preparation)
         triggerAbilityEffect();
-
 
         // Lorenzen added this additional flag to support the NapalmBombDrop
         // It causes this update to force a recharge of the SPM between drops
@@ -560,7 +553,6 @@ Bool SpecialAbilityUpdate::initiateIntentToDoSpecialPower( const SpecialPowerTem
   if( disableSA && disableSA != this )
     disableSA->onExit( FALSE );
 
-
   setWakeFrame(getObject(), UPDATE_SLEEP_NONE);
 
   return TRUE;
@@ -581,7 +573,6 @@ Bool SpecialAbilityUpdate::isPowerCurrentlyInUse( const CommandButton *command )
       }
     }
   }
-
 
   if( m_packingState != STATE_NONE )
   {
@@ -624,7 +615,6 @@ void SpecialAbilityUpdate::onExit( Bool cleanup )
 
 //  This is the althernate way to one-at-a-time BlackLotus' specials; we'll keep it commented her until Dustin decides, or until 12/10/02
 //  setBusy( FALSE );// My owner is no longer using me
-
 
 // no, actually, we DON'T want to call this here, since onExit is always called
 // (directly or indirectly) from update()... and calling setWakeFrame() from your
@@ -679,8 +669,6 @@ Bool SpecialAbilityUpdate::handlePackingProcessing()
       return false;
     }
 
-
-
     //This is new... the ability to disable stealth before triggering
     if( getSpecialAbilityUpdateModuleData()->m_loseStealthOnTrigger &&
       m_animFrames < getSpecialAbilityUpdateModuleData()->m_preTriggerUnstealthFrames)
@@ -691,8 +679,6 @@ Bool SpecialAbilityUpdate::handlePackingProcessing()
         stealth->markAsDetected();
       }
     }
-
-
 
     //We're still processing
     return true;
@@ -802,7 +788,6 @@ void SpecialAbilityUpdate::startUnpacking()
   getObject()->clearAndSetModelConditionFlags(
         MAKE_MODELCONDITION_MASK( MODELCONDITION_PACKING ),
         MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ) );
-
 
   AudioEventRTS sound = data->m_unpackSound;
   sound.setObjectID( getObject()->getID() );
@@ -1029,7 +1014,6 @@ void SpecialAbilityUpdate::startPreparation()
 				}
       }
 
-
       getObject()->clearAndSetModelConditionFlags( MAKE_MODELCONDITION_MASK( MODELCONDITION_UNPACKING ),
                                                    MAKE_MODELCONDITION_MASK( MODELCONDITION_RAISING_FLAG ) );
       Drawable* draw = getObject()->getDrawable();
@@ -1248,7 +1232,6 @@ Bool SpecialAbilityUpdate::continuePreparation()
         }
       }
 
-
       SpecialPowerModuleInterface *spmInterface = getMySPM();
       if (spmInterface && spTemplate->getSpecialPowerType() == SPECIAL_INFANTRY_CAPTURE_BUILDING )
       {
@@ -1291,7 +1274,6 @@ void SpecialAbilityUpdate::triggerAbilityEffect()
   AudioEventRTS sound = data->m_triggerSound;
   sound.setObjectID( object->getID() );
   TheAudio->addAudioEvent( &sound );
-
 
   Bool okToLoseStealth = TRUE;
 
@@ -1369,7 +1351,6 @@ void SpecialAbilityUpdate::triggerAbilityEffect()
         //and setup timers, etc.
         update->initStickyBomb( target, object );
 
-
       }
       break;
     }
@@ -1400,7 +1381,6 @@ void SpecialAbilityUpdate::triggerAbilityEffect()
         m_doDisableFXParticles = !m_doDisableFXParticles; // toggle if small building
         durationInterleaveFactor = 2;
       }
-
 
       if ( m_doDisableFXParticles )
       {
@@ -1665,7 +1645,6 @@ Object* SpecialAbilityUpdate::createSpecialObject()
         xpTracker->setExperienceSink( getObject()->getID() );
       }
 
-
       PhysicsBehavior* specialObjectPhysics = specialObject->getPhysics();
       if (specialObjectPhysics)
       {
@@ -1673,8 +1652,6 @@ Object* SpecialAbilityUpdate::createSpecialObject()
         specialObjectPhysics->setPitchRate( pitchRate );
         specialObjectPhysics->setAllowAirborneFriction( false );
       }
-
-
 
     }
   }
@@ -1806,7 +1783,6 @@ void SpecialAbilityUpdate::finishAbility()
 					}
 				}
 			}
-
 
 			// this is just a trick: apply a motive force (even zero!) so that
 			// AI will think we were already "moving". this causes us to go directly
@@ -1989,8 +1965,6 @@ void SpecialAbilityUpdate::endPreparation()
 
 	}
 }
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

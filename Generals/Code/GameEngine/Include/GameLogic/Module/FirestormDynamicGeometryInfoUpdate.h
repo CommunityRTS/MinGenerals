@@ -85,6 +85,5 @@ protected:
 	UnsignedInt m_lastDamageFrame;		///< frame we last did damage on
 };
 
-
 #endif
 

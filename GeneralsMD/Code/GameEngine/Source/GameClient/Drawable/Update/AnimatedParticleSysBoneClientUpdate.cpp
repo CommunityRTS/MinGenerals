@@ -59,7 +59,6 @@ AnimatedParticleSysBoneClientUpdate::~AnimatedParticleSysBoneClientUpdate( void 
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** The client update callback. */
 //-------------------------------------------------------------------------------------------------
@@ -67,7 +66,6 @@ void AnimatedParticleSysBoneClientUpdate::clientUpdate( void )
 {
 	//THIS IS HAPPENING CLIENT-SIDE
 	// I CAN DO WHAT I NEED HERE AND NOT HAVE TO BE LOGIC SYNC-SAFE
-
 
 	++m_life;
 
@@ -85,9 +83,7 @@ void AnimatedParticleSysBoneClientUpdate::clientUpdate( void )
 			}
 		}
 
-
 	}
-
 
 }
 
@@ -117,7 +113,6 @@ void AnimatedParticleSysBoneClientUpdate::xfer( Xfer *xfer )
 
 	// extend base class
 	ClientUpdateModule::xfer( xfer );
-
 
 }  // end xfer
 

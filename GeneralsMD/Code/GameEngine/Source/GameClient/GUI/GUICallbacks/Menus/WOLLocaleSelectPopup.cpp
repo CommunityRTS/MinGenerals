@@ -107,7 +107,6 @@ void WOLLocaleSelectShutdown( WindowLayout *layout, void *userData )
 
 }  // WOLLocaleSelectShutdown
 
-
 //-------------------------------------------------------------------------------------------------
 /** WOL Status Menu update method */
 //-------------------------------------------------------------------------------------------------
@@ -150,7 +149,6 @@ WindowMsgHandledType WOLLocaleSelectSystem( GameWindow *window, UnsignedInt msg,
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

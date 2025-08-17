@@ -218,11 +218,7 @@ GameWindow *ExMessageBoxCancel			(UnicodeString titleString,UnicodeString bodySt
 	return gogoExMessageBox(-1,-1,-1,-1, MSG_BOX_CANCEL, titleString, bodyString, userData, NULL, NULL, NULL, cancelCallback);
 }
 
-
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Message Box window system callback */
@@ -230,7 +226,6 @@ GameWindow *ExMessageBoxCancel			(UnicodeString titleString,UnicodeString bodySt
 WindowMsgHandledType ExtendedMessageBoxSystem( GameWindow *window, UnsignedInt msg,
 										 WindowMsgData mData1, WindowMsgData mData2 )
 {
-
 
 	switch( msg )
 	{

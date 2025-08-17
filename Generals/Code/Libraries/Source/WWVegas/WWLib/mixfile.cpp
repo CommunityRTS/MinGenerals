@@ -60,7 +60,6 @@ typedef struct
 
 } MIXFILE_DATA_HEADER;
 
-
 /*
 **
 */
@@ -257,7 +256,6 @@ void	MixFileFactoryClass::Return_File( FileClass * file )
 	}
 }
 
-
 /*
 **
 */
@@ -271,7 +269,6 @@ MixFileFactoryClass::Add_File (const char *full_path, const char *filename)
 	IsModified = true;
 	return ;
 }
-
 
 /*
 **
@@ -292,7 +289,6 @@ MixFileFactoryClass::Delete_File (const char *filename)
 
 	return ;
 }
-
 
 /*
 **
@@ -372,7 +368,6 @@ MixFileFactoryClass::Flush_Changes (void)
 	return ;
 }
 
-
 /*
 **
 */
@@ -397,7 +392,6 @@ MixFileFactoryClass::Get_Temp_Filename (const char *path, StringClass &full_path
 
 	return retval;
 }
-
 
 /*
 **
@@ -547,7 +541,6 @@ void	MixFileCreator::Add_File( const char * source_filename, const char * saved_
 	}
 }
 
-
 void	MixFileCreator::Add_File( const char * filename, FileClass *file )
 {
 	if ( MixFile != NULL ) {
@@ -586,7 +579,6 @@ void	MixFileCreator::Add_File( const char * filename, FileClass *file )
 
 	return ;
 }
-
 
 /*
 **

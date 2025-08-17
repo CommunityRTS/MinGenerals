@@ -49,7 +49,6 @@
 #include "WW3D2/Scene.h"
 #include "WW3D2/matinfo.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)

@@ -154,7 +154,6 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // ScriptDialog dialog
 
-
 ScriptDialog::ScriptDialog(CWnd* pParent /*=NULL*/)
 	: CDialog(ScriptDialog::IDD, pParent)
 {
@@ -171,7 +170,6 @@ ScriptDialog::~ScriptDialog()
 	m_staticThis=NULL;
 }
 
-
 void ScriptDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -179,7 +177,6 @@ void ScriptDialog::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ScriptDialog, CDialog)
 	//{{AFX_MSG_MAP(ScriptDialog)
@@ -1370,7 +1367,6 @@ void ScriptDialog::OnSave()
 		}
 	}
 
-
 	CString path = fileDlg.GetPathName();
 
 	CFile theFile(path, CFile::modeCreate|CFile::modeWrite|CFile::shareDenyWrite|CFile::typeBinary);
@@ -1459,7 +1455,6 @@ void ScriptDialog::OnSave()
 					chunkWriter.writeDict(*m_sides.getTeamInfo(i)->getDict());
 				}
 			}
-
 
 		chunkWriter.closeDataChunk();
  		/***************WAYPOINTS DATA ***************/
@@ -1645,7 +1640,6 @@ void ScriptDialog::OnLoad()
 			reloadPlayer(i, pSL);
 			updateIcons(TVI_ROOT);
 		}
-
 
 	} catch(...) {
    	  	DEBUG_CRASH(("threw exception in ScriptDialog::OnLoad"));
@@ -1933,7 +1927,6 @@ Bool ScriptDialog::ParsePolygonTriggersDataChunk(DataChunkInput &file, DataChunk
 	DEBUG_ASSERTCRASH(file.atEndOfChunk(), ("Incorrect data file length."));
 	return true;
 }
-
 
 void ScriptDialog::OnDblclkScriptTree(NMHDR* pNMHDR, LRESULT* pResult)
 {

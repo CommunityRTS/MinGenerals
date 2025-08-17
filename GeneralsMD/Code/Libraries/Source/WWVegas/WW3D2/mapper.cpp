@@ -53,7 +53,6 @@ Random4Class rand4;
 
 inline DWORD F2DW( FLOAT f ) { return *((DWORD*)&f); }
 
-
 // HY 1/26/01
 // Rewritten to use DX 8 texture matrices
 
@@ -62,7 +61,6 @@ TextureMapperClass::TextureMapperClass(unsigned int stage)
 	Stage = stage;
 	if (Stage >= MeshMatDescClass::MAX_TEX_STAGES) Stage = MeshMatDescClass::MAX_TEX_STAGES - 1;
 }
-
 
 // Scale mapper
 // HY 5/16/01
@@ -1111,7 +1109,6 @@ void Reset_All_Texture_Mappers(RenderObjClass *robj, bool make_unique)
 		}
 	}
 }
-
 
 GridWSEnvMapperClass::GridWSEnvMapperClass(float fps, unsigned int gridwidth_log2, unsigned int last_frame, unsigned int offset, AxisType axis, unsigned int stage):
 	GridTextureMapperClass(fps, gridwidth_log2, last_frame, offset, stage),

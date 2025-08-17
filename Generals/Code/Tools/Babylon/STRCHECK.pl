@@ -40,7 +40,6 @@ $ignoreErrors = 0;
 $errCount = 0;
 %labels = ();
 
-
 while (<STR>)
 {
 	$strline = $_;

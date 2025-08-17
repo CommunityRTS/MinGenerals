@@ -45,12 +45,10 @@
 #include "wwdebug.h"
 #include "string.h"
 
-
 /*
 ** Static head of the factory list
 */
 ShdDefFactoryClass *ShdDefManagerClass::_FactoryListHead = NULL;
-
 
 //**********************************************************************************************
 //! Used to look up the ShdDefFactory for a given class id
@@ -82,7 +80,6 @@ ShdDefManagerClass::Find_Factory (uint32 class_id)
 	return factory;
 }
 
-
 //**********************************************************************************************
 //! Used to look up the ShdDefFactory for a given named shader def
 /*!
@@ -112,7 +109,6 @@ ShdDefFactoryClass * ShdDefManagerClass::Find_Factory (const char *name)
 	return factory;
 }
 
-
 //**********************************************************************************************
 //! Registers a factory with the system
 /*!
@@ -125,7 +121,6 @@ void ShdDefManagerClass::Register_Factory (ShdDefFactoryClass *factory)
 	Link_Factory (factory);
 }
 
-
 //**********************************************************************************************
 //! removes a factory from the system
 /*!
@@ -137,7 +132,6 @@ void ShdDefManagerClass::Unregister_Factory (ShdDefFactoryClass *factory)
 	Unlink_Factory (factory);
 	return ;
 }
-
 
 ShdDefFactoryClass * ShdDefManagerClass::Get_First (void)
 {

@@ -46,7 +46,6 @@ bool GCALL REF_is(const void *compresseddata)
     return(ok);
 }
 
-
 /****************************************************************/
 /*  Decode Functions                                            */
 /****************************************************************/
@@ -68,7 +67,6 @@ int GCALL REF_size(const void *compresseddata)
 
     return(len);
 }
-
 
 int GCALL REF_decode(void *dest, const void *compresseddata, int *compressedsize)
 {

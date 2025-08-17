@@ -46,7 +46,6 @@
 #include	"rndstraw.h"
 #include	<string.h>
 
-
 /***********************************************************************************************
  * PKStraw::PKStraw -- Initialize the public key straw object.                                 *
  *                                                                                             *
@@ -78,7 +77,6 @@ PKStraw::PKStraw(CryptControl control, RandomStraw & rnd) :
 {
 	Straw::Get_From(BF);
 }
-
 
 /***********************************************************************************************
  * PKStraw::Get_From -- Chains one straw to another.                                           *
@@ -116,8 +114,6 @@ void PKStraw::Get_From(Straw * straw)
 	}
 }
 
-
-
 /***********************************************************************************************
  * PKStraw::Key -- Assign a key to the cipher process straw.                                   *
  *                                                                                             *
@@ -147,7 +143,6 @@ void PKStraw::Key(PKey const * key)
 	Counter = 0;
 	BytesLeft = 0;
 }
-
 
 /***********************************************************************************************
  * PKStraw::Get -- Fetch data and process it accordingly.                                      *
@@ -256,7 +251,6 @@ int PKStraw::Get(void * source, int length)
 	return(total);
 }
 
-
 /***********************************************************************************************
  * PKStraw::Encrypted_Key_Length -- Fetch the encrypted key length.                            *
  *                                                                                             *
@@ -278,7 +272,6 @@ int PKStraw::Encrypted_Key_Length(void) const
 	if (CipherKey == NULL) return(0);
 	return(CipherKey->Block_Count(BLOWFISH_KEY_SIZE) * CipherKey->Crypt_Block_Size());
 }
-
 
 /***********************************************************************************************
  * PKStraw::Plain_Key_Length -- Returns the number of bytes to encrypt key.                    *

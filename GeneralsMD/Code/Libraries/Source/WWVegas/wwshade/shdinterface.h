@@ -84,7 +84,6 @@ struct VertexStreamStruct
 	const Vector3* SxT;
 };
 
-
 /**
 ** ShdInterfaceClass - This class is the virtual interface for all shaders.  A derived shader's job is to
 ** set up the D3D render states for a particular rendering operation.  Instances of shaders are
@@ -137,6 +136,5 @@ protected:
 	int	ClassID;
 
 };
-
 
 #endif //SHDINTERFACE_H

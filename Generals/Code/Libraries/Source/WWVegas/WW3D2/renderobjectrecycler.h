@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef RENDEROBJECTRECYCLER_H
 #define RENDEROBJECTRECYCLER_H
 
@@ -73,12 +72,8 @@ private:
 	void					Insert_Inactive_Model(RenderObjClass * obj);
 	void					Reset_Model(RenderObjClass * model);
 
-
 	RefRenderObjListClass	InactiveModels;
 
 };
-
-
-
 
 #endif //RENDEROBJECTRECYCLER_H

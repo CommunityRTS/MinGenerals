@@ -161,7 +161,6 @@ void MissileAIUpdate::onDelete( void )
 	m_exhaustID = INVALID_PARTICLE_SYSTEM_ID;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void MissileAIUpdate::tossExhaust()
 {
@@ -243,7 +242,6 @@ void MissileAIUpdate::projectileFireAtObjectOrPosition( const Object *victim, co
 	if (deltaZ>0) {
 		zFactor = deltaZ/xyDist;
 	}
-
 
 	Vector3 dir = getObject()->getTransformMatrix()->Get_X_Vector();
 	dir.Normalize();
@@ -768,7 +766,6 @@ UpdateSleepTime MissileAIUpdate::update()
 	/// @todo srj -- someday, make sleepy. for now, must not sleep.
 	return UPDATE_SLEEP_NONE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool MissileAIUpdate::processCollision(PhysicsBehavior *physics, Object *other)

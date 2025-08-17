@@ -35,12 +35,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef LOGDLG_H
 #define LOGDLG_H
 
 #include <windows.h>
-
 
 class LogDataDialogClass
 {
@@ -80,7 +78,6 @@ private:
 volatile int status;
 
 };
-
 
 #endif
 

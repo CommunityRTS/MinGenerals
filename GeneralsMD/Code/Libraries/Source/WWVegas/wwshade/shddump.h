@@ -66,5 +66,4 @@ struct ShdDef_ChunkStruct
 	char	TexName[];
 };
 
-
 #endif //SHDDUMP_H

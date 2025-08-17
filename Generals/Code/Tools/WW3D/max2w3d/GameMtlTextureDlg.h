@@ -34,9 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
-
 #ifndef GAMEMTLTEXTUREDLG_H
 #define GAMEMTLTEXTUREDLG_H
 
@@ -82,9 +79,5 @@ private:
 	ICustButton *		Stage1DisplayButton;
 };
 
-
-
-
 #endif
-
 

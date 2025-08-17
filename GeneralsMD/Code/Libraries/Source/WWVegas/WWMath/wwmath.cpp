@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "wwmath.h"
 #include "wwhack.h"
 #include "lookuptable.h"
@@ -79,7 +78,6 @@ float		WWMath::Random_Float(void)
 {
 	return ((float)(rand() & 0xFFF)) / (float)(0xFFF);
 }
-
 
 /*
 ** Force link some modules from this library.

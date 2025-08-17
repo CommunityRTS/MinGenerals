@@ -775,7 +775,6 @@ void DataChunkInput::closeDataChunk( void )
 	c->deleteInstance();
 }
 
-
 // return label of current data chunk
 AsciiString DataChunkInput::getChunkLabel( void )
 {
@@ -814,7 +813,6 @@ UnsignedInt DataChunkInput::getChunkDataSize( void )
 
 	return m_chunkStack->dataSize;
 }
-
 
 // return size of data left to read in this chunk
 UnsignedInt DataChunkInput::getChunkDataSizeLeft( void )

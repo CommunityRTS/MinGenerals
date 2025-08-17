@@ -47,10 +47,7 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 static DomeStyleSeismicFilter bunkerBusterHeavingEarthSeismicFilter;
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -117,8 +114,6 @@ BunkerBusterBehavior::~BunkerBusterBehavior( void )
 
 }  // end ~BunkerBusterBehavior
 
-
-
 void BunkerBusterBehavior::onObjectCreated( void )
 {
 	const BunkerBusterBehaviorModuleData *modData = getBunkerBusterBehaviorModuleData();
@@ -127,7 +122,6 @@ void BunkerBusterBehavior::onObjectCreated( void )
 	m_upgradeRequired = TheUpgradeCenter->findUpgrade( modData->m_upgradeRequired );
 
 }  // end onObjectCreated
-
 
 // ------------------------------------------------------------------------------------------------
 /** The update callback */
@@ -147,7 +141,6 @@ UpdateSleepTime BunkerBusterBehavior::update( void )
     }
     DEBUG_ASSERTCRASH( ai, ("BunkerBusterBehavior::update could not find an AIUpdateInterface." ) );
 
-
     if ( TheGameLogic->getFrame()%modData->m_crashThroughBunkerFXFrequency == 1 )// not too much
     {
       const FXList *crashFX = modData->m_crashThroughBunkerFX;
@@ -156,10 +149,6 @@ UpdateSleepTime BunkerBusterBehavior::update( void )
     }
 
   }
-
-
-
-
 
 	return UPDATE_SLEEP_NONE;
 
@@ -174,10 +163,6 @@ void BunkerBusterBehavior::onDie( const DamageInfo *damageInfo )
   bustTheBunker();
 }
 
-
-
-
-
 // ------------------------------------------------------------------------------------------------
 /** The bunker-busting effect callback */
 // ------------------------------------------------------------------------------------------------
@@ -191,7 +176,6 @@ void BunkerBusterBehavior::bustTheBunker( void )
     if ( ! weaponUpgraded )
       return;
   }
-
 
 //  here is where we kill everyone inside any targeted garrisoned buildings
 //  AIUpdateInterface *ai = getObject()->getAI();
@@ -220,8 +204,6 @@ void BunkerBusterBehavior::bustTheBunker( void )
       else
         contain->killAllContained();
 
-
-
     }
   }
 
@@ -244,17 +226,9 @@ void BunkerBusterBehavior::bustTheBunker( void )
   if ( modData->m_shockwaveWeaponTemplate )
 		TheWeaponStore->createAndFireTempWeapon(modData->m_shockwaveWeaponTemplate, objectForFX, objectForFX->getPosition());
 
-
 }  // end onDie
 
 // ------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

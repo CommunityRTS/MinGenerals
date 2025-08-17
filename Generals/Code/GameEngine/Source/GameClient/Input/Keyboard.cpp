@@ -35,7 +35,6 @@
 #include "GameClient/Keyboard.h"
 #include "GameClient/KeyDefs.h"
 
-
 // PUBLIC DATA ////////////////////////////////////////////////////////////////////////////////////
 Keyboard *TheKeyboard = NULL;
 
@@ -972,7 +971,6 @@ Bool Keyboard::isAlt()
 	return FALSE;
 }  // end isAlt()
 
-
 WideChar Keyboard::getPrintableKey( UnsignedByte key,  Int state )
 {
 	if((key < 0 || key >=KEY_NAMES_COUNT) || ( state < 0 || state >= MAX_KEY_STATES))
@@ -983,6 +981,5 @@ WideChar Keyboard::getPrintableKey( UnsignedByte key,  Int state )
 		return m_keyNames[key].shifted;
 	else
 		return m_keyNames[key].shifted2;
-
 
 }

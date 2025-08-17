@@ -142,7 +142,6 @@ void LaserUpdate::setDecayFrames( UnsignedInt decayFrames )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void LaserUpdate::initLaser( const Object *parent, const Coord3D *startPos, const Coord3D *endPos, Int sizeDeltaFrames )
 {

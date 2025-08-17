@@ -32,7 +32,6 @@
 #include "Common/INI.h"
 #include "GameClient/ParticleSys.h"
 
-
 /**
  * Parse entry
  */

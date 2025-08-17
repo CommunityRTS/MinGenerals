@@ -40,7 +40,6 @@
 /// The Display singleton instance.
 Display *TheDisplay = NULL;
 
-
 Display::Display()
 {
 	m_viewList = NULL;
@@ -237,8 +236,6 @@ void Display::playMovie( AsciiString movieName)
 {
 
 	stopMovie();
-
-
 
 	m_videoStream = TheVideoPlayer->open( movieName );
 

@@ -42,7 +42,6 @@
  *   AutoPoolClass::operator delete -- overriden delete which calls the internal ObjectPool    *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -56,8 +55,6 @@
 #include <new.h>
 #include <stdlib.h>
 #include <stddef.h>
-
-
 
 /**********************************************************************************************
 ** ObjectPoolClass
@@ -97,8 +94,6 @@ protected:
 	FastCriticalSectionClass ObjectPoolCS;
 
 };
-
-
 
 /**********************************************************************************************
 ** AutoPoolClass
@@ -160,7 +155,6 @@ private:
 #define DEFINE_AUTO_POOL(T,BLOCKSIZE) \
 ObjectPoolClass<T,BLOCKSIZE> AutoPoolClass<T,BLOCKSIZE>::Allocator;
 
-
 /***********************************************************************************************
  * ObjectPoolClass::ObjectPoolClass -- constructor for ObjectPoolClass                         *
  *                                                                                             *
@@ -212,8 +206,6 @@ ObjectPoolClass<T,BLOCK_SIZE>::~ObjectPoolClass(void)
 	}
 	WWASSERT(block_count == TotalObjectCount / BLOCK_SIZE);
 }
-
-
 
 /***********************************************************************************************
  * ObjectPoolClass::Allocate_Object -- allocates an object for the user                        *
@@ -304,7 +296,6 @@ T * ObjectPoolClass<T,BLOCK_SIZE>::Allocate_Object_Memory(void)
 	return obj;
 }
 
-
 /***********************************************************************************************
  * ObjectPoolClass::Free_Object_Memory -- internal function, returns object's memory to the po *
  *                                                                                             *
@@ -328,7 +319,6 @@ void ObjectPoolClass<T,BLOCK_SIZE>::Free_Object_Memory(T * obj)
 	FreeObjectCount++;
 }
 
-
 /***********************************************************************************************
  * AutoPoolClass::operator new -- overriden new which calls the internal ObjectPool            *
  *                                                                                             *
@@ -348,7 +338,6 @@ void * AutoPoolClass<T,BLOCK_SIZE>::operator new( size_t size )
 	return (void *)(Allocator.Allocate_Object_Memory());
 }
 
-
 /***********************************************************************************************
  * AutoPoolClass::operator delete -- overriden delete which calls the internal ObjectPool      *
  *                                                                                             *
@@ -367,7 +356,5 @@ void AutoPoolClass<T,BLOCK_SIZE>::operator delete( void * memory )
 	if ( memory == 0 ) return;
 	Allocator.Free_Object_Memory((T*)memory);
 }
-
-
 
 #endif // MEMPOOL_H

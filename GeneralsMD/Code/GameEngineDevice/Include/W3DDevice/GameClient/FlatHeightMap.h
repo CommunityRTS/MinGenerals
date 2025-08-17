@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __FLAT_HEIGHTMAP_H_
@@ -59,7 +58,6 @@ public:
 	// DX8_CleanupHook methods
 	virtual void ReleaseResources(void);	///< Release all dx8 resources so the device can be reset.
 	virtual void ReAcquireResources(void);  ///< Reacquire all resources after device reset.
-
 
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface (W3D methods)

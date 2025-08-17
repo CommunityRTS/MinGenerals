@@ -75,7 +75,6 @@ const unsigned short Indices[]=
 	2,1,0
 };
 
-
 /**************************************************************************
  * Line3DClass::Line3DClass -- Constructor                                *
  *                                                                        *
@@ -141,7 +140,6 @@ Line3DClass::Line3DClass (const Vector3 & start, const Vector3 & end,
 	Set_Transform(transform);
 }
 
-
 /**************************************************************************
  * Line3DClass::Line3DClass -- Copy constructor.                          *
  *                                                                        *
@@ -165,7 +163,6 @@ Line3DClass::Line3DClass(const Line3DClass & src) :
 {
 		for (int i=0; i<8; i++) vert[i]=src.vert[i];
 }
-
 
 /**************************************************************************
  * Line3DClass::operator = -- assignment operator                         *
@@ -200,7 +197,6 @@ Line3DClass & Line3DClass::operator = (const Line3DClass & that)
 	return * this;
 }
 
-
 /**************************************************************************
  * Line3DClass::~Line3DClass -- Destructor.                               *
  *                                                                        *
@@ -218,7 +214,6 @@ Line3DClass & Line3DClass::operator = (const Line3DClass & that)
 Line3DClass::~Line3DClass(void)
 {
 }
-
 
 /**************************************************************************
  * Line3DClass::Clone -- Creates a clone of this Line3D                   *
@@ -336,7 +331,6 @@ void Line3DClass::Scale(float scale)
    if (container) container->Update_Obj_Space_Bounding_Volumes();
 }
 
-
 /**************************************************************************
  * Line3DClass::Scale -- Scale object                                     *
  *                                                                        *
@@ -367,14 +361,12 @@ void Line3DClass::Scale(float scalex, float scaley, float scalez)
    if (container) container->Update_Obj_Space_Bounding_Volumes();
 }
 
-
 void Line3DClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const
 {
 	float half_l = Length * 0.5f;
 	sphere.Center.Set(half_l, 0.0f, 0.0f);
 	sphere.Radius = half_l;
 }
-
 
 void Line3DClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 {
@@ -417,7 +409,6 @@ void Line3DClass::Reset(const Vector3 & new_start, const Vector3 & new_end)
    RenderObjClass *container = Get_Container();
    if (container) container->Update_Obj_Space_Bounding_Volumes();
 }
-
 
 /**************************************************************************
  * Line3DClass::Reset -- Reset line start and end points, and line width. *
@@ -464,7 +455,6 @@ void Line3DClass::Reset(const Vector3 & new_start, const Vector3 & new_end, floa
    if (container) container->Update_Obj_Space_Bounding_Volumes();
 }
 
-
 /**************************************************************************
  * Re_Color -- Reset the line color.                                      *
  *                                                                        *
@@ -482,7 +472,6 @@ void Line3DClass::Re_Color(float r, float g, float b)
 {
 	Color=Vector4(r,g,b,Color.W);
 }
-
 
 /**************************************************************************
  * Set_Opacity -- Reset the line opacity.                                 *

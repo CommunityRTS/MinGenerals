@@ -16,8 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 #ifndef SHDLEGACYW3D_H
 #define SHDLEGACYW3D_H
 
@@ -102,8 +100,6 @@ private:
 	int									MapChannel[MeshMatDescClass::MAX_PASSES][MeshMatDescClass::MAX_TEX_STAGES];
 
 };
-
-
 
 class Shd6LegacyW3DClass : public ShdInterfaceClass
 {

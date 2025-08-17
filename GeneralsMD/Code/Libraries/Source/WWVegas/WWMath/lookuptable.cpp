@@ -44,7 +44,6 @@
 #include "persistfactory.h"
 #include "vector2.h"
 
-
 /*
 ** Static members
 */
@@ -59,7 +58,6 @@ enum
 	LOOKUPTABLE_CHUNK_CURVE		= 03071200,
 	LOOKUPTABLE_CHUNK_EXTENTS,
 };
-
 
 /***********************************************************************************************
 **
@@ -95,8 +93,6 @@ void LookupTableClass::Init(const char * name,Curve1DClass * curve)
 		OutputSamples[i] = y;
 	}
 }
-
-
 
 /***********************************************************************************************
 **
@@ -245,6 +241,4 @@ void LookupTableMgrClass::Load_Table_Desc
 		set_max_corner->Set(xmax,ymax);
 	}
 }
-
-
 

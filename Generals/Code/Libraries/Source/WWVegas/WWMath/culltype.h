@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -57,6 +56,5 @@ typedef enum CULLTYPE
 	CULL_INTERSECTING,		// the object intersects an edge of the culling volume
 	CULL_INSIDE					// the object is completely inside the culling volume
 };
-
 
 #endif

@@ -32,7 +32,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // VIEWDBSII dialog
 
-
 VIEWDBSII::VIEWDBSII(CWnd* pParent /*=NULL*/)
 	: CDialog(VIEWDBSII::IDD, pParent)
 {
@@ -41,7 +40,6 @@ VIEWDBSII::VIEWDBSII(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void VIEWDBSII::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -49,7 +47,6 @@ void VIEWDBSII::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(VIEWDBSII, CDialog)
 	//{{AFX_MSG_MAP(VIEWDBSII)

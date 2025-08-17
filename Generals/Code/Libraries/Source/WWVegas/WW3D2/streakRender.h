@@ -49,12 +49,9 @@ class RenderInfoClass;
 class SphereClass;
 struct W3dEmitterLinePropertiesStruct;
 
-
 // The maximum allowable level of subdivision. This should be no more than 7 to avoid increasing
 // the chunk buffer size too much
 #define MAX_STREAK_SUBDIV_LEVELS 7
-
-
 
 /**
 ** StreakRendererClass
@@ -117,7 +114,6 @@ public:
 	void					Set_End_Caps(int onoff)									{ if (onoff) { Bits |= END_CAPS; } else { Bits &= ~END_CAPS; }; }
 
 	void					Reset_Line(void);
-
 
 	void	Render(	RenderInfoClass & rinfo,
 								const Matrix3D & transform,
@@ -187,8 +183,6 @@ private:
 	friend class SegmentedLineClass;
 };
 
-
-
 inline StreakRendererClass::TextureMapMode StreakRendererClass::Get_Texture_Mapping_Mode(void) const
 {
 	return (TextureMapMode)((Bits & TEXTURE_MAP_MODE_MASK) >> TEXTURE_MAP_MODE_OFFSET);
@@ -209,7 +203,6 @@ inline void StreakRendererClass::Set_UV_Offset_Rate(const Vector2 &rate)
 {
 	UVOffsetDeltaPerMS = rate * 0.001f;
 }
-
 
 #endif //STREAKRENDER_H
 

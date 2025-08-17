@@ -41,9 +41,7 @@
  *   GameMapsClass::Load -- Loads GameMapsClass data from a MAX file                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "gamemaps.h"
-
 
 /*****************************************************************
 *
@@ -63,7 +61,6 @@
 #define GAMEMAPS_AMT9_CHUNK	0x000A
 #define GAMEMAPS_AMTA_CHUNK	0x000B
 
-
 /*****************************************************************
 *
 *		A PostLoadCallback which does nothing...
@@ -76,7 +73,6 @@ public:
 	GameMapsPostLoad(GameMapsClass *b) {tm=b;}
 	void proc(ILoad *iload) { delete this; }
 };
-
 
 /*****************************************************************
 *
@@ -99,7 +95,6 @@ class GameMapsClassDesc : public ClassDesc
 static GameMapsClassDesc _GameMapsCD;
 
 ClassDesc * Get_Game_Maps_Desc() { return &_GameMapsCD; }
-
 
 /***********************************************************************************************
  * GameMapsClass::ClassID -- Returns the ClassID for GameMapsClass                             *
@@ -197,7 +192,6 @@ RefTargetHandle GameMapsClass::Clone(RemapDir &remap)
 	return tm;
 }
 
-
 /***********************************************************************************************
  * GameMapsClass::Save -- Saves the GameMapsClass data into a MAX file                         *
  *                                                                                             *
@@ -230,7 +224,6 @@ IOResult GameMapsClass::Save(ISave * isave)
 	}
 	return IO_OK;
 }
-
 
 /***********************************************************************************************
  * GameMapsClass::Load -- Loads GameMapsClass data from a MAX file                             *

@@ -80,7 +80,6 @@ static unsigned char const _decoder[256] = {
 
 int const PacketChars = 4;
 
-
 /*
 **	The packet type is used to construct and disect the Base64 data blocks. The data
 **	consists of three source data bytes mapped onto four 6 bit Base64 code elements.
@@ -114,7 +113,6 @@ typedef union {
 	} SubCode;
 	unsigned int Raw;
 }	PacketType;
-
 
 /***********************************************************************************************
  * Base64_Encode -- Encode data into Base 64 format.                                           *
@@ -213,7 +211,6 @@ int Base64_Encode(void const * source, int slen, void * dest, int dlen)
 	*/
 	return(total);
 }
-
 
 /***********************************************************************************************
  * Base64_Decode -- Decodes Base 64 data into its original data form.                          *
@@ -327,7 +324,6 @@ int Base64_Decode(void const * source, int slen, void * dest, int dlen)
 	*/
 	return(total);
 }
-
 
 /*
 Base64 Content-Transfer-Encoding

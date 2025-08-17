@@ -712,7 +712,6 @@ void TerrainTracksRenderObjClassSystem::shutdown( void )
 		mod = nextMod;
 	}  // end while
 
-
 	// free all attached things and used modules
 	assert( m_usedModules == NULL );
 
@@ -785,7 +784,6 @@ void TerrainTracksRenderObjClassSystem::update()
 		mod = nextMod;
 	}  // end while
 }
-
 
 //=============================================================================
 // TerrainTracksRenderObjClassSystem::flush
@@ -932,7 +930,6 @@ void TerrainTracksRenderObjClassSystem::Reset(void)
 
 		mod = nextMod;
 	}  // end while
-
 
 	// free all attached things and used modules
 	assert( m_usedModules == NULL );

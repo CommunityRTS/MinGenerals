@@ -78,5 +78,4 @@ private:
 
 };
 
-
 #endif /*SIMPDIB_H*/

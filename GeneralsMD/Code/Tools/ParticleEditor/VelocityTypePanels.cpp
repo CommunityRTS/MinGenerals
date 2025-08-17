@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 // FILE: VelocityTypePanels.cpp
 /*---------------------------------------------------------------------------*/
 /* EA Pacific                                                                */
@@ -241,7 +240,6 @@ BEGIN_MESSAGE_MAP(VelocityPanelSphere, ISwapablePanel)
 	ON_EN_KILLFOCUS(IDC_PSEd_SphereRadialMin, OnParticleSystemEdit)
 	ON_EN_KILLFOCUS(IDC_PSEd_SphereRadialMax, OnParticleSystemEdit)
 END_MESSAGE_MAP()
-
 
 // VelocityPanelHemisphere //////////////////////////////////////////////////////////
 VelocityPanelHemisphere::VelocityPanelHemisphere(UINT nIDTemplate, CWnd* pParentWnd) : ISwapablePanel(nIDTemplate, pParentWnd)

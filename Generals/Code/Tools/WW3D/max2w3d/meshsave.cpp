@@ -57,7 +57,6 @@
  *   MeshSaveClass::write_ps2_shaders -- Write shaders specific to the PS2 in their own chunk. *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "meshsave.h"
 #include <Max.h>
 #include <stdmat.h>
@@ -76,7 +75,6 @@
 #include "alphamodifier.h"
 #include "aabtreebuilder.h"
 #include "exportlog.h"
-
 
 static char _string1[512];
 const int VOXEL_RESOLUTION = 64;		// resolution to use when computing I, V and CM
@@ -205,8 +203,6 @@ uint32 setup_mesh_attributes(INode * node)
 
 	return attributes;
 }
-
-
 
 /***********************************************************************************************
  * MeshSaveClass::MeshSaveClass -- constructor, processes a Max mesh                           *
@@ -605,7 +601,6 @@ void MeshSaveClass::Build_Mesh(Mesh & mesh, Mtl *node_mtl, unsigned int *materia
 				}
 			}
 
-
 			/*
 			** Texture coordinate.  Apply uv coords if the mesh has them and is not being
 			** instructed to ignore them.
@@ -771,7 +766,6 @@ void MeshSaveClass::Build_Mesh(Mesh & mesh, Mtl *node_mtl, unsigned int *materia
 	ExportLog::printf(" longest strip: %d\n",stats.MaxStripLength);
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::get_skin_modifier_objects -- Searches for the WWSkin modifier for this mesh  *
  *                                                                                             *
@@ -813,7 +807,6 @@ void MeshSaveClass::get_skin_modifier_objects(SkinDataClass ** skin_data_ptr,Ski
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * MeshSaveClass::get_htree_bone_index_for_inode -- searches the htree for the given INode     *
@@ -915,7 +908,6 @@ void MeshSaveClass::inv_deform_mesh()
 	}
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::Write_To_File -- Append the mesh to an open wtm file                         *
  *                                                                                             *
@@ -985,7 +977,6 @@ int MeshSaveClass::Write_To_File(ChunkSaveClass & csave,bool export_aabtree)
 	if (write_shaders(csave) != 0) {
 		return 1;
 	}
-
 
 	if (write_textures(csave) != 0) {
 		return 1;
@@ -1135,7 +1126,6 @@ int MeshSaveClass::write_verts(ChunkSaveClass & csave)
 	return 0;
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::write_vert_normals -- Writes the surrender normal chunk into a wtm file      *
  *                                                                                             *
@@ -1223,7 +1213,6 @@ int MeshSaveClass::write_vert_influences(ChunkSaveClass & csave)
 
 	return 0;
 }
-
 
 /***********************************************************************************************
  * MeshSaveClass::write_triangles -- write the triangles chunk                                 *
@@ -1411,7 +1400,6 @@ int MeshSaveClass::write_shaders(ChunkSaveClass & csave)
 	return 0;
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::write_ps2_shaders -- Write shaders specific to the PS2 in their own chunk.   *
  *                                                                                             *
@@ -1532,7 +1520,6 @@ void MeshSaveClass::setup_PC_shaders_from_PS2_shaders()
 				W3d_Shader_Set_Pri_Gradient(shader, W3DSHADER_PRIGRADIENT_MODULATE);
 				break;
 		}
-
 
 	}
 
@@ -1704,7 +1691,6 @@ int MeshSaveClass::write_texture_stage(ChunkSaveClass & csave,int pass,int stage
 	}
 	return 0;
 }
-
 
 int MeshSaveClass::write_texture_ids(ChunkSaveClass & csave,int pass,int stage)
 {
@@ -2124,7 +2110,6 @@ void MeshSaveClass::compute_bounding_volumes(void)
 	Header.Max.Z = max.Z;
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::compute_physical_properties -- computes the volume and moment of inertia     *
  *                                                                                             *
@@ -2216,7 +2201,6 @@ void MeshSaveClass::compute_physical_constants
 #endif
 }
 
-
 /***********************************************************************************************
  * MeshSaveClass::prep_mesh -- pre-transform the MAX mesh by a specified matrix                *
  *                                                                                             *
@@ -2242,5 +2226,4 @@ void MeshSaveClass::prep_mesh(Mesh & mesh,Matrix3 & objoff)
 	// Re-Build the normals.
 	mesh.buildNormals();
 }
-
 

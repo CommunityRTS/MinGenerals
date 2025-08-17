@@ -43,7 +43,6 @@ MeshMoldOptions::MeshMoldOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void MeshMoldOptions::DoDataExchange(CDataExchange* pDX)
 {
 	COptionsPanel::DoDataExchange(pDX);
@@ -174,7 +173,6 @@ void MeshMoldOptions::setAngle(Int angle)
 		if (pEdit) pEdit->SetWindowText(buffer);
 	}
 }
-
 
 void MeshMoldOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {
@@ -339,7 +337,6 @@ void MeshMoldOptions::OnChangeAngleEdit()
 		}
 }
 
-
 BOOL MeshMoldOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
 	NMTREEVIEW *pHdr = (NMTREEVIEW *)lParam;
@@ -363,7 +360,6 @@ BOOL MeshMoldOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 	}
 	return COptionsPanel::OnNotify(wParam, lParam, pResult);
 }
-
 
 void MeshMoldOptions::OnRaise()
 {

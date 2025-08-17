@@ -149,7 +149,6 @@ WindowMsgHandledType GadgetCheckBoxInput( GameWindow *window, UnsignedInt msg,
 			TheWindowManager->winSendSystemMsg( window->winGetOwner(), GBM_SELECTED,
 																					(WindowMsgData)window, mData1 );
 
-
 			break;
 
 		}  // end left up and left click

@@ -123,7 +123,6 @@ public:
 		TheAudio->addAudioEvent(&sound);
 	}
 
-
 	static void parse(INI *ini, void *instance, void* /*store*/, const void* /*userData*/)
 	{
 		static const FieldParse myFieldParse[] =
@@ -626,7 +625,6 @@ protected:
 					else
 						newPos.z = primary->z + offset.z + m_height.getValue();
 
-
 					if (m_orientToObject && mtx)
 					{
 						sys->setLocalTransform(mtx);
@@ -663,7 +661,6 @@ protected:
 			}
 		}
 	}
-
 
 private:
 	AsciiString			m_name;
@@ -827,8 +824,6 @@ void FXList::doFXObj(const Object* primary, const Object* secondary) const
 		(*it)->doFXObj(primary, secondary);
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

@@ -46,13 +46,11 @@
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 static HordeUpdateInterface* getHUI(Object* obj)
 {
@@ -190,9 +188,6 @@ void HordeUpdate::joinOrLeaveHorde(SimpleObjectIterator *iter, Bool join)
 
 	m_inHorde = join;
 
-
-
-
 	const HordeUpdateModuleData* d = getHordeUpdateModuleData();
 	switch (d->m_action)
 	{
@@ -214,7 +209,6 @@ void HordeUpdate::joinOrLeaveHorde(SimpleObjectIterator *iter, Bool join)
 			}
 			break;
 	}
-
 
 }
 
@@ -249,7 +243,6 @@ void HordeUpdate::onDrawableBoundToObject()
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime HordeUpdate::update( void )
 {
-
 
 	//This code handles decals and ONLY decals!
 	Object *obj = getObject();
@@ -308,11 +301,6 @@ UpdateSleepTime HordeUpdate::update( void )
 
 	}
 
-
-
-
-
-
 	// This is a sticky situation, where refreshing the model state (like from default to damaged, for example)
 	// will rebuild the terraindecal and set its size to the default size.... since Vehicles have a special size,
 	// we want to keep it fresh, here, but not do the horde-ing test every frame...
@@ -356,7 +344,6 @@ UpdateSleepTime HordeUpdate::update( void )
 				}
 			}
 
-
 		}
 		else
 		{
@@ -369,7 +356,6 @@ UpdateSleepTime HordeUpdate::update( void )
 		else if ( wasInHorde && ! m_inHorde )
 				draw->setTerrainDecalFadeTarget(0.0f, -0.03f);
 	}
-
 
 	return isInfantry ? UPDATE_SLEEP(md->m_updateRate) : UPDATE_SLEEP_NONE;
 

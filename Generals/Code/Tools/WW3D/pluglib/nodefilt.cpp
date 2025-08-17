@@ -43,16 +43,13 @@
  *   VisibleSelectedINodeFilter::Accept_Node -- Accepts Visible and selected inodes            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "nodefilt.h"
 #include <istdplug.h>
-
 
 /*
 **	The default node filter:
 */
 VisibleMeshINodeFilter DefaultINodeFilter;
-
 
 /***********************************************************************************************
  * HelperINodeFilter::Accept_Node -- Accepts all helper inodes (including hidden)              *
@@ -78,7 +75,6 @@ BOOL HelperINodeFilter::Accept_Node(INode * node,TimeValue time)
 
 	return FALSE;
 }
-
 
 /***********************************************************************************************
  * MeshINodeFilter::Accept_Node -- Accepts all mesh inodes (including hidden)                  *
@@ -109,7 +105,6 @@ BOOL MeshINodeFilter::Accept_Node(INode * node,TimeValue time)
 
 	}
 }
-
 
 /***********************************************************************************************
  * VisibleMeshINodeFilter::Accept_Node -- Accepts visible meshes                               *
@@ -181,7 +176,6 @@ BOOL VisibleHelperINodeFilter::Accept_Node(INode * node, TimeValue time)
 
 	return FALSE;
 }
-
 
 /***********************************************************************************************
  * VisibleMeshOrHelperINodeFilter::Accept_Node -- Accepts visible helper or mesh objects       *
@@ -261,7 +255,6 @@ BOOL AnimatedINodeFilter::Accept_Node(INode * node, TimeValue time)
 
 	return FALSE;
 }
-
 
 /***********************************************************************************************
  * VisibleSelectedINodeFilter::Accept_Node -- Accepts Visible and selected inodes              *

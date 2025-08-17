@@ -37,11 +37,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "rinfo.h"
 #include "camera.h"
 #include "matpass.h"
-
 
 /***********************************************************************************************
 **
@@ -127,8 +125,6 @@ RenderInfoClass::RINFO_OVERRIDE_FLAGS & RenderInfoClass::Current_Override_Flags(
 {
 	return OverrideFlag[OverrideFlagLevel];
 }
-
-
 
 /***********************************************************************************************
 **

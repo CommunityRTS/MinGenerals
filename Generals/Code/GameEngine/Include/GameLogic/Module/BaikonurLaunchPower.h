@@ -67,7 +67,6 @@ public:
 	AsciiString m_detonationObject;
 };
 
-
 //-------------------------------------------------------------------------------------------------
 class BaikonurLaunchPower : public SpecialPowerModule
 {

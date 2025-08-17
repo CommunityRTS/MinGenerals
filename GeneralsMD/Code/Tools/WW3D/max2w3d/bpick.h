@@ -35,14 +35,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef BPICK_H
 #define BPICK_H
 
 #include "Max.h"
 //#include "dllmain.h"
 //#include "resource.h"
-
 
 /*
 **	To use the Bone picking class, you should inherit from this class
@@ -54,7 +52,6 @@ public:
 	virtual void User_Picked_Bone(INode * node) = 0;
 	virtual void User_Picked_Bones(INodeTab & nodetab) = 0;
 };
-
 
 /*
 ** BonePickerClass
@@ -124,6 +121,5 @@ protected:
 };
 
 extern BonePickerClass TheBonePicker;
-
 
 #endif

@@ -43,12 +43,10 @@ static NameKeyType parentWindowID = NAMEKEY_INVALID;
 static NameKeyType buttonBackID = NAMEKEY_INVALID;
 static NameKeyType windowLadderID = NAMEKEY_INVALID;
 
-
 // window pointers --------------------------------------------------------------------------------
 static GameWindow *parentWindow = NULL;
 static GameWindow *buttonBack = NULL;
 static GameWindow *windowLadder = NULL;
-
 
 //-------------------------------------------------------------------------------------------------
 /** Initialize the single player menu */
@@ -173,7 +171,6 @@ WindowMsgHandledType WOLLadderScreenSystem( GameWindow *window, UnsignedInt msg,
 		// --------------------------------------------------------------------------------------------
 		case GWM_CREATE:
 		{
-
 
 			break;
 

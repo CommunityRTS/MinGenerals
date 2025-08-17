@@ -80,8 +80,6 @@
 #include <shlwapi.h>
 //#include "resources.h"
 
-
-
 //----------------------------------------------------------------------------
 //
 // Function: Fix_Single_Ampersands()
@@ -233,7 +231,6 @@ void Fix_Double_Ampersands ( LPSTR pszString, bool upper_case )
 	strcpy((LPSTR)pszString, (LPSTR)pszTemp );
 }
 
-
 /******************************************************************************
  * Load_Alloc_Data -- Allocates a buffer and loads the file into it.          *
  *                                                                            *
@@ -326,7 +323,6 @@ void *Load_File ( char *filename, long *filesize )
 	return( ptr );
 }
 
-
 /****************************************************************************
  * MAKE_CURRENT_PATH_TO -- Returns a buffer to path desired.				*
  *                                                                 			*
@@ -376,7 +372,6 @@ wchar_t *Make_Current_Path_To ( wchar_t *filename, wchar_t *path )
 	return( path );
 }
 
-
 /******************************************************************************
  * Path_Add_Back_Slash -- Add a '\\' to the end of the path.
  *
@@ -409,7 +404,6 @@ wchar_t *Path_Add_Back_Slash ( wchar_t *path )
 	}
 	return( path );
 }
-
 
 /******************************************************************************
  * Path_Remove_Back_Slash -- Remove a '\\' from the end of the path.
@@ -663,7 +657,4 @@ void PlugInProductName ( wchar_t *szString, const wchar_t *szName )
 		wcscpy( szString, szOut );
 	}
 }
-
-
-
 

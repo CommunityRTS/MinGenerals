@@ -51,11 +51,9 @@
 #include "shd7bumpdiffpass0.vsh_code.h"
 #include "shd7bumpdiffpass1.vsh_code.h"
 
-
 ShdHWVertexShader		Shd7BumpDiffClass::Pass_0_Vertex_Shader;
 ShdHWVertexShader		Shd7BumpDiffClass::Pass_1_Vertex_Shader;
 Matrix4x4				Shd7BumpDiffClass::View_Projection_Matrix;
-
 
 Shd7BumpDiffClass::Shd7BumpDiffClass(const ShdDefClass* def)
 :	ShdInterfaceClass(def,SHDDEF_CLASSID_BUMPDIFF),
@@ -124,7 +122,6 @@ void Shd7BumpDiffClass::Shutdown()
 	Pass_0_Vertex_Shader.Destroy();
 	Pass_1_Vertex_Shader.Destroy();
 }
-
 
 //**********************************************************************************************
 //! Apply shared states for 2 pass DX7 bump diffuse

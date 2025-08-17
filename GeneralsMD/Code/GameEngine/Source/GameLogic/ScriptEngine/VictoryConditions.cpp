@@ -366,5 +366,3 @@ Bool VictoryConditions::isLocalDefeat( void )
 	return (m_localPlayerDefeated);
 }
 
-
-

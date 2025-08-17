@@ -26,7 +26,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // CNewHeightMap dialog
 
-
 CNewHeightMap::CNewHeightMap(TNewHeightInfo *hiP,  const char *label, CWnd* pParent /*=NULL*/)
 	: CDialog(CNewHeightMap::IDD, pParent)
 {
@@ -37,7 +36,6 @@ CNewHeightMap::CNewHeightMap(TNewHeightInfo *hiP,  const char *label, CWnd* pPar
 	//}}AFX_DATA_INIT
 }
 
-
 void CNewHeightMap::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -45,7 +43,6 @@ void CNewHeightMap::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CNewHeightMap, CDialog)
 	//{{AFX_MSG_MAP(CNewHeightMap)
@@ -76,7 +73,6 @@ BOOL CNewHeightMap::OnInitDialog()
 	val.Format("%d", mHeightInfo.yExtent);
 	if (edit) edit->SetWindowText(val);
 	if (m_label) SetWindowText(m_label);
-
 
 	CButton *pButton;
 	if (mHeightInfo.forResize) {
@@ -185,7 +181,6 @@ Bool CNewHeightMap::doAnchorButton(Int buttonID)
 
 }
 
-
 void CNewHeightMap::OnOK()
 {
 	CWnd *edit = GetDlgItem(IDC_INITIAL_HEIGHT);
@@ -211,7 +206,6 @@ void CNewHeightMap::OnOK()
 	}
 	CDialog::OnOK();
 }
-
 
 BOOL CNewHeightMap::OnCommand(WPARAM wParam, LPARAM lParam)
 {

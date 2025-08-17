@@ -45,7 +45,6 @@ class CReport : public CDialog
 	CButton *ifless;
 	CStatic *items;
 
-
 // Construction
 public:
 	CReport(CWnd* pParent = NULL);   // standard constructor
@@ -59,7 +58,6 @@ public:
 	enum { IDD = IDD_CREATE_REPORTS };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

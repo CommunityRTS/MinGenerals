@@ -106,7 +106,6 @@ static NameKeyType staticTextNumPlayersID = NAMEKEY_INVALID;
 static NameKeyType comboBoxSideID = NAMEKEY_INVALID;
 static NameKeyType comboBoxColorID = NAMEKEY_INVALID;
 
-
 // Window Pointers ------------------------------------------------------------------------
 static GameWindow *parentWOLQuickMatch = NULL;
 static GameWindow *buttonBack = NULL;
@@ -227,7 +226,6 @@ enum{ MAX_DISCONNECTS_COUNT = 5 };
 static Int MAX_DISCONNECTS[MAX_DISCONNECTS_COUNT] = {MAX_DISCONNECTS_ANY, MAX_DISCONNECTS_5,
 																											MAX_DISCONNECTS_10, MAX_DISCONNECTS_25,
 																											MAX_DISCONNECTS_50};
-
 
 void UpdateStartButton(void)
 {
@@ -584,7 +582,6 @@ static void populateQuickMatchMapSelectListbox( QuickMatchPreferences& pref )
 		numPlayers = (selected+1)*2;
 	}
 
-
 	GadgetListBoxReset(listboxMapSelect);
 	for (std::list<AsciiString>::const_iterator it = maps.begin(); it != maps.end(); ++it)
 	{
@@ -687,7 +684,6 @@ static void saveQuickMatchOptions( void )
 
 	GadgetComboBoxGetSelectedPos(comboBoxMaxDisconnects, &selected);
 	pref.setMaxDisconnects(selected);
-
 
 	pref.write();
 }
@@ -837,7 +833,6 @@ void WOLQuickMatchMenuInit( WindowLayout *layout, void *userData )
 	unselectedImage = TheMappedImageCollection->findImageByName("CustomMatch_deselected");
 	QuickMatchPreferences pref;
 
-
 	UnicodeString s;
 //	s.format(L"%d", pref.getMaxDisconnects());
 //	GadgetTextEntrySetText(textEntryMaxDisconnects, s);
@@ -957,7 +952,6 @@ void WOLQuickMatchMenuShutdown( WindowLayout *layout, void *userData )
 
 	RaiseGSMessageBox();
 }  // WOLQuickMatchMenuShutdown
-
 
 #ifdef PERF_TEST
 static const char* getMessageString(Int t)
@@ -1189,7 +1183,6 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
 				}
             break; // LORENZEN ADDED. SORRY IF THIS "BREAKS" IT...
 
-
 			case PeerResponse::PEERRESPONSE_JOINGROUPROOM:
 				/*
 				if (resp.joinGroupRoom.ok)
@@ -1224,7 +1217,6 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
 				}
 				break;
 
-
 // LORENZEN EXPRESSES DOUBT ABOUT THIS ONE, AS IT MAY HAVE SUFFERED MERGE MANGLING... SORRY
             // I THINK THIS IS THE OBSOLETE VERSION... SEE THE NEWER LOOKING ONE ABOVE
 /*
@@ -1241,8 +1233,6 @@ void WOLQuickMatchMenuUpdate( WindowLayout * layout, void *userData)
   					TheShell->pop();
   				}
 */
-
-
 
 			case PeerResponse::PEERRESPONSE_CREATESTAGINGROOM:
 				{
@@ -1527,7 +1517,6 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 	switch( msg )
 	{
 
-
 		case GWM_CREATE:
 			{
 
@@ -1788,7 +1777,6 @@ WindowMsgHandledType WOLQuickMatchMenuSystem( GameWindow *window, UnsignedInt ms
 						numDiscons += it->second;
 					}
 					req.QM.discons = numDiscons;
-
 
 					strncpy(req.QM.pings, TheGameSpyInfo->getPingString().str(), 17);
 					req.QM.pings[16] = 0;

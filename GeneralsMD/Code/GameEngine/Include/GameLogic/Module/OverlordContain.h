@@ -36,7 +36,6 @@
 #include "GameLogic/Module/TransportContain.h"
 #include "GameLOgic/GameLogic.h"
 
-
 typedef std::vector<AsciiString> TemplateNameList;
 typedef std::vector<AsciiString>::const_iterator TemplateNameIterator;
 
@@ -49,7 +48,6 @@ public:
 
 	TemplateNameList m_payloadTemplateNameData;
 	Bool m_experienceSinkForRider;
-
 
 	static void buildFieldParse(MultiIniFieldParse& p);
 	static void parseInitialPayload( INI* ini, void *instance, void *store, const void* /*userData*/ );
@@ -78,7 +76,6 @@ public:
 	virtual Bool isImmuneToClearBuildingAttacks() const { return true; }
   virtual Bool isSpecialOverlordStyleContainer() const {return TRUE;}
 	virtual Bool isPassengerAllowedToFire( ObjectID id = INVALID_ID ) const;	///< Hey, can I shoot out of this container?
-
 
 	virtual void onDie( const DamageInfo *damageInfo );  ///< the die callback
 	virtual void onDelete( void );	///< Last possible moment cleanup

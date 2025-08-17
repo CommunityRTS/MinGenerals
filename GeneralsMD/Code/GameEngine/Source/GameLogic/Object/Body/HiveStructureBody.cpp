@@ -43,7 +43,6 @@
 
 #include "GameLogic/Module/ContainModule.h"
 
-
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------------------------------
@@ -52,7 +51,6 @@ HiveStructureBodyModuleData::HiveStructureBodyModuleData()
 	m_damageTypesToPropagateToSlaves = DAMAGE_TYPE_FLAGS_NONE;
 	m_damageTypesToSwallow = DAMAGE_TYPE_FLAGS_NONE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 HiveStructureBody::HiveStructureBody( Thing *thing, const ModuleData* moduleData )
@@ -127,7 +125,6 @@ void HiveStructureBody::attemptDamage( DamageInfo *damageInfo )
 		{
 			DEBUG_CRASH( ("%s has a HiveStructureBody module, which requires a SpawnBehavior module. Thus it is unable to propagate damage to slaves.", hive->getTemplate()->getName().str() ) );
 		}
-
 
 	}
 

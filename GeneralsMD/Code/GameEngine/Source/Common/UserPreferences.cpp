@@ -106,7 +106,6 @@ static AsciiString realAsStr(Real val)
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 
-
 //-----------------------------------------------------------------------------
 // UserPreferences Class
 //-----------------------------------------------------------------------------
@@ -692,7 +691,6 @@ void CustomMatchPreferences::setPreferredMap(AsciiString val)
 	(*this)["Map"] = AsciiStringToQuotedPrintable(val);
 }
 
-
 static const char superweaponRestrictionKey[] = "SuperweaponRestrict";
 
 Bool CustomMatchPreferences::getSuperweaponRestricted(void) const
@@ -735,7 +733,6 @@ void CustomMatchPreferences::setStartingCash( const Money & startingCash )
   (*this)[startingCashKey] = option;
 }
 
-
 static const char limitFactionsKey[] = "LimitArmies";
 
 // Prefers to only use the original 3 sides, not USA Air Force General, GLA Toxin General, et al
@@ -754,7 +751,6 @@ void CustomMatchPreferences::setFactionsLimited( Bool factionsLimited )
 {
   (*this)[limitFactionsKey] = factionsLimited ? "Yes" : "No";
 }
-
 
 static const char useStatsKey[] = "UseStats";
 

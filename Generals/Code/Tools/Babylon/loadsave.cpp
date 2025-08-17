@@ -77,7 +77,6 @@ typedef struct
 
 } WVINFO;
 
-
 static int writeString ( IFF_FILE *iff, OLECHAR *string, int chunk_id )
 {
 	int len = (wcslen ( string ) );
@@ -225,7 +224,6 @@ int WriteMainDB(TransDB *db, const char *filename, CNoxstringDlg *dlg )
 		dlg->InitProgress ( db->NumLabels ());
 	}
 
-
 	if ( !( iff = IFF_New ( filename )))
 	{
 		goto error;
@@ -259,8 +257,6 @@ int WriteMainDB(TransDB *db, const char *filename, CNoxstringDlg *dlg )
 		}
 		text = db->NextObsolete ( sh_text );
 	}
-
-
 
 	label = db->FirstLabel ( sh_label );
 
@@ -346,7 +342,6 @@ int LoadMainDB(TransDB *db, const char *filename, void (*cb) (void) )
 	IFF_FILE	*iff = NULL;
 	DBINFO		dbinfo;
 	int ok = FALSE;
-
 
 	if ( !(iff = IFF_Load ( filename ) ) )
 	{
@@ -613,13 +608,11 @@ error:
 	return ok;
 }
 
-
 int	GetLabelCountDB ( char *filename )
 {
 	IFF_FILE	*iff = NULL;
 	DBINFO		dbinfo;
 	int count = 0;
-
 
 	if ( !(iff = IFF_Open ( filename ) ) )
 	{
@@ -643,7 +636,6 @@ int	GetLabelCountDB ( char *filename )
 				break;
 		}
 	}
-
 
 	count = dbinfo.num_labels;
 

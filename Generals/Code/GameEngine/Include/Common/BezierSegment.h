@@ -51,7 +51,6 @@ class BezierSegment
 
 		BezierSegment(Real cp[16]);
 
-
 		BezierSegment(const Coord3D& cp0,
 									const Coord3D& cp1,
 									const Coord3D& cp2,

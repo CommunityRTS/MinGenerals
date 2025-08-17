@@ -16,10 +16,8 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "Common/SimplePlayer.h"
 #include "Common/URLLaunch.h"
-
 
 ///////////////////////////////////////////////////////////////////////////////
 CSimplePlayer::CSimplePlayer( HRESULT* phr )
@@ -55,7 +53,6 @@ CSimplePlayer::CSimplePlayer( HRESULT* phr )
     InitializeCriticalSection( &m_CriSec );
     m_whdrHead = NULL;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 CSimplePlayer::~CSimplePlayer()
@@ -99,7 +96,6 @@ CSimplePlayer::~CSimplePlayer()
 	}
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT STDMETHODCALLTYPE CSimplePlayer::QueryInterface(
     REFIID riid,
@@ -108,13 +104,11 @@ HRESULT STDMETHODCALLTYPE CSimplePlayer::QueryInterface(
     return( E_NOINTERFACE );
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 ULONG STDMETHODCALLTYPE CSimplePlayer::AddRef()
 {
     return( InterlockedIncrement( &m_cRef ) );
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ULONG STDMETHODCALLTYPE CSimplePlayer::Release()
@@ -128,7 +122,6 @@ ULONG STDMETHODCALLTYPE CSimplePlayer::Release()
 
     return( uRet );
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT STDMETHODCALLTYPE CSimplePlayer::OnSample(
@@ -300,7 +293,6 @@ HRESULT CSimplePlayer::Play( LPCWSTR pszUrl, DWORD dwSecDuration, HANDLE hComple
         DEBUG_LOG(( "failed to open (hr=0x%08x)\n", hr ));
         return( hr );
     }
-
 
     //
     // It worked!  Display various attributes
@@ -496,7 +488,6 @@ HRESULT CSimplePlayer::Play( LPCWSTR pszUrl, DWORD dwSecDuration, HANDLE hComple
     return( hr );
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT STDMETHODCALLTYPE CSimplePlayer::OnStatus(
         /* [in] */ WMT_STATUS Status,
@@ -618,7 +609,6 @@ HRESULT STDMETHODCALLTYPE CSimplePlayer::OnStatus(
     return( S_OK );
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT CSimplePlayer::Close()
 {
@@ -636,7 +626,6 @@ HRESULT CSimplePlayer::Close()
 
     return( hr );
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 void CSimplePlayer::OnWaveOutMsg( UINT uMsg, DWORD dwParam1, DWORD dwParam2 )
@@ -657,7 +646,6 @@ void CSimplePlayer::OnWaveOutMsg( UINT uMsg, DWORD dwParam1, DWORD dwParam2 )
         }
     }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 void CALLBACK CSimplePlayer::WaveProc(

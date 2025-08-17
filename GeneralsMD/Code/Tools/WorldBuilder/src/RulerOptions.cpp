@@ -46,7 +46,6 @@ void RulerOptions::DoDataExchange(CDataExchange* pDX)
 	//}}AFX_DATA_MAP
 }
 
-
 /** Update the value in the edit control. */
 void RulerOptions::setWidth(Real width)
 {
@@ -60,7 +59,6 @@ void RulerOptions::setWidth(Real width)
 		}
 	}
 }
-
 
 /// Dialog UI initialization.
 BOOL RulerOptions::OnInitDialog()
@@ -119,9 +117,6 @@ void RulerOptions::OnChangeCheckRuler()
 		}
 	}
 }
-
-
-
 
 BEGIN_MESSAGE_MAP(RulerOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(RulerOptions)

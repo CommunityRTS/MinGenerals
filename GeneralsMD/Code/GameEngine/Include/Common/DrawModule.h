@@ -116,7 +116,6 @@ inline DrawModule::DrawModule( Thing *thing, const ModuleData* moduleData ) : Dr
 inline DrawModule::~DrawModule() { }
 //-------------------------------------------------------------------------------------------------
 
-
 //-------------------------------------------------------------------------------------------------
 /** VARIOUS MODULE INTERFACES */
 //-------------------------------------------------------------------------------------------------
@@ -256,7 +255,6 @@ protected:
 	int		m_boneCount;
 	int		m_shadowDrawCount;
 };
-
 
 #endif // __DRAWMODULE_H_
 

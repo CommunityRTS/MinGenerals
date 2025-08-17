@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "StdAfx.h"
 #include "SplashScreen.h"
 
@@ -29,7 +28,6 @@ SplashScreen::SplashScreen()
 	m_rect.bottom = 0;
 
 	m_loadString = "Cock & Beer";
-
 
 	LOGFONT lf;
 	lf.lfHeight = 12;
@@ -74,7 +72,6 @@ void SplashScreen::OnPaint()
 {
 	// we're extending the default behavior
 	CDialog::OnPaint();
-
 
 	CDC *dc = GetDC();
 

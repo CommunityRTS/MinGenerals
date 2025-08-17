@@ -42,7 +42,6 @@
  *   CatmullRomSpline1DClass::Load -- Load this curve                                          *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "catmullromspline.h"
 #include "persistfactory.h"
 #include "wwmathids.h"
@@ -67,7 +66,6 @@ enum
 	// ID's used by CatmullRomSpline1D
 	CATMULLROM1D_CHUNK_HERMITE1D					= 0x00020729,
 };
-
 
 /*
 ** Catmull-Rom 3D spline implementation
@@ -142,7 +140,6 @@ void CatmullRomSpline3DClass::Update_Tangents(void)
 	TangentsDirty = false;
 }
 
-
 /***********************************************************************************************
  * CatmullRomSpline3DClass::Get_Factory -- returns the factory for CatmullRomSpline3D          *
  *                                                                                             *
@@ -159,7 +156,6 @@ const PersistFactoryClass & CatmullRomSpline3DClass::Get_Factory(void) const
 {
 	return _CatmullRomSpline3DFactory;
 }
-
 
 /***********************************************************************************************
  * CatmullRomSpline3DClass::Save -- save this curve                                            *
@@ -180,7 +176,6 @@ bool CatmullRomSpline3DClass::Save(ChunkSaveClass &csave)
 	csave.End_Chunk();
 	return true;
 }
-
 
 /***********************************************************************************************
  * CatmullRomSpline3DClass::Load -- load this curve                                            *
@@ -214,11 +209,9 @@ bool CatmullRomSpline3DClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 /*
 ** The 1D Catmull-Rom implementation.
 */
-
 
 /***********************************************************************************************
  * CatmullRomSpline1DClass::Update_Tangents -- Computes the tangents at each key               *
@@ -281,7 +274,6 @@ void CatmullRomSpline1DClass::Update_Tangents(void)
 	TangentsDirty = false;
 }
 
-
 /***********************************************************************************************
  * CatmullRomSpline1DClass::Get_Factory -- returns the factory for CatmullRomSpline1D          *
  *                                                                                             *
@@ -298,7 +290,6 @@ const PersistFactoryClass & CatmullRomSpline1DClass::Get_Factory(void) const
 {
 	return _CatmullRomSpline1DFactory;
 }
-
 
 /***********************************************************************************************
  * CatmullRomSpline1DClass::Save -- Save this curve                                            *
@@ -319,7 +310,6 @@ bool CatmullRomSpline1DClass::Save(ChunkSaveClass &csave)
 	csave.End_Chunk();
 	return true;
 }
-
 
 /***********************************************************************************************
  * CatmullRomSpline1DClass::Load -- Load this curve                                            *

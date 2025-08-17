@@ -145,7 +145,6 @@ inline const Image *GadgetRadioGetSelectedImage( GameWindow *g )									{ retur
 inline const Image *GadgetRadioGetSelectedUncheckedBoxImage( GameWindow *g )					{ return g->winGetHiliteImage( 4 ); }
 inline const Image *GadgetRadioGetSelectedCheckedBoxImage( GameWindow *g )						{ return g->winGetHiliteImage( 5 ); }
 
-
 // EXTERNALS //////////////////////////////////////////////////////////////////
 
 #endif // __GADGETRADIOBUTTON_H_

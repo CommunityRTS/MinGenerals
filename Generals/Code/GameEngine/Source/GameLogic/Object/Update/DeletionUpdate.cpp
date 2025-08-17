@@ -51,7 +51,6 @@ DeletionUpdate::~DeletionUpdate( void )
 {
 }
 
-
 //#define CRISS_CROSS_GEOMETRY
 
 //-------------------------------------------------------------------------------------------------
@@ -97,7 +96,6 @@ UpdateSleepTime DeletionUpdate::update( void )
 		TheGameLogic->destroyObject( getObject() );
 		return UPDATE_SLEEP_FOREVER;
 	}
-
 
 	return UPDATE_SLEEP(2);
 #else

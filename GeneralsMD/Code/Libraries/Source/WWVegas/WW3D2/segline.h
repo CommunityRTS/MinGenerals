@@ -46,7 +46,6 @@
 #include "simplevec.h"
 #include "seglinerenderer.h"
 
-
 class TextureClass;
 
 /*

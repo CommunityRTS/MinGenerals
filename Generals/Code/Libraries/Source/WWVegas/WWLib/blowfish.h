@@ -39,14 +39,12 @@
 
 #include	<limits.h>
 
-
 /*
 **	The "bool" integral type was defined by the C++ committee in
 **	November of '94. Until the compiler supports this, use the following
 **	definition.
 */
 #include	"bool.h"
-
 
 /*
 **	This engine will process data blocks by encryption and decryption.

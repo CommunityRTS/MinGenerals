@@ -36,12 +36,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "animationcompressionsettings.h"
 #include "dllmain.h"
 #include "resource.h"
 #include "w3dexp.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -57,7 +55,6 @@ AnimationCompressionSettingsDialogClass::AnimationCompressionSettingsDialogClass
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	~AnimationCompressionSettingsDialogClass
@@ -67,7 +64,6 @@ AnimationCompressionSettingsDialogClass::~AnimationCompressionSettingsDialogClas
 {
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -81,7 +77,6 @@ AnimationCompressionSettingsDialogClass::Do_Modal (void)
 													ParentWnd, Real_Message_Proc, (LPARAM)this);
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -128,7 +123,6 @@ AnimationCompressionSettingsDialogClass::Real_Message_Proc
 
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -190,7 +184,6 @@ AnimationCompressionSettingsDialogClass::Message_Proc
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Initialize_Controls
@@ -246,7 +239,6 @@ AnimationCompressionSettingsDialogClass::Initialize_Controls (void)
 	::SetDlgItemText (Wnd, IDC_MAX_ROT_ERROR_EDIT, string);
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //

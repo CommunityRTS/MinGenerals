@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -73,7 +72,6 @@ protected:
 
 	SceneIterator(void) { };
 };
-
 
 /**
 ** SceneClass
@@ -163,7 +161,6 @@ public:
 	///////////////////////////////////////////////////////////////////////////////////
 	virtual float				Compute_Point_Visibility(	RenderInfoClass & rinfo,
 																		const Vector3 & point)	{ return 1.0f; }
-
 
 	///////////////////////////////////////////////////////////////////////////////////
 	//	Save-Load, records the fog, depth cue, etc settings into a chunk

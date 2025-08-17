@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "GameNetwork/NetCommandList.h"
@@ -222,7 +221,6 @@ NetCommandRef * NetCommandList::addMessage(NetCommandMsg *cmdMsg) {
 		m_lastMessageInserted = msg;
 		return msg;
 	}
-
 
 	// Find the start of the command type we're looking for.
 	NetCommandRef *tempmsg = m_first;

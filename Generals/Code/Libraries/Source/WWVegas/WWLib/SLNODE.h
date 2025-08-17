@@ -85,7 +85,6 @@ class	GenericSLNode : public AutoPoolClass<GenericSLNode, 256>
 		void		*NodeData;			//	Current Node in the list chain
 };
 
-
 template	<class T>
 class	SLNode : public GenericSLNode
 {

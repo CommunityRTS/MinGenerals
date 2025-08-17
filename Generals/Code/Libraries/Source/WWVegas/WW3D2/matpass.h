@@ -55,7 +55,6 @@
 #include "wwdebug.h"
 #endif
 
-
 class TextureClass;
 class VertexMaterialClass;
 class MeshModelClass;
@@ -119,13 +118,11 @@ protected:
 
 };
 
-
 inline TextureClass * MaterialPassClass::Peek_Texture(int stage) const
 {
 	WWASSERT(stage >= 0);
 	WWASSERT(stage < MAX_TEX_STAGES);
 	return Texture[stage];
 }
-
 
 #endif // MATPASS_H

@@ -36,7 +36,6 @@
  *   HModelLoaderClass::Load -- reads in an hmodel definition and creates a prototype for it   *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "proto.h"
 #include "mesh.h"
 #include "hmdldef.h"
@@ -48,7 +47,6 @@
 */
 MeshLoaderClass		_MeshLoader;
 HModelLoaderClass		_HModelLoader;
-
 
 /*
 ** Prototype Classes
@@ -82,7 +80,6 @@ RenderObjClass * PrimitivePrototypeClass::Create(void)
 	return (RenderObjClass *)( SET_REF_OWNER( Proto->Clone() ) );
 }
 
-
 class HModelPrototypeClass : public W3DMPO, public PrototypeClass
 {
 	W3DMPO_GLUE(HModelPrototypeClass)
@@ -100,7 +97,6 @@ protected:
 	virtual ~HModelPrototypeClass(void)							{ if (HModelDef) delete HModelDef; }
 
 };
-
 
 /***********************************************************************************************
  * MeshLoaderClass::Load -- reads in a mesh and creates a prototype for it                     *
@@ -138,7 +134,6 @@ PrototypeClass * MeshLoaderClass::Load_W3D(ChunkLoadClass & cload)
 
 	}
 }
-
 
 /***********************************************************************************************
  * HModelLoaderClass::Load -- reads in an hmodel and creates a prototype for it                *

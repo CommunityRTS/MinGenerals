@@ -94,7 +94,6 @@ namespace
   };
 }
 
-
 void INI::parseMultiplayerStartingMoneyChoiceDefinition( INI* ini )
 {
   DEBUG_ASSERTCRASH( ini->getLoadType() != INI_LOAD_CREATE_OVERRIDES, ("Overrides not supported for MultiplayerStartingMoneyChoice") );

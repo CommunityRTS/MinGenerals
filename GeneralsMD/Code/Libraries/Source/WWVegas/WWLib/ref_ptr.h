@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -326,7 +325,6 @@ class RefCountPtr
 			if (rhs.Referent) {
 				rhs.Referent->Add_Ref();
 			}
-
 
 			if (Referent) {
 				Referent->Release_Ref();

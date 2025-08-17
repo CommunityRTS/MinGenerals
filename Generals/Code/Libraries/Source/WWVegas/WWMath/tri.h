@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -47,7 +46,6 @@
 #include "vector3.h"
 #include "vector2.h"
 #include <assert.h>
-
 
 /**
 ** TriClass
@@ -75,11 +73,9 @@ public:
 		((Vector3 *)N)->Normalize();
 	}
 
-
 	bool Contains_Point(const Vector3 & ipoint) const;
 	void Find_Dominant_Plane(int * axis1,int * axis2) const;
 };
-
 
 /*
 ** Utility functions:
@@ -212,7 +208,6 @@ inline bool Point_In_Triangle_2D(const Vector3 &tri_point0, const Vector3 &tri_p
 		}
 	}
 }
-
 
 // This function tests a semi-infinite axis-aligned ray vs. a triangle.
 // The inputs are blah blah blah

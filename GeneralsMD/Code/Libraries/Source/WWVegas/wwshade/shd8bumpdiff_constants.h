@@ -24,14 +24,12 @@
 
 // vertex shader macros
 
-
 #define CV_WORLD_VIEW_PROJECTION			1
 
 #define CV_WORLD_VIEW_PROJECTION_0		1
 #define CV_WORLD_VIEW_PROJECTION_1		2
 #define CV_WORLD_VIEW_PROJECTION_2		3
 #define CV_WORLD_VIEW_PROJECTION_3		4
-
 
 #define CV_WORLD								12
 
@@ -62,7 +60,6 @@
 #define V_T										v5
 #define V_SxT									v6
 
-
 // registers
 #define HALF_ANGLE			r0
 
@@ -81,7 +78,6 @@
 #define EYE_VECTOR			r11
 #define WORLD_VERTEX			r11
 
-
 // pixel shader constants
 
 #define OUTPUT_REG			r0
@@ -92,7 +88,5 @@
 
 #define COL_LIGHT			v0
 #define COL_DIFFUSE		v1
-
-
 
 #endif

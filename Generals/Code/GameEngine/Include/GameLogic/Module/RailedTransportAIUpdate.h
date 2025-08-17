@@ -97,6 +97,5 @@ protected:
 
 };
 
-
 #endif  // end __RAILED_TRANSPORT_AI_UPDATE_H_
 

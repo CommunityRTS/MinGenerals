@@ -37,7 +37,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -55,7 +54,6 @@
 #include "coltype.h"
 
 class RenderObjClass;
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // CollisionTestClass
@@ -100,7 +98,6 @@ public:
 	RenderObjClass *				CollidedRenderObj;
 };
 
-
 inline CollisionTestClass::CollisionTestClass(CastResultStruct * res,int collision_type) :
 	Result(res),
 	CollisionType(collision_type),
@@ -114,7 +111,6 @@ inline CollisionTestClass::CollisionTestClass(const CollisionTestClass & that) :
 	CollidedRenderObj(that.CollidedRenderObj)
 {
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // RayCollisionTestClass
@@ -148,7 +144,6 @@ private:
 
 };
 
-
 inline RayCollisionTestClass::RayCollisionTestClass(const LineSegClass & ray,CastResultStruct * res,int collision_type,bool check_translucent, bool check_hidden) :
 	CollisionTestClass(res,collision_type),
 	Ray(ray),
@@ -179,7 +174,6 @@ inline bool RayCollisionTestClass::Cast_To_Triangle(const TriClass & tri)
 {
 	return CollisionMath::Collide(Ray,tri,Result);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AABoxCollisionTestClass
@@ -227,7 +221,6 @@ private:
 
 };
 
-
 inline void AABoxCollisionTestClass::Translate(const Vector3 & translation)
 {
 	// translate the test by the desired translation vector
@@ -256,7 +249,6 @@ inline bool AABoxCollisionTestClass::Cast_To_Triangle(const TriClass & tri)
 {
 	return CollisionMath::Collide(Box,Move,tri,Result);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // OBBoxCollisionTestClass
@@ -291,7 +283,6 @@ private:
 	OBBoxCollisionTestClass & operator = (const OBBoxCollisionTestClass &);
 };
 
-
 inline bool OBBoxCollisionTestClass::Cull(const Vector3 & min,const Vector3 & max)
 {
 	if ((SweepMin.X > max.X) || (SweepMax.X < min.X)) {
@@ -312,6 +303,5 @@ inline bool OBBoxCollisionTestClass::Cast_To_Triangle(const TriClass & tri)
 {
 	return CollisionMath::Collide(Box,Move,tri,Vector3(0,0,0),Result);
 }
-
 
 #endif

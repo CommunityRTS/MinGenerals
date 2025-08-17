@@ -59,7 +59,6 @@
 //#include	<stdlib.h>
 #include	<string.h>
 
-
 /***********************************************************************************************
  * XSurface::Draw_Line -- Draws a line upon the surface.                                       *
  *                                                                                             *
@@ -85,7 +84,6 @@ bool XSurface::Draw_Line(Point2D const & startpoint, Point2D const & endpoint, i
 {
 	return(XSurface::Draw_Line(Get_Rect(), startpoint, endpoint, color));
 }
-
 
 /***********************************************************************************************
  * XSurface::Draw_Line -- Draw a line and perform clipping.                                    *
@@ -212,7 +210,6 @@ bool XSurface::Draw_Line(Rect const & xcliprect, Point2D const & startpoint, Poi
 	return(false);
 }
 
-
 /***********************************************************************************************
  * XSurface::Draw_Rect -- Draws a rectangle on the surface.                                    *
  *                                                                                             *
@@ -234,7 +231,6 @@ bool XSurface::Draw_Rect(Rect const & crect, int color)
 {
 	return(XSurface::Draw_Rect(Get_Rect(), crect, color));
 }
-
 
 /***********************************************************************************************
  * XSurface::Draw_Rect -- Draw a rectangle with an arbitrary clipping rectangle.               *
@@ -270,7 +266,6 @@ bool XSurface::Draw_Rect(Rect const & cliprect, Rect const & crect, int color)
 	return(true);
 }
 
-
 /***********************************************************************************************
  * XSurface::Get_Pixel -- Fetches a pixel from the surface.                                    *
  *                                                                                             *
@@ -300,7 +295,6 @@ int XSurface::Get_Pixel(Point2D const & point) const
 	}
 	return(color);
 }
-
 
 /***********************************************************************************************
  * XSurface::Put_Pixel -- Stores a pixel at the location specified.                            *
@@ -334,7 +328,6 @@ bool XSurface::Put_Pixel(Point2D const & point, int color)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * XSurface::Fill_Rect -- Fills a rectangle with the color specified.                          *
  *                                                                                             *
@@ -356,7 +349,6 @@ bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 {
 	return(XSurface::Fill_Rect(fillrect, Get_Rect(), color));
 }
-
 
 /***********************************************************************************************
  * XSurface::Fill_Rect -- Fill a rectangle but perform clipping on the fill.                   *
@@ -415,7 +407,6 @@ bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color
 	return(false);
 }
 
-
 /***********************************************************************************************
  * XSurface::Fill -- Fill the entire surface with the color specified.                         *
  *                                                                                             *
@@ -435,7 +426,6 @@ bool XSurface::Fill(int color)
 {
 	return(Fill_Rect(Get_Rect(), Get_Rect(), color));
 }
-
 
 /***********************************************************************************************
  * XSurface::Blit_From -- Blit entire surface.                                                 *
@@ -467,7 +457,6 @@ bool XSurface::Blit_From(Surface const & source, bool trans)
 	return(result);
 }
 
-
 /***********************************************************************************************
  * XSurface::Blit_From -- Blit one region to another.                                          *
  *                                                                                             *
@@ -493,7 +482,6 @@ bool XSurface::Blit_From(Rect const & destrect, Surface const & source, Rect con
 {
 	return(XSurface::Blit_From(Get_Rect(), destrect, source, source.Get_Rect(), sourcerect, trans));
 }
-
 
 /***********************************************************************************************
  * XSurface::Blit_From -- Blit from one surface to this one w/ clipping.                       *
@@ -540,7 +528,6 @@ bool XSurface::Blit_From(Rect const & dcliprect, Rect const & destrect, Surface 
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * Blit_Clip -- Perform rectangle clipping in preparation for a blit.                          *
@@ -658,7 +645,6 @@ bool Blit_Clip(Rect & drect, Rect const & dwindow, Rect & srect, Rect const & sw
 	return(drect.Is_Valid() && srect.Is_Valid());
 }
 
-
 /***********************************************************************************************
  * XSurface::Prep_For_Blit -- Clips and prepares pointers for a blit operation.                *
  *                                                                                             *
@@ -746,7 +732,6 @@ bool XSurface::Prep_For_Blit(Surface & dest, Rect & drect, Surface const & sourc
 #endif
 }
 
-
 /***********************************************************************************************
  * XSurface::Prep_For_Blit -- Clips and prepares pointers for a blit operation.                *
  *                                                                                             *
@@ -833,7 +818,6 @@ bool XSurface::Prep_For_Blit(Surface & dest, Rect const & dcliprect, Rect & drec
 	return(true);
 }
 
-
 /***********************************************************************************************
  * XSurface::Blit_Plain -- Blit a plain rectangle from one surface to another.                 *
  *                                                                                             *
@@ -861,7 +845,6 @@ bool XSurface::Blit_Plain(Surface & dest, Rect const & destrect, Surface const &
 	}
 	return(Bit_Blit(dest, destrect, source, sourcerect, BlitPlain<unsigned short>()));
 }
-
 
 /***********************************************************************************************
  * XSurface::Blit_Trans -- Blit a rectangle with transparency checking.                        *
@@ -898,6 +881,4 @@ bool XSurface::Blit_Trans(Surface & dest, Rect const & destrect, Surface const &
 			return(false);
 	}
 }
-
-
 

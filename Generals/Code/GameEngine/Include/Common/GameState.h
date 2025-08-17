@@ -239,9 +239,7 @@ private:
 // EXTERNALS //////////////////////////////////////////////////////////////////////////////////////
 extern GameState *TheGameState;
 
-
 UnicodeString getUnicodeTimeBuffer(SYSTEMTIME timeVal);
 UnicodeString getUnicodeDateBuffer(SYSTEMTIME timeVal);
-
 
 #endif  // end __GAME_STATE_H_

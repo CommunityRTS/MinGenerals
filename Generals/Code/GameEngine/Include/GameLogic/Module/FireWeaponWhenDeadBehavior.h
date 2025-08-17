@@ -37,7 +37,6 @@
 #include "GameLogic/Module/DieModule.h"
 #include "GameLogic/Module/UpgradeModule.h"
 
-
 //-------------------------------------------------------------------------------------------------
 class FireWeaponWhenDeadBehaviorModuleData : public BehaviorModuleData
 {

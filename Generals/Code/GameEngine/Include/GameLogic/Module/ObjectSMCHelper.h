@@ -59,5 +59,4 @@ public:
 
 };
 
-
 #endif  // end __OBJECT_SMC_HELPER_H_

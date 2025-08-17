@@ -54,7 +54,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 static char startDir[ _MAX_PATH ];
 
-
 // PUBLIC DATA ////////////////////////////////////////////////////////////////
 
 // PRIVATE PROTOTYPES /////////////////////////////////////////////////////////
@@ -274,7 +273,6 @@ BOOL CALLBACK DirectorySelectProc( HWND hWndDialog, UINT message,
 																	DDL_DIRECTORY | DDL_EXCLUSIVE,
 																	(LPARAM)"*.*" );
 
-
 						}  // end if
 
 					}  // end if
@@ -382,6 +380,4 @@ BOOL CALLBACK DirectorySelectProc( HWND hWndDialog, UINT message,
 	return 0;
 
 }  // end DirectorySelectProc
-
-
 

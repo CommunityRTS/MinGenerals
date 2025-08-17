@@ -99,7 +99,6 @@ CompressionType CompressionManager::getPreferredCompression( void )
 	return COMPRESSION_REFPACK;
 }
 
-
 CompressionType CompressionManager::getCompressionType( const void *mem, Int len )
 {
 	if (len < 8)

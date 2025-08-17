@@ -42,7 +42,6 @@
 #endif
 #include "field.h"
 
-
 // private member func
 void FieldClass::Clear(void)
 {
@@ -54,7 +53,6 @@ void FieldClass::Clear(void)
   Data=NULL;
   Next=NULL;
 }
-
 
 FieldClass::FieldClass(char *id, char data)
 {
@@ -189,7 +187,6 @@ void FieldClass::Set(char *id, char *data)
   Next    = Nextsave;
 }
 
-
 void FieldClass::Set(char *id, void *data, int length)
 {
   FieldClass     *Nextsave=Next;
@@ -201,7 +198,6 @@ void FieldClass::Set(char *id, void *data, int length)
   memcpy(Data, data, Size);
   Next    = Nextsave;
 }
-
 
 FieldClass::~FieldClass()
 {

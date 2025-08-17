@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 //----------------------------------------------------------------------------
 //
 //                       Westwood Studios Pacific.
@@ -44,7 +43,6 @@
 
 #ifndef __GAMECLIENT_GAMETEXT_H_
 #define __GAMECLIENT_GAMETEXT_H_
-
 
 //----------------------------------------------------------------------------
 //           Includes
@@ -84,13 +82,11 @@ class GameTextInterface : public SubsystemInterface
 		virtual void					initMapStringFile( const AsciiString& filename ) = 0;
 };
 
-
 extern GameTextInterface *TheGameText;
 extern GameTextInterface* CreateGameTextInterface( void );
 
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __GAMECLIENT_GAMETEXT_H_

@@ -159,7 +159,6 @@ void ControlBar::populatePurchaseScience( Player* player )
 	for( i = 0; i < MAX_PURCHASE_SCIENCE_RANK_8; i++ )
 		m_sciencePurchaseWindowsRank8[i]->winHide(TRUE);
 
-
 	// if no command set match is found hide all the buttons
 	if( commandSet1 == NULL ||
 			commandSet3 == NULL ||
@@ -345,7 +344,6 @@ void ControlBar::populatePurchaseScience( Player* player )
 
 	}  // end for
 
-
 	GameWindow *win = NULL;
 	UnicodeString tempUS;
 	win = TheWindowManager->winGetWindowFromId( m_contextParent[ CP_PURCHASE_SCIENCE ], TheNameKeyGenerator->nameToKey( "GeneralsExpPoints.wnd:StaticTextRankPointsAvailable" ) );
@@ -378,7 +376,6 @@ void ControlBar::populatePurchaseScience( Player* player )
 		tempAs.format("SCIENCE:Rank%d", player->getRankLevel());
 		GadgetStaticTextSetText(win, TheGameText->fetch(tempAs));
 	}
-
 
 	//
 	// to avoid a one frame delay where windows may become enabled/disabled, run the update
@@ -695,7 +692,6 @@ void CommandButton::copyImagesFrom( const CommandButton *button, Bool markUIDirt
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Parse a single command button definition */
 //-------------------------------------------------------------------------------------------------
@@ -887,7 +883,6 @@ ControlBar::~ControlBar( void )
 		delete m_videoManager;
 	m_videoManager = NULL;
 
-
 	if(m_animateWindowManagerForGenShortcuts)
 		delete m_animateWindowManagerForGenShortcuts;
 	m_animateWindowManagerForGenShortcuts = NULL;
@@ -1005,7 +1000,6 @@ void ControlBar::init( void )
 		id = TheNameKeyGenerator->nameToKey( "ControlBar.wnd:ObserverPlayerInfoWindow" );
 		m_contextParent[ CP_OBSERVER_INFO ] = TheWindowManager->winGetWindowFromId( NULL, id );
 
-
 		// get the command windows and save for easy access later
 		Int i;
 		ICoord2D commandSize, commandPos;
@@ -1030,10 +1024,7 @@ void ControlBar::init( void )
 //			m_commandMarkers[i]->winSetPosition(commandPos.x -2, commandPos.y - 2);
 //			m_commandMarkers[i]->winSetSize(commandSize.x + 2, commandSize.y + 2);
 
-
-
 		}  // end for i
-
 
 		for( i = 0; i < MAX_PURCHASE_SCIENCE_RANK_1; i++ )
 		{
@@ -1138,7 +1129,6 @@ void ControlBar::init( void )
 
 		m_radarAttackGlowWindow = TheWindowManager->winGetWindowFromId(NULL, TheNameKeyGenerator->nameToKey("ControlBar.wnd:WinUAttack"));
 
-
 		win = TheWindowManager->winGetWindowFromId(NULL,TheNameKeyGenerator->nameToKey( AsciiString( "ControlBar.wnd:BackgroundMarker" ) ));
 		win->winGetScreenPosition(&m_controlBarForegroundMarkerPos.x, &m_controlBarForegroundMarkerPos.y);
 		win = TheWindowManager->winGetWindowFromId(NULL,TheNameKeyGenerator->nameToKey( AsciiString( "ControlBar.wnd:BackgroundMarker" ) ));
@@ -1168,12 +1158,9 @@ void ControlBar::init( void )
 		m_rankEliteIcon		= TheMappedImageCollection ? TheMappedImageCollection->findImageByName( "SSChevron2L" ) : NULL;
 		m_rankHeroicIcon	= TheMappedImageCollection ? TheMappedImageCollection->findImageByName( "SSChevron3L" ) : NULL;
 
-
 //		if(!m_controlBarResizer)
 //			m_controlBarResizer = NEW ControlBarResizer;
 //		m_controlBarResizer->init();
-
-
 
 		// Initialize the Observer controls
 		initObserverControls();
@@ -1215,7 +1202,6 @@ void ControlBar::reset( void )
 
 	if(m_generalsScreenAnimate)
 		m_generalsScreenAnimate->reset();
-
 
 	if(m_videoManager)
 		m_videoManager->reset();
@@ -1312,8 +1298,6 @@ void ControlBar::update( void )
 			}
 		}
 
-
-
 	if( !m_buildToolTipLayout->isHidden())
 	{
 		m_buildToolTipLayout->runUpdate();
@@ -1352,7 +1336,6 @@ void ControlBar::update( void )
 
 		return;
 	}
-
 
 	// check flashing
 	if( m_flash )
@@ -1447,8 +1430,6 @@ void ControlBar::update( void )
 
 	}  // end if
 
-
-
 	// if our selected drawable has no object get out of here
 	Object *obj = NULL;
 	if(m_currentSelectedDrawable)
@@ -1495,8 +1476,6 @@ void ControlBar::update( void )
 
 	}  // end switch
 
-
-
 }  // end update
 
 //-------------------------------------------------------------------------------------------------
@@ -1509,7 +1488,6 @@ void ControlBar::onDrawableSelected( Drawable *draw )
 
 	// cancel any pending GUI commands
 	TheInGameUI->setGUICommand( NULL );
-
 
 }  // end onDrawableSelected
 
@@ -1565,7 +1543,6 @@ const Image *ControlBar::getStarImage(void )
 	return NULL;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void ControlBar::onPlayerRankChanged(const Player *p)
@@ -1703,10 +1680,8 @@ void ControlBar::evaluateContextUI( void )
 	// in the center command bar that can be displayed with multi-units selected
 	//
 
-
 	Drawable *drawToEvaluateFor = NULL;
 	Bool multiSelect = FALSE;
-
 
 	if( TheInGameUI->getSelectCount() > 1 )
 	{
@@ -1721,8 +1696,6 @@ void ControlBar::evaluateContextUI( void )
 	}
 	else // get the first and only drawble in the selection list
 		drawToEvaluateFor = selectedDrawables->front();
-
-
 
 	if( multiSelect )
 	{
@@ -2006,7 +1979,6 @@ CBCommandStatus ControlBar::processContextSensitiveButtonTransition( GameWindow 
 
 }  // end processContextSensitiveButtonClick
 
-
 //-------------------------------------------------------------------------------------------------
 /** Switch the user interface to the new context specified and fill out any of the
 	* art and/or buttons that we need to for the new context using data from the object
@@ -2164,7 +2136,6 @@ void ControlBar::switchToContext( ControlBarContext context, Drawable *draw )
 			m_contextParent[ CP_OBSERVER_INFO ]->winHide( TRUE );
 			m_contextParent[ CP_OBSERVER_LIST ]->winHide( TRUE );
 
-
 			// fill the specific UI info
 			populateBeacon( draw->getObject() );
 
@@ -2228,7 +2199,6 @@ void ControlBar::switchToContext( ControlBarContext context, Drawable *draw )
 			m_contextParent[ CP_OBSERVER_INFO ]->winHide( TRUE );
 			m_contextParent[ CP_OBSERVER_LIST ]->winHide( TRUE );
 
-
 			// fill the specific UI info
 			populateMultiSelect();
 
@@ -2247,7 +2217,6 @@ void ControlBar::switchToContext( ControlBarContext context, Drawable *draw )
 			m_contextParent[ CP_OCL_TIMER ]->winHide( TRUE );
 			m_contextParent[ CP_OBSERVER_INFO ]->winHide( TRUE );
 			m_contextParent[ CP_OBSERVER_LIST ]->winHide( FALSE );
-
 
 			// fill the specific UI info
 			populateObserverList();
@@ -2308,7 +2277,6 @@ void ControlBar::setCommandBarBorder( GameWindow *button, CommandButtonMappedBor
 			GadgetButtonSetBorder(button, GAME_COLOR_UNDEFINED, FALSE);
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Set the command data into the control */
@@ -2560,7 +2528,6 @@ void ControlBar::setPortraitByObject( Object *obj )
 			}
 		}
 
-
 	}  // end if
 	else
 	{
@@ -2796,8 +2763,6 @@ void ControlBar::updateBuildUpClockColor( Color color)
 	m_buildUpClockColor = color;
 }
 
-
-
 void ControlBar::updateCommanBarBorderColors(Color build, Color action, Color upgrade, Color system )
 {
 	m_commandButtonBorderBuildColor = build;
@@ -3014,7 +2979,6 @@ void ControlBar::updateUpDownImages( const Image *toggleButtonUpIn, const Image 
 	m_toggleButtonDownOn = toggleButtonDownOn;
 	m_toggleButtonDownPushed = toggleButtonDownPushed;
 
-
 	m_generalButtonEnable = generalButtonEnable;
 	m_generalButtonHighlight = generalButtonHighlight;
 
@@ -3089,7 +3053,6 @@ void ControlBar::updateRadarAttackGlow ( void )
 		m_radarAttackGlowWindow->winEnable(!BitTest(m_radarAttackGlowWindow->winGetStatus(),WIN_STATUS_ENABLED));
 	}
 
-
 }
 void ControlBar::initSpecialPowershortcutBar( Player *player)
 {
@@ -3144,10 +3107,7 @@ void ControlBar::initSpecialPowershortcutBar( Player *player)
 		m_specialPowerShortcutButtonParents[ i ] =
 			TheWindowManager->winGetWindowFromId( m_specialPowerShortcutParent, id );
 
-
 	}  // end for i
-
-
 
 }
 
@@ -3193,8 +3153,6 @@ void ControlBar::populateSpecialPowerShortcut( Player *player)
 		}  // end if
 		else
 		{
-
-
 
 				//
 				// commands that require sciences we don't have are hidden so they never show up
@@ -3256,7 +3214,6 @@ void ControlBar::populateSpecialPowerShortcut( Player *player)
 									}
 								}
 							}
-
 
 						}
 					}
@@ -3327,10 +3284,8 @@ void ControlBar::updateSpecialPowerShortcut( void )
 		if( command == NULL )
 			continue;
 
-
 		win->winClearStatus( WIN_STATUS_NOT_READY );
 		win->winClearStatus( WIN_STATUS_ALWAYS_COLOR );
-
 
 		// is the command available
 

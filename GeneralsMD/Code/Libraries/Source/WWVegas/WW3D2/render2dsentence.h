@@ -74,7 +74,6 @@ public:
 	uint16			Buffer[CHAR_BUFFER_LEN];
 };
 
-
 class FontCharsClass : public W3DMPO, public RefCountClass
 {
 	W3DMPO_GLUE(FontCharsClass)
@@ -85,7 +84,6 @@ public:
 
 	// TR: Hack for unicode font support
 	FontCharsClass					*AlternateUnicodeFont;
-
 
 	void	Initialize_GDI_Font( const char *font_name, int point_size, bool is_bold );
 	bool	Is_Font( const char *font_name, int point_size, bool is_bold );

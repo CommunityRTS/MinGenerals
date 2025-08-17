@@ -58,5 +58,3 @@ void INI::parseTerrainDefinition( INI* ini )
 
 }  // end parseTerrain
 
-
-

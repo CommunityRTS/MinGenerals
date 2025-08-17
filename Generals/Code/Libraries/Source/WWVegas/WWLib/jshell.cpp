@@ -41,7 +41,6 @@
 
 #include	"always.h"
 
-
 /***********************************************************************************************
  * Set_Bit -- Set bit in a bit array.                                                          *
  *                                                                                             *
@@ -72,7 +71,6 @@ void Set_Bit(void * array, int bit, int value)
 	}
 }
 
-
 /***********************************************************************************************
  * Get_Bit -- Fetch the bit value from a bit array.                                            *
  *                                                                                             *
@@ -95,7 +93,6 @@ int Get_Bit(void const * array, int bit)
 	unsigned char mask = (unsigned char)(1 << (bit % 8));
 	return((*((unsigned char *)array + (bit/8)) & mask) != 0);
 }
-
 
 /***********************************************************************************************
  * First_True_Bit -- Return with the first true bit index.                                     *
@@ -127,7 +124,6 @@ int First_True_Bit(void const * array)
 	}
 	return(index * 8 + subindex);
 }
-
 
 /***********************************************************************************************
  * First_False_Bit -- Find the first false bit in the bit array.                               *

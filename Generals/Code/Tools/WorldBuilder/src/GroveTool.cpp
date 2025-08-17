@@ -71,15 +71,12 @@ Bool localIsUnderwater( Real x, Real y)
 	return false;
 }
 
-
-
 // plant a tree
 void GroveTool::plantTree( Coord3D *pos )
 {
 	AsciiString treeName;
 	int totalValue = TheGroveOptions->getTotalTreePerc();
 	int randVal = GameLogicRandomValue(0, totalValue - 1);
-
 
 	int runningCum = 0;
 	for (int i = 1; i <= 5; ++i) {
@@ -102,7 +99,6 @@ void GroveTool::activate()
 	CMainFrame::GetMainFrame()->showOptionsDialog(IDD_GROVE_OPTIONS);
 	DrawObject::setDoBrushFeedback(false);
 }
-
 
 // plant a shrub
 void GroveTool::plantShrub( Coord3D *pos )
@@ -189,7 +185,6 @@ void GroveTool::plantGrove( Coord3D pos, Coord3D prevDir, Real baseHeight, Int l
 	if (level == 0)
 		return;
 
-
 	// spawn child trees
 	for( Int i=0; i<numChildren; i++ )
 	{
@@ -229,7 +224,6 @@ void GroveTool::plantGrove( Coord3D pos, Coord3D prevDir, Real baseHeight, Int l
 		}
 	}
 }
-
 
 //
 // GroveTool class.
@@ -346,7 +340,6 @@ void GroveTool::addObj(Coord3D *pos, AsciiString name)
 	pNew->setNextMap(m_headMapObj);
 	m_headMapObj = pNew;
 }
-
 
 #define SQRT_2	(1.41421356f)
 static Bool _positionIsTooCliffyForTrees(Coord3D pos)

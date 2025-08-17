@@ -174,7 +174,6 @@ void OCLSpecialPower::doSpecialPowerAtLocation( const Coord3D *loc, Real angle, 
     	targetCoord = *loc;
     }
 
-
 	}
 
 	// call the base class action cause we are *EXTENDING* functionality

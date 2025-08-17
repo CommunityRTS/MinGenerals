@@ -54,13 +54,11 @@
 // Helicopter slow death update module data ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -204,7 +202,6 @@ void HelicopterSlowDeathBehavior::beginSlowDeath( const DamageInfo *damageInfo )
 		m_deathSound.setPlayingHandle(TheAudio->addAudioEvent(&m_deathSound));
 	}
 
-
 	// pick a frame we will fly the blade off at
 	m_bladeFlyOffFrame = GameLogicRandomValueReal( modData->m_minBladeFlyOffDelay,
 																								 modData->m_maxBladeFlyOffDelay );
@@ -273,12 +270,7 @@ void HelicopterSlowDeathBehavior::beginSlowDeath( const DamageInfo *damageInfo )
 
 	}  // end if
 
-
-
 }  // end beginSlowDeath
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -419,8 +411,6 @@ UpdateSleepTime HelicopterSlowDeathBehavior::update( void )
 
 	}  // end if, not on ground
 
-
-
 	Bool hitATree = FALSE;
 	// Here we want to make sure we crash if we collide with a tree on the way down
 	PhysicsBehavior *phys = copter->getPhysics();
@@ -434,8 +424,6 @@ UpdateSleepTime HelicopterSlowDeathBehavior::update( void )
 			hitATree = TRUE;
 		}
 	}
-
-
 
 	// when we hit the ground
 	const Coord3D *pos = copter->getPosition();

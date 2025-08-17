@@ -487,7 +487,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 
 					}  // end VK_ESCAPE
 
-
 				}  // end switch
 
 				return 0;
@@ -533,7 +532,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 				return 0;
 
 			}  // end WM_MOUSEWHEEL
-
 
 			//-------------------------------------------------------------------------
 			case WM_MOUSEMOVE:
@@ -708,7 +706,6 @@ static Bool initializeAppWindows( HINSTANCE hInstance, Int nCmdShow, Bool runWin
 														0L,
 														hInstance,
 														0L );
-
 
 	if (!runWindowed)
 	{	SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOSIZE |SWP_NOMOVE);
@@ -886,7 +883,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		}
 		::SetCurrentDirectory(buffer);
 
-
 		/*
 		** Convert WinMain arguments to simple main argc and argv
 		*/
@@ -929,8 +925,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			_CrtSetDbgFlag( tmpFlag );
 		#endif
 
-
-
 		// install debug callbacks
 	//	WWDebug_Install_Message_Handler(WWDebug_Message_Callback);
 	//	WWDebug_Install_Assert_Handler(WWAssert_Callback);
@@ -948,14 +942,12 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			gLoadScreenBitmap = NULL;
 		}
 
-
 		// BGC - initialize COM
 	//	OleInitialize(NULL);
 
 		// start the log
 		DEBUG_INIT(DEBUG_FLAGS_DEFAULT);
 		initMemoryManager();
-
 
 		// Set up version info
 		TheVersion = NEW Version;
@@ -974,7 +966,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			return 0;
 		}
 #endif
-
 
 		//Create a mutex with a unique name to Generals in order to determine if
 		//our app is already running.

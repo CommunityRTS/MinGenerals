@@ -39,7 +39,6 @@ static BabylonText *current_match = NULL;
 /////////////////////////////////////////////////////////////////////////////
 // CMatchDlg dialog
 
-
 CMatchDlg::CMatchDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMatchDlg::IDD, pParent)
 {
@@ -48,7 +47,6 @@ CMatchDlg::CMatchDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CMatchDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -56,7 +54,6 @@ void CMatchDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CMatchDlg, CDialog)
 	//{{AFX_MSG_MAP(CMatchDlg)
@@ -105,7 +102,6 @@ BOOL CMatchDlg::OnInitDialog()
 	CStatic *newtext;
 	CComboBox *combo;
 	static char buffer[4*1024];
-
 
 	sprintf ( buffer, "Resolve umatched text from \"%s\" on line %d", MatchLabel->NameSB(),
 							MatchOriginalText->LineNumber() );
@@ -156,7 +152,6 @@ BOOL CMatchDlg::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
 void CMatchDlg::OnSelchangeMatchcombo()
 {
 	// TODO: Add your control notification handler code here
@@ -182,5 +177,4 @@ void CMatchDlg::OnSkip()
 	// TODO: Add your control notification handler code here
 		 EndDialog ( IDSKIP );
 }
-
 

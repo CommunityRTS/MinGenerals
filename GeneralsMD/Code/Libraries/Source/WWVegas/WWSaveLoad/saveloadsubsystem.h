@@ -34,15 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
-
 #ifndef SAVELOADSUBSYSTEM_H
 #define SAVELOADSUBSYSTEM_H
-
 
 #include "always.h"
 #include "bittype.h"
@@ -50,7 +47,6 @@
 
 class ChunkLoadClass;
 class ChunkSaveClass;
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -89,7 +85,5 @@ private:
 
 	friend class SaveLoadSystemClass;
 };
-
-
 
 #endif

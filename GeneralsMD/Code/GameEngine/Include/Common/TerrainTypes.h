@@ -89,7 +89,6 @@ typedef enum
 	TERRAIN_ACCENT_ROCK,
 	TERRAIN_URBAN,
 
-
 	TERRAIN_NUM_CLASSES  // keep this last
 
 } TerrainClass;

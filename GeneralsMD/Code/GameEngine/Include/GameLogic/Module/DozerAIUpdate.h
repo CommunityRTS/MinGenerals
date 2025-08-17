@@ -64,7 +64,6 @@ protected:
 	virtual void loadPostProcess();
 };
 
-
 //-------------------------------------------------------------------------------------------------
 /** Dozer behaviors that use action sub state machines */
 //-------------------------------------------------------------------------------------------------
@@ -123,7 +122,6 @@ public:
 														 const Coord3D *pos, Real angle,
 														 Player *owningPlayer,
 														 Bool isRebuild ) = 0;
-
 
 	// get task information
 	virtual DozerTask getMostRecentCommand( void ) = 0;				///< return task that was most recently issued
@@ -226,7 +224,6 @@ public:
 														 Player *owningPlayer,
 														 Bool isRebuild );								///< construct an object
 
-
 	// get task information
 	virtual DozerTask getMostRecentCommand( void );				///< return task that was most recently issued
 	virtual Bool isTaskPending( DozerTask task );					///< is there a desire to do the requested task
@@ -269,7 +266,6 @@ public:
 	//
 	virtual void aiDoCommand(const AICommandParms* parms);
 
-
 protected:
 
 	virtual void privateRepair( Object *obj, CommandSourceType cmdSource );	///< repair the target
@@ -303,7 +299,6 @@ private:
 	void createMachines( void );		///< create our behavior machines we need
 
 };
-
 
 #endif // __DOZERAIUPDATE_H_
 

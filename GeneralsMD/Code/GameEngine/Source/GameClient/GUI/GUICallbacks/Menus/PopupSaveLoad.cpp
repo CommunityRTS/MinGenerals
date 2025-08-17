@@ -893,9 +893,6 @@ WindowMsgHandledType SaveLoadMenuSystem( GameWindow *window, UnsignedInt msg,
 				buttonFrame->winEnable( TRUE );
 				updateMenuActions();
 
-
-
-
 				// do the load game
 				if( controlID == buttonLoadConfirm )
 				{

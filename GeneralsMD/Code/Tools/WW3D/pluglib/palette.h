@@ -77,5 +77,4 @@ class PaletteClass
 		RGBClass Palette[COLOR_COUNT];
 };
 
-
 #endif

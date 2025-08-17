@@ -317,7 +317,6 @@ public:
 	static void parseVeterancyLevelFlags(INI* ini, void* instance, void* store, const void* userData);
 	static void parseSoundsList( INI* ini, void *instance, void *store, const void* /*userData*/ );
 
-
 	/**
 		return the next token. if seps is null (or omitted), the standard seps are used.
 

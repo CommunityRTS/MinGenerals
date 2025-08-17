@@ -39,7 +39,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -214,7 +213,6 @@ struct VertexFormatXYZNDUV1TG3
 	float SxTz;
 };
 
-
 // displacement mapping format
 struct VertexFormatXYZNUV2DMAP
 {
@@ -285,6 +283,5 @@ public:
 	inline void Set_FVF(unsigned fvf) const { FVF=fvf; }
 	inline void Set_FVF_Size(unsigned size) const { fvf_size=size; }
 };
-
 
 #endif

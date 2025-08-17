@@ -67,7 +67,6 @@
  *   SphereRenderObjClass::Scale -- scales sphere non-uniformly.                               *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "sphereobj.h"
 #include "w3d_util.h"
 #include "wwdebug.h"
@@ -95,7 +94,6 @@ static bool Sphere_Array_Valid = false;
 
 SphereMeshClass SphereMeshArray[SPHERE_NUM_LOD];
 float SphereLODCosts[SPHERE_NUM_LOD + 1];	// SPHERE_NUM_LOD doesn't include the null LOD
-
 
 /*
 ** SphereRenderObjClass Implementation
@@ -141,7 +139,6 @@ SphereRenderObjClass::SphereRenderObjClass(void)
 	// according to a screen area of 1.
 	calculate_value_array(1.0f, Value);
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::SphereRenderObjClass -- Constructor - init from a definition          *
@@ -191,7 +188,6 @@ SphereRenderObjClass::SphereRenderObjClass(const W3dSphereStruct & def)
 	// according to a screen area of 1.
 	calculate_value_array(1.0f, Value);
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::SphereRenderObjClass -- Copy constructor                              *
@@ -278,7 +274,6 @@ SphereRenderObjClass & SphereRenderObjClass::operator = (const SphereRenderObjCl
 	return *this;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Generate_Shared_Mesh_Arrays  -- Generates mesh LOD arrays.				  *
  *                                                                                             *
@@ -319,7 +314,6 @@ void SphereRenderObjClass::Generate_Shared_Mesh_Arrays (const AlphaVectorStruct 
 	return ;
 }
 
-
 // This is used both by Prepare_LOD and Calculate_Cost_Value_Arrays.
 void SphereRenderObjClass::calculate_value_array(float screen_area, float *values) const
 {
@@ -331,7 +325,6 @@ void SphereRenderObjClass::calculate_value_array(float screen_area, float *value
 	}
 	values[SPHERE_NUM_LOD + 1] = AT_MAX_LOD; 	// Post-inc value will flag max LOD.
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Init_Material -- Sets up the material and default shader for the sphere.*
@@ -367,7 +360,6 @@ void SphereRenderObjClass::Init_Material (void)
 
 }	// Init_Material
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Num_Polys -- returns number of polygons                           *
  *                                                                                             *
@@ -384,7 +376,6 @@ int SphereRenderObjClass::Get_Num_Polys(void) const
 {
 	return SphereLODCosts[CurrentLOD];
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Set_Texture					                                            *
@@ -403,7 +394,6 @@ void SphereRenderObjClass::Set_Texture(TextureClass *tf)
 	REF_PTR_SET(SphereTexture,tf);
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Name -- returns name                                              *
  *                                                                                             *
@@ -420,7 +410,6 @@ const char * SphereRenderObjClass::Get_Name(void) const
 {
 	return Name;
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Set_Name -- sets the name                                             *
@@ -440,7 +429,6 @@ void SphereRenderObjClass::Set_Name(const char * name)
 	WWASSERT(strlen(name) < 2*W3D_NAME_LEN);
 	strcpy(Name,name);
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::render_sphere                                                         *
@@ -530,7 +518,6 @@ void SphereRenderObjClass::render_sphere()
 
 } // render_sphere
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::vis_render_sphere -- submits box to the GERD for VIS                  *
  *                                                                                             *
@@ -549,7 +536,6 @@ void SphereRenderObjClass::vis_render_sphere(SpecialRenderInfoClass & rinfo,cons
 {
 }	// vis_render_sphere
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Clone -- clones the box                                                *
  *                                                                                             *
@@ -567,7 +553,6 @@ RenderObjClass * SphereRenderObjClass::Clone(void) const
 	return W3DNEW SphereRenderObjClass(*this);
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Class_ID -- returns the class-id for sphere's                         *
  *                                                                                             *
@@ -584,7 +569,6 @@ int SphereRenderObjClass::Class_ID(void) const
 {
 	return RenderObjClass::CLASSID_SPHERE;
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Render -- render this box                                              *
@@ -683,7 +667,6 @@ void SphereRenderObjClass::Render(RenderInfoClass & rinfo)
 	}
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Special_Render -- special render this box (vis)                        *
  *                                                                                             *
@@ -708,7 +691,6 @@ void SphereRenderObjClass::Special_Render(SpecialRenderInfoClass & rinfo)
 	}
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Set_Transform -- set the transform for this box                        *
  *                                                                                             *
@@ -726,7 +708,6 @@ void SphereRenderObjClass::Set_Transform(const Matrix3D &m)
 	RenderObjClass::Set_Transform(m);
 	update_cached_box();
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Set_Position -- Set the position of this box                           *
@@ -746,7 +727,6 @@ void SphereRenderObjClass::Set_Position(const Vector3 &v)
 	update_cached_box();
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::update_cached_box -- update the world-space version of this box        *
  *                                                                                             *
@@ -765,7 +745,6 @@ void SphereRenderObjClass::update_cached_box(void)
 	CachedBox.Extent = ObjSpaceExtent;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Obj_Space_Bounding_Sphere -- return the object-space bounding sphe *
  *                                                                                             *
@@ -783,7 +762,6 @@ void SphereRenderObjClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) c
 	sphere.Init(ObjSpaceCenter,ObjSpaceExtent.Length());
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Obj_Space_Bounding_Box -- returns the obj-space bounding box       *
  *                                                                                             *
@@ -800,7 +778,6 @@ void SphereRenderObjClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 {
 	box.Init(ObjSpaceCenter,ObjSpaceExtent);
 }
-
 
 void SphereRenderObjClass::Prepare_LOD(CameraClass &camera)
 {
@@ -864,7 +841,6 @@ int SphereRenderObjClass::Calculate_Cost_Value_Arrays(float screen_area, float *
 	return 0;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Scale -- scales sphere uniformly.                                     *
  *                                                                                             *
@@ -892,7 +868,6 @@ void SphereRenderObjClass::Scale(float scale)
 		ScaleChannel.Set_Key_Value(i, key.Get_Value() * scale);
 	}
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Scale -- scales sphere non-uniformly.                                 *
@@ -926,8 +901,6 @@ void SphereRenderObjClass::Scale(float scalex, float scaley, float scalez)
 	}
 }
 
-
-
 /***********************************************************************************************
  * SphereRenderObjClass::Update_Cached_Bounding_Volumes -- Updates world-space bounding volumes *
  *                                                                                             *
@@ -951,7 +924,6 @@ void SphereRenderObjClass::Update_Cached_Bounding_Volumes(void) const
 
 	Validate_Cached_Bounding_Volumes();
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Default_Color - get the default (or first frame) value				  *
@@ -978,7 +950,6 @@ Vector3 SphereRenderObjClass::Get_Default_Color(void) const
 	return value;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Default_Alpha - get the default (or first frame) value				  *
  *                                                                                             *
@@ -1003,7 +974,6 @@ float SphereRenderObjClass::Get_Default_Alpha(void) const
 
 	return value;
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Default_Scale - get the default (or first frame) value				  *
@@ -1030,7 +1000,6 @@ Vector3 SphereRenderObjClass::Get_Default_Scale(void) const
 	return value;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Get_Default_Vector - get the default (or first frame) value			  *
  *                                                                                             *
@@ -1056,7 +1025,6 @@ AlphaVectorStruct SphereRenderObjClass::Get_Default_Vector(void) const
 	return value;
 }
 
-
 /***********************************************************************************************
  * SphereRenderObjClass::Update_On_Visibilty	-- Either starts or stops the animation based on visibility*
  *                                                                                             *
@@ -1081,7 +1049,6 @@ void SphereRenderObjClass::Update_On_Visibilty(void)
 
 	return ;
 }
-
 
 /***********************************************************************************************
  * SphereRenderObjClass::animate	-- Update Current Display state										  *
@@ -1142,7 +1109,6 @@ void SphereRenderObjClass::animate (void)
 	return ;
 
 } // animate
-
 
 /*
 ** SphereLoaderClass Implementation
@@ -1279,7 +1245,6 @@ bool SpherePrototypeClass::Save (ChunkSaveClass &csave)
 			csave.End_Chunk ();
 		}
 
-
 		if (ScaleChannel.Get_Key_Count () > 0) {
 			csave.Begin_Chunk (CHUNKID_SCALE_CHANNEL);
 			ScaleChannel.Save (csave);
@@ -1341,7 +1306,6 @@ RenderObjClass * SpherePrototypeClass::Create(void)
 ** Global instance of the box loader
 */
 SphereLoaderClass _SphereLoader;
-
 
 //
 // Vertices are ordered as such
@@ -1417,8 +1381,6 @@ inverse_alpha(false)
 
 } // Empty SphereMesh Constructor
 
-
-
 /***********************************************************************************************
  * SphereMeshClass::Set_Alpha_Vector -- Unit Direction Vector, for Alpha hole effects			  *
  *                                                                                             *
@@ -1486,7 +1448,6 @@ void	SphereMeshClass::Set_Alpha_Vector (const AlphaVectorStruct &v, bool inverse
 	return ;
 } // Set_Alpha_Vector
 
-
 /***********************************************************************************************
  * SphereMeshClass::Generate -- Alloc Memory, and Generate Geometry, for the SphereMesh		  *
  *                                                                                             *
@@ -1549,7 +1510,6 @@ void SphereMeshClass::Generate(float radius, int slices, int stacks)
 			float slicestep  = ((float)slices) / ((float)Slices);
 			float YAxisAngle = (WWMATH_PI * 2.0f) * slicestep;
 
-
 			mat.Make_Identity();
 			mat.Rotate_Z( YAxisAngle );
 			mat.Rotate_X( XAxisAngle );
@@ -1583,7 +1543,6 @@ void SphereMeshClass::Generate(float radius, int slices, int stacks)
 		temp.Normalize();
 		dst[idx] = temp;
 	}
-
 
 	// Generate Fans for North + south pole
 	fan_ct = 2;
@@ -1668,7 +1627,6 @@ void SphereMeshClass::Generate(float radius, int slices, int stacks)
 		// End Strip to Poly Function
 	}
 
-
 	// Fans to Poly Function
 
 	for(slices = 0; slices < fan_ct; slices++) {
@@ -1699,8 +1657,6 @@ void SphereMeshClass::Generate(float radius, int slices, int stacks)
 
 } // Generate
 
-
-
 /***********************************************************************************************
  * SphereMeshClass::~SphereMeshClass -- Destructor                                             *
  *                                                                                             *
@@ -1715,7 +1671,6 @@ SphereMeshClass::~SphereMeshClass(void)
 	Free();
 
 } // Destructor
-
 
 /***********************************************************************************************
  * SphereMeshClass::Free Memory used by geometry for the SphereMesh                            *

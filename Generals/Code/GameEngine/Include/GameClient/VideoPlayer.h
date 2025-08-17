@@ -44,7 +44,6 @@
 #ifndef __GAMECLIENT_VIDEOPLAYER_H_
 #define __GAMECLIENT_VIDEOPLAYER_H_
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -103,7 +102,6 @@ class VideoBuffer
 			NUM_TYPES
 		};
 
-
 	protected:
 
 		UnsignedInt m_xPos;					///< X pixel buffer offset
@@ -141,7 +139,6 @@ class VideoBuffer
 
 };
 
-
 //===============================
 // VideoStreamInterface
 //===============================
@@ -159,7 +156,6 @@ class VideoStreamInterface
 		virtual ~VideoStreamInterface(){};								///< only VideoPlayerInterfaces can create these
 
 	public:
-
 
 		virtual	VideoStreamInterface* next( void ) = 0;		///< Returns next open stream
 		virtual void update( void ) = 0;									///< Update stream
@@ -180,8 +176,6 @@ class VideoStreamInterface
 //===============================
 // VideoStream
 //===============================
-
-
 
 class VideoStream : public VideoStreamInterface
 {
@@ -210,7 +204,6 @@ class VideoStream : public VideoStreamInterface
 		virtual void	frameGoto( Int index );							///< Go to the spcified frame index
 		virtual Int		height( void );											///< Return the height of the video
 		virtual Int		width( void );											///< Return the width of the video
-
 
 };
 
@@ -256,7 +249,6 @@ class VideoPlayerInterface : public SubsystemInterface
 		virtual void notifyVideoPlayerOfNewProvider( Bool nowHasValid ) = 0;		///< Notify the video player that they can now ask for an audio handle, or they need to give theirs up.
 };
 
-
 //===============================
 // VideoPlayer
 //===============================
@@ -280,7 +272,6 @@ class VideoPlayer : public VideoPlayerInterface
 		virtual void	update( void );													///< Services all audio tasks. Should be called frequently
 
 		virtual void	deinit( void );													///< Close down player
-
 
 		VideoPlayer();
 		~VideoPlayer();

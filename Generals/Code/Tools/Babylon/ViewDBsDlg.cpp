@@ -36,7 +36,6 @@ int ViewChanges = FALSE;
 /////////////////////////////////////////////////////////////////////////////
 // CViewDBsDlg dialog
 
-
 VIEWDBSII::VIEWDBSII(CWnd* pParent /*=NULL*/)
 	: CDialog(VIEWDBSII::IDD, pParent)
 {
@@ -45,7 +44,6 @@ VIEWDBSII::VIEWDBSII(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void VIEWDBSII::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -53,7 +51,6 @@ void VIEWDBSII::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(VIEWDBSII, CDialog)
 	//{{AFX_MSG_MAP(CViewDBsDlg)
@@ -86,7 +83,6 @@ HTREEITEM VIEWDBSII::create_full_view ( void )
 	MainDLG->Status ( title );
 
 	root = tc->InsertItem ( "DBs" );
-
 
 	db = FirstTransDB ( );
 
@@ -128,8 +124,6 @@ HTREEITEM VIEWDBSII::create_changes_view ( void )
 
 	MainDLG->Log ("");
 	MainDLG->Status ( title );
-
-
 
 	db = FirstTransDB ( );
 
@@ -200,7 +194,6 @@ BOOL VIEWDBSII::OnInitDialog()
 	{
 		root = create_changes_view ();
 	}
-
 
 	MainDLG->Ready();
 

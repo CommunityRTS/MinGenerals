@@ -43,7 +43,6 @@ static Bool gameSpyInitPersistentStorageConnection( void );
 static void getPersistentDataCallback(int localid, int profileid, persisttype_t type, int index, int success, char *data, int len, void *instance);
 static void setPersistentDataCallback(int localid, int profileid, persisttype_t type, int index, int success, void *instance);
 
-
 class GameSpyPlayerInfo : public GameSpyPlayerInfoInterface
 {
 public:
@@ -225,14 +224,6 @@ GameSpyPlayerInfoInterface *createGameSpyPlayerInfo( void )
 {
 	return NEW GameSpyPlayerInfo;
 }
-
-
-
-
-
-
-
-
 
 static void persAuthCallback(int localid, int profileid, int authenticated, char *errmsg, void *instance)
 {

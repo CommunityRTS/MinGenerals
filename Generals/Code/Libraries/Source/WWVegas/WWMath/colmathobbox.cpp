@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colmath.h"
 #include "aaplane.h"
 #include "plane.h"
@@ -44,8 +43,6 @@
 #include "aabox.h"
 #include "obbox.h"
 #include "wwdebug.h"
-
-
 
 // OBBox functions, where is operand B with respect to the OBBox
 CollisionMath::OverlapType
@@ -103,7 +100,6 @@ CollisionMath::Overlap_Test(const OBBoxClass & obbox,const AABoxClass & aabox)
 		return OUTSIDE;
 	}
 }
-
 
 CollisionMath::OverlapType
 CollisionMath::Overlap_Test(const OBBoxClass & box,const OBBoxClass & box2)

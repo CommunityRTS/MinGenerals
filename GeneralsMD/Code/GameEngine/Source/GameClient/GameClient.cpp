@@ -565,13 +565,11 @@ void GameClient::update( void )
 					}
 					setFPMode();
 
-
 					legal->destroyWindows();
 					legal->deleteInstance();
 
 				}
 				TheWritableGlobalData->m_breakTheMovie = TRUE;
-
 
 			}
 
@@ -606,7 +604,6 @@ void GameClient::update( void )
 		TheMouse->createStreamMessages();
 
 	}  // end if
-
 
   if (TheInGameUI->isCameraTrackingDrawable())
   {
@@ -679,7 +676,6 @@ void GameClient::update( void )
 			TheGhostObjectManager->updateOrphanedObjects(NULL,0);
 #endif
 		}
-
 
 		// call the update for all client drawables
 		Drawable* draw = firstDrawable();

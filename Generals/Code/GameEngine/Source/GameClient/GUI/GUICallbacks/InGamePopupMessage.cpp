@@ -72,11 +72,9 @@ static NameKeyType parentID = NAMEKEY_INVALID;
 static NameKeyType staticTextMessageID = NAMEKEY_INVALID;
 static NameKeyType buttonOkID = NAMEKEY_INVALID;
 
-
 static GameWindow *parent = NULL;
 static GameWindow *staticTextMessage = NULL;
 static GameWindow *buttonOk = NULL;
-
 
 static Bool pause = FALSE;
 //-----------------------------------------------------------------------------
@@ -182,7 +180,6 @@ WindowMsgHandledType InGamePopupMessageInput( GameWindow *window, UnsignedInt ms
 		}  // end switch( msg )
 		return MSG_IGNORED;
 
-
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -239,7 +236,6 @@ WindowMsgHandledType InGamePopupMessageSystem( GameWindow *window, UnsignedInt m
 			return MSG_IGNORED;
 
 	}  // end switch
-
 
 	return MSG_HANDLED;
 

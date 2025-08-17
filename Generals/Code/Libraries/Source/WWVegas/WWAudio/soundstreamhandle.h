@@ -41,9 +41,7 @@
 #ifndef __SOUNDSTREAMHANDLE_H
 #define __SOUNDSTREAMHANDLE_H
 
-
 #include "soundhandle.h"
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -109,6 +107,5 @@ protected:
 	HSAMPLE		SampleHandle;
 	HSTREAM		StreamHandle;
 };
-
 
 #endif //__SOUNDSTREAMHANDLE_H

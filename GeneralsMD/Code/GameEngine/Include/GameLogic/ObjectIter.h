@@ -48,7 +48,6 @@ enum IterOrderType
 	ITER_SORTED_EXPENSIVE_TO_CHEAP	///< iterate in most-expensive-to-cheapest order (slower)
 };
 
-
 //-------------------------------------------------------------------------------------------
 /**
 
@@ -82,7 +81,6 @@ public:
 
 inline ObjectIterator::~ObjectIterator() { }
 
-
 //-------------------------------------------------------------------------------------------
 /**
 	A basic implementation of ObjectIterator, with (hidden) extensions
@@ -113,7 +111,6 @@ private:
 	static Real sortFarToNear(Clump *a, Clump *b);
 	static Real sortCheapToExpensive(Clump *a, Clump *b);
 	static Real sortExpensiveToCheap(Clump *a, Clump *b);
-
 
 	Clump				*m_firstClump;
 	Clump				*m_curClump;
@@ -155,7 +152,6 @@ public:
 	*/
 	Int getCount() { return m_clumpCount; }
 };
-
 
 #endif // _OBJECT_ITER_H_
 

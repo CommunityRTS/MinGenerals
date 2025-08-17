@@ -107,7 +107,6 @@ void ControlBarResizer::init( void )
 
 }
 
-
 ResizerWindow *ControlBarResizer::findResizerWindow( AsciiString name )
 {
 	ResizerWindowList::iterator it = m_resizerWindowsList.begin();
@@ -206,7 +205,6 @@ void ControlBarResizer::sizeWindowsAlt( void )
 	}
 }
 
-
 void INI::parseControlBarResizerDefinition( INI* ini )
 {
 //	AsciiString name;
@@ -237,7 +235,6 @@ void INI::parseControlBarResizerDefinition( INI* ini )
 //	ini->initFromINI( rWin, resizer->getFieldParse());
 //
 }  // end parseMappedImage
-
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////

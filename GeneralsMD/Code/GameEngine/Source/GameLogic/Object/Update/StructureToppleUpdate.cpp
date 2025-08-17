@@ -47,7 +47,6 @@
 #include "GameClient/Drawable.h"
 #include "GameClient/InGameUI.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -297,7 +296,6 @@ UpdateSleepTime StructureToppleUpdate::update( void )
 			drawable->clearModelConditionState(MODELCONDITION_RUBBLE);
 			drawable->setModelConditionState(MODELCONDITION_POST_COLLAPSE);
 
-
 			// Need to update body particle systems, now
 			BodyModuleInterface *body = building->getBodyModule();
 			body->updateBodyParticleSystems();
@@ -408,7 +406,6 @@ void StructureToppleUpdate::applyCrushingDamage(Real theta)
 		jsin = j * Sin(toppleAngle);
 		doDamageLine(building, wt, jcos, jsin, facingWidth, toppleAngle);
 	}
-
 
 	jcos = maxDistance * Cos(toppleAngle);
 	jsin = maxDistance * Sin(toppleAngle);

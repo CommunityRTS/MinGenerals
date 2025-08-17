@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef VCHANNEL_H
 #define VCHANNEL_H
 
@@ -54,7 +53,6 @@
 #ifndef W3D_FILE_H
 #include "w3d_file.h"
 #endif
-
 
 class BitChannelClass;
 

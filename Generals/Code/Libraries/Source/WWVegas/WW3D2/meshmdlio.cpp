@@ -147,7 +147,6 @@ private:
 	*/
 	Vector2 *					Get_Temporary_UV_Array(int elementcount);
 
-
 	/*
 	** Currently, the only tool that creates DIG chunks is the lightmap tool.  Since DX8 support
 	** for linking the emissive material color to an array seems poor, We're just going to multiply
@@ -171,7 +170,6 @@ private:
 		int		ShaderIdx;
 		int		TextureIdx;
 	};
-
 
 	W3dMeshHeader3Struct		Header;
 	W3dTexCoordStruct *		TexCoords;
@@ -208,7 +206,6 @@ private:
 	friend class MeshModelClass;
 };
 
-
 /*
 ** MeshSaveContextClass
 ** This class is used to pass information between the saving code in a mesh
@@ -223,7 +220,6 @@ public:
 	int								CurStage;
 	MaterialCollectorClass		Materials;
 };
-
 
 /***********************************************************************************************
  * MeshModelClass::Load_W3D -- Load a mesh from a W3D file                                     *
@@ -428,7 +424,6 @@ Error:
 	return WW3D_ERROR_LOAD_FAILED;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_chunks -- read all of the chunks for a mesh                            *
  *                                                                                             *
@@ -570,7 +565,6 @@ WW3DErrorType MeshModelClass::read_chunks(ChunkLoadClass & cload,MeshLoadContext
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_texcoords -- read in the texture coordinates chunk                     *
  *                                                                                             *
@@ -679,7 +673,6 @@ WW3DErrorType MeshModelClass::read_v3_materials(ChunkLoadClass & cload,MeshLoadC
 				shader.Set_Fog_Func( ShaderClass::FOG_DISABLE );
 			}
 #endif
-
 
 			/*
 			** If this shader does alpha blending, the mesh must be sorted.
@@ -809,7 +802,6 @@ Error:
 
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_per_tri_materials -- read the material indices for each triangle       *
  *                                                                                             *
@@ -871,7 +863,6 @@ WW3DErrorType MeshModelClass::read_per_tri_materials(ChunkLoadClass & cload,Mesh
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_vertex_colors -- read in the vertex colors chunk                       *
  *                                                                                             *
@@ -918,7 +909,6 @@ WW3DErrorType MeshModelClass::read_vertex_colors(ChunkLoadClass & cload,MeshLoad
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_material_info -- read the material info chunk                          *
  *                                                                                             *
@@ -939,7 +929,6 @@ WW3DErrorType MeshModelClass::read_material_info(ChunkLoadClass & cload,MeshLoad
 	Set_Pass_Count(context->MatInfo.PassCount);
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_shaders -- read the shaders chunk                                      *
@@ -968,7 +957,6 @@ WW3DErrorType MeshModelClass::read_shaders(ChunkLoadClass & cload,MeshLoadContex
 	}
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_vertex_materials -- read the vertex materials chunk                    *
@@ -999,7 +987,6 @@ WW3DErrorType MeshModelClass::read_vertex_materials(ChunkLoadClass & cload,MeshL
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_textures -- read the textures chunk                                    *
  *                                                                                             *
@@ -1027,7 +1014,6 @@ WW3DErrorType MeshModelClass::read_textures(ChunkLoadClass & cload,MeshLoadConte
 
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_material_pass -- read a material pass chunk                            *
@@ -1085,7 +1071,6 @@ WW3DErrorType MeshModelClass::read_material_pass(ChunkLoadClass & cload,MeshLoad
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_vertex_material_ids -- read the vmat ids for a pass                    *
  *                                                                                             *
@@ -1139,7 +1124,6 @@ WW3DErrorType MeshModelClass::read_vertex_material_ids(ChunkLoadClass & cload,Me
 
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_shader_ids -- read the shader indexes for a pass                       *
@@ -1235,7 +1219,6 @@ WW3DErrorType MeshModelClass::read_shader_ids(ChunkLoadClass & cload,MeshLoadCon
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_dcg -- read the per-vertex diffuse color for a pass                    *
  *                                                                                             *
@@ -1303,7 +1286,6 @@ WW3DErrorType MeshModelClass::read_dcg(ChunkLoadClass & cload,MeshLoadContextCla
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_dig -- read the per-vertex diffuse illumination for a pass             *
  *                                                                                             *
@@ -1346,7 +1328,6 @@ WW3DErrorType MeshModelClass::read_dig(ChunkLoadClass & cload,MeshLoadContextCla
 			col.W = 1.0f;
 			dcg[i]=DX8Wrapper::Convert_Color(col);
 
-
 		}
 	} else {
 		unsigned * dcg = matdesc->Get_Color_Array(0);
@@ -1364,7 +1345,6 @@ WW3DErrorType MeshModelClass::read_dig(ChunkLoadClass & cload,MeshLoadContextCla
 
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_scg -- read the specular color for a pass                              *
@@ -1384,7 +1364,6 @@ WW3DErrorType MeshModelClass::read_scg(ChunkLoadClass & cload,MeshLoadContextCla
 {
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_texture_stage -- read texture stage chunks                             *
@@ -1430,7 +1409,6 @@ WW3DErrorType MeshModelClass::read_texture_stage(ChunkLoadClass & cload,MeshLoad
 	context->CurTexStage++;
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_texture_ids -- read the texture ids for a pass,stage                   *
@@ -1487,7 +1465,6 @@ WW3DErrorType MeshModelClass::read_texture_ids(ChunkLoadClass & cload,MeshLoadCo
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * MeshModelClass::read_stage_texcoords -- read the texcoords for a pass,stage                 *
  *                                                                                             *
@@ -1534,7 +1511,6 @@ WW3DErrorType MeshModelClass::read_stage_texcoords(ChunkLoadClass & cload,MeshLo
 
 	return (WW3D_ERROR_OK);
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_per_face_texcoord_ids -- read uv indices for given (pass,stage).		  *
@@ -1583,7 +1559,6 @@ WW3DErrorType MeshModelClass::read_per_face_texcoord_ids (ChunkLoadClass &cload,
 		return (WW3D_ERROR_LOAD_FAILED);
 	}
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::read_prelit_material -- read prelit material chunks.								  *
@@ -1641,7 +1616,6 @@ WW3DErrorType MeshModelClass::read_prelit_material (ChunkLoadClass &cload, MeshL
 
 	return (WW3D_ERROR_OK);
 }
-
 
 /***********************************************************************************************
  * MeshModelClass::post_process -- post loading, perform any processing on this model.			  *
@@ -1837,7 +1811,6 @@ void MeshModelClass::compute_static_sort_levels(void)
 	};
 }
 
-
 void MeshModelClass::install_materials(MeshLoadContextClass * context)
 {
 	int i;
@@ -1870,7 +1843,6 @@ void MeshModelClass::install_materials(MeshLoadContextClass * context)
 	}
 }
 
-
 void MeshModelClass::clone_materials(const MeshModelClass & srcmesh)
 {
 	/*
@@ -1885,7 +1857,6 @@ void MeshModelClass::clone_materials(const MeshModelClass & srcmesh)
 	MaterialRemapperClass remapper(srcmesh.MatInfo, MatInfo);
 	remapper.Remap_Mesh(srcmesh.CurMatDesc, CurMatDesc);
 }
-
 
 void MeshModelClass::install_alternate_material_desc(MeshLoadContextClass * context)
 {
@@ -1919,7 +1890,6 @@ MeshLoadContextClass::MeshLoadContextClass(void)
 	LoadedDIG = false;
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::~MeshLoadContextClass -- destructor                                   *
  *                                                                                             *
@@ -1951,7 +1921,6 @@ MeshLoadContextClass::~MeshLoadContextClass(void)
 	}
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::Get_Texcoord_Array -- returns the texture coordinates array           *
  *                                                                                             *
@@ -1974,7 +1943,6 @@ W3dTexCoordStruct * MeshLoadContextClass::Get_Texcoord_Array(void)
 	return TexCoords;
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::Add_Shader -- adds a shader to the array                              *
  *                                                                                             *
@@ -1993,7 +1961,6 @@ int MeshLoadContextClass::Add_Shader(ShaderClass shader)
 	Shaders.Add(shader);
 	return index;
 }
-
 
 /***********************************************************************************************
  * MeshLoadContextClass::Add_Vertex_Materail -- adds a vertex material                         *
@@ -2016,7 +1983,6 @@ int MeshLoadContextClass::Add_Vertex_Material(VertexMaterialClass * vmat)
 	return index;
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::Add_Texture -- adds a texture                                         *
  *                                                                                             *
@@ -2037,7 +2003,6 @@ int MeshLoadContextClass::Add_Texture(TextureClass * tex)
 	Textures.Add(tex);
 	return index;
 }
-
 
 /***********************************************************************************************
  * MeshLoadContextClass::Add_Legacy_Material -- adds a legacy material                         *
@@ -2104,7 +2069,6 @@ void MeshLoadContextClass::Add_Legacy_Material(ShaderClass shader,VertexMaterial
 	LegacyMaterials.Add(mat);
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::Peek_Legacy_Shader -- returns a legacy shader								  *
  *                                                                                             *
@@ -2127,7 +2091,6 @@ ShaderClass MeshLoadContextClass::Peek_Legacy_Shader(int legacy_material_index)
 	int si = LegacyMaterials[legacy_material_index]->ShaderIdx;
 	return Peek_Shader(si);
 }
-
 
 /***********************************************************************************************
  * MeshLoadContextClass::Peek_Legacy_Vertex_Material -- returns a pointer to a legacy vertex ma*
@@ -2153,7 +2116,6 @@ VertexMaterialClass * MeshLoadContextClass::Peek_Legacy_Vertex_Material(int lega
 	}
 }
 
-
 /***********************************************************************************************
  * MeshLoadContextClass::Peek_Legacy_Texture -- returns a pointer to a texture                 *
  *                                                                                             *
@@ -2178,14 +2140,11 @@ TextureClass * MeshLoadContextClass::Peek_Legacy_Texture(int legacy_material_ind
 	}
 }
 
-
 Vector2 * MeshLoadContextClass::Get_Temporary_UV_Array(int elementcount)
 {
 	TempUVArray.Uninitialised_Grow(elementcount);
 	return &(TempUVArray[0]);
 }
-
-
 
 /***********************************************************************************************
  * MeshSaveContextClass::MeshSaveContextClass -- constructor                                   *
@@ -2204,7 +2163,6 @@ MeshSaveContextClass::MeshSaveContextClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * MeshSaveContextClass::~MeshSaveContextClass -- destructor                                   *
  *                                                                                             *
@@ -2219,10 +2177,6 @@ MeshSaveContextClass::MeshSaveContextClass(void) :
 MeshSaveContextClass::~MeshSaveContextClass(void)
 {
 }
-
-
-
-
 
 #if 0 // MESH SAVING CODE HAS NOT BEEN MAINTAINED... Leaving here for future reference if we ever need it :-)
 
@@ -2248,7 +2202,6 @@ WW3DErrorType MeshModelClass::Save_W3D(ChunkSaveClass & csave)
 	delete context;
 	return WW3D_ERROR_OK;
 }
-
 
 WW3DErrorType MeshModelClass::write_chunks(ChunkSaveClass & csave,MeshSaveContextClass * context)
 {

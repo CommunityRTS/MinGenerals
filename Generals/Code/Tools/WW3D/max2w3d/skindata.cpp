@@ -37,9 +37,7 @@
  *   SkinDataClass::Load -- load the skindata from a MAX file                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "skindata.h"
-
 
 /***********************************************************************************************
  * SkinDataClass::Save -- save the skindata in the MAX file                                    *
@@ -99,7 +97,6 @@ IOResult SkinDataClass::Save(ISave *isave)
 
 	return IO_OK;
 }
-
 
 /***********************************************************************************************
  * SkinDataClass::Load -- load the skindata from a MAX file                                    *

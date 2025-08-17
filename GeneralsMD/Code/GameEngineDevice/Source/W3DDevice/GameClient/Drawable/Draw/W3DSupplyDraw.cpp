@@ -152,4 +152,3 @@ void W3DSupplyDraw::loadPostProcess( void )
 
 }  // end loadPostProcess
 
-

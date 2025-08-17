@@ -275,7 +275,6 @@ UnicodeString getUnicodeTimeBuffer(SYSTEMTIME timeVal)
 	return displayTimeBuffer;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 GameState::GameState( void )
@@ -1142,7 +1141,6 @@ static void addGameToAvailableList( AsciiString filename, void *userData )
 		// Do nothing - just return.
 	}
 
-
 }  // end addGameToAvailableList
 
 // ------------------------------------------------------------------------------------------------
@@ -1647,7 +1645,6 @@ void GameState::xfer( Xfer *xfer )
 		// campaign mission number
 		saveGameInfo->missionNumber = TheCampaignManager->getCurrentMissionNumber();
 		xfer->xferInt( &saveGameInfo->missionNumber );
-
 
 	}  // end if
 	else

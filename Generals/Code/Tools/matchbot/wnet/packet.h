@@ -42,7 +42,6 @@
 #include "field.h"
 #include <wlib/wstypes.h>
 
-
 class PacketClass
 {
   public:

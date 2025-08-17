@@ -16,11 +16,9 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include "Common/URLLaunch.h"
 
 #define FILE_PREFIX     L"file://"
-
 
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT MakeEscapedURL( LPWSTR pszInURL, LPWSTR *ppszOutURL )
@@ -120,7 +118,6 @@ HRESULT MakeEscapedURL( LPWSTR pszInURL, LPWSTR *ppszOutURL )
 
     return( S_OK );
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT GetShellOpenCommand( LPTSTR ptszShellOpenCommand, DWORD cbShellOpenCommand )
@@ -222,7 +219,6 @@ HRESULT GetShellOpenCommand( LPTSTR ptszShellOpenCommand, DWORD cbShellOpenComma
 
     return( HRESULT_FROM_WIN32( lResult ) );
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 HRESULT LaunchURL( LPCWSTR pszURL )

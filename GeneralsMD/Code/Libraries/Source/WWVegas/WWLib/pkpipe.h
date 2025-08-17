@@ -42,7 +42,6 @@
 #include	"pk.h"
 #include	"rndstraw.h"
 
-
 /*
 **	This pipe will encrypt/decrypt the data stream. The data is encrypted by generating a
 **	symetric key that is then encrypted using the public key system. This symetric key is then
@@ -130,6 +129,5 @@ class PKPipe : public Pipe
 		PKPipe(PKPipe & rvalue);
 		PKPipe & operator = (PKPipe const & pipe);
 };
-
 
 #endif

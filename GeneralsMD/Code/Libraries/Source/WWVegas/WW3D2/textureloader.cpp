@@ -157,7 +157,6 @@ void TextureLoadTaskListClass::Remove(TextureLoadTaskClass *task)
 	task->List	= 0;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 // SynchronizedTextureLoadTaskListClass implementation
@@ -211,7 +210,6 @@ void SynchronizedTextureLoadTaskListClass::Remove(TextureLoadTaskClass *task)
 	TextureLoadTaskListClass::Remove(task);
 }
 
-
 // Locks
 
 // To prevent deadlock, threads should acquire locks in the order in which
@@ -230,7 +228,6 @@ static TextureLoadTaskListClass					_TexLoadFreeList;
 static TextureLoadTaskListClass					_CubeTexLoadFreeList;
 static TextureLoadTaskListClass					_VolTexLoadFreeList;
 
-
 // The background texture loading thread.
 static class LoaderThreadClass : public ThreadClass
 {
@@ -243,7 +240,6 @@ public:
 
 	void Thread_Function();
 } _TextureLoadThread;
-
 
 // TODO: Legacy - remove this call!
 IDirect3DTexture8* Load_Compressed_Texture(
@@ -316,7 +312,6 @@ static bool Is_Format_Compressed(WW3DFormat texture_format,bool allow_compressio
 	return compressed;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 // TextureLoader implementation
@@ -334,7 +329,6 @@ void TextureLoader::Init()
 	TextureInactiveOverrideTime = 0;
 }
 
-
 void TextureLoader::Deinit()
 {
 	FastCriticalSectionClass::LockClass lock(_BackgroundCriticalSection);
@@ -344,12 +338,10 @@ void TextureLoader::Deinit()
 	TextureLoadTaskClass::Delete_Free_Pool();
 }
 
-
 bool TextureLoader::Is_DX8_Thread(void)
 {
 	return (ThreadClass::_Get_Current_Thread_ID() == DX8Wrapper::_Get_Main_Thread_ID());
 }
-
 
 // ----------------------------------------------------------------------------
 //
@@ -515,7 +507,6 @@ IDirect3DTexture8* TextureLoader::Load_Thumbnail(const StringClass& filename, co
 #endif
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // Load image to a surface. The function tries to create texture that matches
@@ -631,7 +622,6 @@ IDirect3DSurface8* TextureLoader::Load_Surface_Immediate(
 	return d3d_surface;
 }
 
-
 void TextureLoader::Request_Thumbnail(TextureBaseClass *tc)
 {
 	// Grab the foreground lock. This prevents the foreground thread
@@ -672,7 +662,6 @@ void TextureLoader::Request_Thumbnail(TextureBaseClass *tc)
 	}
 }
 
-
 void TextureLoader::Request_Background_Loading(TextureBaseClass *tc)
 {
 	WWPROFILE(("TextureLoader::Request_Background_Loading()"));
@@ -702,7 +691,6 @@ void TextureLoader::Request_Background_Loading(TextureBaseClass *tc)
 		_ForegroundQueue.Push_Back(task);
 	}
 }
-
 
 void TextureLoader::Request_Foreground_Loading(TextureBaseClass *tc)
 {
@@ -793,7 +781,6 @@ void TextureLoader::Request_Foreground_Loading(TextureBaseClass *tc)
 	}
 }
 
-
 void TextureLoader::Flush_Pending_Load_Tasks(void)
 {
 	// This function can only be called from the main thread.
@@ -833,7 +820,6 @@ void TextureLoader::Flush_Pending_Load_Tasks(void)
 	}
 }
 
-
 // Nework update macro for texture loader.
 #pragma warning(disable:4201) // warning C4201: nonstandard extension used : nameless struct/union
 #include <mmsystem.h>
@@ -845,7 +831,6 @@ void TextureLoader::Flush_Pending_Load_Tasks(void)
 			time = time2;                                \
 		}                                               \
 	}                                                  \
-
 
 void TextureLoader::Update(void (*network_callback)(void))
 {
@@ -904,7 +889,6 @@ void TextureLoader::Process_Foreground_Thumbnail(TextureLoadTaskClass *task)
 	}
 }
 
-
 void TextureLoader::Process_Foreground_Load(TextureLoadTaskClass *task)
 {
 	// Is high-priority task?
@@ -927,7 +911,6 @@ void TextureLoader::Process_Foreground_Load(TextureLoadTaskClass *task)
 			break;
 	}
 }
-
 
 void TextureLoader::Begin_Load_And_Queue(TextureLoadTaskClass *task)
 {
@@ -952,7 +935,6 @@ void TextureLoader::Begin_Load_And_Queue(TextureLoadTaskClass *task)
 	}
 }
 
-
 void TextureLoader::Load_Thumbnail(TextureBaseClass *tc)
 {
 	// All D3D operations must run from main thread
@@ -971,7 +953,6 @@ void TextureLoader::Load_Thumbnail(TextureBaseClass *tc)
 	d3d_texture->Release();
 	d3d_texture = 0;
 }
-
 
 void LoaderThreadClass::Thread_Function(void)
 {
@@ -1000,7 +981,6 @@ void LoaderThreadClass::Thread_Function(void)
 		Switch_Thread();
 	}
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -1031,12 +1011,10 @@ TextureLoadTaskClass::TextureLoadTaskClass()
 	}
 }
 
-
 TextureLoadTaskClass::~TextureLoadTaskClass(void)
 {
 	Deinit();
 }
-
 
 TextureLoadTaskClass *TextureLoadTaskClass::Create(TextureBaseClass *tc, TaskType type, PriorityType priority)
 {
@@ -1068,14 +1046,12 @@ TextureLoadTaskClass *TextureLoadTaskClass::Create(TextureBaseClass *tc, TaskTyp
 	return task;
 }
 
-
 void TextureLoadTaskClass::Destroy(void)
 {
 	// detach the task from its texture, and return to free pool.
 	Deinit();
 	_TexLoadFreeList.Push_Front(this);
 }
-
 
 void TextureLoadTaskClass::Delete_Free_Pool(void)
 {
@@ -1090,7 +1066,6 @@ void TextureLoadTaskClass::Delete_Free_Pool(void)
 		delete task;
 	}
 }
-
 
 void TextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, PriorityType priority)
 {
@@ -1126,7 +1101,6 @@ void TextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, PriorityTyp
 	Reduction		= Texture->Get_Reduction();
 	HSVShift			= Texture->Get_HSV_Shift();
 
-
 	for (int i = 0; i < MIP_LEVELS_MAX; ++i)
 	{
 		LockedSurfacePtr[i]		= NULL;
@@ -1146,7 +1120,6 @@ void TextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, PriorityTyp
 			break;
 	}
 }
-
 
 void TextureLoadTaskClass::Deinit()
 {
@@ -1179,7 +1152,6 @@ void TextureLoadTaskClass::Deinit()
 	}
 }
 
-
 bool TextureLoadTaskClass::Begin_Load(void)
 {
 	WWASSERT(TextureLoader::Is_DX8_Thread());
@@ -1208,7 +1180,6 @@ bool TextureLoadTaskClass::Begin_Load(void)
 
 	return true;
 }
-
 
 // ----------------------------------------------------------------------------
 //
@@ -1239,7 +1210,6 @@ bool TextureLoadTaskClass::Load(void)
 	return loaded;
 }
 
-
 void TextureLoadTaskClass::End_Load(void)
 {
 	WWASSERT(TextureLoader::Is_DX8_Thread());
@@ -1249,7 +1219,6 @@ void TextureLoadTaskClass::End_Load(void)
 
 	State = STATE_LOAD_COMPLETE;
 }
-
 
 void TextureLoadTaskClass::Finish_Load(void)
 {
@@ -1273,7 +1242,6 @@ void TextureLoadTaskClass::Finish_Load(void)
 	}
 }
 
-
 void TextureLoadTaskClass::Apply_Missing_Texture(void)
 {
 	WWASSERT(TextureLoader::Is_DX8_Thread());
@@ -1282,7 +1250,6 @@ void TextureLoadTaskClass::Apply_Missing_Texture(void)
 	D3DTexture = MissingTexture::_Get_Missing_Texture();
 	Apply(true);
 }
-
 
 void TextureLoadTaskClass::Apply(bool initialize)
 {
@@ -1406,7 +1373,6 @@ static bool	Get_Texture_Information
 	return true;
 }
 
-
 bool TextureLoadTaskClass::Begin_Compressed_Load(void)
 {
 	unsigned orig_w,orig_h,orig_d,orig_mip_count,reduction;
@@ -1461,7 +1427,6 @@ bool TextureLoadTaskClass::Begin_Compressed_Load(void)
 	Height	= height;
 	Format	= Get_Valid_Texture_Format(orig_format, Texture->Is_Compression_Allowed());
 	Reduction = reduction;
-
 
 	if (!Texture->Is_Reducible() || Texture->MipLevelCount == MIP_LEVELS_1)
 		Reduction = 0;	//app doesn't want this texture to ever be reduced.
@@ -1705,7 +1670,6 @@ bool TextureLoadTaskClass::Begin_Compressed_Load(void)
 	return true;
 }
 
-
 bool TextureLoadTaskClass::Begin_Uncompressed_Load(void)
 {
 	Targa targa;
@@ -1798,7 +1762,6 @@ void TextureLoadTaskClass::Lock_Surfaces(void)
 	}
 }
 
-
 void TextureLoadTaskClass::Unlock_Surfaces(void)
 {
 	for (unsigned int i = 0; i < MipLevelCount; ++i)
@@ -1820,7 +1783,6 @@ void TextureLoadTaskClass::Unlock_Surfaces(void)
 #endif
 
 }
-
 
 bool TextureLoadTaskClass::Load_Compressed_Mipmap(void)
 {
@@ -1863,7 +1825,6 @@ bool TextureLoadTaskClass::Load_Compressed_Mipmap(void)
 
 	return true;
 }
-
 
 bool TextureLoadTaskClass::Load_Uncompressed_Mipmap(void)
 {
@@ -2008,7 +1969,6 @@ bool TextureLoadTaskClass::Load_Uncompressed_Mipmap(void)
 	return true;
 }
 
-
 unsigned char * TextureLoadTaskClass::Get_Locked_Surface_Ptr(unsigned int level)
 {
 	WWASSERT(level<MipLevelCount);
@@ -2030,10 +1990,6 @@ unsigned int TextureLoadTaskClass::Get_Locked_Surface_Pitch(unsigned int level) 
 	WWASSERT(LockedSurfacePtr[level]);
 	return LockedSurfacePitch[level];
 }
-
-
-
-
 
 // CubeTextureLoadTaskClass
 CubeTextureLoadTaskClass::CubeTextureLoadTaskClass()
@@ -2059,7 +2015,6 @@ void CubeTextureLoadTaskClass::Destroy(void)
 	Deinit();
 	_CubeTexLoadFreeList.Push_Front(this);
 }
-
 
 void CubeTextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, PriorityType priority)
 {
@@ -2095,7 +2050,6 @@ void CubeTextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, Priorit
 	Reduction		= Texture->Get_Reduction();
 	HSVShift			= Texture->Get_HSV_Shift();
 
-
 	for (int f=0; f<6; f++)
 	{
 		for (int i = 0; i < MIP_LEVELS_MAX; ++i)
@@ -2118,7 +2072,6 @@ void CubeTextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, Priorit
 		break;
 	}
 }
-
 
 void CubeTextureLoadTaskClass::Deinit()
 {
@@ -2215,8 +2168,6 @@ void CubeTextureLoadTaskClass::Unlock_Surfaces(void)
 #endif
 
 }
-
-
 
 bool CubeTextureLoadTaskClass::Begin_Compressed_Load()
 {
@@ -2443,12 +2394,6 @@ unsigned int CubeTextureLoadTaskClass::Get_Locked_CubeMap_Surface_Pitch(unsigned
 	return LockedCubeSurfacePitch[face][level];
 }
 
-
-
-
-
-
-
 // VolumeTextureLoadTaskClass
 VolumeTextureLoadTaskClass::VolumeTextureLoadTaskClass()
 :	TextureLoadTaskClass()
@@ -2507,7 +2452,6 @@ void VolumeTextureLoadTaskClass::Init(TextureBaseClass* tc, TaskType type, Prior
 	Reduction		= Texture->Get_Reduction();
 	HSVShift			= Texture->Get_HSV_Shift();
 
-
 	for (int i = 0; i < MIP_LEVELS_MAX; ++i)
 	{
 		LockedSurfacePtr[i]			= NULL;
@@ -2550,7 +2494,6 @@ void VolumeTextureLoadTaskClass::Lock_Surfaces()
 	}
 }
 
-
 void VolumeTextureLoadTaskClass::Unlock_Surfaces()
 {
 	for (unsigned int i = 0; i < MipLevelCount; ++i)
@@ -2575,8 +2518,6 @@ void VolumeTextureLoadTaskClass::Unlock_Surfaces()
 #endif
 
 }
-
-
 
 bool VolumeTextureLoadTaskClass::Begin_Compressed_Load()
 {

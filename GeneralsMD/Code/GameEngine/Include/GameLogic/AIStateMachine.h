@@ -52,7 +52,6 @@ class Squad;
 
 //-----------------------------------------------------------------------------------------------------------
 
-
 /**
  * The AI state IDs.
  * Each of these constants will be associated with an instance of a State class
@@ -151,7 +150,6 @@ public:
 	const Coord3D *getGoalPathPosition( Int i ) const;		///< return path position at index "i"
 	Int getGoalPathSize() const { return m_goalPath.size(); }
 
-
 	void setGoalWaypoint( const Waypoint *way );		///< move toward this waypoint, continue if connected
 	const Waypoint *getGoalWaypoint();
 
@@ -187,7 +185,6 @@ private:
 	State									*m_temporaryState;
 	UnsignedInt						m_temporaryStateFramEnd; ///< Last frame to run m_temporaryState.
 };
-
 
 //-----------------------------------------------------------------------------------------------------------
 class AttackStateMachine : public StateMachine
@@ -802,7 +799,6 @@ protected:
 };
 EMPTY_DTOR(AIPanicState)
 
-
 //-----------------------------------------------------------------------------------------------------------
 /**
  * Follow simple list of points.
@@ -1042,7 +1038,6 @@ public:
 	virtual AsciiString getName() const ;
 #endif
 
-
 protected:
 	// snapshot interface
 	virtual void crc( Xfer *xfer );
@@ -1154,7 +1149,6 @@ public:
 	virtual void onExit( StateExitType status );
 };
 EMPTY_DTOR(AIExitInstantlyState)
-
 
 //-----------------------------------------------------------------------------------------------------------
 /**

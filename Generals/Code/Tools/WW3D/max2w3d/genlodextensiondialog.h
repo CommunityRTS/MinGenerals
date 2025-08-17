@@ -88,7 +88,4 @@ private:
 
 };
 
-
-
-
 #endif //GENLODEXTENSIONDIALOG_H

@@ -80,7 +80,6 @@ private:
 	const ThingTemplate *m_laserFromAssisted;
 	const ThingTemplate *m_laserToTarget;
 
-
 };
 
 #endif

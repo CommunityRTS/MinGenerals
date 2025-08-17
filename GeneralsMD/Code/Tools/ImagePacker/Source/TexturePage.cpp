@@ -99,7 +99,6 @@ void TexturePage::extendToRowIfOpen( char *src,
 		// try to extend pixel "up" if that pixel is "open"
 		row = src + (buffWidth * buffBPP);
 
-
 	}  // end if
 	else if( srcY >= imageHeight / 2 &&
 					 (srcY != imageHeight - 1 ||
@@ -615,7 +614,6 @@ Bool TexturePage::addImageData( Byte *destBuffer,
 		for( y = 0; y < image->m_size.y; y++ )
 		{
 
-
 			// compute beginning of source row to copy from
 			src = sourceBuffer + ((image->m_size.y - 1 - y) * image->m_size.x * sourceBPP);
 
@@ -1026,7 +1024,6 @@ Bool TexturePage::addImage( ImageInfo *image )
 																		imageWidth, imageHeight,
 																		&xGutter, &yGutter,
 																		useRGBExtend );
-
 
 				}  // end if
 				if( region.hi.y >= m_size.y )

@@ -45,7 +45,6 @@
 #include <windows.h>
 #include <winbase.h>
 
-
 // Class declerations.
 class TGAToDXTClass
 {
@@ -75,7 +74,6 @@ class TGAToDXTClass
 	friend void ReadDTXnFile (DWORD count, void *buffer);
 	friend void WriteDTXnFile (DWORD datacount, void *data);
 };
-
 
 // Externals.
 extern TGAToDXTClass _TGAToDXTConverter;

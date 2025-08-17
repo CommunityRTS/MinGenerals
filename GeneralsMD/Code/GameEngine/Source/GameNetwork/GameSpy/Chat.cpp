@@ -85,7 +85,6 @@ void INI::parseOnlineChatColorDefinition( INI* ini )
 	ini->initFromINI( GameSpyColor, GameSpyColorFieldParse );
 }
 
-
 Color GameSpyColor[GSCOLOR_MAX] =
 {
 	GameMakeColor(255,255,255,255),	// GSCOLOR_DEFAULT
@@ -263,7 +262,6 @@ void GameSpyInfo::addChat( PlayerInfo p, UnicodeString msg, Bool isPublic, Bool 
 			}  // end if
 		}
 	}
-
 
 	if (isBuddy)
 	{

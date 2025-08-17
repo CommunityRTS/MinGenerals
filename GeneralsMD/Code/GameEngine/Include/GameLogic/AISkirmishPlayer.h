@@ -37,7 +37,6 @@
 class BuildListInfo;
 class SpecialPowerTemplate;
 
-
 /**
  * The computer-controlled opponent.
  */
@@ -120,6 +119,4 @@ protected:
 };
 
 #endif // _AI_SKIRMISH_PLAYER_H_
-
-
 

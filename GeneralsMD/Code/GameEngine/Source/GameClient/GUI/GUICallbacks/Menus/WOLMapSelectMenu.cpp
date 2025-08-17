@@ -339,8 +339,6 @@ WindowMsgHandledType WOLMapSelectMenuSystem( GameWindow *window, UnsignedInt msg
 			}
 		//---------------------------------------------------------------------------------------------
 
-
-
 			case GLM_SELECTED:
 			{
 
@@ -429,7 +427,6 @@ WindowMsgHandledType WOLMapSelectMenuSystem( GameWindow *window, UnsignedInt msg
 
 					// get text of the map to load
 					map = GadgetListBoxGetText( winMapWindow, selected, 0 );
-
 
 					// set the map name in the global data map name
 					AsciiString asciiMap;

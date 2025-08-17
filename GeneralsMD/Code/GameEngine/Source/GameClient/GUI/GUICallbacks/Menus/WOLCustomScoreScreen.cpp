@@ -45,8 +45,6 @@
 //#include "GameNetwork/WOL.h"
 //#include "GameNetwork/WOLmenus.h"
 
-
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentWOLCustomScoreID = NAMEKEY_INVALID;
@@ -97,7 +95,6 @@ void WOLCustomScoreScreenShutdown( WindowLayout *layout, void *userData )
 	// our shutdown is complete
 	TheShell->shutdownComplete( layout );
 }  // WOLCustomScoreScreenShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Status Menu update method */

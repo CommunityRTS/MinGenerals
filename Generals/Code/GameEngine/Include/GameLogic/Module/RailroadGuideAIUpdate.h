@@ -102,11 +102,6 @@ public:
 
 //-------------------------------------------------------------------------------------------------
 
-
-
-
-
-
 struct TrackPoint
 {
 	TrackPoint( void )
@@ -127,7 +122,6 @@ struct TrackPoint
 		m_isDisembark = FALSE;
 		m_isPingPong = FALSE;
 	};
-
 
 	const Int getHandle( void )
 	{
@@ -156,7 +150,6 @@ struct TrainTrack
 		clear();
 		incReference();
 	};
-
 
 	void clear( void )
 	{
@@ -216,8 +209,6 @@ public:
 	typedef std::vector<AsciiString> TemplateNameVector;
 	typedef TemplateNameVector::const_iterator TemplateNameIterator;;
 
-
-
 	//UpdateModule methods
 //	virtual SleepyUpdatePhase getUpdatePhase() const { return PHASE_FINAL; }
 
@@ -253,7 +244,6 @@ protected:
 		DO_NOTHING,
 		DISEMBARK
 	};
-
 
 	// our methods
 	void updatePositionTrackDistance( PullInfo *pullerInfo, PullInfo *myInfo );
@@ -296,9 +286,7 @@ protected:
 
 	WaypointID m_anchorWaypointID;
 
-
 };
-
 
 #endif  // end __RAILROAD_GUIDE_AI_UPDATE_H_
 

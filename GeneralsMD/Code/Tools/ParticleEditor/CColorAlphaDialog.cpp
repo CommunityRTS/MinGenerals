@@ -55,8 +55,6 @@ static const UINT alphaControls[][3] =
 	{IDC_PSEd_AF8_Min, IDC_PSEd_AF8_Max, IDC_PSEd_AF8_Frame}
 };
 
-
-
 CColorAlphaDialog::CColorAlphaDialog(UINT nIDTemplate, CWnd* pParentWnd) :
 										CDialog(nIDTemplate, pParentWnd)
 {}
@@ -272,8 +270,6 @@ void CColorAlphaDialog::onColorPress(Int colorPressed)
 		AfxGetApp()->WriteProfileString("Custom Colors", "Color15", buff);
 		ltoa(m_customColors[15], buff, 10);
 		AfxGetApp()->WriteProfileString("Custom Colors", "Color16", buff);
-
-
 
 		OnParticleSystemEdit();
 	}

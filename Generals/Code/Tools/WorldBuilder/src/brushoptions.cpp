@@ -33,7 +33,6 @@ Int BrushOptions::m_currentFeather = 0;
 /////////////////////////////////////////////////////////////////////////////
 /// BrushOptions dialog trivial construstor - Create does the real work.
 
-
 BrushOptions::BrushOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(BrushOptions)
@@ -87,8 +86,6 @@ void BrushOptions::setHeight(Int height)
 	}
 }
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // BrushOptions message handlers
 
@@ -103,7 +100,6 @@ BOOL BrushOptions::OnInitDialog()
 	m_brushWidthPopup.SetupPopSliderButton(this, IDC_SIZE_POPUP, this);
 	m_brushFeatherPopup.SetupPopSliderButton(this, IDC_FEATHER_POPUP, this);
 	m_brushHeightPopup.SetupPopSliderButton(this, IDC_HEIGHT_POPUP, this);
-
 
 	m_staticThis = this;
 	m_updating = false;
@@ -270,7 +266,6 @@ void BrushOptions::PopSliderFinished(const long sliderID, long theVal)
 
 }
 
-
 BEGIN_MESSAGE_MAP(BrushOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(BrushOptions)
 	ON_EN_CHANGE(IDC_FEATHER_EDIT, OnChangeFeatherEdit)
@@ -279,5 +274,4 @@ BEGIN_MESSAGE_MAP(BrushOptions, COptionsPanel)
 	ON_WM_HSCROLL()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 

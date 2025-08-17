@@ -34,8 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #ifndef GAMEMTLVERTEXMATERIALDLG_H
 #define GAMEMTLVERTEXMATERIALDLG_H
 
@@ -71,6 +69,5 @@ private:
 	ISpinnerControl * ShininessSpin;
 	ISpinnerControl * UVChannelSpin[MAX_STAGES];
 };
-
 
 #endif

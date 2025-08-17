@@ -43,14 +43,12 @@
  *   HTreeManagerClass::Get_Tree -- get a pointer to the specified hierarchy tree              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "htreemgr.h"
 #include <string.h>
 #include "htree.h"
 #include "chunkio.h"
 #include "wwmemlog.h"
 #include "w3dexclusionlist.h"
-
 
 /***********************************************************************************************
  * HTreeManagerClass::HTreeManagerClass -- constructor                                         *
@@ -260,8 +258,6 @@ char *HTreeManagerClass::Get_Tree_Name(const int idx)
 	return NULL;
 }
 
-
-
 /***********************************************************************************************
  * HTreeManagerClass::Get_Tree -- get a pointer to the specified hierarchy tree                *
  *                                                                                             *
@@ -284,7 +280,6 @@ HTreeClass * HTreeManagerClass::Get_Tree(const char * name)
 	}
 	return NULL;
 }
-
 
 /***********************************************************************************************
  * HTreeManagerClass::Get_Tree -- get a pointer to the specified hierarchy tree                *

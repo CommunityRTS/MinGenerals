@@ -130,7 +130,6 @@ void SquishCollide::onCollide( Object *other, const Coord3D *loc, const Coord3D 
 			getObject()->friend_setUndetectedDefector( FALSE );// My secret is out
 		}
 
-
   }
 }
 

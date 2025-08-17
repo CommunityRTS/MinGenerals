@@ -28,9 +28,7 @@
 //#include "always.h"
 #include "IGR.h"
 
-
 IGROptionsClass *OnlineOptions = NULL;
-
 
 /*********************************************************************************************
  * IGROptions::Init -- Class initializer. Reads from the registry										*

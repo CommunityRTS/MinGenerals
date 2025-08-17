@@ -148,6 +148,5 @@ inline void Recolor(Vector3 &rgb, const Vector3 &hsv_shift)
 	HSV_To_RGB(rgb,hsv);
 }
 
-
 #endif
 

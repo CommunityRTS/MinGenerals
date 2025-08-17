@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -42,9 +41,7 @@
 #ifndef __LISTENER_H
 #define __LISTENER_H
 
-
 #include "Sound3D.H"
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -94,7 +91,6 @@ class Listener3DClass : public Sound3DClass
 		virtual void			Seek (unsigned long milliseconds) { }
 		virtual SOUND_STATE	Get_State (void) const	{ return STATE_STOPPED; }
 
-
 		//////////////////////////////////////////////////////////////////////
 		//	Attenuation settings
 		//////////////////////////////////////////////////////////////////////
@@ -107,7 +103,6 @@ class Listener3DClass : public Sound3DClass
 		//	Velocity methods
 		//////////////////////////////////////////////////////////////////////
 		virtual void			Set_Velocity (const Vector3 &velocity) { }
-
 
 	protected:
 
@@ -142,6 +137,5 @@ class Listener3DClass : public Sound3DClass
 		//	Private member data
 		//////////////////////////////////////////////////////////////////////
 };
-
 
 #endif //__LISTENER_H

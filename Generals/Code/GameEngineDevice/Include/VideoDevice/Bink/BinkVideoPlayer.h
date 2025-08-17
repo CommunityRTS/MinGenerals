@@ -44,7 +44,6 @@
 #ifndef __VIDEODEVICE_BINKDEVICE_H_
 #define __VIDEODEVICE_BINKDEVICE_H_
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -92,7 +91,6 @@ class BinkVideoStream : public VideoStream
 		virtual Int		height( void );											///< Return the height of the video
 		virtual Int		width( void );											///< Return the width of the video
 
-
 };
 
 //===============================
@@ -119,7 +117,6 @@ class BinkVideoPlayer : public VideoPlayer
 
 		virtual void	deinit( void );													///< Close down player
 
-
 		BinkVideoPlayer();
 		~BinkVideoPlayer();
 
@@ -134,10 +131,8 @@ class BinkVideoPlayer : public VideoPlayer
 		virtual void initializeBinkWithMiles( void );
 };
 
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __VIDEODEVICE_BINKDEVICE_H_

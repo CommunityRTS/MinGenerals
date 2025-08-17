@@ -59,7 +59,6 @@
 #include "GameLogic/Module/ContainModule.h"
 #include "GameLogic/Module/SpawnBehavior.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -90,7 +89,6 @@ StealthUpdateModuleData::StealthUpdateModuleData()
     m_ownDetectionEvaEvent = EVA_Invalid;
     m_grantedBySpecialPower = FALSE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void StealthUpdateModuleData::buildFieldParse(MultiIniFieldParse& p)
@@ -249,10 +247,7 @@ void StealthUpdate::receiveGrant( Bool active, UnsignedInt frames )
     }
   }
 
-
-
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
@@ -343,7 +338,6 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 	if( self->getStatusBits().testForAny( data->m_forbiddenStatus ) )
 		return FALSE;
 
-
 	//Do a quick preliminary test to see if we are restricted by firing particular weapons and we fired a shot last frame or this frame.
 	if( flags & STEALTH_NOT_WHILE_FIRING_WEAPON && self->getStatusBits().test( OBJECT_STATUS_IS_FIRING_WEAPON ) )
 	{
@@ -408,8 +402,6 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
     }
   }
 
-
-
 	const PhysicsBehavior *physics = self->getPhysics();
 	if ((flags & STEALTH_NOT_WHILE_MOVING) && physics != NULL &&
 					physics->getVelocityMagnitude() > getStealthUpdateModuleData()->m_stealthSpeed)
@@ -423,7 +415,6 @@ Bool StealthUpdate::allowedToStealth( Object *stealthOwner ) const
 
 	return TRUE;
 }
-
 
 //---------------------------------------------------------------------------
 
@@ -444,16 +435,12 @@ void StealthUpdate::hintDetectableWhileUnstealthed()
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------
-
 
 Real StealthUpdate::getFriendlyOpacity() const
 {
 	return getStealthUpdateModuleData()->m_friendlyOpacityMin;
 }
-
 
 //=============================================================================
 // indicate how the given unit is "stealthed" with respect to a given player.
@@ -480,7 +467,6 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		stealthed:	(sv)		(i)
 		detected:		(sd)		(sd)
 
-
 		Or, to put it another way:
 
 		If normal, you always appear normal.
@@ -491,9 +477,7 @@ StealthLookType StealthUpdate::calcStealthedStatusForPlayer(const Object* obj, c
 		In this state we render outselves visible and we ovlerlay the detection effect as a warning
 		we'll call this STEALTHLOOK_VISIBLE_FRIENDLY_DETECTED
 
-
 	*/
-
 
 	if (obj->isEffectivelyDead())
 		return STEALTHLOOK_NONE;			// making sure he turns visible when he dies
@@ -826,8 +810,6 @@ UpdateSleepTime StealthUpdate::update( void )
 
 	}
 
-
-
 	if (draw)
 	{
 		StealthLookType stealthLook = calcStealthedStatusForPlayer( self, ThePlayerList->getLocalPlayer() );
@@ -865,7 +847,6 @@ void setWakeupIfInRange( Object *obj, void *userData)
 //	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void StealthUpdate::markAsDetected(UnsignedInt numFrames)
 {
@@ -891,7 +872,6 @@ void StealthUpdate::markAsDetected(UnsignedInt numFrames)
 			orderIdlesToAttack = stealthUpdate->getOrderIdleEnemiesToAttackMeUponReveal();
 		}
 	}
-
 
 	Player *thisPlayer = self->getControllingPlayer();
 

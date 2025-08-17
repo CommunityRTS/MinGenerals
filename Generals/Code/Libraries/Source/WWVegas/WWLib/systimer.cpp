@@ -38,7 +38,6 @@
 
 SysTimeClass SystemTime;
 
-
 /***********************************************************************************************
  * SysTimeClass::SysTimeClass -- default constructor, sets resolution                          *
  *                                                                                             *
@@ -99,8 +98,6 @@ void SysTimeClass::Reset(void)
 	WrapAdd = 0 - StartTime;
 }
 
-
-
 /***********************************************************************************************
  * SysTimeClass::Is_Getting_Late -- Are we running out of timer time?                          *
  *                                                                                             *
@@ -126,28 +123,4 @@ bool SysTimeClass::Is_Getting_Late(void)
 	}
 	return(false);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

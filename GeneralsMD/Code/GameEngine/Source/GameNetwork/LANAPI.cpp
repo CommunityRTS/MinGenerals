@@ -67,9 +67,6 @@ LANGame::LANGame( void )
 }
 */
 
-
-
-
 LANAPI::LANAPI( void ) : m_transport(NULL)
 {
 	DEBUG_LOG(("LANAPI::LANAPI() - max game option size is %d, sizeof(LANMessage)=%d, MAX_PACKET_SIZE=%d\n",
@@ -202,7 +199,6 @@ void LANAPI::sendMessage(LANMessage *msg, UnsignedInt ip /* = 0 */)
 	}
 }
 
-
 AsciiString GetMessageTypeString(UnsignedInt type)
 {
 	AsciiString returnString;
@@ -259,7 +255,6 @@ AsciiString GetMessageTypeString(UnsignedInt type)
 	}
 	return returnString;
 }
-
 
 void LANAPI::checkMOTD( void )
 {
@@ -954,7 +949,6 @@ void LANAPI::RequestGameCreate( UnicodeString gameName, Bool isDirectConnect )
 */
 	OnGameCreate(LANAPIInterface::RET_OK);
 }
-
 
 /*static const char slotListID		= 'S';
 static const char gameOptionsID	= 'G';

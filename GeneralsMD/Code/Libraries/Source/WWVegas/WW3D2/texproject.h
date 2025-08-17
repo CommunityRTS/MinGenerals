@@ -54,7 +54,6 @@
 #include "multilist.h"
 #include "projector.h"
 
-
 class SpecialRenderInfoClass;
 class RenderObjClass;
 class MaterialPassClass;
@@ -62,7 +61,6 @@ class SurfaceClass;
 
 class TextureClass;
 class ZTextureClass;
-
 
 /**
 ** TexProjectClass
@@ -146,7 +144,6 @@ public:
 	void						Set_Texture(TextureClass * texture);
 	TextureClass *			Get_Texture(void) const;
 	TextureClass *			Peek_Texture(void) const;
-
 
 	void						Set_DepthStencilBuffer(ZTextureClass* ztex);
 	ZTextureClass*			Get_DepthStencilBuffer() const;
@@ -236,13 +233,11 @@ protected:
 	float							ZNear,ZFar;		// z clip planes (for both modes)
 };
 
-
 /*
 ** Texture Projector Lists
 */
 typedef RefMultiListClass<TexProjectClass>		TexProjListClass;
 typedef RefMultiListIterator<TexProjectClass>	TexProjListIterator;
-
 
 #endif
 

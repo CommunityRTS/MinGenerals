@@ -36,14 +36,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
 #ifndef DX8_POLYGON_RENDERER_H
 #define DX8_POLYGON_RENDERER_H
-
 
 #include "always.h"
 #include "meshmdl.h"
@@ -54,7 +52,6 @@
 
 class DX8PolygonRendererClass;
 class DX8TextureCategoryClass;
-
 
 /**
 ** DX8PolygonRendererClass

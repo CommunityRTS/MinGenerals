@@ -312,7 +312,6 @@ WindowMsgHandledType GadgetHorizontalSliderSystem( GameWindow *window, UnsignedI
 			Int x, y, delta;
 			GameWindow *child = window->winGetChild();
 
-
 			window->winGetScreenPosition( &x, &y );
 
 			child->winGetSize( &childSize.x, &childSize.y );

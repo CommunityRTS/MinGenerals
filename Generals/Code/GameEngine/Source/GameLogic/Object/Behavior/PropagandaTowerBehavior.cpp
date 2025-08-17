@@ -296,7 +296,6 @@ void PropagandaTowerBehavior::effectLogic( Object *obj, Bool giving,
 			if( obj->testWeaponBonusCondition( WEAPONBONUSCONDITION_ENTHUSIASTIC ) == FALSE )
 				obj->setWeaponBonusCondition( WEAPONBONUSCONDITION_ENTHUSIASTIC );
 
-
 			if (effectUpgraded)
 			{
 				if (obj->testWeaponBonusCondition( WEAPONBONUSCONDITION_SUBLIMINAL ) == FALSE)
@@ -304,7 +303,6 @@ void PropagandaTowerBehavior::effectLogic( Object *obj, Bool giving,
 			}
 
 		} // hasdamageweapon
-
 
 		// grant health to this object as well
 		BodyModuleInterface *body = obj->getBodyModule();

@@ -48,7 +48,6 @@
  *   W3dExportClass::Export_Collection -- exports a collection chunk                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "rawfile.h"
 #include "chunkio.h"
 #include "w3dexp.h"
@@ -80,7 +79,6 @@
 // Used to communicate from the exporter to the dialog.
 char W3dExportClass::CurrentExportPath[_MAX_DRIVE + _MAX_DIR + 1] = { '\000' };
 
-
 /* local functions */
 static DWORD WINAPI progress_callback( LPVOID arg);
 static HierarchySaveClass * load_hierarchy_file(char * filename);
@@ -100,8 +98,6 @@ struct ExportInfoAppDataChunkStruct {
 	W3dExportOptionsStruct	ExportOptions;
 	unsigned char				Padding[89];
 };
-
-
 
 /************************************************************************************************
 **
@@ -131,9 +127,6 @@ public:
 	}
 };
 
-
-
-
 /************************************************************************************************
 **
 ** OriginFilterClass - Filters out nodes which are not "origin" objects. Origins are MAX dummy
@@ -152,7 +145,6 @@ public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time)	{ return Is_Origin(node); }
 };
 
-
 /************************************************************************************************
 **
 ** DamageRootFilterClass - Filters out all nodes which are not "damage root" objects. These nodes
@@ -167,7 +159,6 @@ public:
 
 	virtual BOOL Accept_Node(INode * node, TimeValue time)	{ return Is_Damage_Root(node); }
 };
-
 
 /************************************************************************************************
 **
@@ -195,7 +186,6 @@ protected:
 
 	int RegionId;
 };
-
 
 /***********************************************************************************************
  * W3dExportClass::DoExport -- This method is called for the plug-in to perform it's file expo *
@@ -325,8 +315,6 @@ int W3dExportClass::DoExport
 	MaxInterface->RedrawViews(MaxInterface->GetTime());
 	return 1;
 }
-
-
 
 /***********************************************************************************************
  * W3dExportClass::DoOriginBasedExport -- New export codepath. Exports any objects linked to   *
@@ -527,7 +515,6 @@ void W3dExportClass::DoOriginBasedExport(char *rootname,ChunkSaveClass &csave)
 	End_Progress_Bar();
 }
 
-
 /***********************************************************************************************
  * W3dExportClass::Export_Hierarchy -- Export the hierarchy tree                               *
  *                                                                                             *
@@ -610,7 +597,6 @@ bool W3dExportClass::Export_Animation(char * name,ChunkSaveClass & csave,Progres
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * W3dExportClass::Export_Damage_Animations -- Exports damage animations for the model         *
@@ -898,7 +884,6 @@ bool W3dExportClass::Export_Geometry(char * name,ChunkSaveClass & csave,Progress
 	return true;
 }
 
-
 /***********************************************************************************************
  * W3dExportClass::Export_HLod -- Export an HLOD description                                   *
  *                                                                                             *
@@ -922,7 +907,6 @@ bool W3dExportClass::Export_HLod( char *name, const char *htree_name, ChunkSaveC
 		return false;
 	return true;
 }
-
 
 /***********************************************************************************************
  * W3dExportClass::get_hierarchy_tree -- get a pointer to the hierarchy tree                   *
@@ -968,7 +952,6 @@ HierarchySaveClass * W3dExportClass::get_hierarchy_tree(void)
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * W3dExportClass::get_damage_root_list -- gets the list of damage root nodes                  *
  *                                                                                             *
@@ -992,7 +975,6 @@ INodeListClass * W3dExportClass::get_damage_root_list(void)
 	DamageRootList = new INodeListClass(ExportInterface->theScene, CurTime, &nodefilter);
 	return DamageRootList;
 }
-
 
 /***********************************************************************************************
  * get_origin_list -- get the list of origin nodes                                             *
@@ -1138,9 +1120,6 @@ bool W3dExportClass::get_export_options(BOOL suppress_prompts)
 	return retval;
 }
 
-
-
-
 /***********************************************************************************************
  * W3dExportClass::Start_Progress_Bar -- start the MAX progress meter                          *
  *                                                                                             *
@@ -1231,7 +1210,6 @@ static bool check_lod_extensions (INodeListClass &list, INode *origin)
 	return true;
 }
 
-
 bool W3dExportClass::get_base_object_tm (Matrix3 &tm)
 {
 	INodeListClass	*origin_list = get_origin_list();
@@ -1261,7 +1239,6 @@ static DWORD WINAPI progress_callback( LPVOID arg )
 {
 	return 0;
 }
-
 
 static HierarchySaveClass * load_hierarchy_file(char * filename)
 {

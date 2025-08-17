@@ -34,10 +34,8 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef ALPHA_MODIFIER_H
 #define ALPHA_MODIFIER_H
-
 
 #include <max.h>
 #include "iparamm2.h"
@@ -48,9 +46,7 @@
 #include "resource.h"
 #include "dllmain.h"
 
-
 #define	ALPHA_MODIFIER_CLASSID		Class_ID(0x518970b3, 0x37d73373)
-
 
 extern ClassDesc* Get_Alpha_Desc();
 
@@ -63,18 +59,15 @@ class AlphaModifierClass : public Modifier
 		// Global parameter block
 		IParamBlock2	*pblock;
 
-
 		//Constructor/Destructor
 		AlphaModifierClass();
 		~AlphaModifierClass() {}
 		void DeleteThis() { delete this;}
 
-
 		// Plugin identification
 		void GetClassName(TSTR& s) { s= TSTR(Get_String(IDS_ALPHA_MODIFIER_CLASS));}
 		virtual Class_ID ClassID() { return ALPHA_MODIFIER_CLASSID;}
 		TCHAR *GetObjectName() { return Get_String(IDS_ALPHA_MODIFIER_CLASS);}
-
 
 		// Defines the behavior for this modifier
 		// This is currently setup to be basic geometry
@@ -84,16 +77,13 @@ class AlphaModifierClass : public Modifier
 		Class_ID InputType() { return triObjectClassID;}
 		BOOL ChangeTopology() {return FALSE;}
 
-
 		// Calculate the local validity from the parameters
 		Interval LocalValidity(TimeValue t);
 		Interval GetValidity(TimeValue t);
 
-
 		// Object modification and notification of change
 		void ModifyObject(TimeValue t, ModContext &mc, ObjectState *os, INode *node);
 		void NotifyInputChanged(Interval changeInt, PartID partID, RefMessage message, ModContext *mc);
-
 
 		// Reference support
 		int NumRefs() { return 1;}
@@ -128,7 +118,6 @@ class AlphaModifierClass : public Modifier
 		BitArray	SelectedVertices;
 };
 
-
 /*===========================================================================*\
  |	Dialog Processor
 \*===========================================================================*/
@@ -147,8 +136,5 @@ class AlphaModDlgProc : public ParamMap2UserDlgProc
 		void SetThing(ReferenceTarget *m) {AlphaModifier = (AlphaModifierClass*)m;}
 };
 
-
 #endif //ALPHA_MODIFIER_H
-
-
 

@@ -40,7 +40,6 @@ class InternetHackContainModuleData : public TransportContainModuleData
 {
 public:
 
-
 	InternetHackContainModuleData();
 
 	static void buildFieldParse(MultiIniFieldParse& p);
@@ -63,7 +62,6 @@ public:
 	virtual void onContaining( Object *obj, Bool wasSelected );		///< object now contains 'obj'
 
 protected:
-
 
 private:
 

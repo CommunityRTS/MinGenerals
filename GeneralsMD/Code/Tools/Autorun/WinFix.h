@@ -50,7 +50,6 @@
 #ifndef WINFIX_H
 #define WINFIX_H
 
-
 /*-----------------------------------------------------------------------------
 ** Windows Version Information class.  This is a global object that is used to
 ** store information about the specific OS that we are running under.  This can

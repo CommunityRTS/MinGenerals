@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -150,7 +149,6 @@ WWINLINE void MotionChannelClass::Get_Vector_As_Quat(int frame, Quaternion& quat
 }
 #endif
 
-
 /******************************************************************************
 
 	BitChannelClass is used to store a boolean "on/off" value for each frame
@@ -186,7 +184,6 @@ private:
 
 	friend class HRawAnimClass;
 };
-
 
 WWINLINE int BitChannelClass::Get_Bit(int frame) const
 {
@@ -292,8 +289,6 @@ private:
 	friend class HCompressedAnimClass;
 };
 
-
-
 /******************************************************************************
 
 	TimeCodedBitChannelClass is used to store a boolean "on/off" value for each frame
@@ -330,6 +325,5 @@ private:
 
 	friend class HCompressedAnimClass;
 };
-
 
 #endif

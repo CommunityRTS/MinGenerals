@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "GameNetwork/NetCommandMsg.h"
@@ -981,7 +980,6 @@ UnsignedByte NetFileAnnounceCommandMsg::getPlayerMask(void) {
 void NetFileAnnounceCommandMsg::setPlayerMask(UnsignedByte playerMask) {
 	m_playerMask = playerMask;
 }
-
 
 //-------------------------
 // NetFileProgressCommandMsg

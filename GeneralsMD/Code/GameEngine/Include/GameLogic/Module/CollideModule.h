@@ -68,7 +68,6 @@ public:
 	}
 };
 
-
 //-------------------------------------------------------------------------------------------------
 class CollideModule : public BehaviorModule,
 											public CollideModuleInterface

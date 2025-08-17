@@ -744,7 +744,6 @@ void EditWindow::mouseEvent( UnsignedInt windowsMessage,
 					if( TheEditor->isWindowSelected( window ) )
 					{
 
-
 						// set move locations
 						m_dragMoveOrigin = mouse;
 						m_dragMoveDest = mouse;

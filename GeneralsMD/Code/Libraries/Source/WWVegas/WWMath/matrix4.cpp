@@ -88,7 +88,6 @@ void Matrix4x4::Multiply(const Matrix4x4 &a,const Matrix4x4 &b,Matrix4x4 * res)
 	#undef ROWCOL
 }
 
-
 /***********************************************************************************************
  * Matrix4x4::Multiply -- Multiply a Matrix3D * Matrix4x4                                          *
  *                                                                                             *
@@ -129,7 +128,6 @@ void Matrix4x4::Multiply(const Matrix3D &a,const Matrix4x4 &b,Matrix4x4 * res)
 
 	#undef ROWCOL
 }
-
 
 /***********************************************************************************************
  * Matrix4x4::Multiply -- Multiply a Matrix4x4 * Matrix3D                                          *

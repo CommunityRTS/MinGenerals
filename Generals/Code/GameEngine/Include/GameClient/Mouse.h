@@ -215,7 +215,6 @@ public:  // enumerations and types
 		HACK,
 		PARTICLE_UPLINK_CANNON,
 
-
 		// ***** dont forget to update CursorININames[] *****
 		NUM_MOUSE_CURSORS  // keep this last
 
@@ -304,7 +303,6 @@ public:
 	UnsignedInt m_dragTolerance;
 	UnsignedInt m_dragTolerance3D;
 	UnsignedInt m_dragToleranceMS;
-
 
 protected:
 

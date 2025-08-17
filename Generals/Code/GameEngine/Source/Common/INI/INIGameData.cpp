@@ -49,4 +49,3 @@ void INI::parseGameDataDefinition( INI* ini )
 	GlobalData::parseGameDataDefinition(ini);
 }
 
-

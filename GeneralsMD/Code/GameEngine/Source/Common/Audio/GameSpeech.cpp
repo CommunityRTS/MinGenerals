@@ -53,12 +53,9 @@
 
 #include "Common/STLTypedefs.h"
 
-
 //----------------------------------------------------------------------------
 //         Externals
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Defines
@@ -118,7 +115,6 @@ struct SpeechItem
 	{
 		PAUSED		= 0x00000001
 	};
-
 
 	LListNode				nd;
 	Flags						flags;
@@ -187,7 +183,6 @@ class Speaker : public SpeakerInterface
 		virtual Bool			isTalking ( void );											///< is speaker talking
 		virtual Speech*		saying ( void );												///< returns currently spoken speech
 		virtual void			update( void );													///< Service speaker
-
 
 		void init ( char *name, Int priority, Int btime, Int delay ); ///< initialized speaker for use
 		void deinit( void );
@@ -296,24 +291,17 @@ class SpeechManager: public SpeechInterface
 //         Private Data
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Public Data
 //----------------------------------------------------------------------------
-
 
 //----------------------------------------------------------------------------
 //         Private Prototypes
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Private Functions
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Public Functions
@@ -801,7 +789,6 @@ Bool SpeechManager::say( AsciiString speechName)
 	return say(pSpeech);
 }
 
-
 //============================================================================
 // SpeechManager::isOn
 //============================================================================
@@ -886,7 +873,6 @@ Speech* SpeechManager::addTemporaryDialog( Speech& temporarySpeech )
 		m_temporarySpeeches.push_back(temporarySpeech);
 		return &(m_temporarySpeeches.back());
 }
-
 
 //============================================================================
 // SpeechManager::getMasterAttribs
@@ -1055,8 +1041,6 @@ AsciiString SpeechManager::getFilenameForPlay( Speech *speech )
 	}	else {
 		return AsciiString::TheEmptyString;
 	}
-
-
 
 	// @todo this should all go into a function "generateLocalizedSoundName"
 	Bool localized = FALSE;
@@ -1629,7 +1613,6 @@ Speech*	Speaker::saying ( void )
 	return NULL;
 }
 
-
 static void speechFromInfo(SpeechInfo *pInSpeechInfo, Speech *pOutSpeech)
 {
 	if (!pInSpeechInfo || !pOutSpeech) {
@@ -1651,7 +1634,6 @@ static void speechFromInfo(SpeechInfo *pInSpeechInfo, Speech *pOutSpeech)
 	pInSpeechInfo->m_internalPlayCount = 0;
 
 	pOutSpeech->info = *pInSpeechInfo;
-
 
 }
 
@@ -1677,7 +1659,6 @@ static AsciiString getNextFilenameFromSpeech(Speech *pSpeechToPlay)
 		returnString.concat('.');
 		returnString.concat(BASE_DLG_EXT);
 	}
-
 
 	return returnString;
 }

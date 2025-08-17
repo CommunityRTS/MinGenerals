@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __STATUS_CIRCLE_H_
@@ -36,7 +35,6 @@
 #include "shader.h"
 #include "vertmaterial.h"
 #include "Lib/BaseType.h"
-
 
 //
 // W3DStatusCircle: Object generated from 2D Height grid
@@ -70,7 +68,6 @@ public:
 
 	virtual void					Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const;
     virtual void					Get_Obj_Space_Bounding_Box(AABoxClass & aabox) const;
-
 
 //	virtual int					 	Get_Num_Polys(void) const;
 //	virtual const char *		 	Get_Name(void) const;

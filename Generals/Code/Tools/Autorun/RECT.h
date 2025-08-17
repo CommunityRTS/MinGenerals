@@ -44,7 +44,6 @@
 #include	<stddef.h>
 #include	"point.h"
 
-
 /*
 **	This class manages a rectangle. Typically, this is used for tracking regions on a surface
 **	and for clipping operations. This is a lightweight class in that it defines few support
@@ -108,7 +107,6 @@ class TRect
 		TPoint2D<T> Bottom_Right(void) const {return(TPoint2D<T>(T(X + Width - 1), T(Y + Height - 1)));}
 		__declspec(property(get=Bottom_Right)) TPoint2D<T> BottomRight;
 
-
 		/*
 		**	Determine if a point lies within the rectangle.
 		*/
@@ -130,13 +128,11 @@ class TRect
 		T Height;
 };
 
-
 template<class T>
 TPoint2D<T> const Bias_To(TPoint2D<T> const & point, TRect<T> const & rect)
 {
 	return(TPoint2D<T>(T(point.X + rect.X), T(point.Y + rect.Y)));
 }
-
 
 /***********************************************************************************************
  * Union -- Combines two rectangles into one larger one.                                       *
@@ -181,7 +177,6 @@ TRect<T> const Union(TRect<T> const & rect1, TRect<T> const & rect2)
 	}
 	return(rect2);
 }
-
 
 /***********************************************************************************************
  * Intersect -- Find the intersection between two rectangles.                                  *
@@ -269,7 +264,6 @@ TRect<T> const Intersect(TRect<T> const & bounding_rect, TRect<T> const & draw_r
 	return(new_draw_rect);
 }
 
-
 /***********************************************************************************************
  * Intersect -- Simple intersect between two rectangles.                                       *
  *                                                                                             *
@@ -294,7 +288,6 @@ TRect<T> const Intersect(TRect<T> const & rect1, TRect<T> const & rect2)
 {
 	return(Intersect(rect1, rect2, (T*)NULL, (T*)NULL));
 }
-
 
 /*
 **	This typedef provides an uncluttered type name for a rectangle that

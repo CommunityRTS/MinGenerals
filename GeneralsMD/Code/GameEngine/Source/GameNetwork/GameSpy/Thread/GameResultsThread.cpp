@@ -99,7 +99,6 @@ private:
 	Int sendGameResults( UnsignedInt IP, UnsignedShort port, const std::string& results );
 };
 
-
 //-------------------------------------------------------------------------
 
 GameResultsQueue::GameResultsQueue() : m_requestCount(0), m_responseCount(0)
@@ -389,6 +388,5 @@ Int GameResultsThreadClass::sendGameResults( UnsignedInt IP, UnsignedShort port,
 
 	return results.length();
 }
-
 
 //-------------------------------------------------------------------------

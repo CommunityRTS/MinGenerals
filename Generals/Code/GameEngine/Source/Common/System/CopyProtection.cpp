@@ -173,7 +173,6 @@ Bool CopyProtect::notifyLauncher(void)
 	return FALSE;
 }
 
-
 // ---------------------------------------------------------------------------
 void CopyProtect::checkForMessage(UINT message, LPARAM lParam)
 {

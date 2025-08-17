@@ -24,7 +24,6 @@
  *                                                                                             *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "streakrender.h"
 #include "ww3d.h"
 #include "rinfo.h"
@@ -34,7 +33,6 @@
 #include "vector3i.h"
 #include "random.h"
 #include "v3_rnd.h"
-
 
 /* We have chunking logic which handles N segments at a time. To simplify the subdivision logic,
 ** we will ensure that N is a power of two and that N >= 2^MAX_STREAK_SUBDIV_LEVELS, so that the
@@ -50,9 +48,6 @@
 #define MAX_STREAK_POINT_BUFFER_SIZE (1 + STREAK_CHUNK_SIZE)
 // This macro depends on the assumption that each line segment is two polys.
 #define MAX_STREAK_POLY_BUFFER_SIZE (STREAK_CHUNK_SIZE * 2)
-
-
-
 
 StreakRendererClass::StreakRendererClass(void) :
 		Texture(NULL),
@@ -145,7 +140,6 @@ void StreakRendererClass::Init(const W3dEmitterLinePropertiesStruct & props)
 	Set_UV_Offset_Rate(Vector2(props.UPerSec,props.VPerSec));
 }
 
-
 void StreakRendererClass::Set_Texture(TextureClass *texture)
 {
 	REF_PTR_SET(Texture,texture);
@@ -207,9 +201,6 @@ void StreakRendererClass::Render
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 void StreakRendererClass::subdivision_util(unsigned int point_cnt, const Vector3 *xformed_pts,
 	const float *base_tex_v, unsigned int *p_sub_point_cnt, Vector3 *xformed_subdiv_pts,
@@ -287,7 +278,6 @@ void StreakRendererClass::subdivision_util(unsigned int point_cnt, const Vector3
 	*p_sub_point_cnt = sub_pointIndex;
 }
 
-
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
@@ -297,8 +287,6 @@ void StreakRendererClass::subdivision_util(unsigned int point_cnt, const Vector3
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
 ///////     ///////     ///////     ///////     ///////     ///////     ///////     ///////
-
-
 
 void StreakRendererClass::RenderStreak
 (
@@ -365,7 +353,6 @@ void StreakRendererClass::RenderStreak
 		unsigned int segmentIndex;	// Segment index
 		unsigned int intersectionIndex;	// Intersection index
 
-
 		/*
 		** Transform points in chunk from objectspace to eyespace:
 		*/
@@ -386,14 +373,12 @@ void StreakRendererClass::RenderStreak
 		VectorProcessorClass::Transform(&xformed_pts[0],
 			&points[chunkIndex], modelview, point_cnt);
 
-
 		/*
 		** Prepare v parameter per point - used for texture mapping (esp. tiled mapping mode)
 		*/
 
 		float base_tex_v[MAX_STREAK_POINT_BUFFER_SIZE];
 		float u_values[2];
-
 
 		// I HAVE HARD CODED IT TO USE UNIFORM WIDTH AND LENGTH
 		for (pointIndex = 0; pointIndex < point_cnt; pointIndex++)
@@ -403,11 +388,6 @@ void StreakRendererClass::RenderStreak
 		}
 		u_values[0] = 0.0f;
 		u_values[1] = 1.0f;
-
-
-
-
-
 
 //		switch (map_mode)
 //		{
@@ -440,7 +420,6 @@ void StreakRendererClass::RenderStreak
 //				break;
 //		}
 
-
 		/*
 		** Fractal noise recursive subdivision:
 		** We find the midpoint for each section, apply a random offset, and recurse. We also find
@@ -458,7 +437,6 @@ void StreakRendererClass::RenderStreak
 		Vector3 *points = xformed_subdiv_pts;
 		float *tex_v = subdiv_tex_v;
 		point_cnt = sub_point_cnt;
-
 
 		/*
 		** Calculate line segment edge planes:
@@ -515,7 +493,6 @@ void StreakRendererClass::RenderStreak
 		// Used to calculate the edge planes
 		float radius = Width * 0.5f;
 
-
 		// The number of intersections is the number of points minus 2. However, we store
 		// intersection records for the first and last point, even though they are not really
 		// intersections. The reason we do this is for the intersection merging - the vertices for
@@ -524,9 +501,6 @@ void StreakRendererClass::RenderStreak
 		// segments" for the first point and each intersection only has an index for the next
 		// segment.
 		LineSegmentIntersection intersection[MAX_STREAK_POINT_BUFFER_SIZE + 1][NUM_EDGES];
-
-
-
 
 		for (segmentIndex = 1; segmentIndex < point_cnt; segmentIndex++)
 		{	// #segments = #points - 1 (+ 2 dummy segments)
@@ -601,13 +575,8 @@ void StreakRendererClass::RenderStreak
 
 		}
 
-
-
-
-
 		// The two dummy segments for the clipping edges of the first and last real segments will be
 		// defined later, with the first and last intersections.
-
 
 		/*
 		** Calculate segment edge intersections:
@@ -862,7 +831,6 @@ void StreakRendererClass::RenderStreak
 
 		}	// for intersectionIndex
 
-
 		/*
 		** Intersection merging: when an intersection is inside an adjacent segment and certain
 		** other conditions hold true, we need to merge intersections to avoid visual glitches
@@ -1092,18 +1060,6 @@ void StreakRendererClass::RenderStreak
 		unsigned int vertexIndex = 0;
 		unsigned int triangleIndex = 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
 char p[]="  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  ";
 char f[]=" &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&   ";
 char e[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&    ";
@@ -1273,9 +1229,6 @@ char d[]="  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  
 char w[]=" &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&   ";
 char q[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&    ";
 
-
-
-
 		/*
 		** Set color, opacity, vertex flags:
 		*/
@@ -1296,8 +1249,6 @@ char q[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&
 //			vertexArray[vertexIndex].u1 = (float)((vertexIndex&2) == 2);
 //			vertexArray[vertexIndex].v1 = (float)((vertexIndex&1) == 1);
 //		}
-
-
 
 		// Enable sorting if sorting has not been disabled and line is translucent and alpha testing is not enabled.
 		bool sorting = (!Is_Sorting_Disabled()) && (Shader.Get_Dst_Blend_Func() != ShaderClass::DSTBLEND_ZERO && Shader.Get_Alpha_Test() == ShaderClass::ALPHATEST_DISABLE);
@@ -1321,7 +1272,6 @@ char q[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&
 			shader.Set_Texturing(ShaderClass::TEXTURING_DISABLE);
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////
-
 
 		/*
 		** Render
@@ -1355,14 +1305,10 @@ char q[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&
 
 				*(unsigned int*)(vb+fvfinfo.Get_Diffuse_Offset())	=	argb;
 
-
-
 	//			((Vector2*)(vb+fvfinfo.Get_Tex_Offset(0)))->V			=	(float)( ((i+oddEven)&1) == 1 );//mirror tiling
 	//			((Vector2*)(vb+fvfinfo.Get_Tex_Offset(0)))->U			=	(float)( ((i+oddEven)&2) == 2 );//mirror tiling
 				((Vector2*)(vb+fvfinfo.Get_Tex_Offset(0)))->V			=	vertexArray[i].v1;
 				((Vector2*)(vb+fvfinfo.Get_Tex_Offset(0)))->U			=	vertexArray[i].u1;
-
-
 
 				vb+=fvfinfo.Get_FVF_Size();
 			}
@@ -1381,7 +1327,6 @@ char q[]="&&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&  &&
 				*inds++=v_index_array[i].K;
 			}
 		}
-
 
 		DX8Wrapper::Set_Index_Buffer(ib_access,0);
 		DX8Wrapper::Set_Vertex_Buffer(Verts);

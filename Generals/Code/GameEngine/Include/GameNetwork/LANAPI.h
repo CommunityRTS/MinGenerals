@@ -144,7 +144,6 @@ public:
 	virtual void checkMOTD( void ) = 0;
 };
 
-
 /**
  * The LANAPI class is used to instantiate a singleton which
  * implements the interface to all LAN broadcast communications.
@@ -198,7 +197,6 @@ public:
 	//virtual void OnSlotList( ReturnType ret, LANGameInfo *theGame );															///< Slotlist for a game in setup
 	virtual void OnNameChange( UnsignedInt IP, UnicodeString newName );												///< Someone has morphed
 	virtual void OnInActive( UnsignedInt IP );																								///< Someone has alt-tabbed out.
-
 
 	// Misc utility functions
 	virtual LANGameInfo * LookupGame( UnicodeString gameName );														///< return a pointer to a game we know about
@@ -284,8 +282,6 @@ protected:
 	void handleInActive( LANMessage *msg, UnsignedInt senderIP );
 
 };
-
-
 
 /**
  * LAN message class
@@ -418,6 +414,5 @@ struct LANMessage
 	};
 };
 #pragma pack(pop)
-
 
 #endif // _LANAPI_H_

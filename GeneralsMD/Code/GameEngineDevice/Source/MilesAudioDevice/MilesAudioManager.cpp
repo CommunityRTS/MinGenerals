@@ -396,7 +396,6 @@ void MilesAudioManager::audioDebugDisplay(DebugDisplayInterface *dd, void *, FIL
 			filenameNoSlashes = playing->m_audioEventRTS->getFilename();
 			filenameNoSlashes = filenameNoSlashes.reverseFind('\\') + 1;
 
-
 			// Calculate Sample volume
 			volume = 100.0f;
 			volume *= getEffectiveVolume(playing->m_audioEventRTS);
@@ -499,7 +498,6 @@ void MilesAudioManager::stopAudio( AudioAffect which )
 	// 2) Stop the sample, (so that when we later unload it, bad stuff doesn't happen)
 	// 3) Set the status to stopped, so that when we next process the playing list, we will
 	//		correctly clean up the sample.
-
 
 	std::list<PlayingAudio *>::iterator it;
 
@@ -606,7 +604,6 @@ void MilesAudioManager::pauseAudio( AudioAffect which )
 		}
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::resumeAudio( AudioAffect which )
@@ -744,7 +741,6 @@ void MilesAudioManager::playAudioEvent( AudioEventRTS *event )
 		#ifdef INTENSIVE_AUDIO_DEBUG
 			DEBUG_LOG(("- Sound"));
 		#endif
-
 
 			if (event->isPositionalAudio()) {
 				// Sounds that are non-global are positional 3-D sounds. Deal with them accordingly
@@ -1043,7 +1039,6 @@ void MilesAudioManager::killAudioEventImmediately( AudioHandle audioEvent )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::pauseAudioEvent( AudioHandle handle )
 {
@@ -1062,7 +1057,6 @@ void MilesAudioManager::closeFile( void *fileRead )
 	m_audioCache->closeFile(fileRead);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 PlayingAudio *MilesAudioManager::allocatePlayingAudio( void )
 {
@@ -1070,7 +1064,6 @@ PlayingAudio *MilesAudioManager::allocatePlayingAudio( void )
 	aud->m_status = PS_Playing;
 	return aud;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::releaseMilesHandles( PlayingAudio *release )
@@ -1628,7 +1621,6 @@ PlayingAudio *MilesAudioManager::findPlayingAudioFrom( UnsignedInt audioComplete
 	return NULL;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 UnsignedInt MilesAudioManager::getProviderCount( void ) const
 {
@@ -1732,8 +1724,6 @@ void MilesAudioManager::selectProvider( UnsignedInt providerNdx )
 	//{
 	//	failed = AIL_open_3D_provider(m_provider3D[providerNdx].id);
 	//}
-
-
 
 	if( !success )
 	{
@@ -2098,7 +2088,6 @@ Bool MilesAudioManager::killLowestPrioritySoundImmediately( AudioEventRTS *event
 	return FALSE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::adjustVolumeOfPlayingAudio(AsciiString eventName, Real newVolume)
 {
@@ -2138,7 +2127,6 @@ void MilesAudioManager::adjustVolumeOfPlayingAudio(AsciiString eventName, Real n
 		}
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::removePlayingAudio( AsciiString eventName )
@@ -2429,7 +2417,6 @@ Bool MilesAudioManager::has3DSensitiveStreamsPlaying( void ) const
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void MilesAudioManager::processFadingList( void )
 {
@@ -2495,7 +2482,6 @@ void MilesAudioManager::processStoppedList( void )
 		it = m_stoppedAudio.erase(it);
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool MilesAudioManager::shouldProcessRequestThisFrame( AudioRequest *req ) const
@@ -2759,7 +2745,6 @@ Bool MilesAudioManager::startNextLoop( PlayingAudio *looping )
 			looping->m_cleanupAudioEventRTS = false;
 			looping->m_requestStop = true;
 			looping->m_status = PS_Stopped;
-
 
 			AudioRequest *req = allocateAudioRequest(true);
 			req->m_pendingEvent = looping->m_audioEventRTS;
@@ -3322,7 +3307,6 @@ Bool AudioFileCache::freeEnoughSpaceForSample(const OpenAudioFile& sampleThatNee
 
 	return TRUE;
 }
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 //-------------------------------------------------------------------------------------------------

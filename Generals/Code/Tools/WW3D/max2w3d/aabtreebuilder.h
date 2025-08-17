@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -163,7 +162,6 @@ private:
 		BACK				= NEG,
 	};
 
-
 	/*
 	** Internal functions
 	*/
@@ -201,9 +199,6 @@ private:
 
 	friend class AABTreeClass;
 };
-
-
-
 
 #endif //AABTREEBUILDER_H
 

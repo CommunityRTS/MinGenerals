@@ -46,7 +46,6 @@
 #include "GameLogic/Module/BodyModule.h"
 #include "GameLogic/Module/TunnelContain.h"
 
-
 // ------------------------------------------------------------------------
 TunnelTracker::TunnelTracker()
 {

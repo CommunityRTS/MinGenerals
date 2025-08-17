@@ -48,7 +48,6 @@
 #include "chunkio.h"
 #include "progress.h"
 
-
 /*******************************************************************************************
 **
 ** LightGlareSaveClass - Create a Light Glare definition from a Max mesh.  In the initial
@@ -78,7 +77,5 @@ private:
 	W3dLightGlareStruct		GlareData;
 
 };
-
-
 
 #endif

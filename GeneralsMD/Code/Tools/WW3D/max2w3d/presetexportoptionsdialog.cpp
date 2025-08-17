@@ -36,20 +36,17 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "presetexportoptionsdialog.h"
 #include "dllmain.h"
 #include "resource.h"
 #include "w3dexp.h"
 #include "animationcompressionsettings.h"
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //	Constants
 ////////////////////////////////////////////////////////////////////////////////////////
 
 static const char *BROWSE_FILTER	= "W3D Files (*.W3D)\0*.W3D\0WHT Files (*.WHT)\0*.WHT\0\0";
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -67,7 +64,6 @@ PresetExportOptionsDialogClass::PresetExportOptionsDialogClass (Interface *maxin
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	~PresetExportOptionsDialogClass
@@ -77,7 +73,6 @@ PresetExportOptionsDialogClass::~PresetExportOptionsDialogClass (void)
 {
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -91,7 +86,6 @@ PresetExportOptionsDialogClass::Do_Modal (void)
 													ParentWnd, Real_Message_Proc, (LPARAM)this);
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -139,7 +133,6 @@ PresetExportOptionsDialogClass::Real_Message_Proc
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Settings_Pane_Message_Proc
@@ -184,7 +177,6 @@ PresetExportOptionsDialogClass::Settings_Pane_Message_Proc
 
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -377,7 +369,6 @@ PresetExportOptionsDialogClass::Pane_Message_Proc
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Message_Proc
@@ -430,7 +421,6 @@ PresetExportOptionsDialogClass::Message_Proc
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	On_Command
@@ -481,7 +471,6 @@ PresetExportOptionsDialogClass::On_Command (WPARAM wparam, LPARAM lparam)
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Show_Settings_Pane
@@ -504,7 +493,6 @@ PresetExportOptionsDialogClass::Show_Settings_Pane (int pane_id)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -531,7 +519,6 @@ PresetExportOptionsDialogClass::Create_Settings_Panes (void)
 
 	PaneWnds[PANE_MESH] = ::CreateDialogParam (AppInstance, MAKEINTRESOURCE (IDD_EXPORT_PANE_MESH),
 																Wnd, Settings_Pane_Message_Proc, (LPARAM)this);
-
 
 	//
 	//	Get the position and size of the group box the settings panes will be
@@ -568,7 +555,6 @@ PresetExportOptionsDialogClass::Create_Settings_Panes (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Destroy_Settings_Panes
@@ -587,7 +573,6 @@ PresetExportOptionsDialogClass::Destroy_Settings_Panes (void)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -656,7 +641,6 @@ PresetExportOptionsDialogClass::Determine_Preset_Type (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////////
 //
 //	Initialize_Controls
@@ -714,7 +698,6 @@ PresetExportOptionsDialogClass::Initialize_Controls (void)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -803,7 +786,6 @@ PresetExportOptionsDialogClass::Update_Controls (void)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //

@@ -82,7 +82,6 @@
 //-------------------------------------------------------------------------------------------------
 const Int USE_EXP_VALUE_FOR_SKILL_VALUE = -999;
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -398,10 +397,6 @@ Bool ModuleInfo::clearModuleDataWithTag(const AsciiString& tagToClear, AsciiStri
 	return cleared;
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 Bool ModuleInfo::clearCopiedFromDefaultEntries(Int interfaceMask, const AsciiString &newName, const ThingTemplate *fullTemplate )
 {
@@ -477,13 +472,6 @@ Bool ModuleInfo::clearCopiedFromDefaultEntries(Int interfaceMask, const AsciiStr
 	}
 	return ret;
 }
-
-
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 Bool ModuleInfo::clearAiModuleInfo()
@@ -827,7 +815,6 @@ void ThingTemplate::parseInheritableModule(INI *ini, void *instance, void *store
 	self->m_moduleParsingMode = oldMode;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** mark the module(s) as being "VverrideableByLikeKind". default module will be replaced by any of the exact same class */
 //-------------------------------------------------------------------------------------------------
@@ -845,11 +832,6 @@ void ThingTemplate::OverrideableByLikeKind(INI *ini, void *instance, void *store
 
 	self->m_moduleParsingMode = oldMode;
 }
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Remove the module whose tag matches moduleToRemove. */
@@ -982,7 +964,6 @@ void ThingTemplate::parseMaxSimultaneous(INI *ini, void *instance, void *store, 
     myTemplate->m_maxSimultaneousDeterminedBySuperweaponRestriction = false;
   }
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1360,7 +1341,6 @@ void ThingTemplate::initForLTA(const AsciiString& name)
 }
 #endif
 
-
 //=============================================================================
 const ArmorTemplateSet* ThingTemplate::findArmorTemplateSet(const ArmorSetFlags& t) const
 {
@@ -1470,9 +1450,6 @@ UnsignedInt ThingTemplate::getMaxSimultaneousOfType() const
 
   return m_maxSimultaneousOfType;
 }
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 Bool ThingTemplate::isEquivalentTo(const ThingTemplate* tt) const

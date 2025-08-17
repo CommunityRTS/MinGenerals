@@ -28,7 +28,6 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/GameMemory.h"
 #include "Common/GlobalData.h"
 #include "Common/Player.h"
@@ -64,8 +63,6 @@
 
 #define USE_DOZER 1
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,7 +88,6 @@ AISkirmishPlayer::~AISkirmishPlayer()
 {
 	clearTeamsInQueue();
 }
-
 
 /**
  * Build our base.
@@ -350,7 +346,6 @@ Bool AISkirmishPlayer::startTraining( WorkOrder *order, Bool busyOK, AsciiString
 
 }
 
-
 /**
  * Check if this team is buildable, doesn't exceed maximum limits, meets conditions, and isn't under construction.
  */
@@ -460,8 +455,6 @@ void AISkirmishPlayer::buildSpecificAIBuilding(const AsciiString &thingName)
 	}
 }
 
-
-
 /**
 	Gets the player index of my enemy.
 	*/
@@ -545,8 +538,6 @@ void AISkirmishPlayer::acquireEnemy(void)
 		TheScriptEngine->AppendDebugMessage( msg, false);
 	}
 }
-
-
 
 /**
 	Get the AI's enemy.  Recalc if it has been a while (20 seconds.)
@@ -710,7 +701,6 @@ void AISkirmishPlayer::buildAIBaseDefenseStructure(const AsciiString &thingName,
 
 }
 
-
 /**
 	Checks bridges along a waypoint path.  If any are destroyed, sends a dozer to fix, and returns true.
 	If there is no bridge problem, returns false.
@@ -736,7 +726,6 @@ Bool AISkirmishPlayer::checkBridges(Object *unit, Waypoint *way)
 
 }
 
-
 /**
 	Build a specific team.  If priorityBuild, put at front of queue with priority set.
 	*/
@@ -744,7 +733,6 @@ void AISkirmishPlayer::buildSpecificAITeam( TeamPrototype *teamProto, Bool prior
 {
 	AIPlayer::buildSpecificAITeam(teamProto, priorityBuild);
 }
-
 
 /**
 	Recruit a specific team, within the specific radius of the home position.
@@ -849,9 +837,6 @@ void AISkirmishPlayer::recruitSpecificAITeam(TeamPrototype *teamProto, Real recr
 		}
 	}
 }
-
-
-
 
 /**
  * Train our teams.
@@ -1065,8 +1050,6 @@ void AISkirmishPlayer::adjustBuildList(BuildListInfo *list)
 
 }
 
-
-
 //----------------------------------------------------------------------------------------------------------
 /**
  * Find any things that build stuff & add them to the build list.  Then build any initially built
@@ -1126,7 +1109,6 @@ Object * AISkirmishPlayer::findDozer( const Coord3D *pos )
 {
 	return AIPlayer::findDozer(pos);
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 /**

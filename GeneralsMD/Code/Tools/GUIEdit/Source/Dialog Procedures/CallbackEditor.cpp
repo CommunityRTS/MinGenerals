@@ -335,7 +335,6 @@ BOOL CALLBACK CallbackEditorDialogProc( HWND hWndDialog, UINT message,
 							win = (GameWindow *)SendMessage( hWndControl, LB_GETITEMDATA,
 																							 selected, 0 );
 
-
 							// sanity
 							DEBUG_ASSERTCRASH( win, ("NULL window set in listbox item data") );
 
@@ -386,5 +385,4 @@ BOOL CALLBACK CallbackEditorDialogProc( HWND hWndDialog, UINT message,
   }  // end of switch
 
 }  // end CallbackEditorDialogProc
-
 

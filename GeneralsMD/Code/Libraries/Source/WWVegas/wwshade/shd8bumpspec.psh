@@ -47,7 +47,6 @@ add r0, r0, r1
 // add key light contribution
 mad r0, TEX_DECAL, COL_LIGHT.a, r0
 
-
 // specular section
 // apply gloss map
 mul_sat r1, TEX_DECAL.a, TEX_NORMALMAP

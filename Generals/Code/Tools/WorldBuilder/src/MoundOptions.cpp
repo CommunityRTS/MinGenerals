@@ -33,7 +33,6 @@ Int MoundOptions::m_currentFeather = 0;
 /////////////////////////////////////////////////////////////////////////////
 /// MoundOptions dialog trivial construstor - Create does the real work.
 
-
 MoundOptions::MoundOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(MoundOptions)
@@ -87,8 +86,6 @@ void MoundOptions::setHeight(Int height)
 	}
 }
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // MoundOptions message handlers
 
@@ -103,7 +100,6 @@ BOOL MoundOptions::OnInitDialog()
 	m_brushWidthPopup.SetupPopSliderButton(this, IDC_SIZE_POPUP, this);
 	m_brushFeatherPopup.SetupPopSliderButton(this, IDC_FEATHER_POPUP, this);
 	m_brushHeightPopup.SetupPopSliderButton(this, IDC_HEIGHT_POPUP, this);
-
 
 	m_staticThis = this;
 	m_updating = false;
@@ -269,7 +265,6 @@ void MoundOptions::PopSliderFinished(const long sliderID, long theVal)
 	}	// switch
 
 }
-
 
 BEGIN_MESSAGE_MAP(MoundOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(MoundOptions)

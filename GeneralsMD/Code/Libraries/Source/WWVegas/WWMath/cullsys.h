@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -70,7 +69,6 @@ public:
 protected:
 	CullSystemClass * System;
 };
-
 
 /*
 ** CullableClass
@@ -140,9 +138,6 @@ private:
 	friend class CullSystemClass;
 };
 
-
-
-
 /*
 ** CullSystemClass
 ** Base class of any culling system.  This interface exists so that things can
@@ -196,6 +191,5 @@ protected:
 
 	friend class CullableClass;
 };
-
 
 #endif

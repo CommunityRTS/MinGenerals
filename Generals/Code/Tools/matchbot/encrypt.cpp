@@ -73,7 +73,6 @@ char *do_encrypt(char *String)
 
 }
 
-
 #ifdef UNIT_TEST
 void main(void)
 {

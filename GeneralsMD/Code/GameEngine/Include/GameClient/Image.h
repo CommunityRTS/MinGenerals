@@ -92,7 +92,6 @@ public:
 	UnsignedInt clearStatus( UnsignedInt bit );		///< clear status bit
 	UnsignedInt getStatus( void ) const;								///< get status bits
 
-
 	// for parsing from INI
 	const FieldParse *getFieldParse( void ) const { return m_imageFieldParseTable; }
 	static void parseImageCoords( INI* ini, void *instance, void *store, const void* /*userData*/ );

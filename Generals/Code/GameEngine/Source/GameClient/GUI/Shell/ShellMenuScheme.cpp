@@ -149,7 +149,6 @@ ShellMenuScheme::~ShellMenuScheme( void )
 			delete line;
 	}
 
-
 }
 
 void ShellMenuScheme::addLine( ShellMenuSchemeLine* schemeLine )
@@ -159,7 +158,6 @@ void ShellMenuScheme::addLine( ShellMenuSchemeLine* schemeLine )
 
 	m_lineList.push_back( schemeLine );
 }
-
 
 void ShellMenuScheme::addImage( ShellMenuSchemeImage* schemeImage )
 {
@@ -197,7 +195,6 @@ void ShellMenuScheme::draw( void )
 		++it;
 	}
 
-
 }
 
 ShellMenuSchemeManager::ShellMenuSchemeManager( void )
@@ -208,7 +205,6 @@ ShellMenuSchemeManager::ShellMenuSchemeManager( void )
 ShellMenuSchemeManager::~ShellMenuSchemeManager( void )
 {
 	m_currentScheme = NULL;
-
 
 	ShellMenuSchemeListIt it = m_schemeList.begin();
 	while(it != m_schemeList.end())

@@ -398,7 +398,6 @@ public:
 	Real m_standardMinefieldDensity;
 	Real m_standardMinefieldDistance;
 
-
 	Bool m_showMetrics;								///< whether or not to show the metrics.
 	Int m_defaultStartingCash;				///< The amount of cash a player starts with by default.
 
@@ -509,7 +508,6 @@ private:
 	GlobalData *m_next;									///< next instance (for overrides)
 	GlobalData *newOverride( void );		/** create a new override, copy data from previous
 																			override, and return it */
-
 
 	GlobalData(const GlobalData& that) { DEBUG_CRASH(("unimplemented")); }
 	GlobalData& operator=(const GlobalData& that) { DEBUG_CRASH(("unimplemented")); return *this; }

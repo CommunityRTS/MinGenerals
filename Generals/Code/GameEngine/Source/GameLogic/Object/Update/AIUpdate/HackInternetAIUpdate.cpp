@@ -153,7 +153,6 @@ void HackInternetAIUpdate::aiDoCommand(const AICommandParms* parms)
 	AIUpdateInterface::aiDoCommand(parms);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void HackInternetAIUpdate::hackInternet()
 {
@@ -207,7 +206,6 @@ void HackInternetAIUpdate::loadPostProcess( void )
  // extend base class
 	AIUpdateInterface::loadPostProcess();
 }  // end loadPostProcess
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -312,11 +310,9 @@ void UnpackingState::onExit( StateExitType status )
 	owner->clearModelConditionState( MODELCONDITION_UNPACKING );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -521,7 +517,6 @@ StateReturnType HackInternetState::update()
 				TheAudio->addAudioEvent( &sound );
 			}
 		}
-
 
 		//Reset timer and start a new cycle.
 		m_framesRemaining = ai->getCashUpdateDelay();

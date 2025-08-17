@@ -29,7 +29,6 @@
 
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/DataChunk.h"
 #include "Common/GameState.h"
 #include "Common/MapObject.h"
@@ -243,7 +242,6 @@ m_bridgeInfo(theInfo)
 
 	m_bridgeInfo.curDamageState = BODY_PRISTINE;
 
-
 	static const ThingTemplate* genericBridgeTemplate = TheThingFactory->findTemplate("GenericBridge");
 	if (!genericBridgeTemplate) {
 		DEBUG_LOG(("*** GenericBridge template not found."));
@@ -446,7 +444,6 @@ Bridge::~Bridge()
 
 }  // end ~Bridge
 
-
 //-------------------------------------------------------------------------------------------------
 /** isPointOnBridge - see if point is on bridge. */
 //-------------------------------------------------------------------------------------------------
@@ -524,7 +521,6 @@ Bool LineInRegion( const Coord2D *p1, const Coord2D *p2, const Region2D *clipReg
 	if (y1 > clipBottom)
 		clipCode1 |= CLIP_BOTTOM;
 
-
 	// Test second point
 	clipCode2 = 0;
 
@@ -539,7 +535,6 @@ Bool LineInRegion( const Coord2D *p1, const Coord2D *p2, const Region2D *clipReg
 	else
 	if (y2 > clipBottom)
 		clipCode2 |= CLIP_BOTTOM;
-
 
 	// Both points inside window?
 	if ((clipCode1 | clipCode2) == 0)
@@ -638,7 +633,6 @@ static Bool PointInRegion2D( const Coord3D *pt, const Region2D *clipRegion )
 					pt->x<=clipRegion->hi.x &&
 					pt->y<=clipRegion->hi.y);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** isCellOnEnd - see if cell is on the end of the bridge. */
@@ -932,7 +926,6 @@ void Bridge::updateDamageState( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** getHeight - Get the height for an object on bridge.. */
 //-------------------------------------------------------------------------------------------------
@@ -985,7 +978,6 @@ TerrainLogic::TerrainLogic()
 	m_bridgeDamageStatesChanged = FALSE;
 	m_mapDX = 0;
 	m_mapDY = 0;
-
 
 }  // end TerrainLogic
 
@@ -1632,7 +1624,6 @@ Bool TerrainLogic::isPurposeOfPath( Waypoint *pWay, AsciiString label )
 	return match;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Given a name, return the associated trigger area, or NULL if one doesn't exist. */
 //-------------------------------------------------------------------------------------------------
@@ -1645,7 +1636,6 @@ PolygonTrigger *TerrainLogic::getTriggerAreaByName( AsciiString name )
 	}
 	return NULL;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Finds the bridge at a given x/y coordinate.  */
@@ -2100,9 +2090,6 @@ Coord3D TerrainLogic::findClosestEdgePoint ( const Coord3D *closestTo ) const
 
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** Returns the ground aligned point on the bounding box farthest from the given point*/
 //-------------------------------------------------------------------------------------------------
@@ -2124,16 +2111,11 @@ Coord3D TerrainLogic::findFarthestEdgePoint( const Coord3D *farthestFrom ) const
 	else
 		retVal.y = mapExtent.lo.y;
 
-
 	retVal.z = getGroundHeight( retVal.x, retVal.y );
 
 	return retVal;
 
 }
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** See if a location is underwater, and what the water height is. */
@@ -2650,7 +2632,6 @@ void TerrainLogic::flattenTerrain(Object *obj)
 			Real halfsizeX = obj->getGeometryInfo().getMajorRadius();
 			Real halfsizeY = obj->getGeometryInfo().getMinorRadius();
 
-
 			Real c = (Real)Cos(angle);
 			Real s = (Real)Sin(angle);
 
@@ -2759,7 +2740,6 @@ void TerrainLogic::flattenTerrain(Object *obj)
 				}
 			}
 
-
 		break;
 		}
 		case GEOMETRY_SPHERE:	// not quite right, but close enough
@@ -2835,7 +2815,6 @@ void TerrainLogic::flattenTerrain(Object *obj)
 						gridPos.x = i-1;
 						gridPos.y = j+1;
 						TheTerrainVisual->setRawMapHeight(&gridPos, rawDataHeight);
-
 
 					}
 				}

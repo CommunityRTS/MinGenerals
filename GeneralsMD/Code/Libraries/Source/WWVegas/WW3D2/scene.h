@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -74,7 +73,6 @@ protected:
 	SceneIterator(void) { };
 };
 
-
 /**
 ** SceneClass
 ** This is a bunch of render objects that define a 3D scene.
@@ -108,7 +106,6 @@ public:
 		SCENE_ID_LAST = 0x0000FFFF,
 	};
 	virtual int					Get_Scene_ID(void) const	{	return SCENE_ID_SCENE;	}
-
 
 	virtual void				Add_Render_Object(RenderObjClass * obj);
 	virtual void				Remove_Render_Object(RenderObjClass * obj);
@@ -175,7 +172,6 @@ public:
 	///////////////////////////////////////////////////////////////////////////////////
 	virtual float				Compute_Point_Visibility(	RenderInfoClass & rinfo,
 																		const Vector3 & point)	{ return 1.0f; }
-
 
 	///////////////////////////////////////////////////////////////////////////////////
 	//	Save-Load, records the fog, depth cue, etc settings into a chunk

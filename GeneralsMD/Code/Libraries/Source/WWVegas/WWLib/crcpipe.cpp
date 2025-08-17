@@ -39,7 +39,6 @@
 #include	"always.h"
 #include	"crcpipe.h"
 
-
 /***********************************************************************************************
  * CRCPipe::Put -- Retrieves the data bytes specified and calculates CRC on it.                *
  *                                                                                             *
@@ -65,7 +64,6 @@ int CRCPipe::Put(void const * source, int slen)
 	CRC(source, slen);
 	return(Pipe::Put(source, slen));
 }
-
 
 /***********************************************************************************************
  * CRCPipe::Result -- Fetches the current CRC of the data.                                     *

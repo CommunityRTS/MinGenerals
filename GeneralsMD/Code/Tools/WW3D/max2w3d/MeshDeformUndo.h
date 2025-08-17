@@ -45,8 +45,6 @@
 class MeshDeformClass;
 class MeshDeformModData;
 
-
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	VertexRestoreClass
@@ -91,7 +89,6 @@ class VertexRestoreClass : public RestoreObj
 		int						m_KeyframeIndex;
 };
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	VertexPositionRestoreClass
@@ -121,7 +118,6 @@ class VertexPositionRestoreClass : public VertexRestoreClass
 		virtual void	Apply_Vertex_Data (DEFORM_LIST &list);
 };
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	VertexColorRestoreClass
@@ -150,6 +146,5 @@ class VertexColorRestoreClass : public VertexRestoreClass
 		virtual void	Copy_Vertex_State (DEFORM_LIST &list);
 		virtual void	Apply_Vertex_Data (DEFORM_LIST &list);
 };
-
 
 #endif //__MESH_DEFORM_UNDO_H

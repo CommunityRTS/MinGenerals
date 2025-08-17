@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "Compression.h"
@@ -1600,7 +1599,6 @@ void ConnectionManager::handleAllCommandsReady(void)
 	m_disconnectManager->allCommandsReady(TheGameLogic->getFrame(), this, FALSE);
 }
 
-
 /**
  * Only call this after making sure that all the commands are there for this frame.
  * After calling this the commands for this frame will be removed from the connection.
@@ -2240,7 +2238,6 @@ Int ConnectionManager::getFileTransferProgress(Int playerID, AsciiString path)
 	DEBUG_LOG_LEVEL(DEBUG_LEVEL_NET, ("ConnectionManager::getFileTransferProgress: path %s not found\n",path.str()));
 	return 0;
 }
-
 
 void ConnectionManager::voteForPlayerDisconnect(Int slot) {
 	if (m_disconnectManager != NULL) {

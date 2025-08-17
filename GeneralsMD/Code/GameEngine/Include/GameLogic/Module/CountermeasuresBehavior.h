@@ -101,7 +101,6 @@ public:
 
 };
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 class CountermeasuresBehaviorInterface
@@ -112,7 +111,6 @@ public:
 	virtual void reloadCountermeasures() = 0;
 	virtual Bool isActive() const = 0;
 };
-
 
 typedef std::vector<ObjectID> CountermeasuresVec;
 
@@ -146,7 +144,6 @@ public:
 	virtual ObjectID calculateCountermeasureToDivertTo( const Object& victim );
 	virtual void reloadCountermeasures();
 	virtual Bool isActive() const;
-
 
 protected:
 

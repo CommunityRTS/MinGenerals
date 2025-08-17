@@ -46,7 +46,6 @@ typedef signed long long __int64;
 typedef signed long long _int64;
 #endif
 
-
 /*
 ** A node in the WWProfile Hierarchy Tree
 */
@@ -116,7 +115,6 @@ protected:
 	friend	class		WWProfileManager;
 };
 
-
 /*
 ** An iterator to walk through the tree in depth first order
 */
@@ -138,7 +136,6 @@ protected:
 	WWProfileInOrderIterator( void );
 	friend	class		WWProfileManager;
 };
-
 
 /*
 ** The Manager for the WWProfile system
@@ -167,7 +164,6 @@ private:
 	friend	class		WWProfileInOrderIterator;
 };
 
-
 /*
 ** WWProfileSampleClass is a simple way to profile a function's scope
 ** Use the WWPROFILE macro at the start of scope to time
@@ -191,7 +187,6 @@ public:
 #define	WWPROFILE( name )
 #endif
 
-
 /*
 ** WWTimeIt is like WWProfile, but it doesn't save anything, it just times one routine, regardless of thread
 */
@@ -210,8 +205,6 @@ private:
 #define	WWTIMEIT( name )
 #endif
 
-
-
 /*
 ** TSS 06/27/01
 ** WWMeasureItClass is like WWTimeItClass, but it pokes the result into the given float,
@@ -226,6 +219,5 @@ private:
 	__int64	Time;
 	float *  PResult;
 };
-
 
 #endif	// WWPROFILE_H

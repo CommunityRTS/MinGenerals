@@ -78,7 +78,6 @@ const char *TheAcademyClassificationTypeNames[] =
 
 #define FRAMES_BETWEEN_UPDATES 30
 
-
 //------------------------------------------------------------------------------------------------
 AcademyStats::AcademyStats()
 {

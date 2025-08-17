@@ -124,7 +124,6 @@ public:
 	// do not use it in RTS!
 	std::vector<AsciiString> friend_getScienceNames() const;
 
-
 private:
 
 	const ScienceInfo* findScienceInfo(ScienceType st) const;
@@ -134,7 +133,6 @@ private:
 };
 
 extern ScienceStore* TheScienceStore;
-
 
 #endif // __SCIENCE_H_
 

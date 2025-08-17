@@ -69,6 +69,3 @@ void INI::parseTerrainBridgeDefinition( INI* ini )
 
 }  // end parseTerrainBridge
 
-
-
-

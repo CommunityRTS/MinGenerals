@@ -94,7 +94,6 @@
 #include "LayersList.h"
 #include "ImpassableOptions.h"
 
-
 #include <d3dx8.h>
 
 #ifdef _INTERNAL
@@ -153,7 +152,6 @@ static void WWAssert_Callback(const char * message)
 	::DebugBreak();
 #endif
 }
-
 
 // The W3DShadowManager accesses TheTacticalView, so we have to create
 // a stub class & object in Worldbuilder for it to access.
@@ -289,8 +287,6 @@ public:
 
 PlaceholderView bogusTacticalView;
 
-
-
 // ----------------------------------------------------------------------------
 // Customized scene for worldbuilder preview window.
 // ----------------------------------------------------------------------------
@@ -309,7 +305,6 @@ public:
 protected:
 	MaterialPassClass *m_testPass;
 };
-
 
 Bool SkeletonSceneClass::safeContains(RenderObjClass *obj)
 {
@@ -338,7 +333,6 @@ void SkeletonSceneClass::Remove_Render_Object(RenderObjClass * obj)
 		REF_PTR_RELEASE(refPtr);
 	}
 }
-
 
 void WbView3d::setObjTracking(MapObject *pMapObj,  Coord3D pos, Real angle, Bool show)
 {
@@ -680,7 +674,6 @@ void WbView3d::setupCamera()
 	targetPos.Y = 0;
 	targetPos.Z = 0;
 
-
 	Real factor = 1.0 - (groundLevel/sourcePos.Z );
 
 	// construct a matrix to rotate around the up vector by the given angle
@@ -948,7 +941,6 @@ void WbView3d::updateLights()
 			TheTerrainRenderObject->setTimeOfDay(TheGlobalData->m_timeOfDay);
 		}
 
-
 	}
 
 	MapObject *pMapObj = MapObject::getFirstMapObject();
@@ -1086,7 +1078,6 @@ void WbView3d::updateFenceListObjects(MapObject *pObject)
 			renderObjPos.Rotate_Z(pMapObj->getAngle());
 			renderObj->Set_Transform( renderObjPos );
 
-
 			m_scene->Add_Render_Object(renderObj);
 
 			REF_PTR_RELEASE(renderObj); // belongs to m_scene now.
@@ -1095,7 +1086,6 @@ void WbView3d::updateFenceListObjects(MapObject *pObject)
 
 	Invalidate(false);
 }
-
 
 // ----------------------------------------------------------------------------
 void WbView3d::removeFenceListObjects(MapObject *pObject)
@@ -1155,7 +1145,6 @@ void WbView3d::invalBuildListItemInView(BuildListInfo *pBuildToInval)
 				playerColor = color;
 			}
 		}
-
 
 		for (BuildListInfo *pBuild = pSide->getBuildList(); pBuild; pBuild = pBuild->getNext()) {
 			if (pBuildToInval == pBuild) {
@@ -1244,7 +1233,6 @@ void WbView3d::invalBuildListItemInView(BuildListInfo *pBuildToInval)
 	}
 	Invalidate(false);
 }
-
 
 AsciiString WbView3d::getModelNameAndScale(MapObject *pMapObj, Real *scale, BodyDamageType curDamageState)
 {
@@ -1390,7 +1378,6 @@ void WbView3d::invalObjectInView(MapObject *pMapObjIn)
 			continue;
 		}
 
-
 		Coord3D loc = *pMapObj->getLocation();
 		loc.z += m_heightMapRenderObj->getHeightMapHeight(loc.x, loc.y, NULL);
 
@@ -1456,7 +1443,6 @@ void WbView3d::invalObjectInView(MapObject *pMapObjIn)
 		{
 			curDamageState = BODY_RUBBLE;
 		}
-
 
 		if (!renderObj) {
 			Real scale = 1.0;
@@ -1559,7 +1545,6 @@ void WbView3d::invalObjectInView(MapObject *pMapObjIn)
 	--m_updateCount;
 }
 
-
 // ----------------------------------------------------------------------------
 void WbView3d::updateHeightMapInView(WorldHeightMap *htMap, Bool partial, const IRegion2D &partialRange)
 {
@@ -1572,7 +1557,6 @@ void WbView3d::updateHeightMapInView(WorldHeightMap *htMap, Bool partial, const 
 		m_scene->Add_Render_Object(m_heightMapRenderObj);
 		partial = false;
 	}
-
 
 	if (m_heightMapRenderObj) {
 
@@ -2080,7 +2064,6 @@ void WbView3d::render()
 
 		DEBUG_ASSERTCRASH((m_heightMapRenderObj),("oops"));
 
-
 		if (m_heightMapRenderObj) {
 			m_heightMapRenderObj->Set_Hidden((m_showTerrain ? 0 : 1));
 			m_heightMapRenderObj->doTextures(true);
@@ -2128,7 +2111,6 @@ void WbView3d::render()
 		if (m3DFont) {
 			drawLabels(NULL);
 		}
-
 
 		WW3D::End_Render();
 	}
@@ -2231,8 +2213,6 @@ void WbView3d::initWW3D()
 {
 	// only want to do once per instance, but do lazily.
 	if (!m_ww3dInited) {
-
-
 
 		m_ww3dInited = true;
 
@@ -2378,7 +2358,6 @@ void WbView3d::drawCircle( HDC hdc, const Coord3D & centerPoint, Real radius, CO
   HPEN pen = CreatePen(PS_SOLID, 2, color);
   HPEN penOld = (HPEN)SelectObject(hdc, pen);
 
-
   // Get the starting point on the circumference of the circle.
   pnt.x = centerPoint.x + radius * (Real)cosf(angle);
   pnt.y = centerPoint.y + radius * (Real)sinf(angle);
@@ -2406,7 +2385,6 @@ void WbView3d::drawCircle( HDC hdc, const Coord3D & centerPoint, Real radius, CO
   // Delete new pen.
   DeleteObject(pen);
 }
-
 
 void WbView3d::drawLabels(void)
 {
@@ -2640,7 +2618,6 @@ void WbView3d::drawLabels(HDC hdc)
 	}
 }
 
-
 // ----------------------------------------------------------------------------
 void WbView3d::OnSize(UINT nType, int cx, int cy)
 {
@@ -2775,7 +2752,6 @@ Real WbView3d::getCameraPitch(void)
 {
 	return m_FXPitch;
 }
-
 
 //WST 10.17.2002 ----------------------------------------------------------------------------
 Real WbView3d::getCurrentZoom(void)
@@ -3023,7 +2999,6 @@ void WbView3d::OnUpdateViewBoundingBoxes(CCmdUI* pCmdUI)
 	pCmdUI->SetCheck(getShowBoundingBoxes()?1:0);
 }
 
-
 // MLL C&C3
 void WbView3d::OnViewSightRanges()
 {
@@ -3066,7 +3041,6 @@ void WbView3d::OnUpdateHighlightTestArt(CCmdUI* pCmdUI)
 	pCmdUI->SetCheck(getHighlightTestArt()?1:0);
 }
 
-
 // MLL C&C3
 void WbView3d::OnShowLetterbox()
 {
@@ -3078,7 +3052,6 @@ void WbView3d::OnUpdateShowLetterbox(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(getShowLetterbox()?1:0);
 }
-
 
 void WbView3d::OnViewGarrisoned()
 {
@@ -3223,7 +3196,6 @@ void WbView3d::OnUpdateViewShowMapBoundaries(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(m_showMapBoundaries ? 1 : 0);
 }
-
 
 void WbView3d::OnViewShowAmbientSounds()
 {

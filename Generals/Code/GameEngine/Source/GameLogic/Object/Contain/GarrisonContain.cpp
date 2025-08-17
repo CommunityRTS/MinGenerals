@@ -1025,7 +1025,6 @@ void GarrisonContain::recalcApparentControllingPlayer( void )
 	{
 		Bool setModelGarrisoned = FALSE;
 
-
 		if ( getContainCount() > 0 )
 		{
 			ContainedItemsList::const_iterator it = getContainList().begin();
@@ -1039,12 +1038,10 @@ void GarrisonContain::recalcApparentControllingPlayer( void )
 
 		}
 
-
 		if ( setModelGarrisoned )
 			draw->setModelConditionState( MODELCONDITION_GARRISONED );
 		else
 			draw->clearModelConditionState( MODELCONDITION_GARRISONED );
-
 
 		// Handle the team color that is rendered
 		const Player* controller = getApparentControllingPlayer(ThePlayerList->getLocalPlayer());
@@ -1153,15 +1150,11 @@ void GarrisonContain::loadGarrisonPoints( void )
 	// garrison points are now initialized
 	m_garrisonPointsInitialized = TRUE;
 
-
-
 	if (gBonesFound && modData->m_mobileGarrison && (getObject()->isMobile() == TRUE) )
 	{
 		DEBUG_ASSERTCRASH( getObject()->isMobile() == FALSE,
 		 ("GarrisonContain::update - You have specified this garrisonContain as mobile,\n yet you want garrison point placement bones... \n what are you thinking?") );
 	}
-
-
 
 }  // end loadGarrisonPoints
 
@@ -1639,18 +1632,4 @@ void GarrisonContain::loadPostProcess( void )
 	}  // end for i
 
 }  // end loadPostProcess
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

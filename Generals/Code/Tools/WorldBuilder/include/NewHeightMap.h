@@ -39,7 +39,6 @@ typedef struct {
 	Bool anchorRight;
 } TNewHeightInfo;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // CNewHeightMap dialog
 
@@ -55,7 +54,6 @@ public:
 	enum { IDD = IDD_NewHeightMap };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

@@ -104,8 +104,6 @@ private:
 	Vector3								Specular;
 };
 
-
-
 class Shd6GlossMaskClass : public ShdInterfaceClass
 {
 public:
@@ -147,6 +145,5 @@ protected:
 	Vector4					Diffuse;
 	Vector4					Specular;
 };
-
 
 #endif //SHDGLOSSMASK_H

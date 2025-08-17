@@ -62,7 +62,6 @@ public:
 	void setLOD(Int LOD);
 };
 
-
 class AlphaTerrainTextureClass : public TextureClass
 {
 	W3DMPO_GLUE(AlphaTerrainTextureClass)
@@ -135,7 +134,6 @@ protected:
 		float m_xOffset;
 		float m_yOffset;
 
-
 public:
 		// Create texture from a height map.
 		CloudMapTerrainTextureClass( MipCountType mipLevelCount = MIP_LEVELS_ALL );
@@ -144,7 +142,5 @@ public:
 
 		void restore(void);
 };
-
-
 
 #endif //TEXTURE_H

@@ -48,7 +48,6 @@ class ShdDefClass;
 ** NOTE:  For most users, the only thing you need from this module is the REGISTER_SHDDEF(T,ID,NAME) macro
 */
 
-
 /**
 ** ShdDefFactoryClass - An instance of this class is used to automatically register
 ** each unique type of ShdDefClass with the system.  This object is responsible for
@@ -79,7 +78,6 @@ protected:
 	friend class ShdDefManagerClass;
 };
 
-
 /**
 ** SimpleShdDefFactoryClass - This template automates the process of creating a ShdDefFactory.
 ** For complete ease of use, the associated REGISTER_SHDDEF macro can be used in the cpp file
@@ -101,7 +99,6 @@ public:
 	virtual uint32					Get_Class_ID (void) const			{ return class_id; }
 };
 
-
 /*
 ** Use this macro in the .CPP file for your shader definition to automatically link it
 ** into the shader editing system.
@@ -109,7 +106,5 @@ public:
 #define REGISTER_SHDDEF(T,ID,NAME)							\
 char T ## Name[] = NAME;										\
 SimpleShdDefFactoryClass<T,ID,T ## Name> T ## Factory \
-
-
 
 #endif //SHDDEFFACTORY_H

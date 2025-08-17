@@ -46,21 +46,14 @@
 #include "GameClient/TerrainVisual.h"
 #include "GameClient/Drawable.h"
 
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 #define MAP_XY_FACTOR			(10.0f)	 //How wide and tall each height map square is in world space.
 #define MAP_HEIGHT_SCALE	(MAP_XY_FACTOR/16.0f)		//divide all map heights by 8.
-
-
-
-
 
 //---------------------------------------------------------------------------------
 TensileFormationUpdate* getTFU( Object *obj )
@@ -85,7 +78,6 @@ public:
 		return ( getTFU( objOther ) != NULL );
 	}
 };
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -123,7 +115,6 @@ TensileFormationUpdate::TensileFormationUpdate( Thing *thing, const ModuleData *
 						:UpdateModule( thing, moduleData )
 {
 
-
 	const TensileFormationUpdateModuleData *modData = getTensileFormationUpdateModuleData();
 
 	// save our initial enabled status based on INI settings
@@ -145,15 +136,12 @@ TensileFormationUpdate::TensileFormationUpdate( Thing *thing, const ModuleData *
 
 	TheAI->pathfinder()->createAWallFromMyFootprint( getObject() ); // Temporarily treat this object as an obstacle.
 
-
 	//Coord3D pos = *getObject()->getPosition();
 	//if ( pos.z > 80)
 	//{
 	//	pos.z = 80 + ( ( pos.z - 80 ) * 2);
 	//	getObject()->setPosition( &pos );
 	//}
-
-
 
 }  // end TensileFormationUpdate
 
@@ -163,8 +151,6 @@ TensileFormationUpdate::~TensileFormationUpdate( void )
 {
 
 }  // end ~TensileFormationUpdate
-
-
 
 void TensileFormationUpdate::initLinks( void )
 {
@@ -213,11 +199,6 @@ void TensileFormationUpdate::initLinks( void )
 
 }
 
-
-
-
-
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 UpdateSleepTime TensileFormationUpdate::update( void )
@@ -225,8 +206,6 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 
 	if ( ! m_linksInited )
 		initLinks();
-
-
 
 	if( m_enabled == FALSE )
 	{
@@ -242,7 +221,6 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 
 			TheAI->pathfinder()->removeWallFromMyFootprint( getObject() );  // Undo createAWallFromMyFootprint.
 
-
 			//ALert players of disaster happening
 			if ( ! m_crackSound.isCurrentlyPlaying())
 				m_crackSound.setPlayingHandle(TheAudio->addAudioEvent( &m_crackSound ));
@@ -251,7 +229,6 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 		else
 			return UPDATE_SLEEP(30);
 	}
-
 
 	Drawable *draw = getObject()->getDrawable();
 	if ( ! draw )
@@ -266,16 +243,13 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 		BodyModuleInterface *body = getObject()->getBodyModule();
 		body->setDamageState( BODY_RUBBLE );
 
-
 		TheAI->pathfinder()->createAWallFromMyFootprint( getObject() ); // Temporarily treat this object as an obstacle.
 
 		return UPDATE_SLEEP_FOREVER;
 	}
 
-
 	if ( m_life%30 == 29 )
 		propagateDislodgement( TRUE );
-
 
 	//APPLY PHYSICS===========================
 	const Coord3D *pos = getObject()->getPosition();
@@ -292,20 +266,14 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 	Real friction = 0.95f;
 	m_inertia.scale( friction );
 
-
-
 	Coord3D newPos;
 	newPos.x = pos->x + m_inertia.x;//flow down the slope
 	newPos.y = pos->y + m_inertia.y;
 	newPos.z = TheTerrainLogic->getGroundHeight(newPos.x, newPos.y);//rest on surface here
 
-
-
 	Object *tree = ThePartitionManager->getClosestObject( &newPos, getObject()->getGeometryInfo().getMajorRadius(), FROM_CENTER_2D );
 	if (tree->isKindOf( KINDOF_SHRUBBERY ))
 		tree->topple( &m_inertia, m_inertia.length(), 1 );//No Bounce
-
-
 
 	//APPLY TENSORS===========================
 	Coord3D tensorSum = { 0, 0, 0 };
@@ -339,14 +307,6 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 	Coord3D inertiaNormal = m_inertia;
 	inertiaNormal.normalize();
 
-
-
-
-
-
-
-
-
 	draw->setModelConditionFlags(MAKE_MODELCONDITION_MASK(MODELCONDITION_POST_COLLAPSE));
 
 	if ( m_life < 200 )
@@ -364,27 +324,17 @@ UpdateSleepTime TensileFormationUpdate::update( void )
 //		draw->flashAsSelected(&cyan);
 //	}
 
-
-
 	//else
 		//m_motionlessCounter = 0;
-
 
 	//if ( newPos.z > 80)
 	//	newPos.z = 80 + ( ( newPos.z - 80 ) * 2);
 
-
 	m_lowestSlideElevation = newPos.z;
 	getObject()->setPosition( &newPos );
 
-
-
 	return UPDATE_SLEEP_NONE;
 }  // end update
-
-
-
-
 
 //-------------------------------------------------------------------------------------
 
@@ -409,7 +359,6 @@ void TensileFormationUpdate::propagateDislodgement ( Bool enabled )
 			}
 		}
 
-
 		//TensileFormationUpdate* tfu = getTFU(other);
 		//if ( tfu != NULL )
 		//{
@@ -430,12 +379,7 @@ void TensileFormationUpdate::propagateDislodgement ( Bool enabled )
 		}
 	}
 
-
-
 }
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

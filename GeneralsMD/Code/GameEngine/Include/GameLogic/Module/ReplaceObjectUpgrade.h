@@ -66,4 +66,3 @@ protected:
 };
 #endif // _COMMAND_SET_UPGRADE_H
 
-

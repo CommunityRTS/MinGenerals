@@ -73,7 +73,6 @@ class DefaultStaticSortListClass : public StaticSortListClass
 		virtual void 	Add_To_List(RenderObjClass * robj, unsigned int sort_level);
 		virtual void 	Render_And_Clear(RenderInfoClass & rinfo);
 
-
 		unsigned int 	Get_Min_Sort(void) const 			{return MinSort;};
 		unsigned int 	Get_Max_Sort(void) const 			{return MaxSort;};
 
@@ -91,9 +90,6 @@ class DefaultStaticSortListClass : public StaticSortListClass
 		RefRenderObjListClass 	SortLists[MAX_SORT_LEVEL + 1];
 
 }; // end StaticSortListClass
-
-
-
 
 #endif //STATIC_SORT_LIST_H
 

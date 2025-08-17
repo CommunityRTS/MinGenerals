@@ -113,7 +113,6 @@ class W3DProjectedShadow	: public Shadow
 		#endif
 		W3DShadowTexture *getTexture(Int lightIndex) {return m_shadowTexture[lightIndex];}
 
-
 	protected:
 		W3DShadowTexture *m_shadowTexture[MAX_SHADOW_LIGHTS];		///<cached shadow data
 		TexProjectClass	 *m_shadowProjector;										///<object used to generate texture and projection matrix.

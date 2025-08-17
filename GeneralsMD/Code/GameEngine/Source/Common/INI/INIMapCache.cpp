@@ -67,7 +67,6 @@ public:
 	const FieldParse *getFieldParse( void ) const { return m_mapFieldParseTable; }
 };
 
-
 void parseSupplyPositionCoord3D( INI* ini, void * instance, void * /*store*/, const void* /*userData*/ )
 {
 	MapMetaDataReader *mmdr = (MapMetaDataReader *)instance;

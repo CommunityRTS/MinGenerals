@@ -133,7 +133,6 @@ void StructureCollapseUpdate::beginStructureCollapse(const DamageInfo *damageInf
 {
 	const StructureCollapseUpdateModuleData *d = getStructureCollapseUpdateModuleData();
 
-
 	Object *building = getObject();
 	UnsignedInt now = TheGameLogic->getFrame();
 	// This has to use a game logic random value since the bursts can spawn debris, and debris is sync'd.
@@ -250,11 +249,9 @@ UpdateSleepTime StructureCollapseUpdate::update( void )
 			drawable->setModelConditionState(MODELCONDITION_POST_COLLAPSE);
 			building->setOrientation(building->getOrientation());
 
-
 			// Need to update body particle systems, now
 			BodyModuleInterface *body = building->getBodyModule();
 			body->updateBodyParticleSystems();
-
 
 			Vector3 shudder;
 			shudder.Set(0, 0, 0);

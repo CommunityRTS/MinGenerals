@@ -46,7 +46,6 @@
 #include "resource.h"
 #include <Max.h>
 
-
 /**********************************************************************************************
 **
 ** FloaterDialogClass Implementation
@@ -66,14 +65,12 @@ BOOL CALLBACK _floater_dialog_proc(HWND hwnd,UINT message,WPARAM wParam,LPARAM l
 		::RemoveProp(hwnd,"FloaterDialogClass");
 	}
 
-
 	if (floater) {
 		return floater->Dialog_Proc(hwnd,message,wParam,lParam);
 	} else {
 		return FALSE;
 	}
 }
-
 
 /***********************************************************************************************
  * FloaterDialogClass::FloaterDialogClass -- Constructor                                       *
@@ -93,7 +90,6 @@ FloaterDialogClass::FloaterDialogClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * FloaterDialogClass::~FloaterDialogClass -- Destructor                                       *
  *                                                                                             *
@@ -112,7 +108,6 @@ FloaterDialogClass::~FloaterDialogClass(void)
 	}
 }
 
-
 /***********************************************************************************************
  * FloaterDialogClass::Is_Created -- test whether the floater has already been created         *
  *                                                                                             *
@@ -129,7 +124,6 @@ bool FloaterDialogClass::Is_Created(void)
 {
 	return (Hwnd != NULL);
 }
-
 
 /***********************************************************************************************
  * FloaterDialogClass::Create -- create the window                                             *
@@ -160,7 +154,6 @@ void FloaterDialogClass::Create(Interface * ip, int child_dlg_id, DLGPROC child_
 	ChildDialogTemplateID = child_dlg_id;
 	ChildDialogProc = child_dlg_proc;
 
-
 	/*
 	** Create the dialog box
 	*/
@@ -173,8 +166,6 @@ void FloaterDialogClass::Create(Interface * ip, int child_dlg_id, DLGPROC child_
 									);
 	::GetCOREInterface()->RegisterDlgWnd(Hwnd);
 }
-
-
 
 /***********************************************************************************************
  * FloaterDialogClass::Dialog_Proc -- Dialog Proc for the floater                              *

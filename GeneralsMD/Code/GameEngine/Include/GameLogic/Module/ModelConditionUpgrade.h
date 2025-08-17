@@ -65,4 +65,3 @@ protected:
 };
 #endif // _MODEL_CONDITION_UPGRADE_H
 
-

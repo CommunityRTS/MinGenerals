@@ -42,8 +42,6 @@
 //#include "GameNetwork/WOL.h"
 //#include "GameNetwork/WOLmenus.h"
 
-
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 // window ids ------------------------------------------------------------------------------
 static NameKeyType parentWOLStatusID = NAMEKEY_INVALID;
@@ -94,7 +92,6 @@ void WOLStatusMenuShutdown( WindowLayout *layout, void *userData )
 
 	//WOL::raiseWOLMessageBox();
 }  // WOLStatusMenuShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Status Menu update method */
@@ -162,7 +159,6 @@ WindowMsgHandledType WOLStatusMenuSystem( GameWindow *window, UnsignedInt msg,
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

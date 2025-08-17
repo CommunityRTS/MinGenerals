@@ -55,8 +55,6 @@
 #include "wwdebug.h"
 #include <windows.h>
 
-
-
 /***********************************************************************************************
  * WWProfile_Get_Ticks -- Retrieves the cpu performance counter                                *
  *                                                                                             *
@@ -89,7 +87,6 @@ inline void WWProfile_Get_Ticks(_int64 * ticks)
 #endif
 }
 
-
 /***********************************************************************************************
  * WWProfile_Get_Tick_Rate -- returns the clock frequency of the cpu                           *
  *                                                                                             *
@@ -118,8 +115,6 @@ inline float WWProfile_Get_Tick_Rate(void)
 	return _CPUFrequency;
 #endif
 }
-
-
 
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::WWProfileHierachyNodeClass -- Constructor                       *
@@ -151,7 +146,6 @@ WWProfileHierachyNodeClass::WWProfileHierachyNodeClass( const char * name, WWPro
 	Reset();
 }
 
-
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::~WWProfileHierachyNodeClass -- Destructor                       *
  *                                                                                             *
@@ -169,7 +163,6 @@ WWProfileHierachyNodeClass::~WWProfileHierachyNodeClass( void )
 	delete Child;
 	delete Sibling;
 }
-
 
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::Get_Sub_Node -- Searches for a child node by name (pointer)     *
@@ -204,7 +197,6 @@ WWProfileHierachyNodeClass * WWProfileHierachyNodeClass::Get_Sub_Node( const cha
 	return node;
 }
 
-
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::Reset -- Reset all profiling data in the tree                   *
  *                                                                                             *
@@ -230,7 +222,6 @@ void	WWProfileHierachyNodeClass::Reset( void )
 	}
 }
 
-
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::Call -- Start timing                                            *
  *                                                                                             *
@@ -250,7 +241,6 @@ void	WWProfileHierachyNodeClass::Call( void )
 		WWProfile_Get_Ticks(&StartTime);
 	}
 }
-
 
 /***********************************************************************************************
  * WWProfileHierachyNodeClass::Return -- Stop timing, record results                           *
@@ -284,7 +274,6 @@ bool	WWProfileHierachyNodeClass::Return( void )
 	return RecursionCounter == 0;
 }
 
-
 /***************************************************************************************************
 **
 ** WWProfileManager Implementation
@@ -296,7 +285,6 @@ int									WWProfileManager::FrameCounter = 0;
 __int64								WWProfileManager::ResetTime = 0;
 
 static unsigned int				ThreadID = static_cast<unsigned int>(-1);
-
 
 /***********************************************************************************************
  * WWProfileManager::Start_Profile -- Begin a named profile                                    *
@@ -330,7 +318,6 @@ void	WWProfileManager::Start_Profile( const char * name )
 	CurrentNode->Call();
 }
 
-
 /***********************************************************************************************
  * WWProfileManager::Stop_Profile -- Stop timing and record the results.                       *
  *                                                                                             *
@@ -356,7 +343,6 @@ void	WWProfileManager::Stop_Profile( void )
 	}
 }
 
-
 /***********************************************************************************************
  * WWProfileManager::Reset -- Reset the contents of the profiling system                       *
  *                                                                                             *
@@ -381,7 +367,6 @@ void	WWProfileManager::Reset( void )
 	WWProfile_Get_Ticks(&ResetTime);
 }
 
-
 /***********************************************************************************************
  * WWProfileManager::Increment_Frame_Counter -- Increment the frame counter                    *
  *                                                                                             *
@@ -398,7 +383,6 @@ void WWProfileManager::Increment_Frame_Counter( void )
 {
 	FrameCounter++;
 }
-
 
 /***********************************************************************************************
  * WWProfileManager::Get_Time_Since_Reset -- returns the elapsed time since last reset         *
@@ -421,7 +405,6 @@ float WWProfileManager::Get_Time_Since_Reset( void )
 	return (float)time / WWProfile_Get_Tick_Rate();
 }
 
-
 /***********************************************************************************************
  * WWProfileManager::Get_Iterator -- Creates an iterator for the profile tree                  *
  *                                                                                             *
@@ -438,7 +421,6 @@ WWProfileIterator *	WWProfileManager::Get_Iterator( void )
 {
 	return W3DNEW WWProfileIterator( &Root );
 }
-
 
 /***********************************************************************************************
  * WWProfileManager::Release_Iterator -- Return an iterator for the profile tree               *
@@ -457,7 +439,6 @@ void	WWProfileManager::Release_Iterator( WWProfileIterator * iterator )
 	delete iterator;
 }
 
-
 /***********************************************************************************************
  * WWProfileManager::Get_In_Order_Iterator -- Creates an "in-order" iterator for the profile t *
  *                                                                                             *
@@ -474,7 +455,6 @@ WWProfileInOrderIterator * WWProfileManager::Get_In_Order_Iterator( void )
 {
 	return W3DNEW WWProfileInOrderIterator;
 }
-
 
 /***********************************************************************************************
  * WWProfileManager::Release_In_Order_Iterator -- Return an "in-order" iterator                *
@@ -493,7 +473,6 @@ void	WWProfileManager::Release_In_Order_Iterator( WWProfileInOrderIterator * ite
 	delete iterator;
 }
 
-
 /***************************************************************************************************
 **
 ** WWProfileIterator Implementation
@@ -509,7 +488,6 @@ void	WWProfileIterator::First(void)
 {
 	CurrentChild = CurrentParent->Get_Child();
 }
-
 
 void	WWProfileIterator::Next(void)
 {
@@ -612,7 +590,6 @@ WWTimeItClass::~WWTimeItClass( void )
 	WWDEBUG_SAY(( "*** WWTIMEIT *** %s took %1.9f\n", Name, time ));
 #endif
 }
-
 
 /*
 **

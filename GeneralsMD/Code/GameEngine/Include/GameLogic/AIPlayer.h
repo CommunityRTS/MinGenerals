@@ -146,7 +146,6 @@ public:
 
 };
 
-
 /**
  * The computer-controlled opponent.
  */
@@ -180,7 +179,6 @@ public: // AIPlayer interface, may be overridden by AISkirmishPlayer.  jba.
 	virtual void buildAIBaseDefenseStructure(const AsciiString &thingName, Bool flank); ///< Builds base defense on front or flank of base.
 
 	virtual void buildSpecificAIBuilding(const AsciiString &thingName); ///< Builds this building as soon as possible.
-
 
 	virtual void recruitSpecificAITeam(TeamPrototype *teamProto, Real recruitRadius); ///< Builds this team immediately.
 
@@ -299,6 +297,4 @@ protected:
 };
 
 #endif // _AI_PLAYER_H_
-
-
 

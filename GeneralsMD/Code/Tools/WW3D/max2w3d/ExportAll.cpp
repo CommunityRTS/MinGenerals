@@ -35,7 +35,6 @@
  *  wwExportTreeSettings  -- Returns the directory to export, and recursive flag.              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 /*
 ** ExportAll.cpp - Implements wwExportTreeSettings, which presents the user with a dialog
 ** to allow them to choose which directory they want to export, and whether they want to
@@ -43,7 +42,6 @@
 ** can go through the directory (and maybe the subdirectories) and export all .max files
 ** it finds.
 */
-
 
 #include "ExportAllDlg.h"
 
@@ -53,12 +51,10 @@
 #include <Strings.h>
 #include <definsfn.h>
 
-
 /*
 ** Let MAXScript know we're implementing new built-in functions.
 */
 def_visible_primitive(export_tree_settings, "wwExportTreeSettings");
-
 
 /***********************************************************************************************
  * export_tree_settings_cf - Returns the directory to export, and recursive flag.              *

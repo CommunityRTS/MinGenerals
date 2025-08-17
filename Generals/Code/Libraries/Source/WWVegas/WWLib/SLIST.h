@@ -114,7 +114,6 @@ class SList {
 		virtual long Get_Count(void) const;    // Returns number of nodes in list
 };
 
-
 /**************************************************************************
  * SList<T>::Insert_Before -- Inserts entry prior to specified entry      *
  *                                                                        *
@@ -160,7 +159,6 @@ bool SList<T>::Insert_Before(T *newnode, T   *oldnode)
 	}
 	return(false);
 }
-
 
 /**************************************************************************
  * SList<T>::Insert_After -- Inserts an entry after specified entry       *
@@ -331,7 +329,6 @@ T *SList<T>::Remove_Tail(void)
 	return (Remove(data) ? data : (T*)NULL);
 }
 
-
 /**************************************************************************
  * SList<T>::Get_Count -- Returns a count of the entries in the list      *
  *                                                                        *
@@ -352,7 +349,6 @@ inline long SList<T>::Get_Count(void) const
 		count++;
 	return count;
 }
-
 
 /**************************************************************************
  * *SList<T>::Head -- Returns the head node of the list                   *
@@ -408,7 +404,6 @@ inline bool SList<T>::Is_Empty(void) const
 	return( HeadNode == NULL ? true : false);
 }
 
-
 /**************************************************************************
  * SList<T>::Add_Head -- Adds a node to the head of the list              *
  *                                                                        *
@@ -433,7 +428,6 @@ bool SList<T>::Add_Head(T *data)
 	if (!TailNode) TailNode	= temp;
 	return true;
 }
-
 
 /**************************************************************************
  * SList<T>::Add_Head -- Adds a list to to the head of the list           *
@@ -518,7 +512,6 @@ bool SList<T>::Add_Tail(SList<T>& list)
 		Add_Tail(cur->Data());
 	return true;
 }
-
 
 /**************************************************************************
  * *SList<T>::Find_Node -- returns first node in list matching the input  *

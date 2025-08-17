@@ -71,7 +71,6 @@ BaikonurLaunchPowerModuleData::BaikonurLaunchPowerModuleData( void )
 
 }  // end buildFieldParse
 
-
 // ------------------------------------------------------------------------------------------------
 BaikonurLaunchPower::BaikonurLaunchPower( Thing *thing, const ModuleData *moduleData )
 												: SpecialPowerModule( thing, moduleData )
@@ -119,7 +118,6 @@ void BaikonurLaunchPower::doSpecialPowerAtLocation( const Coord3D *loc, Unsigned
 		}
 	}
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

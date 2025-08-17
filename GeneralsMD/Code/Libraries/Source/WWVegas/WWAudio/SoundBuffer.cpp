@@ -34,15 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "soundbuffer.h"
 #include "rawfile.h"
 #include "wwdebug.h"
 #include "utils.h"
 #include "ffactory.h"
 #include "win.h"
-
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //	FileMappingClass
@@ -59,8 +56,6 @@ public:
 };
 
 static DynamicVectorClass<FileMappingClass> MappingList;
-
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -79,7 +74,6 @@ SoundBufferClass::SoundBufferClass (void)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	~SoundBufferClass
@@ -90,7 +84,6 @@ SoundBufferClass::~SoundBufferClass (void)
 	Free_Buffer ();
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -109,7 +102,6 @@ SoundBufferClass::Free_Buffer (void)
 	m_Length = 0L;
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -144,7 +136,6 @@ SoundBufferClass::Determine_Stats (unsigned char *buffer)
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Filename
@@ -159,7 +150,6 @@ SoundBufferClass::Set_Filename (const char *name)
 
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -187,7 +177,6 @@ SoundBufferClass::Load_From_File (const char *filename)
 	// Return the true/false result code
 	return retval;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -237,7 +226,6 @@ SoundBufferClass::Load_From_File (FileClass &file)
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	Load_From_Memory
@@ -281,7 +269,6 @@ SoundBufferClass::Load_From_Memory
 	return retval;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	StreamSoundBufferClass
@@ -292,7 +279,6 @@ StreamSoundBufferClass::StreamSoundBufferClass (void)	:
 	return ;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	~StreamSoundBufferClass
@@ -301,7 +287,6 @@ StreamSoundBufferClass::~StreamSoundBufferClass (void)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -312,7 +297,6 @@ StreamSoundBufferClass::Free_Buffer (void)
 {
 	return ;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -330,7 +314,6 @@ StreamSoundBufferClass::Load_From_File
 	return true;
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	Load_From_File
@@ -341,7 +324,6 @@ StreamSoundBufferClass::Load_From_File (const char *filename)
 {
 	return true;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //

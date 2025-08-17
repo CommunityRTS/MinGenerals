@@ -110,4 +110,3 @@ protected:
 
 #endif // __StatusBitsUpgrade_H_
 
-

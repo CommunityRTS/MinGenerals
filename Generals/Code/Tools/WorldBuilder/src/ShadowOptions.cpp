@@ -30,7 +30,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // ShadowOptions dialog
 
-
 ShadowOptions::ShadowOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(ShadowOptions::IDD, pParent)
 {
@@ -39,7 +38,6 @@ ShadowOptions::ShadowOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void ShadowOptions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -47,7 +45,6 @@ void ShadowOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ShadowOptions, CDialog)
 	//{{AFX_MSG_MAP(ShadowOptions)

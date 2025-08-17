@@ -160,7 +160,6 @@ const ShouldPlayFunc Eva::s_shouldPlayFuncs[] =
 	NULL,
 };
 
-
 //------------------------------------------------------------------------------ INI::parseEvaEvent
 void INI::parseEvaEvent( INI* ini )
 {
@@ -207,7 +206,6 @@ EvaCheckInfo::EvaCheckInfo() :
 	m_framesBetweenChecks(900),	// 30 seconds at 30 fps
 	m_framesToExpire(150) // 5 seconds at 30 fps
 {
-
 
 }
 
@@ -441,7 +439,6 @@ Bool Eva::shouldPlayLowPower( Player *localPlayer )
 	//	if ( ! (localPlayer->canBuild(chinaReactorTemplate) || localPlayer->canBuild(americanReactorTemplate)) )
 	//		return FALSE
 	//}
-
 
 	return !localPlayer->getEnergy()->hasSufficientPower();
 }

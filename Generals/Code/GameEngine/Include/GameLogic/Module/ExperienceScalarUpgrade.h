@@ -73,6 +73,5 @@ protected:
 
 };
 
-
 #endif // __DEFAULTDIE_H_
 

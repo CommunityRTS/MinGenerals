@@ -70,7 +70,6 @@ void Vector3SolidBoxRandomizer::Scale(float scale)
 	Extents.Z *= scale;
 }
 
-
 Vector3SolidSphereRandomizer::Vector3SolidSphereRandomizer(float radius)
 {
 	Radius = MAX(radius, 0.0f);
@@ -98,7 +97,6 @@ void Vector3SolidSphereRandomizer::Scale(float scale)
 	scale = MAX(scale, 0.0f);
 	Radius *= scale;
 }
-
 
 Vector3HollowSphereRandomizer::Vector3HollowSphereRandomizer(float radius)
 {
@@ -135,7 +133,6 @@ void Vector3HollowSphereRandomizer::Scale(float scale)
 	scale = MAX(scale, 0.0f);
 	Radius *= scale;
 }
-
 
 Vector3SolidCylinderRandomizer::Vector3SolidCylinderRandomizer(float extent, float radius)
 {

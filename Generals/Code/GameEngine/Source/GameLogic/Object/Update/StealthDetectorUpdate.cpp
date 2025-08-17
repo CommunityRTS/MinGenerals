@@ -107,10 +107,6 @@ void StealthDetectorUpdate::setSDEnabled( Bool enabled )
 	setWakeFrame(getObject(), m_enabled ? UPDATE_SLEEP_NONE : UPDATE_SLEEP_FOREVER);
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class PartitionFilterStealthedOrStealthGarrisoned : public PartitionFilter
@@ -395,7 +391,6 @@ UpdateSleepTime StealthDetectorUpdate::update( void )
 		TheAudio->addAudioEvent(&IRPingSound);
 
 	} // end if doIRFX
-
 
 	return UPDATE_SLEEP(data->m_updateRate);
 

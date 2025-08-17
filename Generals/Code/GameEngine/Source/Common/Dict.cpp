@@ -196,7 +196,6 @@ Dict::DictPair *Dict::ensureUnique(int numPairsNeeded, Bool preserveData, DictPa
 	return pairToTranslate;
 }
 
-
 // -----------------------------------------------------
 void Dict::clear()
 {

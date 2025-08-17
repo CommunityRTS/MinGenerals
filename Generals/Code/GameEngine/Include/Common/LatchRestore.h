@@ -65,7 +65,6 @@
 			return true;
 		}
 
-
 		m_saveTeam = saveTeam;
 		return false;
 	}
@@ -111,7 +110,6 @@ class LatchRestore
 			whereToRestore = valueToRestore;
 		}
 };
-
 
 #endif /* __LATCHRESTORE_H__ */
 

@@ -34,7 +34,6 @@
 #ifndef __GAMEWINDOWMANAGER_H_
 #define __GAMEWINDOWMANAGER_H_
 
-
 #include "Common/STLTypedefs.h"
 #include "Common/SubsystemInterface.h"
 #include "GameClient/WindowLayout.h"
@@ -140,7 +139,6 @@ public:
                         GameWinMsgBoxFunc noCallback,
                         GameWinMsgBoxFunc okCallback,
                         GameWinMsgBoxFunc cancelCallback, Bool useLogo );
-
 
 	//---------------------------------------------------------------------------
 	// gadget creation
@@ -378,8 +376,6 @@ extern WindowMsgHandledType PassMessagesToParentSystem( GameWindow *window,
 																															 UnsignedInt msg,
 																															 WindowMsgData mData1,
 																															 WindowMsgData mData2 );
-
-
 
 #endif // __GAMEWINDOWMANAGER_H_
 

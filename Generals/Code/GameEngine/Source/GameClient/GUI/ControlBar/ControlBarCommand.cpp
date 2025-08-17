@@ -406,7 +406,6 @@ void ControlBar::populateCommand( Object *obj )
 	// removed from multiplayer branch
 	//showCommandMarkers();
 
-
 	//
 	// for objects that have a production exit interface, we may have a rally point set.
 	// if we do, we want to show that rally point in the world

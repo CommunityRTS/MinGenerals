@@ -47,10 +47,8 @@
 #include "always.h"
 #include "vector3.h"
 
-
 class Matrix3D;
 class LightClass;
-
 
 /**
 ** LightEnvironmentClass
@@ -178,7 +176,6 @@ protected:
 	InputLightStruct 	FillLight;						// Used to store the calculated fill light
 	float					FillIntensity;					// Used to determine how strong the fill light should be
 };
-
 
 #endif //LIGHTENVIRONMENT_H
 

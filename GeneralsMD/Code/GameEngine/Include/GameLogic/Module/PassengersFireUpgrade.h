@@ -54,9 +54,7 @@ protected:
 	virtual void upgradeImplementation( ); ///< Here's the actual work of Upgrading
   virtual Bool isSubObjectsUpgrade() { return false; }
 
-
 };
-
 
 #endif // __PASSENGERS_FIRE_UPGRADE_H_
 

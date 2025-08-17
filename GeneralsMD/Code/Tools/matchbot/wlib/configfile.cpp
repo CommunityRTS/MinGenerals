@@ -25,7 +25,6 @@ Author      : Neal Kettler
 Start Date  : June 9, 1997
 Last Update : June 17, 1997
 
-
 This class will read in a config file and store the key value pairs for
 later access.  This is a fairly simple class, the config file is assumed
 to be of the form:
@@ -93,7 +92,6 @@ bit8 ConfigFile::readFile(FILE *in)
       wssectionname.truncate(']');
       sectionList.addTail(wssectionname);
 
-
       continue;
     }
 
@@ -124,7 +122,6 @@ bit8 ConfigFile::readFile(FILE *in)
   }
   return(TRUE);
 }
-
 
 //
 // Enum through the config strings.  To start, index & offset should be 0
@@ -159,8 +156,6 @@ bit8 ConfigFile::enumerate(int &index, int &offset, Wstring &key, Wstring &value
   key.truncate('[');  // remove the section name
   return(TRUE);
 }
-
-
 
 // Get a config entry as a string
 bit8 ConfigFile::getString(IN Wstring &_key, Wstring &value, IN char *section) const
@@ -231,8 +226,6 @@ bit8 ConfigFile::getInt(IN char *key,sint32 &value, IN char *section) const
   return(getInt(sKey,value,section));
 }
 
-
-
 // Get a config entry as an integer
 bit8 ConfigFile::getInt(IN Wstring &_key,sint16 &value, IN char *section) const
 {
@@ -268,8 +261,6 @@ bit8 ConfigFile::getInt(IN char *key,sint16 &value, IN char *section) const
 
   return(getInt(sKey,value,section));
 }
-
-
 
 /************* MDC; Added functionality for updating and saving config files ************/
 
@@ -419,7 +410,6 @@ bit8 ConfigFile::setInt(IN char *key,IN sint32 &value, IN char *section)
 	return(setInt(sKey,value,section));
 }
 
-
 // Write config file to disk.  Does not preserve comments, etc.
 bit8 ConfigFile::writeFile(FILE *config)
 {
@@ -450,12 +440,6 @@ bit8 ConfigFile::writeFile(FILE *config)
 	}
 	return TRUE;
 }
-
-
-
-
-
-
 
 /************* Static functions below **************/
 

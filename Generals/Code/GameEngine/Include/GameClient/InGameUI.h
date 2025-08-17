@@ -96,7 +96,6 @@ enum RadiusCursorType
 	RADIUSCURSOR_RADAR,
 	RADIUSCURSOR_SPYDRONE,
 
-
 	RADIUSCURSOR_COUNT	// keep last
 };
 
@@ -299,8 +298,6 @@ public:
 typedef std::list< WorldAnimationData *> WorldAnimationList;
 typedef WorldAnimationList::iterator WorldAnimationListIterator;
 
-
-
 // ------------------------------------------------------------------------------------------------
 /** Basic functionality common to all in-game user interfaces */
 // ------------------------------------------------------------------------------------------------
@@ -468,7 +465,6 @@ public:  // ********************************************************************
 
 	// INI file parsing
 	virtual const FieldParse* getFieldParse( void ) const { return s_fieldParseTable; }
-
 
 	//Provides a global way to determine whether or not we can issue orders to what we have selected.
 	Bool areSelectedObjectsControllable() const;
@@ -655,7 +651,6 @@ protected:
 
 	void setMouseCursor(Mouse::MouseCursor c);
 
-
 	void addMessageText( const UnicodeString& formattedMessage, const RGBColor *rgbColor = NULL );  ///< internal workhorse for adding plain text for messages
 	void removeMessageAtIndex( Int i );				///< remove the message at index i
 
@@ -699,7 +694,6 @@ protected:
 	Int													m_selectCount;													///< Number of objects currently "selected"
 	Int													m_maxSelectCount;												///< Max number of objects to select
 	UnsignedInt									m_frameSelectionChanged;								///< Frame when the selection last changed.
-
 
 	// Video playback data
 	VideoBuffer*								m_videoBuffer;			///< video playback buffer

@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <iostream.h>
 #include <signal.h>
 #ifdef _WINDOWS
@@ -116,7 +115,6 @@ int main(int argc, char **argv)
 	INFMSG("INF working...");
 	WRNMSG("WRN working...");
 
-
 	//
 	// See if our processor is big or little endian. Network order is big endian.
 	// ST - 2/1/01 12:11PM
@@ -124,7 +122,6 @@ int main(int argc, char **argv)
 	if (htonl(0x12345678) == 0x12345678) {
 		BigEndian = true;
 	}
-
 
 	// ----- Initialize Winsock -----
 #ifdef _WINDOWS
@@ -145,7 +142,6 @@ int main(int argc, char **argv)
 	}
 	INFMSG("Winsock Init done.");
 #endif
-
 
 	// Set up a UDP listener
 	uint8  *buff=new uint8[1024];
@@ -238,8 +234,6 @@ int main(int argc, char **argv)
 		DBGMSG("Wait timed out");
 	}
 
-
 	return 0;
 }
-
 

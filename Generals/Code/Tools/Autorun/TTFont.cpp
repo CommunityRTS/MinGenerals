@@ -45,7 +45,6 @@
  *   TTFontClass::String_Pixel_Width -- Determines the width of the string in pixels.			*
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
 
-
 #define  STRICT
 #include <windows.h>
 #include <windowsx.h>
@@ -59,7 +58,6 @@
 #include "ttfont.h"
 #include "jsupport.h"		// [OYO]
 #include "locale_api.h"
-
 
 #define FONTINFOMAXHEIGHT		4
 #define FONTINFOMAXWIDTH		5
@@ -89,7 +87,6 @@ unsigned long TEXT_FOCUSED_SHADOW_COLOR  	= RGB(  40,   8,   8 );
 unsigned long TEXT_PRESSED_COLOR		 	= RGB( 194,  79,  32 );
 unsigned long TEXT_PRESSED_SHADOW_COLOR  	= RGB(  70,  55,  49 );
 
-
 unsigned long BLACK_COLOR					= RGB(   0,	  0,   0 );
 unsigned long WHITE_COLOR					= RGB( 255, 255, 255 );
 unsigned long RED_COLOR						= RGB( 255,   0,   0 );
@@ -99,7 +96,6 @@ unsigned long GREEN_COLOR					= RGB(   0, 255,   0 );
 unsigned long BLUE_COLOR					= RGB(   0,   0, 255 );
 unsigned long INDIGO_COLOR		  			= RGB(  90,   2, 253 );
 unsigned long VIOLET_COLOR		  			= RGB( 128,   0, 255 );
-
 
 /************************************************************************************
  * TTFontClass::TTFontClass -- Constructor for a font class object.					*
@@ -267,7 +263,6 @@ TTFontClass::TTFontClass(
 	}
 }
 
-
 /***********************************************************************************************
  * TTFontClass::Char_Pixel_Width -- Fetch the pixel width of the character specified.          *
  *                                                                                             *
@@ -358,7 +353,6 @@ int TTFontClass::Char_Pixel_Width ( HDC hdc, char const * string, int *num_bytes
 	}
 	return( length );
 }
-
 
 /************************************************************************************************
  * TTFontClass::String_Pixel_Width -- Determines the width of the string in pixels.				*
@@ -543,7 +537,6 @@ UINT TTFontClass::Get_Double_Byte_Char	( const char *string, int *num_bytes ) co
 	return( c );
 }
 
-
 /***********************************************************************************************
  * TTFontClass::Get_Width -- Get normalized width of the nominal font character.               *
  *                                                                                             *
@@ -614,7 +607,6 @@ int TTFontClass::Set_XSpacing( HDC hdc, int x )
 	return( x );
 }
 
-
 /***********************************************************************************************
  * TTFontClass::Set_YSpacing -- Set the vertical (Y) spacing override value.                   *
  *                                                                                             *
@@ -636,7 +628,6 @@ int TTFontClass::Set_YSpacing( int y )
 	FontYSpacing = y;
 	return(y);
 }
-
 
 /***********************************************************************************************
  * TTFontClass::Print -- Print text to the surface specified.  WCHAR Version.		           *
@@ -986,7 +977,6 @@ Point2D TTFontClass::Print(
 			rect2.top 	= rect.top  + 2;
 			result		= DrawText( hdc, string, length, &rect2, flag );
 			assert( result != 0 );
-
 
 			// Three right.
 			rect2.left	= rect.left + 3;
@@ -1408,7 +1398,6 @@ FontManagerClass::~FontManagerClass ( void )
 	}
 }
 
-
 /***********************************************************************************************
  * Font_From_TPF -- Convert flags into a font pointer.                                         *
  *                                                                                             *
@@ -1445,7 +1434,6 @@ TTFontClass * Font_From_TPF ( TextPrintType flags )
 	return( fontptr );
 }
 
-
 /************************************************************************************************
  * Is_True_Type_Font -- Convert flags into a font pointer.										*
  *																								*
@@ -1470,6 +1458,4 @@ bool Is_True_Type_Font( TextPrintType flags )
 		return FALSE;
 	}
 }
-
-
 

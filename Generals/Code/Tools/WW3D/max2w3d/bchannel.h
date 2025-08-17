@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef BCHANNEL_H
 #define BCHANNEL_H
 
@@ -96,8 +95,6 @@ private:
 	uint32 find_useless_packet(W3dTimeCodedBitChannelStruct * c);
 	void compress(W3dTimeCodedBitChannelStruct * c);
 
-
 };
-
 
 #endif

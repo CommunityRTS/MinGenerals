@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef LOOKUPTABLE_H
 #define LOOKUPTABLE_H
 
@@ -47,12 +46,10 @@
 #include "multilist.h"
 #include "wwmath.h"
 
-
 class Vector2;
 class Curve1DClass;
 class ChunkSaveClass;
 class ChunkLoadClass;
-
 
 /**
 ** LookupTableClass
@@ -111,7 +108,6 @@ inline float LookupTableClass::Get_Value_Quick(float input)
 	return OutputSamples[index];
 }
 
-
 /**
 ** LookupTableMgrClass
 ** This class tracks all of the LookupTableClass's that have been loaded or installed.
@@ -156,6 +152,5 @@ protected:
 	static RefMultiListClass<LookupTableClass>	Tables;
 
 };
-
 
 #endif // LOOKUPTABLE_H

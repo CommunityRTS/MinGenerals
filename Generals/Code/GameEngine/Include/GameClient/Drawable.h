@@ -320,7 +320,6 @@ public:
 	Bool isSelectable( void ) const;
 	Bool isMassSelectable( void ) const;
 
-
 	void setStealthLook(StealthLookType look);
 	StealthLookType getStealthLook() const { return m_stealthLook; }
 
@@ -727,12 +726,10 @@ private:
 	static Int							s_modelLockCount;
 #endif
 
-
 	static void initStaticImages();
 	//*******************************************
 
 };
-
 
 #ifdef DIRTY_CONDITION_FLAGS
 class StDrawableDirtyStuffLocker

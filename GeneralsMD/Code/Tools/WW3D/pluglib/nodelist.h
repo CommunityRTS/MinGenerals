@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef NODELIST_H
 #define NODELIST_H
 
@@ -46,10 +45,8 @@
 #include "nodefilt.h"
 #endif
 
-
 class INodeListEntryClass;
 class INodeCompareClass;
-
 
 /*******************************************************************************
 *	INodeListClass
@@ -88,7 +85,6 @@ private:
 	int callback(INode * node);
 };
 
-
 class INodeCompareClass
 {
 public:
@@ -97,6 +93,5 @@ public:
 	// returns >0 if nodea > node b.
 	virtual int operator() (INode * nodea,INode * nodeb) const = 0;
 };
-
 
 #endif /*NODELIST_H*/

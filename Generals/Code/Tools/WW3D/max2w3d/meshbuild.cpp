@@ -64,7 +64,6 @@
 #include <string.h>
 #include <assert.h>
 
-
 const float EPSILON = 0.0001f;
 
 /*
@@ -90,7 +89,6 @@ COMPARE_FUNC_TYPE Texture_Compare_Funcs[MeshBuilderClass::MAX_PASSES][MeshBuilde
 	{ pass2_stage0_compare, pass2_stage1_compare },
 	{ pass3_stage0_compare, pass3_stage1_compare },
 };
-
 
 /************************************************************************************
 **
@@ -141,7 +139,6 @@ private:
 	int HashVal;
 
 };
-
 
 /************************************************************************************
 **
@@ -373,7 +370,6 @@ private:
 	}
 };
 
-
 /***********************************************************************************************
  * MeshBuilderClass::VertClass::Reset -- reset this vertex                                     *
  *                                                                                             *
@@ -416,7 +412,6 @@ void MeshBuilderClass::VertClass::Reset(void)
 
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::FaceClass::Reset -- rest this face                                        *
  *                                                                                             *
@@ -453,7 +448,6 @@ void MeshBuilderClass::FaceClass::Reset(void)
 	Dist = 0.0f;
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::FaceClass::Compute_Plane -- compute the plane for this face               *
  *                                                                                             *
@@ -472,7 +466,6 @@ void MeshBuilderClass::FaceClass::Compute_Plane(void)
 	Normal.Normalize();
 	Dist = Vector3::Dot_Product(Normal,Verts[0].Position);
 }
-
 
 /***********************************************************************************************
  * MeshBuilderClass::FaceClass::Is_Degenerate -- check if a face is degenerate                 *
@@ -506,7 +499,6 @@ bool MeshBuilderClass::FaceClass::Is_Degenerate(void)
 	}
 	return false;
 }
-
 
 /***********************************************************************************************
  * MeshBuilderClass::MeshStatsStruct::Reset -- reset the stats to all false                    *
@@ -591,7 +583,6 @@ MeshBuilderClass::~MeshBuilderClass(void)
 	Set_World_Info(NULL);
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::Free -- release all memory in use                                         *
  *                                                                                             *
@@ -622,7 +613,6 @@ void MeshBuilderClass::Free(void)
 	AllocFaceGrowth = 0;
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::Reset -- Get the builder ready to process a mesh                          *
  *                                                                                             *
@@ -648,7 +638,6 @@ void MeshBuilderClass::Reset(int passcount,int face_count_guess,int face_count_g
 	CurFace = 0;
 	Stats.Reset();
 }
-
 
 /***********************************************************************************************
  * MeshBuilderClass::Add_Face -- Add a face to the mesh                                        *
@@ -690,7 +679,6 @@ int MeshBuilderClass::Add_Face(const FaceClass & face)
 	return CurFace-1;
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::Build_Mesh -- process the mesh                                            *
  *                                                                                             *
@@ -725,7 +713,6 @@ void MeshBuilderClass::Build_Mesh(bool compute_normals)
 	Optimize_Mesh(compute_normals);
 
 }
-
 
 /***********************************************************************************************
  * MeshBuilderClass::Compute_Face_Normals -- computes all of the face normals from the indexed *
@@ -878,8 +865,6 @@ void MeshBuilderClass::Remove_Degenerate_Faces(void)
 	}
 }
 
-
-
 /***********************************************************************************************
  * MeshBuilderClass::Compute_Mesh_Stats -- compute some stats about the mesh                   *
  *                                                                                             *
@@ -968,7 +953,6 @@ void MeshBuilderClass::Compute_Mesh_Stats(void)
 			}
 		}
 
-
 		for (stage = 0; stage<MAX_STAGES; stage++) {
 			for (face_index=0; face_index < FaceCount; face_index++) {
 				if (Faces[face_index].TextureIndex[pass][stage] != -1) {
@@ -993,7 +977,6 @@ void MeshBuilderClass::Compute_Mesh_Stats(void)
 		}
 	}
 }
-
 
 /***********************************************************************************************
  * MeshBuilderClass::Compute_Bounding_Box -- computes an axis-aligned bounding box for the mes *
@@ -1034,7 +1017,6 @@ void MeshBuilderClass::Compute_Bounding_Box(Vector3 * set_min,Vector3 * set_max)
 	}
 }
 
-
 /***********************************************************************************************
  * MeshBuilderClass::Compute_Bounding_Sphere -- computes a bounding sphere for the mesh        *
  *                                                                                             *
@@ -1062,7 +1044,6 @@ void MeshBuilderClass::Compute_Bounding_Sphere(Vector3 * set_center,float * set_
 	Vector3 ymax(Verts[0].Position.X,Verts[0].Position.Y,Verts[0].Position.Z);
 	Vector3 zmin(Verts[0].Position.X,Verts[0].Position.Y,Verts[0].Position.Z);
 	Vector3 zmax(Verts[0].Position.X,Verts[0].Position.Y,Verts[0].Position.Z);
-
 
 	// FIRST PASS:
 	// finding the 6 minima and maxima points
@@ -1104,7 +1085,6 @@ void MeshBuilderClass::Compute_Bounding_Sphere(Vector3 * set_center,float * set_
 	dz = zmax.Z - zmin.Z;
 	double zspan = dx*dx + dy*dy + dz*dz;
 
-
 	// Set points dia1 and dia2 to the maximally separated pair
 	// This will be the diameter of the initial sphere
 	Vector3 dia1 = xmin;
@@ -1122,7 +1102,6 @@ void MeshBuilderClass::Compute_Bounding_Sphere(Vector3 * set_center,float * set_
 		dia2 = zmax;
 	}
 
-
 	// Compute initial center and radius and radius squared
 	Vector3 center;
 	center.X = (dia1.X + dia2.X) / 2.0f;
@@ -1135,7 +1114,6 @@ void MeshBuilderClass::Compute_Bounding_Sphere(Vector3 * set_center,float * set_
 
 	double radsqr = dx*dx + dy*dy + dz*dz;
 	double radius = sqrt(radsqr);
-
 
 	// SECOND PASS:
 	// Increment current sphere if any points fall outside of it.
@@ -1303,7 +1281,6 @@ void MeshBuilderClass::Optimize_Mesh(bool compute_normals)
 	Strip_Optimize_Mesh();
 	Verify_Face_Normals();
 }
-
 
 /***********************************************************************************************
  * MeshSaveClass::Strip_Optimize_Mesh -- optimize the mesh for triangle strips                 *
@@ -1664,8 +1641,6 @@ void MeshBuilderClass::Strip_Optimize_Mesh(void)
 	Stats.AvgStripLength /= Stats.StripCount;
 }
 
-
-
 /***********************************************************************************************
  * MeshBuilderClass::Grow_Face_Array -- increases the size of the face array                   *
  *                                                                                             *
@@ -1738,7 +1713,6 @@ void MeshBuilderClass::Sort_Vertices(void)
 	*/
 	delete[] vertex_remap_table;
 }
-
 
 /*
 ** Compare functions for qsorting the polygons by texture.
@@ -1830,5 +1804,4 @@ int vertex_compare(const void *elem1, const void *elem2)
 
 	return 0;
 }
-
 

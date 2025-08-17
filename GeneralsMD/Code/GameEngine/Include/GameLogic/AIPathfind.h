@@ -50,9 +50,7 @@ class PathfindZoneManager;
 
 #define INFANTRY_MOVES_THROUGH_INFANTRY
 
-
   typedef UnsignedShort zoneStorageType;
-
 
 //----------------------------------------------------------------------------------------------------------
 
@@ -218,7 +216,6 @@ protected:
 	static PathfindCellInfo *s_infoArray;
 	static PathfindCellInfo *s_firstFree;							///<
 
-
 	PathfindCellInfo *m_nextOpen, *m_prevOpen;						///< for A* "open" list, shared by closed list
 
 	PathfindCellInfo *m_pathParent;												///< "parent" cell from pathfinder
@@ -377,7 +374,6 @@ private:
 
 typedef PathfindCell *PathfindCellP;
 
-
 // how close a unit has to be in z to interact with the layer.
 #define LAYER_Z_CLOSE_ENOUGH_F 10.0f
 /**
@@ -432,9 +428,7 @@ private:
 	Bridge *m_bridge; // Corresponding bridge in TerrainLogic.
 	Bool m_destroyed;
 
-
 };
-
 
 #define PATHFIND_CELL_SIZE		10
 #define PATHFIND_CELL_SIZE_F	10.0f
@@ -476,7 +470,6 @@ protected:
 	zoneStorageType m_firstZone; // First zone in this block.
 	UnsignedShort m_numZones;	 // Number of zones in this block.  If == 1, there is only one zone, and
 														 // no zone equivalency arrays will be allocated.
-
 
 	UnsignedShort m_zonesAllocated;
 	zoneStorageType *m_groundCliffZones;
@@ -861,14 +854,12 @@ private:
 
 	Int						m_moveAlliesDepth;
 
-
 	// Pathfind queue
 	ObjectID			m_queuedPathfindRequests[PATHFIND_QUEUE_LEN];
 	Int						m_queuePRHead;
 	Int						m_queuePRTail;
 	Int						m_cumulativeCellsAllocated;
 };
-
 
 inline void Pathfinder::setIgnoreObstacleID( ObjectID objID )
 {
@@ -980,6 +971,5 @@ inline Bool PathfindCell::isObstaclePresent( ObjectID objID ) const
 
 	return false;
 }
-
 
 #endif // _PATHFIND_H_

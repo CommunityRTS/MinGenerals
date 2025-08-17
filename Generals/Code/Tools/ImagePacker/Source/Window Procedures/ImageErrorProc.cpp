@@ -172,4 +172,3 @@ BOOL CALLBACK ImageErrorProc( HWND hWndDialog, UINT message,
 
 }  // end ImageErrorProc
 
-

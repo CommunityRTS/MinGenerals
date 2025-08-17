@@ -197,7 +197,6 @@ static DynamicVectorClass<StringClass>					_RenderDeviceNameTable;
 static DynamicVectorClass<StringClass>					_RenderDeviceShortNameTable;
 static DynamicVectorClass<RenderDeviceDescClass>	_RenderDeviceDescriptionTable;
 
-
 typedef IDirect3D8* (WINAPI *Direct3DCreate8Type) (UINT SDKVersion);
 Direct3DCreate8Type	Direct3DCreate8Ptr = NULL;
 HINSTANCE D3D8Lib = NULL;
@@ -241,8 +240,6 @@ void Non_Fatal_Log_DX8_ErrorCode(unsigned res,const char * file,int line)
 		WWDEBUG_SAY(("DX8 Error: %s, File: %s, Line: %d\n",tmp,file,line));
 	}
 }
-
-
 
 bool DX8Wrapper::Init(void * hwnd, bool lite)
 {
@@ -477,7 +474,6 @@ void DX8Wrapper::Do_Onetime_Device_Dependent_Shutdowns(void)
 	REF_PTR_RELEASE(render_state.material);
 	for (i=0;i<CurrentCaps->Get_Max_Textures_Per_Pass();++i) REF_PTR_RELEASE(render_state.Textures[i]);
 
-
 	TextureLoader::Deinit();
 	SortingRendererClass::Deinit();
 	DynamicVBAccessClass::_Deinit();
@@ -496,7 +492,6 @@ void DX8Wrapper::Do_Onetime_Device_Dependent_Shutdowns(void)
 	}
 
 }
-
 
 bool DX8Wrapper::Create_Device(void)
 {
@@ -681,7 +676,6 @@ void DX8Wrapper::Release_Device(void)
 
 		DX8CALL(SetStreamSource(0, NULL, 0));	//release reference count on last rendered vertex buffer
 		DX8CALL(SetIndices(NULL,0));	//release reference count on last rendered index buffer
-
 
 		/*
 		** Release the current vertex and index buffers
@@ -1330,9 +1324,7 @@ bool DX8Wrapper::Registry_Load_Render_Device( const char * sub_key, bool resize_
 			TextureBitDepth=16;
 		}
 
-
 //		_RenderDeviceDescriptionTable.
-
 
 		if ( Set_Render_Device( name, width,height,depth,windowed, resize_window ) != true) {
 			if (depth==16) depth=32;
@@ -1421,7 +1413,6 @@ bool DX8Wrapper::Registry_Load_Render_Device( const char * sub_key, char *device
 	return false;
 }
 
-
 bool DX8Wrapper::Find_Color_And_Z_Mode(int resx,int resy,int bitdepth,D3DFORMAT * set_colorbuffer,D3DFORMAT * set_backbuffer,D3DFORMAT * set_zmode)
 {
 	static D3DFORMAT _formats16[] =
@@ -1479,7 +1470,6 @@ bool DX8Wrapper::Find_Color_And_Z_Mode(int resx,int resy,int bitdepth,D3DFORMAT 
 	*/
 	return Find_Z_Mode(*set_colorbuffer,*set_backbuffer, set_zmode);
 };
-
 
 // find the resolution mode with at least resx,resy with the highest supported
 // refresh rate
@@ -1606,7 +1596,6 @@ bool DX8Wrapper::Test_Z_Mode(D3DFORMAT colorbuffer,D3DFORMAT backbuffer, D3DFORM
 	}
 	return true;
 }
-
 
 void DX8Wrapper::Reset_Statistics()
 {
@@ -1745,7 +1734,6 @@ void DX8Wrapper::End_Scene(bool flip_frames)
 	Set_Material(NULL);
 }
 
-
 void DX8Wrapper::Flip_To_Primary(void)
 {
 	// If we are fullscreen and the current frame is odd then we need
@@ -1795,7 +1783,6 @@ void DX8Wrapper::Flip_To_Primary(void)
 		}
 	}
 }
-
 
 //**********************************************************************************************
 //! Clear current render device
@@ -2105,7 +2092,6 @@ void DX8Wrapper::Draw(
 		}
 	}
 #endif	// MESH_RENDER_SHAPSHOT_ENABLED
-
 
 	SNAPSHOT_SAY(("DX8 - draw %d polygons (%d vertices)\n",polygon_count,vertex_count));
 
@@ -2820,7 +2806,6 @@ IDirect3DVolumeTexture8* DX8Wrapper::_Create_DX8_Volume_Texture
 	// NOTE: If 'format' is not supported as a texture format, this function will find the closest
 	// format that is supported and use that instead.
 
-
 	// We should never run out of video memory when allocating a non-rendertarget texture.
 	// However, it seems to happen sometimes when there are a lot of textures in memory and so
 	// if it happens we'll release assets and try again (anything is better than crashing).
@@ -2875,7 +2860,6 @@ IDirect3DVolumeTexture8* DX8Wrapper::_Create_DX8_Volume_Texture
 
 	return texture;
 }
-
 
 IDirect3DSurface8 * DX8Wrapper::_Create_DX8_Surface(unsigned int width, unsigned int height, WW3DFormat format)
 {
@@ -2941,7 +2925,6 @@ IDirect3DSurface8 * DX8Wrapper::_Create_DX8_Surface(const char *filename_)
 	return surface;
 }
 
-
 /***********************************************************************************************
  * DX8Wrapper::_Update_Texture -- Copies a texture from system memory to video memory          *
  *                                                                                             *
@@ -2973,7 +2956,6 @@ void DX8Wrapper::Compute_Caps(WW3DFormat display_format)
 	delete CurrentCaps;
 	CurrentCaps=new DX8Caps(_Get_D3D8(),D3DDevice,display_format,Get_Current_Adapter_Identifier());
 }
-
 
 void DX8Wrapper::Set_Light(unsigned index, const D3DLIGHT8* light)
 {
@@ -3173,7 +3155,6 @@ SurfaceClass * DX8Wrapper::_Get_DX8_Back_Buffer(unsigned int num)
 
 	return surf;
 }
-
 
 TextureClass *
 DX8Wrapper::Create_Render_Target (int width, int height, WW3DFormat format)
@@ -3498,7 +3479,6 @@ DX8Wrapper::Set_Render_Target(IDirect3DSurface8 *render_target, bool use_default
 //#endif // XBOX
 }
 
-
 //**********************************************************************************************
 //! Set render target with depth stencil buffer
 /*! KJM
@@ -3611,7 +3591,6 @@ void DX8Wrapper::Set_Render_Target
 	IsRenderToTexture=true;
 //#endif // XBOX
 }
-
 
 IDirect3DSwapChain8 *
 DX8Wrapper::Create_Additional_Swap_Chain (HWND render_window)
@@ -3816,7 +3795,6 @@ void DX8Wrapper::Apply_Default_State()
 		Set_DX8_Texture_Stage_State(i, D3DTSS_BUMPENVLOFFSET, 0);*/
 
 		Set_DX8_Texture_Stage_State(i, D3DTSS_TEXCOORDINDEX, i);
-
 
 		Set_DX8_Texture_Stage_State(i, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
 		Set_DX8_Texture_Stage_State(i, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
@@ -4439,7 +4417,6 @@ const char* DX8Wrapper::Get_DX8_Blend_Op_Name(unsigned value)
 	default							: return "UNKNOWN";
 	}
 }
-
 
 //============================================================================
 // DX8Wrapper::getBackBufferFormat

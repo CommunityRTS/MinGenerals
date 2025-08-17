@@ -59,7 +59,6 @@
 */
 #include	"bool.h"
 
-
 #if !defined(__BORLANDC__) || !defined(_USERENTRY)
 #define	_USERENTRY
 #endif
@@ -192,7 +191,6 @@ class IndexClass
 		static int _USERENTRY search_compfunc(void const * ptr, void const * ptr2);
 };
 
-
 /***********************************************************************************************
  * IndexClass<T>::IndexClass -- Constructor for index handler.                                 *
  *                                                                                             *
@@ -218,7 +216,6 @@ IndexClass<T>::IndexClass(void) :
 	Invalidate_Archive();
 }
 
-
 /***********************************************************************************************
  * IndexClass<T>::~IndexClass -- Destructor for index handler object.                          *
  *                                                                                             *
@@ -238,7 +235,6 @@ IndexClass<T>::~IndexClass(void)
 {
 	Clear();
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Clear -- Clear index handler to empty state.                                 *
@@ -265,7 +261,6 @@ void IndexClass<T>::Clear(void)
 	IsSorted = false;
 	Invalidate_Archive();
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Increase_Table_Size -- Increase the internal index table capacity.           *
@@ -322,7 +317,6 @@ bool IndexClass<T>::Increase_Table_Size(int amount)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * IndexClass<T>::Count -- Fetch the number of index entries recorded.                         *
  *                                                                                             *
@@ -343,7 +337,6 @@ int IndexClass<T>::Count(void) const
 {
 	return(IndexCount);
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Is_Present -- Checks for presense of index entry.                            *
@@ -401,7 +394,6 @@ bool IndexClass<T>::Is_Present(int id) const
 	return(false);
 }
 
-
 /***********************************************************************************************
  * IndexClass<T>::Fetch_Index -- Fetch data from specified index.                              *
  *                                                                                             *
@@ -439,7 +431,6 @@ T IndexClass<T>::Fetch_Index(int id) const
 #pragma warn .def
 #endif
 
-
 /***********************************************************************************************
  * IndexClass<T>::Is_Archive_Same -- Checks to see if archive pointer is same as index.        *
  *                                                                                             *
@@ -464,7 +455,6 @@ bool IndexClass<T>::Is_Archive_Same(int id) const
 	return(false);
 }
 
-
 /***********************************************************************************************
  * IndexClass<T>::Invalidate_Archive -- Invalidate the archive pointer.                        *
  *                                                                                             *
@@ -487,7 +477,6 @@ void IndexClass<T>::Invalidate_Archive(void)
 	Archive = 0;
 }
 
-
 /***********************************************************************************************
  * IndexClass<T>::Set_Archive -- Records the node pointer into the archive.                    *
  *                                                                                             *
@@ -508,7 +497,6 @@ void IndexClass<T>::Set_Archive(NodeElement const * node)
 {
 	Archive = node;
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Add_Index -- Add element to index tracking system.                           *
@@ -558,7 +546,6 @@ bool IndexClass<T>::Add_Index(int id, T data)
 
 	return(true);
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Remove_Index -- Find matching index and remove it from system.               *
@@ -614,7 +601,6 @@ bool IndexClass<T>::Remove_Index(int id)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * compfunc -- Support function for bsearch and bsort.                                         *
  *                                                                                             *
@@ -643,7 +629,6 @@ int _USERENTRY IndexClass<T>::search_compfunc(void const * ptr1, void const * pt
 	}
 	return(1);
 }
-
 
 /***********************************************************************************************
  * IndexClass<T>::Search_For_Node -- Perform a search for the specified node ID                *
@@ -693,7 +678,5 @@ IndexClass<T>::NodeElement const * IndexClass<T>::Search_For_Node(int id) const
 	return((NodeElement const *)bsearch(&node, &IndexTable[0], IndexCount, sizeof(IndexTable[0]), search_compfunc));
 }
 
-
 #endif
-
 

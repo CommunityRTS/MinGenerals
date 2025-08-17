@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __NETWORKDEFS_H
@@ -211,6 +210,5 @@ static const Int NETWORK_BASE_PORT_NUMBER = 8088;
 // the singleton
 class NetworkInterface;
 extern NetworkInterface *TheNetwork;
-
 
 #endif

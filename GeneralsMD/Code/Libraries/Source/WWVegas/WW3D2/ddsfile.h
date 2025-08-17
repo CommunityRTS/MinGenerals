@@ -157,7 +157,6 @@ struct LegacyDDSURFACEDESC2 {
 	unsigned TextureStage;
 };
 
-
 enum DDSType
 {
 	DDS_TEXTURE,

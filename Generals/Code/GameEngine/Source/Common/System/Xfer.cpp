@@ -794,4 +794,3 @@ void Xfer::xferMatrix3D( Matrix3D* mtx )
 	xferReal(&tmp2.W);
 }
 
-

@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "vchannel.h"
 #include <assert.h>
 #include <string.h>
@@ -44,7 +43,6 @@
 #include "w3dquat.h"
 #include "bchannel.h"
 #include "exportlog.h"
-
 
 #define FILTER_TABLE_SIZE (256)
 #define FILTER_TABLE_GEN_START (16)
@@ -70,7 +68,6 @@ static float filtertable[FILTER_TABLE_SIZE] = {
 
 };
 static bool table_valid = false;
-
 
 VectorChannelClass::VectorChannelClass
 (
@@ -128,7 +125,6 @@ VectorChannelClass::VectorChannelClass
 
 	}
 
-
 }
 
 VectorChannelClass::~VectorChannelClass(void)
@@ -162,7 +158,6 @@ float * VectorChannelClass::Get_Vector(int frameidx)
 
 	return &(Data[frameidx * VectorLen]);
 }
-
 
 bool VectorChannelClass::SaveTimeCoded(ChunkSaveClass & csave, BitChannelClass *binmov)
 {
@@ -211,7 +206,6 @@ bool VectorChannelClass::SaveTimeCoded(ChunkSaveClass & csave, BitChannelClass *
 			}
 		}
 
-
 		// Copy Vector
 		for (int vidx=0; vidx < VectorLen; vidx++) {
 
@@ -251,7 +245,6 @@ bool VectorChannelClass::SaveTimeCoded(ChunkSaveClass & csave, BitChannelClass *
 	return true;
 
 } // SaveTimeCoded
-
 
 /*
 struct W3dAdaptiveDeltaAnimChannelStruct
@@ -427,7 +420,6 @@ float VectorChannelClass::compress(int filter_index, float scale, float value1, 
 
 } // compress
 
-
 bool VectorChannelClass::SaveAdaptiveDelta(ChunkSaveClass & csave, BitChannelClass *binmov)
 {
 	uint32 channelsize  = sizeof(W3dAdaptiveDeltaAnimChannelStruct);
@@ -544,7 +536,6 @@ bool VectorChannelClass::SaveAdaptiveDelta(ChunkSaveClass & csave, BitChannelCla
 		frame+=16;
 	}  // for numpackets
 
-
 	// print how big we are vs non-compressed
 	float rawsize = sizeof(W3dAnimChannelStruct);
 	rawsize += (VectorLen * sizeof(float32) * (MaxFrames)) - sizeof(float32);
@@ -553,7 +544,6 @@ bool VectorChannelClass::SaveAdaptiveDelta(ChunkSaveClass & csave, BitChannelCla
 	percent*=100.0f;
 
 	ExportLog::printf("%.0f", percent);
-
 
 	// update final scale
 	chn->Scale = scale;
@@ -573,7 +563,6 @@ bool VectorChannelClass::SaveAdaptiveDelta(ChunkSaveClass & csave, BitChannelCla
 	return true;
 
 } // SaveAdaptiveDelta
-
 
 bool VectorChannelClass::Save(ChunkSaveClass & csave, BitChannelClass *binmov)
 {
@@ -621,7 +610,6 @@ bool VectorChannelClass::Save(ChunkSaveClass & csave, BitChannelClass *binmov)
 		if (!csave.Begin_Chunk(W3D_CHUNK_ANIMATION_CHANNEL)) {
 			return false;
 		}
-
 
 		unsigned int channelsize = sizeof(W3dAnimChannelStruct);
 		channelsize += VectorLen * sizeof(float32) * (MaxFrames) - sizeof(float32);
@@ -707,7 +695,6 @@ void VectorChannelClass::ClearInvisibleData(BitChannelClass *vis)
 	}
 } // ClearInvisibleData
 
-
 void VectorChannelClass::set_value(int framenum,int vindex,float32 val)
 {
 	assert(framenum >= 0);
@@ -758,7 +745,6 @@ void VectorChannelClass::compute_range(void)
 	}
 }	// compute_range
 
-
 //
 //  Remove a packet from a W3dTimeCodedAnimChanelStruct
 //
@@ -796,7 +782,6 @@ void VectorChannelClass::compress(W3dTimeCodedAnimChannelStruct * c)
 {
 
 	assert( c );
-
 
 	// Standard Error Threshold Compression
 
@@ -886,7 +871,6 @@ void VectorChannelClass::compress(W3dTimeCodedAnimChannelStruct * c)
 
 			if (maxFrames >= c->NumTimeCodes) return;	// desired minimum already attained
 
-
 			switch( c->Flags )
 			{
 				case ANIM_CHANNEL_X:
@@ -927,8 +911,6 @@ void VectorChannelClass::compress(W3dTimeCodedAnimChannelStruct * c)
 	} // if Reduce
 
 } // compress
-
-
 
 //
 // find a packet that isn't needed, and return the index
@@ -1058,7 +1040,6 @@ static  float32 tempvec[MAX_VECTOR_SIZE];
 
 } // find_useless_packet
 
-
 //
 // Special Case for Quaternion Packets
 //
@@ -1111,7 +1092,6 @@ uint32 VectorChannelClass::find_useless_packetQ(W3dTimeCodedAnimChannelStruct * 
 			float32 tRecreate = *pTcOrg;
 			float32 tEnd      = *pTcDst;
 			float32 tRatio    = (tRecreate - tStart) / (tEnd - tStart);
-
 
 			Quaternion qSrc(1);
 			qSrc.Set(pVecSrc[0],pVecSrc[1],pVecSrc[2],pVecSrc[3]);
@@ -1170,7 +1150,6 @@ uint32 VectorChannelClass::find_useless_packetQ(W3dTimeCodedAnimChannelStruct * 
 	return( PACKETS_ALL_USEFUL );
 
 } // find_useless_packetQ
-
 
 //
 //	Instead of using a fixed error threshold, find the packet
@@ -1241,7 +1220,6 @@ static  float32 tempvec[MAX_VECTOR_SIZE];
 
 				double delta = 0.0;
 
-
 				for (idx=0; idx < c->VectorLen; idx++)  {
 
 					double tmp;
@@ -1278,12 +1256,9 @@ static  float32 tempvec[MAX_VECTOR_SIZE];
 		}
   }
 
-
   return( PACKETS_ALL_USEFUL );
 
-
 }  // Find Least useful packet
-
 
 //
 //	Instead of using a fixed error threshold, find the packet
@@ -1343,7 +1318,6 @@ uint32 VectorChannelClass::find_least_useful_packetQ(W3dTimeCodedAnimChannelStru
 			float32 tEnd      = *pTcDst;
 			float32 tRatio    = (tRecreate - tStart) / (tEnd - tStart);
 
-
 			Quaternion qSrc(1);
 			qSrc.Set(pVecSrc[0],pVecSrc[1],pVecSrc[2],pVecSrc[3]);
 
@@ -1384,10 +1358,8 @@ uint32 VectorChannelClass::find_least_useful_packetQ(W3dTimeCodedAnimChannelStru
          }
   }
 
-
   return( PACKETS_ALL_USEFUL );
 
 } // find_least_useful_packetQ
-
 
 // EOF - vchannel.cpp

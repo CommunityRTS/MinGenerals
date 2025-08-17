@@ -176,7 +176,6 @@ void updateLocalPlayerScores(AsciiString name, const WOL::Ladder *ladder, const 
 }
 */
 
-
 static void enableControls( Bool state )
 {
 #ifndef _PLAYTEST
@@ -583,10 +582,8 @@ void WOLWelcomeMenuShutdown( WindowLayout *layout, void *userData )
 	TheShell->reverseAnimatewindow();
 	TheTransitionHandler->reverse("WOLWelcomeMenuFade");
 
-
 	RaiseGSMessageBox();
 }  // WOLWelcomeMenuShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Welcome Menu update method */
@@ -748,7 +745,6 @@ WindowMsgHandledType WOLWelcomeMenuSystem( GameWindow *window, UnsignedInt msg,
 	switch( msg )
 	{
 
-
 		case GWM_CREATE:
 			{
 
@@ -844,7 +840,6 @@ WindowMsgHandledType WOLWelcomeMenuSystem( GameWindow *window, UnsignedInt msg,
 					//peerListGroupRooms(TheGameSpyChat->getPeer(), ListGroupRoomsCallback, NULL, PEERTrue);
 					TheGameSpyInfo->joinBestGroupRoom();
 					enableControls( FALSE );
-
 
 					/*
 					TheWOL->setScreen(WOL::WOLAPI_MENU_CUSTOMLOBBY);

@@ -309,7 +309,6 @@ public:
 	TintEnvelope *getColorTintEnvelope( void ) { return m_colorTintEnvelope; }
 	void setColorTintEnvelope( TintEnvelope &source ) { if (m_colorTintEnvelope) *m_colorTintEnvelope = source; }
 
-
   void imitateStealthLook( Drawable& otherDraw );
 
 	void setTerrainDecal(TerrainDecalType type);	///<decal that is to appear under the drawable
@@ -331,7 +330,6 @@ public:
 	void setSelectable( Bool selectable );												///< Changes the drawables selectability
 	Bool isSelectable( void ) const;
 	Bool isMassSelectable( void ) const;
-
 
 	void setStealthLook(StealthLookType look);
 	StealthLookType getStealthLook() const { return m_stealthLook; }
@@ -563,7 +561,6 @@ public:
 	void killIcon(DrawableIconType t) { if (m_iconInfo) m_iconInfo->killIcon(t); }
 	Bool hasIconInfo() const { return m_iconInfo != NULL; }
 
-
   Bool getReceivesDynamicLights( void ) { return m_receivesDynamicLights; };
   void setReceivesDynamicLights( Bool set ) { m_receivesDynamicLights = set; };
 
@@ -577,7 +574,6 @@ public:
   void clearCustomSoundAmbient( ) { clearCustomSoundAmbient( true ); } //< Return to using defaults
   Bool getAmbientSoundEnabled( void ) const { return m_ambientSoundEnabled; }
   void mangleCustomAudioName( DynamicAudioEventInfo * audioToMangle ) const;
-
 
   Real friend_getStealthOpacity( void ) { return m_stealthOpacity; }
   Real friend_getExplicitOpacity( void ) { return m_explicitOpacity; }
@@ -772,12 +768,10 @@ private:
 	static Int							s_modelLockCount;
 #endif
 
-
 	static void initStaticImages();
 	//*******************************************
 
 };
-
 
 #ifdef DIRTY_CONDITION_FLAGS
 class StDrawableDirtyStuffLocker

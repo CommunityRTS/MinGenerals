@@ -53,8 +53,6 @@
 class SkinClass;
 class RenderInfoClass;
 
-
-
 /**
 ** Animatable3DObjClass
 ** This class performs some of the work necessary to implement hierarchical animation.
@@ -217,9 +215,6 @@ protected:
 	friend class SkinClass;
 };
 
-
-
-
 /***********************************************************************************************
  * Animatable3DObjClass::Base_Update -- animation update function for the base pose            *
  *                                                                                             *
@@ -242,7 +237,6 @@ inline void Animatable3DObjClass::Base_Update(const Matrix3D & root)
 	}
 	Set_Hierarchy_Valid(true);
 }
-
 
 /***********************************************************************************************
  * Animatable3DObjClass::Anim_Update -- Update function for a single animation                 *
@@ -269,7 +263,6 @@ inline void Animatable3DObjClass::Anim_Update(const Matrix3D & root,HAnimClass *
 	}
 	Set_Hierarchy_Valid(true);
 }
-
 
 /***********************************************************************************************
  * Animatable3DObjClass::Blend_Update -- update function for a blend of two animations         *
@@ -302,7 +295,6 @@ inline void Animatable3DObjClass::Blend_Update
 	Set_Hierarchy_Valid(true);
 }
 
-
 /***********************************************************************************************
  * Animatable3DObjClass::Combo_Update -- Animation update for a combination of anims           *
  *                                                                                             *
@@ -322,7 +314,5 @@ inline void Animatable3DObjClass::Combo_Update( const Matrix3D & root, HAnimComb
 	}
 	Set_Hierarchy_Valid(true);
 }
-
-
 
 #endif //ANIMOBJ_H

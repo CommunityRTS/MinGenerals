@@ -206,12 +206,8 @@ public:
 	virtual void getLocation ( ViewLocation *location );								///< write the view's current location in to the view location object
 	virtual void setLocation ( const ViewLocation *location );					///< set the view's current location from to the view location object
 
-
 	virtual void drawView( void ) = 0;															///< Render the world visible in this view.
 	virtual void updateView(void) = 0;					///<called once per frame to determine the final camera and object transforms
-
-
-
 
 	virtual ObjectID getCameraLock() const { return m_cameraLock; }
 	virtual void setCameraLock(ObjectID id) { m_cameraLock = id; m_lockDist = 0.0f; m_lockType = LOCK_FOLLOW; }
@@ -246,7 +242,6 @@ protected:
 
 	virtual View *prependViewToList( View *list );							///< Prepend this view to the given list, return the new list
 	virtual View *getNextView( void ) { return m_next; }				///< Return next view in the set
-
 
 	// **********************************************************************************************
 

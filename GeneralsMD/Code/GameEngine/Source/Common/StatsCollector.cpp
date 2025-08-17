@@ -419,7 +419,6 @@ void StatsCollector::writeStatInfo()
 					m_scrollMapCommands, m_scrollTime / LOGICFRAMES_PER_SECOND, /*other commands*/0,m->countMoney() ,
 					m_playerUnits, m_AIUnits  );
 
-
 	fclose(f);
 
 }

@@ -426,11 +426,8 @@ Object::Object( const ThingTemplate *tt, ObjectStatusBits statusBits, Team *team
 	//disable occlusion for some time after object is created to allow them to exit the factory/building.
 	m_safeOcclusionFrame = TheGameLogic->getFrame()+tt->getOcclusionDelay();
 
-
 	m_soleHealingBenefactorID = INVALID_ID; ///< who is the only other object that can give me this non-stacking heal benefit?
 	m_soleHealingBenefactorExpirationFrame = 0; ///< on what frame can I accept healing (thus to switch) from a new benefactor
-
-
 
 }  // end Object
 
@@ -473,7 +470,6 @@ void Object::initObject()
 			controller->applyBattlePlanBonusesForObject( this );
 		}
 	}
-
 
 	//For each special power module that we have, add it's type to the specialpower bits. This is
 	//for optimal access later.
@@ -622,7 +618,6 @@ Bool Object::isHero() const
 	}
 	return isKindOf( KINDOF_HERO );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /// this object now contained in "containedBy"
@@ -1035,7 +1030,6 @@ Bool Object::canCrushOrSquish(Object *otherObj, CrushSquishTestType testType ) c
 		}
 	}
 
-
 	UnsignedByte crushableLevel = otherObj->getCrushableLevel();
 
 	if( testType == TEST_CRUSH_ONLY || testType == TEST_CRUSH_OR_SQUISH )
@@ -1060,7 +1054,6 @@ UnsignedByte Object::getCrushableLevel() const
 {
 	return getTemplate()->getCrushableLevel();
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** Topple an object, if possible */
@@ -1311,7 +1304,6 @@ CanAttackResult Object::getAbleToUseWeaponAgainstTarget( AbleToAttackType attack
 {
 	return m_weaponSet.getAbleToUseWeaponAgainstTarget( attackType, this, victim, pos, commandSource );
 }
-
 
 //=============================================================================
 Bool Object::chooseBestWeaponForTarget(const Object* target, WeaponChoiceCriteria criteria, CommandSourceType cmdSource )
@@ -1738,7 +1730,6 @@ Bool Object::attemptHealingFromSoleBenefactor ( Real amount, const Object* sourc
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Real Object::estimateDamage( DamageInfoInput& damageInfo ) const
 {
@@ -1804,8 +1795,6 @@ void Object::setCaptured(Bool isCaptured)
 
 	// No need to see if we should skip updates, this flag has no effect on skipping updates.
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 Bool Object::isStructure(void) const
@@ -1963,7 +1952,6 @@ void Object::setDisabledUntil( DisabledType type, UnsignedInt frame )
 				if (autoHeal)
 					autoHeal->undoUpgrade();
 
-
 			}
 		}
 
@@ -2011,7 +1999,6 @@ Bool Object::clearDisabled( DisabledType type )
 		}
 	}
 
-
 	// an edge-test for disabledness, for type. This DECREMENTS m_pauseCount
 	// srj sez: HELD nevers disables special powers.
 	if ( type != DISABLED_HELD && isDisabledByType( type ) )
@@ -2051,7 +2038,6 @@ Bool Object::clearDisabled( DisabledType type )
 	}
 	return TRUE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //Checks any timers and clears disabled statii that have expired.
@@ -2385,8 +2371,6 @@ void Object::setTriggerAreaFlagsForChangeInPosition()
 
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 Bool Object::isInList(Object **pListHead) const
@@ -2538,7 +2522,6 @@ void Object::friend_notifyOfNewMapBoundary(void)
 		m_privateStatus |= OFF_MAP;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void Object::calcNaturalRallyPoint(Coord2D *pt)
@@ -2625,10 +2608,8 @@ void Object::scoreTheKill( const Object *victim )
 		return;
 	}
 
-
 	if ( victim->isKindOf( KINDOF_IGNORED_IN_GUI ) )
 		return;
-
 
 	Player* controller = getControllingPlayer();
 
@@ -2777,7 +2758,6 @@ void Object::onVeterancyLevelChanged( VeterancyLevel oldLevel, VeterancyLevel ne
 	if (body)
 		body->onVeterancyLevelChanged(oldLevel, newLevel);
 
-
 	Bool hideAnimationForStealth = ( ! isLocallyControlled() && testStatus(OBJECT_STATUS_STEALTHED));
 
 	Bool doAnimation = ( ! hideAnimationForStealth
@@ -2865,7 +2845,6 @@ Bool Object::isAbleToAttack() const
 	if( containedBy && containedBy->getContain() && !containedBy->getContain()->isPassengerAllowedToFire() )
 		return false;
 
-
 	// We can't fire if under construction
 	if( testStatus(OBJECT_STATUS_UNDER_CONSTRUCTION) )
 		return false;
@@ -2926,7 +2905,6 @@ Bool Object::isAbleToAttack() const
 		}
 	}
 
-
 	//***************************************
 	//********* TRUE CONDITIONS *************
 	//***************************************
@@ -2970,7 +2948,6 @@ Bool Object::isAbleToAttack() const
 			return TRUE;
 		}
 	}
-
 
 //Default is no
 	return false;
@@ -3084,7 +3061,6 @@ Bool Object::getHealthBoxDimensions(Real &healthBoxHeight, Real &healthBoxWidth)
 #endif
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /**
@@ -3252,7 +3228,6 @@ void Object::updateObjValuesFromMapProperties(Dict* properties)
 		m_shroudClearingRange = INT_TO_REAL(valInt);
 	}
 
-
 	Int upgradeNum = 0;
 	do
 	{
@@ -3273,7 +3248,6 @@ void Object::updateObjValuesFromMapProperties(Dict* properties)
 
 		++upgradeNum;
 	} while (!valStr.isEmpty());
-
 
 }
 
@@ -3398,7 +3372,6 @@ void Object::crc( Xfer *xfer )
 	}
 #endif // DEBUG_CRC
 
-
 #ifdef DEBUG_CRC
 	if (doLogging)
 	{
@@ -3407,7 +3380,6 @@ void Object::crc( Xfer *xfer )
 		DUMPMATRIX3D(mtx);
 	}
 #endif //DEBUG_CRC
-
 
 	xfer->xferUser(&m_id,															sizeof(m_id));
 #ifdef DEBUG_CRC
@@ -3650,7 +3622,6 @@ void Object::xfer( Xfer *xfer )
 				m_xferContainedByID = INVALID_ID;
 		}
 
-
 		xfer->xferObjectID( &m_xferContainedByID );
 	}
 
@@ -3812,7 +3783,6 @@ void Object::xfer( Xfer *xfer )
 		}  // end for, i module count recorded in file
 
 	}  // end else, load
-
 
 	if ( version >= 3 )
 	{
@@ -4021,7 +3991,6 @@ void Object::onDie( DamageInfo *damageInfo )
 	if (draw) draw->setTerrainDecalFadeTarget(0.0f, -0.03f);//fade...
 	//if (draw) draw->setTerrainDecal(TERRAIN_DECAL_NONE);//pop!
 
-
 	// objects that were spawned from something, need to tell their spawner that they have died
 	Object* spawner = TheGameLogic->findObjectByID( getProducerID() );
 	if( spawner )
@@ -4225,7 +4194,6 @@ void Object::addValue()
 			|| ( getShroudClearingRange() <= 0.0f ))
 		return;
 
-
 	m_partitionLastValue->m_where = *getPosition();
 	m_partitionLastValue->m_data = getTemplate()->friend_getBuildCost();
 
@@ -4277,7 +4245,6 @@ void Object::addThreat()
 			|| ( getShroudClearingRange() <= 0.0f ))
 		return;
 
-
 	m_partitionLastThreat->m_where = *getPosition();
 	m_partitionLastThreat->m_data = getTemplate()->getThreatValue();
 
@@ -4311,8 +4278,6 @@ void Object::removeThreat()
 
 	m_partitionLastThreat->reset();
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 void Object::look()
@@ -4954,7 +4919,6 @@ void Object::doCommandButtonAtPosition( const CommandButton *commandButton, cons
 	}
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 void Object::clearLeechRangeModeForAllWeapons()
@@ -5333,7 +5297,6 @@ void Object::goInvulnerable( UnsignedInt time )
 {
 	const Bool WITHOUT_DEFECTOR_FX = FALSE;
 
-
 	friend_setUndetectedDefector( time > 0 );
 
 	if (m_defectionHelper)
@@ -5370,13 +5333,11 @@ RadarPriorityType Object::getRadarPriority( void ) const
 		if( isKindOf( KINDOF_CAPTURABLE ) )
 			priority = RADAR_PRIORITY_STRUCTURE;
 
-
 	}  // end if
 
 	// Carbombs will show up as units regardless of their default priority
 	if ( testStatus( OBJECT_STATUS_IS_CARBOMB ) )
 		priority = RADAR_PRIORITY_UNIT;
-
 
 	// return the priority we're going to use
 	return priority;

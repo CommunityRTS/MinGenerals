@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -118,7 +117,6 @@ public:
    virtual int						Get_Sort_Level(void) const;
    virtual void					Set_Sort_Level(int level);
 
-
 	/////////////////////////////////////////////////////////////////////////////
 	// Render Object Interface - Decals
 	/////////////////////////////////////////////////////////////////////////////
@@ -194,7 +192,6 @@ inline MeshModelClass * MeshClass::Peek_Model(void)
 {
 	return Model;
 }
-
 
 // This utility function recurses throughout the subobjects of a renderobject,
 // and for each MeshClass it finds it sets the given MeshModel flag on its

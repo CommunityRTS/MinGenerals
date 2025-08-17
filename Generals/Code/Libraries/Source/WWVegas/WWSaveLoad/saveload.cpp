@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "saveload.h"
 #include "saveloadsubsystem.h"
 #include "persist.h"
@@ -44,13 +43,10 @@
 #include "saveloadstatus.h"
 #include "wwhack.h"
 
-
 SaveLoadSubSystemClass *		SaveLoadSystemClass::SubSystemListHead = NULL;
 PersistFactoryClass *			SaveLoadSystemClass::FactoryListHead = NULL;
 SList<PostLoadableClass>		SaveLoadSystemClass::PostLoadList;
 PointerRemapClass					SaveLoadSystemClass::PointerRemapper;
-
-
 
 bool SaveLoadSystemClass::Save (ChunkSaveClass &csave,SaveLoadSubSystemClass & subsystem)
 {
@@ -64,7 +60,6 @@ bool SaveLoadSystemClass::Save (ChunkSaveClass &csave,SaveLoadSubSystemClass & s
 
 	return ok;
 }
-
 
 bool SaveLoadSystemClass::Load (ChunkLoadClass &cload,bool auto_post_load)
 {
@@ -114,13 +109,11 @@ void SaveLoadSystemClass::Register_Sub_System (SaveLoadSubSystemClass * sys)
 	Link_Sub_System(sys);
 }
 
-
 void SaveLoadSystemClass::Unregister_Sub_System (SaveLoadSubSystemClass * sys)
 {
 	WWASSERT(sys != NULL);
 	Unlink_Sub_System(sys);
 }
-
 
 SaveLoadSubSystemClass * SaveLoadSystemClass::Find_Sub_System (uint32 chunk_id)
 {
@@ -243,7 +236,6 @@ void SaveLoadSystemClass::Unlink_Sub_System(SaveLoadSubSystemClass * sys)
 
 	sys->NextSubSystem = NULL;
 }
-
 
 void SaveLoadSystemClass::Link_Factory(PersistFactoryClass * fact)
 {

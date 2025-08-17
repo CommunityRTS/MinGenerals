@@ -29,7 +29,6 @@
 #include "WBView3D.h"
 #include "ObjectTool.h"
 
-
 // Saved off so that static functions can access its members.
 RulerTool*	RulerTool::m_staticThis = NULL;
 
@@ -75,7 +74,6 @@ void RulerTool::setCursor(void)
 {
 	Tool::setCursor();
 }
-
 
 /** Execute the tool on mouse down */
 void RulerTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

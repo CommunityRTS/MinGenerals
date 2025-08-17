@@ -70,7 +70,6 @@
  *   CollectionDefClass::Load -- loads a collection definition from a w3d file                 *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "collect.h"
 #include "chunkio.h"
 #include "camera.h"
@@ -80,7 +79,6 @@
 #include "ww3d.h"
 #include "w3derr.h"
 //#include "sr.hpp"
-
 
 CollectionLoaderClass _CollectionLoader;
 
@@ -112,7 +110,6 @@ protected:
 	friend class CollectionClass;
 };
 
-
 /*
 ** CollectionPrototypeClass this is the render object prototype for
 ** Collections.
@@ -134,7 +131,6 @@ protected:
 	virtual ~CollectionPrototypeClass(void)					{ delete ColDef; }
 };
 
-
 /***********************************************************************************************
  * CollectionClass::CollectionClass -- default constructor for collection render object        *
  *                                                                                             *
@@ -152,7 +148,6 @@ CollectionClass::CollectionClass(void) :
 {
 	Update_Obj_Space_Bounding_Volumes();
 }
-
 
 /***********************************************************************************************
  * CollectionClass::CollectionClass -- constructor for collection render object                *
@@ -195,7 +190,6 @@ CollectionClass::CollectionClass(const CollectionDefClass & def) :
 	Update_Obj_Space_Bounding_Volumes();
 }
 
-
 /***********************************************************************************************
  * CollectionClass::CollectionClass -- copy constructor                                        *
  *                                                                                             *
@@ -215,7 +209,6 @@ CollectionClass::CollectionClass(const CollectionClass & src) :
 {
 	*this = src;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::CollectionClass -- assignment operator                                     *
@@ -254,7 +247,6 @@ CollectionClass & CollectionClass::operator = (const CollectionClass & that)
 	return * this;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::~CollectionClass -- destructor                                             *
  *                                                                                             *
@@ -272,7 +264,6 @@ CollectionClass::~CollectionClass(void)
 	Free();
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Clone -- virtual copy constructor                                          *
  *                                                                                             *
@@ -289,7 +280,6 @@ RenderObjClass * CollectionClass::Clone(void) const
 {
 	return NEW_REF( CollectionClass, (*this));
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Free -- releases all assets in use by this collection                      *
@@ -316,7 +306,6 @@ void CollectionClass::Free(void)
 	REF_PTR_RELEASE(SnapPoints);
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Class_ID -- returns class id for collection render objects                 *
  *                                                                                             *
@@ -333,7 +322,6 @@ int CollectionClass::Class_ID(void)	const
 {
 	return RenderObjClass::CLASSID_COLLECTION;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Get_Num_Polys -- returns the number of polygons in this collection         *
@@ -355,7 +343,6 @@ int CollectionClass::Get_Num_Polys(void) const
 	}
 	return pcount;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Render -- render this collection                                           *
@@ -383,7 +370,6 @@ void CollectionClass::Render(RenderInfoClass & rinfo)
 		SubObjects[i]->Render(rinfo);
 	}
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Special_Render -- passes the special render call to all sub-objects        *
@@ -430,7 +416,6 @@ void CollectionClass::Set_Transform(const Matrix3D &m)
 	Set_Sub_Object_Transforms_Dirty(true);
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Set_Position -- set the position for this collection                       *
  *                                                                                             *
@@ -449,7 +434,6 @@ void CollectionClass::Set_Position(const Vector3 &v)
 	Set_Sub_Object_Transforms_Dirty(true);
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Get_Num_Sub_Objects -- returns the number of sub objects                   *
  *                                                                                             *
@@ -466,7 +450,6 @@ int CollectionClass::Get_Num_Sub_Objects(void) const
 {
 	return SubObjects.Count();
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Get_Sub_Object -- returns a pointer to the desired sub object              *
@@ -487,7 +470,6 @@ RenderObjClass * CollectionClass::Get_Sub_Object(int index) const
 	}
 	return SubObjects[index];
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Add_Sub_Object -- adds another object into this collection                 *
@@ -515,7 +497,6 @@ int CollectionClass::Add_Sub_Object(RenderObjClass * subobj)
 	}
 	return res;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Remove_Sub_Object -- removes a sub object from this collection             *
@@ -559,7 +540,6 @@ int CollectionClass::Remove_Sub_Object(RenderObjClass * robj)
 	return res;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Cast_Ray -- passes the ray test to each sub object                         *
  *                                                                                             *
@@ -580,7 +560,6 @@ bool CollectionClass::Cast_Ray(RayCollisionTestClass & raytest)
 	}
 	return res;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Cast_AABox -- passes the axis-aligned box test to each sub object          *
@@ -603,7 +582,6 @@ bool CollectionClass::Cast_AABox(AABoxCollisionTestClass & boxtest)
 	return res;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Cast_OBBox -- passes the oriented box test to each sub object              *
  *                                                                                             *
@@ -625,7 +603,6 @@ bool CollectionClass::Cast_OBBox(OBBoxCollisionTestClass & boxtest)
 	return res;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Intersect_AABox -- test for intersection with an AABox                     *
  *                                                                                             *
@@ -646,7 +623,6 @@ bool CollectionClass::Intersect_AABox(AABoxIntersectionTestClass & boxtest)
 	}
 	return res;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Intersect_OBBox -- test for intersection with an OBBox                     *
@@ -686,7 +662,6 @@ void CollectionClass::Get_Obj_Space_Bounding_Sphere(SphereClass & sphere) const
 	sphere = BoundSphere;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Get_Obj_Space_Bounding_Box -- returns the object-space bounding box        *
  *                                                                                             *
@@ -703,7 +678,6 @@ void CollectionClass::Get_Obj_Space_Bounding_Box(AABoxClass & box) const
 {
 	box = BoundBox;
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Snap_Point_Count -- returns the number of snap points in this collecion    *
@@ -725,7 +699,6 @@ int CollectionClass::Snap_Point_Count(void)
 		return 0;
 	}
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Get_Snap_Point -- return the desired snap point                            *
@@ -752,7 +725,6 @@ void CollectionClass::Get_Snap_Point(int index,Vector3 * set)
 	}
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Scale -- scale the objects in this collection                              *
  *                                                                                             *
@@ -772,7 +744,6 @@ void CollectionClass::Scale(float scale)
 	}
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Scale -- scale the objects in this collection                              *
  *                                                                                             *
@@ -791,7 +762,6 @@ void CollectionClass::Scale(float scalex, float scaley, float scalez)
 		SubObjects[i]->Scale(scalex,scaley,scalez);
 	}
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Update_Obj_Space_Bounding_Volumes -- recomputes the object space bounding  *
@@ -844,7 +814,6 @@ void CollectionClass::Update_Obj_Space_Bounding_Volumes(void)
 	Set_Transform(tm);
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Update_Sub_Object_Transforms -- recomputes all sub object transforms       *
  *                                                                                             *
@@ -866,7 +835,6 @@ void CollectionClass::Update_Sub_Object_Transforms(void)
 	}
 	Set_Sub_Object_Transforms_Dirty(false);
 }
-
 
 /***********************************************************************************************
  * CollectionClass::Get_Placeholder -- Returns information about a placeholder object.
@@ -896,7 +864,6 @@ bool CollectionClass::Get_Proxy (int index, ProxyClass &proxy) const
 	return retval;
 }
 
-
 /***********************************************************************************************
  * CollectionClass::Get_Proxy_Count -- Returns the count of proxy objects in the collection.
  *                                                                                             *
@@ -913,7 +880,6 @@ int CollectionClass::Get_Proxy_Count (void) const
 {
 	return ProxyList.Count ();
 }
-
 
 /***********************************************************************************************
  * CollectionDefClass::CollectionDefClass -- constructor                                       *
@@ -932,7 +898,6 @@ CollectionDefClass::CollectionDefClass(void)
 	SnapPoints = NULL;
 }
 
-
 /***********************************************************************************************
  * CollectionDefClass::~CollectionDefClass -- destructor for collection definition             *
  *                                                                                             *
@@ -949,7 +914,6 @@ CollectionDefClass::~CollectionDefClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * CollectionDefClass::Free -- releases assets in use by a collection definition               *
@@ -972,7 +936,6 @@ void CollectionDefClass::Free(void)
 	ProxyList.Delete_All ();
 }
 
-
 /***********************************************************************************************
  * CollectionDefClass::Get_Name -- returns name of the collection                              *
  *                                                                                             *
@@ -989,7 +952,6 @@ const char * CollectionDefClass::Get_Name(void) const
 {
 	return Name;
 }
-
 
 /***********************************************************************************************
  * CollectionDefClass::Load -- loads a collection definition from a w3d file                   *
@@ -1104,6 +1066,4 @@ PrototypeClass * CollectionLoaderClass::Load_W3D(ChunkLoadClass & cload)
 
 	}
 }
-
-
 

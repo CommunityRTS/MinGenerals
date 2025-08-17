@@ -346,7 +346,6 @@ WWINLINE static unsigned Combine_Colors(unsigned col1, unsigned col2, unsigned r
 	r_b_col1>>=8;
 	r_b_col1&=R_B_MASK;
 
-
 	unsigned g_col1=col1&G_MASK;
 	g_col1*=rel;
 	unsigned g_col2=col2&G_MASK;
@@ -660,9 +659,6 @@ bool DDSFileClass::Get_4x4_Block(
 					tmp_dest_ptr+=dest_bpp;
 				}
 			}
-
-
-
 
 /*
 			for (int y=0;y<4;++y) {

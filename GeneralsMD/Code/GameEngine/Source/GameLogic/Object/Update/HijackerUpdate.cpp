@@ -106,7 +106,6 @@ UpdateSleepTime HijackerUpdate::update( void )
 		{
 			{
 
-
 				//THIS BLOCK RESTORES HIJACKER TO PARTITION MANAGER AND UNHIDES HIM
 				ThePartitionManager->registerObject( obj );
 
@@ -145,7 +144,6 @@ UpdateSleepTime HijackerUpdate::update( void )
 
 				}
 
-
 			}// end if (! hostVehicleHasEjection)
 
 			setTargetObject( NULL );
@@ -163,8 +161,6 @@ UpdateSleepTime HijackerUpdate::update( void )
 
 	return UPDATE_SLEEP_NONE;
 }
-
-
 
 void HijackerUpdate::setTargetObject( const Object *object )
 {

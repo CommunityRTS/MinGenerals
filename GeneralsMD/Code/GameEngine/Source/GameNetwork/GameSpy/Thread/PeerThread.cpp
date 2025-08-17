@@ -2440,7 +2440,6 @@ void playerMessageCallback(PEER peer, const char * nick, const char * message, M
 	peerGetPlayerInfoNoWait(peer, nick, &IP, &resp.message.profileID);
 	TheGameSpyPeerMessageQueue->addResponse(resp);
 
-
 	PeerThreadClass *t = (PeerThreadClass *)param;
 	DEBUG_ASSERTCRASH(t, ("No Peer thread!"));
 	if (t && (t->getQMStatus() != QM_IDLE && t->getQMStatus() != QM_STOPPED))

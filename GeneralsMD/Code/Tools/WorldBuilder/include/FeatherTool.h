@@ -57,5 +57,4 @@ public:
 	virtual void activate(); ///< Become the current tool.
 };
 
-
 #endif //FEATHERTOOL_H

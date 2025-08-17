@@ -6,7 +6,6 @@ TESTTARGET=manglertest
 OBJECTS=mangler.o crc.o
 TESTOBJECTS=manglertest.o crc.o
 
-
 LINKFLAGS=
 LINKDIRS=-L. -Lwlib -Lwnet
 ############################################################################
@@ -23,7 +22,6 @@ CPPFILES=${OBJECTS:.o=.cpp}
 CFILES=${OBJECTS:.o=.c}
 .SUFFIXES : .c .cpp
 
-
 $(TARGET) : $(OBJECTS)
 	g++ $(LINKFLAGS) $(OBJECTS) $(LINKDIRS) $(LINKLIBS) -o $(TARGET)
 
@@ -36,10 +34,8 @@ $(TESTTARGET) : $(TESTOBJECTS) $(TARGET)
 .c.o:
 	g++ $(CPPFLAGS) $<
 
-
 depend:
 	g++ -M $(INCDIR) ${CFILES} $(CPPFILES) > dependencies
-
 
 clean:
 	-rm *.o $(TARGET) $(TESTTARGET) core *.dat

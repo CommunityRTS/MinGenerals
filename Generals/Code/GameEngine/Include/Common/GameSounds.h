@@ -90,7 +90,6 @@ class SoundManager : public SubsystemInterface
 		virtual Bool violatesVoice( AudioEventRTS *event );
 		virtual Bool isInterrupting( AudioEventRTS *event );
 
-
 	protected:
 		UnsignedInt m_num2DSamples;
 		UnsignedInt m_num3DSamples;

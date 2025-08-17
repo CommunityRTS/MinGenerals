@@ -57,7 +57,6 @@ public:
 	WanderAIUpdate( Thing *thing, const ModuleData* moduleData );
 	// virtual destructor prototype provided by memory pool declaration
 
-
 protected:
 
 	virtual AIStateMachine* makeStateMachine();

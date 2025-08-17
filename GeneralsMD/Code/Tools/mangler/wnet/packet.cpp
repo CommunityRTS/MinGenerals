@@ -48,7 +48,6 @@
 
 #include "packet.h"
 
-
 /**************************************************************************
  * PACKETCLASS::~PACKETCLASS -- destroys a packet class be freeing list   *
  *                                                                        *
@@ -72,7 +71,6 @@ PacketClass::~PacketClass()
     delete(current);
   }
 }
-
 
 /**************************************************************************
  * PACKETCLASS::ADD_FIELD -- Adds a FieldClass entry to head of packet li *
@@ -250,7 +248,6 @@ char *PacketClass::Create_Comms_Packet(int &size)
   return(retval);
 }
 
-
 /**************************************************************************
  * PACKETCLASS::FIND_FIELD -- Finds a field if it exists in the packets   *
  *                                                                        *
@@ -294,7 +291,6 @@ int PacketClass::Get_Num_Fields()
 
 }
 
-
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
  *                                                                        *
@@ -317,7 +313,6 @@ bit8 PacketClass::Get_Field(char *id, char &data)
   }
   return((field) ? true : false);
 }
-
 
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
@@ -342,7 +337,6 @@ bit8 PacketClass::Get_Field(char *id, unsigned char &data)
   return((field) ? true : false);
 }
 
-
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
  *                                                                        *
@@ -365,7 +359,6 @@ bit8 PacketClass::Get_Field(char *id, short &data)
   }
   return((field) ? true : false);
 }
-
 
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
@@ -390,7 +383,6 @@ bit8 PacketClass::Get_Field(char *id, unsigned short &data)
   return((field) ? true : false);
 }
 
-
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
  *                                                                        *
@@ -414,8 +406,6 @@ bit8 PacketClass::Get_Field(char *id, long &data)
   return((field) ? true : false);
 }
 
-
-
 bit8 PacketClass::Get_Field(char *id, int &data)
 {
   FieldClass *field = Find_Field(id);
@@ -424,8 +414,6 @@ bit8 PacketClass::Get_Field(char *id, int &data)
   }
   return((field) ? true : false);
 }
-
-
 
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data as a string          *
@@ -483,8 +471,6 @@ bit8 PacketClass::Get_Field(char *id, unsigned  &data)
   return((field) ? true : false);
 }
 
-
-
 /**************************************************************************
  * GET_FIELD -- Find specified name and returns data                      *
  *                                                                        *
@@ -509,7 +495,6 @@ bit8 PacketClass::Get_Field(char *id, void *data, int &length)
    }
    return((field) ? true : false);
 }
-
 
 unsigned short PacketClass::Get_Field_Size(char* id)
 {

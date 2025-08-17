@@ -58,7 +58,6 @@
 #include "Common/NameKeyGenerator.h"
 #include "Common/STLTypedefs.h"
 
-
 // ----------------------------------------------------------------------------------------------
 
 class INI;
@@ -139,7 +138,6 @@ public:
   inline Bool isOldFaction( void ) const { return m_oldFaction; }
 
 	static const FieldParse* getFieldParse();
-
 
 protected:
 

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -43,7 +42,6 @@
 #define __FORMCLASS_H
 
 #include <Max.h>
-
 
 class FormClass : public ParamDlg
 {

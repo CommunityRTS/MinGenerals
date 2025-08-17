@@ -66,7 +66,6 @@ WbView::~WbView()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(WbView, CView)
 	//{{AFX_MSG_MAP(WbView)
 	ON_WM_RBUTTONUP()
@@ -438,7 +437,6 @@ BOOL WbView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return(CView::OnSetCursor(pWnd, nHitTest, message));
 }
 
-
 /** Handles the delete menu action. */
 void WbView::OnEditDelete()
 {
@@ -645,7 +643,6 @@ void WbView::OnEditReplace()
 		}
 	}
 }
-
 
 /** Shows the selected status of the reflects in mirror flag. */
 void WbView::OnUpdateObjectpropertiesReflectsinmirror(CCmdUI* pCmdUI)
@@ -947,7 +944,6 @@ void WbView::OnUpdateShowTerrain(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(m_showTerrain ? 1 : 0);
 }
-
 
 void WbView::OnEditTeamlist()
 {

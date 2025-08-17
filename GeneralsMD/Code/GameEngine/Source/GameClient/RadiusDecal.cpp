@@ -214,8 +214,6 @@ void RadiusDecal::update()
 	}
 }
 
-
-
 void RadiusDecal::setOpacity( Real o )
 {
 	if (m_decal)

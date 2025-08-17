@@ -45,7 +45,6 @@
  *   MaterialPassClass::Get_Material -- get the vertex material                                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "matpass.h"
 #include "vertmaterial.h"
 #include "shader.h"
@@ -53,9 +52,7 @@
 #include "statistics.h"
 #include "dx8wrapper.h"
 
-
 bool MaterialPassClass::EnablePerPolygonCulling = true;
-
 
 /***********************************************************************************************
  * MaterialPassClass::MaterialPassClass -- Constructor                                         *
@@ -101,7 +98,6 @@ MaterialPassClass::~MaterialPassClass(void)
 	REF_PTR_RELEASE(Material);
 }
 
-
 /***********************************************************************************************
  * MaterialPassClass::Install_Materials -- Plug our material settings into D3D                 *
  *                                                                                             *
@@ -125,7 +121,6 @@ void MaterialPassClass::Install_Materials(void) const
 	}
 }
 
-
 /***********************************************************************************************
  * MaterialPassClass::Set_Texture -- Set texture to use                                        *
  *                                                                                             *
@@ -147,7 +142,6 @@ void MaterialPassClass::Set_Texture(TextureClass * tex,int stage)
 	REF_PTR_SET(Texture[stage],tex);
 }
 
-
 /***********************************************************************************************
  * MaterialPassClass::Set_Shader -- Set the shader to use                                      *
  *                                                                                             *
@@ -167,7 +161,6 @@ void MaterialPassClass::Set_Shader(ShaderClass shader)
 	Shader.Enable_Fog ("MaterialPassClass");
 }
 
-
 /***********************************************************************************************
  * MaterialPassClass::Set_Material -- set vertex material to use                               *
  *                                                                                             *
@@ -185,7 +178,6 @@ void MaterialPassClass::Set_Material(VertexMaterialClass * mat)
 {
 	REF_PTR_SET(Material,mat);
 }
-
 
 /***********************************************************************************************
  * MaterialPassClass::Get_Texture -- Get a pointer to the texture                              *
@@ -210,7 +202,6 @@ TextureClass * MaterialPassClass::Get_Texture(int stage) const
 	}
 	return Texture[stage];
 }
-
 
 /***********************************************************************************************
  * MaterialPassClass::Get_Material -- get the vertex material                                  *

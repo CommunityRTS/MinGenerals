@@ -35,7 +35,6 @@ static const char* NEUTRAL_NAME_STR = "(neutral)";
 /////////////////////////////////////////////////////////////////////////////
 // TeamIdentity dialog
 
-
 TeamIdentity::TeamIdentity()
 	: CPropertyPage(TeamIdentity::IDD)
 {
@@ -44,7 +43,6 @@ TeamIdentity::TeamIdentity()
 	//}}AFX_DATA_INIT
 }
 
-
 void TeamIdentity::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -52,7 +50,6 @@ void TeamIdentity::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(TeamIdentity, CPropertyPage)
 	//{{AFX_MSG_MAP(TeamIdentity)
@@ -269,7 +266,6 @@ void TeamIdentity::loadUnitsInfo(int idcMinUnit, NameKeyType keyMinUnit,
 
 }
 
-
 BOOL TeamIdentity::OnCommand(WPARAM wParam, LPARAM lParam)
 {
 
@@ -349,7 +345,6 @@ void TeamIdentity::OnAutoReinforce()
 	Bool checked = 	pCheck->GetCheck()==1;
 	m_teamDict->setBool(TheKey_teamAutoReinforce, checked);
 }
-
 
 void TeamIdentity::OnChangeDescription()
 {

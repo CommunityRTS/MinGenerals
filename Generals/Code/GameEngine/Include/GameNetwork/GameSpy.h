@@ -89,7 +89,6 @@ public:
 	void clearGroupRoomList(void);
 	inline Int getNumGroupRooms( void )					{ return m_groupRooms.size(); }
 
-
 protected:
 
 	AsciiString m_loginName;
@@ -106,7 +105,6 @@ protected:
 GameSpyChatInterface *createGameSpyChat( void );
 
 extern GameSpyChatInterface *TheGameSpyChat;
-
 
 void JoinRoomCallback(PEER peer, PEERBool success,
 											PEERJoinResult result, RoomType roomType,
@@ -143,6 +141,5 @@ enum GameSpyColors {
 };
 
 extern const Color GameSpyColor[GSCOLOR_MAX];
-
 
 #endif // __GameSpy_H__

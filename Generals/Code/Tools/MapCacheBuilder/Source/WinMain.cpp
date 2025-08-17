@@ -58,7 +58,6 @@
 #include "GameClient/MapUtil.h"
 #include "W3DDevice/Common/W3DModuleFactory.h"
 
-
 #include "Common/FileSystem.h"
 #include "Common/ArchiveFileSystem.h"
 #include "Common/LocalFileSystem.h"
@@ -103,7 +102,6 @@
 #include "win32device/GameClient/Win32Mouse.h"
 #include "Win32Device/Common/Win32LocalFileSystem.h"
 #include "Win32Device/Common/Win32BIGFileSystem.h"
-
 
 // DEFINES ////////////////////////////////////////////////////////////////////
 
@@ -260,7 +258,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 	// save application instance
 	ApplicationHInstance = hInstance;
-
 
 	// Set the current directory to the app directory.
 	char buf[_MAX_PATH];

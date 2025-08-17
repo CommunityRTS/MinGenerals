@@ -27,7 +27,6 @@
 // Desc:   Minefield behavior
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #define DEFINE_RELATIONSHIP_NAMES
@@ -326,7 +325,6 @@ void MinefieldBehavior::detonateOnce(const Coord3D& position)
 		getObject()->clearModelConditionState(MODELCONDITION_RUBBLE);
 		getObject()->clearStatus( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_MASKED ) );
 	}
-
 
 	if (d->m_ocl)
 	{

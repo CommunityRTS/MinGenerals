@@ -46,8 +46,6 @@
 #ifndef __FILE_H
 #define __FILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -61,8 +59,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -118,12 +114,10 @@ class File : public MemoryPoolObject
 		Bool				m_open;										///< Has the file been opened
 		Bool				m_deleteOnClose;					///< delete File object on close()
 
-
 		File();											///< This class can only used as a base class
 		//virtual				~File();
 
 	public:
-
 
 						Bool	eof();
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
@@ -157,7 +151,6 @@ class File : public MemoryPoolObject
 		virtual Int		size( void );																				///< Returns the size of the file
 		virtual Int		position( void );																		///< Returns the current read/write position
 
-
 		void					setName( const char *name );												///< Set the name of the file
 		const char*		getName( void ) const;															///< Returns a pointer to the name of the file
 		Int						getAccess( void ) const;														///< Returns file's access flags
@@ -175,9 +168,6 @@ class File : public MemoryPoolObject
 		virtual File* convertToRAMFile() = 0;
 };
 
-
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
@@ -186,9 +176,5 @@ inline const char* File::getName( void ) const { return m_nameStr.str(); }
 inline void File::setName( const char *name ) { m_nameStr.set(name); }
 inline Int File::getAccess( void ) const { return m_access; }
 inline void File::deleteOnClose( void ) { m_deleteOnClose = TRUE; }
-
-
-
-
 
 #endif // __FILE_H

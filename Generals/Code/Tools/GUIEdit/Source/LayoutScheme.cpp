@@ -1340,8 +1340,6 @@ void LayoutScheme::applyPropertyTablesToWindow( GameWindow *root )
 		GadgetTabControlSetEnabledColorBackground( root, info->color );
 		GadgetTabControlSetEnabledBorderColorBackground( root, info->borderColor );
 
-
-
 		info = GetStateInfo( TC_TAB_0_DISABLED );
 		GadgetTabControlSetDisabledImageTabZero( root, info->image );
 		GadgetTabControlSetDisabledColorTabZero( root, info->color );
@@ -1386,9 +1384,6 @@ void LayoutScheme::applyPropertyTablesToWindow( GameWindow *root )
 		GadgetTabControlSetDisabledImageBackground( root, info->image );
 		GadgetTabControlSetDisabledColorBackground( root, info->color );
 		GadgetTabControlSetDisabledBorderColorBackground( root, info->borderColor );
-
-
-
 
 		info = GetStateInfo( TC_TAB_0_HILITE );
 		GadgetTabControlSetHiliteImageTabZero( root, info->image );
@@ -1695,7 +1690,6 @@ void LayoutScheme::init( void )
 	image = TheMappedImageCollection->findImageByName( AsciiString(  "VSliderHiliteSmallRepeatingCenter" ) );
 	storeImageAndColor( VSLIDER_HILITE_SMALL_CENTER, image, WIN_COLOR_UNDEFINED, WIN_COLOR_UNDEFINED );
 
-
 	image = TheMappedImageCollection->findImageByName( AsciiString(  "VSliderThumbEnabled" ) );
 	storeImageAndColor( VSLIDER_THUMB_ENABLED, image, red, lightRed );
 	image = TheMappedImageCollection->findImageByName( AsciiString(  "VSliderThumbEnabledSelected" ) );
@@ -1974,7 +1968,6 @@ void LayoutScheme::init( void )
 	storeImageAndColor( COMBOBOX_LISTBOX_SLIDER_THUMB_HILITE, image, green, darkGreen );
 	image = TheMappedImageCollection->findImageByName( AsciiString( "VSliderLargeThumbHiliteSelected" ) );
 	storeImageAndColor( COMBOBOX_LISTBOX_SLIDER_THUMB_HILITE_PUSHED, image, white, darkGreen );
-
 
 	// progress bar
 	//---------------------------------------------------------------------------

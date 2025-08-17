@@ -84,5 +84,3 @@ void INI::parseAnim2DDefinition( INI* ini )
 
 }  // end parseAnim2DDefinition
 
-
-

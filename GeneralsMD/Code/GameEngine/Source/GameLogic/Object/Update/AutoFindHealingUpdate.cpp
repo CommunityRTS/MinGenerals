@@ -49,7 +49,6 @@
 #include "GameLogic\WeaponSet.h"
 #include "GameLogic\Module\AIUpdate.h"
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 AutoFindHealingUpdateModuleData::AutoFindHealingUpdateModuleData()
@@ -88,7 +87,6 @@ AutoFindHealingUpdate::~AutoFindHealingUpdate( void )
 {
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void AutoFindHealingUpdate::onObjectCreated()
@@ -145,7 +143,6 @@ UpdateSleepTime AutoFindHealingUpdate::update()
 	}
 	return UPDATE_SLEEP_NONE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Object* AutoFindHealingUpdate::scanClosestTarget()

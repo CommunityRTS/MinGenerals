@@ -49,7 +49,6 @@ class GameMtl;
 class Mtl;
 class ChunkSaveClass;
 
-
 /*
 ** W3dMapClass.
 ** This class simply ties together the map info and the map filename
@@ -71,7 +70,6 @@ public:
 	char *						Filename;
 	W3dTextureInfoStruct *	AnimInfo;
 };
-
 
 /*
 ** W3dMaterialClass.
@@ -137,7 +135,6 @@ protected:
 	int								MapChannel[MAX_PASSES][MAX_STAGES];
 
 };
-
 
 /*
 ** W3dMaterialDescClass
@@ -307,7 +304,5 @@ private:
 	DynamicVectorClass < TexClass >							Textures;
 
 };
-
-
 
 #endif

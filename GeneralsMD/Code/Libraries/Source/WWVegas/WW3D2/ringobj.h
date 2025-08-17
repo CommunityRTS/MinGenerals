@@ -58,7 +58,6 @@ typedef LERPAnimationChannelClass<Vector3>	RingColorChannelClass;
 typedef LERPAnimationChannelClass<float>		RingAlphaChannelClass;
 typedef LERPAnimationChannelClass<Vector2>	RingScaleChannelClass;
 
-
 /**
 ** W3dRingStruct
 ** This structure is used to define a ring object in the W3D file format.
@@ -231,7 +230,6 @@ protected:
 	void								Init_Material (void);
 	static void						Generate_Shared_Mesh_Arrays (void);
 
-
 	// Animation Stuff
 	void								animate(void);		// animation update function
 	float								anim_time;			// what time in seconds are we in the animation
@@ -362,9 +360,7 @@ private:
 */
 extern RingLoaderClass			_RingLoader;
 
-
 #endif // RINGOBJ_H
 
 // EOF - ringobj,h
-
 

@@ -80,7 +80,6 @@ class CLLTreeCtrl : public CTreeCtrl
 
 };
 
-
 // Class Definition
 
 class LayersList : public CDialog
@@ -138,7 +137,6 @@ class LayersList : public CDialog
 		Bool m_performUpdates;
 		Bool m_activatedLayer;
 
-
 		HTREEITEM findTreeLayerNamed(const AsciiString& nameToFind);
 		HTREEITEM findTreeObjectNamed(const AsciiString& objectToFind, HTREEITEM layerItem);
 
@@ -175,7 +173,6 @@ class LayersList : public CDialog
 		afx_msg void OnMergeObject(UINT commandID);
 		afx_msg void OnMergeViewSelection(UINT commandID);
 		afx_msg void OnSelectActiveLayer();
-
 
 		afx_msg void OnSelectLayerObject();
 		afx_msg void OnNewLayer();

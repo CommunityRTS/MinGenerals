@@ -145,7 +145,6 @@ Bool RoadTool::snap(Coord3D *pLoc, Bool skipFirst)
 	return snapped;
 }
 
-
 /// Shows the road options panel.
 void RoadTool::activate()
 {
@@ -187,7 +186,6 @@ void RoadTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBu
 			return;
 		}
 	}
-
 
 	Bool snapped = false;
 	Bool divideSegment = false;

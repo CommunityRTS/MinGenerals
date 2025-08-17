@@ -40,7 +40,6 @@
  *		DrawButton::Set_Stretched_Height									  *
  *----------------------------------------------------------------------------*/
 
-
 #define  STRICT
 #include <windows.h>
 #include <windowsx.h>
@@ -48,8 +47,6 @@
 #include "drawbutton.h"
 #include "locale_api.h"
 #include "wnd_file.h"
-
-
 
 #include "leanAndMeanAutorun.h"
 
@@ -59,7 +56,6 @@
 #include "Common/SubsystemInterface.h"
 #include "GameClient/GameText.h"
 #endif
-
 
 //*****************************************************************************
 //  DrawButton::DrawButton -- Constructor for custom "Button" type.
@@ -115,7 +111,6 @@ DrawButton::DrawButton ( int id, RECT button_rect, char *normal, char *focus, ch
 	memset( String, '\0', MAX_PATH );
 //	if ( string != NULL ) {
 //		wcscpy( String, Locale_GetString( string_num, String ));
-
 
 #ifdef LEAN_AND_MEAN
 #else
@@ -279,7 +274,6 @@ void DrawButton::Draw_Text ( HDC hDC )
 	}
 }
 
-
 //*****************************************************************************
 // DrawButton::Is_Mouse_In_Region -- Check if mouse values are in button area.
 //
@@ -373,7 +367,6 @@ void DrawButton::Return_Text_Area ( Rect *area )
 	area->Height	= TextRect.Height;
 }
 
-
 //*****************************************************************************
 // DrawButton::Set_Stretched_Width -- Set draw width of button.
 //
@@ -413,5 +406,4 @@ int DrawButton::Set_Stretched_Height ( int value )
 	StretchedHeight = value;
 	return( nHeight );
 }
-
 

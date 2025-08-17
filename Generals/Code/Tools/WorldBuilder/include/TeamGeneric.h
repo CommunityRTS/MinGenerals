@@ -41,7 +41,6 @@ class TeamGeneric : public CPropertyPage
 	protected:
 		Dict *m_teamDict;
 
-
 	protected: // Windows Functions
 		virtual BOOL OnInitDialog();
 		afx_msg void _scriptsToDict();

@@ -58,6 +58,5 @@ protected:
 
 };
 
-
 #endif // __LocomotorSetUpgrade_H_
 

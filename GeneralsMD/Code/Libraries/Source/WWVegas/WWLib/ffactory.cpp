@@ -72,8 +72,6 @@ file_auto_ptr::~file_auto_ptr()
 	_Fac->Return_File(_Ptr);
 }
 
-
-
 /*
 ** RawFileFactoryClass implementation
 */
@@ -87,8 +85,6 @@ void RawFileFactoryClass::Return_File( FileClass *file )
 	delete file;
 }
 
-
-
 /*
 ** SimpleFileFactoryClass implementation
 */
@@ -98,7 +94,6 @@ SimpleFileFactoryClass::SimpleFileFactoryClass( void ) :
 	Mutex( )
 {
 }
-
 
 void SimpleFileFactoryClass::Get_Sub_Directory( StringClass& new_dir ) const
 {
@@ -120,7 +115,6 @@ void SimpleFileFactoryClass::Get_Sub_Directory( StringClass& new_dir ) const
 	// END SERIALIZATION
 }
 
-
 void SimpleFileFactoryClass::Set_Sub_Directory( const char * sub_directory )
 {
 	// BEGIN SERIALIZATION
@@ -133,7 +127,6 @@ void SimpleFileFactoryClass::Set_Sub_Directory( const char * sub_directory )
 	SubDirectory = sub_directory;
 	// END SERIALIZATION
 }
-
 
 void SimpleFileFactoryClass::Prepend_Sub_Directory( const char * sub_directory )
 {
@@ -168,7 +161,6 @@ void SimpleFileFactoryClass::Prepend_Sub_Directory( const char * sub_directory )
 
 	// END SERIALIZATION
 }
-
 
 void SimpleFileFactoryClass::Append_Sub_Directory( const char * sub_directory )
 {
@@ -207,7 +199,6 @@ void SimpleFileFactoryClass::Append_Sub_Directory( const char * sub_directory )
 	SubDirectory += temp_sub_dir;
 	// END SERIALIZATION
 }
-
 
 /*
 **	Is_Full_Path

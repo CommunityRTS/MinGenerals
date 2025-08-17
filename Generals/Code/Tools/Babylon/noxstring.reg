@@ -4,7 +4,6 @@ REGEDIT
 ;   registered in your InitInstance automatically with a call to
 ;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
 
-
 HKEY_CLASSES_ROOT\Noxstring.Application = Noxstring Application
 HKEY_CLASSES_ROOT\Noxstring.Application\CLSID = {2BF31246-3BA1-11D3-B9DA-006097B90D93}
 

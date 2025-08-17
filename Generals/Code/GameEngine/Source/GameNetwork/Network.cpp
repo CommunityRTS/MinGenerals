@@ -46,7 +46,6 @@
 
 #include "Common/RandomValue.h"
 
-
 #include "GameLogic/ScriptActions.h"
 #include "GameLogic/ScriptEngine.h"
 #include "Common/Recorder.h"
@@ -90,8 +89,6 @@ static const int CmdMsgLen = 6; //< Minimum size of a command packet (Int + Unsi
 
 // PRIVATE DATA ///////////////////////////////////////////////////////////////
 
-
-
 // PUBLIC DATA ////////////////////////////////////////////////////////////////
 
 /// The Network singleton instance
@@ -134,7 +131,6 @@ public:
 
 	void quitGame();
 	virtual void selfDestructPlayer(Int index);
-
 
 	void voteForPlayerDisconnect(Int slot);
 	virtual Bool isPacketRouter( void );
@@ -245,7 +241,6 @@ Bool Network::isPlayerConnected( Int playerID ) {
 	}
 	return m_conMgr->isPlayerConnected(playerID);
 }
-
 
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 
@@ -360,7 +355,6 @@ void Network::init()
 	DEBUG_LOG(("Other network stuff:\n"));
 	DEBUG_LOG(("FRAME_DATA_LENGTH = %d\n", FRAME_DATA_LENGTH));
 	DEBUG_LOG(("FRAMES_TO_KEEP = %d\n", FRAMES_TO_KEEP));
-
 
 #if defined(_DEBUG) || defined(_INTERNAL)
 	m_networkOn = TRUE;
@@ -940,7 +934,6 @@ void Network::selfDestructPlayer(Int index)
 	m_playersToDisconnect.push_back(index);
 }
 
-
 Bool Network::isPacketRouter( void )
 {
 	return m_conMgr && m_conMgr->isPacketRouter();
@@ -975,7 +968,6 @@ void Network::sendTimeOutGameStart( void )
 		m_conMgr->sendTimeOutGameStart();
 	}
 }
-
 
 UnsignedInt Network::getLocalPlayerID()
 {

@@ -124,7 +124,6 @@ struct AsciiComparator
 	bool operator()(AsciiString s1, AsciiString s2) const;
 };
 
-
 typedef std::map<AsciiString, PlayerInfo, AsciiComparator> PlayerInfoMap;
 
 enum GameSpyColors {

@@ -239,7 +239,6 @@ public:
 	static void parseCredits( INI* ini );
 	static void parseWindowTransitions( INI* ini );
 
-
 	inline AsciiString getFilename( void ) const { return m_filename; }
 	inline INILoadType getLoadType( void ) const { return m_loadType; }
 	inline UnsignedInt getLineNum( void ) const { return m_lineNum; }
@@ -312,7 +311,6 @@ public:
 	static void parseDeathTypeFlags(INI* ini, void* instance, void* store, const void* userData);
 	static void parseVeterancyLevelFlags(INI* ini, void* instance, void* store, const void* userData);
 	static void parseSoundsList( INI* ini, void *instance, void *store, const void* /*userData*/ );
-
 
 	/**
 		return the next token. if seps is null (or omitted), the standard seps are used.

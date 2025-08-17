@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "dazzle.h"
 #include "simplevec.h"
 #include "vector2.h"
@@ -65,8 +64,6 @@
 #include "wwprofile.h"
 #include <cstdio>
 #include <limits.h>
-
-
 
 // All dazzle types appear under Dazzles_List in the dazzle.ini file.
 const char* DAZZLE_LIST_STRING="Dazzles_List";
@@ -162,7 +159,6 @@ const char* FLARE_UV_STRING = "FlareUV";
 // Radius of dazzle used for raycast tests
 const char * RADIUS_STRING = "Radius";
 
-
 /*
 ; DAZZLE.INI example
 
@@ -192,7 +188,6 @@ FlareColor2=0.5,1.0,0.5
 FlareColor3=0.5,0.5,1.0
 FlareColor4=0.5,0.5,1.0
 FlareColor5=0.5,0.5,1.0
-
 
 ;========================================== DAZZLE DEFINITIONS ====================
 
@@ -246,7 +241,6 @@ static ShaderClass debug_shader;
 // static instance of a default dazzle visibility handler
 static DazzleVisibilityClass		_DefaultVisibilityHandler;
 static const DazzleVisibilityClass *	_VisibilityHandler = &_DefaultVisibilityHandler;
-
 
 static void Init_Shaders()
 {
@@ -739,7 +733,6 @@ void DazzleRenderObjClass::Install_Dazzle_Visibility_Handler(const DazzleVisibil
 	}
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // The parameter t defines the dazzle type. t has to be a valid type id in order
@@ -1039,7 +1032,6 @@ void DazzleRenderObjClass::Render_Dazzle(CameraClass* camera)
 
 		float halo_size=1.0f;
 
-
 		Vector3 dazzle_dxt(screen_x_scale * dazzle_scale_x,0.0f,0.0f);
 		Vector3 halo_dxt(camera->Compute_Projected_Sphere_Radius(current_distance,halo_scale_x),0.0f,0.0f);
 
@@ -1233,7 +1225,6 @@ unsigned DazzleRenderObjClass::Get_Type_ID(const char* name)
 	return UINT_MAX;
 }
 
-
 // ----------------------------------------------------------------------------
 //
 // Return the type name of a dazzle class with given id. If the id is out
@@ -1312,16 +1303,12 @@ void DazzleRenderObjClass::Special_Render(SpecialRenderInfoClass & rinfo)
 	}
 }
 
-
-
 /****************************************************************************************
-
 
 	DazzleRenderObjClass - Persistant object support.
 
 	Dazzles are going to save their type and their transform and simply
 	re-create another dazzle of the same type when loaded.
-
 
 ****************************************************************************************/
 
@@ -1428,7 +1415,6 @@ void DazzlePersistFactoryClass::Save(ChunkSaveClass & csave,PersistClass * obj)	
 	csave.End_Chunk();
 }
 
-
 /*
 ** DazzleRenderObj save-load.
 */
@@ -1436,8 +1422,6 @@ const PersistFactoryClass & DazzleRenderObjClass::Get_Factory (void) const
 {
 	return _DazzleFactory;
 }
-
-
 
 /**********************************************************************************************
 **
@@ -1526,7 +1510,6 @@ void DazzleLayerClass::Clear_Visible_List(unsigned int type)
 		return;
 	}
 
-
 	DazzleRenderObjClass* n = visible_lists[type];
 	while (n) {
 		n->on_list = false;
@@ -1573,7 +1556,6 @@ float DazzleVisibilityClass::Compute_Dazzle_Visibility
 	}
 }
 
-
 /**********************************************************************************************
 **
 ** DazzlePrototypeClass Implementation
@@ -1584,7 +1566,6 @@ RenderObjClass * DazzlePrototypeClass::Create(void)
 {
 	return NEW_REF(DazzleRenderObjClass,(DazzleType));
 }
-
 
 WW3DErrorType DazzlePrototypeClass::Load_W3D(ChunkLoadClass & cload)
 {
@@ -1608,7 +1589,6 @@ WW3DErrorType DazzlePrototypeClass::Load_W3D(ChunkLoadClass & cload)
 
 	return WW3D_ERROR_OK;
 }
-
 
 /**********************************************************************************************
 **

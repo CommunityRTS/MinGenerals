@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef NODEFILT_H
 #define NODEFILT_H
 
@@ -59,7 +58,6 @@ public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time) = 0;
 };
 
-
 /***************************************************************
 *
 *	AnyINodeFilter
@@ -73,7 +71,6 @@ public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time) { return TRUE; }
 };
 
-
 /***************************************************************
 *
 *	HelperINodeFilter
@@ -86,7 +83,6 @@ class HelperINodeFilter : public INodeFilterClass
 public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time);
 };
-
 
 /***************************************************************
 *
@@ -129,7 +125,6 @@ public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time);
 };
 
-
 /***************************************************************
 *
 *	VisibleMeshOrHelperINodeFilter
@@ -143,7 +138,6 @@ class VisibleMeshOrHelperINodeFilter : public INodeFilterClass
 public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time);
 };
-
 
 /***************************************************************
 *
@@ -159,7 +153,6 @@ public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time);
 };
 
-
 /***************************************************************
 *
 *	VisibleSelectedINodeFilter
@@ -172,7 +165,5 @@ class VisibleSelectedINodeFilter : public INodeFilterClass
 public:
 	virtual BOOL Accept_Node(INode * node, TimeValue time);
 };
-
-
 
 #endif /*NODEFILT_H*/

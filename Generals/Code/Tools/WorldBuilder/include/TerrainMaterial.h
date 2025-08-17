@@ -44,7 +44,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(TerrainMaterial)
@@ -68,7 +67,6 @@ protected:
 	afx_msg void OnPassable();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 
 protected:
 	static TerrainMaterial	*m_staticThis;

@@ -75,7 +75,6 @@ class DebugWindowDialog : public CDialog
 		void updateSystemUseParameters( IN ParticleSystemTemplate *particleTemplate );
 		void signalParticleSystemEdit( void );
 
-
 		// The purpose of these is to add as few friends as possible to the particle system classes.
 		// Therefore, this class has ALL the access to ParticleSystems, and dances on the data directly.
 		// Child panels make calls here
@@ -248,8 +247,6 @@ class DebugWindowDialog : public CDialog
 		Bool shouldReloadTextures( void );
 		Bool shouldKillAllParticleSystems( void );
 
-
-
 		const std::list<std::string> &getAllThingTemplates( void ) const { return m_listOfThingTemplates; }
 		const std::list<std::string> &getAllParticleSystems( void ) const { return m_listOfParticleSystems; }
 
@@ -277,7 +274,6 @@ class DebugWindowDialog : public CDialog
 		CSwitchesDialog m_switchesDialog;
 		MoreParmsDialog m_moreParmsDialog;
 
-
 		int m_activeEmissionPage;
 		int m_activeVelocityPage;
 		int m_activeParticlePage;
@@ -292,7 +288,6 @@ class DebugWindowDialog : public CDialog
 		// if true, updates the UI from the Particle System.
 		// if false, updates the Particle System from the UI
 		void performUpdate( IN Bool toUI );
-
 
 	protected:
 		afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);

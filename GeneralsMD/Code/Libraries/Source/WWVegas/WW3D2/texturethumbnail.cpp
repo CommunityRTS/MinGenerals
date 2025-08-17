@@ -65,7 +65,6 @@ static void Create_Hash_Name(StringClass& name, const StringClass& thumb_name)
 	}
 */
 
-
 ThumbnailClass::ThumbnailClass(
 	ThumbnailManagerClass* manager,
 	const char* name,
@@ -483,7 +482,6 @@ void ThumbnailManagerClass::Save(bool force)
 #endif
 }
 
-
 // ----------------------------------------------------------------------------
 ThumbnailManagerClass::ThumbnailManagerClass(const char* thumbnail_filename, const char* mix_filename)
 	:
@@ -601,7 +599,6 @@ ThumbnailClass* ThumbnailManagerClass::Peek_Thumbnail_Instance_From_Any_Manager(
 
 	return NULL;
 }
-
 
 void ThumbnailManagerClass::Insert_To_Hash(ThumbnailClass* thumb)
 {

@@ -762,7 +762,6 @@ UpdateSleepTime BridgeBehavior::update( void )
 				else
 					pos.set( getObject()->getPosition() );
 
-
 				// launch the fx list
 				FXList::doFXPos( (*fxIt).fx, &pos );
 
@@ -1197,7 +1196,6 @@ void BridgeBehavior::createScaffolding( void )
 											 &supportBridgeCenter );
 			m_scaffoldObjectIDList.push_back( obj->getID() );
 
-
 			// off to the next layer
 			offset -= scaffoldSupportHeight;
 
@@ -1261,7 +1259,6 @@ void BridgeBehavior::createScaffolding( void )
 												 &supportDestinationPos,
 												 &supportBridgeCenter );
 				m_scaffoldObjectIDList.push_back( obj->getID() );
-
 
 				// off to the next layer
 				offset -= scaffoldSupportHeight;

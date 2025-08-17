@@ -499,7 +499,6 @@ protected:
 	float				ScaleFactor;
 };
 
-
 /*
 ** Utility functions
 */

@@ -39,10 +39,8 @@
  *   EulerAnglesClass::To_Matrix -- Builds a matrix from the given euler angles                *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "euler.h"
 #include <float.h>
-
 
 /*********************************************************************
 
@@ -78,7 +76,6 @@
 
 #define EULER_BUILD_ORDER(i,p,r,f) (((((((i) << 1) + (p)) << 1) + (r)) << 1) + (f))
 
-
 /* static axes */
 int	EulerOrderXYZs = EULER_BUILD_ORDER(0, EULER_PARITY_EVEN, EULER_REPEAT_NO,  EULER_FRAME_STATIC);
 int	EulerOrderXYXs = EULER_BUILD_ORDER(0, EULER_PARITY_EVEN, EULER_REPEAT_YES, EULER_FRAME_STATIC);
@@ -107,7 +104,6 @@ int	EulerOrderZXZr = EULER_BUILD_ORDER(2, EULER_PARITY_EVEN, EULER_REPEAT_YES, E
 int	EulerOrderXYZr = EULER_BUILD_ORDER(2, EULER_PARITY_ODD,  EULER_REPEAT_NO,  EULER_FRAME_ROTATING);
 int	EulerOrderZYZr = EULER_BUILD_ORDER(2, EULER_PARITY_ODD,  EULER_REPEAT_YES, EULER_FRAME_ROTATING);
 
-
 #define EULER_SAFE					"\000\001\002\000"
 #define EULER_NEXT					"\001\002\000\001"
 
@@ -116,15 +112,12 @@ int	EulerOrderZYZr = EULER_BUILD_ORDER(2, EULER_PARITY_ODD,  EULER_REPEAT_YES, E
 #define EULER_AXIS_K(order)		((int)(EULER_NEXT[EULER_AXIS_I(order) + (EULER_PARITY(order) != EULER_PARITY_ODD)]))
 #define EULER_AXIS_H(order)		((EULER_REPEAT(order) == EULER_REPEAT_NO) ? EULER_AXIS_K(order) : EULER_AXIS_I(order))
 
-
-
 /* local functions */
 static void _euler_unpack_order(int order,int &i,int &j,int &k,int &h,int &n,int &s,int &f);
 static int _euler_axis_i(int order);
 static int _euler_axis_j(int order);
 static int _euler_axis_k(int order);
 static int _euler_axis_h(int order);
-
 
 /***********************************************************************************************
  * EulerAnglesClass::EulerAnglesClass -- constructor                                           *
@@ -248,8 +241,6 @@ void EulerAnglesClass::From_Matrix(const Matrix3D & M, int order)
 	}
 }
 
-
-
 /***********************************************************************************************
  * EulerAnglesClass::To_Matrix -- Builds a matrix from the given euler angles                  *
  *                                                                                             *
@@ -306,7 +297,6 @@ void EulerAnglesClass::To_Matrix(Matrix3D & M)
 
 	}
 }
-
 
 /*
 ** Local functions
@@ -366,8 +356,4 @@ void _euler_unpack_order(int order,int &i,int &j,int &k,int &h,int &n,int &s,int
 	k = _euler_next[i+1-n];
 	h = (s ? k : i);
 }
-
-
-
-
 

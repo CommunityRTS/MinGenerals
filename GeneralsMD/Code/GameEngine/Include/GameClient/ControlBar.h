@@ -505,7 +505,6 @@ private:
 	GameWindow *m_gereralsNameWin;
 	GameWindow *m_sideNameWin;
 
-
 	GameWindow *m_upgradeLabel1Win;
 	GameWindow *m_upgradeLabel2Win;
 	GameWindow *m_upgradeLabel3Win;
@@ -547,7 +546,6 @@ private:
 	Color m_currColor;
 	ICoord2D m_line1End;
 	ICoord2D m_line2End;
-
 
 	ICoord2D m_upgradeLine1Mid;
 	ICoord2D m_upgradeLine2Mid;
@@ -682,7 +680,6 @@ public:
 	CBCommandStatus processContextSensitiveButtonTransition( GameWindow *button,
 																											GadgetGameMessage gadgetMessage );
 
-
 	/// is the drawable the currently selected drawable for the context sensitive UI?
 	Bool isDrivingContextUI( Drawable *draw ) const { return draw == m_currentSelectedDrawable; }
 
@@ -704,7 +701,6 @@ public:
 	void showSpecialPowerShortcut( void );
 	void hideSpecialPowerShortcut( void );
 	void animateSpecialPowerShortcut( Bool isOn );
-
 
 	/// set the control bar to the proper scheme based off a player template that's passed in
 	ControlBarSchemeManager *getControlBarSchemeManager( void ) { return m_controlBarSchemeManager; }
@@ -760,7 +756,6 @@ public:
 	void getForegroundMarkerPos(Int *x, Int *y);
 	void getBackgroundMarkerPos(Int *x, Int *y);
 
-
 	static void parseCommandSetDefinition( INI *ini );
 	static void parseCommandButtonDefinition( INI *ini );
 
@@ -794,7 +789,6 @@ protected:
 	/// allocate a new command set, link to list, initialize to default, and return it
 	CommandSet *newCommandSet( const AsciiString& name );
 	CommandSet *newCommandSetOverride( CommandSet *setToOverride );
-
 
 	/// evaluate what the user should see based on what selected drawables we have in our UI
 	void evaluateContextUI( void );
@@ -912,7 +906,6 @@ protected:
 	DisplayString *m_shortcutDisplayStrings[ MAX_SPECIAL_POWER_SHORTCUTS ];
 	Int m_currentlyUsedSpecialPowersButtons; ///< Value will be <= MAX_SPECIAL_POWER_SHORTCUTS;
 
-
 	WindowLayout *m_specialPowerLayout;
 	GameWindow *m_specialPowerShortcutParent;
 
@@ -923,7 +916,6 @@ protected:
 	//GameWindow *m_commandMarkers[ MAX_COMMANDS_PER_SET ];			///< When we don't have a command, they want to show an image
 // removed from multiplayer branch
 	//void showCommandMarkers( void );													///< function that compare's what's being shown in m_commandWindows and shows the ones that are hidden.
-
 
 public:
 	// method for hiding communicator window CCB
@@ -978,7 +970,6 @@ public:
 	void repopulateBuildTooltipLayout( void );
 private:
 
-
 	// Command Bar button border bars stuff
 	Color m_commandButtonBorderBuildColor;
 	Color m_commandButtonBorderActionColor;
@@ -1015,7 +1006,6 @@ private:
 
 	const Image *m_generalButtonEnable;
 	const Image *m_generalButtonHighlight;
-
 
 	Bool m_genStarFlash;
 	Int m_lastFlashedAtPointValue;

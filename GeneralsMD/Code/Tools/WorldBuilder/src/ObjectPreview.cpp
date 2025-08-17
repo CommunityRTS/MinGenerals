@@ -66,7 +66,6 @@ void ObjectPreview::SetThingTemplate(const ThingTemplate *tTempl)
 	m_tTempl = tTempl;
 }
 
-
 BEGIN_MESSAGE_MAP(ObjectPreview, CWnd)
 	//{{AFX_MSG_MAP(ObjectPreview)
 	ON_WM_PAINT()
@@ -316,5 +315,4 @@ void ObjectPreview::DrawMyTexture(CDC *pDc, int top, int left, Int width, Int he
 		DIB_RGB_COLORS, SRCCOPY);
 	delete(pBI);
 }
-
 

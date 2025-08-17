@@ -33,7 +33,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CGenerateDlg dialog
 
-
 CGenerateDlg::CGenerateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CGenerateDlg::IDD, pParent)
 {
@@ -46,7 +45,6 @@ CGenerateDlg::CGenerateDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CGenerateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -54,7 +52,6 @@ void CGenerateDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(CGenerateDlg, CDialog)
 	//{{AFX_MSG_MAP(CGenerateDlg)
@@ -95,7 +92,6 @@ BOOL CGenerateDlg::OnInitDialog()
 
 	OnChangePrefix ();
 
-
 	index = 0;
 	while ( (info = GetLangInfo ( index )) )
 	{
@@ -108,7 +104,6 @@ BOOL CGenerateDlg::OnInitDialog()
 		index++;
 	}
 	num_langs = index;
-
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
@@ -125,13 +120,11 @@ void CGenerateDlg::OnInvert()
 	// TODO: Add your control notification handler code here
 	int index = 0;
 
-
 	while ( index < num_langs )
 	{
 		list->SetSel ( index,  !list->GetSel ( index ));
 		index++;
 	}
-
 
 }
 
@@ -160,7 +153,6 @@ void CGenerateDlg::OnBabylonstr()
 	options.format = GN_BABYLONSTR;
 	OnChangePrefix ();
 	unicode->SetCheck ( 0 );
-
 
 }
 
@@ -212,7 +204,6 @@ void CGenerateDlg::OnOK()
 	}
 
 	langids[num_langs] = LANGID_UNKNOWN;
-
 
 	CDialog::OnOK();
 }

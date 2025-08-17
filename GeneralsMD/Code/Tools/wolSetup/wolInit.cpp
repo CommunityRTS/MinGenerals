@@ -168,7 +168,6 @@ void setupGenerals( const char *genPath, const char *genSerial )
 
 }
 
-
 /**
 	* OLEInitializer class - Init and shutdown OLE & COM as a global
 	* object.  Scary, nasty stuff, COM.  /me shivers.

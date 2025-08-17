@@ -89,7 +89,6 @@
 
 static ShaderClass detailAlphaShader(SC_ALPHA_DETAIL);
 
-
 #define SC_ALPHA_MIRROR ( SHADE_CNST(ShaderClass::PASS_LEQUAL, ShaderClass::DEPTH_WRITE_ENABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_ONE, \
 	ShaderClass::DSTBLEND_ZERO, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_MODULATE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_DISABLE, \
@@ -282,7 +281,6 @@ Bool W3DBridge::load(enum BodyDamageType curDamageState)
 	m_rightMesh = (MeshClass*)pMgr->Create_Render_Obj(right);
 	m_scale = scale;
 
-
 	if (m_leftMesh == NULL) {
 		clearBridge();
 		return(false);
@@ -354,7 +352,6 @@ Bool W3DBridge::load(enum BodyDamageType curDamageState)
 	return(true);
 }
 
-
 //=============================================================================
 // W3DBridge::getBridgeInfo
 //=============================================================================
@@ -396,8 +393,6 @@ void W3DBridge::getBridgeInfo(BridgeInfo *pInfo)
 	pInfo->toRight.z = m_end.Z + vecNormal.Z * m_minY * m_scale;
 
 }
-
-
 
 //=============================================================================
 // W3DBridge::getModelVertices
@@ -681,7 +676,6 @@ void W3DBridgeBuffer::cull(CameraClass * camera)
 	}
 }
 
-
 //=============================================================================
 // W3DBridgeBuffer::loadBridgesInVertexAndIndexBuffers
 //=============================================================================
@@ -752,7 +746,6 @@ W3DBridgeBuffer::W3DBridgeBuffer(void)
 	allocateBridgeBuffers();
 	m_initialized = true;
 }
-
 
 //=============================================================================
 // W3DBridgeBuffer::freeBridgeBuffers
@@ -1151,8 +1144,6 @@ void W3DBridgeBuffer::drawBridges(CameraClass * camera, Bool wireframe, TextureC
 		}
 	}
 
-
-
 	if (m_curNumBridgeIndices == 0) {
 		return;
 	}
@@ -1206,5 +1197,4 @@ void W3DBridgeBuffer::drawBridges(CameraClass * camera, Bool wireframe, TextureC
 		W3DShaderManager::resetShader(W3DShaderManager::ST_SHROUD_TEXTURE);
 	}
 }
-
 

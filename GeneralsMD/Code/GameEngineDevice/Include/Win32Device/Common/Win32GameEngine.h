@@ -50,9 +50,6 @@
 #include "W3DDevice/Common/W3DFunctionLexicon.h"
 #include "W3DDevice/Common/W3DThingFactory.h"
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** Class declaration for the Win32 game engine */
 //-------------------------------------------------------------------------------------------------
@@ -83,7 +80,6 @@ protected:
 	virtual WebBrowser *createWebBrowser( void );						///< Factory for embedded browser
 	virtual AudioManager *createAudioManager( void );				///< Factory for audio device
 	virtual ParticleSystemManager* createParticleSystemManager( void );
-
 
 protected:
 	UINT m_previousErrorMode;

@@ -145,7 +145,6 @@ protected:
 													UnsignedInt fitBits,
 													Int srcX, Int srcY );
 
-
 	Int m_id;  ///< texture page ID
 	ICoord2D m_size;  ///< dimensions of texture page
 	UnsignedByte *m_canvas;  ///< as big as the texture page, a used spot is non zero

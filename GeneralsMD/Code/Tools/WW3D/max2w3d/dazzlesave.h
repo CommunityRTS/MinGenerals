@@ -48,7 +48,6 @@
 #include "chunkio.h"
 #include "progress.h"
 
-
 /*******************************************************************************************
 **
 ** DazzleSaveClass - Create a Dazzle definition from an INode.  Basically, we just save
@@ -79,12 +78,6 @@ private:
 	char						DazzleType[128];
 
 };
-
-
-
-
-
-
 
 #endif //DAZZLESAVE_H
 

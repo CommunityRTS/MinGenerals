@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef EXPORTLOG_H
 #define EXPORTLOG_H
 
@@ -56,7 +55,6 @@ public:
 	static void rprintf(char *, ...);
 	static void	updatebar(float position, float total);
 };
-
 
 #endif //EXPORTLOG_H
 

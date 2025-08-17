@@ -187,7 +187,6 @@ class DSurface : public XSurface
 		static unsigned short QuarterbrightMask;
 		static unsigned short EighthbrightMask;
 
-
 		/*
 		** Number of locks we had to remove in order to get the device context...
 		*/

@@ -217,7 +217,6 @@ RTS3DScene::~RTS3DScene()
 
 }  // end ~RTS3DScene
 
-
 void	RTS3DScene::setGlobalLight(LightClass *pLight, Int lightIndex)
 {
 	if (m_numGlobalLights < (lightIndex+1))
@@ -394,7 +393,6 @@ void RTS3DScene::Visibility_Check(CameraClass * camera)
 	if (TheGameLogic) currentFrame = TheGameLogic->getFrame();
 	if (currentFrame <= TheGlobalData->m_defaultOcclusionDelay)
 		currentFrame = TheGlobalData->m_defaultOcclusionDelay+1;	//make sure occlusion is enabled when game starts (frame 0).
-
 
 	if (ShaderClass::Is_Backface_Culling_Inverted())
 	{	//we are rendering reflections
@@ -628,7 +626,6 @@ void RTS3DScene::renderOneObject(RenderInfoClass &rinfo, RenderObjClass *robj, I
 		}
 
 		lightEnv.Reset(sph.Center, ambient);
-
 
 		// HANDLE THE SPECIAL DRAWABLE-LEVEL COLORING SETTINGS FIRST
 
@@ -1051,7 +1048,6 @@ void RTS3DScene::Customized_Render( RenderInfoClass &rinfo )
 #endif
    }
    Visibility_Checked = false;
-
 
 	RefRenderObjListIterator it(&UpdateList);
 	// allow all objects in the update list to do their "every frame" processing
@@ -1581,7 +1577,6 @@ RefRenderObjListIterator * RTS3DScene::createLightsIterator(void)
 	return it;
 }
 
-
 //=============================================================================
 // RTS3DScene::destroyLightsIterator
 //=============================================================================
@@ -1591,7 +1586,6 @@ void RTS3DScene::destroyLightsIterator(RefRenderObjListIterator * it)
 {
 	delete it;
 }
-
 
 //=============================================================================
 // RTS3DScene::addDynamicLight
@@ -1665,9 +1659,7 @@ void RTS3DScene::draw( )
 	}
 	WW3D::Render( this, m_camera );
 
-
 }  // end Customized_Render
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -1737,10 +1729,7 @@ void RTS2DScene::draw( )
 	}
 	WW3D::Render( this, m_camera );
 
-
 }  // end Customized_Render
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////

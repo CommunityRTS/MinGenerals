@@ -65,7 +65,6 @@ DelayedWeaponSetUpgradeUpdate::DelayedWeaponSetUpgradeUpdate( Thing *thing, cons
 																: UpdateModule( thing, moduleData )
 {
 
-
 }
 
 //-------------------------------------------------------------------------------------------------

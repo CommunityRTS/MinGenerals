@@ -77,8 +77,5 @@ mul COL, COL, V_DIFFUSE
 mul COL, COL, c[CV_DIFFUSE]
 add oD0, COL, c[CV_AMBIENT]
 
-
-
 mov oT0, V_TEXTURE
-
 

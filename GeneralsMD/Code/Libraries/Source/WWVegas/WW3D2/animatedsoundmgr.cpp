@@ -184,7 +184,6 @@ Build_List_From_String
 	return count;
 }
 
-
 static bool
 Is_In_Param_List
 (
@@ -398,7 +397,6 @@ AnimatedSoundMgrClass::Initialize (const char *ini_filename)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Shutdown
@@ -429,7 +427,6 @@ AnimatedSoundMgrClass::Shutdown (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////
 //
 //	Does_Animation_Have_Embedded_Sounds
@@ -448,8 +445,6 @@ AnimatedSoundMgrClass::Get_Embedded_Sound_Name (HAnimClass *anim)
 
 	return list->BoneName.Peek_Buffer();
 }
-
-
 
 //////////////////////////////////////////////////////////////////////
 //
@@ -476,7 +471,6 @@ AnimatedSoundMgrClass::Find_Sound_List (HAnimClass *anim)
 	ANIM_SOUND_LIST *retval = AnimationNameHash.Get (full_name);
 	return retval;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 //

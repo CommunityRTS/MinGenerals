@@ -242,8 +242,6 @@ enum {
 #define ROW_LANGUAGE			1
 #define COLUMN_LANGUAGE		1
 
-
-
 int OpenExcel ( void );
 void CloseExcel ( void );
 int NewWorkBook ( const char *path );
@@ -256,7 +254,5 @@ int PutSection ( int row, OLECHAR *title );
 void SelectActiveSheet ( void );
 int GetInt ( int row, int cell );
 int GetString ( int row, int cell, OLECHAR *buffer );
-
-
 
 #endif // XLSTUFF_H

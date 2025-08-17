@@ -1093,7 +1093,6 @@ void Player::becomingTeamMember(Object *obj, Bool yes)
 		}
 	}
 
-
 	if (obj->isKindOf(KINDOF_DOZER)
 			&& obj->getAIUpdateInterface()
 			&& obj->getAIUpdateInterface()->isIdle())
@@ -1189,7 +1188,6 @@ Bool Player::isSkirmishAIPlayer( void )
 {
 	return m_ai ? m_ai->isSkirmishAI() : false;
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -1600,7 +1598,6 @@ void Player::onUnitCreated( Object *factory, Object *unit )
 	if( m_ai )
 		m_ai->onUnitProduced( factory, unit );
 }  // end onUnitCreated
-
 
 //-------------------------------------------------------------------------------------------------
 /** Is the nearest supply source safe? */
@@ -2261,7 +2258,6 @@ void Player::ungarrisonAllUnits(CommandSourceType source)
 	}
 }
 
-
 //=============================================================================
 void Player::setUnitsShouldIdleOrResume(Bool idle)
 {
@@ -2321,7 +2317,6 @@ void Player::sellEverythingUnderTheSun()
 {
   iterateObjects( sellBuildings, NULL );
 }
-
 
 //=============================================================================
 Bool Player::allowedToBuild(const ThingTemplate *tmplate) const
@@ -2413,7 +2408,6 @@ void Player::recruitSpecificTeam( TeamPrototype *teamProto, Real recruitRadius)
 		m_ai->recruitSpecificAITeam(teamProto, recruitRadius);
 	}
 }
-
 
 //=============================================================================
 // Calculates the closest construction zone location based on a template. Gets plassed to aiPlayer
@@ -2951,7 +2945,6 @@ Bool Player::canBuild(const ThingTemplate *tmplate) const
   if ( !canBuildMoreOfType( tmplate ) )
     return false;
 
-
 	return true;
 }
 
@@ -3145,7 +3138,6 @@ void Player::removeUpgrade( const UpgradeTemplate *upgradeTemplate )
 
 }  // end removeUpgrade
 
-
 //-------------------------------------------------------------------------------------------------
 Bool Player::okToPlayRadarEdgeSound( void )
 {
@@ -3272,9 +3264,6 @@ void Player::onPowerBrownOutChange( Bool brownOut )
 	iterateObjects( doPowerDisable, &brownOut );// This function is so cool.
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 // SEVERAL OBJECTS (LIKE MULTIPLE COMMAND CENTERS) MAY HAVE MATCHING SETS OF SPECIAL POWERS
@@ -3311,7 +3300,6 @@ void Player::resetOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *tem
 	addNewSharedSpecialPowerTimer( temp, now );
 }
 
-
 void Player::expressSpecialPowerReadyFrame( const SpecialPowerTemplate *temp, UnsignedInt frame )
 {
 	SpecialPowerReadyTimerType *timer;
@@ -3329,10 +3317,6 @@ void Player::expressSpecialPowerReadyFrame( const SpecialPowerTemplate *temp, Un
 	addNewSharedSpecialPowerTimer( temp, frame );
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 UnsignedInt Player::getOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate *temp)
 {
@@ -3342,7 +3326,6 @@ UnsignedInt Player::getOrStartSpecialPowerReadyFrame( const SpecialPowerTemplate
 
 	SpecialPowerReadyTimerType *timer;
 	SpecialPowerReadyTimerListIterator it;
-
 
 	UnsignedInt count = 0;
 	UnsignedInt timerID = 0xfacade;
@@ -3653,7 +3636,6 @@ void Player::applyBattlePlanBonusesForPlayerObjects( const BattlePlanBonuses *bo
 	DUMPBATTLEPLANBONUSES(m_battlePlanBonuses, this, NULL);
 	iterateObjects( localApplyBattlePlanBonusesToObject, (void*)bonus );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Create a hotkey team based on this GameMessage */
@@ -4417,9 +4399,6 @@ void Player::xfer( Xfer *xfer )
 
 	}  // end else, load
 
-
-
-
 	///////////////////////////////////////////////////////////////////////////
 	if ( version < 4 )
 	{
@@ -4465,9 +4444,6 @@ void Player::xfer( Xfer *xfer )
 		}
 	}
 	///////////////////////////////////////////////////////////////////////////
-
-
-
 
 	// squads
 	UnsignedShort squadCount = NUM_HOTKEY_SQUADS;

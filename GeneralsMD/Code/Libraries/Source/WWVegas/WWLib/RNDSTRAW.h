@@ -40,7 +40,6 @@
 #ifndef RNDSTRAW_H
 #define RNDSTRAW_H
 
-
 #include	"random.h"
 #include	"straw.h"
 
@@ -88,6 +87,5 @@ class RandomStraw : public Straw
 		RandomStraw(RandomStraw & rvalue);
 		RandomStraw & operator = (RandomStraw const & pipe);
 };
-
 
 #endif

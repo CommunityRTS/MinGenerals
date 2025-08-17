@@ -483,7 +483,6 @@ enum Relationship
 	ALLIES
 };
 
-
 // TheRelationShipNames is defined in Common/GameCommon.cpp
 extern const char *TheRelationshipNames[];
 

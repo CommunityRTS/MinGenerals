@@ -35,8 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #include "w3ddesc.h"
 #include "w3dexp.h"
 #include "dllmain.h"

@@ -27,7 +27,6 @@
 // Desc:   Locomotor descriptions
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
@@ -55,7 +54,6 @@
 static const Real DONUT_TIME_DELAY_SECONDS=2.5f;
 static const Real DONUT_DISTANCE=4.0*PATHFIND_CELL_SIZE_F;
 
-
 #define MAX_BRAKING_FACTOR 5.0f
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PUBLIC DATA ////////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +70,6 @@ static const char *TheLocomotorPriorityNames[] =
 
 	NULL
 };
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
@@ -1166,13 +1163,10 @@ void Locomotor::moveTowardsPositionTreads(Object* obj, PhysicsBehavior *physics,
 	if (angleCoeff > 1.0f)
 		angleCoeff = 1.0;
 
-
 	Real dx = obj->getPosition()->x - goalPos.x;
 	Real dy = obj->getPosition()->y - goalPos.y;
 
-
 	Real goalSpeed = (1.0f - angleCoeff) * desiredSpeed;
-
 
 //	if (speed < m_minTurnSpeed)
 //		speed = m_minTurnSpeed;
@@ -1213,7 +1207,6 @@ void Locomotor::moveTowardsPositionTreads(Object* obj, PhysicsBehavior *physics,
 			goalSpeed = actualSpeed;
 		}
 	}
-
 
 	//DEBUG_LOG(("Actual speed %f, Braking factor %f, slowDownDist %f, Pathdist %f, goalSpeed %f\n",
 	//	actualSpeed, m_brakingFactor, slowDownDist, onPathDistToGoal, goalSpeed));
@@ -1279,7 +1272,6 @@ void Locomotor::moveTowardsPositionWheels(Object* obj, PhysicsBehavior *physics,
 		turnSpeed = maxSpeed/4.0f;
 	}
 
-
 	Real actualSpeed = physics->getForwardSpeed2D();
 	Bool do3pointTurn = false;
 #if 1
@@ -1321,15 +1313,12 @@ void Locomotor::moveTowardsPositionWheels(Object* obj, PhysicsBehavior *physics,
 		actualSpeed = -actualSpeed;
 	}
 
-
-
 	Real slowDownTime = actualSpeed / getBraking() + 1.0f;
 	Real slowDownDist = (actualSpeed/1.5f) * slowDownTime + actualSpeed;
 	Real effectiveSlowDownDist = slowDownDist;
 	if (effectiveSlowDownDist < 1*PATHFIND_CELL_SIZE) {
 		effectiveSlowDownDist = 1*PATHFIND_CELL_SIZE;
 	}
-
 
 	const Real FIFTEEN_DEGREES = PI / 12.0f;
 	const Real PROJECT_FRAMES = LOGICFRAMES_PER_SECOND/2; // Project out 1/2 second.
@@ -1390,7 +1379,6 @@ void Locomotor::moveTowardsPositionWheels(Object* obj, PhysicsBehavior *physics,
 		m_brakingFactor = 1.1f;
 	}
 
-
 	if (onPathDistToGoal>PATHFIND_CELL_SIZE_F && onPathDistToGoal > 2.0*slowDownDist)
 	{
 		setFlag(IS_BRAKING, false);
@@ -1423,10 +1411,8 @@ void Locomotor::moveTowardsPositionWheels(Object* obj, PhysicsBehavior *physics,
 		}
 	}
 
-
 	//DEBUG_LOG(("Actual speed %f, Braking factor %f, slowDownDist %f, Pathdist %f, goalSpeed %f\n",
 	//	actualSpeed, m_brakingFactor, slowDownDist, onPathDistToGoal, goalSpeed));
-
 
 	// Wheeled can only turn while moving.
 	Real turnFactor = actualSpeed/turnSpeed;
@@ -1538,7 +1524,6 @@ Bool Locomotor::fixInvalidPosition(Object* obj, PhysicsBehavior *physics)
 			return false;
 		}
 
-
 		// Kill current accel
 		//physics->clearAcceleration();
 
@@ -1582,7 +1567,6 @@ Real Locomotor::calcMinTurnRadius(BodyDamageType condition, Real* timeToTravelTh
 
 	return minTurnRadius;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void Locomotor::moveTowardsPositionLegs(Object* obj, PhysicsBehavior *physics, const Coord3D& goalPos, Real onPathDistToGoal, Real desiredSpeed)
@@ -1646,8 +1630,6 @@ void Locomotor::moveTowardsPositionLegs(Object* obj, PhysicsBehavior *physics, c
 		goalSpeed = m_template->m_minSpeed;
 	}
 
-
-
 	//
 	// Maintain goal speed
 	//
@@ -1673,8 +1655,6 @@ void Locomotor::moveTowardsPositionLegs(Object* obj, PhysicsBehavior *physics, c
 		force.y = accelForce * dir->y;
 		force.z = 0.0f;
 
-
-
 		// apply forces to object
 		physics->applyMotiveForce( &force );
 	}
@@ -1692,7 +1672,6 @@ void Locomotor::moveTowardsPositionClimb(Object* obj, PhysicsBehavior *physics, 
 
 	// Locomotion for climbing infantry.
 
-
 	Bool moveBackwards = false;
 
 	Real dx, dy, dz;
@@ -1708,7 +1687,6 @@ void Locomotor::moveTowardsPositionClimb(Object* obj, PhysicsBehavior *physics, 
 	if (fabs(dz)<1) {
 		setFlag(CLIMBING, false);
 	}
-
 
 	//setFlag(CLIMBING, true);
 
@@ -2144,7 +2122,6 @@ PhysicsTurningType Locomotor::rotateObjAroundLocoPivot(Object* obj, const Coord3
 		desiredPos.x += Cos(angle + amount) * radius;
 		desiredPos.y += Sin(angle + amount) * radius;
 
-
 		// so, the thing is, we want to rotate ourselves so that our *center* is rotated
 		// by the given amount, but the rotation must be around turnPos. so do a little
 		// back-calculation.
@@ -2396,7 +2373,6 @@ void Locomotor::moveTowardsPositionOther(Object* obj, PhysicsBehavior *physics, 
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /*
 	return true if we can maintain the position without being called every frame (eg, we are
@@ -2570,7 +2546,6 @@ void Locomotor::maintainCurrentPositionOther(Object* obj, PhysicsBehavior *physi
 	}
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -2764,5 +2739,4 @@ Locomotor* LocomotorSet::findLocomotor(LocomotorSurfaceTypeMask t)
 	}
 	return NULL;
 }
-
 

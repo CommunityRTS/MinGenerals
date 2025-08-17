@@ -46,7 +46,6 @@
 //         Includes
 //-----------------------------------------------------------------------------
 
-
 #include "W3DDevice/GameClient/heightmap.h"
 
 #ifndef USE_FLAT_HEIGHT_MAP // Flat height map uses flattened textures. jba. [3/20/2003]
@@ -165,7 +164,6 @@ Int HeightMapRenderObjClass::freeMapResources(void)
 
 	return 0;
 }
-
 
 //=============================================================================
 // HeightMapRenderObjClass::doTheDynamicLight
@@ -381,7 +379,6 @@ Int HeightMapRenderObjClass::updateVB(DX8VertexBufferClass	*pVB, char *data, Int
 					pMap->getUVData(getXWithOrigin(i),getYWithOrigin(j),U, V, HALF_RES_MESH);
 					pMap->getAlphaUVData(getXWithOrigin(i),getYWithOrigin(j), UA, VA, alpha, &flipForBlend, HALF_RES_MESH);
 				}
-
 
 				for (Int lightIndex=0; lightIndex < TheGlobalData->m_numGlobalLights; lightIndex++)
 				{
@@ -720,7 +717,6 @@ Int HeightMapRenderObjClass::updateVBForLight(DX8VertexBufferClass	*pVB, char *d
 	return -1;
 }
 
-
 Int HeightMapRenderObjClass::updateVBForLightOptimized(DX8VertexBufferClass	*pVB, char *data, Int x0, Int y0, Int x1, Int y1, Int originX, Int originY, W3DDynamicLight *pLights[], Int numLights)
 {
 	Int i,j,k;
@@ -914,8 +910,6 @@ Int HeightMapRenderObjClass::updateVBForLightOptimized(DX8VertexBufferClass	*pVB
 	return -1;
 }
 
-
-
 //=============================================================================
 // HeightMapRenderObjClass::doPartialUpdate
 //=============================================================================
@@ -1066,7 +1060,6 @@ Int HeightMapRenderObjClass::updateBlock(Int x0, Int y0, Int x1, Int y1,  WorldH
 	return 0;
 }
 
-
 //-----------------------------------------------------------------------------
 //         Public Functions
 //-----------------------------------------------------------------------------
@@ -1108,7 +1101,6 @@ m_numBlockRowsInLastVB(0)
 {
 	TheHeightMap = this;
 }
-
 
 //=============================================================================
 // HeightMapRenderObjClass::adjustTerrainLOD
@@ -1254,9 +1246,6 @@ void HeightMapRenderObjClass::oversizeTerrain(Int tilesToOversize)
 	m_needFullUpdate = true;
 }
 
-
-
-
 //=============================================================================
 // HeightMapRenderObjClass::initHeightData
 //=============================================================================
@@ -1394,7 +1383,6 @@ Int HeightMapRenderObjClass::initHeightData(Int x, Int y, WorldHeightMap *pMap, 
 	return 0;
 }
 
-
 //=============================================================================
 // HeightMapRenderObjClass::On_Frame_Update
 //=============================================================================
@@ -1408,7 +1396,6 @@ void HeightMapRenderObjClass::On_Frame_Update(void)
 	Int originX,originY;
 	if (Scene==NULL) return;
 	RTS3DScene *pMyScene = (RTS3DScene *)Scene;
-
 
 	RefRenderObjListIterator pDynamicLightsIterator(pMyScene->getDynamicLights());
 	if (m_map == NULL) {
@@ -1632,7 +1619,6 @@ static void calcVis(const FrustumClass & frustum, WorldHeightMap *pMap, Int minX
 
 			1     2
 
-
 			3			4 */
 
 	if (check(frustum, pMap, midX, maxY)) {
@@ -1670,10 +1656,6 @@ static void calcVis(const FrustumClass & frustum, WorldHeightMap *pMap, Int minX
 		calcVis(frustum, pMap, midX, minY, maxX, midY, limit);
 	}
 }
-
-
-
-
 
 //=============================================================================
 // HeightMapRenderObjClass::updateCenter
@@ -1942,7 +1924,6 @@ void HeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
 		m_treeBuffer->setIsTerrain();
 	}
 
-
 #ifdef DO_UNIT_TIMINGS
 #pragma MESSAGE("*** WARNING *** DOING DO_UNIT_TIMINGS!!!!")
 	return;
@@ -2193,8 +2174,6 @@ void HeightMapRenderObjClass::Render(RenderInfoClass & rinfo)
 	DX8Wrapper::Set_Material(NULL);
 
 }
-
-
 
 ///Performs additional terrain rendering pass, blending in the black shroud texture.
 void HeightMapRenderObjClass::renderTerrainPass(CameraClass *pCamera)

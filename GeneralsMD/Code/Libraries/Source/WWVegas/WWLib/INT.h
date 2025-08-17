@@ -58,7 +58,6 @@ template<class T> T Gcd(const T & a, const T & n);
  #define FN_TEMPLATE
 #endif
 
-
 template<int PRECISION>
 class Int {
 	public:
@@ -183,7 +182,6 @@ class Int {
 		// Friend helper functions.
 		friend Int<PRECISION> Gcd FN_TEMPLATE (const Int<PRECISION> &, const Int<PRECISION> &);
 
-
 		static int Error;
 
 		// Carry result from last addition.
@@ -242,8 +240,6 @@ struct RemainderTable
 	unsigned short table[3511];
 };
 
-
-
 template<class T>
 T Gcd(const T & a, const T & n)
 {
@@ -257,13 +253,10 @@ T Gcd(const T & a, const T & n)
 	return g[(i-1)%3];
 }
 
-
-
 #if defined(__WATCOMC__)
 #pragma warning 604 9
 #pragma warning 595 9
 #endif
-
 
 template<class T>
 T Generate_Prime(Straw & rng, int pbits, T const *)
@@ -294,17 +287,12 @@ T Generate_Prime(Straw & rng, int pbits, T const *)
 	return(p);
 }
 
-
-
-
 #define	UNITSIZE					32
 #define	MAX_BIT_PRECISION		2048
 #define	MAX_UNIT_PRECISION	(MAX_BIT_PRECISION/UNITSIZE)
 
-
 typedef Int<MAX_UNIT_PRECISION>	bignum;
 typedef Int<MAX_UNIT_PRECISION>	BigInt;
-
 
 #endif
 

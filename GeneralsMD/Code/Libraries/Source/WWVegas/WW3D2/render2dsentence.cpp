@@ -83,7 +83,6 @@ Render2DSentenceClass::Render2DSentenceClass (void) :
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	~Render2DSentenceClass
@@ -95,7 +94,6 @@ Render2DSentenceClass::~Render2DSentenceClass (void)
 	Reset ();
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -109,7 +107,6 @@ Render2DSentenceClass::Set_Font (FontCharsClass *font)
 	REF_PTR_SET (Font, font);
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -125,7 +122,6 @@ Render2DSentenceClass::Reset_Polys (void)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -165,7 +161,6 @@ Render2DSentenceClass::Reset (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Make_Additive
@@ -182,7 +177,6 @@ Render2DSentenceClass::Make_Additive (void)
 	Set_Shader (Shader);
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -204,7 +198,6 @@ Render2DSentenceClass::Set_Shader (ShaderClass shader)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -229,7 +222,6 @@ Render2DSentenceClass::Render (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Base_Location
@@ -247,7 +239,6 @@ Render2DSentenceClass::Set_Base_Location (const Vector2 &loc)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Set_Location
@@ -259,7 +250,6 @@ Render2DSentenceClass::Set_Location (const Vector2 &loc)
 	Location	= loc;
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -282,7 +272,6 @@ Render2DSentenceClass::Get_Text_Extents (const WCHAR *text)
 	return extent;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Get_Formatted_Text_Extents
@@ -293,7 +282,6 @@ Render2DSentenceClass::Get_Formatted_Text_Extents (const WCHAR *text)
 {
 	return Build_Sentence_Not_Centered(text, NULL, NULL, true);
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -316,7 +304,6 @@ Render2DSentenceClass::Reset_Sentence_Data (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Release_Pending_Surfaces
@@ -336,7 +323,6 @@ Render2DSentenceClass::Release_Pending_Surfaces (void)
 	if (PendingSurfaces.Count()>0) PendingSurfaces.Delete_All ();
 	return;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -417,7 +403,6 @@ Render2DSentenceClass::Build_Textures (void)
 	}
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -581,7 +566,6 @@ Render2DSentenceClass::Draw_Sentence (uint32 color)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Record_Sentence_Chunk
@@ -621,7 +605,6 @@ Render2DSentenceClass::Record_Sentence_Chunk (void)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -751,8 +734,6 @@ void	Render2DSentenceClass::Build_Sentence_Centered (const WCHAR *text, int *hkX
 	if (CurSurface == NULL) {
 		Allocate_New_Surface (text);
 	}
-
-
 
 	//
 	//	Loop over all the characters in the string
@@ -993,7 +974,6 @@ Vector2	Render2DSentenceClass::Build_Sentence_Not_Centered (const WCHAR *text, i
 	bool dontBlit = false;
 	Vector2i textureOffset = TextureOffset;
 
-
 	//
 	//	Start fresh
 	//
@@ -1099,7 +1079,6 @@ Vector2	Render2DSentenceClass::Build_Sentence_Not_Centered (const WCHAR *text, i
 				Cursor.Y += char_height;
 			}
 
-
 			//
 			//	Did the text extend past the edge of the texture?
 			//
@@ -1162,7 +1141,6 @@ Vector2	Render2DSentenceClass::Build_Sentence_Not_Centered (const WCHAR *text, i
 	return extent;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Build_Sentence
@@ -1175,7 +1153,6 @@ Render2DSentenceClass::Build_Sentence (const WCHAR *text, int *hkX, int *hkY)
 		return ;
 	}
 
-
 	if(Centered && (WrapWidth > 0 || wcschr(text,L'\n')))
 		Build_Sentence_Centered(text, hkX, hkY);
 	else
@@ -1184,7 +1161,6 @@ Render2DSentenceClass::Build_Sentence (const WCHAR *text, int *hkX, int *hkY)
 	return;
 
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1211,7 +1187,6 @@ FontCharsClass::FontCharsClass (void) :
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	~FontCharsClass
@@ -1228,7 +1203,6 @@ FontCharsClass::~FontCharsClass (void)
 	Free_Character_Arrays();
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1265,7 +1239,6 @@ FontCharsClass::Get_Char_Data (WCHAR ch)
 	return retval;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Get_Char_Width
@@ -1281,7 +1254,6 @@ FontCharsClass::Get_Char_Width (WCHAR ch)
 
 	return 0;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1300,7 +1272,6 @@ FontCharsClass::Get_Char_Spacing (WCHAR ch)
 
 	return 0;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1338,7 +1309,6 @@ FontCharsClass::Blit_Char (WCHAR ch, uint16 *dest_ptr, int dest_stride, int x, i
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1467,7 +1437,6 @@ FontCharsClass::Store_GDI_Char (WCHAR ch)
 	return char_data;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Update_Current_Buffer
@@ -1502,7 +1471,6 @@ FontCharsClass::Update_Current_Buffer (int char_width)
 
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1605,7 +1573,6 @@ FontCharsClass::Create_GDI_Font (const char *font_name)
 	}
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Free_GDI_Font
@@ -1645,7 +1612,6 @@ FontCharsClass::Free_GDI_Font (void)
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Initialize_GDI_Font
@@ -1673,7 +1639,6 @@ FontCharsClass::Initialize_GDI_Font (const char *font_name, int point_size, bool
 	return ;
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////////
 //
 //	Is_Font
@@ -1696,7 +1661,6 @@ FontCharsClass::Is_Font (const char *font_name, int point_size, bool is_bold)
 
 	return retval;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //
@@ -1750,7 +1714,6 @@ FontCharsClass::Grow_Unicode_Array (WCHAR ch)
 	UnicodeCharArray	= new_array;
 	return ;
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////////
 //

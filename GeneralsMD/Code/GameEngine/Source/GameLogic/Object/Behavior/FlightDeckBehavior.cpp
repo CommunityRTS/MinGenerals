@@ -129,7 +129,6 @@ void FlightDeckBehaviorModuleData::buildFieldParse(MultiIniFieldParse& p)
 	p.add(dataFieldParse);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 FlightDeckBehavior::FlightDeckBehavior( Thing *thing, const ModuleData* moduleData ) : AIUpdateInterface( thing, moduleData )
@@ -579,7 +578,6 @@ void FlightDeckBehavior::calcPPInfo( ObjectID id, PPInfo *info )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void FlightDeckBehavior::releaseSpace(ObjectID id)
 {
@@ -687,7 +685,6 @@ Bool FlightDeckBehavior::reserveRunway(ObjectID id, Bool forLanding)
 
 	return false;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void FlightDeckBehavior::releaseRunway(ObjectID id)
@@ -823,7 +820,6 @@ Bool FlightDeckBehavior::isInPositionToTakeoff( const Object &jet ) const
 	return FALSE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool FlightDeckBehavior::isAbleToMoveForward( const Object &jet ) const
 {
@@ -845,7 +841,6 @@ Bool FlightDeckBehavior::isAbleToMoveForward( const Object &jet ) const
 	}
 	return FALSE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool FlightDeckBehavior::calcBestParkingAssignment( ObjectID id, Coord3D *pos, Int *oldIndex, Int *newIndex )
@@ -949,7 +944,6 @@ Bool FlightDeckBehavior::calcBestParkingAssignment( ObjectID id, Coord3D *pos, I
 	return FALSE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // don't really need to autoheal every frame....
 const Int HEAL_RATE_FRAMES = LOGICFRAMES_PER_SECOND / 5;
@@ -1038,8 +1032,6 @@ void FlightDeckBehavior::defectAllParkedUnits(Team* newTeam, UnsignedInt detecti
 
 	purgeDead();
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 void FlightDeckBehavior::killAllParkedUnits()
@@ -1326,7 +1318,6 @@ void FlightDeckBehavior::exitObjectViaDoor( Object *newObj, ExitDoorType exitDoo
 		ppi->m_objectInSpace = newObj->getID();
 		//validateAssignments();
 	}
-
 
 	/// @todo srj -- this is evil. fix.
 	static NameKeyType jetKey = TheNameKeyGenerator->nameToKey( "JetAIUpdate" );
@@ -1711,10 +1702,8 @@ void FlightDeckBehavior::xfer( Xfer *xfer )
 void FlightDeckBehavior::loadPostProcess( void )
 {
 
-
 	const FlightDeckBehaviorModuleData* data = getFlightDeckBehaviorModuleData();
 	m_thingTemplate = TheThingFactory->findTemplate( data->m_thingTemplateName );
-
 
 	// extend base class
 	AIUpdateInterface::loadPostProcess();

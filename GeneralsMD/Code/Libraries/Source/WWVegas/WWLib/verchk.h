@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -63,7 +62,6 @@ bool GetFileCreationTime(char* filename, FILETIME* createTime);
 //
 ////////////////////////////////////////////////////////////////////////
 int Compare_EXE_Version (int app_instance, const char *filename);
-
 
 #endif //__VERCHK_H
 

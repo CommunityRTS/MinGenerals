@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #include <stdio.h>
 #include <string.h>
 #include "encrypt.h"
@@ -73,7 +72,6 @@ char *do_encrypt(char *String)
 	return (Return_Buffer);
 
 }
-
 
 #ifdef UNIT_TEST
 void main(void)

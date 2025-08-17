@@ -36,7 +36,6 @@
 #include "GameLogic/Module/UpdateModule.h"
 #include "GameClient/RadiusDecal.h"///< For the pseudo-wireframe decal effect
 
-
 #define GRID_FX_DECAL_COUNT (30)
 
 //-------------------------------------------------------------------------------------------------
@@ -53,7 +52,6 @@ public:
 	UnsignedInt m_growInterval;				///< Update evey this long while growing
 	Bool m_doSpySatFX;										///< Do I do the pseudo-wireframe decal and blip effects?
 	RadiusDecalTemplate m_gridDecalTemplate;///< For the pseudo-wireframe decal effect
-
 
 	DynamicShroudClearingRangeUpdateModuleData();
 
@@ -82,10 +80,7 @@ public:
 	void killGridDecals( void );
 	void animateGridDecals( void );
 
-
 protected:
-
-
 
 	enum DSCRU_STATE
 	{
@@ -102,7 +97,6 @@ protected:
 //	Bool m_shrinkFinished;								///< Nothing left to do
 //	Bool m_shrinkStarted;									///< Working it
 
-
 //	UnsignedInt m_shrinkStartCountdown;		///< When I start to shrink
 //	UnsignedInt m_shrinkDeadline;					///< When I am done
 
@@ -116,10 +110,7 @@ protected:
 	UnsignedInt m_doneForeverFrame; ///< Just in case interval and state timing goes awry
 																	///< This supercedes and makes us quit
 
-
 	UnsignedInt m_changeIntervalCountdown;///< How long till I change my vision range again
-
-
 
 	Bool m_decalsCreated;											///< Have I created the fx decals yet?
 	Real m_visionChangePerInterval;						///< How much I change each time.

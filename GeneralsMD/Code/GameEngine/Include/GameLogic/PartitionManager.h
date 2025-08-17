@@ -178,7 +178,6 @@ struct CollideLocAndNormal
 //=====================================
 class PartitionContactList;
 
-
 //=====================================
 /**
 	This class (often called COI for short) is the abstraction
@@ -522,7 +521,6 @@ public:
 				return i;
 		return i;
 	}
-
 
 	Int getControllingPlayerIndex() const;
 

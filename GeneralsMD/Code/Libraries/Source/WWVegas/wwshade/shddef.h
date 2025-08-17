@@ -67,8 +67,6 @@ private:
 	SHDVER	Version;
 };
 
-
-
 /**
 ** ShdDefClass - This class is the base class for all shader "definition" objects.
 **
@@ -134,7 +132,5 @@ private:
 	StringClass							Name;
 	int									SurfaceType;
 };
-
-
 
 #endif //SHDDEF_H

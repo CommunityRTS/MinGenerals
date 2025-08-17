@@ -45,7 +45,6 @@
 
 #include "shddef.h"
 
-
 class ShdSimpleDefClass : public ShdDefClass
 {
 public:
@@ -99,8 +98,6 @@ private:
 	Vector3								Diffuse;
 };
 
-
-
 class Shd6SimpleClass : public ShdInterfaceClass
 {
 public:
@@ -141,6 +138,5 @@ protected:
 	Vector4					Ambient;
 	Vector4					Diffuse;
 };
-
 
 #endif //SHDSIMPLE_H

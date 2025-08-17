@@ -91,10 +91,7 @@
 #include	<stdlib.h>
 #include	<string.h>
 
-
 extern unsigned short primeTable[3511];
-
-
 
 #define	UPPER_MOST_BIT			0x80000000L
 #define	SEMI_UPPER_MOST_BIT	0x8000
@@ -109,30 +106,24 @@ extern unsigned short primeTable[3511];
 #define	_USERENTRY
 #endif
 
-
 // Misc functions.
 void memrev(char * buffer, size_t length);
 unsigned short mp_quo_digit(unsigned short * dividend);
-
 
 unsigned short const * MPEXPORT XMP_Fetch_Prime_Table(void)
 {
 	return(primeTable);
 }
 
-
 int MPEXPORT XMP_Fetch_Prime_Size(void)
 {
 	return(ARRAY_SIZE(primeTable));
 }
 
-
 bool MPEXPORT XMP_Test_Eq_Int(digit const * r, int i, int p)
 {
 	return( (*r == (digit)i ) && XMP_Significance(r,p) <= 1 );
 }
-
-
 
 /***********************************************************************************************
  * _Byte_Precision -- Determines the number of bytes significant in long integer.              *
@@ -161,7 +152,6 @@ static int _Byte_Precision(unsigned long value)
 	}
 	return(byte_count);
 }
-
 
 /***********************************************************************************************
  * XMP_DER_Length_Encode -- Output the length of a DER block.                                  *
@@ -199,7 +189,6 @@ int MPEXPORT XMP_DER_Length_Encode(unsigned long length, unsigned char * output)
 	}
 	return(header_length);
 }
-
 
 /***********************************************************************************************
  * XMP_DER_Encode -- Encode a number into a buffer using DER.                                  *
@@ -239,7 +228,6 @@ int MPEXPORT XMP_DER_Encode(digit const * from, unsigned char * output, int prec
 
 	return(header_count+number_count);
 }
-
 
 /***********************************************************************************************
  * XMP_DER_Decode -- Decode a DER number into an MP number.                                    *
@@ -284,7 +272,6 @@ void MPEXPORT XMP_DER_Decode(digit * result, unsigned char const * input, int pr
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Encode_Bounded -- Encode MP number into buffer.                                         *
  *                                                                                             *
@@ -328,7 +315,6 @@ unsigned MPEXPORT XMP_Encode_Bounded(unsigned char * to, unsigned tobytes, digit
 
 	return(tobytes);
 }
-
 
 /***********************************************************************************************
  * XMP_Encode -- Encode MP number into buffer as compactly as possible.                        *
@@ -382,7 +368,6 @@ unsigned MPEXPORT XMP_Encode(unsigned char * to, digit const * from, int precisi
 	return(index);
 }
 
-
 /***********************************************************************************************
  * XMP_Signed_Decode -- Decode a number as if it were signed.                                  *
  *                                                                                             *
@@ -433,7 +418,6 @@ void MPEXPORT XMP_Signed_Decode(digit * result, const unsigned char * from, int 
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Unsigned_Decode -- Decode a number as if it were unsigned.                              *
  *                                                                                             *
@@ -481,7 +465,6 @@ void MPEXPORT XMP_Unsigned_Decode(digit * result, const unsigned char * from, in
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Significance -- Fetch the precision (bytes) of the MP number.                           *
  *                                                                                             *
@@ -514,7 +497,6 @@ int MPEXPORT XMP_Significance(const digit * number, int precision)
 	return(precision);
 }
 
-
 /***********************************************************************************************
  * XMP_Inc -- Increment an MP number by one.                                                   *
  *                                                                                             *
@@ -543,7 +525,6 @@ void MPEXPORT XMP_Inc(digit * number, int precision)
 		precision --;
 	} while (precision);
 }
-
 
 /***********************************************************************************************
  * XMP_Dec -- Decrement the MP number by one.                                                  *
@@ -574,7 +555,6 @@ void MPEXPORT XMP_Dec(digit * number, int precision)
 	} while (precision);
 }
 
-
 /***********************************************************************************************
  * XMP_Neg -- Negate the specified MP number.                                                  *
  *                                                                                             *
@@ -599,7 +579,6 @@ void MPEXPORT XMP_Neg(digit * number, int precision)
 	XMP_Not(number, precision);
 	XMP_Inc(number, precision);
 }
-
 
 /***********************************************************************************************
  * XMP_Abs -- Perform an absolute value on the specified MP number.                            *
@@ -628,7 +607,6 @@ void MPEXPORT XMP_Abs(digit * number, int precision)
 		XMP_Neg(number, precision);
 	}
 }
-
 
 /***********************************************************************************************
  * XMP_Shift_Right_Bits -- Shift the MP number right by specified bit count.                   *
@@ -716,7 +694,6 @@ void MPEXPORT XMP_Shift_Right_Bits(digit * number, int bits, int precision)
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Shift_Left_Bits -- Shifts the MP number left by the specified bit count.                *
  *                                                                                             *
@@ -800,7 +777,6 @@ void MPEXPORT XMP_Shift_Left_Bits(digit * number, int bits, int precision)
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Rotate_Left -- Rotate specified MP number leftward.                                     *
  *                                                                                             *
@@ -837,7 +813,6 @@ bool MPEXPORT XMP_Rotate_Left(digit * number, bool carry, int precision)
 	return carry;
 }
 
-
 /***********************************************************************************************
  * XMP_Not -- Perform bitwise NOT operation on MP number.                                      *
  *                                                                                             *
@@ -864,7 +839,6 @@ void MPEXPORT XMP_Not(digit * number, int precision)
 		number++;
 	}
 }
-
 
 /***********************************************************************************************
  * XMP_Init -- Initialize an MP number to a starting value.                                    *
@@ -893,7 +867,6 @@ void MPEXPORT XMP_Init(digit * number, digit value, int precision)
 	memset(number, '\0', precision * sizeof(digit));
 	*number = value;
 }
-
 
 /***********************************************************************************************
  * XMP_Count_Bits -- Count the total number of bits (precision) in MP number.                  *
@@ -931,7 +904,6 @@ unsigned MPEXPORT XMP_Count_Bits(const digit * number, int precision)
 	return(total_bit_count);
 }
 
-
 /***********************************************************************************************
  * XMP_Count_Bytes -- Counts the number of precision bytes in MP number.                       *
  *                                                                                             *
@@ -961,7 +933,6 @@ int MPEXPORT XMP_Count_Bytes(const digit * number, int precision)
 	return(count);
 }
 
-
 /***********************************************************************************************
  * XMP_Move -- Assign one MP number to another.                                                *
  *                                                                                             *
@@ -984,7 +955,6 @@ void MPEXPORT XMP_Move(digit * dest, digit const * source, int precision)
 {
 	memcpy(dest, source, precision * sizeof(digit));
 }
-
 
 /***********************************************************************************************
  * XMP_Compare -- Compare one MP number with another.                                          *
@@ -1020,7 +990,6 @@ int MPEXPORT XMP_Compare(const digit * left_number, const digit * right_number, 
 	} while (precision);
 	return 0;
 }
-
 
 /***********************************************************************************************
  * XMP_Add -- Add two MP numbers with a carry option.                                          *
@@ -1060,7 +1029,6 @@ bool MPEXPORT XMP_Add(digit * result, const digit * left_number, const digit * r
 	}
 	return(carry);
 }
-
 
 /***********************************************************************************************
  * XMP_Add_Int -- Add an integer to an MP number (with carry).                                 *
@@ -1102,7 +1070,6 @@ bool MPEXPORT XMP_Add_Int(digit * result, const digit * left_number, digit right
 	}
 	return(carry);
 }
-
 
 /***********************************************************************************************
  * XMP_Sub -- Subtract one MP number from another (with borrow).                               *
@@ -1147,7 +1114,6 @@ bool MPEXPORT XMP_Sub(digit * result, const digit * left_number, const digit * r
 	return (borrow);
 }
 
-
 /***********************************************************************************************
  * XMP_Sub_Int -- Subtract an integer from an MP number (with borrow).                         *
  *                                                                                             *
@@ -1189,7 +1155,6 @@ bool MPEXPORT XMP_Sub_Int(digit * result, const digit * left_number, unsigned sh
 	}
 	return (borrow);
 }
-
 
 /***********************************************************************************************
  * XMP_Unsigned_Mult -- Multiply two unsigned MP numbers together.                             *
@@ -1246,7 +1211,6 @@ int MPEXPORT XMP_Unsigned_Mult(digit * prod, const digit * multiplicand, const d
 	return 0;
 }
 
-
 /***********************************************************************************************
  * XMP_Unsigned_Mult_Int -- Multiply an MP number by a simple integer.                         *
  *                                                                                             *
@@ -1284,7 +1248,6 @@ int MPEXPORT XMP_Unsigned_Mult_Int(digit * prod, const digit * multiplicand, sho
 //	*pr += (unsigned short)carry;
 	return(0);
 }
-
 
 /***********************************************************************************************
  * XMP_Signed_Mult_Int -- Multiply an MP number by a signed simple integer.                    *
@@ -1334,7 +1297,6 @@ int MPEXPORT XMP_Signed_Mult_Int(digit * prod, const digit * multiplicand, signe
 	}
 	return(0);
 }
-
 
 /***********************************************************************************************
  * XMP_Signed_Mult -- A signed multiply between two MP numbers.                                *
@@ -1387,7 +1349,6 @@ int MPEXPORT XMP_Signed_Mult(digit * prod, const digit * multiplicand, const dig
 	}
 	return(0);
 }
-
 
 /***********************************************************************************************
  * XMP_Unsigned_Div_Int -- Perform a short integer divide into an MP number.                   *
@@ -1447,7 +1408,6 @@ unsigned short MPEXPORT XMP_Unsigned_Div_Int(digit * quotient, digit const * div
 
 	return(remainder);
 }
-
 
 /***********************************************************************************************
  * XMP_Unsigned_Div -- Unsigned divide of one MP number into another.                          *
@@ -1512,7 +1472,6 @@ int MPEXPORT XMP_Unsigned_Div(digit * remainder, digit * quotient, digit const *
 	return 0;
 }
 
-
 /***********************************************************************************************
  * XMP_Signed_Div -- Signed divide of one MP number into another.                              *
  *                                                                                             *
@@ -1569,7 +1528,6 @@ void MPEXPORT XMP_Signed_Div(digit * remainder, digit * quotient, digit const * 
 	}
 }
 
-
 /***********************************************************************************************
  * XMP_Inverse_A_Mod_B -- Inverts and performs modulus on an MP number.                        *
  *                                                                                             *
@@ -1618,7 +1576,6 @@ void MPEXPORT XMP_Inverse_A_Mod_B(digit * result, digit const * number, digit co
 
 	XMP_Move(result, v[(i-1)%3], precision);
 }
-
 
 /***********************************************************************************************
  * XMP_Reciprocal -- Compute the reciprocal (inverse) of the MP number.                        *
@@ -1675,7 +1632,6 @@ int MPEXPORT XMP_Reciprocal(digit * quotient, const digit * divisor, int precisi
 	XMP_Init(remainder, 0, precision);
 	return 0;
 }
-
 
 /***********************************************************************************************
  * XMP_Decode_ASCII -- Convert ASCII into an MP number.                                        *
@@ -1765,7 +1721,6 @@ void MPEXPORT XMP_Decode_ASCII(char const * str, digit * mpn, int precision)
 		*/
 		if (c >= radix) break;		/* scan terminated by any non-digit */
 
-
 		XMP_Unsigned_Mult_Int(mpn, mpn, radix, precision);
 		XMP_Add_Int(mpn, mpn, c, 0, precision);
 	}
@@ -1773,7 +1728,6 @@ void MPEXPORT XMP_Decode_ASCII(char const * str, digit * mpn, int precision)
 		XMP_Neg(mpn, precision);
 	}
 }
-
 
 /***********************************************************************************************
  * XMP_Hybrid_Mul -- Special hybrid short multiply (with carry).                               *
@@ -1825,7 +1779,6 @@ void XMP_Hybrid_Mul(unsigned short * prod, unsigned short * multiplicand, unsign
 	*prod += (unsigned short) carry;
 }
 
-
 /***********************************************************************************************
  * XMP_Double_Mul -- Double precision MP multiply.                                             *
  *                                                                                             *
@@ -1864,8 +1817,6 @@ void MPEXPORT XMP_Double_Mul(digit * prod, const digit * multiplicand, const dig
 	}
 }
 
-
-
 static int _modulus_shift;									// number of bits for recip scaling
 static unsigned short _reciprical_high_digit;		// MSdigit of scaled recip
 static unsigned short _reciprical_low_digit;			// LSdigit of scaled recip
@@ -1880,7 +1831,6 @@ static digit _double_staging_number[MAX_UNIT_PRECISION * 2 + 2];
 // most significant digits of modulus.
 static digit _mod_quotient[4];
 static digit _mod_divisor[4];
-
 
 /***********************************************************************************************
  * XMP_Prepare_Modulus -- Prepare globals for modulus operation.                               *
@@ -1939,7 +1889,6 @@ int XMP_Prepare_Modulus(const digit * n_modulus, int precision)
 
 	return 0;
 }
-
 
 /***********************************************************************************************
  * XMP_Mod_Mult -- Perform a multiply - modulus operation.                                     *
@@ -2036,7 +1985,6 @@ int MPEXPORT XMP_Mod_Mult(digit * prod, const digit * multiplicand, const digit 
 	return (0);
 }
 
-
 /***********************************************************************************************
  * XMP_Mod_Mult_Clear -- Remove temporary values from memory.                                  *
  *                                                                                             *
@@ -2064,7 +2012,6 @@ void MPEXPORT XMP_Mod_Mult_Clear(int precision)
 	_reciprical_high_digit = _reciprical_low_digit = 0;
 	_modulus_sub_precision = /*mutemp =*/ 0;
 }
-
 
 /*
 ** The function mp_quo_digit is the heart of Smith's modulo reduction,
@@ -2117,7 +2064,6 @@ unsigned short mp_quo_digit(unsigned short * dividend)
 	/*      Prevent overflow and then wipe out the intermediate results. */
 	return (unsigned short) min(q, (unsigned long)(1L << 16) - 1);
 }
-
 
 /*
 ** Russian peasant combined exponentiation/modulo algorithm.
@@ -2207,7 +2153,6 @@ int MPEXPORT XMP_Exponent_Mod(digit * expout, const digit * expin, const digit *
 	return 0;
 }
 
-
 /***********************************************************************************************
  * memrev -- Reverse the byte order of the buffer specified.                                   *
  *                                                                                             *
@@ -2234,14 +2179,12 @@ void memrev(char * buffer, size_t length)
 	}
 }
 
-
 int _USERENTRY pfunc(const void * pkey, const void * base)
 {
 	if (*(unsigned short *)pkey < *(unsigned short *)base) return(-1);
 	if (*(unsigned short *)pkey > *(unsigned short *)base) return(1);
 	return(0);
 }
-
 
 /***********************************************************************************************
  * XMP_Is_Small_Prime -- Determine if MP number is a small prime.                              *
@@ -2273,7 +2216,6 @@ bool MPEXPORT XMP_Is_Small_Prime(const digit * candidate, int precision)
 	return(ptr != NULL);
 }
 
-
 /***********************************************************************************************
  * XMP_Small_Divisors_Test -- Perform the small divisors test on an MP number.                 *
  *                                                                                             *
@@ -2302,7 +2244,6 @@ bool MPEXPORT XMP_Small_Divisors_Test(const digit * candidate, int precision)
 	}
 	return(true);
 }
-
 
 /***********************************************************************************************
  * XMP_Fermat_Test -- Performs Fermat's Little Theorem on an MP number.                        *
@@ -2347,7 +2288,6 @@ bool MPEXPORT XMP_Fermat_Test(const digit * candidate_prime, unsigned rounds, in
 	}
 	return(true);
 }
-
 
 /***********************************************************************************************
  * XMP_Rabin_Miller_Test -- Performs the Rabin Miller test for primality.                      *
@@ -2420,7 +2360,6 @@ bool MPEXPORT XMP_Rabin_Miller_Test(Straw & rng, digit const * w, int rounds, in
 	return true;
 }
 
-
 /***********************************************************************************************
  * XMP_Randomize -- Generate a random MP number.                                               *
  *                                                                                             *
@@ -2457,7 +2396,6 @@ void MPEXPORT XMP_Randomize(digit * result, Straw & rng, int total_bits, int pre
 	((unsigned char *)result)[nbytes-1] &= (unsigned char)(~((~0) << (total_bits % 8)));
 }
 
-
 /***********************************************************************************************
  * XMP_Randomize -- Generate a random MP number between the boundaries specified.              *
  *                                                                                             *
@@ -2492,7 +2430,6 @@ void MPEXPORT XMP_Randomize_Bounded(digit * result, Straw & rng, digit const * m
 
 	XMP_Add(result, result, minval, 0, precision);
 }
-
 
 /***********************************************************************************************
  * XMP_Is_Prime -- Determine if the specified MP number is prime.                              *
@@ -2547,7 +2484,6 @@ bool MPEXPORT XMP_Is_Prime(digit const * prime, int precision)
 	*/
 	return(true);
 }
-
 
 /*
 **	Complete list of all prime numbers that are less than 32719 (inclusive).

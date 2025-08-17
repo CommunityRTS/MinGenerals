@@ -32,7 +32,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // ProceedDlg dialog
 
-
 ProceedDlg::ProceedDlg(const char *nmessage, CWnd* pParent /*=NULL*/)
 	: CDialog(ProceedDlg::IDD, pParent)
 {
@@ -42,7 +41,6 @@ ProceedDlg::ProceedDlg(const char *nmessage, CWnd* pParent /*=NULL*/)
 	message = nmessage;
 }
 
-
 void ProceedDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -50,7 +48,6 @@ void ProceedDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ProceedDlg, CDialog)
 	//{{AFX_MSG_MAP(ProceedDlg)

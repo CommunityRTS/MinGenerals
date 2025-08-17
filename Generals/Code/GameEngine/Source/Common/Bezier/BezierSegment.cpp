@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"
 #include "Common/BezierSegment.h"
 #include "Common/BezFwdIterator.h"
@@ -93,7 +92,6 @@ BezierSegment::BezierSegment(Coord3D cp[4])
 	m_controlPoints[2] = cp[2];
 	m_controlPoints[3] = cp[3];
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void BezierSegment::evaluateBezSegmentAtT(Real tValue, Coord3D *outResult) const

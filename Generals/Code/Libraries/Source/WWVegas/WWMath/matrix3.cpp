@@ -34,12 +34,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "matrix3.h"
 #include "matrix3d.h"
 #include "matrix4.h"
 #include "quat.h"
-
 
 /*
 ** Some pre-initialized Matrix3's
@@ -114,8 +112,6 @@ const Matrix3 Matrix3::RotateZ270
 	0.0,	0.0,	1.0
 );
 
-
-
 /***********************************************************************************************
  * Matrix3::Matrix3 -- Convert a Matrix3D (fake 4x4) to a Matrix3                              *
  *                                                                                             *
@@ -170,7 +166,6 @@ void Matrix3::Set(const Quaternion & q)
 	Row[2][1] = (float)(2.0 * (q[1] * q[2] + q[0] * q[3]));
 	Row[2][2] =(float)(1.0 - 2.0 * (q[1] * q[1] + q[0] * q[0]));
 }
-
 
 Matrix3 & Matrix3::operator = (const Matrix3D & m)
 {
@@ -252,7 +247,6 @@ Matrix3 operator * (const Matrix3 & a, const Matrix3D & b)
 	#undef ROWCOL
 }
 
-
 #if 0
 
 void Matrix3::Compute_Jacobi_Rotation(int i,int j,Matrix3 * r,Matrix3 * rinv)
@@ -282,7 +276,6 @@ void Matrix3::Symmetric_Eigen_Solve(void)
 }
 
 #endif
-
 
 void Matrix3::Multiply(const Matrix3 & A,const Matrix3 & B,Matrix3 * set_res)
 {

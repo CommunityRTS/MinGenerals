@@ -432,7 +432,6 @@ void GadgetRadioSetGroup( GameWindow *g, Int group, Int screen )
 
 }  // end GadgetRadioSetGroup
 
-
 // GadgetRadioSetText =========================================================
 /** Set the text for the control */
 //=============================================================================

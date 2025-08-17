@@ -156,6 +156,5 @@ inline void Recolor(unsigned& rgba, const Vector3 &hsv_shift)
 	rgba = DX8Wrapper::Convert_Color(rgba_v);
 }
 
-
 #endif
 

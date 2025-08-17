@@ -74,7 +74,6 @@ void State::friend_onCondition( StateTransFuncPtr test, StateID toStateID, void*
 	m_transitions.push_back(TransitionInfo(test, toStateID, userData, description));
 }
 
-
 //-----------------------------------------------------------------------------
 class StIncrementer
 {
@@ -883,13 +882,11 @@ void StateMachine::xfer( Xfer *xfer )
 		xfer->xferSnapshot(m_currentState);
 	}
 
-
 	xfer->xferObjectID(&m_goalObjectID);
 	xfer->xferCoord3D(&m_goalPosition);
 	xfer->xferBool(&m_locked);
 	xfer->xferBool(&m_defaultStateInited);
 }  // end xfer
-
 
 // ------------------------------------------------------------------------------------------------
 /** Load post process */

@@ -30,7 +30,6 @@
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Lib/BaseType.h"
 #include "Common/FileSystem.h"
 #include "Common/GameEngine.h"
@@ -74,7 +73,6 @@ static GameWindow *buttonCopy = NULL;
 static Int	initialGadgetDelay = 2;
 static Bool justEntered = FALSE;
 
-
 #if defined _DEBUG || defined _INTERNAL
 static GameWindow *buttonAnalyzeReplay = NULL;
 #endif
@@ -101,7 +99,6 @@ UnicodeString GetReplayFilenameFromListbox(GameWindow *listbox, Int index)
 
 	return fname;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Populate the listbox with the names of the available replay files */
@@ -138,7 +135,6 @@ void PopulateReplayFileListbox(GameWindow *listbox)
 	TheFileSystem->getFileListInDirectory(TheRecorder->getReplayDir(), asciisearch, replayFilenames, TRUE);
 
 	TheMapCache->updateCache();
-
 
 	for (it = replayFilenames.begin(); it != replayFilenames.end(); ++it)
 	{
@@ -455,7 +451,6 @@ WindowMsgHandledType ReplayMenuSystem( GameWindow *window, UnsignedInt msg,
 		case GWM_CREATE:
 		{
 
-
 			break;
 
 		}  // end create
@@ -641,7 +636,6 @@ void deleteReplay( void )
 	GadgetListBoxReset(listboxReplayFiles);
 	PopulateReplayFileListbox(listboxReplayFiles);
 }
-
 
 void copyReplay( void )
 {

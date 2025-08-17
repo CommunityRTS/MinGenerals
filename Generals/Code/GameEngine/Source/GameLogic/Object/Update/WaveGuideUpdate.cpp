@@ -438,7 +438,6 @@ void WaveGuideUpdate::doWaterMotion( void )
 																				modData->m_waterVelocity,
 																				modData->m_preferredHeight );
 
-
 	}  // end for i
 
 }  // end doWaterMotion

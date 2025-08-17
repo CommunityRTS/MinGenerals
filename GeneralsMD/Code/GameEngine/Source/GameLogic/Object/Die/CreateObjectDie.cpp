@@ -145,7 +145,6 @@ void CreateObjectDie::onDie( const DamageInfo * damageInfo )
 		}
 	}
 
-
 }  // end onDie
 
 // ------------------------------------------------------------------------------------------------

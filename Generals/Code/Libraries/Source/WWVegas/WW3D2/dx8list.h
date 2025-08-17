@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -46,7 +45,6 @@
 
 #include "always.h"
 #include "multilist.h"
-
 
 /*
 ** Here we're just typedefing some multi-lists so we don't have to write the
@@ -67,7 +65,6 @@ typedef MultiListIterator<DX8PolygonRendererClass>		DX8PolygonRendererListIterat
 class DX8TextureTrackerClass;
 typedef MultiListClass<DX8TextureTrackerClass>			DX8TextureTrackerList;
 typedef MultiListIterator<DX8TextureTrackerClass>		DX8TextureTrackerListIterator;
-
 
 #endif //DX8LIST_H
 

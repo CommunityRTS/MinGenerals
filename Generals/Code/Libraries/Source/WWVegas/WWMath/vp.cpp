@@ -59,7 +59,6 @@
 		__asm	shufps		BZ,TV,SHUFFLE(1, 0, 1, 0)	\
 		__asm	shufps		BW,TV,SHUFFLE(3, 2, 3, 2)
 
-
 void VectorProcessorClass::Prefetch(void* address)
 {
 #if defined (__ICL)    // Detect Intel compiler
@@ -479,7 +478,6 @@ void VectorProcessorClass::Clear(Vector3*dst, const int count)
 	if (count<=0) return;
 	memset(dst,0,sizeof(Vector3)*count);
 }
-
 
 void VectorProcessorClass::Normalize(Vector3 *dst, const int count)
 {

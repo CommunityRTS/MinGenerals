@@ -51,7 +51,6 @@
 // 'assignment within condition expression'.
 #pragma warning(disable : 4706)
 
-
 DBG_DECLARE_TYPE ( AudioMemoryPool )
 DBG_DECLARE_TYPE ( MemoryItem )
 
@@ -59,43 +58,29 @@ DBG_DECLARE_TYPE ( MemoryItem )
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **        Private Types                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Prototypes                                               **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **          Private Functions                                               **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **          Public Functions                                                **
@@ -112,7 +97,6 @@ AudioMemoryPool*		MemoryPoolCreate( uint items, uint size )
 	AudioMemoryPool	*pool;
 	MemoryItem 	*item;
 	uint		i;
-
 
 	DBG_ASSERT ( items > 0 );
 	DBG_ASSERT ( size > 0 );
@@ -175,7 +159,6 @@ void 		  *MemoryPoolGetItem ( AudioMemoryPool *pool )
 {
 	MemoryItem *item = NULL;
 
-
 	DBG_ASSERT_TYPE ( pool, AudioMemoryPool );
 
 	if (! (item = pool->next) )
@@ -204,7 +187,6 @@ void			MemoryPoolReturnItem ( AudioMemoryPool *pool, void *data )
 {
 	MemoryItem	*item;
 
-
 	DBG_ASSERT_TYPE ( pool, AudioMemoryPool );
 	DBG_ASSERT_PTR ( data );
 
@@ -230,7 +212,6 @@ int 		  MemoryPoolCount ( AudioMemoryPool *pool )
 	MemoryItem *item = NULL;
 	int	count = 0;
 
-
 	DBG_ASSERT_TYPE ( pool, AudioMemoryPool );
 
 	if ( (item = pool->next) )
@@ -244,7 +225,6 @@ int 		  MemoryPoolCount ( AudioMemoryPool *pool )
 
 	return count;
 }
-
 
 /******************************************************************/
 /*                                                                */

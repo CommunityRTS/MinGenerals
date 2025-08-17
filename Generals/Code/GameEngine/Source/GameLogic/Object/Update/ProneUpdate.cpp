@@ -38,7 +38,6 @@
 #include "GameLogic/Object.h"
 #include "GameLogic/Module/ProneUpdate.h"
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 ProneUpdateModuleData::ProneUpdateModuleData() :

@@ -119,7 +119,6 @@ Real WBHeightMap::getMaxCellHeight(Real x, Real y)
 	return THE_Z;
 }
 
-
 //=============================================================================
 // WBHeightMap::getHeight
 //=============================================================================
@@ -138,8 +137,6 @@ Real WBHeightMap::getHeightMapHeight(Real x, Real y, Coord3D* normal)
 	}
 	return THE_Z;
 }
-
-
 
 //=============================================================================
 // WBHeightMap::Cast_Ray
@@ -261,7 +258,6 @@ Bool WBHeightMap::Cast_Ray(RayCollisionTestClass & raytest)
 				P3.Y=(Y+1)*MAP_XY_FACTOR;
 				P3.Z=THE_Z;
 
-
 				tri.V[0] = &P0;
 				tri.V[1] = &P1;
 				tri.V[2] = &P2;
@@ -296,7 +292,6 @@ Bool WBHeightMap::Cast_Ray(RayCollisionTestClass & raytest)
 	return hit;
 }
 
-
 //=============================================================================
 // WBHeightMap::Render
 //=============================================================================
@@ -313,5 +308,4 @@ void WBHeightMap::Render(RenderInfoClass & rinfo)
 	HeightMapRenderObjClass::Render(rinfo);
 #endif
 }
-
 

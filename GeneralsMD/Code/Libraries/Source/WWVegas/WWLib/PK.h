@@ -95,5 +95,4 @@ class PKey
 		int BitPrecision;
 };
 
-
 #endif

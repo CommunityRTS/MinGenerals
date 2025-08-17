@@ -68,7 +68,6 @@ public:
 	float Z;
 	float W;
 
-
 	// Constructors
 	Vector4(void) {};
 	Vector4(const Vector4 & v) { X = v.X; Y = v.Y; Z = v.Z; W = v.W; }
@@ -225,7 +224,6 @@ inline float Vector4::Dot_Product(const Vector4 &a,const Vector4 &b)
 	return a*b;
 }
 
-
 /**************************************************************************
  * Vector Equality Operator -- Detemine if two vectors are identical      *
  *                                                                        *
@@ -322,7 +320,6 @@ inline float Vector4::Length2() const
 	return X*X + Y*Y + Z*Z + W*W;
 }
 
-
 /***********************************************************************************************
  * Swap -- swap two Vector4's                                                                  *
  *                                                                                             *
@@ -364,7 +361,6 @@ inline Vector4 Lerp(const Vector4 & a, const Vector4 & b, float alpha)
    );
 }
 
-
 /***********************************************************************************************
  * Vector4::Is_Valid -- Vector4::Is_Valid                                                      *
  *                                                                                             *
@@ -384,7 +380,6 @@ inline bool Vector4::Is_Valid(void) const
 {
 	return (WWMath::Is_Valid_Float(X) && WWMath::Is_Valid_Float(Y) && WWMath::Is_Valid_Float(Z) && WWMath::Is_Valid_Float(W));
 }
-
 
 #endif /* VECTOR4_H */
 

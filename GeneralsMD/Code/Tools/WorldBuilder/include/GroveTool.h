@@ -62,5 +62,4 @@ public:
 	virtual void mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc);
 };
 
-
 #endif //TOOL_H

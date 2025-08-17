@@ -493,8 +493,6 @@ void W3DTruckDraw::doDrawModule(const Matrix3D* transformMtx)
 
 		Matrix3D wheelXfrm(1);
 
-
-
 		if (m_frontLeftTireBone && wheelInfo)
 		{
 			wheelXfrm.Make_Identity();
@@ -503,7 +501,6 @@ void W3DTruckDraw::doDrawModule(const Matrix3D* transformMtx)
 			wheelXfrm.Rotate_Y(m_frontWheelRotation);
 			getRenderObject()->Capture_Bone( m_frontLeftTireBone );
 			getRenderObject()->Control_Bone( m_frontLeftTireBone, wheelXfrm );
-
 
 			wheelXfrm.Make_Identity();
 			wheelXfrm.Adjust_Z_Translation(wheelInfo->m_frontRightHeightOffset);

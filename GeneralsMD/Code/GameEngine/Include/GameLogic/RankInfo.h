@@ -77,6 +77,5 @@ private:
 
 extern RankInfoStore* TheRankInfoStore;
 
-
 #endif // __RankInfo_H_
 

@@ -107,7 +107,6 @@ static Object *validUnderCursor( const ICoord2D *mouse, const CommandButton *com
 
 	}  // end if
 
-
 	return pickObj;
 
 }  // end validUnderCursor
@@ -158,7 +157,6 @@ static CommandStatus doFireWeaponCommand( const CommandButton *command, const IC
 		Object *target = validUnderCursor( mouse, command, PICK_TYPE_SELECTABLE );
 		ObjectID targetID = target ? target->getID() : INVALID_ID;
 		msg->appendObjectIDArgument( targetID );
-
 
 	}  // end if
 	else if( BitTest( command->getOptions(), COMMAND_OPTION_NEED_OBJECT_TARGET ) )
@@ -295,7 +293,6 @@ static CommandStatus doAttackMoveCommand( const CommandButton *command, const IC
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Do the set rally point command */
 //-------------------------------------------------------------------------------------------------
@@ -412,7 +409,6 @@ GameMessageDisposition GUICommandTranslator::translateGameMessage(const GameMess
 
 					}  // end fire weapon command
 
-
 					//---------------------------------------------------------------------------------------
 					case GUI_COMMAND_EVACUATE:
 					{
@@ -509,9 +505,7 @@ GameMessageDisposition GUICommandTranslator::translateGameMessage(const GameMess
 	if (disp == DESTROY_MESSAGE)
 		TheInGameUI->clearAttackMoveToMode();
 
-
 	return disp;
 
 }  // end translateMessage
-
 

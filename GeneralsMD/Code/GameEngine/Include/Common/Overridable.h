@@ -124,5 +124,4 @@ __inline Overridable::~Overridable()
 		m_nextOverride->deleteInstance();
 }
 
-
 #endif /* _OVERRIDABLE_H_ */

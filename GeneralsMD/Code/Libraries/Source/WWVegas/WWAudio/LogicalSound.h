@@ -148,6 +148,5 @@ class LogicalSoundClass : public SoundSceneObjClass
 		uint32					m_LastNotification;
 };
 
-
 #endif //__LOGICAL_SOUND_H
 

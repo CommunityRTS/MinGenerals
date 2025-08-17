@@ -59,8 +59,6 @@
 #include "w3dutil.h"
 #include "exportlog.h"
 
-
-
 /***********************************************************************************************
  * MotionClass::MotionClass -- constructor                                                     *
  *                                                                                             *
@@ -252,7 +250,6 @@ void MotionClass::init(void)
 		}
 	}
 
-
 	/*
 	** Allocate a bit for each node in the base pose.  These
 	** bits indicate whether the node actually appeared in the
@@ -277,8 +274,6 @@ void MotionClass::init(void)
 	ExportLog::updatebar(1, 1);	// 100%
 	ExportLog::rprintf("Extraction Complete.\n");
 }
-
-
 
 /***********************************************************************************************
  * MotionClass::~MotionClass -- destructor                                                     *
@@ -321,7 +316,6 @@ MotionClass::~MotionClass(void)
  	ExportLog::printf("Destroy Log..%d,%d,%d,%d, %s..\n",1,2,3,4,"go");
 
 }
-
 
 /***********************************************************************************************
  * MotionClass::compute_frame_motion -- compute the motion for a specified frame               *
@@ -493,7 +487,6 @@ void MotionClass::compute_frame_motion(int frame)
 	         }
          }
 
-
 			set_binary_movement(bindex, frame, binary_move);
 
 		} // if(bindex!=-1)
@@ -504,7 +497,6 @@ void MotionClass::compute_frame_motion(int frame)
 	*/
 	delete tree;
 }
-
 
 /***********************************************************************************************
  * MotionClass::set_motion_matrix -- store a motion matrix                                     *
@@ -529,7 +521,6 @@ void MotionClass::set_motion_matrix(int node,int frame,const Matrix3 & motion)
 	NodeValidFlags[node] = 1;
 }
 
-
 /***********************************************************************************************
  * MotionClass::get_motion_matrix -- retrieve a motion matrix                                  *
  *                                                                                             *
@@ -551,7 +542,6 @@ Matrix3 MotionClass::get_motion_matrix(int node,int frame)
 
 	return MotionMatrix[node][frame];
 }
-
 
 /***********************************************************************************************
  * MotionClass::set_eulers -- store euler angles                                               *
@@ -617,7 +607,6 @@ void MotionClass::set_eulers(int node,int frame, float x, float y, float z)
 	NodeValidFlags[node] = 1;
 }
 
-
 /***********************************************************************************************
  * MotionClass::get_eulers -- retrieve euler angles                                            *
  *                                                                                             *
@@ -639,7 +628,6 @@ Point3 MotionClass::get_eulers(int node,int frame)
 	);
 }
 
-
 /***********************************************************************************************
  * MotionClass::set_visibility -- store a visibility bit                                       *
  *                                                                                             *
@@ -658,7 +646,6 @@ void MotionClass::set_visibility(int node,int frame,bool visible)
 	NodeValidFlags[node] = 1;
 }
 
-
 /***********************************************************************************************
  * MotionClass::get_visibility -- retrieve the visibility bit for this node:frame              *
  *                                                                                             *
@@ -675,7 +662,6 @@ bool MotionClass::get_visibility(int node,int frame)
 {
 	return VisData[node][frame];
 }
-
 
 /***********************************************************************************************
  * MotionClass::set_binary_movement -- store a binary movement bit                             *
@@ -695,7 +681,6 @@ void MotionClass::set_binary_movement(int node,int frame,bool visible)
 	//NodeValidFlags[node] = 1;
 }
 
-
 /***********************************************************************************************
  * MotionClass::get_visibility -- retrieve the movement bit for this node:frame                *
  *                                                                                             *
@@ -712,8 +697,6 @@ bool MotionClass::get_binary_movement(int node,int frame)
 {
 	return BinMoveData[node][frame];
 }
-
-
 
 /***********************************************************************************************
  * MotionClass::Save -- save the motion to a W3D file                                          *
@@ -755,7 +738,6 @@ bool MotionClass::Save(ChunkSaveClass & csave)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * MotionClass::save_header -- save the header                                                 *
@@ -834,7 +816,6 @@ bool MotionClass::save_header(ChunkSaveClass & csave)
 		}
 	}
 
-
 	return true;
 }
 
@@ -895,7 +876,6 @@ bool MotionClass::save_channels(ChunkSaveClass & csave)
 				float		vec[4];
 				Matrix3 tm = get_motion_matrix(nodeidx,frameidx);
 				Point3 eulers = get_eulers(nodeidx,frameidx);
-
 
 				Point3 old_tran = tm.GetTrans();
 				Quat old_rot(tm);
@@ -994,7 +974,6 @@ bool MotionClass::save_channels(ChunkSaveClass & csave)
 				zchan.Save(csave, &binmovechan );
 			}
 
-
 			// (gth) not saving Euler angles any more since we don't use them
 //			if (!xrchan.Is_Empty()) xrchan.Save(csave);
 //			if (!yrchan.Is_Empty()) yrchan.Save(csave);
@@ -1023,5 +1002,4 @@ bool MotionClass::save_channels(ChunkSaveClass & csave)
 }
 
 // EOF - motion.cpp
-
 

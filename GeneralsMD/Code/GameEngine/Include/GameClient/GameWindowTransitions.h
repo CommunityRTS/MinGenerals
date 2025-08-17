@@ -105,8 +105,6 @@ static const LookupListRec TransitionStyleNames[] =
 	{ "SCORESCALEUP",			SCORE_SCALE_UP_TRANSITION },
 	{ "REVERSESOUND",			REVERSE_SOUND_TRANSITION },
 
-
-
 	{ NULL, 0	}// keep this last!
 };
 
@@ -350,7 +348,6 @@ protected:
 	GameWindow *m_growWin;
 };
 
-
 //-----------------------------------------------------------------------------
 class MainMenuMediumScaleUpTransition : public Transition
 {
@@ -491,7 +488,6 @@ protected:
 
 //-----------------------------------------------------------------------------
 
-
 class FadeTransition : public Transition
 {
 public:
@@ -523,7 +519,6 @@ protected:
 	ICoord2D m_size;
 	Int m_drawState;
 };
-
 
 //-----------------------------------------------------------------------------
 
@@ -683,7 +678,6 @@ private:
 };
 
 void PushButtonImageDrawThree(GameWindow *window, Int alpha );
-
 
 //-----------------------------------------------------------------------------
 // INLINING ///////////////////////////////////////////////////////////////////

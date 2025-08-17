@@ -323,7 +323,6 @@ void VertexMaterialClass::Set_Emissive(float r,float g,float b)
 	Material->Emissive.b=b;
 }
 
-
 float	VertexMaterialClass::Get_Shininess(void) const
 {
 	return Material->Power;
@@ -428,7 +427,6 @@ int VertexMaterialClass::Get_UV_Source(int stage)
 	WWASSERT(stage < MeshBuilderClass::MAX_STAGES);
 	return UVSource[stage];
 }
-
 
 void VertexMaterialClass::Init_From_Material3(const W3dMaterial3Struct & mat3)
 {
@@ -939,7 +937,6 @@ void VertexMaterialClass::Parse_Mapping_Args(const W3dVertexMaterialStruct & vma
 	}
 }
 
-
 WW3DErrorType VertexMaterialClass::Save_W3D(ChunkSaveClass & csave)
 {
 	WWASSERT(0);
@@ -997,7 +994,6 @@ void VertexMaterialClass::Apply_Null(void)
 	}
 }
 
-
 /***********************************************************************************************
  * Init -- init code                                                                           *
  *                                                                                             *
@@ -1025,7 +1021,6 @@ void VertexMaterialClass::Init()
 	Presets[PRELIT_NODIFFUSE]->Set_Lighting(false);
 }
 
-
 /***********************************************************************************************
  * Shutdown -- shutdown code                                                                   *
  *                                                                                             *
@@ -1047,7 +1042,6 @@ void VertexMaterialClass::Shutdown()
 	for (i=0; i<PRESET_COUNT;i++)
 		REF_PTR_RELEASE(Presets[i]);
 }
-
 
 /***********************************************************************************************
  * Get_Preset -- retrieve presets                                                              *

@@ -66,5 +66,4 @@ extern void SHD_Register_Loader();
 
 #endif // USE_WWSHADE
 
-
 #endif // SHDLIB_H

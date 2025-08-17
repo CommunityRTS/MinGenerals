@@ -90,7 +90,6 @@
 // Kind of hacky, but we need to dance on the guts of the terrain.
 extern void oversizeTheTerrain(Int amount);
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 // when you set controlling player or merge teams, we don't always update all the upgrade stuff
@@ -168,7 +167,6 @@ void ScriptActions::update( void )
 {
 	// Empty for now.  jba.
 }  // end update
-
 
 //-------------------------------------------------------------------------------------------------
 /** closeWindows */
@@ -354,7 +352,6 @@ void ScriptActions::doPlaySoundEffect(const AsciiString& sound)
 	TheAudio->addAudioEvent( &audioEvent );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** doPlaySoundEffectAt */
 //-------------------------------------------------------------------------------------------------
@@ -480,7 +477,6 @@ void ScriptActions::doCreateReinforcements(const AsciiString& team, const AsciiS
 {
 	TeamPrototype *theTeamProto = TheTeamFactory->findTeamPrototype( team );
 	Coord3D destination;
-
 
 	Bool needToMoveToDestination = false;
 	//Validate the waypoint
@@ -699,7 +695,6 @@ void ScriptActions::doCreateReinforcements(const AsciiString& team, const AsciiS
 			}
 		}
 	}
-
 
 	if (theTeam)
 	{
@@ -1087,7 +1082,6 @@ void ScriptActions::doBuildUpgrade(const AsciiString& player, const AsciiString&
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** doBuildBaseDefense */
 //-------------------------------------------------------------------------------------------------
@@ -1111,7 +1105,6 @@ void ScriptActions::doBuildBaseStructure(const AsciiString& buildingType, Bool f
 		thePlayer->buildBaseDefenseStructure(buildingType, flank);
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** createUnitOnTeamAt */
@@ -1320,7 +1313,6 @@ void ScriptActions::doNamedAttackArea(const AsciiString& unitName, const AsciiSt
 	if (!pTrig) {
 		return;
 	}
-
 
 	AIUpdateInterface* aiUpdate = theSrcUnit->getAIUpdateInterface();
 	if( !aiUpdate )
@@ -1961,7 +1953,6 @@ void ScriptActions::doTeamHuntWithCommandButton(const AsciiString& teamName, con
 		return;
 	}
 
-
 	const CommandButton *commandButton = TheControlBar->findCommandButton( ability );
 	if( !commandButton )
 	{
@@ -2029,7 +2020,6 @@ void ScriptActions::doTeamHuntWithCommandButton(const AsciiString& teamName, con
 				}
 				break;
 		}
-
 
 	// Have all the members of the team do the command button.
 	for (DLINK_ITERATOR<Object> iter = theTeam->iterate_TeamMemberList(); !iter.done(); iter.advance())
@@ -3303,7 +3293,6 @@ void ScriptActions::doTeamGarrisonNearestBuilding(const AsciiString& teamName)
 	ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange(leader, REALLY_FAR, FROM_CENTER_3D, filters, ITER_SORTED_NEAR_TO_FAR);
 	MemoryPoolObjectHolder hold(iter);
 
-
 	// here's what we do. Find out how many slots each building has open, and tell each unit individually to
 	// garrison a specific building. We won't use the partition solver because we've already done most of the work
 
@@ -4082,7 +4071,6 @@ void ScriptActions::doTeamUseCommandButtonAbility( const AsciiString& team, cons
 		return;
 	}
 
-
 	AIGroup* theGroup = TheAI->createGroup();
 	if( !theGroup )
 	{
@@ -4116,7 +4104,6 @@ void ScriptActions::doTeamUseCommandButtonAbilityOnNamed( const AsciiString& tea
 	{
 		return;
 	}
-
 
 	AIGroup* theGroup = TheAI->createGroup();
 	if( !theGroup )
@@ -4152,7 +4139,6 @@ void ScriptActions::doTeamUseCommandButtonAbilityAtWaypoint( const AsciiString& 
 		return;
 	}
 
-
 	AIGroup* theGroup = TheAI->createGroup();
 	if( !theGroup )
 	{
@@ -4164,10 +4150,6 @@ void ScriptActions::doTeamUseCommandButtonAbilityAtWaypoint( const AsciiString& 
 	theGroup->groupDoCommandButtonAtPosition( commandButton, pWaypoint->getLocation(), CMD_FROM_SCRIPT );
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** doRadarRefresh */
 //-------------------------------------------------------------------------------------------------
@@ -4175,7 +4157,6 @@ void ScriptActions::doRadarRefresh( void )
 {
 	TheRadar->refreshTerrain( TheTerrainLogic );
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** doCameraTetherNamed */
@@ -4403,7 +4384,6 @@ void ScriptActions::doNamedFireWeaponFollowingWaypointPath( const AsciiString& u
 
 	Coord3D pos = *theUnit->getPosition();
 
-
 	//Find the closest waypoint on the path.
 	Waypoint *way = TheTerrainLogic->getClosestWaypointOnPath( &pos, waypointPath );
 	if( !way )
@@ -4458,7 +4438,6 @@ void ScriptActions::doTeamStartSequentialScript(const AsciiString& teamName, con
 	team->getTeamAsAIGroup(theGroup);
 	theGroup->groupIdle(CMD_FROM_SCRIPT);
 
-
 	SequentialScript* seqScript = newInstance(SequentialScript);
 	seqScript->m_teamToExecOn = team;
 	seqScript->m_scriptToExecuteSequentially = script;
@@ -4481,7 +4460,6 @@ void ScriptActions::doTeamStopSequentialScript(const AsciiString& teamName)
 
 	TheScriptEngine->removeAllSequentialScripts(team);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** doUnitGuardForFramecount */
@@ -6736,7 +6714,6 @@ void ScriptActions::executeAction( ScriptAction *pAction )
 			doModifyBuildableStatus(pAction->getParameter(0)->getString(), pAction->getParameter(1)->getInt());
 			return;
 
-
 		case ScriptAction::SET_CAVE_INDEX:
 			doSetCaveIndex(pAction->getParameter(0)->getString(), pAction->getParameter(1)->getInt());
 			return;
@@ -6985,7 +6962,6 @@ void ScriptActions::executeAction( ScriptAction *pAction )
 		case ScriptAction::CHOOSE_VICTIM_ALWAYS_USES_NORMAL:
 			doChooseVictimAlwaysUsesNormal(pAction->getParameter(0)->getInt());
 			return;
-
 
 	}
 }

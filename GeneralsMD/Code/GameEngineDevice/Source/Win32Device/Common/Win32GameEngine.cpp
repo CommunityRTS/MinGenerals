@@ -55,7 +55,6 @@ Win32GameEngine::~Win32GameEngine()
 	SetErrorMode( m_previousErrorMode );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** Initialize the game engine */
 //-------------------------------------------------------------------------------------------------
@@ -84,7 +83,6 @@ void Win32GameEngine::reset( void )
 //-------------------------------------------------------------------------------------------------
 void Win32GameEngine::update( void )
 {
-
 
 	// call the engine normal update
 	GameEngine::update();

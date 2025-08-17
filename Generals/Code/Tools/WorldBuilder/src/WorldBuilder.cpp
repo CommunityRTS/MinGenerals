@@ -98,7 +98,6 @@ void initSubsystem(SUBSYSTEM*& sysref, SUBSYSTEM* sys, const char* path1 = NULL,
 	TheSubsystemListRecord.initSubsystem(sys, path1, path2, dirpath, NULL);
 }
 
-
 #define APP_SECTION "WorldbuilderApp"
 #define OPEN_FILE_DIR "OpenDirectory"
 
@@ -136,8 +135,6 @@ char const * WBGameFileClass::Set_Name( char const *filename )
 	return m_filename;
 }
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // WB_W3DFileSystem - extends the file system a bit so we can get at some
 // wb only data.  jba.
@@ -157,9 +154,6 @@ FileClass * WB_W3DFileSystem::Get_File( char const *filename )
 	}
 	return pFile;
 }
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // The one and only CWorldBuilderApp object
@@ -263,7 +257,6 @@ CWorldBuilderApp::~CWorldBuilderApp()
 		}
 	}
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CWorldBuilderApp initialization

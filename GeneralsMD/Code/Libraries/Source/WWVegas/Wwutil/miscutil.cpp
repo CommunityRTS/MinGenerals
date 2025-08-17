@@ -223,22 +223,6 @@ void cMiscUtil::Remove_File(LPCSTR filename)
 	::DeleteFile(filename);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 #define SIZE_OF_NT_SIGNATURE   sizeof(DWORD)
 #define PEFHDROFFSET(a) ((LPVOID)((BYTE *)a +  \

@@ -369,7 +369,6 @@ void PopupHostGameInit( WindowLayout *layout, void *userData )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 /** PopupHostGameUpdate callback */
 //-------------------------------------------------------------------------------------------------
@@ -385,7 +384,6 @@ void PopupHostGameUpdate( WindowLayout * layout, void *userData)
 		checkBoxLimitArmies->winEnable( TRUE );
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** PopupHostGameInput callback */
@@ -561,7 +559,6 @@ WindowMsgHandledType PopupHostGameSystem( GameWindow *window, UnsignedInt msg, W
 	return MSG_HANDLED;
 
 }
-
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////

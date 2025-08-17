@@ -215,7 +215,6 @@ public:  // enumerations and types
 		HACK,
 		PARTICLE_UPLINK_CANNON,
 
-
 		// ***** dont forget to update CursorININames[] *****
 		NUM_MOUSE_CURSORS  // keep this last
 
@@ -282,7 +281,6 @@ public:
 
 	Bool isClick(const ICoord2D *anchor, const ICoord2D *dest, UnsignedInt previousMouseClick, UnsignedInt currentMouseClick);
 
-
 	AsciiString m_tooltipFontName;		///< tooltip font
 	Int m_tooltipFontSize;						///< tooltip font
 	Bool m_tooltipFontIsBold;					///< tooltip font
@@ -305,7 +303,6 @@ public:
 	UnsignedInt m_dragTolerance;
 	UnsignedInt m_dragTolerance3D;
 	UnsignedInt m_dragToleranceMS;
-
 
 protected:
 

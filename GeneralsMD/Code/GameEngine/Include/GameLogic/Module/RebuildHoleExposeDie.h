@@ -73,5 +73,4 @@ public:
 
 };
 
-
 #endif  // end __REBUILD_HOLE_EXPOSE_DIE_H_

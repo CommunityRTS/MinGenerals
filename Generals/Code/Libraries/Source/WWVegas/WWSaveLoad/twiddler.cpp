@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "twiddler.h"
 #include "random.h"
 #include "saveloadids.h"
@@ -42,7 +41,6 @@
 #include "persistfactory.h"
 #include "win.h"
 #include "wwhack.h"
-
 
 DECLARE_FORCE_LINK( Twiddler )
 
@@ -61,7 +59,6 @@ enum
 	VARID_INDIRECT_CLASSID,
 };
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Static factories
@@ -69,7 +66,6 @@ enum
 //////////////////////////////////////////////////////////////////////////////////
 DECLARE_DEFINITION_FACTORY(TwiddlerClass, CLASSID_TWIDDLERS, "Twiddler")	_TwiddlerFactory;
 SimplePersistFactoryClass<TwiddlerClass, CHUNKID_TWIDDLER>						_TwiddlerPersistFactory;
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -84,7 +80,6 @@ TwiddlerClass::TwiddlerClass (void)
 	return ;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	~TwiddlerClass
@@ -94,7 +89,6 @@ TwiddlerClass::~TwiddlerClass (void)
 {
 	return ;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -124,7 +118,6 @@ TwiddlerClass::Twiddle (void) const
 	return definition;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Create
@@ -151,7 +144,6 @@ TwiddlerClass::Create (void) const
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Get_Factory
@@ -162,7 +154,6 @@ TwiddlerClass::Get_Factory (void) const
 {
 	return _TwiddlerPersistFactory;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -184,7 +175,6 @@ TwiddlerClass::Save (ChunkSaveClass &csave)
 
 	return retval;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -214,7 +204,6 @@ TwiddlerClass::Load (ChunkLoadClass &cload)
 	return retval;
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	Save_Variables
@@ -236,7 +225,6 @@ TwiddlerClass::Save_Variables (ChunkSaveClass &csave)
 
 	return true;
 }
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //

@@ -28,7 +28,6 @@ class BorderTool : public Tool
 		Int m_modifyBorderNdx;
 		ModificationType m_modificationType;
 
-
 	public:
 		BorderTool();
 		~BorderTool();

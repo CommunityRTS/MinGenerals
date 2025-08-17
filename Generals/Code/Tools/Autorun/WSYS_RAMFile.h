@@ -40,8 +40,6 @@
 #ifndef __WSYS_RAMFILE_H
 #define __WSYS_RAMFILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -51,8 +49,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -79,7 +75,6 @@ class RAMFile : public File
 		RAMFile();
 		virtual				~RAMFile();
 
-
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
 		virtual void	close( void );																			///< Close the file
 		virtual Int		read( void *buffer, Int bytes );										///< Read the specified number of bytes in to buffer: See File::read
@@ -89,12 +84,8 @@ class RAMFile : public File
 		Bool					open( File *file );																	///< Open file for fast RAM access
 };
 
-
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __WSYS_RAMFILE_H

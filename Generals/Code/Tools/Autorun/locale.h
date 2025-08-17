@@ -29,7 +29,6 @@ locale.h - REAL fonts
 //extern "C" {
 //#endif
 
-
 /****************************************************************************/
 /* LOCALE API                                                               */
 /****************************************************************************/
@@ -61,7 +60,6 @@ const char *	LOCALE_getstring( int stringid );							/* use values in the .h fil
 
 /* maintain backwards compatibility */
 #define			LOCALE_purgetable	LOCALE_freetable
-
 
 //#ifdef __cplusplus
 //}

@@ -51,7 +51,6 @@ class PrototypeClass;
 class HTreeClass;
 class HAnimClass;
 
-
 /**
 ** W3DExclusionListClass
 ** This class ecapsulates an "exclusion list" which the asset manager and related classes use
@@ -74,11 +73,8 @@ public:
 
 protected:
 
-
 	const DynamicVectorClass<StringClass> &	Names;
 	HashTemplateClass<StringClass,int>			NameHash;
 };
-
-
 
 #endif //EXCLUSIONLIST_H

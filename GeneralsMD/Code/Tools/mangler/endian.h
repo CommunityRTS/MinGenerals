@@ -19,8 +19,6 @@
 #ifndef __ENDIAN_H__
 #define __ENDIAN_H__
 
-
-
 /*
 ** Network order is big-endian.
 **
@@ -59,7 +57,6 @@ template<class T> inline T Endian(T val)
 
 	return (retval);
 }
-
 
 #endif	//__ENDIAN_H__
 

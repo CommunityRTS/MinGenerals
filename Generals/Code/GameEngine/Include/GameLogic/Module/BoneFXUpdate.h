@@ -261,8 +261,6 @@ protected:
 	void computeNextLogicFXTime(const BaseBoneListInfo *info, Int &nextFrame);
 	void initTimes();
 
-
-
 	typedef std::vector<ParticleSystemID> ParticleSystemIDVec;
 
 	/// we keep a record of attached particle system so we can detach and kill them when we want to

@@ -51,7 +51,6 @@
  *   TagBlockHandle::~TagBlockHandle -- Destroy handle.                                        *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "tagblock.h"
 #include "realcrc.h"
 
@@ -103,7 +102,6 @@ private:
 ///////////////////////////////////// End of TagBlockIndex /////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Start of TagBlockHandle/////////////////////////////////////////
-
 
 /***********************************************************************************************
  * RawFileClass -- Open up the tag file (it may not exist).                                    *
@@ -390,7 +388,6 @@ int TagBlockFile::End_Write_Access(TagBlockHandle *handle)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * *TagBlockFile::Create_Index -- Create a index into the IndexList sorted by CRC.             *
  *                                                                                             *
@@ -488,7 +485,6 @@ TagBlockIndex *TagBlockFile::Find_Block(const char *tagname)
 	return(NULL);
 }
 
-
 /***********************************************************************************************
  * TagBlockFile::Empty_Index_List -- Clear out tag block list in memory                      *
  *                                                                                             *
@@ -512,7 +508,6 @@ void TagBlockFile::Empty_Index_List()
 	}
 
 }
-
 
 ///////////////////////////////////////// End of TagBlockFile /////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////

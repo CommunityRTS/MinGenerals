@@ -91,7 +91,6 @@ CWorldBuilderView::CWorldBuilderView() :
 	show = ::AfxGetApp()->GetProfileInt(MAIN_FRAME_SECTION, "ShowTexture", 1);
 	m_showTexture = (show!=0);
 
-
 }
 
 CWorldBuilderView::~CWorldBuilderView()
@@ -115,7 +114,6 @@ void CWorldBuilderView::OnDraw(CDC* pDC)
 {
 	// Not used.  See OnPaint.
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CWorldBuilderView printing
@@ -301,12 +299,10 @@ void CWorldBuilderView::OnPaint()
 		// Clip the bounds to the size of the actual height map.
 		if (max>=pMap->getYExtent()) max = pMap->getYExtent();
 
-
 		maxJ = pMap->getYExtent() - min;
 		minJ = pMap->getYExtent() - max;
  		if (maxJ>=pMap->getYExtent()) maxJ = pMap->getYExtent()-1;
 	}
-
 
 	CPaintDC dc(this); // device context for painting
 	// Offset the origin so that we can draw on 0 based coordinates.
@@ -407,7 +403,6 @@ void CWorldBuilderView::OnPaint()
 	}
 
 }
-
 
 //=============================================================================
 // CWorldBuilderView::invalObjectInView
@@ -726,7 +721,6 @@ void CWorldBuilderView::drawContours(CDC *pDc, CRgn *pRgn, Int minX, Int maxX, I
 	}
 }
 
-
 //=============================================================================
 // CWorldBuilderView::interpolate
 //=============================================================================
@@ -776,7 +770,6 @@ void CWorldBuilderView::drawMyTexture(CDC *pDc, CRect *pRect, Int width, Unsigne
 		DIB_RGB_COLORS, SRCCOPY);
 }
 
-
 //=============================================================================
 // CWorldBuilderView::invalidateCellInView
 //=============================================================================
@@ -802,7 +795,6 @@ void CWorldBuilderView::invalidateCellInView(int xIndex, int yIndex)
 	cell.right = cell.left+m_cellSize;
 	InvalidateRect(&cell, false);
 }
-
 
 void CWorldBuilderView::adjustDocSize()
 {
@@ -858,7 +850,6 @@ void CWorldBuilderView::OnSize(UINT nType, int cx, int cy)
 	WbView::OnSize(nType, cx, cy);
 	adjustDocSize();
 }
-
 
 //=============================================================================
 // CWorldBuilderView::OnVScroll
@@ -947,8 +938,6 @@ void CWorldBuilderView::scrollInView(Real xScroll, Real yScroll, Bool end)
 		WbDoc()->syncViewCenters(m_centerPt.X, m_centerPt.Y);
 }
 
-
-
 /** Toggles the show grid flag and invals the window. */
 void CWorldBuilderView::OnShowGrid()
 {
@@ -984,7 +973,6 @@ void CWorldBuilderView::OnUpdateViewShowcontours(CCmdUI* pCmdUI)
 }
 #endif
 
-
 /** Toggles the show texture flag and invals the window. */
 void CWorldBuilderView::OnViewShowtexture()
 {
@@ -998,7 +986,6 @@ void CWorldBuilderView::OnUpdateViewShowtexture(CCmdUI* pCmdUI)
 {
 	pCmdUI->SetCheck(m_showTexture?1:0);
 }
-
 
 // This code confuses doxygen, so stick it at the end of the file.
 
@@ -1023,8 +1010,6 @@ BEGIN_MESSAGE_MAP(CWorldBuilderView, WbView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
 END_MESSAGE_MAP()
-
-
 
 // ----------------------------------------------------------------------------
 Bool CWorldBuilderView::viewToDocCoords(CPoint curPt, Coord3D *newPt, Bool constrain)

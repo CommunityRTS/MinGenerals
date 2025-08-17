@@ -73,7 +73,6 @@
  *   TexProjectClass::Needs_Render_Target -- returns wheter this projector needs a render targ *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "texproject.h"
 #include "vertmaterial.h"
 #include "shader.h"
@@ -86,7 +85,6 @@
 #include "assetmgr.h"
 #include "dx8wrapper.h"
 
-
 // DEBUG DEBUG
 #include "mpu.h"
 
@@ -94,7 +92,6 @@
 //#define DEFAULT_TEXTURE_SIZE						64
 
 const float INTENSITY_RATE_OF_CHANGE			= 1.0f;			// change in intensity per second
-
 
 /*
 **
@@ -167,8 +164,6 @@ const float INTENSITY_RATE_OF_CHANGE			= 1.0f;			// change in intensity per seco
 **
 */
 
-
-
 /***********************************************************************************************
  * TexProjectClass::TexProjectClass -- Constructor                                             *
  *                                                                                             *
@@ -219,7 +214,6 @@ TexProjectClass::TexProjectClass(void) :
 	Init_Multiplicative();
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::~TexProjectClass -- Destructor                                             *
  *                                                                                             *
@@ -239,7 +233,6 @@ TexProjectClass::~TexProjectClass(void)
 	REF_PTR_RELEASE(RenderTarget);
 	REF_PTR_RELEASE(DepthStencilTarget);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Texture_Size -- Set the size of texture to use                         *
@@ -265,7 +258,6 @@ void TexProjectClass::Set_Texture_Size(int size)
 	Flags |= (size << SIZE_SHIFT);
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Get_Texture_Size -- Returns the stored texture size                        *
  *                                                                                             *
@@ -286,7 +278,6 @@ int TexProjectClass::Get_Texture_Size(void)
 {
 	return (Flags & SIZE_MASK) >> SIZE_SHIFT;
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Flag -- Turn specified flag on or off                                  *
@@ -311,7 +302,6 @@ void TexProjectClass::Set_Flag(uint32 flag,bool onoff)
 	}
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Get_Flag -- Get the current state of specified flag                        *
  *                                                                                             *
@@ -330,7 +320,6 @@ bool TexProjectClass::Get_Flag(uint32 flag) const
 {
 	return (Flags & flag) == flag;
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Intensity -- Set the intensity of this projector                       *
@@ -361,7 +350,6 @@ void TexProjectClass::Set_Intensity(float intensity,bool immediate)
 	}
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Get_Intensity -- returns the current "desired" intensity                   *
  *                                                                                             *
@@ -383,7 +371,6 @@ float TexProjectClass::Get_Intensity(void)
 	return DesiredIntensity;
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Is_Intensity_Zero -- check if we can eliminate this projector              *
  *                                                                                             *
@@ -402,7 +389,6 @@ bool TexProjectClass::Is_Intensity_Zero(void)
 {
 	return ((Intensity == 0.0f) && (DesiredIntensity == 0.0f));
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Attenuation -- Set the attenuation factor                              *
@@ -426,7 +412,6 @@ void TexProjectClass::Set_Attenuation(float attenuation)
 	Attenuation = attenuation;
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Get_Attenuation -- Returns the attenuation value                           *
  *                                                                                             *
@@ -443,7 +428,6 @@ float TexProjectClass::Get_Attenuation(void)
 {
 	return Attenuation;
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Enable_Attenuation -- Set the state of the ATTENUATE flag                  *
@@ -462,7 +446,6 @@ void TexProjectClass::Enable_Attenuation(bool onoff)
 	Set_Flag(ATTENUATE,onoff);
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Is_Attenuation_Enabled -- Get the state of the ATTENUATE flag              *
  *                                                                                             *
@@ -479,7 +462,6 @@ bool TexProjectClass::Is_Attenuation_Enabled(void)
 {
 	return Get_Flag(ATTENUATE);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Enable_Depth_Gradient -- enable/disable depth gradient                     *
@@ -504,7 +486,6 @@ void TexProjectClass::Enable_Depth_Gradient(bool onoff)
 		Init_Multiplicative();
 	}
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Is_Depth_Gradient_Enabled -- returns whether the depth gradient is enabled *
@@ -630,7 +611,6 @@ void TexProjectClass::Init_Multiplicative(void)
 	}
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Init_Additive -- Set up the projector to be additive                       *
  *                                                                                             *
@@ -716,7 +696,6 @@ void TexProjectClass::Init_Additive(void)
 	vmtl->Set_Mapper(Mapper1,1);
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Set_Texture -- Set the texture to be projected                             *
  *                                                                                             *
@@ -739,7 +718,6 @@ void TexProjectClass::Set_Texture(TextureClass * texture)
 	}
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Get_Texture -- Returns the texture being projected                         *
  *                                                                                             *
@@ -758,7 +736,6 @@ TextureClass * TexProjectClass::Get_Texture(void) const
 	return MaterialPass->Get_Texture();
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Peek_Texture -- Returns the texture being projected                        *
  *                                                                                             *
@@ -776,7 +753,6 @@ TextureClass * TexProjectClass::Peek_Texture(void) const
 	return MaterialPass->Peek_Texture();
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Peek_Material_Pass -- Returns the material pass object                     *
  *                                                                                             *
@@ -793,7 +769,6 @@ MaterialPassClass * TexProjectClass::Peek_Material_Pass(void)
 {
 	return MaterialPass;
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Perspective_Projection -- set up a perspective projection              *
@@ -817,7 +792,6 @@ void TexProjectClass::Set_Perspective_Projection(float hfov,float vfov,float zne
 	ProjectorClass::Set_Perspective_Projection(hfov,vfov,znear,zfar);
 	Set_Flag(PERSPECTIVE,true);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Ortho_Projection -- set up an orthographic projection                  *
@@ -882,7 +856,6 @@ bool TexProjectClass::Compute_Perspective_Projection
 
 	return Compute_Perspective_Projection(box,tm,lightpos,znear,zfar);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Compute_Perspective_Projection -- Set up a perspective projection of an ob *
@@ -971,7 +944,6 @@ bool TexProjectClass::Compute_Perspective_Projection
 	return true;
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Compute_Ortho_Projection -- Automatic Orthographic projection              *
  *                                                                                             *
@@ -1009,7 +981,6 @@ bool TexProjectClass::Compute_Ortho_Projection
 
 	return Compute_Ortho_Projection(box,tm,lightdir,znear,zfar);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Compute_Ortho_Projection -- Automatic Orthographic projection              *
@@ -1181,7 +1152,6 @@ bool TexProjectClass::Compute_Texture
 	return true;
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Needs_Render_Target -- returns wheter this projector needs a render target *
  *                                                                                             *
@@ -1198,7 +1168,6 @@ bool TexProjectClass::Needs_Render_Target(void)
 {
 	return Get_Flag(TEXTURE_DIRTY);
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Set_Render_Target -- Install a render target for this projector to use     *
@@ -1288,7 +1257,6 @@ void TexProjectClass::Configure_Camera(CameraClass & camera)
 	camera.Set_Viewport(vmin,vmax);
 }
 
-
 /***********************************************************************************************
  * TexProjectClass::Pre_Render_Update -- Prepare the projector for rendering                   *
  *                                                                                             *
@@ -1362,7 +1330,6 @@ void TexProjectClass::Pre_Render_Update(const Matrix3D & camera)
 		Mapper1->Set_Texture_Transform(view_to_texture,Get_Texture_Size());
 	}
 }
-
 
 /***********************************************************************************************
  * TexProjectClass::Update_WS_Bounding_Volume -- Recalculate the world-space bounding box      *

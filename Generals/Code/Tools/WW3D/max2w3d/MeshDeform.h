@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef __MESH_DEFORM_H
 #define __MESH_DEFORM_H
 
@@ -46,7 +45,6 @@
 class MeshDeformPanelClass;
 class MeshDeformModData;
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Prototypes
@@ -54,7 +52,6 @@ class MeshDeformModData;
 ///////////////////////////////////////////////////////////////////////////
 ClassDesc *Get_Mesh_Deform_Desc (void);
 extern Class_ID _MeshDeformClassID;
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -196,6 +193,5 @@ class MeshDeformClass : public OSModifier
 		// Information
 		CStr							m_OperationName;
 };
-
 
 #endif //__MESH_DEFORM_H

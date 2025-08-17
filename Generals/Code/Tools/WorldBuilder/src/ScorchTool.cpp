@@ -97,7 +97,6 @@ MapObject *ScorchTool::pickScorch(Coord3D loc){
 	return NULL;
 }
 
-
 /// Perform the tool behavior on mouse down.
 void ScorchTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)
 {

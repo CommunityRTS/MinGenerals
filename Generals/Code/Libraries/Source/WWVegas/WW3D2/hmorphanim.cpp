@@ -45,8 +45,6 @@
 #include "textfile.h"
 #include "simplevec.h"
 
-
-
 TimeCodedMorphKeysClass::TimeCodedMorphKeysClass(void)
 	:	CachedIdx (0)
 {
@@ -115,7 +113,6 @@ void TimeCodedMorphKeysClass::Get_Morph_Info(float morph_frame,int * pose_frame0
 	*fraction = (morph_frame - Keys[key_index].MorphFrame) / (Keys[key_index+1].MorphFrame - Keys[key_index].MorphFrame);
 }
 
-
 uint32 TimeCodedMorphKeysClass::get_index(float frame)
 {
 	assert(CachedIdx <= (uint32)Keys.Count ()-1);
@@ -183,7 +180,6 @@ uint32 TimeCodedMorphKeysClass::binary_search_index(float req_frame)
 	return(0);
 }
 
-
 /*********************************************************************************************
 **
 ** HMorphAnimClass Implementation
@@ -228,7 +224,6 @@ void HMorphAnimClass::Free(void)
 		PivotChannel = NULL;
 	}
 }
-
 
 int Build_List_From_String
 (
@@ -321,7 +316,6 @@ int Build_List_From_String
 	return count;
 }
 
-
 bool Is_Number (const char *str)
 {
 	bool retval = true;
@@ -333,7 +327,6 @@ bool Is_Number (const char *str)
 
 	return retval;
 }
-
 
 bool HMorphAnimClass::Import(const char *hierarchy_name, TextFileClass &text_desc)
 {
@@ -619,7 +612,6 @@ void HMorphAnimClass::read_channel(ChunkLoadClass & cload,int channel)
 	cload.Close_Chunk();
 }
 
-
 int HMorphAnimClass::Save_W3D(ChunkSaveClass & csave)
 {
 	// W3D objects write their own wrapper chunks
@@ -669,7 +661,6 @@ void HMorphAnimClass::write_channel(ChunkSaveClass & csave,int channel)
 	MorphKeyData[channel].Save_W3D(csave);
 	csave.End_Chunk();
 }
-
 
 void HMorphAnimClass::Get_Translation(Vector3& trans,int pividx,float frame) const
 {
@@ -721,7 +712,6 @@ void HMorphAnimClass::Get_Transform(Matrix3D& mtx,int pividx,float frame) const
 	Vector3::Lerp(t0,t1,fraction,&trans);
 	mtx.Set_Translation(trans);
 }
-
 
 void HMorphAnimClass::Insert_Morph_Key(const int channel, uint32 morph_frame, uint32 pose_frame)
 {

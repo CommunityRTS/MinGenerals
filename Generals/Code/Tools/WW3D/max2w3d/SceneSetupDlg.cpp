@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 // SceneSetupDlg.cpp : implementation file
 //
 
@@ -44,11 +43,8 @@
 
 static BOOL CALLBACK _thunk_dialog_proc (HWND hWnd, UINT uMsg, WPARAM wAparam, LPARAM lParam);
 
-
-
 /////////////////////////////////////////////////////////////////////////////
 // SceneSetupDlg dialog
-
 
 SceneSetupDlg::SceneSetupDlg(Interface *max_interface)
 {
@@ -62,7 +58,6 @@ SceneSetupDlg::SceneSetupDlg(Interface *max_interface)
 	m_MaxInterface = max_interface;
 	assert(max_interface != NULL);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // SceneSetupDlg Protected Methods
@@ -171,7 +166,6 @@ BOOL CALLBACK SceneSetupDlg::DialogProc (HWND hWnd, UINT uMsg, WPARAM wParam, LP
 			OnInitDialog();
 			return TRUE;
 
-
 		/*******************************************************************
 		* WM_COMMAND
 		*
@@ -201,7 +195,6 @@ BOOL CALLBACK SceneSetupDlg::DialogProc (HWND hWnd, UINT uMsg, WPARAM wParam, LP
 
 	return FALSE;
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // SceneSetupDlg message handlers

@@ -48,7 +48,6 @@ static void Get_OS_Info(
 	unsigned OSVersionNumberMinor,
 	unsigned OSVersionBuildNumber);
 
-
 StringClass CPUDetectClass::ProcessorLog;
 StringClass CPUDetectClass::CompactLog;
 
@@ -1076,7 +1075,6 @@ void CPUDetectClass::Init_Processor_Log()
 		SYSLOG(("L1 Instruction Trace Cache: None\r\n"));
 	}
 
-
 	if (CPUDetectClass::Get_L2_Cache_Size()) {
 		SYSLOG(("L2 Cache: %d byte cache lines, %d way set associative, %dk\r\n",
 			CPUDetectClass::Get_L2_Cache_Line_Size(),
@@ -1087,7 +1085,6 @@ void CPUDetectClass::Init_Processor_Log()
 		SYSLOG(("L2 cache: None\r\n"));
 	}
 	SYSLOG(("\r\n"));
-
 
 }
 
@@ -1149,7 +1146,6 @@ public:
 		CPUDetectClass::Init_Compact_Log();
 	}
 } _CPU_Detect_Init;
-
 
 OSInfoStruct Windows9xVersionTable[]={
 	{"WIN95",	"FINAL",		"Windows 95",								4,0,950,			4,0,950		},

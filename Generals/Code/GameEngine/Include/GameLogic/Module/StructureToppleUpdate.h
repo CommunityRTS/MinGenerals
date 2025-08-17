@@ -105,7 +105,6 @@ public:
 	FXBoneInfoVector fxbones;			///< Bone names and attached particle systems.
 	AngleFXInfoVector angleFX;
 
-
 	StructureToppleUpdateModuleData()
 	{
 		m_minToppleDelay = 0;
@@ -134,7 +133,6 @@ public:
 	static void buildFieldParse(MultiIniFieldParse& p);
 
 };
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

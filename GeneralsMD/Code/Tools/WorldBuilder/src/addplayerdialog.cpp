@@ -31,7 +31,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // AddPlayerDialog dialog
 
-
 AddPlayerDialog::AddPlayerDialog(AsciiString side, CWnd* pParent /*=NULL*/)
 	: CDialog(AddPlayerDialog::IDD, pParent)
 {
@@ -43,7 +42,6 @@ AddPlayerDialog::AddPlayerDialog(AsciiString side, CWnd* pParent /*=NULL*/)
 	m_addedSide.clear();
 }
 
-
 void AddPlayerDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -51,7 +49,6 @@ void AddPlayerDialog::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(AddPlayerDialog, CDialog)
 	//{{AFX_MSG_MAP(AddPlayerDialog)

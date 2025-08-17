@@ -291,7 +291,6 @@ NATStateType NAT::update() {
 	return m_NATState;
 }
 
-
 // update transport, check for PROBE packets from our target.
 // check to see if its time to PROBE our target
 // MANGLER:

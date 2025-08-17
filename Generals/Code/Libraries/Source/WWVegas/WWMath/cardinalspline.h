@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -71,7 +70,6 @@ protected:
 	DynamicVectorClass<float>	Tightness;
 };
 
-
 /**
 ** CardinalSpline1DClass
 ** 1-Dimensional cardinal splines
@@ -98,7 +96,6 @@ protected:
 
 	DynamicVectorClass<float>	Tightness;
 };
-
 
 #endif
 

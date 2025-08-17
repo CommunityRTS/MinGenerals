@@ -399,7 +399,6 @@ DX8Caps::DeviceTypeNVidia DX8Caps::Get_NVidia_Device(unsigned device_id)
 	}
 }
 
-
 DX8Caps::DeviceType3Dfx DX8Caps::Get_3Dfx_Device(unsigned device_id)
 {
 	switch (device_id) {
@@ -628,7 +627,6 @@ void DX8Caps::Compute_Caps(WW3DFormat display_format, const D3DADAPTER_IDENTIFIE
 		adapter_id.DeviceIdentifier.Data4[5],
 		adapter_id.DeviceIdentifier.Data4[6],
 		adapter_id.DeviceIdentifier.Data4[7]));
-
 
 	SupportPointSprites = (Caps.MaxPointSize > 1.0f);
 	SupportNPatches = ((Caps.DevCaps&D3DDEVCAPS_NPATCHES)==D3DDEVCAPS_NPATCHES);
@@ -1023,7 +1021,6 @@ void DX8Caps::Vendor_Specific_Hacks(const D3DADAPTER_IDENTIFIER8& adapter_id)
 			SupportTextureFormat[WW3D_FORMAT_DXT4]|
 			SupportTextureFormat[WW3D_FORMAT_DXT5];
 
-
     if (DeviceId == DEVICE_NVIDIA_GEFORCE2_MX ||
         DeviceId == DEVICE_NVIDIA_GEFORCE2_MX_400 )
     {
@@ -1031,8 +1028,6 @@ void DX8Caps::Vendor_Specific_Hacks(const D3DADAPTER_IDENTIFIER8& adapter_id)
 		  MaxDisplayWidth=1024;
 		  MaxDisplayHeight=768;
     }
-
-
 
 	}
 
@@ -1109,7 +1104,6 @@ void DX8Caps::Vendor_Specific_Hacks(const D3DADAPTER_IDENTIFIER8& adapter_id)
 			SupportAnisotropicFiltering=false;
 		}
 
-
 	}
 
 	if (VendorId==VENDOR_3DFX) {
@@ -1154,7 +1148,6 @@ void DX8Caps::Vendor_Specific_Hacks(const D3DADAPTER_IDENTIFIER8& adapter_id)
 			MaxTexturesPerPass=1;
 			CanDoMultiPass=false;
 		}
-
 
 	}
 }

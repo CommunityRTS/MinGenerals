@@ -51,7 +51,6 @@ SmartBombTargetHomingUpdate::~SmartBombTargetHomingUpdate( void )
 }
 //#define CRISS_CROSS_GEOMETRY
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void SmartBombTargetHomingUpdate::SetTargetPosition( const Coord3D& target )
@@ -70,7 +69,6 @@ void SmartBombTargetHomingUpdate::SetTargetPosition( const Coord3D& target )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SmartBombTargetHomingUpdate::update( void )
@@ -87,7 +85,6 @@ UpdateSleepTime SmartBombTargetHomingUpdate::update( void )
   if ( ! self )
     return UPDATE_SLEEP_NONE;
 
-
   if ( ! self->isSignificantlyAboveTerrain() )
     return UPDATE_SLEEP_NONE;
 
@@ -98,7 +95,6 @@ UpdateSleepTime SmartBombTargetHomingUpdate::update( void )
 
   Real statusCoeff = MAX( 0.0f, MIN( 1.0f, d->m_courseCorrectionScalar));
   Real targetCoeff = 1.0f - statusCoeff;
-
 
   pos.x = m_target.x * targetCoeff + currentPos->x * statusCoeff;
   pos.y = m_target.y * targetCoeff + currentPos->y * statusCoeff;
@@ -136,7 +132,6 @@ void SmartBombTargetHomingUpdate::xfer( Xfer *xfer )
 
 	// extend base class
 	UpdateModule::xfer( xfer );
-
 
 }  // end xfer
 

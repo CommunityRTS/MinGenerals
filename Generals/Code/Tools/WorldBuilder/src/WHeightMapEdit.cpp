@@ -130,7 +130,6 @@ WorldHeightMapEdit::WorldHeightMapEdit(Int width, Int height, UnsignedByte initi
 	memset(m_cellFlipState,0,numBytesX*numBytesY);	//clear all flags
 	memset(m_cellCliffState,0,numBytesX*numBytesY);	//clear all flags
 
-
 	Int j;
 	if (m_data == NULL) {
 		AfxMessageBox(IDS_OUT_OF_MEMORY);
@@ -273,7 +272,6 @@ WorldHeightMapEdit::WorldHeightMapEdit(ChunkInputStream *pStrm):
 			}
 		}
 	}
-
 
 	Bool didCancel = false;
 
@@ -444,7 +442,6 @@ void WorldHeightMapEdit::loadDirectoryOfImages(char *pFilePath)
 	} while (it != filenameList.end());
 }
 
-
 /** Loads all the all terrain information for the WorldBuilder given the logical
 	* TerrainType entity (i.e. tga file)*/
 void WorldHeightMapEdit::loadImagesFromTerrainType( TerrainType *terrain )
@@ -509,7 +506,6 @@ void WorldHeightMapEdit::loadImagesFromTerrainType( TerrainType *terrain )
 
 }
 
-
 Bool  WorldHeightMapEdit::getRawTileData(Short tileNdx, Int width,
 																				 UnsignedByte *buffer, Int bufLen)
 {
@@ -540,8 +536,6 @@ Bool  WorldHeightMapEdit::getRawTileData(Short tileNdx, Int width,
 	return(false);
 }
 
-
-
 UnsignedByte * WorldHeightMapEdit::getPointerToClassTileData(Int texClass)
 {
 	TileData *pSrc = NULL;
@@ -553,8 +547,6 @@ UnsignedByte * WorldHeightMapEdit::getPointerToClassTileData(Int texClass)
 	}
 	return(NULL);
 }
-
-
 
 void WorldHeightMapEdit::getTexClassNeighbors(Int xIndex, Int yIndex, Int textureClass,
 									  Int *pSideCount, Int *pTotalCount)
@@ -588,9 +580,6 @@ void WorldHeightMapEdit::getTexClassNeighbors(Int xIndex, Int yIndex, Int textur
 	*pSideCount = sideCount;
 	*pTotalCount = totalCount;
 }
-
-
-
 
 //
 /// SaveToFile - saves a height map to a file.
@@ -834,8 +823,6 @@ WorldHeightMapEdit *WorldHeightMapEdit::duplicate(void)
 	return(newMap);
 }
 
-
-
 Bool WorldHeightMapEdit::setTileNdx(Int xIndex, Int yIndex, Int textureClass, Bool singleTile)
 {
 	Int ndx = (yIndex*m_width)+xIndex;
@@ -1021,8 +1008,6 @@ Int WorldHeightMapEdit::getTileNdxForClass(Int xIndex, Int yIndex, Int textureCl
 	return tileNdx;
 }
 
-
-
 /** Returns true if this texture class is already present, or can be added to the map.
 */
 Bool WorldHeightMapEdit::canFitTexture(Int textureClass)
@@ -1054,7 +1039,6 @@ Bool WorldHeightMapEdit::canFitTexture(Int textureClass)
 	}
 	return false;
 }
-
 
 void WorldHeightMapEdit::blendTile(Int xIndex, Int yIndex, Int srcXIndex, Int srcYIndex, Int textureClass, Int edgeClass)
 {
@@ -1208,8 +1192,6 @@ void WorldHeightMapEdit::blendSpecificTiles(Int xIndex, Int yIndex, Int srcXInde
 			m_blendTileNdxes[ndx] = newNdx;
 	}
 }
-
-
 
 /******************************************************************
 	autoBlendOut
@@ -1590,7 +1572,6 @@ Bool WorldHeightMapEdit::floodFill(Int xIndex, Int yIndex, Int textureClass, Boo
 	return(true);
 }
 
-
 /******************************************************************
 	resetResources
 		releases textures so things like device reset can be done.
@@ -1652,7 +1633,6 @@ void WorldHeightMapEdit::showTileStatusInfo(void)
 	::AfxMessageBox(message);
 }
 
-
 /******************************************************************
 	setHeight
 		This sets the height, and adjusts the cliff flag for the cells affected.
@@ -1665,7 +1645,6 @@ void WorldHeightMapEdit::setHeight(Int xIndex, Int yIndex, UnsignedByte height) 
 		setCellCliffFlagFromHeights(xIndex, yIndex-1);
 		setCellCliffFlagFromHeights(xIndex-1, yIndex-1);
 }
-
 
 /******************************************************************
 	optimizeTiles
@@ -1699,7 +1678,6 @@ Bool WorldHeightMapEdit::optimizeTiles(void)
 		if (texClass<0) texClass=0;
 		m_cliffInfo[i].tileIndex = texClass;
 	}
-
 
 	// Release all the tiles.
 	for (i=0; i<NUM_SOURCE_TILES; i++) {
@@ -1781,8 +1759,6 @@ Bool WorldHeightMapEdit::optimizeTiles(void)
 	return(true);
 }
 
-
-
 /** ****************************************************************
 	resize
 		Changes the size of the height map.
@@ -1824,7 +1800,6 @@ Bool WorldHeightMapEdit::resize(Int newXSize, Int newYSize, Int newHeight, Int n
 		yOffset += (sizeChange)/2;
 		pObjOffset->y = -((sizeChange)/2)*MAP_XY_FACTOR;
 	}
-
 
 	Short *tileNdxes = new Short[newDataSize];
 	Short *blendTileNdxes = new Short[newDataSize];
@@ -1912,7 +1887,6 @@ Bool WorldHeightMapEdit::resize(Int newXSize, Int newYSize, Int newHeight, Int n
 	return(true);
 }
 
-
 /** Returns true if the texture class is used in the current
 map.  If false, the texture is not used or loaded in the
 current map. */
@@ -1941,7 +1915,6 @@ Int WorldHeightMapEdit::getFirstTile(Int textureClass)
 	}
 	return(-1);
 }
-
 
 /**
  dbgVerifyAfterUndo - Verifies that the structure is consistent.
@@ -2214,10 +2187,6 @@ Bool WorldHeightMapEdit::selectInvalidTeam(void)
 	return anySelected;
 }
 
-
-
-
-
 AsciiString WorldHeightMapEdit::getTexClassUiName(int ndx)
 {
 	return(m_globalTextureClasses[ndx].uiName);
@@ -2272,7 +2241,6 @@ Bool WorldHeightMapEdit::doCliffAdjustment(Int xIndex, Int yIndex)
 	uvRange.lo.y = 1;
 	uvRange.hi.x = -1;
 	uvRange.hi.y = -1;
-
 
 	pNodesToProcess = new CProcessNode(xIndex, yIndex);
 	while (pNodesToProcess) {
@@ -2331,7 +2299,6 @@ Bool WorldHeightMapEdit::doCliffAdjustment(Int xIndex, Int yIndex)
 		h2 -= h0;
 		h3 -= h0;
 		h0 = 0;
-
 
 		Int minHeightDelta = 0.7f/HEIGHT_SCALE;
 
@@ -2525,7 +2492,6 @@ Bool WorldHeightMapEdit::doCliffAdjustment(Int xIndex, Int yIndex)
 				}
 			}
 
-
 			nodesProcessed++;
 			//if (nodesProcessed>2) break;
 		}
@@ -2581,7 +2547,6 @@ Bool WorldHeightMapEdit::removeCliffMapping(void)
 	return(true);
 }
 
-
 Bool WorldHeightMapEdit::adjustForTiling( TCliffInfo &cliffInfo, Real textureWidth)
 {
 	Real minU = cliffInfo.u0;
@@ -2636,7 +2601,6 @@ Bool WorldHeightMapEdit::adjustForTiling( TCliffInfo &cliffInfo, Real textureWid
 		minU += textureWidth;
 		maxU += textureWidth;
 	}
-
 
 	Real uBorder = TEX_PER_CELL * 0.5;
 	if (minU>=uBorder && maxU<textureWidth-uBorder) return true;
@@ -2742,7 +2706,6 @@ Bool WorldHeightMapEdit::adjustForTiling( TCliffInfo &cliffInfo, Real textureWid
 	return false;
 
 }
-
 
 static Bool usMatch(Real u1, Real u2) {
 	//return true;
@@ -3111,8 +3074,6 @@ void WorldHeightMapEdit::updateForAdjacentCliffs(Int xIndex, Int yIndex,
 	cliffInfo = tmpCliff;
 }
 
-
-
 void WorldHeightMapEdit::updateFlatCellForAdjacentCliffs(Int xIndex, Int yIndex,
 													Int curTileClass, UnsignedByte *pProcessed)
 {
@@ -3236,8 +3197,6 @@ void WorldHeightMapEdit::updateFlatCellForAdjacentCliffs(Int xIndex, Int yIndex,
 		}
 	}
 
-
-
 	if (lockCount==4) {
 		adjustForTiling(tmpCliff, textureClassExtent);
 		tmpCliff.tileIndex = getFirstTile(curTileClass)<<2;
@@ -3284,7 +3243,6 @@ void WorldHeightMapEdit::updateFlatCellForAdjacentCliffs(Int xIndex, Int yIndex,
 		xVec.U = -yVec.V;
 	}
 
-
 	if (!lock0) {
 		if (lock1) {
 			tmpCliff.u0 = tmpCliff.u1 - xVec.U;
@@ -3327,7 +3285,6 @@ void WorldHeightMapEdit::updateFlatCellForAdjacentCliffs(Int xIndex, Int yIndex,
 	Int cliffNdx=addCliffInfo(&tmpCliff);
 	m_cliffInfoNdxes[yIndex*m_width + xIndex] = cliffNdx;
 }
-
 
 Int WorldHeightMapEdit::addCliffInfo(TCliffInfo *pCliffInfo)
 {
@@ -3447,5 +3404,4 @@ void WorldHeightMapEdit::findBoundaryNear(Coord3D *pt, float okDistance, Int *ou
 
 	(*outNdx) = -1;
 }
-
 

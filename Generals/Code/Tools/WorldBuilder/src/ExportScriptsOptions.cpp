@@ -38,7 +38,6 @@ ExportScriptsOptions::ExportScriptsOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void ExportScriptsOptions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -46,7 +45,6 @@ void ExportScriptsOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ExportScriptsOptions, CDialog)
 	//{{AFX_MSG_MAP(ExportScriptsOptions)

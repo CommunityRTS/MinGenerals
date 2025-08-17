@@ -392,7 +392,6 @@ Player *PlayerList::getEachPlayerFromMask( PlayerMaskType& maskToAdjust )
 	return NULL; // mask not found
 }
 
-
 //-------------------------------------------------------------------------------------------------
 PlayerMaskType PlayerList::getPlayersWithRelationship( Int srcPlayerIndex, UnsignedInt allowedRelationships )
 {

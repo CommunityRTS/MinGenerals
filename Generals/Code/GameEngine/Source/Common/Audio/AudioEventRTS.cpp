@@ -338,8 +338,6 @@ void AudioEventRTS::generateFilename( void )
 			return;
 		}
 
-
-
 		if (BitTest(m_eventInfo->m_control, AC_RANDOM))
 		{
 			if (m_isLogicalAudio)
@@ -359,7 +357,6 @@ void AudioEventRTS::generateFilename( void )
 		}
 		else
 			which = (++m_playingAudioIndex) % m_eventInfo->m_sounds.size();
-
 
 	}
 
@@ -629,7 +626,6 @@ TimeOfDay AudioEventRTS::getTimeOfDay( void ) const
 	return m_timeOfDay;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void AudioEventRTS::setHandleToKill( AudioHandle handleToKill )
 {
@@ -704,7 +700,6 @@ void AudioEventRTS::setAudioPriority( AudioPriority newPriority )
 	m_priority = newPriority;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Real AudioEventRTS::getVolume( void ) const

@@ -167,9 +167,7 @@ int LCW_Uncomp(void const * source, void * dest, unsigned long )
 	}
 }
 
-
 #if defined(_MSC_VER)
-
 
 /***********************************************************************************************
  * LCW_Comp -- Performes LCW compression on a block of data.                                   *
@@ -440,5 +438,4 @@ outofhere:
 	return(retval);
 }
 #endif
-
 

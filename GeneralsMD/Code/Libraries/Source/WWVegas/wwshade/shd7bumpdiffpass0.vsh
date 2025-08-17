@@ -117,4 +117,3 @@ add oD0.w, c[CV_CONST].y, -LIGHT_0.w
 mov oT0, V_TEXTURE
 mov oT1, V_TEXTURE
 
-

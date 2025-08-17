@@ -34,14 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
 #ifndef W3D_OBSOLETE_H
 #define W3D_OBSOLETE_H
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Obsolete chunk id's
@@ -81,7 +79,6 @@ enum
 		W3D_CHUNK_PER_TRI_MATERIALS			=0x00000021,	// Multi-Mtl meshes - An array of uint16 material id's
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Version 1.0 Material, array of these are found inside the W3D_CHUNK_MATERIALS chunk.
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,7 +112,6 @@ struct W3dMaterial2Struct
 
 	char			Pad[12];								// expansion room
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // MATERIAL ATTRIBUTES (version 3.0 onward)
@@ -188,7 +184,6 @@ struct W3dMaterial3Struct
 	float32					FogCoeff;					// effect of fog (0.0=not fogged, 1.0=fogged) (default = 1)
 };
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 // A map, only occurs as part of a material, will be preceeded by its name.
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +193,6 @@ struct W3dMap3Struct
 	uint16					FrameCount;					// Number of frames (1 if not animated)
 	float32					FrameRate;					// Frame rate, frames per second in floating point
 };
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // A triangle, occurs inside the W3D_CHUNK_SURRENDER_TRIANGLES chunk
@@ -279,7 +273,6 @@ struct W3dMeshHeaderStruct
 	uint32					FutureUse[24];		// Reserved for future use
 };
 
-
 //
 // Mesh Damage.  This can include a new set of materials for the mesh,
 // new positions for certain vertices in the mesh, and new vertex
@@ -306,8 +299,6 @@ struct W3dMeshDamageColorStruct
 	W3dRGBStruct		NewColor;
 };
 
-
-
 //
 // W3dHModelAuxDataStruct.  HModels had this extra chunk defining the counts of individual
 // types of objects to be found in the model and some obsolete distance-based LOD settings.
@@ -328,6 +319,5 @@ struct W3dHModelAuxDataStruct
 	float32					LODMax;
 	uint32					FutureUse[32];
 };
-
 
 #endif // W3D_OBSOLETE_H

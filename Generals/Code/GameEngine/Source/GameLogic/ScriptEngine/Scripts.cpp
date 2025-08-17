@@ -65,13 +65,11 @@
 #include "GameLogic/ScriptEngine.h"
 #include "GameLogic/SidesList.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 static Script *s_mtScript = NULL;
 static ScriptGroup *s_mtGroup = NULL;
@@ -126,7 +124,6 @@ void SignalUIInteraction(Int interaction)
 	if (TheScriptEngine)
 		TheScriptEngine->signalUIInteract(TheShellHookNames[interaction]);
 }
-
 
 // Changing the order or meaning of either of these will require you to update the maps
 // in a meaningful way. If there are new entries, add them to the end, rather than the middle.
@@ -202,8 +199,6 @@ void ScriptList::reset(void)
 		pList->deleteInstance();
 	}
 }
-
-
 
 /**
   Ctor.
@@ -590,8 +585,6 @@ void ScriptList::WriteScriptsDataChunk(DataChunkOutput &chunkWriter, ScriptList 
 
 }
 
-
-
 /**
 * ScriptList::WriteScriptListDataChunk - Writes a Scripts chunk.
 * Format is the newer CHUNKY format.
@@ -604,7 +597,6 @@ void ScriptList::WriteScriptListDataChunk(DataChunkOutput &chunkWriter)
 		if (m_firstScript) m_firstScript->WriteScriptDataChunk(chunkWriter, m_firstScript);
 		if (m_firstGroup) m_firstGroup->WriteGroupDataChunk(chunkWriter, m_firstGroup);
 }
-
 
 /**
 * ScriptList::ParseScriptListDataChunk - read a Scripts chunk.
@@ -626,7 +618,6 @@ Bool ScriptList::ParseScriptListDataChunk(DataChunkInput &file, DataChunkInfo *i
 	return file.parse(pInfo->readLists[cur]);
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // ******************************** class  ScriptGroup *********************************************
@@ -1122,7 +1113,6 @@ void Script::deleteOrCondition(OrCondition *pCond)
 	pCur->deleteInstance();
 }
 
-
 /**
   Script::deleteAction - delete pAct from the action list.
 */
@@ -1145,7 +1135,6 @@ void Script::deleteAction(ScriptAction *pAct)
 	pCur->deleteInstance();
 }
 
-
 /**
   Script::deleteFalseAction - delete pAct from the false action list.
 */
@@ -1167,7 +1156,6 @@ void Script::deleteFalseAction(ScriptAction *pAct)
 	pCur->setNextAction(NULL);
 	pCur->deleteInstance();
 }
-
 
 /**
   Script::getUiText - Creates the string to display in the scripts dialog box.
@@ -1314,7 +1302,6 @@ Bool Script::ParseScriptFromGroupDataChunk(DataChunkInput &file, DataChunkInfo *
 	return true;
 }
 
-
 /**
 * Script::findPreviousOrCondition - find the OrCondition that immediately proceeds curOr.
 *	Input: OrCondition
@@ -1429,7 +1416,6 @@ void OrCondition::deleteCondition(Condition *pCond)
 	pCur->deleteInstance();
 }
 
-
 /**
 * OrCondition::WriteOrConditionDataChunk - Writes a Or condition chunk.
 * Format is the newer CHUNKY format.
@@ -1497,7 +1483,6 @@ Condition *OrCondition::findPreviousCondition( Condition *curCond )
 	DEBUG_CRASH(("Searched for non-existent And Condition. (jkmcd)"));
 	return NULL;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // ******************************** class  Condition *********************************************
@@ -1605,8 +1590,6 @@ Condition::~Condition(void)
 	}
 }
 
-
-
 Int Condition::getUiStrings(AsciiString strings[MAX_PARMS])
 {
 	const ConditionTemplate *pTemplate = TheScriptEngine->getConditionTemplate(m_conditionType);
@@ -1635,7 +1618,6 @@ AsciiString Condition::getUiText(void)
 
 	return uiText;
 }
-
 
 /**
 * Condition::WriteConditionDataChunk - Writes a condition chunk.
@@ -1710,7 +1692,6 @@ Bool Condition::ParseConditionDataChunk(DataChunkInput &file, DataChunkInfo *inf
 	DEBUG_ASSERTCRASH(file.atEndOfChunk(), ("Unexpected data left over."));
 	return true;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // ******************************** class  Template *********************************************
@@ -1924,7 +1905,6 @@ AsciiString Parameter::getUiText(void) const
 				default : DEBUG_CRASH(("Unknown Radar event type."));
 			}
 			break;
-
 
 		case DIALOG:
 			uiText.format("'%s'", uiString.str());
@@ -2304,8 +2284,6 @@ ScriptAction::~ScriptAction(void)
 	}
 }
 
-
-
 Int ScriptAction::getUiStrings(AsciiString strings[MAX_PARMS])
 {
 	const ActionTemplate *pTemplate = TheScriptEngine->getActionTemplate(m_actionType);
@@ -2449,7 +2427,6 @@ Bool ScriptAction::ParseActionDataChunk(DataChunkInput &file, DataChunkInfo *inf
 			}
 	}
 
-
 	/// @todo - Verify read in parameters with current action template.  jba.
 	ScriptAction *pLast = pScript->getAction();
 	while (pLast && pLast->getNext())
@@ -2468,7 +2445,6 @@ Bool ScriptAction::ParseActionDataChunk(DataChunkInput &file, DataChunkInfo *inf
 	DEBUG_ASSERTCRASH(file.atEndOfChunk(), ("Unexpected data left over."));
 	return true;
 }
-
 
 /**
 * ScriptAction::WriteActionFalseDataChunk - Writes a false Action chunk.

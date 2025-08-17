@@ -125,8 +125,6 @@ public:
 	void					Control_Bone(int boneindex,const Matrix3D & relative_tm,bool world_space_translation = false);
 	void					Get_Bone_Control(int boneindex, Matrix3D & relative_tm) const;
 
-
-
 	//
 	//	Simple pivot evaluation methods for when the caller doesn't want
 	// to update the whole animation, but needs to know the transform of
@@ -171,8 +169,6 @@ private:
 
 	friend class MeshClass;
 
-
-
 };
 
 WWINLINE const Matrix3D &	HTreeClass::Get_Root_Transform(void) const
@@ -206,7 +202,5 @@ WWINLINE const Matrix3D & HTreeClass::Get_Transform(int pivot) const
 
 	return Pivot[pivot].Transform;
 }
-
-
 
 #endif

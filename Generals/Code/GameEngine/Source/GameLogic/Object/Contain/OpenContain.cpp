@@ -225,7 +225,6 @@ void OpenContain::addOrRemoveObjFromWorld(Object* obj, Bool add)
 		DEBUG_LOG(( "WARNING: Containing/Removing structures like '%s' is potentially a very expensive and slow operation\n",
 								obj->getTemplate()->getName().str() ));
 
-
 	if (add)
 	{
 		ThePartitionManager->registerObject( obj );
@@ -542,7 +541,6 @@ void OpenContain::removeFromContainViaIterator( ContainedItemsList::iterator it,
 		}
 	}
 
-
 	if (isEnclosingContainerFor( rider ))
 	{
 		addOrRemoveObjFromWorld(rider, true);
@@ -713,7 +711,6 @@ void OpenContain::onCollide( Object *other, const Coord3D *loc, const Coord3D *n
 				removeFromContain( rider, TRUE );
 		}
 	}
-
 
 	// finally, we must have space to contain it.
 	if( !isValidContainerFor( other, TRUE ) )
@@ -1030,7 +1027,6 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool OpenContain::isPassengerAllowedToFire() const
 {
@@ -1319,7 +1315,6 @@ Bool OpenContain::hasObjectsWantingToEnterOrExit() const
 {
 	return !m_objectEnterExitInfo.empty();
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void OpenContain::setRallyPoint( const Coord3D *pos )

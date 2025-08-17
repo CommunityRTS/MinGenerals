@@ -70,7 +70,6 @@
 #  define LZO1X
 #endif
 
-
 /***********************************************************************
 //
 ************************************************************************/
@@ -91,7 +90,6 @@
 #define M3_MARKER		32
 #define M4_MARKER		16
 
-
 #define _DV2(p,shift1,shift2) \
 		(((( (lzo_uint)(p[2]) << shift1) ^ p[1]) << shift2) ^ p[0])
 #define DVAL_NEXT(dv,p) \
@@ -102,7 +100,6 @@
 #define DINDEX(dv,p)		(((_DINDEX(dv,p)) & 0x3fff) << 0)
 #define UPDATE_D(dict,cycle,dv,p)		dict[ DINDEX(dv,p) ] = (p)
 #define UPDATE_I(dict,cycle,index,p)	dict[index] = (p)
-
 
 /***********************************************************************
 // compress a block of data.
@@ -139,7 +136,6 @@ static int do_compress(const lzo_byte * in, lzo_uint  in_len,
 		m_pos = dict[dindex];
 		UPDATE_I(dict,cycle,dindex,ip);
 
-
 		if (LZO_CHECK_MPOS_NON_DET(m_pos,m_off,in,ip,M4_MAX_OFFSET)) {
 		}
 #if defined(LZO_UNALIGNED_OK_2)
@@ -172,7 +168,6 @@ static int do_compress(const lzo_byte * in, lzo_uint  in_len,
 			}
 		}
 
-
 	/* a literal */
 		++ip;
 		if (ip >= ip_end) {
@@ -180,7 +175,6 @@ static int do_compress(const lzo_byte * in, lzo_uint  in_len,
 		}
 		DVAL_NEXT(dv,ip);
 		continue;
-
 
 	/* a match */
 
@@ -213,7 +207,6 @@ match:
 				*op++ = *ii++;
 			} while (--t > 0);
 		}
-
 
 		/* code the match */
 code_match:
@@ -327,7 +320,6 @@ m3_m4_offset:
 	return LZO_E_OK;
 }
 
-
 /***********************************************************************
 // public entry point
 ************************************************************************/
@@ -361,7 +353,6 @@ int lzo1x_1_compress     ( const lzo_byte * in, lzo_uint  in_len,
 
 	return r;
 }
-
 
 /*
 vi:ts=4

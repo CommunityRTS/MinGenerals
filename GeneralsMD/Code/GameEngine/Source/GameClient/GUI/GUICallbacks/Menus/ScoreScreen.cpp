@@ -147,7 +147,6 @@ GameWindow *listboxAcademyWindowScoreScreen = NULL;
 NameKeyType staticTextAcademyTitleID = NAMEKEY_INVALID;
 GameWindow *staticTextAcademyTitle = NULL;
 
-
 std::string LastReplayFileName;
 static Bool canSaveReplay = FALSE;
 extern void PopupReplayUpdate(WindowLayout *layout, void *userData);
@@ -228,7 +227,6 @@ void startNextCampaignGame(void)
 
 	InitRandom(0);
 }
-
 
 void ScoreScreenEnableControls(Bool enable)
 {
@@ -370,7 +368,6 @@ void ScoreScreenInit( WindowLayout *layout, void *userData )
 		buttonSaveReplay->winHide(TRUE);
 	}
 
-
 	// Make Sure the layout is visible
 	layout->hide( FALSE );
 
@@ -450,7 +447,6 @@ void ScoreScreenUpdate( WindowLayout * layout, void *userData)
 			TheAudio->addAudioEvent( &event );
 			TheAudio->update();//Since GameEngine::update() is suspended until after I am gone...
 		}
-
 
 	}
 }
@@ -652,7 +648,6 @@ WindowMsgHandledType ScoreScreenSystem( GameWindow *window, UnsignedInt msg,
 	}
 	return MSG_HANDLED;
 }
-
 
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
@@ -1099,7 +1094,6 @@ void initReplayMultiPlayer(void)
 //	if (buttonRehost)
 //		buttonRehost->winHide(TRUE);
 }
-
 
 static Bool isSlotLocalAlly(GameInfo *game, const GameSlot *slot)
 {
@@ -1567,7 +1561,6 @@ winName.format("ScoreScreen.wnd:StaticTextScore%d", pos);
 	//		win->winHide(TRUE);
 	//	}
 
-
 	// set a marker for who won and lost
 	winName.format("ScoreScreen.wnd:GameWindowWinner%d", pos);
 	win =  TheWindowManager->winGetWindowFromId( parent, TheNameKeyGenerator->nameToKey( winName ) );
@@ -1585,7 +1578,6 @@ winName.format("ScoreScreen.wnd:StaticTextScore%d", pos);
 	{
 		win->winSetEnabledImage(0, fact->getSideIconImage());
 	}
-
 
 	if ( screenType == SCORESCREEN_SKIRMISH && player->isLocalPlayer() )
 	{
@@ -2305,7 +2297,6 @@ winName.format("ScoreScreen.wnd:StaticTextScore%d", i);
 		DEBUG_ASSERTCRASH(win,("Could not find window %s on the score screen", winName.str()));
 		win->winHide(TRUE);
 
-
 //		// Set the Game Add Buttons
 //		winName.format("ScoreScreen.wnd:ButtonAdd%d", i);
 //		win =  TheWindowManager->winGetWindowFromId( parent, TheNameKeyGenerator->nameToKey( winName ) );
@@ -2345,7 +2336,6 @@ void setObserverWindows( Player *player, Int i )
 	win =  TheWindowManager->winGetWindowFromId( parent, TheNameKeyGenerator->nameToKey( winName ) );
 	DEBUG_ASSERTCRASH(win,("Could not find window %s on the score screen", winName.str()));
 	win->winHide(FALSE);
-
 
 	// set the total units built
 	winName.format("ScoreScreen.wnd:StaticTextUnitsBuilt%d", i);
@@ -2454,7 +2444,6 @@ winName.format("ScoreScreen.wnd:StaticTextScore%d", i);
 //	{
 //		win->winHide(TRUE);
 //	}
-
 
 }
 

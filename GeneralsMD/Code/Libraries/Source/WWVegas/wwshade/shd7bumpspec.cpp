@@ -54,7 +54,6 @@ ShdHWVertexShader		Shd7BumpSpecClass::Pass_0_Vertex_Shader;
 ShdHWVertexShader		Shd7BumpSpecClass::Pass_1_Vertex_Shader;
 Matrix4x4				Shd7BumpSpecClass::View_Projection_Matrix;
 
-
 Shd7BumpSpecClass::Shd7BumpSpecClass(const ShdDefClass* def)
 :	ShdInterfaceClass(def,SHDDEF_CLASSID_BUMPSPEC),
 	Texture(NULL),
@@ -127,7 +126,6 @@ void Shd7BumpSpecClass::Shutdown()
 	Pass_0_Vertex_Shader.Destroy();
 	Pass_1_Vertex_Shader.Destroy();
 }
-
 
 //**********************************************************************************************
 //! Apply shared states for 2 pass DX7 bump specular with gloss map

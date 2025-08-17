@@ -164,7 +164,6 @@ public:
 
 };
 
-
 // The DazzleLayerClass is for all the dazzles being rendered with a given
 // group of camera settings: for example, different scenes may use different
 // z-buffer settings and in such a case each scene should have a dazzle layer
@@ -336,7 +335,6 @@ public:
 	static bool Is_Dazzle_Rendering_Enabled(void) { return _dazzle_rendering_enabled; }
 };
 
-
 /**
 ** DazzleVisibilityClass
 ** The user should derive a class from DazzleVisibilityClass and implement an app-specific
@@ -350,7 +348,6 @@ public:
 															DazzleRenderObjClass * dazzle,
 															const Vector3 & point) const;
 };
-
 
 /**
 ** DazzlePrototypeClass
@@ -376,7 +373,6 @@ private:
 	StringClass				Name;
 	int								DazzleType;
 };
-
 
 /**
 ** DazzleLoaderClass

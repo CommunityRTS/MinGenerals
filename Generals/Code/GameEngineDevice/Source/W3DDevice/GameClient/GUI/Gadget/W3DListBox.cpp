@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // FILE: W3DListBox.cpp ///////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 //
@@ -82,8 +81,6 @@ static void drawHiliteBar( const Image *left, const Image *right,
 	Int i;
 	IRegion2D clipRegion;
 
-
-
 	barWindowSize.x = endX - startX;
 	barWindowSize.y = endY - startY;
 
@@ -116,8 +113,6 @@ static void drawHiliteBar( const Image *left, const Image *right,
 
 	// how many whole repeating pieces will fit in that width
 	pieces = centerWidth / center->getImageWidth();
-
-
 
 	// draw the pieces
 	start.x = leftEnd.x;
@@ -379,9 +374,6 @@ static void drawListBoxText( GameWindow *window, WinInstanceData *instData,
 
 		}  // end if
 
-
-
-
 		Color dropColor = TheWindowManager->winMakeColor( 0, 0, 0, 255 );
 		DisplayString *string;
 
@@ -477,7 +469,6 @@ static void drawListBoxText( GameWindow *window, WinInstanceData *instData,
 				columnX = columnX + list->columnWidth[j];
 			}// for
 		}//if
-
 
 		drawY += listLineHeight;
 		TheDisplay->enableClipping(FALSE);
@@ -577,8 +568,6 @@ void W3DGadgetListBoxDraw( GameWindow *window, WinInstanceData *instData )
 	// draw the text
 	drawListBoxText( window, instData, x, y + 4 , width, height-4, TRUE );
 
-
-
 }  // end W3DGadgetListBoxDraw
 
 // W3DGadgetListBoxImageDraw ==================================================
@@ -664,8 +653,6 @@ void W3DGadgetListBoxImageDraw( GameWindow *window, WinInstanceData *instData )
 
 	// draw the listbox text
 	drawListBoxText( window, instData, x, y+4, width, height-4, TRUE );
-
-
 
 }  // end W3DGadgetListBoxImageDraw
 

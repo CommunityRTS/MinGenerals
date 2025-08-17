@@ -34,14 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
 #ifndef RINFO_H
 #define RINFO_H
-
 
 #include "always.h"
 #include "bittype.h"
@@ -51,7 +49,6 @@
 #include "vector.h"
 #include "matrix3d.h"
 #include "matrix4.h"
-
 
 class MaterialPassClass;
 class LightEnvironmentClass;
@@ -111,7 +108,6 @@ protected:
 
 };
 
-
 /**
 ** SpecialRenderInfoClass
 ** This structure also contains a "grab-bag" of junk for use by the Special_Render
@@ -155,7 +151,5 @@ private:
 	SpecialRenderInfoClass & operator = (const RenderInfoClass &);
 
 };
-
-
 
 #endif

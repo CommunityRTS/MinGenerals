@@ -396,7 +396,6 @@ public:
 	*/
 	void countObjectsByThingTemplate(Int numTmplates, const ThingTemplate* const* things, Bool ignoreDead, Int *counts, Bool ignoreUnderConstruction = TRUE ) const;
 
-
 	/**
 		returns the number of buildings on this team, by checking each things' template kindof against KINDOF_STRUCTURE
 	*/
@@ -746,14 +745,11 @@ private:
 
 extern TeamFactory *TheTeamFactory;
 
-
 // inline function ------------------------------------------------------------------------
 const AsciiString& Team::getName(void) const
 {
 	return m_proto->getName();
 }
-
-
 
 // ------------------------------------------------------------------------
 

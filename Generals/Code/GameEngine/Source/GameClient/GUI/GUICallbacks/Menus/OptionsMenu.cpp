@@ -81,7 +81,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 static NameKeyType		comboBoxOnlineIPID	= NAMEKEY_INVALID;
 static GameWindow *		comboBoxOnlineIP		= NULL;
 
@@ -220,7 +219,6 @@ enum Detail
 	DETAIL,
 };
 
-
 OptionPreferences::OptionPreferences( void )
 {
 	// note, the superclass will put this in the right dir automatically, this is just a leaf name
@@ -230,7 +228,6 @@ OptionPreferences::OptionPreferences( void )
 OptionPreferences::~OptionPreferences()
 {
 }
-
 
 Int OptionPreferences::getCampaignDifficulty(void)
 {
@@ -321,7 +318,6 @@ Bool OptionPreferences::getAlternateMouseModeEnabled(void)
 	}
 	return FALSE;
 }
-
 
 Real OptionPreferences::getScrollFactor(void)
 {
@@ -788,7 +784,6 @@ static void setDefaults( void )
 //	GadgetSliderSetPosition(sliderScrollSpeed, ((valMax - valMin) / 2 + valMin));
 	Int scrollPos = (Int)(TheGlobalData->m_keyboardDefaultScrollFactor*100.0f);
 	GadgetSliderSetPosition( sliderScrollSpeed, scrollPos );
-
 
 	//-------------------------------------------------------------------------------------------------
 	// slider music volume
@@ -1420,7 +1415,6 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 		GadgetStaticTextSetText( labelVersion, versionString );
 	}
 
-
 	// Choose an IP address, then initialize the IP combo box
 	UnsignedInt selectedIP = pref->getLANIPAddress();
 
@@ -1740,7 +1734,6 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 		if (comboBoxDetail)
 			comboBoxDetail->winEnable(FALSE);
 
-
 		if (comboBoxResolution)
 			comboBoxResolution->winEnable(FALSE);
 
@@ -1750,7 +1743,6 @@ void OptionsMenuInit( WindowLayout *layout, void *userData )
 //		if (checkAudioHardware)
 //			checkAudioHardware->winEnable(FALSE);
 	}
-
 
 	TheWindowManager->winSetModal(parent);
 	ignoreSelected = FALSE;
@@ -1955,7 +1947,6 @@ WindowMsgHandledType OptionsMenuSystem( GameWindow *window, UnsignedInt msg,
 
 				if(!TheGameLogic->isInGame() || TheGameLogic->isInShellGame())
 					destroyQuitMenu(); // if we're in a game, the change res then enter the same kind of game, we nee the quit menu to be gone.
-
 
 				if(GameSpyIsOverlayOpen(GSOVERLAY_OPTIONS))
 					GameSpyCloseOverlay(GSOVERLAY_OPTIONS);

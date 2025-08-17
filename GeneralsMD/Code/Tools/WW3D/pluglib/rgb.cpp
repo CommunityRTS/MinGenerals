@@ -44,7 +44,6 @@
 
 RGBClass const BlackColor(0, 0, 0);
 
-
 /***********************************************************************************************
  * RGBClass::Adjust -- Adjust one RGB value toward another.                                    *
  *                                                                                             *
@@ -73,7 +72,6 @@ void RGBClass::Adjust(int ratio, RGBClass const & rgb)
 	*/
 	ratio &= 0x00FF;
 
-
 	/*
 	**	Adjust the color guns by the ratio specified toward the
 	**	destination color.
@@ -87,7 +85,6 @@ void RGBClass::Adjust(int ratio, RGBClass const & rgb)
 	value = (int)rgb.Blue - (int)Blue;
 	Blue = (unsigned char)((int)Blue + (value * ratio) / 256);
 }
-
 
 /***********************************************************************************************
  * RGBClass::Difference -- Determines the "distance" between two colors.                       *
@@ -127,7 +124,6 @@ int RGBClass::Difference(RGBClass const & rgb) const
 	*/
 	return(4*g + 3*b + 2*r);
 }
-
 
 /***********************************************************************************************
  * RGBClass::operator HSVClass -- Conversion operator for RGB to HSV object.                   *

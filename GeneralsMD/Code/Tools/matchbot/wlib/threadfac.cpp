@@ -26,7 +26,6 @@ CritSec   Runnable::CritSec_;           // to protect ThreadCount_
 // MDC: Made all this dependent on _REENTRANT being defined so VC++ doesn't complain on
 // single-threaded programs...
 
-
 //
 // Note: I chose the following type signature for thread functions
 //   void function(void *data);
@@ -47,8 +46,6 @@ struct ThreadInformation
   bit8      destroy;       // only applies to classes, should delete after execution?
 };
 
-
-
 //
 // Start a thread inside a class
 //
@@ -61,7 +58,6 @@ bit8 ThreadFactory::startThread(Runnable &runable, void *data, bit8 destroy)
 	  Runnable::ThreadCount_++;
 	  Runnable::CritSec_.unlock();
   }
-
 
   ThreadInformation *tInfo=new ThreadInformation;
   tInfo->startPoint=(void *)&runable;
@@ -109,7 +105,6 @@ bit8 ThreadFactory::startThread(Runnable &runable, void *data, bit8 destroy)
 	return (FALSE);
 #endif /* _REENTRANT */
 }
-
 
 //
 // Start a thread inside a function

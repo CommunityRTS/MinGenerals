@@ -226,7 +226,6 @@ void NameKeyGenerator::parseStringAsNameKeyType( INI *ini, void *instance, void 
   *(NameKeyType *)store = TheNameKeyGenerator->nameToKey( ini->getNextToken() );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 NameKeyType StaticNameKey::key() const
 {

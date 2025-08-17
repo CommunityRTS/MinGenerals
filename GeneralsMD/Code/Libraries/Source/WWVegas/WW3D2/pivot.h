@@ -48,7 +48,6 @@
 #include "quat.h"
 #include "w3d_file.h"
 
-
 /*
 
 	PivotClass
@@ -108,7 +107,5 @@ public:
 #endif
 
 };
-
-
 
 #endif

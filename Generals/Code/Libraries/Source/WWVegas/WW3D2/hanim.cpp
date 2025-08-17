@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "hanim.h"
 #include "assetmgr.h"
 #include "htree.h"
@@ -46,15 +45,12 @@
 #include <string.h>
 #include <nstrdup.h>
 
-
-
 /*
 **
 **	HAnimComboClass
 **
 **
 */
-
 
 NamedPivotMapClass::~NamedPivotMapClass(void)
 {
@@ -112,7 +108,6 @@ DEFINE_AUTO_POOL(HAnimComboDataClass,256);
 HAnimComboDataClass::HAnimComboDataClass(bool shared)
 : Shared(shared), HAnim(0), PivotMap(0), Frame(0), Weight(1)
 {}
-
 
 HAnimComboDataClass::HAnimComboDataClass(const HAnimComboDataClass &src)
 :	PivotMap(src.Get_Pivot_Map()),
@@ -176,7 +171,6 @@ void HAnimComboDataClass::Set_HAnim(HAnimClass *motion)
 	HAnim = motion;
 }
 
-
 void HAnimComboDataClass::Set_Pivot_Map(PivotMapClass *map)
 {
 	if ( map != NULL ) {
@@ -236,12 +230,10 @@ HAnimComboClass::HAnimComboClass( int num_animations )
 	}
 }
 
-
 HAnimComboClass::~HAnimComboClass(void)
 {
 	Reset();
 }
-
 
 void	HAnimComboClass::Clear( void )
 {
@@ -444,5 +436,4 @@ void HAnimComboClass::Remove_Anim_Combo_Data(HAnimComboDataClass * Data)
 {
 	HAnimComboData.Delete(Data);
 }
-
 

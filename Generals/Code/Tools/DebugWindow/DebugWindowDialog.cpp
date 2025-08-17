@@ -160,8 +160,6 @@ void DebugWindowDialog::_RebuildVarsString(void)
 		mVariablesString += "\r\n";
 	}
 
-
-
 	// Push the new string
 	mVariablesDisplayString = mVariablesString.c_str();
 	GetDlgItem(IDC_Variables)->SetWindowText(mVariablesDisplayString);
@@ -196,7 +194,6 @@ void DebugWindowDialog::_UpdatePauseButton(void)
 	pButt->SetCheck((mNumberOfStepsAllowed ? FALSE : TRUE));
 }
 
-
 void DebugWindowDialog::OnClose()
 {
 	ShowWindow(SW_MINIMIZE);
@@ -211,8 +208,6 @@ void DebugWindowDialog::OnSize(UINT nType, int cx, int cy)
 		}
 	}
 }
-
-
 
 BEGIN_MESSAGE_MAP(DebugWindowDialog, CDialog)
 	ON_WM_CREATE( )

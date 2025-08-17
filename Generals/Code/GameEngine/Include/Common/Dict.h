@@ -296,7 +296,6 @@ private:
 			return (NameKeyType)(((UnsignedInt)nk) >> 8);
 		}
 
-
 	public:
 		void clear();
 		void copyFrom(DictPair* that);
@@ -364,5 +363,4 @@ inline Dict::DataType Dict::getNthType(Int n) const
 }
 
 #endif // Dict_H
-
 

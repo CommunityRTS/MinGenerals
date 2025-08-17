@@ -55,7 +55,6 @@
 #include <tri.h>
 #include <float.h>
 
-
 class MeshClass;
 class CameraClass;
 class RayCollisionTestClass;
@@ -71,7 +70,6 @@ class ChunkLoadClass;
 struct BoxRayAPTContextStruct;
 
 #define AABTREE_LEAF_FLAG 0x80000000
-
 
 /*
 ** AABTreeClass
@@ -275,7 +273,6 @@ inline void AABTreeClass::Update_Bounding_Boxes(void)
 	WWASSERT(Nodes != NULL);
 	Update_Bounding_Boxes_Recursive(&(Nodes[0]));
 }
-
 
 /***********************************************************************************************
 

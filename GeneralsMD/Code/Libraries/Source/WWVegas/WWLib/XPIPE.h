@@ -65,7 +65,6 @@ class BufferPipe : public Pipe
 		BufferPipe & operator = (BufferPipe const & pipe);
 };
 
-
 /*
 **	This is a store-to-file pipe terminator. Use it as the final link in a pipe process that
 **	needs to store the data to a file. This can only serve as the last link in the chain

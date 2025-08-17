@@ -36,7 +36,6 @@
 
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 
-
 // for now we maintain old legacy files
 // #define MAINTAIN_LEGACY_FILES
 
@@ -123,7 +122,6 @@ inline static Bool isImageFileType( GameFileType fileType )
 /**
 	Sets the file name, and finds the GDI asset if present.
 
-
 	Well, that is the worst comment ever for the most important function there is.
 	Everything comes through this.  This builds the directory and tests for the file
 	in several different places.
@@ -182,8 +180,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 	else if( stricmp( extension, ".dds" ) == 0 )
 		fileType = FILE_TYPE_DDS;
 
-
-
 	// We need to be able to grab w3d's from a localization dir, since Germany hates exploding people units.
 	if( fileType == FILE_TYPE_W3D )
 	{
@@ -204,8 +200,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 
 	// see if the file exists
 	m_fileExists = TheFileSystem->doesFileExist( m_filePath );
-
-
 
 	// Now try the main lookup of hitting local files and big files
 	if( m_fileExists == FALSE )
@@ -232,8 +226,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 		m_fileExists = TheFileSystem->doesFileExist( m_filePath );
 	}
 
-
-
 	// maintain legacy compatibility directories for now
 	#ifdef MAINTAIN_LEGACY_FILES
 	if( m_fileExists == FALSE )
@@ -259,8 +251,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 
 	}  // end if
 	#endif
-
-
 
 	// if file is still not found, try the test art folders
 	#ifdef LOAD_TEST_ASSETS
@@ -310,7 +300,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 		m_fileExists = TheFileSystem->doesFileExist( m_filePath );
 
 	}  // end if
-
 
 	// We Need to be able to "temporarily copy over the map preview for whichever directory it came from
 	if( m_fileExists == FALSE  && TheGlobalData)
@@ -440,7 +429,6 @@ void GameFileClass::Close(void)
 		m_theFile = NULL;
 	}
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // W3DFileSystem Class ////////////////////////////////////////////////////////////////////////////

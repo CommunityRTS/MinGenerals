@@ -39,7 +39,6 @@
 #pragma once
 #endif
 
-
 #ifndef ARGV_H
 #define ARGV_H
 
@@ -104,7 +103,6 @@ class ArgvClass
 		// Remove an option (and its value)
 		bool Remove_Value(const char *attrib);
 
-
 		// First parameter.
 		const char *First()  {
 			CurrentPos = 0;
@@ -161,6 +159,5 @@ class ArgvClass
 		enum {MAX_ARGC = 256};
 		static char  *Argv[MAX_ARGC];
 };
-
 
 #endif

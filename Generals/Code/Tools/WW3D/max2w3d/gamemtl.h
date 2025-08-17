@@ -35,14 +35,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef GAMEMTL_H
 #define GAMEMTL_H
 
 #include <Max.h>
 #include "w3dmtl.h"
 #include "w3d_file.h"
-
 
 // GameMtl flags values
 #define GAMEMTL_CONVERTED_TO_NOLOD		(1<<0)	// this material has been converted to use the NO_LOD flag on textures
@@ -90,7 +88,6 @@
 #define	GAMEMTL_MAPPING_RANDOM					16
 #define	GAMEMTL_MAPPING_EDGE						17
 #define	GAMEMTL_MAPPING_BUMPENV					18
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -329,7 +326,6 @@ private:
 		// Do the shade functions specific to the Playstation 2.
 		void					ps2_shade(ShadeContext& sc);
 
-
 		unsigned int		SurfaceType;
 		int					SortLevel;
 
@@ -368,6 +364,4 @@ private:
 Mtl * CreateGameMtl();
 
 #endif
-
-
 

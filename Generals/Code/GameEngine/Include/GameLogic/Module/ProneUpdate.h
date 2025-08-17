@@ -79,6 +79,5 @@ protected:
 	Int m_proneFrames;
 };
 
-
 #endif
 

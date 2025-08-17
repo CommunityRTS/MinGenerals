@@ -43,7 +43,6 @@
 class PaletteClass;
 class HSVClass;
 
-
 /*
 **	Each color entry is represented by this class. It holds the values for the color
 **	guns. The gun values are recorded in device dependant format, but the interface

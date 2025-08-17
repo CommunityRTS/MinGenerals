@@ -70,7 +70,6 @@
 
 #include "GameLogic/AIPathfind.h"
 
-
 #include "Common/CRCDebug.h"
 
 #ifdef _INTERNAL
@@ -287,7 +286,6 @@ public:
 
 		Team* owner = primaryObj ? primaryObj->getControllingPlayer()->getDefaultTeam() : NULL;
 
-
 		//What I'm doing for the purposes of the formations is to calculate the relative positions of
 		//each member of the formation. To do so, we take the vector from the target location to the
 		//lead plane location, normalize it, then rotate it 90 degrees (CW and CCW). When we add the
@@ -350,13 +348,11 @@ public:
 
 			Coord3D targetPos = *secondary;
 
-
 			//Our target position only applies when using fireweapon and when we have multiple planes,
 			//as is the case with the napalm strike. The target position either be somewhere between the
 			//moveToPos of the lead plane and that of the relative offset -- determined by the convergenceFactor.
 			targetPos.x += offset.x * (1.0f - m_convergenceFactor);
 			targetPos.y += offset.y * (1.0f - m_convergenceFactor);
-
 
 			// first guy in each formation is always spot-on (to keep targeting cursor well-matched)
 			if ( m_errorRadius > 1.0f && formationIndex > 0 )
@@ -366,7 +362,6 @@ public:
 				targetPos.x += randomRadius * Cos( randomAngle );
 				targetPos.y += randomRadius * Sin( randomAngle );
 			}
-
 
 			Real orient = atan2( moveToPos.y - startPos.y, moveToPos.x - startPos.x);
 			if( m_data.m_distToTarget > 0 )
@@ -613,7 +608,6 @@ static void calcRandomForce(Real minMag, Real maxMag, Real minPitch, Real maxPit
 	force->y = v.Y;
 	force->z = v.Z;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 class ApplyRandomForceNugget : public ObjectCreationNugget
@@ -1074,12 +1068,6 @@ protected:
 
       }
 
-
-
-
-
-
-
 		}
 
 		if( BitTest( m_disposition, ON_GROUND_ALIGNED ) )
@@ -1262,8 +1250,6 @@ protected:
 			}
 		}
 
-
-
     if ( m_diesOnBadLand && obj )
     {
 	    // if we land in the water, we die. alas.
@@ -1304,11 +1290,7 @@ protected:
   // using obj->getAI()->hasLocomotorForSurface( __ ). We cshould not assume here that the object can not
   // find happiness on cliffs or water or whatever.
 
-
     }
-
-
-
 
 	}
 
@@ -1345,7 +1327,6 @@ protected:
 				container->setProducer(sourceObj);
 			}
 		}
-
 
 		for (Int nn = 0; nn < m_debrisToGenerate; nn++)
 		{

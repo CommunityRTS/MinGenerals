@@ -60,7 +60,6 @@
 
 #include	"wwfile.h"
 
-
 #ifndef WWERROR
 #define WWERROR	-1
 #endif
@@ -178,7 +177,6 @@ class RawFileClass : public FileClass
 		bool Allocated;
 };
 
-
 /***********************************************************************************************
  * RawFileClass::File_Name -- Returns with the filename associate with the file object.        *
  *                                                                                             *
@@ -199,7 +197,5 @@ inline char const * RawFileClass::File_Name(void) const
 {
 	return(Filename);
 }
-
-
 
 #endif

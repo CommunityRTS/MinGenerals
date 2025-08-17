@@ -84,5 +84,4 @@ public:
 
 };
 
-
 #endif  // end __OBJECT_DEFECTION_HELPER_H_

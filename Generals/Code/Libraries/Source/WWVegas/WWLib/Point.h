@@ -107,13 +107,10 @@ TPoint2D<T> const operator * (T lvalue, TPoint2D<T> const & rvalue)
 	return(rvalue * lvalue);
 }
 
-
 /*
 **	This typedef provides an uncluttered type name for use by simple integer points.
 */
 typedef TPoint2D<int> Point2D;
-
-
 
 /*
 **	This describes a point in 3 dimensional space using arbitrary
@@ -191,12 +188,10 @@ TPoint3D<T> const operator * (T lvalue, TPoint3D<T> const & rvalue)
 	return(rvalue * lvalue);
 }
 
-
 /*
 **	This typedef provides a simple uncluttered type name for use by
 **	integer 3D points.
 */
 typedef TPoint3D<int> Point3D;
-
 
 #endif

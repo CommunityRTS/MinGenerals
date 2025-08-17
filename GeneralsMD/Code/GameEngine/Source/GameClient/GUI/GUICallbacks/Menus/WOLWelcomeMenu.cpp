@@ -178,7 +178,6 @@ void updateLocalPlayerScores(AsciiString name, const WOL::Ladder *ladder, const 
 }
 */
 
-
 static void enableControls( Bool state )
 {
 	if (buttonQuickMatch)
@@ -326,7 +325,6 @@ static const char* FindNextNumber( const char* pStart )
 	return pNum;
 }
 
-
 //parse win/loss stats received from GameSpy
 void HandleOverallStats( const char* szHTTPStats, unsigned len )
 {
@@ -372,7 +370,6 @@ void HandleOverallStats( const char* szHTTPStats, unsigned len )
 	} //for i
 } //HandleOverallStats
 
-
 //called only from WOLWelcomeMenuInit to set %win stats
 static void updateOverallStats(void)
 {
@@ -394,7 +391,6 @@ static void updateOverallStats(void)
 //x		DEBUG_LOG(("Initialized win percent: %s -> %s %f=%s\n", wndName.str(), it->first.str(), it->second, percStr.str() ));
 	} //for
 } //updateOverallStats
-
 
 //-------------------------------------------------------------------------------------------------
 /** Handle player stats */
@@ -595,10 +591,8 @@ void WOLWelcomeMenuShutdown( WindowLayout *layout, void *userData )
 	TheShell->reverseAnimatewindow();
 	TheTransitionHandler->reverse("WOLWelcomeMenuFade");
 
-
 	RaiseGSMessageBox();
 }  // WOLWelcomeMenuShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Welcome Menu update method */
@@ -760,7 +754,6 @@ WindowMsgHandledType WOLWelcomeMenuSystem( GameWindow *window, UnsignedInt msg,
 	switch( msg )
 	{
 
-
 		case GWM_CREATE:
 			{
 
@@ -856,7 +849,6 @@ WindowMsgHandledType WOLWelcomeMenuSystem( GameWindow *window, UnsignedInt msg,
 					//peerListGroupRooms(TheGameSpyChat->getPeer(), ListGroupRoomsCallback, NULL, PEERTrue);
 					TheGameSpyInfo->joinBestGroupRoom();
 					enableControls( FALSE );
-
 
 					/*
 					TheWOL->setScreen(WOL::WOLAPI_MENU_CUSTOMLOBBY);

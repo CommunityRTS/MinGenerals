@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // SidesList.h
 // Class to encapsulate Sides and Build Lists for maps.
 // Author: John Ahlquist, November 2001
@@ -89,7 +88,6 @@ public:
 	void init(const Dict* d) { m_dict.clear(); if (d) m_dict = *d; }
 	void clear() { init(NULL); }
 };
-
 
 // ----------------------------------------------------------------------------------------------
 // a wrapper class to make this a little cleaner.
@@ -205,7 +203,6 @@ protected:
 	Bool validateAllyEnemyList(const AsciiString& tname, AsciiString& allies);
 };
 
-
 inline TeamsInfo * SidesList::getTeamInfo(Int team)
 {
 	return m_teamrec.getTeamInfo(team);
@@ -238,10 +235,8 @@ inline SidesInfo * SidesList::getSkirmishSideInfo(Int side)
 	return NULL;
 }
 
-
 // ----------------------------------------------------------------------------------------------
 extern SidesList *TheSidesList;	 ///< singleton instance of SidesList
-
 
 // ----------------------------------------------------------------------------------------------
 /**
@@ -290,7 +285,6 @@ protected:
 	Bool			m_unsellable;
 	Bool			m_repairable;
 	Bool			m_automaticallyBuild;			///< If true, the ai will build.  If false, script has to enable this.
-
 
 	// For WorldBuilder use only:
 	RenderObjClass	*m_renderObj;				///< object that renders in the 3d scene.
@@ -390,7 +384,6 @@ inline Bool BuildListInfo::isBuildable( void )
 
 	return false;
 }
-
 
 #endif
 

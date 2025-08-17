@@ -40,7 +40,6 @@
 
 #include <stdarg.h>
 
-
 class ErrorClass
 {
 public:
@@ -83,6 +82,5 @@ inline ErrorClass & ErrorClass::operator = (const ErrorClass & that)
 
 	return *this;
 }
-
 
 #endif //ERRCLASS_H

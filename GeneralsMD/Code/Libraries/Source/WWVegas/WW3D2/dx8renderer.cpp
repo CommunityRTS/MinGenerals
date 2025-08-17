@@ -173,9 +173,7 @@ private:
 
 DEFINE_AUTO_POOL(MatPassTaskClass, 256);
 
-
 // ----------------------------------------------------------------------------
-
 
 inline static bool Equal_Material(const VertexMaterialClass* mat1,const VertexMaterialClass* mat2)
 {
@@ -183,7 +181,6 @@ inline static bool Equal_Material(const VertexMaterialClass* mat1,const VertexMa
 	int crc1 = mat2 ? mat2->Get_CRC() : 0;
 	return (crc0 == crc1);
 }
-
 
 DX8TextureCategoryClass::DX8TextureCategoryClass(
 	DX8FVFCategoryContainer* container_,
@@ -257,7 +254,6 @@ void DX8TextureCategoryClass::Remove_Polygon_Renderer(DX8PolygonRendererClass* p
 		texture_category_delete_list.Add_Tail(this);
 	}
 }
-
 
 void DX8FVFCategoryContainer::Remove_Texture_Category(DX8TextureCategoryClass* tex_category)
 {
@@ -363,7 +359,6 @@ void DX8RigidFVFCategoryContainer::Render_Delayed_Procedural_Material_Passes(voi
 
 	delayed_matpass_head = delayed_matpass_tail = NULL;
 }
-
 
 void DX8TextureCategoryClass::Log(bool only_visible)
 {
@@ -1063,7 +1058,6 @@ void DX8RigidFVFCategoryContainer::Add_Mesh(MeshModelClass* mmc_)
 		vb+=fi.Get_FVF_Size();
 	}
 
-
 	/*
 	** Append the UV coordinates to the vertex buffer
 	*/
@@ -1343,7 +1337,6 @@ void DX8SkinFVFCategoryContainer::Render(void)
 					continue;
 				}
 
-
 		// If this assert hits, a skinned mesh has probably been added to the scene more than once.
 		// Example: A skinned mesh was added to the scene then it was attached to a bone without being removed from the scene.
 		WWASSERT((vertex_offset+mesh_vertex_count)<=VisibleVertexCount);
@@ -1433,7 +1426,6 @@ void DX8SkinFVFCategoryContainer::Render(void)
 
 	WWASSERT(renderedVertexCount==VisibleVertexCount);
 
-
 	clearVisibleSkinList();
 }
 
@@ -1476,7 +1468,6 @@ void DX8SkinFVFCategoryContainer::Add_Visible_Skin(MeshClass * mesh)
 	VisibleSkinHead = mesh;
 	VisibleVertexCount += mesh->Peek_Model()->Get_Vertex_Count();
 }
-
 
 // ----------------------------------------------------------------------------
 
@@ -1728,7 +1719,6 @@ void DX8TextureCategoryClass::Render(void)
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_DESTCOLOR);
 	}
 
-
 	bool renderTasksRemaining=false;
 
 	PolyRenderTaskClass * prt = render_task_head;
@@ -1855,7 +1845,6 @@ void DX8TextureCategoryClass::Render(void)
 			identity=true;
 		}
 
-
 		if (identity) {
 			SNAPSHOT_SAY(("Set_World_Identity\n"));
 			DX8Wrapper::Set_World_Identity();
@@ -1864,7 +1853,6 @@ void DX8TextureCategoryClass::Render(void)
 			SNAPSHOT_SAY(("Set_World_Transform\n"));
 			DX8Wrapper::Set_Transform(D3DTS_WORLD,*world_transform);
 		}
-
 
 //--------------------------------------------------------------------
 		if (mesh->Get_ObjectScale() != 1.0f)
@@ -1935,9 +1923,6 @@ void DX8TextureCategoryClass::Render(void)
 			DX8Wrapper::Set_DX8_Render_State(D3DRS_NORMALIZENORMALS, FALSE);
 //--------------------------------------------------------------------
 
-
-
-
         } // (gth) non-tabbed to aviod per-force merge problems...
 
 		/*
@@ -1961,7 +1946,6 @@ void DX8TextureCategoryClass::Render(void)
 		Clear_Render_List();
 	}
 }
-
 
 DX8MeshRendererClass::DX8MeshRendererClass()
 	:
@@ -2048,7 +2032,6 @@ void DX8MeshRendererClass::Unregister_Mesh_Type(MeshModelClass* mmc)
 	}
 
 }
-
 
 void DX8MeshRendererClass::Register_Mesh_Type(MeshModelClass* mmc)
 {
@@ -2140,7 +2123,6 @@ void DX8MeshRendererClass::Request_Log_Statistics()
 	statistics_requested=WW3D::Get_Frame_Count();
 }
 
-
 // ---------------------------------------------------------------------------
 //
 // Render all meshes that are added to visible lists
@@ -2201,7 +2183,6 @@ void DX8MeshRendererClass::Flush(void)
 	DX8Wrapper::Set_Vertex_Buffer(NULL);
 	DX8Wrapper::Set_Index_Buffer(NULL,0);
 }
-
 
 void DX8MeshRendererClass::Add_To_Render_List(DecalMeshClass * decalmesh)
 {
@@ -2275,10 +2256,4 @@ void DX8MeshRendererClass::Invalidate( bool shutdown)
 
 	texture_category_container_lists_rigid.Delete_All();
 }
-
-
-
-
-
-
 

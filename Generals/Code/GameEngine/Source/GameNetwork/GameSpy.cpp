@@ -128,7 +128,6 @@ void GameSpyThreadClass::setShowLocaleSelect( Bool val )
 
 void createRoomCallback(PEER peer, PEERBool success, PEERJoinResult result, RoomType roomType, void *param);
 
-
 class GameSpyChat : public GameSpyChatInterface
 {
 public:
@@ -463,11 +462,6 @@ void GameSpyChat::disconnectFromChat( void )
 	TheGameSpyGame = NULL;
 }
 
-
-
-
-
-
 //-----------------------------------------------------------------------
 
 void DisconnectedCallback(PEER peer, const char * reason,
@@ -680,7 +674,6 @@ static void PlayerUTMCallback(PEER peer, const char * nick,
 				AsciiString options = parameters;
 				options.trim();
 
-
 				Bool change = false;
 				Bool shouldUnaccept = false;
 				AsciiString key;
@@ -796,7 +789,6 @@ static void PlayerUTMCallback(PEER peer, const char * nick,
 						slot->getColor(), slot->getPlayerTemplate(), slot->getStartPos(), slot->getTeamNumber(), slot->getIP()));
 					DEBUG_LOG(("Slot list updated to %s\n", GameInfoToAsciiString(TheGameSpyGame).str()));
 				}
-
 
 			}
 		}
@@ -1059,7 +1051,6 @@ void createRoomCallback(PEER peer, PEERBool success, PEERJoinResult result, Room
 
 			TheGameSpyGame->adjustSlotsForMap(); // BGC- adjust the slots for the new map.
 		}
-
 
 		// change to the proper screen
 		TheShell->pop();

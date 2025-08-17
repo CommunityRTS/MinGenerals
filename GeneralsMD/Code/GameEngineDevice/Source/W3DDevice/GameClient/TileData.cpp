@@ -29,8 +29,6 @@
 #include "W3DDevice/GameClient/TileData.h"
 #include "W3DDevice/GameClient/WorldHeightMap.h"
 
-
-
 //
 // TileData - no destructor.
 //
@@ -83,7 +81,6 @@ void TileData::updateMips(void)
 	doMip(m_tileDataMip4, TILE_PIXEL_EXTENT_MIP4, m_tileDataMip2);
 	doMip(m_tileDataMip2, TILE_PIXEL_EXTENT_MIP5, m_tileDataMip1);
 }
-
 
 void TileData::doMip(UnsignedByte *pHiRes, Int hiRow, UnsignedByte *pLoRes)
 {

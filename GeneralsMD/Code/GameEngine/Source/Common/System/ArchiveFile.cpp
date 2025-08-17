@@ -33,7 +33,6 @@
 #include "Common/File.h"
 #include "Common/PerfTimer.h"
 
-
 // checks to see if str matches searchString.  Search string is done in the
 // using * and ? as wildcards. * is used to denote any number of characters,
 // and ? is used to denote a single wildcard character.

@@ -36,14 +36,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef __PRESET_EXPORT_OPTIONS_DIALOG_H
 #define __PRESET_EXPORT_OPTIONS_DIALOG_H
 
 #include <windows.h>
 #include <max.h>
 #include "w3dutil.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -59,7 +57,6 @@ public:
 	//////////////////////////////////////////////////////////////////
 	PresetExportOptionsDialogClass (Interface *maxinterface, HWND parent_wnd = NULL);
 	~PresetExportOptionsDialogClass (void);
-
 
 	//////////////////////////////////////////////////////////////////
 	//	Public methods
@@ -84,7 +81,6 @@ private:
 		PANE_MESH,
 		PANE_MAX
 	};
-
 
 	//////////////////////////////////////////////////////////////////
 	//	Static methods
@@ -118,7 +114,6 @@ private:
 	HWND								PaneWnds[PANE_MAX];
 	int								CurrentPane;
 };
-
 
 #endif //__PRESET_EXPORT_OPTIONS_DIALOG_H
 

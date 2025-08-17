@@ -16,8 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-
 #ifndef __SIMPLE_DEFINITION_FACTORY_H
 #define __SIMPLE_DEFINITION_FACTORY_H
 

@@ -125,7 +125,6 @@ public:
 																				BodyDamageType oldState,
 																				BodyDamageType newState){};  ///< state change callback
 
-
 	// our object changed position... react as appropriate.
 	virtual void containReactToTransformChange();
 
@@ -177,7 +176,6 @@ public:
 	virtual ExitDoorType reserveDoorForExit( const ThingTemplate* objType, Object *specificObject ) { return DOOR_1; }
 	virtual void exitObjectViaDoor( Object *newObj, ExitDoorType exitDoor );
 	virtual void exitObjectInAHurry( Object *newObj );
-
 
 	virtual void unreserveDoorForExit( ExitDoorType exitDoor ) { /*nothing*/ }
 	virtual void exitObjectByBudding( Object *newObj, Object *budHost ) { return; };

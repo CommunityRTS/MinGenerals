@@ -65,7 +65,6 @@ public:
 
 protected:
 
-
 	void cullFrontOfList();
 	Bool considerDying();
 
@@ -77,7 +76,6 @@ protected:
 	ObjectID m_targetObject;///< Need to insert a hole if target changes, so track target ID and target position
 	Coord3D m_targetPosition;
 };
-
 
 #endif
 

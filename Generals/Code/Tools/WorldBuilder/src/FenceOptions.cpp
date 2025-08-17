@@ -51,10 +51,8 @@ Int FenceOptions::m_currentObjectIndex=-1;
 Real FenceOptions::m_fenceSpacing=1;
 Real FenceOptions::m_fenceOffset=0;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // FenceOptions dialog
-
 
 FenceOptions::FenceOptions(CWnd* pParent /*=NULL*/)
 {
@@ -65,7 +63,6 @@ FenceOptions::FenceOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 FenceOptions::~FenceOptions(void)
 {
 	if (m_objectsList) {
@@ -74,7 +71,6 @@ FenceOptions::~FenceOptions(void)
 	m_objectsList = NULL;
 }
 
-
 void FenceOptions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -82,7 +78,6 @@ void FenceOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(FenceOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(FenceOptions)
@@ -129,7 +124,6 @@ void FenceOptions::updateObjectOptions()
 	}
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // FenceOptions message handlers
 
@@ -165,7 +159,6 @@ BOOL FenceOptions::OnInitDialog()
 
 	}  // end for tTemplate
 
-
 	CWnd *pWnd = GetDlgItem(IDC_OBJECT_HEIGHT_EDIT);
 	if (pWnd) {
 		CString s;
@@ -191,7 +184,6 @@ BOOL FenceOptions::OnInitDialog()
 		index++;
 		pMap = pMap->getNext();
 	}
-
 
 	m_staticThis = this;
 	m_updating = false;
@@ -357,7 +349,6 @@ Bool FenceOptions::setObjectTreeViewSelection(HTREEITEM parent, Int selection)
 	return(false);
 }
 
-
 BOOL FenceOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
 	NMTREEVIEW *pHdr = (NMTREEVIEW *)lParam;
@@ -397,9 +388,6 @@ BOOL FenceOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 
 	return CDialog::OnNotify(wParam, lParam, pResult);
 }
-
-
-
 
 void FenceOptions::OnChangeFenceSpacingEdit()
 {

@@ -232,7 +232,6 @@ public:
 
 	virtual void setGuardBandBias( const Coord2D *gb ) { m_guardBandBias.x = gb->x; m_guardBandBias.y = gb->y; }
 
-
 private:
 
 	CameraClass *m_3DCamera;												///< camera representation for 3D scene
@@ -241,7 +240,6 @@ private:
 	enum FilterTypes m_viewFilter;
 	Bool m_isWireFrameEnabled;
 	Bool m_nextWireFrameEnabled;											///< used to delay wireframe changes by 1 frame (needed for transitions).
-
 
 	Coord2D m_shakeOffset;													///< the offset to add to the camera position
 	Real m_shakeAngleCos;														///< the cosine of the orientation of the oscillation

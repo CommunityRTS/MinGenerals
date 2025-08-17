@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -194,7 +193,6 @@ protected:
 	friend class AABTreeIterator;
 };
 
-
 /**
 ** AABTreeIterator
 ** This iterator allows the user to walk a tree.  It can return the index of the current
@@ -225,7 +223,6 @@ private:
 
 };
 
-
 /**
 ** TypedAABTreeCullSystemClass
 ** This template adds type-safety to an AABTree.  It allows you to create trees
@@ -243,9 +240,6 @@ public:
 	T *					Peek_First_Collected_Object(void)	{ return (T*)Peek_First_Collected_Object_Internal(); }
 	T *					Peek_Next_Collected_Object(T * obj)	{ return (T*)Peek_Next_Collected_Object_Internal(obj); }
 };
-
-
-
 
 /**
 ** AABTreeNodeClass - the aab-tree is built out of these objects
@@ -324,7 +318,6 @@ public:
 	void						Compute_Score(SplitChoiceStruct * sc,SimpleDynVecClass<AABoxClass> & boxes);
 };
 
-
 /*
 ** AABTreeLinkClass
 ** This structure is used to link objects into an AAB-Tree culling system.
@@ -337,8 +330,5 @@ public:
 	AABTreeNodeClass *				Node;					// partition node containing this object
 	CullableClass *					NextObject;			// next object in the node
 };
-
-
-
 
 #endif // AABTREECULL_H

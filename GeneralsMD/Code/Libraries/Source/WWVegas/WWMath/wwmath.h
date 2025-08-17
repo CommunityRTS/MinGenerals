@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -87,7 +86,6 @@
 #define DEG_TO_RADF(x)	(((float)x)*WWMATH_PI/180.0f)
 #endif
 
-
 const int ARC_TABLE_SIZE=1024;
 const int SIN_TABLE_SIZE=1024;
 extern float _FastAcosTable[ARC_TABLE_SIZE];
@@ -134,7 +132,6 @@ static float Inv_Sqrt(float a);
 static long	Float_To_Long(float f);
 #endif
 
-
 static WWINLINE float Fast_Sin(float val);
 static WWINLINE float Fast_Inv_Sin(float val);
 static WWINLINE float Fast_Cos(float val);
@@ -144,7 +141,6 @@ static WWINLINE float Fast_Acos(float val);
 static WWINLINE float Acos(float val);
 static WWINLINE float Fast_Asin(float val);
 static WWINLINE float Asin(float val);
-
 
 static float		Atan(float x) { return static_cast<float>(atan(x)); }
 static float		Atan2(float y,float x) { return static_cast<float>(atan2(y,x)); }
@@ -276,7 +272,6 @@ WWINLINE double WWMath::Lerp(double a, double b, float lerp )
 {
 	return (a + (b - a)*lerp);
 }
-
 
 WWINLINE bool WWMath::Is_Valid_Float(float x)
 {
@@ -426,7 +421,6 @@ WWINLINE float WWMath::Fast_Inv_Sin(float val)
 	return 1.0f / WWMath::Fast_Sin(val);
 #endif
 }
-
 
 // ----------------------------------------------------------------------------
 // Fast, table based cos
@@ -653,6 +647,5 @@ WWINLINE float WWMath::Inv_Sqrt(float val)
 	return 1.0f / (float)sqrt(val);
 }
 #endif
-
 
 #endif

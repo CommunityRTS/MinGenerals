@@ -40,7 +40,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(SelectMacrotexture)
@@ -51,7 +50,6 @@ public:
 
 protected:
 	CTreeCtrl		m_textureTreeView;
-
 
 // Implementation
 protected:

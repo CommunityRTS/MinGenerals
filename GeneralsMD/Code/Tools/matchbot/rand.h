@@ -28,7 +28,6 @@ public:
 	~RandClass()
 	{}
 
-
 	int Int(void);
 	double Double(void);
 	int Int(int low, int high);

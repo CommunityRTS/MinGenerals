@@ -439,7 +439,6 @@ UpdateSleepTime DockUpdate::update()
 		}
 	}
 
-
 	return UPDATE_SLEEP_NONE;
 }
 

@@ -105,7 +105,6 @@ void CleanupAreaPower::doSpecialPowerAtLocation( const Coord3D *loc, UnsignedInt
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CleanupAreaPower::crc( Xfer *xfer )
 {

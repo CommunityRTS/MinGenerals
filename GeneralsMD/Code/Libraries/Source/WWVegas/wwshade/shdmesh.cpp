@@ -135,7 +135,6 @@ int ShdMeshClass::Get_Num_Vertices(void) const
 	return count;
 }
 
-
 void ShdMeshClass::Render(RenderInfoClass& rinfo)
 {
 	WWPROFILE("ShdMeshClass::Render");
@@ -172,7 +171,6 @@ void ShdMeshClass::Render(RenderInfoClass& rinfo)
 		Unset_Is_Applying_Shadow_Map();
 	}
 
-
 	// TODO: What to do with SKINS?
 	if (1)//CollisionMath::Overlap_Test(frustum,Get_Bounding_Box())!=CollisionMath::OUTSIDE )
 	{
@@ -191,7 +189,6 @@ void ShdMeshClass::Render(RenderInfoClass& rinfo)
 
 		// TODO: RendererDebugger
 	}
-
 
 }
 
@@ -538,8 +535,6 @@ void ShdMeshClass::Init_From_Legacy_Mesh(MeshClass* mesh)
 	Set_Translucent(mesh->Is_Translucent());
 }
 
-
-
 /***********************************************************************************************
  * ShdMeshClass::Load -- creates a shader mesh out of a shader mesh chunk in a .w3d file       *
  *                                                                                             *
@@ -599,7 +594,6 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 	// Flags (todo)
 
 	// user text
-
 
 	// next are the sub meshes
 	Free();
@@ -667,7 +661,6 @@ WW3DErrorType ShdMeshClass::Load_W3D(ChunkLoadClass& cload)
 
 	return WW3D_ERROR_OK;
 }
-
 
 int ShdMeshClass::Get_Sub_Mesh_Count(void) const
 {

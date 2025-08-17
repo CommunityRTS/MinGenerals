@@ -110,7 +110,6 @@ public:
 	void read(ChunkInputStream &in);
 };
 
-
 //----------------------------------------------------------------------
 // DataChunkOutput
 //----------------------------------------------------------------------
@@ -219,7 +218,6 @@ public:
 	unsigned int getChunkDataSize( void );					// return size of data stored in this chunk
 	unsigned int getChunkDataSizeLeft( void );			// return size of data left to read in this chunk
 
-
 	Real readReal(void);
 	Int readInt(void);
 	Byte readByte(void);
@@ -229,7 +227,5 @@ public:
 	Dict readDict(void);
 	void readArrayOfBytes(char *ptr, Int len);
 };
-
-
 
 #endif // _DATA_CHUNK_H_

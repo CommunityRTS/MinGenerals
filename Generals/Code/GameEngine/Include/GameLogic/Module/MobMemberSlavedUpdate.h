@@ -78,7 +78,6 @@ public:
 	}
 };
 
-
 enum MobStates
 {
 	MOB_STATE_NONE,
@@ -113,7 +112,6 @@ public:
 
 	void setMobState( MobStates state ) { m_mobState = state; };
 	MobStates getMobState( void ) { return m_mobState; };
-
 
 	virtual UpdateSleepTime update();	///< Deciding whether or not to make new guys
 

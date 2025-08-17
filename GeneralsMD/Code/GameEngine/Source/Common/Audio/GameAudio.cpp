@@ -142,7 +142,6 @@ static const FieldParse audioSettingsFieldParseTable[] =
 // Singleton TheAudio /////////////////////////////////////////////////////////////////////////////
 AudioManager *TheAudio = NULL;
 
-
 // AudioManager Device Independent functions //////////////////////////////////////////////////////
 AudioManager::AudioManager() :
 	m_soundOn(TRUE),
@@ -361,7 +360,6 @@ void AudioManager::update()
 	//Viola! A properly placed microphone.
 	setListenerPosition( &microphonePos, &lookTo );
 
-
 	//Now determine if we would like to boost the volume based on the camera being close to the microphone!
 	Real maxBoostScalar = TheAudio->getAudioSettings()->m_zoomSoundVolumePercentageAmount;
 	Real minDist = TheAudio->getAudioSettings()->m_zoomMinDistance;
@@ -448,7 +446,6 @@ AudioHandle AudioManager::addAudioEvent(const AudioEventRTS *eventToAdd)
 	if (getDisallowSpeech() && eventToAdd->getAudioEventInfo()->m_soundType == AT_Streaming) {
 		return AHSV_NoSound;
 	}
-
 
 	AudioEventRTS *audioEvent = MSGNEW("AudioEventRTS") AudioEventRTS(*eventToAdd);		// poolify
 	audioEvent->setPlayingHandle( allocateNewHandle() );

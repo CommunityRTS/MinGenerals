@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef HLODSAVE_H
 #define HLODSAVE_H
 
@@ -48,10 +47,8 @@
 #include "chunkio.h"
 #include "meshcon.h"
 
-
 class INodeListClass;
 class MeshConnectionsClass;
-
 
 /**
 ** HLodSaveClass
@@ -67,7 +64,6 @@ public:
 	~HLodSaveClass (void);
 
 	bool Save (ChunkSaveClass &csave);
-
 
 protected:
 
@@ -123,7 +119,5 @@ protected:
 	HLodArrayEntry							aggregate_array;
 	HLodArrayEntry							proxy_array;
 };
-
-
 
 #endif

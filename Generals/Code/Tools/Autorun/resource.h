@@ -18,7 +18,6 @@
 #define IDD_PREVIEWS										113
 #define IDD_HELP												114
 
-
 #define IDS_VERSION_STRING              120
 #define IDS_CANT_FIND_FILE              121
 

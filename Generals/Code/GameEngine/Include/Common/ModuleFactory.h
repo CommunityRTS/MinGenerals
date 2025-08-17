@@ -90,7 +90,6 @@ public:
 
 protected:
 
-
 	class ModuleTemplate
 	{
 	public:

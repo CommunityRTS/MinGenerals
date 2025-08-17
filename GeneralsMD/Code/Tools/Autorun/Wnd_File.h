@@ -58,7 +58,6 @@
 #define ASSERT(x)  		assert(x)
 #define VERIFY(X)		assert(X)
 
-
 //------------------------------------------------------------------------------
 // defines...
 //------------------------------------------------------------------------------
@@ -85,14 +84,11 @@
 #define INVALID_FILE_HANDLE			INVALID_HANDLE_VALUE
 #define MAX_PATH_SIZE				_MAX_PATH
 
-
 #define STRING_IT(a) #a
 #define TOKEN_IT(a) STRING_IT(,##a)
 #define MESSAGE(a) message (__FILE__ "(" TOKEN_IT(__LINE__) ") : " a)
 
 //#pragma MESSAGE("What does it do?")
-
-
 
 #ifdef _DEBUG
 void __cdecl Msg( int line, char *file, char *fmt, ... );
@@ -102,7 +98,6 @@ void 	Delete_Msg_File( void );
 #define Msg
 #define Delete_Msg_File()
 #endif
-
 
 //------------------------------------------------------------------------------
 // file class definition

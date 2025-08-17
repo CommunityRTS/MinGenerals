@@ -255,5 +255,4 @@ void ImageCollection::load( Int textureSize )
 
 	ini.loadDirectory("Data\\INI\\MappedImages\\HandCreated", TRUE, INI_LOAD_OVERWRITE, NULL );
 
-
 }  // end load

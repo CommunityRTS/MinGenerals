@@ -220,8 +220,6 @@ void W3DGadgetRadioButtonDraw( GameWindow *window, WinInstanceData *instData )
 	TheWindowManager->winFillRect( backColor, WIN_DRAW_LINE_WIDTH,
 																 start.x, start.y, end.x, end.y );
 
-
-
 	// draw box border
 	start.x = origin.x + size.y;
 	start.y = origin.y;
@@ -257,10 +255,7 @@ void W3DGadgetRadioButtonDraw( GameWindow *window, WinInstanceData *instData )
 	if( instData->getTextLength() )
 		drawRadioButtonText( window, instData );
 
-
-
 }  // end W3DGadgetRadioButtonDraw
-
 
 void W3DGadgetRadioButtonImageDraw( GameWindow *window,
 																	WinInstanceData *instData )
@@ -332,8 +327,6 @@ void W3DGadgetRadioButtonImageDraw( GameWindow *window,
 	rightStart.x = origin.x + size.x - rightSize.x + xOffset;
 	rightStart.y = origin.y  + size.y + yOffset;
 
-
-
 	// draw the center repeating bar
 	Int centerWidth, pieces;
 
@@ -352,7 +345,6 @@ void W3DGadgetRadioButtonImageDraw( GameWindow *window,
 	clipLeft.lo.y = origin.y;
 	clipLeft.hi.y = leftEnd.y;
 	clipLeft.hi.x = rightStart.x	;
-
 
 	TheDisplay->setClipRegion(&clipLeft);
 
@@ -381,7 +373,6 @@ void W3DGadgetRadioButtonImageDraw( GameWindow *window,
 	// draw the text
 	if( instData->getTextLength() )
 		drawRadioButtonText( window, instData );
-
 
 }  // end W3DGadgetHorizontalSliderImageDraw
 

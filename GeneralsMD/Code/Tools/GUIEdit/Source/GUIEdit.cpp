@@ -466,7 +466,6 @@ GUIEdit::~GUIEdit( void )
 //		TheIMEManager = NULL;
 //	}
 
-
 	// all the shutdown routine
 	shutdown();
 
@@ -699,7 +698,6 @@ void GUIEdit::shutdown( void )
 	delete TheArchiveFileSystem;
 	TheArchiveFileSystem = NULL;
 
-
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	// delete the hierarchy view
@@ -710,10 +708,8 @@ void GUIEdit::shutdown( void )
 	delete TheEditWindow;
 	TheEditWindow = NULL;
 
-
 	delete TheKeyboard;
 	TheKeyboard = NULL;
-
 
 }  // end shutdown
 
@@ -1619,7 +1615,6 @@ GameWindow *GUIEdit::newPushButton( GameWindow *parent,
 																									 NULL,
 																									 TRUE );
 
-
 	// set default colors based on the default scheme
 	if( window )
 	{
@@ -1985,8 +1980,6 @@ GameWindow *GUIEdit::newTabControl( GameWindow *parent,
 		GadgetTabControlSetEnabledColorBackground( window, info->color );
 		GadgetTabControlSetEnabledBorderColorBackground( window, info->borderColor );
 
-
-
 		info = TheDefaultScheme->getImageAndColor( TC_TAB_0_DISABLED );
 		GadgetTabControlSetDisabledImageTabZero( window, info->image );
 		GadgetTabControlSetDisabledColorTabZero( window, info->color );
@@ -2031,9 +2024,6 @@ GameWindow *GUIEdit::newTabControl( GameWindow *parent,
 		GadgetTabControlSetDisabledImageBackground( window, info->image );
 		GadgetTabControlSetDisabledColorBackground( window, info->color );
 		GadgetTabControlSetDisabledBorderColorBackground( window, info->borderColor );
-
-
-
 
 		info = TheDefaultScheme->getImageAndColor( TC_TAB_0_HILITE );
 		GadgetTabControlSetHiliteImageTabZero( window, info->image );
@@ -2502,7 +2492,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 	comboData->listboxData = new ListboxData;
 	memset ( comboData->listboxData, 0, sizeof(ListboxData));
 
-
 	//initialize combo box data
 	comboData->isEditable = TRUE;
 	comboData->maxChars = 16;
@@ -2517,7 +2506,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 	comboData->entryData->alphaNumericalOnly = FALSE;
 	comboData->entryData->aSCIIOnly = FALSE;
 	comboData->entryData->numericalOnly = FALSE;
-
 
 	//initialize listbox data
 	comboData->listboxData->listLength = 10;
@@ -2591,8 +2579,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 		info = TheDefaultScheme->getImageAndColor( COMBOBOX_HILITE_SELECTED_ITEM_SMALL_CENTER );
 		GadgetComboBoxSetHiliteSelectedItemImageSmallCenter( window, info->image );
 
-
-
 		GameWindow *editBox = GadgetComboBoxGetEditBox( window );
 		if(editBox)
 		{
@@ -2629,8 +2615,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 			info = TheDefaultScheme->getImageAndColor( COMBOBOX_EDIT_BOX_HILITE_SMALL_CENTER );
 			GadgetTextEntrySetHiliteImageSmallCenter( editBox, info->image );
 		}
-
-
 
 		GameWindow *listBox = GadgetComboBoxGetListBox( window );
 		if(listBox)
@@ -2860,7 +2844,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 		border = TheDefaultScheme->getDisabledTextBorderColor();
 		window->winSetDisabledTextColors( color, border );
 
-
 		color = TheDefaultScheme->getHiliteTextColor();
 		border = TheDefaultScheme->getHiliteTextBorderColor();
 		window->winSetHiliteTextColors( color, border );
@@ -2880,7 +2863,6 @@ GameWindow *GUIEdit::newComboBox( GameWindow *parent,
 	notifyNewWindow( window );
 
 	return window;
-
 
 } // end newComboBox
 
@@ -4145,7 +4127,6 @@ void GUIEdit::dragMoveSelectedWindows( ICoord2D *dragOrigin,
 		select = select->next;
 
 	}  // end while
-
 
 }  // end dragMoveSelectedWindows
 

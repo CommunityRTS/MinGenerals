@@ -332,7 +332,6 @@ Bool SelectionTranslator::selectFriends( Drawable *draw, GameMessage *createTeam
 
 }  // end selectFriends
 
-
 //-----------------------------------------------------------------------------
 Bool SelectionTranslator::killThemKillThemAll( Drawable *draw, GameMessage *killThemAllMsg )
 {
@@ -408,7 +407,6 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 		{
 			ICoord2D pixel;
 			pixel = msg->getArgument( 0 )->pixel;
-
 
 			// modifier appears to be unused, and the argument doesn't exist.  jba.
 			//Int modifier = msg->getArgument( 1 )->integer;
@@ -834,9 +832,7 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 				if (newDrawablesSelected == 1 && draw)
 				{
 
-
 #if defined(_DEBUG) || defined(_INTERNAL)
-
 
           if (m_HandOfGodSelectionMode && draw)
 					{
@@ -884,7 +880,6 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 
 #endif
 
-
 #if defined(_ALLOW_DEBUG_CHEATS_IN_RELEASE)
           if (m_HandOfGodSelectionMode && draw)
 					{
@@ -899,7 +894,6 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 						break;
 					}
 #endif
-
 
         }
 			}
@@ -1282,7 +1276,6 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 			break;
 		}
 
-
 #if defined(_DEBUG) || defined(_INTERNAL)
 		//-----------------------------------------------------------------------------------------
 		case GameMessage::MSG_META_DEMO_TOGGLE_HAND_OF_GOD_MODE:
@@ -1342,7 +1335,6 @@ GameMessageDisposition SelectionTranslator::translateGameMessage(const GameMessa
 
 	return disp;
 }
-
 
 //Added By Sadullah Nader
 

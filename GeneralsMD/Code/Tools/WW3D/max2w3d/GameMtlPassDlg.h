@@ -34,9 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
-
 #ifndef GAMEMTLPASSDLG_H
 #define GAMEMTLPASSDLG_H
 

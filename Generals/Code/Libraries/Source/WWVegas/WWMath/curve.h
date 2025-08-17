@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -60,7 +59,6 @@
 
 class ChunkLoadClass;
 class ChunkSaveClass;
-
 
 class Curve3DClass : public PersistClass
 {
@@ -104,7 +102,6 @@ protected:
 	DynamicVectorClass<KeyClass>	Keys;
 };
 
-
 class LinearCurve3DClass : public Curve3DClass
 {
 public:
@@ -115,7 +112,6 @@ public:
 	virtual bool								Save(ChunkSaveClass &csave);
 	virtual bool								Load(ChunkLoadClass &cload);
 };
-
 
 /*
 ** 1-Dimensional curve classes.
@@ -163,7 +159,6 @@ protected:
 	DynamicVectorClass<KeyClass>	Keys;
 };
 
-
 class LinearCurve1DClass : public Curve1DClass
 {
 public:
@@ -174,6 +169,5 @@ public:
 	virtual bool								Save(ChunkSaveClass &csave);
 	virtual bool								Load(ChunkLoadClass &cload);
 };
-
 
 #endif //CURVE_H

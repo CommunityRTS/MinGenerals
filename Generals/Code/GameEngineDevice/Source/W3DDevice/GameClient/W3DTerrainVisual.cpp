@@ -306,7 +306,6 @@ Bool W3DTerrainVisual::load( AsciiString filename )
 		pMapObj = pMapObj->getNext();
 	}
 
-
 	RefRenderObjListIterator *it = W3DDisplay::m_3DScene->createLightsIterator();
 	// apply the heightmap to the terrain render object
 	m_terrainRenderObject->initHeightData( m_terrainHeightMap->getDrawWidth(),

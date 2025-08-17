@@ -165,10 +165,8 @@ void GlobalLanguage::init( void )
 		++it;
 	}
 
-
 }
 void GlobalLanguage::reset( void ) {}
-
 
 void GlobalLanguage::parseFontDesc(INI *ini, void *instance, void *store, const void* userData)
 {

@@ -309,7 +309,6 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-
 //
 // Create a primary window
 //
@@ -353,14 +352,11 @@ void CreatePrimaryWin(char *prefix)
 	}
 }
 
-
 //void DestroyPrimaryWin(void)
 //{
 //  DestroyWindow(PrimaryWin);
 //  UnregisterClass(classname);
 //}
-
-
 
 //
 // If given a file, it'll goto it's directory.  If on a diff drive,
@@ -389,11 +385,4 @@ void myChdir(char *path)
 	}
 	// should be in proper folder now....
 }
-
-
-
-
-
-
-
 

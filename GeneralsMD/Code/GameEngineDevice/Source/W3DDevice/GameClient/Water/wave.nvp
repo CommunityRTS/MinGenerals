@@ -50,5 +50,3 @@ mul r0.rgb, t1, v0
 
 #endif
 
-
-

@@ -103,7 +103,6 @@ enum RadiusCursorType
 	RADIUSCURSOR_CLEARMINES,
 	RADIUSCURSOR_AMBULANCE,
 
-
 	RADIUSCURSOR_COUNT	// keep last
 };
 
@@ -314,8 +313,6 @@ public:
 typedef std::list< WorldAnimationData *> WorldAnimationList;
 typedef WorldAnimationList::iterator WorldAnimationListIterator;
 
-
-
 // ------------------------------------------------------------------------------------------------
 /** Basic functionality common to all in-game user interfaces */
 // ------------------------------------------------------------------------------------------------
@@ -487,7 +484,6 @@ public:  // ********************************************************************
 	// INI file parsing
 	virtual const FieldParse* getFieldParse( void ) const { return s_fieldParseTable; }
 
-
 	//Provides a global way to determine whether or not we can issue orders to what we have selected.
 	Bool areSelectedObjectsControllable() const;
 	//Wrapper function that includes any non-attack canSelectedObjectsXXX checks.
@@ -583,7 +579,6 @@ public:
 	void unregisterWindowLayout(WindowLayout *layout); // stop updates for this layout
 
   void triggerDoubleClickAttackMoveGuardHint( void );
-
 
 public:
 	// World 2D animation methods
@@ -683,7 +678,6 @@ protected:
 	void createReplayControl( void );		///< create the replay control window
 
 	void setMouseCursor(Mouse::MouseCursor c);
-
 
 	void addMessageText( const UnicodeString& formattedMessage, const RGBColor *rgbColor = NULL );  ///< internal workhorse for adding plain text for messages
 	void removeMessageAtIndex( Int i );				///< remove the message at index i

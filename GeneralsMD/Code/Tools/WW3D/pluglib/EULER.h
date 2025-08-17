@@ -35,12 +35,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef EULER_H
 #define EULER_H
 
 #include <Max.h>
-
 
 /*********************************************************************
 
@@ -83,7 +81,6 @@ extern int	EulerOrderZXZr;
 extern int	EulerOrderZYXr;
 extern int	EulerOrderZYZr;
 
-
 /*********************************************************************
 
 	EulerAnglesClass
@@ -114,6 +111,5 @@ private:
 	int		Order;
 
 };
-
 
 #endif /*EULER_H*/

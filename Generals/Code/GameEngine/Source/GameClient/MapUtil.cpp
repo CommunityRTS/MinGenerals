@@ -955,8 +955,6 @@ Int populateMapListbox( GameWindow *listbox, Bool useSystemMaps, Bool isMultipla
 	return populateMapListboxNoReset( listbox, useSystemMaps, isMultiplayer, mapToSelect );
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /** Validate a map */
 //-------------------------------------------------------------------------------------------------
@@ -1027,7 +1025,6 @@ static void copyFromBigToDir( const AsciiString& infile, const AsciiString& outf
 	// how big is the map file
 	Int fileSize = file->seek( 0, File::END );
 
-
 	// rewind to beginning of file
 	file->seek( 0, File::START );
 
@@ -1095,7 +1092,6 @@ Image *getMapPreviewImage( AsciiString mapName )
 	name = tempName;
 	name.concat(".tga");
 
-
 	// copy file over
 	// copy source tgaName, to name
 
@@ -1146,8 +1142,6 @@ Image *getMapPreviewImage( AsciiString mapName )
 
 	return image;
 
-
-
 /*
 	// sanity
 	if( mapName.isEmpty() )
@@ -1174,7 +1168,6 @@ Image *getMapPreviewImage( AsciiString mapName )
 	mapPreviewImage->setTextureHeight( size.y );
 	mapPreviewImage->setImageSize( &size );
 
-
 	CachedFileInputStream theInputStream;
 	if (theInputStream.open(AsciiString(mapName.str())))
 	{
@@ -1198,7 +1191,6 @@ Image *getMapPreviewImage( AsciiString mapName )
 		return NULL;
 	}
 
-
 	return mapPreviewImage;
 
 */
@@ -1213,7 +1205,6 @@ Bool parseMapPreviewChunk(DataChunkInput &file, DataChunkInfo *info, void *userD
 	SurfaceClass *surface;
 	size.x = file.readInt();
 	size.y = file.readInt();
-
 
 	surface = (TextureClass *)mapPreviewImage->getRawTextureData()->Get_Surface_Level();
 	//texture->Get_Surface_Level();

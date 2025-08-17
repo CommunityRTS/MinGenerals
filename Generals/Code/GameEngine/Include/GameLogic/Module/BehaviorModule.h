@@ -80,7 +80,6 @@ class WeaponTemplate;
 class DamageInfo;
 class ParticleSystemTemplate;
 
-
 //-------------------------------------------------------------------------------------------------
 class BehaviorModuleData : public ModuleData
 {

@@ -178,7 +178,6 @@ void ThumbnailClass::Init()
 					thumb_file->Read(name,name_len);
 					name[name_len]='\0';
 
-
 					// Make sure the file is available and the timestamp matches
 					file_auto_ptr myfile(_TheFileFactory,name);
 					if (myfile->Is_Available()) {

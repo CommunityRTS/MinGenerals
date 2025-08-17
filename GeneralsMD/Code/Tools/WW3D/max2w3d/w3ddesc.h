@@ -60,5 +60,4 @@ public:
 	const TCHAR *	Category();
 };
 
-
 #endif

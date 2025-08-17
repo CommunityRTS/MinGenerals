@@ -34,12 +34,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "hermitespline.h"
 #include "wwmathids.h"
 #include "persistfactory.h"
 #include "wwhack.h"
-
 
 /*
 ** Force-Link this module because the linker can't detect that we actually need it...
@@ -62,7 +60,6 @@ enum
 	HERMITE1D_CHUNK_CURVE1D					= 0x00020729,
 	HERMITE1D_CHUNK_TANGENTS,
 };
-
 
 /*
 ** Hermite Spline
@@ -267,9 +264,6 @@ bool HermiteSpline3DClass::Load(ChunkLoadClass &cload)
 	WWASSERT(Keys.Count() == Tangents.Count());
 	return true;
 }
-
-
-
 
 /*
 ** 1-Dimensional Hermite Spline

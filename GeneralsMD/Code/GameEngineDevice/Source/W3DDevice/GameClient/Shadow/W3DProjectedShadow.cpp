@@ -121,10 +121,8 @@ int	nShadowDecalVertsInBatch=0;
 int SHADOW_DECAL_VERTEX_SIZE=32768;
 int SHADOW_DECAL_INDEX_SIZE=65536;
 
-
 class W3DShadowTexture;	//forward reference
 class W3DShadowTextureManager;	//forward reference
-
 
 /** This class will manage shadow textures for each render object.  Shadow textures may
 be based on render geometry but don't need to be.  This allows lower detail 'blob' textures
@@ -210,7 +208,6 @@ public:
 	W3DShadowTexture * getCurrentTexture( void ) { 	return (W3DShadowTexture *)Get_Current();}
 };
 
-
 /******************** Start of W3DProjectedShadowManager implementation ***********************/
 W3DProjectedShadowManager::W3DProjectedShadowManager(void)
 {
@@ -258,7 +255,6 @@ Bool W3DProjectedShadowManager::init( void )
 
 	return TRUE;
 }
-
 
 Bool W3DProjectedShadowManager::ReAcquireResources(void)
 {
@@ -361,7 +357,6 @@ Int W3DProjectedShadowManager::renderProjectedTerrainShadow(W3DProjectedShadow *
 	UnsignedByte alpha[4];
 	float UA[4], VA[4];
 	Bool flipForBlend;
-
 
 	#define SHADOW_VOLUME_FVF	D3DFVF_XYZ
 
@@ -515,7 +510,6 @@ Int W3DProjectedShadowManager::renderProjectedTerrainShadow(W3DProjectedShadow *
 		m_pDev->SetRenderState( D3DRS_LIGHTING, FALSE);
 		m_pDev->SetRenderState( D3DRS_SRCBLEND,  D3DBLEND_DESTCOLOR);
 		m_pDev->SetRenderState( D3DRS_DESTBLEND, D3DBLEND_ZERO );
-
 
 		if (DX8Wrapper::_Is_Triangle_Draw_Enabled())
 		{
@@ -674,7 +668,6 @@ void TestBlendRender(RenderInfoClass & rinfo)
 	RenderVBTile(grass,610.0f,450.0f,0.0f,0.75f);
 	RenderVBTile(grass,610.0f,440.0f,0.0f,0.0f);
 
-
 	//snow
 	RenderVBTile(snow,590.0f,480.0f,0.0f,0.0f, B_R);	RenderVBTile(snow,600.0f,480.0f,0.25f,0.0f);	RenderVBTile(snow,610.0f,480.0f,0.5f,0.0f);
 	RenderVBTile(snow,590.0f,470.0f,0.0f,0.25f, B_R);	RenderVBTile(snow,600.0f,470.0f,0.25f,0.25f);	RenderVBTile(snow,610.0f,470.0f,0.5f,0.25f);
@@ -733,7 +726,6 @@ void W3DProjectedShadowManager::flushDecals(W3DShadowTexture *texture, ShadowTyp
 	m_pDev->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR);
 */
 
-
 	m_pDev->SetIndices(shadowDecalIndexBufferD3D,nShadowDecalStartBatchVertex);
 	m_pDev->SetTransform(D3DTS_WORLD,(_D3DMATRIX *)&mWorld);
 
@@ -765,7 +757,6 @@ void W3DProjectedShadowManager::flushDecals(W3DShadowTexture *texture, ShadowTyp
 //	m_pDev->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);	//should reject background pixels
 //	m_pDev->SetRenderState( D3DRS_STENCILENABLE, FALSE );
 //m_pDev->SetRenderState( D3DRS_ALPHABLENDENABLE, TRUE );
-
 
 	//Restore multiplicative sprite shader
 //	m_pDev->SetRenderState(D3DRS_DESTBLEND,D3DBLEND_SRCCOLOR);	//restore W3D state
@@ -1743,10 +1734,8 @@ W3DProjectedShadow* W3DProjectedShadowManager::addShadow(RenderObjClass *robj, S
 	Char	texture_name[64];
 	Int nameLen;
 
-
 	if (!m_dynamicRenderTarget || !robj || !TheGlobalData->m_useShadowDecals)
 		return NULL;	//right now we require hardware render-to-texture support
-
 
 	if (shadowInfo)
 	{
@@ -1986,7 +1975,6 @@ W3DProjectedShadow* W3DProjectedShadowManager::createDecalShadow(Shadow::ShadowT
 	shadow->setTexture(0,st);
 	shadow->m_type = shadowType;		/// type of projection
 	shadow->m_allowWorldAlign=allowWorldAlign;	/// wrap shadow around world geometry - else align perpendicular to local z-axis.
-
 
 	//Check if app is overriding any of the default texture stretch factors.
 	if (decalSizeX)
@@ -2229,7 +2217,6 @@ void W3DProjectedShadow::updateTexture(Vector3 &lightPos)
 	m_shadowTexture[0]->setLightPosHistory(lightPos);	//store position of light at time of texture update.
 
 }
-
 
 void W3DProjectedShadow::updateProjectionParameters(const Matrix3D &cameraXform)
 {

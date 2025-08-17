@@ -58,7 +58,6 @@
 #include <assert.h>
 #include <string.h>		// for memmove
 
-
 #if (_MSC_VER >= 1200)
 #pragma warning (push)
 #pragma warning (disable:4702)	// disabling the "unreachable code" warning.
@@ -90,7 +89,6 @@ protected:
 	T *				Vector;
 	int				VectorMax;
 };
-
 
 /***********************************************************************************************
  * SimpleVecClass<T>::SimpleVecClass -- Constructor                                            *
@@ -237,7 +235,6 @@ inline bool SimpleVecClass<T>::Uninitialised_Grow(int newsize)
 	return true;
 }
 
-
 /**
 ** SimpleDynVecClass
 ** This is also a template designed to work with simple data types.  It is designed to work
@@ -288,7 +285,6 @@ protected:
 
 	int				ActiveCount;
 };
-
 
 /***********************************************************************************************
  * SimpleDynVecClass<T>::SimpleDynVecClass -- Constructor                                      *
@@ -416,7 +412,6 @@ inline T *  SimpleDynVecClass<T>::Add_Multiple( int number_to_add )
 
 	return &Vector[index];
 }
-
 
 /***********************************************************************************************
  * SimpleDynVecClass<T>::Delete -- Delete an item from the array                               *
@@ -608,7 +603,6 @@ inline bool SimpleDynVecClass<T>::Shrink(void)
 	}
 	return true;
 }
-
 
 /***********************************************************************************************
  * SimpleDynVecClass<T>::Find_Index -- Find matching value in the dynamic vector.              *

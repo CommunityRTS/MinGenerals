@@ -52,12 +52,10 @@ public:
 	//
 	void RC4(unsigned char *buffer_ptr, int buffer_len);
 
-
  	//
 	// Copy state & key
 	//
 	RC4Class &operator=(const RC4Class &other);
-
 
 	void Print_State(void);
 

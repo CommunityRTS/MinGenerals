@@ -83,7 +83,6 @@ extern void CreditsMenuShutdown( WindowLayout *layout, void *userData );
 extern WindowMsgHandledType CreditsMenuSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 extern WindowMsgHandledType CreditsMenuInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 
-
 // Score Screen --------------------------------------------------------------------------------
 extern void ScoreScreenInit( WindowLayout *layout, void *userData );
 extern void ScoreScreenUpdate( WindowLayout *layout, void *userData );
@@ -170,7 +169,6 @@ extern WindowMsgHandledType DownloadMenuInput( GameWindow *window, UnsignedInt m
 extern void DifficultySelectInit( WindowLayout *layout, void *userData );
 extern WindowMsgHandledType DifficultySelectSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 extern WindowMsgHandledType DifficultySelectInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
-
 
 //=================================================================================================
 //																				WOL UI																								 //
@@ -310,7 +308,6 @@ extern WindowMsgHandledType IMECandidateWindowInput( GameWindow *window, Unsigne
 extern void IMECandidateMainDraw( GameWindow *window, WinInstanceData *instData );
 extern void IMECandidateTextAreaDraw( GameWindow *window, WinInstanceData *instData );
 
-
 //=================================================================================================
 //																				In Game UI																						 //
 //=================================================================================================
@@ -324,11 +321,9 @@ extern void ToggleControlBar( Bool immediate = TRUE );
 extern void HideControlBar( Bool immediate = TRUE );
 extern void ShowControlBar( Bool immediate = TRUE );
 
-
 // Replay Controls --------------------------------------------------------------------------------
 extern WindowMsgHandledType ReplayControlSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 extern WindowMsgHandledType ReplayControlInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
-
 
 // InGame Chat Controls --------------------------------------------------------------------------------
 extern WindowMsgHandledType InGameChatSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
@@ -346,7 +341,6 @@ void ResetInGameChat( void );
 void SetInGameChatType( InGameChatType chatType );
 Bool IsInGameChatActive();
 
-
 // Diplomacy Controls --------------------------------------------------------------------------------
 WindowMsgHandledType DiplomacySystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 WindowMsgHandledType DiplomacyInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
@@ -357,7 +351,6 @@ void ResetDiplomacy( void );
 // Generals Exp Points  --------------------------------------------------------------------------------
 WindowMsgHandledType GeneralsExpPointsSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 WindowMsgHandledType GeneralsExpPointsInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
-
 
 // IdleWorker Controls --------------------------------------------------------------------------------
 WindowMsgHandledType IdleWorkerSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
@@ -386,7 +379,6 @@ extern WindowMsgHandledType MOTDSystem( GameWindow *window, UnsignedInt msg, Win
 // Message Box --------------------------------------------------------------------------------
 extern WindowMsgHandledType MessageBoxSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 extern WindowMsgHandledType QuitMessageBoxSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
-
 
 #endif // __GUICALLBACKS_H_
 

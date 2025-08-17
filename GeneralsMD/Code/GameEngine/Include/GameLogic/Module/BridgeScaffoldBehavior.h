@@ -113,5 +113,4 @@ protected:
 
 };
 
-
 #endif  // end __BRIDGE_SCAFFOLD_BEHAVIOR_H_

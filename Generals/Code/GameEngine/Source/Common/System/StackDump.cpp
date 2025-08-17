@@ -33,7 +33,6 @@
 #include "Common/StackDump.h"
 #include "Common/Debug.h"
 
-
 //*****************************************************************************
 //	Prototypes
 //*****************************************************************************
@@ -56,14 +55,12 @@ BOOL (__stdcall *gsSymGetLineFromAddr)(
 		OUT PIMAGEHLP_LINE          Line
 			);
 
-
 //*****************************************************************************
 //*****************************************************************************
 void StackDumpDefaultHandler(const char*line)
 {
 	DEBUG_LOG((line));
 }
-
 
 //*****************************************************************************
 //*****************************************************************************
@@ -89,10 +86,8 @@ MYEIP1:
  mov dword ptr [myebp] , eax
 }
 
-
 	MakeStackTrace(myeip,myesp,myebp, 2, callback);
 }
-
 
 //*****************************************************************************
 //*****************************************************************************
@@ -107,7 +102,6 @@ void StackDumpFromContext(DWORD eip,DWORD esp,DWORD ebp, void (*callback)(const 
 
 	MakeStackTrace(eip,esp,ebp, 0,  callback);
 }
-
 
 //*****************************************************************************
 //*****************************************************************************
@@ -131,7 +125,6 @@ BOOL InitSymbolInfo()
 	char drive[10];
 	char directory[_MAX_PATH+1];
 	HANDLE process;
-
 
 	::SymSetOptions(SYMOPT_DEFERRED_LOADS | SYMOPT_UNDNAME | SYMOPT_LOAD_LINES | SYMOPT_OMAP_FIND_NEAREST);
 
@@ -162,7 +155,6 @@ BOOL InitSymbolInfo()
 	return(FALSE);
 }
 
-
 //*****************************************************************************
 //*****************************************************************************
 void UninitSymbolInfo(void)
@@ -176,8 +168,6 @@ void UninitSymbolInfo(void)
 
 	::SymCleanup(GetCurrentProcess());
 }
-
-
 
 //*****************************************************************************
 //*****************************************************************************
@@ -245,14 +235,11 @@ stack_frame.AddrFrame.Offset = myebp;
 											SymGetModuleBase,
 											NULL);
 
-
-
 					if (b_ret) WriteStackLine((void *) stack_frame.AddrPC.Offset, callback);
 					skip--;
 			}
 	}
 }
-
 
 //*****************************************************************************
 //*****************************************************************************
@@ -304,7 +291,6 @@ void GetFunctionDetails(void *pointer, char*name, char*filename, unsigned int* l
 			memset(&line,0,sizeof(line));
 			line.SizeOfStruct = sizeof(line);
 
-
 			if (gsSymGetLineFromAddr(process, (DWORD) pointer, &displacement, &line))
 			{
 				if (filename)
@@ -324,7 +310,6 @@ void GetFunctionDetails(void *pointer, char*name, char*filename, unsigned int* l
     }
 }
 
-
 //*****************************************************************************
 // Gets last x addresses from the stack
 //*****************************************************************************
@@ -333,7 +318,6 @@ void FillStackAddresses(void**addresses, unsigned int count, unsigned int skip)
 	InitSymbolInfo();
 
 	STACKFRAME	stack_frame;
-
 
 	HANDLE thread = GetCurrentThread();
 	HANDLE process = GetCurrentProcess();
@@ -428,8 +412,6 @@ stack_frame.AddrFrame.Offset = myebp;
 */
 }
 
-
-
 //*****************************************************************************
 // Do full stack dump using an address array
 //*****************************************************************************
@@ -448,7 +430,6 @@ void StackDumpFromAddresses(void**addresses, unsigned int count, void (*callback
 		addresses++;
 	}
 }
-
 
 AsciiString g_LastErrorDump;
 //*****************************************************************************
@@ -626,7 +607,6 @@ void DumpExceptionInfo( unsigned int u, EXCEPTION_POINTERS* e_info )
 	DOUBLE_DEBUG ( ( (scrap)));
   DEBUG_LOG(( "********** END EXCEPTION DUMP ****************\n\n" ));
 }
-
 
 #pragma pack(pop)
 

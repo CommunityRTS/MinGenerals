@@ -31,7 +31,6 @@
 
 vs.1.1
 
-
 mov  r2, v1.wwzw    ; move the z value for the tree into r2
 sub  r2, v0, r2     ; subtract the z from the base coordinate.
 mov  a0.x, v1       ; get the index for the wave value.

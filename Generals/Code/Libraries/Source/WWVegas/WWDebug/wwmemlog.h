@@ -36,7 +36,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if _MSC_VER >= 1000
 #pragma once
 #endif
@@ -68,8 +67,6 @@ enum
 
 	MEM_COUNT
 };
-
-
 
 /**
 ** WWMemoryLogClass
@@ -132,8 +129,6 @@ protected:
 	friend class WWMemorySampleClass;
 };
 
-
-
 /**
 ** WWMemorySampleClass
 ** This class is meant to be created and destroyed on the stack to automatically push
@@ -147,8 +142,6 @@ public:
 	~WWMemorySampleClass(void)					{ WWMemoryLogClass::Pop_Active_Category(); }
 };
 
-
-
 /*
 ** Use the WWMEMLOG macro to track all memory allocations within the current scope.
 ** If WWDEBUG is not enabled, memory usage logging will be disabled.
@@ -158,10 +151,5 @@ public:
 #else
 #define	WWMEMLOG( category )
 #endif
-
-
-
-
-
 
 #endif //WWMEMLOG_H

@@ -265,7 +265,6 @@ inline Bool isCommonMaintainFrameFlagSet(Int a, Int b)
 	return (a & b) != 0;
 }
 
-
 /** @todo: Move this to some kind of INI file*/
 //
 // Note: these values are saved in save files, so you MUST NOT REMOVE OR CHANGE
@@ -334,7 +333,6 @@ W3DAnimationInfo& W3DAnimationInfo::operator=(const W3DAnimationInfo &r)
 
 	return (*this);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 // note that this now returns an ADDREFED handle, which must be released by the caller!
@@ -1300,8 +1298,6 @@ void W3DModelDraw::showSubObject( const AsciiString& name, Bool show )
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 static void parseWeaponBoneName(INI* ini, void *instance, void * store, const void* /*userData*/)
 {
@@ -1525,7 +1521,6 @@ void W3DModelDrawModuleData::parseConditionState(INI* ini, void *instance, void 
 				DEBUG_CRASH(("*** ASSET ERROR: duplicate condition states are not currently allowed"));
 				throw INI_INVALID_DATA;
 			}
-
 
 			if (!conditionsYes.any() && self->m_defaultState >= 0)
 			{
@@ -1853,7 +1848,6 @@ void W3DModelDraw::getRenderCost(RenderCost & rc) const
 		m_shadow->getRenderCost(rc);
 }
 #endif //_DEBUG || _INTERNAL
-
 
 /**recurse through sub-objs to collect stats about the rendering cost of this draw module */
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -2417,7 +2411,6 @@ void W3DModelDraw::handleClientTurretPositioning()
 	} // next tslot
 }
 
-
 //void W3DModelDraw::handleClientFlagPositioning()
 //{
 //	const ModelConditionInfo::TurretInfo& tur = m_curState->m_turrets[tslot];
@@ -2611,8 +2604,6 @@ void W3DModelDraw::recalcBonesForClientParticleSystems()
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /*
 	DANGER WARNING READ ME
@@ -2667,9 +2658,6 @@ Bool W3DModelDraw::updateBonesForClientParticleSystems()
 
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 void W3DModelDraw::setTerrainDecal(TerrainDecalType type)
 {
@@ -2721,7 +2709,6 @@ void W3DModelDraw::setTerrainDecalOpacity(Real o)
 		m_terrainDecal->setOpacity((Int)(255.0f * o));
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void W3DModelDraw::nukeCurrentRender(Matrix3D* xform)

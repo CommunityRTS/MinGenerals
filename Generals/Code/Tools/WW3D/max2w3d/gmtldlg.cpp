@@ -67,8 +67,6 @@
 #include "resource.h"
 #include "w3d_file.h"
 
-
-
 static inline float PcToFrac(int pc)
 {
 	return (float)pc/100.0f;
@@ -79,7 +77,6 @@ static inline int FracToPc(float f)
 	if (f<0.0) return (int)(100.0f*f - .5f);
 	else return (int) (100.0f*f + .5f);
 }
-
 
 /***********************************************************************************************
  * GameMtlDlg::GameMtlDlg -- constructor                                                       *
@@ -209,7 +206,6 @@ GameMtlDlg::~GameMtlDlg()
 	HwndNotes = NULL;
 }
 
-
 /***********************************************************************************************
  * GameMtlDlg::ClassID -- Returns the ClassID of GameMtl                                       *
  *                                                                                             *
@@ -288,7 +284,6 @@ void GameMtlDlg::SetTime(TimeValue t)
 		LoadDialog(TRUE);
 	}
 }
-
 
 /***********************************************************************************************
  * GameMtlDlg::PanelProc -- Windows Message handler                                            *
@@ -601,7 +596,6 @@ BOOL GameMtlDlg::PanelProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam 
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * PanelDlgProc -- Windows Proc which thunks into GameMtlDlg::PanelProc                        *
  *                                                                                             *
@@ -672,7 +666,6 @@ BOOL GameMtlDlg::NotesProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * NotesDlgProc -- Dialog Proc which thunks to GameMtlDlg::NotesProc                           *
  *                                                                                             *
@@ -706,7 +699,6 @@ static BOOL CALLBACK NotesDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 	return res;
 }
 
-
 /***********************************************************************************************
  * GameMtlDlg::HintsProc -- Dialog Proc for the hints panel                                    *
  *                                                                                             *
@@ -725,7 +717,6 @@ BOOL GameMtlDlg::HintsProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 	int code = HIWORD(wParam);
 
 	switch (msg) {
-
 
 		case WM_LBUTTONDOWN:
 		case WM_LBUTTONUP:
@@ -765,7 +756,6 @@ BOOL GameMtlDlg::HintsProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * HintsDlgProc -- Dialog proc which thunks to GameMtlDlg::HintsProc                           *
  *                                                                                             *
@@ -798,7 +788,6 @@ static BOOL CALLBACK HintsDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM 
 	theDlg->IsActive = 0;
 	return res;
 }
-
 
 /***********************************************************************************************
  * GameMtlDlg::PsxProc -- Dialog proc for the PSX options panel                                *
@@ -861,7 +850,6 @@ BOOL GameMtlDlg::PsxProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
-
 /***********************************************************************************************
  * PsxDlgProc -- Dialog proc which thunks into GameMtlDlg::PsxProc                             *
  *                                                                                             *
@@ -894,7 +882,6 @@ static BOOL CALLBACK PsxDlgProc(HWND hwndDlg, UINT msg, WPARAM wParam, LPARAM lP
 	theDlg->IsActive = 0;
 	return res;
 }
-
 
 /***********************************************************************************************
  * GameMtlDlg::LoadDialog -- Sets the state of all of the dialog's controls                    *
@@ -1011,7 +998,6 @@ void  GameMtlDlg::LoadDialog(BOOL draw)
 				break;
 		}
 
-
 		/*
 		** Init the Hints state
 		*/
@@ -1046,7 +1032,6 @@ void GameMtlDlg::UpdateMtlDisplay()
 {
 	IParams->MtlChanged();
 }
-
 
 /***********************************************************************************************
  * GameMtlDlg::ActivateDlg -- Activates and deactivates the dialog                             *
@@ -1231,5 +1216,4 @@ void GameMtlDlg::UpdateTexmapDisplay(int i)
 	}
 
 }
-
 

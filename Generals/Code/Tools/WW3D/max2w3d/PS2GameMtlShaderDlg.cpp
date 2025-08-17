@@ -41,12 +41,10 @@
  *   PGMSD::CompareShaderToBlendPreset -- Determine if the settings conform to one of the prese*
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "PS2GameMtlShaderDlg.h"
 #include "GameMtlDlg.h"
 #include "GameMtl.h"
 #include "resource.h"
-
 
 #define NUM_PS2_SHADER_BLEND_PRESETS 7
 
@@ -83,7 +81,6 @@ static const PS2ShaderBlendSettingPreset PS2ShaderBlendSettingPresets[NUM_PS2_SH
 	{PSS_SRC,	PSS_DEST,	PSS_SRC_ALPHA, PSS_DEST,	true,		true},	// Alpha test & blend
 };
 
-
 /***********************************************************************************************
  * PS2GameMtlShaderDlg -- Constructor.                                                         *
  *                                                                                             *
@@ -103,7 +100,6 @@ PS2GameMtlShaderDlg::PS2GameMtlShaderDlg
 {
 	Create_Form(parent, IDD_GAMEMTL_PS2_SHADER);
 }
-
 
 /***********************************************************************************************
  * PGMSD::Dialog_Proc -- Respond to user selections.                                           *
@@ -263,7 +259,6 @@ void PS2GameMtlShaderDlg::ReloadDialog(void)
 	SetCheckBox(m_hWnd,IDC_ALPHATEST_CHECK, TheMtl->Get_Alpha_Test(PassIndex));
 }
 
-
 /***********************************************************************************************
  * PGMSD::Apply_Preset -- Notify the material of the values for the selected setting.          *
  *                                                                                             *
@@ -345,7 +340,6 @@ bool PS2GameMtlShaderDlg::CompareShaderToBlendPreset(const PS2ShaderBlendSetting
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * GameMtlShaderDlg::Set_Advanced_Defaults -- set advanced settings to defaults                *

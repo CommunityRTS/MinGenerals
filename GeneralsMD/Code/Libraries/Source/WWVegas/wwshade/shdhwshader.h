@@ -53,7 +53,6 @@
 #include "shdhw_constants.h"
 #endif
 
-
 class RenderInfoClass;
 class Vector4;
 

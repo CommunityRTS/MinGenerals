@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // PolygonTrigger.h
 // Class to encapsulate polygon triggers for maps.
 // Note - Polygons are used for two reasons - one is area triggers for

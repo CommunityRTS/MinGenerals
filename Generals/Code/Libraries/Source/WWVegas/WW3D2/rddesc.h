@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -59,7 +58,6 @@ public:
 	int			BitDepth;
 	int			RefreshRate;
 };
-
 
 class RenderDeviceDescClass
 {
@@ -150,7 +148,6 @@ private:
 	friend class DX8Wrapper;
 };
 
-
 inline void RenderDeviceDescClass::add_resolution(int w,int h,int bits)
 {
 	bool found = false;
@@ -167,7 +164,6 @@ inline void RenderDeviceDescClass::add_resolution(int w,int h,int bits)
 		ResArray.Add(ResolutionDescClass(w,h,bits));
 	}
 }
-
 
 #endif
 

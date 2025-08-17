@@ -110,7 +110,6 @@ void SlavedUpdate::onSlaverDamage( const DamageInfo *info )
 		ai->aiGoProne( info, CMD_FROM_AI );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SlavedUpdate::update( void )
 {
@@ -172,9 +171,6 @@ UpdateSleepTime SlavedUpdate::update( void )
 		{//slaver must have been hijacked or something..	// we will join his team
 			me->defect( masterTeam, 0 );
 		}
-
-
-
 
 	}
 
@@ -724,7 +720,6 @@ void SlavedUpdate::startSlavedEffects( const Object *slaver )
 	// mark selves as not selectable
 	getObject()->setStatus( MAKE_OBJECT_STATUS_MASK( OBJECT_STATUS_UNSELECTABLE ) );
 
-
   if ( slaver->testStatus( OBJECT_STATUS_STEALTHED ) )
   {
     StealthUpdate *myStealth = getObject()->getStealth();
@@ -735,7 +730,6 @@ void SlavedUpdate::startSlavedEffects( const Object *slaver )
       // let its own stealthupdate govern the allowedtostealth cases
     }
   }
-
 
 }
 

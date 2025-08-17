@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef __MESH_DEFORM_SET_H
 #define __MESH_DEFORM_SET_H
 
@@ -42,11 +41,9 @@
 #include "Vector.H"
 #include "MeshDeformDefs.H"
 
-
 // Forward declarations
 class MeshDeformSaveSetClass;
 class MeshBuilderClass;
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -60,7 +57,6 @@ class MeshDeformSetClass
 		//////////////////////////////////////////////////////////////////////
 		//	Public data types
 		//////////////////////////////////////////////////////////////////////
-
 
 		//////////////////////////////////////////////////////////////////////
 		//	Public constructors/destructors
@@ -179,7 +175,6 @@ class MeshDeformSetClass
 		// List of key frames
 		KEY_FRAME_LIST		m_KeyFrames;
 };
-
 
 #endif //__MESH_DEFORM_DATA_H
 

@@ -37,7 +37,6 @@ class ModifyObjectUndoable;
 extern const char* NEUTRAL_TEAM_UI_STR;
 extern const char* NEUTRAL_TEAM_INTERNAL_STR;
 
-
 /////////////////////////////////////////////////////////////////////////////
 // MapObjectProps dialog
 
@@ -53,7 +52,6 @@ public:
 	//{{AFX_DATA(MapObjectProps)
 	enum { IDD = IDD_MAPOBJECT_PROPS };
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

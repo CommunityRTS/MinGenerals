@@ -138,7 +138,6 @@ protected:
 	friend class WW3DAssetManager;
 };
 
-
 /*
 ** Iterators for the other types of 3D assets:
 ** HAnims, HTrees, Textures, Fonts
@@ -230,7 +229,6 @@ WW3DAssetManager::WW3DAssetManager(void) :
 	PrototypeHashTable = W3DNEWARRAY PrototypeClass * [PROTOTYPE_HASH_TABLE_SIZE];
 	memset(PrototypeHashTable,0,sizeof(PrototypeClass *) * PROTOTYPE_HASH_TABLE_SIZE);
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::~WW3DAssetManager -- Destructor                                           *
@@ -424,7 +422,6 @@ void WW3DAssetManager::Free(void)
 	Free_Assets();
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Free_Assets -- Release all loaded assets                                  *
  *                                                                                             *
@@ -470,7 +467,6 @@ void WW3DAssetManager::Free_Assets(void)
 	// NONONONOO.... Don't close it as we might want to free the assets and still be able to load textures.
 //	Close_Texture_File_Cache();
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Free_Unused_Assets -- Release all assets that are referenced only by      *
@@ -599,7 +595,6 @@ void WW3DAssetManager::Create_Asset_List(DynamicVectorClass<StringClass> & model
 	HAnimManager.Create_Asset_List(model_list);
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Load_3D_Assets -- Load 3D assets from a file                              *
  *                                                                                             *
@@ -628,7 +623,6 @@ bool WW3DAssetManager::Load_3D_Assets( const char * filename )
 
 	return result;
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Load_3D_Assets -- Load 3D assets from a .W3D file                         *
@@ -677,7 +671,6 @@ bool WW3DAssetManager::Load_3D_Assets(FileClass & w3dfile)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Load_Prototype -- loads a prototype from a W3D chunk                      *
@@ -764,7 +757,6 @@ bool WW3DAssetManager::Load_Prototype(ChunkLoadClass & cload)
 	return true;
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Create_Render_Obj -- Create a render object for the user                  *
  *                                                                                             *
@@ -821,7 +813,6 @@ RenderObjClass * WW3DAssetManager::Create_Render_Obj(const char * name)
 	return proto->Create();
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Render_Obj_Exists -- Check whether a render object with the given name ex *
  *                                                                                             *
@@ -839,7 +830,6 @@ bool WW3DAssetManager::Render_Obj_Exists(const char * name)
 	if (Find_Prototype(name) == NULL) return false;
 	else return true;
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Create_Render_Obj_Iterator -- Create an iterator which can enumerate all  *
@@ -861,7 +851,6 @@ RenderObjIterator * WW3DAssetManager::Create_Render_Obj_Iterator(void)
 {
 	return W3DNEW RObjIterator();
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Release_Render_Obj_Iterator -- release a render object iterator           *
@@ -902,7 +891,6 @@ AssetIterator * WW3DAssetManager::Create_HAnim_Iterator(void)
 	return W3DNEW HAnimIterator();
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Create_HTree_Iterator -- creates an htree iterator                        *
  *                                                                                             *
@@ -919,7 +907,6 @@ AssetIterator * WW3DAssetManager::Create_HTree_Iterator(void)
 {
 	return W3DNEW HTreeIterator();
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Create_Font3DData_Iterator -- Create a Font3DData iterator                *
@@ -991,7 +978,6 @@ HAnimClass *	WW3DAssetManager::Get_HAnim(const char * name)
 
 	return anim;
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Get_HTree -- Returns a pointer to the named HTree                         *
@@ -1121,7 +1107,6 @@ TextureClass * WW3DAssetManager::Get_Texture(
 	return tex;
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Release_All_Textures -- release all textures in the system                *
  *                                                                                             *
@@ -1149,7 +1134,6 @@ void WW3DAssetManager::Release_All_Textures(void)
 	}
 	TextureHash.Remove_All();
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Release_Unused_Textures -- release all textures with refcount == 1        *
@@ -1308,8 +1292,6 @@ void WW3DAssetManager::Log_All_Textures(void)
 
 }
 
-
-
 /***********************************************************************************************
  * WW3DAssetManager::Get_Font3DInstance -- Creates a pointer to a Font3DInstance					  *
  *                                                                                             *
@@ -1327,7 +1309,6 @@ Font3DInstanceClass * WW3DAssetManager::Get_Font3DInstance( const char *name )
 	WWPROFILE( "WW3DAssetManager::Get_Font3DInstance" );
 	return NEW_REF( Font3DInstanceClass, ( name ));
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Get_Font3DData -- Gets a pointer to a loaded Font3DData or creates it     *
@@ -1469,7 +1450,6 @@ FontCharsClass *	WW3DAssetManager::Get_FontChars( const char * name, int point_s
 	return font;							// return it
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Release_All_FontChars -- Release all FontChars from the asset manager     *
  *                                                                                             *
@@ -1515,7 +1495,6 @@ void WW3DAssetManager::Register_Prototype_Loader(PrototypeLoaderClass * loader)
 	PrototypeLoaders.Add(loader);
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Find_Prototype_Loader -- find the loader that handles this chunk type     *
  *                                                                                             *
@@ -1541,7 +1520,6 @@ PrototypeLoaderClass * WW3DAssetManager::Find_Prototype_Loader(int chunk_id)
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Add_Prototype -- adds the prototype to the hash table                     *
  *                                                                                             *
@@ -1564,7 +1542,6 @@ void WW3DAssetManager::Add_Prototype(PrototypeClass * newproto)
 	PrototypeHashTable[hash] = newproto;
 	Prototypes.Add(newproto);
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Remove_Prototype -- Removes all references to the protype.					  *
@@ -1619,7 +1596,6 @@ void WW3DAssetManager::Remove_Prototype(PrototypeClass *proto)
 	return;
 }
 
-
 /***********************************************************************************************
  * WW3DAssetManager::Remove_Prototype -- Removes all references to the protype.					  *
  *                                                                                             *
@@ -1649,7 +1625,6 @@ void WW3DAssetManager::Remove_Prototype(const char *name)
 
 	return;
 }
-
 
 /***********************************************************************************************
  * WW3DAssetManager::Find_Prototype -- searches the hash table for the prototype               *
@@ -1723,5 +1698,4 @@ const char * HTreeIterator::Current_Item_Name(void)
 {
 	return WW3DAssetManager::Get_Instance()->HTreeManager.Get_Tree(Index)->Get_Name();
 }
-
 

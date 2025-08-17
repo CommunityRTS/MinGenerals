@@ -51,7 +51,6 @@
 #include "WWMath/Vector3.h"
 #include "WW3D2/AssetMgr.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -109,7 +108,6 @@ void W3DLaserDrawModuleData::buildFieldParse(MultiIniFieldParse& p)
 	};
   p.add(dataFieldParse);
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -211,7 +209,6 @@ W3DLaserDraw::W3DLaserDraw( Thing *thing, const ModuleData* moduleData ) :
 				// set the correct position
 				line->Set_Visible( 0 );
 			}
-
 
 		}  // end for i
 
@@ -397,7 +394,6 @@ void W3DLaserDraw::doDrawModule(const Matrix3D* transformMtx)
 					width *= ultimateScale;
 					alpha		= innerAlpha							+ scale * (outerAlpha - innerAlpha);
 				}
-
 
 				//Calculate the number of times to tile the line based on the height of the texture used.
 				if( m_texture && data->m_tile )

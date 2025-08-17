@@ -68,5 +68,4 @@ protected:
 	void clearTempWeaponBonus();
 };
 
-
 #endif  // end __TempWeaponBonusHelper_H_

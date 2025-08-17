@@ -259,7 +259,6 @@ void ToggleInGameChat( Bool immediate )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 WindowMsgHandledType InGameChatInput( GameWindow *window, UnsignedInt msg,

@@ -87,7 +87,6 @@ DefectorSpecialPower::~DefectorSpecialPower( void )
 
 }  // end ~DefectorSpecialPower
 
-
 // ------------------------------------------------------------------------------------------------
 
 void DefectorSpecialPower::doSpecialPowerAtLocation( const Coord3D *loc, Real angle, UnsignedInt commandOptions )
@@ -127,7 +126,6 @@ void DefectorSpecialPower::doSpecialPowerAtObject( Object *objectToMakeDefector,
 		// how do I get at SpecialPowerTemplate::getDetectionTime() from here?
 		const SpecialPowerTemplate *specPowTemp = getSpecialPowerTemplate();
 		UnsignedInt time = specPowTemp->getDetectionTime();
-
 
 		objectToMakeDefector->defect(self->getControllingPlayer()->getDefaultTeam(), time );// @todo lorenzen hook into the new AIUpdateI methods
 	//}

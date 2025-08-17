@@ -69,7 +69,6 @@ protected:
 	Int m_referenceCount;
 };
 
-
 //-----------------------------------------------------------------------------
 /**
  * The NetGameCommandMsg is the NetCommandMsg representation of a GameMessage

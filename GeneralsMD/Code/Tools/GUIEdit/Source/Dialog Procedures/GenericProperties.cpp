@@ -481,5 +481,3 @@ HWND InitUserWinPropertiesDialog( GameWindow *window )
 
 }  // end InitUserWinPropertiesDialog
 
-
-

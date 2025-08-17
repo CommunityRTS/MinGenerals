@@ -139,13 +139,8 @@ Bool ConvertToCarBombCrateCollide::executeCrateBehavior( Object *other )
 		exp->setVeterancyLevel(obj->getExperienceTracker()->getVeterancyLevel());
 	}
 
-
-
 	TheRadar->removeObject( other );
 	TheRadar->addObject( other );
-
-
-
 
 	return TRUE;
 }

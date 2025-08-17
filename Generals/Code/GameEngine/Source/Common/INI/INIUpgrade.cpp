@@ -41,5 +41,3 @@ void INI::parseUpgradeDefinition( INI *ini )
 	UpgradeCenter::parseUpgradeDefinition(ini);
 }
 
-
-

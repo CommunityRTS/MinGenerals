@@ -72,7 +72,6 @@ UpdateSleepTime ObjectDefectionHelper::update()
 			if (draw)
 				draw->flashAsSelected( &white ); //Whew! that's easier, now, isn't it!
 
-
 			AudioEventRTS defectorVulnerableSound = TheAudio->getMiscAudio()->m_defectorTimerDingSound;
 			defectorVulnerableSound.setObjectID( obj->getID() );
 			TheAudio->addAudioEvent(&defectorVulnerableSound);

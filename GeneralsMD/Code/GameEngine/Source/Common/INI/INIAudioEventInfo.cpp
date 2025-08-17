@@ -121,7 +121,6 @@ void INI::parseDialogDefinition( INI* ini )
 	ini->initFromINI( track, track->getFieldParse() );
 }  // end parseAudioEventDefinition
 
-
 //-------------------------------------------------------------------------------------------------
 static void parseDelay( INI* ini, void *instance, void *store, const void* /*userData*/ );
 static void parsePitchShift( INI* ini, void *instance, void *store, const void* /*userData*/ );

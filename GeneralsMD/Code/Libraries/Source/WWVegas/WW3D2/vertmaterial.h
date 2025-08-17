@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -106,7 +105,6 @@ public:
 		PRELIT_NODIFFUSE,
 		PRESET_COUNT
 	};
-
 
 	VertexMaterialClass(void);
 	VertexMaterialClass(const VertexMaterialClass & src);

@@ -70,7 +70,6 @@ public:
 		ST_MAX
 	};
 
-
 	W3DShaderManager(void);	///<constructor
 	static void init( void );	///<determine optimal shaders for current device.
 	static void shutdown(void);	///<release resources used by shaders
@@ -103,7 +102,6 @@ public:
 	static IDirect3DTexture8 * getRenderTexture(void);	///< returns last used render target texture
 	static void drawViewport(Int color);	///<draws 2 triangles covering the current tactical viewport
 
-
 protected:
 	static TextureClass *m_Textures[8];	///textures assigned to each of the possible stages
 	static ChipsetType m_currentChipset;	///<last video card chipset that was detected.
@@ -117,7 +115,6 @@ protected:
 	static IDirect3DTexture8 *m_renderTexture;		///<texture into which rendering will be redirected.
 	static IDirect3DSurface8 *m_newRenderSurface;	///<new render target inside m_renderTexture
 	static IDirect3DSurface8 *m_oldDepthSurface;	///<previous depth buffer surface
-
 
 };
 
@@ -134,7 +131,6 @@ protected:
 	 ///do any custom resetting necessary to bring W3D in sync.
 	virtual void reset(void) = 0;
 };
-
 
 /*=========  ScreenMotionBlurFilter	=============================================================*/
 ///applies motion blur to viewport.
@@ -165,7 +161,6 @@ protected:
 	Bool m_doZoomTo;
 	Coord2D m_priorDelta;
 	Int m_panFactor;
-
 
 	static Coord3D m_zoomToPos;
 	static Bool m_zoomToValid;

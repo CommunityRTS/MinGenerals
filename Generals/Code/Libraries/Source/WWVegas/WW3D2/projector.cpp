@@ -48,7 +48,6 @@
 #include "refcount.h"
 #include "matrixmapper.h"
 
-
 /***********************************************************************************************
  * ProjectorClass::ProjectorClass -- Constructor                                               *
  *                                                                                             *
@@ -68,7 +67,6 @@ ProjectorClass::ProjectorClass(void) :
 {
 	Mapper=NEW_REF(MatrixMapperClass,(0));
 }
-
 
 /***********************************************************************************************
  * ProjectorClass::~ProjectorClass -- Destructor                                               *
@@ -108,7 +106,6 @@ void ProjectorClass::Set_Transform(const Matrix3D & tm)
 	Update_WS_Bounding_Volume();
 }
 
-
 /***********************************************************************************************
  * ProjectorClass::Get_Transform -- Returns the current transform                              *
  *                                                                                             *
@@ -125,7 +122,6 @@ const Matrix3D & ProjectorClass::Get_Transform(void) const
 {
 	return Transform;
 }
-
 
 /***********************************************************************************************
  * ProjectorClass::Set_Perspective_Projection -- Set up a perspective projection               *
@@ -161,7 +157,6 @@ void ProjectorClass::Set_Perspective_Projection(float hfov,float vfov,float znea
 	Update_WS_Bounding_Volume();
 }
 
-
 /***********************************************************************************************
  * ProjectorClass::Set_Ortho_Projection -- Set up an orthographic projection                   *
  *                                                                                             *
@@ -193,7 +188,6 @@ void ProjectorClass::Set_Ortho_Projection(float xmin,float xmax,float ymin,float
 	Update_WS_Bounding_Volume();
 }
 
-
 /***********************************************************************************************
  * ProjectorClass::Compute_Texture_Coordinate -- computes texcoord for given world-space point *
  *                                                                                             *
@@ -210,7 +204,6 @@ void ProjectorClass::Compute_Texture_Coordinate(const Vector3 & point,Vector3 * 
 {
 	Mapper->Compute_Texture_Coordinate(point,set_stq);
 }
-
 
 /***********************************************************************************************
  * ProjectorClass::Update_WS_Bounding_Volume -- Recalculate the world-space bounding box       *

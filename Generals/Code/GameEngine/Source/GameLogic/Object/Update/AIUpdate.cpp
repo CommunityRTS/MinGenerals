@@ -1147,8 +1147,6 @@ UpdateSleepTime AIUpdateInterface::update( void )
 	}
 }
 
-
-
 //-------------------------------------------------------------------------------------------------
 /**
  * Append waypoint to queue for later movement
@@ -1277,7 +1275,6 @@ Real AIUpdateInterface::calculateMaxBlockedSpeed(Object *other) const
 	return maxSpeed;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool AIUpdateInterface::blockedBy(Object *other)
 /* Returns TRUE if we are blocked from moving by the other object.*/
@@ -1377,7 +1374,6 @@ Bool AIUpdateInterface::blockedBy(Object *other)
 		}
 	}
 
-
 	if (!aiOther->isAiInDeadState())
 	{
 		return TRUE;
@@ -1412,7 +1408,6 @@ Bool AIUpdateInterface::needToRotate(void)
 
 	return FALSE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /* Returns TRUE if the physics collide should apply the force.  Normally not.
@@ -1603,7 +1598,6 @@ Bool AIUpdateInterface::computeQuickPath( const Coord3D *destination )
 	// for now, quick path objects don't pathfind, generally airborne units
 	// build a trivial one-node path containing destination
 
-
 	// First, see if our path already goes to the destination.
 	if (m_path) {
 		PathNode *closeNode = NULL;
@@ -1637,7 +1631,6 @@ Bool AIUpdateInterface::computeQuickPath( const Coord3D *destination )
 			TheAI->pathfinder()->setDebugPath(m_path);
 		}
 	}
-
 
 	// timestamp when the path was created
 	m_pathTimestamp = TheGameLogic->getFrame();
@@ -1879,7 +1872,6 @@ Bool AIUpdateInterface::computeAttackPath( PathfindServicesInterface *pathServic
 		return ok;
 	}
 
-
 	Coord3D localVictimPos;
 	if (victim != NULL)
 	{
@@ -2071,9 +2063,6 @@ Bool AIUpdateInterface::isQuickPathAvailable( const Coord3D *destination ) const
 	return TheAI->pathfinder()->quickDoesPathExist( m_locomotorSet, myPos, destination );
 
 }  // end isQuickPathAvailable
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 Bool AIUpdateInterface::isValidLocomotorPosition(const Coord3D* pos) const
@@ -2484,7 +2473,6 @@ Real AIUpdateInterface::getLocomotorDistanceToGoal()
 	return 0.0f;
 }
 
-
 /**
  * Catch up with the rest of the team.
  */
@@ -2754,7 +2742,6 @@ void AIUpdateInterface::aiDoCommand(const AICommandParms* parms)
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // AI Command Interface implementation for AIUpdateInterface
 //
@@ -2884,7 +2871,6 @@ void AIUpdateInterface::privateRappelInto( Object *target, const Coord3D& pos, C
 	setLastCommandSource( cmdSource );
 	getStateMachine()->setState( AI_RAPPEL_INTO );
 }
-
 
 //----------------------------------------------------------------------------------------
 /**
@@ -3260,7 +3246,6 @@ void AIUpdateInterface::privateFollowPath( const std::vector<Coord3D>* path, Obj
 	// set path info
 	getStateMachine()->setGoalPath( path );
 
-
 	// set the command source
 	setLastCommandSource( cmdSource );
 
@@ -3317,7 +3302,6 @@ void AIUpdateInterface::privateForceAttackObject( Object *victim, Int maxShotsTo
 	if (weapon)
 		weapon->setMaxShotCount(maxShotsToFire);
 }
-
 
 //----------------------------------------------------------------------------------------
 /**
@@ -3405,7 +3389,6 @@ void AIUpdateInterface::privateAttackPosition( const Coord3D *pos, Int maxShotsT
 	setLastCommandSource( cmdSource );
 	getStateMachine()->setState( AI_ATTACK_POSITION );
 
-
 	//Set the goal object to NULL because if we are attacking a location, we need to be able to move up to it properly.
 	//When this isn't set, the move aborts before getting into firing range, thus deadlocks.
 	getStateMachine()->setGoalObject( NULL );
@@ -3467,7 +3450,6 @@ void AIUpdateInterface::privateAttackFollowWaypointPath( const Waypoint *way, In
 	if (weapon)
 		weapon->setMaxShotCount(maxShotsToFire);
 }
-
 
 //----------------------------------------------------------------------------------------
 /**
@@ -4011,7 +3993,6 @@ const Coord3D *AIUpdateInterface::getCurrentVictimPos( void ) const
 
 	return NULL;
 }
-
 
 /**
  * Set the behavior modifier for this agent
@@ -4711,7 +4692,6 @@ AIGroup *AIUpdateInterface::getGroup(void)
 {
 	return getObject()->getGroup();
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -167,7 +167,6 @@ class INIClass {
 
 		IndexClass<int, INISection *> & Get_Section_Index() { return * SectionIndex; }
 
-
 		/*
 		**	Utility routines to help find the appropriate section and entry objects.
 		*/
@@ -206,6 +205,5 @@ class INIClass {
 		INIClass operator = (INIClass const & rvalue);
 
 };
-
 
 #endif

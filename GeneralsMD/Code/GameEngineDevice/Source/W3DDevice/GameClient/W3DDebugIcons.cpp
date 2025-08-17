@@ -79,12 +79,10 @@
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_DISABLE, \
 	ShaderClass::DETAILCOLOR_DISABLE, ShaderClass::DETAILALPHA_DISABLE) )
 
-
 void addIcon(const Coord3D *pos, Real width, Int numFramesDuration, RGBColor color)
 {
 	W3DDebugIcons::addIcon(pos, width, numFramesDuration, color);
 }
-
 
 struct DebugIcon {
 	Coord3D position;
@@ -112,14 +110,12 @@ W3DDebugIcons::W3DDebugIcons(void)
 	allocateIconsArray();
 }
 
-
 bool W3DDebugIcons::Cast_Ray(RayCollisionTestClass & raytest)
 {
 
 	return false;
 
 }
-
 
 //@todo: MW Handle both of these properly!!
 W3DDebugIcons::W3DDebugIcons(const W3DDebugIcons & src)
@@ -158,13 +154,11 @@ RenderObjClass * W3DDebugIcons::Clone(void) const
 	return NEW W3DDebugIcons(*this);	// poolify
 }
 
-
 void W3DDebugIcons::allocateIconsArray(void)
 {
 	m_debugIcons = NEW DebugIcon[MAX_ICONS];
 	m_numDebugIcons = 0;
 }
-
 
 void W3DDebugIcons::compressIconsArray(void)
 {

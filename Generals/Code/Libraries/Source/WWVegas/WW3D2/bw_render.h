@@ -81,5 +81,4 @@ public:
 	void Render_Triangle_Strip(const unsigned long* indices,int index_count);
 };
 
-
 #endif // BW_RENDER_H__

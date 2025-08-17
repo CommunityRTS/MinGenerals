@@ -36,14 +36,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #include "Max.h"
 #include "resource.h"
 #include "simpmod.h"
 #include "dllmain.h"
 #include "iparamb2.h"
-
 
 /*
 
@@ -57,10 +54,7 @@
 
 */
 
-
-
 #define GRIDSNAPMOD_CLASSID Class_ID(0x7a2d399b, 0x1e3d2004)
-
 
 /**
 ** GridSnapModifierClass
@@ -131,7 +125,6 @@ private:
 	Matrix3	InvTransform;
 };
 
-
 /**
 ** GridSnapModifier Class Descriptor
 ** This object "links" the plugin into Max's plugin system.  It links the Class-ID to a virtual construction
@@ -156,7 +149,6 @@ ClassDesc* Get_Grid_Snap_Modifier_Desc(void)
 {
 	return &_GridSnapModifierDesc;
 }
-
 
 /*
 ** ParamBlock2 Setup
@@ -188,7 +180,6 @@ static ParamBlockDesc2 _GridSnapParamBlockDesc
 
 	end
 );
-
 
 /********************************************************************************************
 **

@@ -404,4 +404,3 @@ BOOL CALLBACK ImagePackerProc( HWND hWndDialog, UINT message,
 
 }  // end ImagePackerProc
 
-

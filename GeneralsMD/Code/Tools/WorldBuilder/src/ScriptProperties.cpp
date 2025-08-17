@@ -54,7 +54,6 @@ void ScriptProperties::DoDataExchange(CDataExchange* pDX)
 	//}}AFX_DATA_MAP
 }
 
-
 BEGIN_MESSAGE_MAP(ScriptProperties, CPropertyPage)
 	//{{AFX_MSG_MAP(ScriptProperties)
 	ON_EN_CHANGE(IDC_SCRIPT_COMMENT, OnChangeScriptComment)

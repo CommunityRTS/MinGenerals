@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef SCENESETUPDLG_H
 #define SCENESETUPDLG_H
 
@@ -43,7 +42,6 @@
 
 #include "dllmain.h"
 #include "Resource.h"
-
 
 class Interface;
 

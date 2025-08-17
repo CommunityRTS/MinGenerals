@@ -30,8 +30,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
@@ -60,7 +58,6 @@
 #include "GameLogic/Module/OCLUpdate.h"
 #include "GameLogic/Module/SabotageCommandCenterCrateCollide.h"
 #include "GameLogic/Module/SpecialPowerModule.h"
-
 
 #ifdef _INTERNAL
 // for occasional debugging...

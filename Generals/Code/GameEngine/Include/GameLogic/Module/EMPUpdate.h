@@ -84,7 +84,6 @@ public:
 			{ "DisableFXParticleSystem",		INI::parseParticleSystemTemplate, NULL, offsetof( EMPUpdateModuleData, m_disableFXParticleSystem ) },
 			{ "SparksPerCubicFoot",		INI::parseReal, NULL, offsetof( EMPUpdateModuleData, m_sparksPerCubicFoot ) },
 
-
 			{ 0, 0, 0, 0 }
 		};
     p.add(dataFieldParse);
@@ -120,7 +119,6 @@ protected:
 	Real				m_currentScale; ///< how big I am drawing this frame
 
 	//static Bool s_lastInstanceSpunPositive;/// so that only every other instance spins positive direction
-
 
 };
 

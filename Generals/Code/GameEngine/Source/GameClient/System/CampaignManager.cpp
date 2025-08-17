@@ -201,7 +201,6 @@ Mission *Campaign::getNextMission( Mission *current)
 	return NULL;
 }
 
-
 //-----------------------------------------------------------------------------
 CampaignManager::CampaignManager( void )
 {
@@ -364,7 +363,6 @@ void CampaignManager::parseMissionPart( INI* ini, void *instance, void *store, c
 			{ "LocationNameLabel",INI::parseAsciiString,				NULL, offsetof( Mission, m_locationNameLabel ) },
 			{ "VoiceLength",			INI::parseInt ,								NULL, offsetof( Mission, m_voiceLength ) },
 
-
 			{ NULL,							NULL,											NULL, 0 }  // keep this last
 		};
 	AsciiString name;
@@ -374,7 +372,6 @@ void CampaignManager::parseMissionPart( INI* ini, void *instance, void *store, c
 	Mission *mission = ((Campaign*)instance)->newMission(name );
 	ini->initFromINI(mission, myFieldParse);
 }
-
 
 //-----------------------------------------------------------------------------
 Campaign *CampaignManager::newCampaign(AsciiString name)
@@ -442,8 +439,6 @@ void CampaignManager::xfer( Xfer *xfer )
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-
-
 
 //-----------------------------------------------------------------------------
 Mission::Mission( void )

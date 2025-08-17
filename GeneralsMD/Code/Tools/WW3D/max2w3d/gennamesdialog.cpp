@@ -44,21 +44,17 @@
  *   _gen_names_dialog_proc -- dialog proc that "thunks" to the class's dialog proc            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "gennamesdialog.h"
 #include "dllmain.h"
 #include "resource.h"
 
-
 static BOOL CALLBACK _gen_names_dialog_proc(HWND Hwnd,UINT message,WPARAM wParam,LPARAM lParam);
-
 
 /**********************************************************************************************
 **
 ** GenNamesDialogClass Implementation
 **
 **********************************************************************************************/
-
 
 /***********************************************************************************************
  * GenNamesDialogClass::GenNamesDialogClass -- Constructor                                     *
@@ -79,7 +75,6 @@ GenNamesDialogClass::GenNamesDialogClass(Interface * maxinterface) :
 {
 }
 
-
 /***********************************************************************************************
  * GenNamesDialogClass::~GenNamesDialogClass -- Destructor                                     *
  *                                                                                             *
@@ -96,7 +91,6 @@ GenNamesDialogClass::~GenNamesDialogClass(void)
 {
 	ReleaseISpinner(NameIndexSpin);
 }
-
 
 /***********************************************************************************************
  * GenNamesDialogClass::Get_Options -- Get_Options                                             *
@@ -136,7 +130,6 @@ bool GenNamesDialogClass::Get_Options(OptionsStruct * options)
 	}
 }
 
-
 /***********************************************************************************************
  * GenNamesDialogClass::Ok_To_Exit -- verifies that the input is valid                         *
  *                                                                                             *
@@ -169,7 +162,6 @@ bool GenNamesDialogClass::Ok_To_Exit(void)
 	return true;
 }
 
-
 /***********************************************************************************************
  * GenNamesDialogClass::Toggle_Name_Assignment -- toggles the controls related to name assignm *
  *                                                                                             *
@@ -192,7 +184,6 @@ void GenNamesDialogClass::Toggle_Name_Assignment(void)
 	EnableWindow(GetDlgItem(Hwnd,IDC_NAME_INDEX_SPIN),onoff);
 }
 
-
 /***********************************************************************************************
  * GenNamesDialogClass::Toggle_Collision_Bits_Assignment -- toggles the controls related to co *
  *                                                                                             *
@@ -214,7 +205,6 @@ void GenNamesDialogClass::Toggle_Collision_Bits_Assignment(void)
 	EnableWindow(GetDlgItem(Hwnd,IDC_COLLISION_CAMERA),onoff);
 	EnableWindow(GetDlgItem(Hwnd,IDC_COLLISION_VEHICLE),onoff);
 }
-
 
 /***********************************************************************************************
  * GenNamesDialogClass::Dialog_Proc -- windows dialog proc                                     *
@@ -325,7 +315,6 @@ bool GenNamesDialogClass::Dialog_Proc(HWND hWnd,UINT message,WPARAM wParam,LPARA
 	return 0;
 }
 
-
 /***********************************************************************************************
  * _gen_names_dialog_proc -- dialog proc that "thunks" to the class's dialog proc              *
  *                                                                                             *
@@ -353,5 +342,4 @@ static BOOL CALLBACK _gen_names_dialog_proc(HWND hwnd,UINT message,WPARAM wparam
 		return FALSE;
 	}
 }
-
 

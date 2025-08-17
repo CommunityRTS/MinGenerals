@@ -121,8 +121,6 @@ protected:
 	FVFInfoClass*					fvf_info;
 };
 
-
-
 /**
 ** Dynamic vertex buffer access is a wrapper to a single cycled dynamic vertex
 ** buffer.
@@ -237,7 +235,6 @@ protected:
 	void Create_Vertex_Buffer(UsageType usage);
 };
 
-
 /**
 ** SortingVertexBufferClass
 ** This class acts as a vertex buffer for the vertices that need to be passed to alpha renderer.
@@ -259,6 +256,5 @@ protected:
 public:
 	SortingVertexBufferClass(unsigned short VertexCount);
 };
-
 
 #endif //DX8VERTEXBUFFER_H

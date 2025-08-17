@@ -101,7 +101,6 @@ private:
 	Int doPing( UnsignedInt IP, Int timeout );
 };
 
-
 //-------------------------------------------------------------------------
 
 Pinger::Pinger() : m_requestCount(0), m_responseCount(0)
@@ -351,7 +350,6 @@ typedef struct ip_option_information
 }
 IPINFO, *PIPINFO, FAR *LPIPINFO;
 
-
 /* Note 1: The Reply Buffer will have an array of ICMP_ECHO_REPLY
  * structures, followed by options and the data in ICMP echo reply
  * datagram received. You must have room for at least one ICMP
@@ -369,7 +367,6 @@ typedef struct icmp_echo_reply
 }
 ICMPECHO, *PICMPECHO, FAR *LPICMPECHO;
 
-
 DWORD WINAPI IcmpSendEcho(
    HANDLE IcmpHandle,   /* handle returned from IcmpCreateFile() */
    UnsignedInt DestAddress,  /* destination IP address (in network order) */
@@ -380,7 +377,6 @@ DWORD WINAPI IcmpSendEcho(
    DWORD ReplySize,     /* length of reply (must allow at least 1 reply) */
    DWORD Timeout       /* time in milliseconds to wait for reply */
 );
-
 
 #define IP_STATUS_BASE 11000
 #define IP_SUCCESS 0
@@ -409,7 +405,6 @@ DWORD WINAPI IcmpSendEcho(
 #define IP_GENERAL_FAILURE (IP_STATUS_BASE + 50)
 #define MAX_IP_STATUS IP_GENERAL_FAILURE
 #define IP_PENDING (IP_STATUS_BASE + 255)
-
 
 #define BUFSIZE     8192
 #define DEFAULT_LEN 32
@@ -443,12 +438,10 @@ Int PingThreadClass::doPing(UnsignedInt IP, Int timeout)
    char achReqData[BUFSIZE];
    char achRepData[sizeof(ICMPECHO) + BUFSIZE];
 
-
    HANDLE ( WINAPI *lpfnIcmpCreateFile )( VOID ) = NULL;
    BOOL ( WINAPI *lpfnIcmpCloseHandle )( HANDLE ) = NULL;
    DWORD (WINAPI *lpfnIcmpSendEcho)(HANDLE, DWORD, LPVOID, WORD, LPVOID,
                                     LPVOID, DWORD, DWORD) = NULL;
-
 
    /*
     *  Load the ICMP.DLL
@@ -475,7 +468,6 @@ Int PingThreadClass::doPing(UnsignedInt IP, Int timeout)
       DEBUG_LOG(("GetProcAddr() failed for at least one function.\n"));
       goto cleanup;
    }
-
 
    /*
     * IcmpCreateFile() - Open the ping service
@@ -507,8 +499,6 @@ Int PingThreadClass::doPing(UnsignedInt IP, Int timeout)
    stIPInfo.Flags = 0;
    stIPInfo.OptionsSize = 0;
    stIPInfo.OptionsData = NULL;
-
-
 
    /*
     * IcmpSendEcho() - Send the ICMP Echo Request
@@ -551,7 +541,6 @@ Int PingThreadClass::doPing(UnsignedInt IP, Int timeout)
       goto cleanup;
    }
 
-
    /*
     * IcmpCloseHandle - Close the ICMP handle
     */
@@ -570,6 +559,5 @@ cleanup:
 
    return pingTime;
 }
-
 
 //-------------------------------------------------------------------------

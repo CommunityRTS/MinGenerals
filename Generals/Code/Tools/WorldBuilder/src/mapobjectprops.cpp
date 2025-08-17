@@ -38,7 +38,6 @@
 const char* NEUTRAL_TEAM_UI_STR = "(neutral)";
 const char* NEUTRAL_TEAM_INTERNAL_STR = "team";
 
-
 /////////////////////////////////////////////////////////////////////////////
 // MapObjectProps dialog
 
@@ -75,7 +74,6 @@ void MapObjectProps::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(MapObjectProps, CDialog)
 	//{{AFX_MSG_MAP(MapObjectProps)
@@ -1016,7 +1014,6 @@ void MapObjectProps::_TargetableToDict()
 	// Update is called by Do
 }
 
-
 void MapObjectProps::_PoweredToDict(void)
 {
 	getAllSelectedDicts();
@@ -1258,7 +1255,6 @@ void MapObjectProps::OnCancel()
 
 }
 
-
 void MapObjectProps::ShowZOffset(MapObject *pMapObj)
 {
 	const Coord3D *loc = pMapObj->getLocation();
@@ -1333,7 +1329,6 @@ void MapObjectProps::getAllSelectedDicts(void)
 			}
 		}
 
-
 		if (!pMapObj->isSelected() || pMapObj->isWaypoint() || pMapObj->isLight()) {
 			continue;
 		}
@@ -1341,7 +1336,6 @@ void MapObjectProps::getAllSelectedDicts(void)
 		m_selectedObject = pMapObj;
 	}
 }
-
 
 void MapObjectProps::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {

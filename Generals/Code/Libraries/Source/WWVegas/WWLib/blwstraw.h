@@ -40,7 +40,6 @@
 #include	"straw.h"
 #include	"blowfish.h"
 
-
 /*
 **	Performs Blowfish encryption/decryption to the data that is drawn through this straw. The
 **	process is controlled by the key which must be submitted to the class before any data
@@ -80,6 +79,5 @@ class BlowStraw : public Straw
 		BlowStraw(BlowStraw & rvalue);
 		BlowStraw & operator = (BlowStraw const & straw);
 };
-
 
 #endif

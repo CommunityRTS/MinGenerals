@@ -38,13 +38,11 @@
  *   FormClass::ExecuteDlgInit -- Initializes the controls in the dialog template              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "FormClass.H"
 #include "Dllmain.H"
 
 // hard-coded resource id which VC special cases for MFC... >:-)
 #define RT_DLGINIT  MAKEINTRESOURCE(240)
-
 
 /***********************************************************************************************
  * FormClass::Create_Form -- Loads the dialog template and initializes                         *
@@ -89,7 +87,6 @@ FormClass::Create_Form
 	return m_hWnd;
 }
 
-
 /***********************************************************************************************
  * FormClass::fnFormProc -- windows proc which thunks into the virtual Dialog_Proc             *
  *                                                                                             *
@@ -127,7 +124,6 @@ FormClass::fnFormProc
 
 	return retval;
 }
-
 
 /***********************************************************************************************
  * FormClass::ExecuteDlgInit -- Initializes controls in the dialog template                    *
@@ -176,7 +172,6 @@ BOOL FormClass::ExecuteDlgInit(LPCTSTR lpszResourceName)
 	}
 	return bResult;
 }
-
 
 /***********************************************************************************************
  * FormClass::ExecuteDlgInit -- Initializes the controls in the dialog template                *

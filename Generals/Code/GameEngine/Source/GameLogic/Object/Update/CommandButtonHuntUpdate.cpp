@@ -96,7 +96,6 @@ CommandButtonHuntUpdate::~CommandButtonHuntUpdate( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CommandButtonHuntUpdate::onObjectCreated()
 {
@@ -220,7 +219,6 @@ UpdateSleepTime CommandButtonHuntUpdate::huntSpecialPower(AIUpdateInterface *ai)
 	return UPDATE_SLEEP(data->m_scanFrames);
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Object* CommandButtonHuntUpdate::scanClosestTarget(void)
 {
@@ -250,7 +248,6 @@ Object* CommandButtonHuntUpdate::scanClosestTarget(void)
 	Bool isPlaceExplosive = false;
 	if (spTemplate->getSpecialPowerType() == SPECIAL_TIMED_CHARGES) isPlaceExplosive = true;
 	if (spTemplate->getSpecialPowerType() == SPECIAL_TANKHUNTER_TNT_ATTACK) isPlaceExplosive = true;
-
 
 	ObjectIterator *iter = ThePartitionManager->iterateObjectsInRange( me->getPosition(), data->m_scanRange,
 		FROM_CENTER_2D, filters, ITER_SORTED_NEAR_TO_FAR );

@@ -48,7 +48,6 @@ enum ScienceType;
 
 //#define PUCK
 
-
 enum GunshipCreateLocType
 {
 	CREATE_GUNSHIP_AT_EDGE_NEAR_SOURCE,
@@ -56,8 +55,6 @@ enum GunshipCreateLocType
 	CREATE_GUNSHIP_AT_EDGE_NEAR_TARGET,
 	CREATE_GUNSHIP_AT_EDGE_FARTHEST_FROM_TARGET,
 };
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -78,7 +75,6 @@ public:
   Real                  m_gunshipOrbitRadius;
 	GunshipCreateLocType	m_createLoc;
 
-
 	const ParticleSystemTemplate * m_gattlingStrafeFXParticleSystem;
 
 	SpectreGunshipDeploymentUpdateModuleData();
@@ -95,7 +91,6 @@ enum GunshipDeployStatus
    GUNSHIPDEPLOY_STATUS_DEPARTING,
    GUNSHIPDEPLOY_STATUS_IDLE,
 };
-
 
 //-------------------------------------------------------------------------------------------------
 /** The default	update module */
@@ -126,8 +121,6 @@ public:
 
 	void cleanUp();
 
-
-
   virtual Bool doesSpecialPowerHaveOverridableDestinationActive() const { return FALSE; };
 	virtual Bool doesSpecialPowerHaveOverridableDestination() const { return FALSE; }	//Does it have it, even if it's not active?
   virtual void setSpecialPowerOverridableDestination( const Coord3D *loc ) {};
@@ -137,15 +130,11 @@ public:
 
 protected:
 
-
-
 	SpecialPowerModuleInterface* m_specialPowerModule;
   Coord3D				m_initialTargetPosition;
   ObjectID        m_gunshipID;
 
-
 };
-
 
 #endif // __SPECTRE_GUNSHIP_DEPLOYMENT_UPDATE_H_
 

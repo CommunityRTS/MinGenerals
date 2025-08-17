@@ -40,10 +40,8 @@
  *   GameMtlFormClass::SetTime -- set the current time                                         *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "GameMtlForm.h"
 #include "GameMtl.h"
-
 
 /***********************************************************************************************
  * GameMtlFormClass::GameMtlFormClass -- constructor                                           *
@@ -69,7 +67,6 @@ GameMtlFormClass::GameMtlFormClass
 	PassIndex = pass;
 }
 
-
 /***********************************************************************************************
  * GameMtlFormClass::SetThing -- Set the material being edited by this form                    *
  *                                                                                             *
@@ -90,7 +87,6 @@ void GameMtlFormClass::SetThing(ReferenceTarget * target)
 	TheMtl = (GameMtl *)target;
 }
 
-
 /***********************************************************************************************
  * GameMtlFormClass::GetThing -- get the material being edited by this form                    *
  *                                                                                             *
@@ -107,7 +103,6 @@ ReferenceTarget * GameMtlFormClass::GetThing(void)
 {
 	return (ReferenceTarget*)TheMtl;
 }
-
 
 /***********************************************************************************************
  * GameMtlFormClass::DeleteThis -- delete myself                                               *
@@ -126,7 +121,6 @@ void GameMtlFormClass::DeleteThis(void)
 	delete this;
 }
 
-
 /***********************************************************************************************
  * GameMtlFormClass::ClassID -- returns the classID of the object being edited                 *
  *                                                                                             *
@@ -143,7 +137,6 @@ Class_ID	GameMtlFormClass::ClassID()
 {
 	return GameMaterialClassID;
 }
-
 
 /***********************************************************************************************
  * GameMtlFormClass::SetTime -- set the current time                                           *

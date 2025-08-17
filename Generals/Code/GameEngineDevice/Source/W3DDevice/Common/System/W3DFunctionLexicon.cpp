@@ -90,7 +90,6 @@ static FunctionLexicon::TableEntry gameWinDrawTable [] =
 
 	{ NAMEKEY_INVALID, "W3DCommandBarGridDraw",		W3DCommandBarGridDraw },
 
-
 	{ NAMEKEY_INVALID, "W3DCommandBarForegroundDraw",		W3DCommandBarForegroundDraw },
 	{ NAMEKEY_INVALID, "W3DNoDraw",											W3DNoDraw },
 	{ NAMEKEY_INVALID, "W3DDrawMapPreview",							W3DDrawMapPreview },
@@ -166,5 +165,4 @@ void W3DFunctionLexicon::update( void )
 	FunctionLexicon::update();
 
 }  // end update
-
 

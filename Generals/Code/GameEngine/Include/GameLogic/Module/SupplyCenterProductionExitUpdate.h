@@ -113,5 +113,4 @@ inline const Coord3D *SupplyCenterProductionExitUpdate::getRallyPoint( void ) co
 	return NULL;
 }
 
-
 #endif

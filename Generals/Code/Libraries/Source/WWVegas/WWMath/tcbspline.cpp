@@ -34,13 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "tcbspline.h"
 #include "wwdebug.h"
 #include "persistfactory.h"
 #include "wwmathids.h"
 #include "wwhack.h"
-
 
 /*
 ** Force-Link this module because the linker can't detect that we actually need it...
@@ -58,7 +56,6 @@ enum
 	TCB3D_CHUNK_HERMITE3D					= 0x02071009,
 	TCB3D_CHUNK_PARAMS,
 };
-
 
 /*
 ** TCBSpline3DClass Implemenation
@@ -161,7 +158,6 @@ void TCBSpline3DClass::Update_Tangents(void)
 	float out_factor = 2.0f * (Keys[1].Time - Keys[0].Time) / total_time;
 	Tangents[end].InTangent *= in_factor;
 	Tangents[0].OutTangent *= out_factor;
-
 
 	// Now compute the tangents of all of the normal keys...
 	for (int pi=1;pi<Keys.Count() - 1; pi++) {

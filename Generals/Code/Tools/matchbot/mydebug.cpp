@@ -21,7 +21,6 @@
 #include "streamer.h"
 #include "odevice.h"
 
-
 // static MyMsgManager         *msg_manager=NULL;
 
 // static int                paranoid_enabled=0;
@@ -34,7 +33,6 @@ Sem4                      MyDebugLibSemaphore;
 #else
 CritSec                      MyDebugLibSemaphore;
 #endif
-
 
 int MyMsgManager::setAllStreams(OutputDevice *device)
 {
@@ -51,7 +49,6 @@ int MyMsgManager::setAllStreams(OutputDevice *device)
 	return(0);
 }
 
-
 int MyMsgManager::setParanoidStream(OutputDevice *device)
 {
 	if (device==NULL)
@@ -66,14 +63,10 @@ int MyMsgManager::setParanoidStream(OutputDevice *device)
 	return(0);
 }
 
-
-
-
 ostream *MyMsgManager::paranoidStream(void)
 {
 	return(paranoid_ostream);
 }
-
 
 int MyMsgManager::ReplaceAllStreams(FileD * output_device, char *device_filename, char *copy_filename)
 {

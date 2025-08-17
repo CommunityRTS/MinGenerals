@@ -84,7 +84,6 @@ static GameWindow *buttonPlayer[MAX_BUTTONS] = {NULL,NULL,NULL,NULL,
 static GameWindow *staticTextPlayer[MAX_BUTTONS] = {NULL,NULL,NULL,NULL,
 																							NULL,NULL,NULL,NULL };
 
-
 static NameKeyType buttonCancelID = NAMEKEY_INVALID;
 
 static GameWindow *winFlag = NULL;
@@ -98,7 +97,6 @@ static GameWindow *staticTextPlayerName = NULL;
 //-----------------------------------------------------------------------------
 // PUBLIC FUNCTIONS ///////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
-
 
 void ControlBar::initObserverControls( void )
 {

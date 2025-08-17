@@ -120,7 +120,6 @@ void DX8WebBrowser::Shutdown()
 	}
 }
 
-
 // ******************************************************************************************
 // * Function Name: DX8WebBrowser::Update
 // ******************************************************************************************
@@ -136,7 +135,6 @@ void	DX8WebBrowser::Update(void)
 {
 	if(pBrowser) pBrowser->D3DUpdate();
 };
-
 
 // ******************************************************************************************
 // * Function Name: DX8WebBrowser::Render
@@ -185,7 +183,6 @@ void	DX8WebBrowser::CreateBrowser(const char* browsername, const char* url, int 
 	}
 }
 
-
 // ******************************************************************************************
 // * Function Name: DX8WebBrowser::DestroyBrowser
 // ******************************************************************************************
@@ -203,7 +200,6 @@ void	DX8WebBrowser::DestroyBrowser(const char* browsername)
 	if(pBrowser)
 		pBrowser->DestroyBrowser(_bstr_t(browsername));
 }
-
 
 // ******************************************************************************************
 // * Function Name: DX8WebBrowser::Is_Browser_Open

@@ -674,6 +674,5 @@ void BuddyThreadClass::statusCallback( GPConnection *con, GPRecvBuddyStatusArg *
 	TheGameSpyBuddyMessageQueue->addResponse( response );
 }
 
-
 //-------------------------------------------------------------------------
 

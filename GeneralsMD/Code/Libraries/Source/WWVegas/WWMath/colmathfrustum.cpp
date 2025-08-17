@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "colmath.h"
 #include "colmathinlines.h"
 #include "aaplane.h"
@@ -47,10 +46,8 @@
 #include "frustum.h"
 #include "wwdebug.h"
 
-
 // TODO: Most of these overlap functions actually do not catch all cases of when
 // the primitive is outside of the frustum...
-
 
 // Frustum functions
 CollisionMath::OverlapType
@@ -132,7 +129,6 @@ CollisionMath::Overlap_Test(const FrustumClass & frustum,const AABoxClass & box)
 	return OVERLAPPED;
 }
 
-
 CollisionMath::OverlapType
 CollisionMath::Overlap_Test(const FrustumClass & frustum,const OBBoxClass & box)
 {
@@ -152,7 +148,6 @@ CollisionMath::Overlap_Test(const FrustumClass & frustum,const OBBoxClass & box)
 	}
 	return OVERLAPPED;
 }
-
 
 CollisionMath::OverlapType
 CollisionMath::Overlap_Test(const FrustumClass & frustum,const OBBoxClass & box,int & planes_passed)

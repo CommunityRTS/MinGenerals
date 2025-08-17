@@ -86,7 +86,6 @@ enum JetAIStateType
 	JETAISTATETYPE_LAST
 };
 
-
 //-------------------------------------------------------------------------------------------------
 Bool JetAIUpdate::getFlag( FlagType f ) const
 {
@@ -2004,7 +2003,6 @@ UpdateSleepTime JetAIUpdate::update()
 		chooseLocomotorSet(d->m_returningLoco);
 	}
 
-
 	if( !jet->isKindOf( KINDOF_PRODUCED_AT_HELIPAD ) )
 	{
 		Drawable *draw = jet->getDrawable();
@@ -2031,7 +2029,6 @@ UpdateSleepTime JetAIUpdate::update()
 			}
 		}
 	}
-
 
 	/*UpdateSleepTime ret =*/ AIUpdateInterface::update();
 	//return (mine < ret) ? mine : ret;
@@ -2560,7 +2557,6 @@ void JetAIUpdate::xfer( Xfer *xfer )
 
  // extend base class
 	AIUpdateInterface::xfer(xfer);
-
 
 	xfer->xferCoord3D(&m_producerLocation);
 	m_mostRecentCommand.doXfer(xfer);

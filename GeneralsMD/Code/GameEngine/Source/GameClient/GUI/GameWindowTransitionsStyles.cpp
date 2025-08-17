@@ -172,7 +172,6 @@ void FlashTransition::update( Int frame )
 		break;
 	}
 
-
 }
 
 void FlashTransition::reverse( void )
@@ -237,7 +236,6 @@ void FlashTransition::skip( void )
 }
 
 //-----------------------------------------------------------------------------
-
 
 ButtonFlashTransition::ButtonFlashTransition ( void )
 {
@@ -610,7 +608,6 @@ void ButtonFlashTransition::skip( void )
 	update(BUTTONFLASHTRANSITION_END);
 }
 
-
 //-----------------------------------------------------------------------------
 
 FadeTransition::FadeTransition ( void )
@@ -808,7 +805,6 @@ void ScaleUpTransition::update( Int frame )
 				TheAudio->addAudioEvent( &buttonClick );
 			}  // end if
 
-
 		}
 
 	case SCALEUPTRANSITION_2:
@@ -930,7 +926,6 @@ void ScoreScaleUpTransition::update( Int frame )
 			{
 				TheAudio->addAudioEvent( &buttonClick );
 			}  // end if
-
 
 		}
 
@@ -1676,7 +1671,6 @@ void ScreenFadeTransition::skip( void )
 	update(SCREENFADETRANSITION_END);
 }
 
-
 //-----------------------------------------------------------------------------
 
 ControlBarArrowTransition::ControlBarArrowTransition ( void )
@@ -1781,10 +1775,6 @@ void ControlBarArrowTransition::skip( void )
 {
 	update(CONTROLBARARROWTRANSITION_END);
 }
-
-
-
-
 
 //-----------------------------------------------------------------------------
 
@@ -2053,8 +2043,6 @@ void ReverseSoundTransition::skip( void )
 		update(REVERSESOUNDTRANSITION_END);
 }
 
-
-
 //-----------------------------------------------------------------------------
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
@@ -2210,7 +2198,6 @@ static void drawTypeText( GameWindow *window, DisplayString *str)
 
 	}
 
-
 	// how much space will this text take up
 	text->getSize( &textWidth, &textHeight );
 
@@ -2238,6 +2225,5 @@ static void drawTypeText( GameWindow *window, DisplayString *str)
 		str->draw( textPos.x, textPos.y, textColor, textDropColor );
 
 	}  // end else
-
 
 }  // end drawStaticTextText

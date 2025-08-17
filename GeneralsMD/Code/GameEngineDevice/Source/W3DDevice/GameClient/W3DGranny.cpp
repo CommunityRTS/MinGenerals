@@ -403,7 +403,6 @@ void GrannyRenderObjClass::Render(RenderInfoClass & rinfo)
 				}
 			}
 
-
 			Matrix3D tm(Transform);
 			DX8Wrapper::Set_Light_Environment(rinfo.light_environment);
 			DX8Wrapper::Set_Material(m_prototype.m_vertexMaterial);
@@ -515,7 +514,6 @@ PrototypeClass * GrannyLoaderClass::Load_W3D(const char *filename)
 //				GrannyAutoBindAllMaterialTextures(MaterialInstance,TextureLibrary);
 //                GrannyAddMaterialToLibrary(MaterialLibrary,MaterialInstance);
 //            }
-
 
             GrannyAutoBindAllMaterials(MaterialLibrary, fileInfo,TextureLibrary);
 
@@ -672,7 +670,6 @@ GrannyAnimClass * GrannyAnimManagerIterator::Get_Current_Anim( void )
 	return (GrannyAnimClass *)Get_Current();
 }
 
-
 GrannyAnimClass::GrannyAnimClass(void) :
 	NumFrames(0),
 	FrameRate(0),
@@ -681,7 +678,6 @@ GrannyAnimClass::GrannyAnimClass(void) :
 {
 	Name[0]='\0';
 }
-
 
 /** GrannyAnimClass::~GrannyAnimClass -- Destructor */
 GrannyAnimClass::~GrannyAnimClass(void)
@@ -1058,7 +1054,6 @@ void GrannyRenderObjClassSystem::update()
 
 	Int		iTime=timeGetTime();
 }
-
 
 //=============================================================================
 // GrannyRenderObjClassSystem::flush

@@ -189,5 +189,3 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	return 0;
 }
 
-
-

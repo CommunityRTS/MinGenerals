@@ -111,7 +111,6 @@ ShdSubMeshClass & ShdSubMeshClass::operator = (const ShdSubMeshClass & that)
 	return * this;
 }
 
-
 ShdSubMeshClass::~ShdSubMeshClass(void)
 {
 	REF_PTR_RELEASE(Shader);
@@ -170,7 +169,6 @@ static unsigned Define_FVF(MeshModelClass* mmc,bool enable_lighting)
 	return fvf;
 }
 
-
 // The legacy renderer is FVF-based so we need to figure out what FVF format to use
 static unsigned Define_FVF(ShdSubMeshClass* ssm,bool enable_lighting)
 {
@@ -214,7 +212,6 @@ static unsigned Define_FVF(ShdSubMeshClass* ssm,bool enable_lighting)
 
 	return fvf;
 }
-
 
 void ShdSubMeshClass::Init_From_Legacy_Mesh_Model(MeshModelClass* model,int first_polygon)
 {
@@ -330,7 +327,6 @@ void ShdSubMeshClass::Init_From_Legacy_Mesh_Model(MeshModelClass* model,int firs
 			}
 		}
 
-
 		((Shd6LegacyW3DClass*)Shader)->Set_Shader(pass,legacy_shader);
 		((Shd6LegacyW3DClass*)Shader)->Set_Material(pass,legacy_material);
 	}
@@ -358,7 +354,6 @@ void ShdSubMeshClass::Init_From_Legacy_Mesh_Model(MeshModelClass* model,int firs
 	}
 
 }
-
 
 WW3DErrorType ShdSubMeshClass::Load_W3D(ChunkLoadClass& cload)
 {
@@ -417,7 +412,6 @@ WW3DErrorType ShdSubMeshClass::Load_W3D(ChunkLoadClass& cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * ShdSubMeshClass::read_chunks -- read w3d chunks                                           *
  *                                                                                             *
@@ -470,7 +464,6 @@ WW3DErrorType ShdSubMeshClass::read_chunks(ChunkLoadClass& cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * ShdSubMeshClass::read_vertices -- read the vertex chunk from a W3D file                   *
  *                                                                                             *
@@ -503,7 +496,6 @@ WW3DErrorType ShdSubMeshClass::read_vertices(ChunkLoadClass& cload)
 
 	return WW3D_ERROR_OK;
 }
-
 
 /***********************************************************************************************
  * ShdSubMeshClass::read_vertex_normals -- read the vertex normals chunk from a w3d file     *
@@ -848,7 +840,6 @@ WW3DErrorType ShdSubMeshClass::read_vertex_shade_indices(ChunkLoadClass & cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * ShdSubMeshClass::read_shader -- read the shader chunk													 *
  *                                                                                             *
@@ -875,7 +866,6 @@ WW3DErrorType ShdSubMeshClass::read_shader(ChunkLoadClass& cload)
 	return WW3D_ERROR_OK;
 }
 
-
 /***********************************************************************************************
  * ShdSubMesh::Get_Deformed_Vertices -- Gets the deformed vertices for a skin                   *
  *                                                                                             *
@@ -894,7 +884,6 @@ void	ShdSubMeshClass::Get_Deformed_Vertices(Vector3 *dst_vert, Vector3 *dst_norm
 	WWASSERT(htree);
 	get_deformed_vertices(dst_vert,dst_norm,htree);
 }
-
 
 /***********************************************************************************************
  * ShdSubMeshClass::Get_Deformed_Vertices -- Gets the deformed vertices for a skin                   *

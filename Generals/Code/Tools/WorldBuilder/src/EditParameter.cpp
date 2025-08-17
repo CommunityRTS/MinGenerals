@@ -34,7 +34,6 @@
 #include "EditCoordParameter.h"
 #include "EditObjectParameter.h"
 
-
 #include "Common/AudioEventInfo.h"
 #include "Common/BorderColors.h"
 #include "Common/File.h"
@@ -96,7 +95,6 @@ void EditParameter::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditParameter, CDialog)
 	//{{AFX_MSG_MAP(EditParameter)
@@ -260,7 +258,6 @@ AsciiString EditParameter::getWarningText(Parameter *pParm)
 			}
 			break;
 
-
 		case Parameter::OBJECT_TYPE_LIST:
 			// No warning is possible.
 			break;
@@ -354,7 +351,6 @@ AsciiString EditParameter::getWarningText(Parameter *pParm)
 			//Not sure if I need to do anything here.
 			break;
 
-
 		case Parameter::BOUNDARY:
 			if (TheTerrainRenderObject->getMap()->getAllBoundaries().size() <= pParm->getInt()) {
 				warningText.format("Border %s does not exist.", BORDER_COLORS[pParm->getInt() % BORDER_COLORS_SIZE]);
@@ -385,7 +381,6 @@ AsciiString EditParameter::getWarningText(Parameter *pParm)
 	}
 	return warningText;
 }
-
 
 AsciiString EditParameter::getInfoText(Parameter *pParm)
 {
@@ -467,8 +462,6 @@ AsciiString EditParameter::getInfoText(Parameter *pParm)
 	return infoText;
 }
 
-
-
 void EditParameter::OnChangeEdit()
 {
 
@@ -478,7 +471,6 @@ void EditParameter::OnEditchangeCombo()
 {
 
 }
-
 
 void EditParameter::loadConditionParameter(Script *pScr, Parameter::ParameterType type, CComboBox *pCombo)
 {
@@ -760,7 +752,6 @@ Bool EditParameter::loadSciences(CComboBox *pCombo, AsciiString match)
 			retVal = true;
 		}
 	}
-
 
 	return retVal;
 }
@@ -1088,7 +1079,6 @@ Bool EditParameter::loadRevealNamesParameter(Script *pScr, CComboBox *pCombo, As
 	return found;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool EditParameter::loadAudioType(Parameter::ParameterType  comboType, CComboBox *pCombo, AsciiString match)
 {
@@ -1163,7 +1153,6 @@ Bool EditParameter::getMovieComment(AsciiString match, AsciiString& outCommentFr
 
 	return retVal;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 Bool EditParameter::loadTriggerAreas(CComboBox *pCombo, AsciiString match)
@@ -1242,7 +1231,6 @@ Bool EditParameter::loadFontNames(CComboBox *pCombo, AsciiString match)
 	if (pCombo) pCombo->ResetContent();
 	Bool didMatch = false;
 	GameFont *font;
-
 
 	// create the font library
 	TheFontLibrary = new W3DFontLibrary;
@@ -2050,7 +2038,6 @@ BOOL EditParameter::OnInitDialog()
 			loadRevealNames(pCombo);
 			break;
 		}
-
 
 	}
 	if (showCombo) {

@@ -36,10 +36,8 @@
 
 #pragma once
 
-
 #ifndef _CDCNTRL
 #define _CDCNTRL
-
 
 //#include	"always.h"
 //#include	<winmin.h>
@@ -47,8 +45,6 @@
 #include <windows.h>
 #include <windowsx.h>
 #include	<ctype.h>
-
-
 
 class CDControlClass {
 
@@ -70,7 +66,6 @@ class CDControlClass {
 		** Allow the user to eject the CD in the specified drive.
 		*/
 		bool Unlock_CD_Tray(int drive);
-
 
 	private:
 		/*
@@ -104,7 +99,6 @@ class CDControlClass {
 };
 
 extern CDControlClass CDControl;
-
 
 #define LOCK_TIMEOUT        2000		// 2 Seconds
 #define LOCK_RETRIES        2			// 2 times
@@ -149,8 +143,6 @@ typedef struct _PARAMBLOCK {
 } PARAMBLOCK, *PPARAMBLOCK;
 
 #pragma pack()
-
-
 
 #endif	//_CDCNTRL
 

@@ -55,7 +55,6 @@
 DECLARE_FORCE_LINK(SimpleShader);
 REGISTER_SHDDEF(ShdSimpleDefClass,SHDDEF_CLASSID_SIMPLE,"Simple");
 
-
 // Save-Load methods for ShdDefClass
 enum
 {
@@ -156,7 +155,6 @@ bool ShdSimpleDefClass::Load(ChunkLoadClass &cload)
 	return true;
 }
 
-
 void ShdSimpleDefClass::Init()
 {
 	Shd6SimpleClass::Init();
@@ -171,8 +169,6 @@ ShdInterfaceClass* ShdSimpleDefClass::Create() const
 {
 	return new Shd6SimpleClass(this);
 }
-
-
 
 Matrix4x4				Shd6SimpleClass::View_Projection_Matrix;
 
@@ -211,7 +207,6 @@ void Shd6SimpleClass::Init()
 void Shd6SimpleClass::Shutdown()
 {
 }
-
 
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6

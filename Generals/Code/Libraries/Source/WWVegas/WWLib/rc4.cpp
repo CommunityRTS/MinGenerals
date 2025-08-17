@@ -36,7 +36,6 @@ RC4Class::RC4Class()
 	Key.Y=0;
 }
 
-
 //
 // Setup the encryption key.  This must be called before you encrypt/decrypt!
 //
@@ -60,7 +59,6 @@ void RC4Class::Prepare_Key(const unsigned char *key_data_ptr, int key_data_len)
 		index1 = (unsigned char)((index1 + 1) % key_data_len);
 	}
 }
-
 
 //
 // RC4 in standard mode.

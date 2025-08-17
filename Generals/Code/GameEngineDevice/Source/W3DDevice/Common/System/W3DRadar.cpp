@@ -247,7 +247,6 @@ void W3DRadar::radarToPixel( const ICoord2D *radar, ICoord2D *pixel,
 
 }  // end radarToPixel
 
-
 //-------------------------------------------------------------------------------------------------
 /** Draw a hero icon at a position, given radar box upper left location and dimensions.  */
 //-------------------------------------------------------------------------------------------------
@@ -276,8 +275,6 @@ void W3DRadar::drawHeroIcon( Int pixelX, Int pixelY, Int width, Int height, cons
 		TheDisplay->drawImage( image, offsetScreen.x , offsetScreen.y, offsetScreen.x + iconWidth, offsetScreen.y + iconHeight );
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** Draw a "box" into the texture passed in that represents the viewable area for
@@ -601,7 +598,6 @@ void W3DRadar::drawEvents( Int pixelX, Int pixelY, Int width, Int height )
 
 }  // end drawEvents
 
-
 //-------------------------------------------------------------------------------------------------
 /** Draw all the radar icons */
 //-------------------------------------------------------------------------------------------------
@@ -615,7 +611,6 @@ void W3DRadar::drawIcons( Int pixelX, Int pixelY, Int width, Int height )
 		++iter;
 	}
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Render an object list into the texture passed in */
@@ -670,7 +665,6 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 		// they are godlike and can see everything)
  		//
 
-
  		if( obj->getRadarPriority() == RADAR_PRIORITY_LOCAL_UNIT_ONLY &&
  				obj->getControllingPlayer() != ThePlayerList->getLocalPlayer() &&
 				ThePlayerList->getLocalPlayer()->isPlayerActive() )
@@ -683,14 +677,11 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 		radarPoint.x = pos->x / (m_mapExtent.width() / RADAR_CELL_WIDTH);
 		radarPoint.y = pos->y / (m_mapExtent.height() / RADAR_CELL_HEIGHT);
 
-
     if ( skip )
       continue;
 
     // get the color we're going to draw in
 		Color c = rObj->getColor();
-
-
 
 		// adjust the alpha for stealth units so they "fade/blink" on the radar for the controller
 		// if( obj->getRadarPriority() == RADAR_PRIORITY_LOCAL_UNIT_ONLY )
@@ -724,9 +715,6 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 			c = GameMakeColor( r, g, b, a );
 
 		}  // end if
-
-
-
 
 		// draw the blip, but make sure the points are legal
 		if( legalRadarPoint( radarPoint.x, radarPoint.y ) )

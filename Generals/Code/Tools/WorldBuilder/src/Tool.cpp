@@ -39,7 +39,6 @@ Tool::Tool(Int toolID, Int cursorID)
 	m_cursor = NULL;
 }
 
-
 /// Destructor
 Tool::~Tool(void)
 {
@@ -48,14 +47,12 @@ Tool::~Tool(void)
 	}
 }
 
-
 /// Shows the "no options"  options panel.
 void Tool::activate()
 {
 	CMainFrame::GetMainFrame()->showOptionsDialog(IDD_NO_OPTIONS);
 	DrawObject::setDoBrushFeedback(false);
 }
-
 
 void Tool::setCursor(void)
 {

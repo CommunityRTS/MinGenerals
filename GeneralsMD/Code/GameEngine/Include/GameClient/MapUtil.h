@@ -61,7 +61,6 @@ struct WinTimeStamp
 	UnsignedInt m_highTimeStamp;
 };
 
-
 class WaypointMap : public std::map<AsciiString, Coord3D>
 {
 public:

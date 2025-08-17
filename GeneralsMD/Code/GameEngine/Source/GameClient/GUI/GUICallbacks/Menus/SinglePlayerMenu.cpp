@@ -86,7 +86,6 @@ void SinglePlayerMenuInit( WindowLayout *layout, void *userData )
 	GameWindow *buttonBack = TheWindowManager->winGetWindowFromId( NULL, buttonBackID );
 	TheShell->registerWithAnimateManager(buttonBack, WIN_ANIMATION_SLIDE_RIGHT, TRUE,1);
 
-
 	//TheShell->registerWithAnimateManager(parent, WIN_ANIMATION_SLIDE_TOP, TRUE);
 
 }  // end SinglePlayerMenuInit

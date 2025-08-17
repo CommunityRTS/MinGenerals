@@ -116,12 +116,9 @@ ContainModuleInterface *OverlordContain::getRedirectedContain() const
 	return NULL;// Or say no if they have no contain.
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
-
-
 
 //-------------------------------------------------------------------------------------------------
 void OverlordContain::onDie( const DamageInfo *damageInfo )
@@ -403,7 +400,6 @@ const Object *OverlordContain::friend_getRider() const
  	if( m_containListSize > 0 )
  		return m_containList.front();
 
-
 	return NULL;
 }
 
@@ -418,7 +414,6 @@ void OverlordContain::deactivateRedirectedContain()
 {
 	m_redirectionActivated = FALSE;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -452,7 +447,6 @@ void OverlordContain::clientVisibleContainedFlashAsSelected()
 	}
 
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

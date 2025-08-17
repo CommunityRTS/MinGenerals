@@ -118,7 +118,6 @@ protected:
 		return getGenerateMinefieldBehaviorModuleData()->m_upgradeMuxData.m_requiresAllTriggers;
 	}
 
-
 private:
 	Coord3D							m_target;
 	Bool								m_hasTarget;

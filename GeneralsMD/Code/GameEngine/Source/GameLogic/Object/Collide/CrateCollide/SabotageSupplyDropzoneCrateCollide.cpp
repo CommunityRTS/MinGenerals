@@ -30,8 +30,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
@@ -59,7 +57,6 @@
 #include "GameLogic/Module/HijackerUpdate.h"
 #include "GameLogic/Module/OCLUpdate.h"
 #include "GameLogic/Module/SabotageSupplyDropzoneCrateCollide.h"
-
 
 #ifdef _INTERNAL
 // for occasional debugging...
@@ -186,7 +183,6 @@ Bool SabotageSupplyDropzoneCrateCollide::executeCrateBehavior( Object *other )
 			}
 		}
 	}
-
 
 	return TRUE;
 }

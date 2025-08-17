@@ -56,7 +56,6 @@
 
 class LayersList;
 
-
 class CMainFrame : public CFrameWnd
 {
   DECLARE_DYNAMIC(CMainFrame)
@@ -118,7 +117,6 @@ protected:  // control bar embedded members
 	GlobalLightOptions	m_globalLightOptions;
 	CameraOptions				m_cameraOptions;
 	LayersList*					m_layersList;
-
 
 	CWnd							*m_curOptions;
 	Int								m_curOptionsX;

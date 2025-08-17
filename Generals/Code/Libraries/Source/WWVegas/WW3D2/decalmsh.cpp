@@ -90,7 +90,6 @@ public:
 	SimpleDynVecClass<Vector3> VertNorms;
 };
 
-
 void DecalPolyClass::Reset(void)
 {
 	Verts.Delete_All(false);
@@ -176,7 +175,6 @@ void DecalPolyClass::Clip(const PlaneClass & plane,DecalPolyClass & dest) const
 static DecalPolyClass _DecalPoly0;
 static DecalPolyClass _DecalPoly1;
 
-
 /*
 ** DecalMeshClass Implementation
 */
@@ -201,7 +199,6 @@ DecalMeshClass::DecalMeshClass(MeshClass * parent,DecalSystemClass * system) :
 	WWASSERT(DecalSystem != NULL);
 }
 
-
 /***********************************************************************************************
  * DecalMeshClass::~DecalMeshClass -- Destructor                                               *
  *                                                                                             *
@@ -218,11 +215,9 @@ DecalMeshClass::~DecalMeshClass(void)
 {
 }
 
-
 /*
 ** RigidDecalMeshClass Implementation
 */
-
 
 /***********************************************************************************************
  * RigidDecalMeshClass::RigidDecalMeshClass -- Constructor                                     *
@@ -240,7 +235,6 @@ RigidDecalMeshClass::RigidDecalMeshClass(MeshClass * parent, DecalSystemClass * 
 	DecalMeshClass(parent, system)
 {
 }
-
 
 /***********************************************************************************************
  * RigidDecalMeshClass::~RigidDecalMeshClass -- Destructor                                     *
@@ -273,7 +267,6 @@ RigidDecalMeshClass::~RigidDecalMeshClass(void)
 		REF_PTR_RELEASE(VertexMaterials[i]);
 	}
 }
-
 
 /***********************************************************************************************
  * RigidDecalMeshClass::Render -- Render the decals                                            *
@@ -362,7 +355,6 @@ void RigidDecalMeshClass::Render(void)
 	}
 
 }
-
 
 /***********************************************************************************************
  * RigidDecalMeshClass::Process_Material_Run -- scans the mesh for material runs               *
@@ -601,7 +593,6 @@ bool RigidDecalMeshClass::Create_Decal
 	return added_polys;
 }
 
-
 /***********************************************************************************************
  * RigidDecalMeshClass::Delete_Decal -- Delete a decal                                         *
  *                                                                                             *
@@ -691,7 +682,6 @@ bool RigidDecalMeshClass::Delete_Decal(uint32 id)
 	return true;
 }
 
-
 /*
 ** Temporary Buffers
 ** These buffers are used by the skin code for temporary storage of the deformed vertices and
@@ -700,11 +690,9 @@ bool RigidDecalMeshClass::Delete_Decal(uint32 id)
 static SimpleVecClass<Vector3>	_TempVertexBuffer;
 static SimpleVecClass<Vector3>	_TempNormalBuffer;
 
-
 /*
 ** SkinDecalMeshClass Implementation
 */
-
 
 /***********************************************************************************************
  * SkinDecalMeshClass::SkinDecalMeshClass -- Constructor                                       *
@@ -722,7 +710,6 @@ SkinDecalMeshClass::SkinDecalMeshClass(MeshClass * parent, DecalSystemClass * sy
 	DecalMeshClass(parent, system)
 {
 }
-
 
 /***********************************************************************************************
  * SkinDecalMeshClass::~SkinDecalMeshClass -- Destructor                                       *
@@ -755,7 +742,6 @@ SkinDecalMeshClass::~SkinDecalMeshClass(void)
 		REF_PTR_RELEASE(VertexMaterials[i]);
 	}
 }
-
 
 /***********************************************************************************************
  * SkinDecalMeshClass::Render -- Render the decals                                             *
@@ -860,7 +846,6 @@ void SkinDecalMeshClass::Render(void)
 	}
 }
 
-
 /***********************************************************************************************
  * SkinDecalMeshClass::Process_Material_Run -- scans the mesh for material runs                *
  *                                                                                             *
@@ -892,7 +877,6 @@ int SkinDecalMeshClass::Process_Material_Run(int start_index)
 	}
 	return next_index;
 }
-
 
 /***********************************************************************************************
  * SkinDecalMeshClass::Create_Decal -- Generate a new decal                                    *
@@ -1017,7 +1001,6 @@ bool SkinDecalMeshClass::Create_Decal(DecalGeneratorClass * generator,
 	// WWDEBUG_SAY(("Decal mesh now has: %d polys\r\n",Polys.Count()));
 	return true;
 }
-
 
 /***********************************************************************************************
  * SkinDecalMeshClass::Delete_Decal -- Delete a decal                                         *

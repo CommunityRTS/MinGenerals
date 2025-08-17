@@ -53,13 +53,11 @@
 #include "coltest.h"
 #include "inttest.h"
 
-
 class AABoxClass;
 class OBBoxClass;
 class SphereClass;
 class ChunkLoadClass;
 class AABTreeClass;
-
 
 /*
 ** The following two defines control two space-saving optimizations.  In Renegade I've found
@@ -216,7 +214,6 @@ protected:
 	WW3DErrorType				read_vertex_shade_indices(ChunkLoadClass & cload);
 	WW3DErrorType				read_aabtree(ChunkLoadClass &cload);
 
-
 	// General info
 	ShareBufferClass<char> *							MeshName;
 	ShareBufferClass<char> *							UserText;
@@ -252,7 +249,6 @@ inline Vector3i * MeshGeometryClass::get_polys(void)
 	WWASSERT(Poly);
 	return Poly->Get_Array();
 }
-
 
 inline uint32 * MeshGeometryClass::get_shade_indices(bool create)
 {

@@ -50,7 +50,6 @@
 // shader code declarations
 #include "shd6bumpdiff.vsh_code.h"
 
-
 ShdHWVertexShader		Shd6BumpDiffClass::Vertex_Shader;
 Matrix4x4				Shd6BumpDiffClass::View_Projection_Matrix;
 
@@ -101,7 +100,6 @@ void Shd6BumpDiffClass::Shutdown()
 {
 	Vertex_Shader.Destroy();
 }
-
 
 /**********************************************************************************************
 //! Apply shared states for 1 pass DX6 (no bump)

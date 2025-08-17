@@ -106,7 +106,6 @@ inline StateReturnType MIN_SLEEP(UnsignedInt encloserSleep, StateReturnType encl
 	}
 }
 
-
 /**
  * Special argument for onCondition. It means when the given condition
  * becomes true, the state machine will exit and return the given status.
@@ -360,7 +359,6 @@ private:
 	void internalSetGoalObject( const Object *obj );
 	void internalSetGoalPosition( const Coord3D *pos);
 
-
 	std::map<StateID, State *>	m_stateMap;			///< the mapping of ids to states
 	Object*											m_owner;				///< object that "owns" this machine
 
@@ -431,7 +429,6 @@ protected:
 };
 EMPTY_DTOR(FailureState)
 
-
 //-----------------------------------------------------------------------------------------------------------
 /**
 	A utility state that never exits (except due to conditions).
@@ -451,7 +448,6 @@ protected:
 };
 EMPTY_DTOR(ContinueState)
 
-
 //-----------------------------------------------------------------------------------------------------------
 /**
 	A utility state that sleeps forever.
@@ -470,6 +466,5 @@ protected:
 	virtual void loadPostProcess(){};
 };
 EMPTY_DTOR(SleepState)
-
 
 #endif // _STATE_MACHINE_H_

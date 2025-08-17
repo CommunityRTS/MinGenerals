@@ -56,7 +56,6 @@ char         g_DLBPS[80];
 
 int          g_Finished=0;
 
-
 HWND         g_DownloadWindow;
 HWND         g_ContactWindow;
 HWND         g_PrimaryWindow;
@@ -459,7 +458,6 @@ static void StartPatchCheck( void )
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
 BOOL CALLBACK downloadDialogProc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
 	//   HRESULT res;
@@ -570,15 +568,12 @@ BOOL CALLBACK downloadDialogProc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM
 	return TRUE;
 }
 
-
-
 DWORD        dwChatAdvise;
 DWORD        dwDownloadAdvise;
 
 //Update      *g_Update;
 
 uint32       g_AppVer=-1;
-
 
 BOOL CALLBACK Download_Dialog_Proc( HWND hwndDlg, UINT uMsg, WPARAM wParam,
     LPARAM lParam );
@@ -589,7 +584,6 @@ BOOL CALLBACK Simple_Dialog_Proc( HWND hwndDlg, UINT uMsg, WPARAM wParam,
 HWND CreatePrimaryWin(void);
 
 char const * Fetch_String(int id);
-
 
 //
 // Create a primary window
@@ -645,8 +639,6 @@ HWND CreatePrimaryWin(void)
 
   return(hwnd);
 }
-
-
 
 //
 // Dispatch pending windows events
@@ -742,7 +734,6 @@ int main(int argc, char *argv[])
   // OK, done with that crap go on to the task at hand now....
 */
 
-
   // Find the game version
   g_AppVer = -1;
 	if (!GetUnsignedIntFromRegistry("", "Version", g_AppVer))
@@ -761,7 +752,6 @@ int main(int argc, char *argv[])
   SetForegroundWindow(g_ContactWindow);
   DispatchEvents();  // process some win messages
 
-
   // Setup the Westwood Online stuff
   Startup_Chat();
 
@@ -772,7 +762,6 @@ int main(int argc, char *argv[])
   return(0);
 }
 
-
 typedef struct SRecord {
 	int ID;						// ID number of the string resource.
 	int TimeStamp;				// 'Time' that this string was last requested.
@@ -780,7 +769,6 @@ typedef struct SRecord {
 
 	SRecord(void) : ID(-1), TimeStamp(-1) {}
 } SRecord;
-
 
 /***********************************************************************************************
  * Fetch_String -- Fetches a string resource.                                                  *
@@ -845,7 +833,6 @@ char const * Fetch_String(int id)
 	_buffers[oldest].ID = id;
 	_buffers[oldest].TimeStamp = _time;
 
-
 	if (LoadString(Global_instance, id, stringptr, sizeof(_buffers[oldest].String)) == 0) {
 		return("");
 	}
@@ -870,9 +857,6 @@ char const * Fetch_String(int id)
 	return(stringptr);
 }
 
-
-
-
 void LogMsg(char *msg)
 {
 #ifdef _DEBUG
@@ -883,9 +867,6 @@ void LogMsg(char *msg)
 #endif
 }
 
-
-
-
 void Startup_Chat(void)
 {
 	/*
@@ -895,7 +876,6 @@ void Startup_Chat(void)
 
   CoCreateInstance(CLSID_Chat, NULL, CLSCTX_INPROC_SERVER,
       IID_IChat, (void**)&pChat);
-
 
   if (pChat==NULL)
   {
@@ -920,7 +900,6 @@ void Startup_Chat(void)
   _ASSERTE(SUCCEEDED(hRes));
   hRes=pConnectionPoint->Advise((IChatEvent *)g_pChatSink,&dwChatAdvise);
   _ASSERTE(SUCCEEDED(hRes));
-
 
   pChat->SetAttributeValue("RegPath",APP_REG_KEY);
 
@@ -951,8 +930,6 @@ void Shutdown_Chat(void)
     // ADD pContainer->Release();
 		*/
 }
-
-
 
 //
 // Download a patch for the registration client if required
@@ -1007,7 +984,6 @@ void Update_If_Required(void)
   int   retval;
   int   i;
 
-
   // Create the events
   for (i=0; i<NUM_EVENTS; i++)
     Events[i]=CreateEvent(NULL,FALSE,FALSE,NULL);
@@ -1056,17 +1032,11 @@ void Update_If_Required(void)
 	*/
 }
 
-
-
-
-
-
 /*
 CChatEventSink::CChatEventSink()
 {
   m_cRef=0;  // init the refrence count
 }
-
 
 ///////////////////////////////////////////////////////////
 //
@@ -1116,10 +1086,6 @@ CChatEventSink::Release()
 	}
 	return m_cRef;
 }
-
-
-
-
 
 ///// DOWNLOAD
 
@@ -1179,13 +1145,7 @@ CDownloadEventSink::Release()
 
 */
 
-
-
-
-
-
 //// FTP Download stuff
-
 
 void SetupDownload( void )
 {
@@ -1213,8 +1173,6 @@ void SetupDownload( void )
 	*/
 }
 
-
-
 void ClosedownDownload( void )
 {
 /*
@@ -1235,8 +1193,6 @@ void ClosedownDownload( void )
    //////delete(g_pDownloadSink);  This appears to be bad....
 */
 }
-
-
 
 BOOL CALLBACK Download_Dialog_Proc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
@@ -1348,8 +1304,6 @@ BOOL CALLBACK Download_Dialog_Proc( HWND hwndDlg, UINT uMsg, WPARAM wParam, LPAR
 	return TRUE;
 }
 
-
-
 // Whoeee this is an exciting one...
 BOOL CALLBACK Simple_Dialog_Proc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 {
@@ -1366,9 +1320,6 @@ BOOL CALLBACK Simple_Dialog_Proc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lP
   }
   return(FALSE);
 }
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CDownloadEventSink
@@ -1390,7 +1341,6 @@ STDMETHODIMP CDownloadEventSink::OnError(int error)
   return(S_OK);
 }
 
-
 STDMETHODIMP CDownloadEventSink::OnProgressUpdate(int bytesread, int totalsize,
   int timetaken, int timeleft)
 {
@@ -1411,7 +1361,6 @@ STDMETHODIMP CDownloadEventSink::OnProgressUpdate(int bytesread, int totalsize,
 
   return(S_OK);
 }
-
 
 STDMETHODIMP CDownloadEventSink::OnStatusUpdate(int status)
 {
@@ -1449,13 +1398,9 @@ STDMETHODIMP CDownloadEventSink::OnQueryResume(void)
   return(DOWNLOADEVENT_RESUME);
 }
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////
 // CChatEventSink
 //////////////////////////////////////////////////////////////////////////////
-
 
 STDMETHODIMP CChatEventSink::OnServerList(HRESULT res, Server* servers)
 {
@@ -1477,7 +1422,6 @@ STDMETHODIMP CChatEventSink::OnServerBannedYou(HRESULT, time_t)
  return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnPageSend(HRESULT)
 {
   return(S_OK);
@@ -1487,7 +1431,6 @@ STDMETHODIMP CChatEventSink::OnPaged(HRESULT, User *, LPCSTR)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnFind(HRESULT, Channel *)
 {
@@ -1499,7 +1442,6 @@ STDMETHODIMP CChatEventSink::OnLogout(HRESULT, User *)
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnBusy(HRESULT)
 {
   return(S_OK);
@@ -1509,7 +1451,6 @@ STDMETHODIMP CChatEventSink::OnIdle(HRESULT)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnConnection(HRESULT, LPCSTR)
 {
@@ -1521,7 +1462,6 @@ STDMETHODIMP CChatEventSink::OnUserFlags(HRESULT,LPCSTR,unsigned int, unsigned i
  return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnChannelCreate(HRESULT, Channel *)
 {
   return(S_OK);
@@ -1532,18 +1472,15 @@ STDMETHODIMP CChatEventSink::OnChannelModify(HRESULT, Channel *)
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnChannelJoin(HRESULT, Channel *, User *)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnChannelLeave(HRESULT, Channel *, User *)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnChannelTopic(HRESULT, Channel *, LPCSTR)
 {
@@ -1555,24 +1492,20 @@ STDMETHODIMP CChatEventSink::OnChannelBan(HRESULT,  LPCSTR, int)
  return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnGroupList(HRESULT, Group *)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnPublicMessage(HRESULT, Channel *, User *, LPCSTR)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnPrivateMessage(HRESULT, User *,LPCSTR)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnSystemMessage(HRESULT, LPCSTR)
 {
@@ -1619,19 +1552,15 @@ STDMETHODIMP CChatEventSink::OnNetStatus(HRESULT hr)
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnChannelList(HRESULT, Channel*)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnUserList(HRESULT, Channel*, User*)
 {
   return(S_OK);
 }
-
-
 
 //
 // We got a list of updates to apply
@@ -1660,11 +1589,9 @@ STDMETHODIMP CChatEventSink::OnUpdateList(HRESULT r, Update * updates)
   if( updates == NULL )  // shouldn't happen
 	return S_OK;
 
-
   if (alreadyGotOne)  // Should only get one update list
     return(S_OK);
   alreadyGotOne=1;
-
 
   // Count the updates;
   tmp = updates;
@@ -1727,11 +1654,6 @@ STDMETHODIMP CChatEventSink::OnUpdateList(HRESULT r, Update * updates)
   return(S_OK);  // make silly compiler happy
 }
 
-
-
-
-
-
 STDMETHODIMP CChatEventSink::OnServerError(HRESULT, LPCSTR)
 {
   LogMsg("Server Error");
@@ -1743,43 +1665,35 @@ STDMETHODIMP CChatEventSink::OnMessageOfTheDay(HRESULT, LPCSTR)
   return(S_OK);
 }
 
-
-
 STDMETHODIMP CChatEventSink::OnPrivateAction(HRESULT, User *,  LPCSTR)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnPublicAction(HRESULT, Channel *, User *,  LPCSTR)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnPrivateGameOptions(HRESULT, User *,  LPCSTR)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnPublicGameOptions(HRESULT, Channel *, User *,  LPCSTR)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnGameStart(HRESULT, Channel *, User *,  int)
 {
   return(S_OK);
 }
 
-
 STDMETHODIMP CChatEventSink::OnUserKick(HRESULT, Channel *, User *,  User *)
 {
   return(S_OK);
 }
-
 
 STDMETHODIMP CChatEventSink::OnUserIP(HRESULT, User *)
 {

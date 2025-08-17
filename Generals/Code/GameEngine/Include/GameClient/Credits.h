@@ -86,7 +86,6 @@ static const LookupListRec CreditStyleNames[] =
 	{ NULL, 0	}// keep this last!
 };
 
-
 class CreditsLine
 {
 public:
@@ -153,7 +152,6 @@ private:
 	Int m_framesSinceStarted;
 	Int m_normalFontHeight;
 };
-
 
 //-----------------------------------------------------------------------------
 // INLINING ///////////////////////////////////////////////////////////////////

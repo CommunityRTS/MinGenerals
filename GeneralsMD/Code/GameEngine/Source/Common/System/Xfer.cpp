@@ -364,7 +364,6 @@ void Xfer::xferDrawableID( DrawableID *drawableID )
 
 }  // end xferDrawableID
 
-
 // ------------------------------------------------------------------------------------------------
 void Xfer::xferSTLObjectIDVector( std::vector<ObjectID> *objectIDVectorData )
 {
@@ -865,5 +864,4 @@ void Xfer::xferMatrix3D( Matrix3D* mtx )
 	xferReal(&tmp2.Z);
 	xferReal(&tmp2.W);
 }
-
 

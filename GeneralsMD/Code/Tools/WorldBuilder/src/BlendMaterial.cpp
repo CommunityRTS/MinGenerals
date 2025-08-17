@@ -48,7 +48,6 @@ BlendMaterial::BlendMaterial(CWnd* pParent /*=NULL*/) :
 	//}}AFX_DATA_INIT
 }
 
-
 void BlendMaterial::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -56,7 +55,6 @@ void BlendMaterial::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(BlendMaterial, COptionsPanel)
 	//{{AFX_MSG_MAP(BlendMaterial)
@@ -74,8 +72,6 @@ void BlendMaterial::setBlendTexClass(Int texClass)
 		m_staticThis->setTerrainTreeViewSelection(TVI_ROOT, texClass);
 	}
 }
-
-
 
 /// Set the selected texture in the tree view.
 Bool BlendMaterial::setTerrainTreeViewSelection(HTREEITEM parent, Int selection)
@@ -101,7 +97,6 @@ Bool BlendMaterial::setTerrainTreeViewSelection(HTREEITEM parent, Int selection)
 	}
 	return(false);
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // BlendMaterial message handlers
@@ -210,7 +205,6 @@ void BlendMaterial::addTerrain(const char *pPath, Int terrainNdx, HTREEITEM pare
 	char label[_MAX_PATH];
 	sprintf(label, "%s", buffer);
 
-
 	if( doAdd )
 	{
 		TVINSERTSTRUCT ins;
@@ -246,9 +240,6 @@ void BlendMaterial::updateTextures(void)
 	m_currentBlendTexture = defaultMaterialIndex;
 	setTerrainTreeViewSelection(TVI_ROOT, m_currentBlendTexture);
 }
-
-
-
 
 BOOL BlendMaterial::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

@@ -60,7 +60,6 @@ void W3DCameoMovieDraw( GameWindow *window, WinInstanceData *instData )
 	}
 }  // end W3DLeftHUDDraw
 
-
 //-------------------------------------------------------------------------------------------------
 void W3DLeftHUDDraw( GameWindow *window, WinInstanceData *instData )
 {
@@ -89,7 +88,6 @@ void W3DLeftHUDDraw( GameWindow *window, WinInstanceData *instData )
 		TheRadar->draw( pos.x + 1, pos.y + 1, size.x - 2, size.y - 2 );
 
 	}  // end else if
-
 
 }  // end W3DLeftHUDDraw
 
@@ -138,8 +136,6 @@ void W3DPowerDraw( GameWindow *window, WinInstanceData *instData )
 	else
 		player = ThePlayerList->getLocalPlayer();
 
-
-
 	if(!player || !TheGlobalData)
 		return;
 	Energy *energy = player->getEnergy();
@@ -185,8 +181,6 @@ void W3DPowerDraw( GameWindow *window, WinInstanceData *instData )
 		range = size.x;
 //	if(range < endBar->getImageWidth() + beginBar->getImageWidth())
 //		range = endBar->getImageWidth() + beginBar->getImageWidth();
-
-
 
 //	// get image sizes for the ends
 //	ICoord2D leftSize, rightSize, start, end;
@@ -305,8 +299,6 @@ void W3DPowerDrawA( GameWindow *window, WinInstanceData *instData )
 	else
 		player = ThePlayerList->getLocalPlayer();
 
-
-
 	if(!player || !TheGlobalData)
 		return;
 	Energy *energy = player->getEnergy();
@@ -352,8 +344,6 @@ void W3DPowerDrawA( GameWindow *window, WinInstanceData *instData )
 		range = size.x;
 	if(range < endBar->getImageWidth() + beginBar->getImageWidth())
 		range = endBar->getImageWidth() + beginBar->getImageWidth();
-
-
 
 	// get image sizes for the ends
 	ICoord2D leftSize, rightSize, start, end;
@@ -484,9 +474,6 @@ void W3DCommandBarGridDraw( GameWindow *window, WinInstanceData *instData )
 	TheDisplay->drawLine(pos.x + size.x * .33, pos.y, pos.x + size.x *.33, pos.y +size.y, 1,color);
 	TheDisplay->drawLine(pos.x + size.x  * .66, pos.y, pos.x + size.x *.66, pos.y + size.y, 1,color);
 
-
-
-
 }
 
 void W3DCommandBarGenExpDraw( GameWindow *window, WinInstanceData *instData )
@@ -513,14 +500,11 @@ void W3DCommandBarGenExpDraw( GameWindow *window, WinInstanceData *instData )
 	window->winGetScreenPosition( &pos.x, &pos.y );
 	window->winGetSize( &size.x, &size.y );
 
-
-
 	if( !endBar || !beginBar || !centerBar)
 		return;
 
 	Int range;
 	range = size.y * progress / 100;
-
 
 	// get image sizes for the ends
 	ICoord2D topSize, bottomSize, start, end;
@@ -632,7 +616,6 @@ void W3DCommandBarTopDraw( GameWindow *window, WinInstanceData *instData )
 //	TheDisplay->drawImage(TheControlBar->getStarImage(), imageStart.x, imageStart.y, imageEnd.x, imageEnd.y);
 }
 
-
 void W3DCommandBarBackgroundDraw( GameWindow *window, WinInstanceData *instData )
 {
 
@@ -655,7 +638,6 @@ void W3DCommandBarBackgroundDraw( GameWindow *window, WinInstanceData *instData 
 
 	man->drawBackground(offset);
 }
-
 
 void W3DCommandBarForegroundDraw( GameWindow *window, WinInstanceData *instData )
 {
@@ -704,9 +686,6 @@ void W3DDrawMapPreview( GameWindow *window, WinInstanceData *instData)
 		drawSkinnyBorder(pixelX - 1, pixelY - 1, width + 2, height + 2);
 		return;
 	}
-
-
-
 
 	//
 	// given a upper left corner at pixelX|Y and a width and height to draw into, figure out
@@ -910,9 +889,7 @@ void drawSkinnyBorder( Int x, Int y, Int width, Int height)
 	TheDisplay->drawImage(image1,
 												 x, y, x + size, y + size );
 
-
 }
-
 
 void W3DCommandBarHelpPopupDraw( GameWindow *window, WinInstanceData *instData )
 {
@@ -925,15 +902,11 @@ void W3DCommandBarHelpPopupDraw( GameWindow *window, WinInstanceData *instData )
 	window->winGetScreenPosition( &pos.x, &pos.y );
 	window->winGetSize( &size.x, &size.y );
 
-
-
 	if( !endBar || !beginBar || !centerBar)
 		return;
 
-
 //	Int range;
 //	range = size.y;
-
 
 	// get image sizes for the ends
 	ICoord2D topSize, bottomSize, start, end;
@@ -1023,6 +996,5 @@ void W3DCommandBarHelpPopupDraw( GameWindow *window, WinInstanceData *instData )
 		end.y = pos.y + topSize.y;
 		TheWindowManager->winDrawImage(endBar, start.x, start.y, end.x, end.y);
 	}
-
 
 }

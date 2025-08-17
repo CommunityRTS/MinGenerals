@@ -74,7 +74,6 @@ public:
 	virtual void onObjectCreated();
 protected:
 
-
 	Int m_boxesStored;
 
 };

@@ -131,8 +131,6 @@ public:
 	AISideBuildList*	m_next;
 };
 
-
-
 class TAiData : public Snapshot
 {
 public:
@@ -179,7 +177,6 @@ public:
 		 would be attacked first because their distance weighted priority is greater. */
 	Real m_attackPriorityDistanceModifier; // Distance to reduce a relative AttackPriority by 1.
 
-
 	/*
 		How close to a waypoint does a group of units have to be to consider itself at the waypoint?
 		m_skirmishGroupFudgeValue is multiplied by the number of the units in the group asking if its
@@ -224,7 +221,6 @@ public:
 	// Retaliate params. [8/25/2003]
 	Real	m_maxRetaliateDistance; // If attacker is > this distance, don't retaliate. [8/25/2003]
 	Real	m_retaliateFriendsRadius; // If we have friends within this radius, get them to help retaliate. [8/25/2003]
-
 
 	AISideInfo *m_sideInfo;
 
@@ -305,7 +301,6 @@ protected:
 };
 
 extern AI *TheAI;												///< the Artificial Intelligence singleton
-
 
 class Waypoint;
 class Team;
@@ -864,7 +859,6 @@ public:
 
 };
 
-
 //------------------------------------------------------------------------------------------------------------
 /**
  * An "AIGroup" is a simple collection of AI objects, used by the AI
@@ -1019,6 +1013,5 @@ private:
 
 	mutable VecObjectID	m_lastRequestedIDList;			///< this is used so we can return by reference, saving a copy
 };
-
 
 #endif // _AI_H_

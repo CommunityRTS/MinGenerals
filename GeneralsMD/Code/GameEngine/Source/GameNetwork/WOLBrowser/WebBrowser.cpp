@@ -74,7 +74,6 @@ CComModule _Module;
 
 CComObject<WebBrowser> * TheWebBrowser = NULL;
 
-
 /******************************************************************************
 *
 * NAME
@@ -97,7 +96,6 @@ WebBrowser::WebBrowser() :
 	DEBUG_LOG(("Instantiating embedded WebBrowser\n"));
 	m_urlList = NULL;
 }
-
 
 /******************************************************************************
 *
@@ -255,7 +253,6 @@ STDMETHODIMP WebBrowser::QueryInterface(REFIID iid, void** ppv)
 	return S_OK;
 }
 
-
 /******************************************************************************
 *
 * NAME
@@ -274,7 +271,6 @@ ULONG STDMETHODCALLTYPE WebBrowser::AddRef(void)
 {
 	return ++mRefCount;
 }
-
 
 /******************************************************************************
 *

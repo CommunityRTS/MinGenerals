@@ -23,16 +23,12 @@
 #include "stdAfx.h"
 #include "fileops.h"
 
-
-
-
 int							FileExists ( const char *filename )
 {
 	int fa = FileAttribs ( filename );
 
 	return ! ( (fa == FA_NOFILE) || (fa & FA_DIRECTORY ));
 }
-
 
 int					 		FileAttribs ( const char *filename )
 {

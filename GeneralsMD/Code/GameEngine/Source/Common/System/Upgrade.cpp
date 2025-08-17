@@ -37,7 +37,6 @@
 #include "GameClient/InGameUI.h"
 #include "GameClient/Image.h"
 
-
 const char *TheUpgradeTypeNames[] =
 {
 	"PLAYER",
@@ -214,7 +213,6 @@ void UpgradeTemplate::cacheButtonImage()
 		m_buttonImageName.clear();	// we're done with this, so nuke it
 	}
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // UPGRADE CENTER /////////////////////////////////////////////////////////////////////////////////

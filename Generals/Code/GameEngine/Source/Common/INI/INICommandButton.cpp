@@ -75,4 +75,3 @@ void ControlBar::parseCommandButtonDefinition( INI *ini )
 
 }  // end parseCommandButtonDefinition
 
-

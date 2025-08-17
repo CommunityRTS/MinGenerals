@@ -53,8 +53,6 @@
 */
 WindowsVersionInfo WinVersion;
 
-
-
 /***********************************************************************************************
  * WindowsVersionInfo::WindowsVersionInfo -- Windows Version Info constructor.                 *
  *                                                                                             *
@@ -345,6 +343,4 @@ bool WindowsVersionInfo::Meets_Minimum_Version_Requirements	( void )
 //	return(( !IsWin95 && ( Version() >= 400 ))? true : false );
 	return(( Version() >= 400 )? true : false );
 }
-
-
 

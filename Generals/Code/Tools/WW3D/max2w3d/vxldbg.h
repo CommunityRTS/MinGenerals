@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef VXLDBG_H
 #define VXLDBG_H
 
@@ -52,7 +51,6 @@
 #ifndef VXL_H
 #include "vxl.h"
 #endif
-
 
 class VoxelDebugWindowClass
 {
@@ -76,7 +74,5 @@ private:
 
 	void update_display(void);
 };
-
-
 
 #endif

@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "Common/MiscAudio.h"
@@ -67,7 +66,6 @@ const FieldParse MiscAudio::m_fieldParseTable[] =
 
 	{ 0, 0, 0, 0 }
 };
-
 
 //-------------------------------------------------------------------------------------------------
 void INI::parseMiscAudio( INI *ini )

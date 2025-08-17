@@ -40,7 +40,6 @@
 
 Bool WaypointTool::m_isActive = false;
 
-
 /// Constructor
 WaypointTool::WaypointTool(void) :
 	Tool(ID_WAYPOINT_TOOL, IDC_WAYPOINT)
@@ -102,7 +101,6 @@ MapObject *WaypointTool::pickWaypoint(Coord3D loc){
 	}
 	return NULL;
 }
-
 
 /// Perform the tool behavior on mouse down.
 void WaypointTool::mouseDown(TTrackingMode m, CPoint viewPt, WbView* pView, CWorldBuilderDoc *pDoc)

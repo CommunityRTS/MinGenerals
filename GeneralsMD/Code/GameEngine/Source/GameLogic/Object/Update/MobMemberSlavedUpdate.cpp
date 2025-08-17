@@ -53,14 +53,11 @@
 #include "Common/ThingFactory.h"
 #include "Common/ThingTemplate.h"
 
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 #define STRAY_MULTIPLIER 2.0f // Multiplier from stating diestance from tunnel, to max distance from
 
@@ -129,7 +126,6 @@ void MobMemberSlavedUpdate::onSlaverDamage( const DamageInfo *info )
 		ai->aiGoProne( info, CMD_FROM_AI );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime MobMemberSlavedUpdate::update( void )
 {
@@ -168,7 +164,6 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 
 //	myDraw->colorTint( &m_personalColor );
 
-
 	const ModelConditionFlags flags = myDraw->getModelConditionFlags();
 	if (flags.anyIntersectionWith(MAKE_MODELCONDITION_MASK(MODELCONDITION_WEAPONSET_PLAYER_UPGRADE)))
 	{
@@ -182,13 +177,10 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 		myDraw->clearModelConditionFlags( clearFlags );
 	}
 
-
-
 	if ( ++m_framesToWait < 16)
 		return UPDATE_SLEEP_NONE;
 
 	m_framesToWait = 0;
-
 
 	Locomotor *locomotor = myAI->getCurLocomotor();
 	if( !locomotor )
@@ -206,11 +198,9 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 
 	Object *primaryVictim = TheGameLogic->findObjectByID(m_primaryVictimID);
 
-
 	//now, we don't know if master is standing still or going somewhere, so
 	Real masterPathDistToGoal = masterAI->getLocomotorDistanceToGoal();
 	Real myPathDistToGoal = myAI->getLocomotorDistanceToGoal();
-
 
 	Real catchUpRadiusSquared = ThePartitionManager->getDistanceSquared( me, master, FROM_CENTER_3D );
 	// I'm too far from the nexus... I need to catch up now!
@@ -250,8 +240,6 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 
 		}
 
-
-
 		if (catchUpRadiusSquared > sqr( data->m_mustCatchUpRadius * 3))// I am critically far, now!
 		{
 			++ m_catchUpCrisisTimer; // I'm way too far from the nexus this frame
@@ -277,7 +265,6 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 				myAI->aiMoveToPosition( master->getPosition(), CMD_FROM_AI ); // NASTY BEEHIVE EFFECT
 			}
 		}
-
 
 	}
 	else if ( myAI->isMoving() ) // we're all on a trip, together
@@ -354,7 +341,6 @@ UpdateSleepTime MobMemberSlavedUpdate::update( void )
 	return UPDATE_SLEEP_NONE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 // We are too far from nexus, so we need to catch-up
 //-------------------------------------------------------------------------------------------------
@@ -379,9 +365,6 @@ void MobMemberSlavedUpdate::doCatchUpLogic( Coord3D *pos )
 	setMobState(MOB_STATE_CATCHING_UP);
 
 }
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 void MobMemberSlavedUpdate::startSlavedEffects( const Object *slaver )

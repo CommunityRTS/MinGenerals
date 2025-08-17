@@ -32,7 +32,6 @@ Int ContourOptions::m_contourWidth = 1;
 /////////////////////////////////////////////////////////////////////////////
 /// ContourOptions dialog trivial construstor - Create does the real work.
 
-
 ContourOptions::ContourOptions(CWnd* pParent /*=NULL*/)
 	: CDialog(ContourOptions::IDD, pParent)
 {
@@ -49,8 +48,6 @@ void ContourOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // ContourOptions message handlers
@@ -139,7 +136,6 @@ void ContourOptions::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 	}
 	m_updating = false;
 }
-
 
 BEGIN_MESSAGE_MAP(ContourOptions, CDialog)
 	//{{AFX_MSG_MAP(ContourOptions)

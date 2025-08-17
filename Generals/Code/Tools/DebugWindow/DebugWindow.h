@@ -50,7 +50,6 @@ class CDebugWindowApp : public CWinApp
 	protected:
 		DebugWindowDialog* m_DialogWindow;
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDebugWindowApp)
@@ -62,7 +61,6 @@ class CDebugWindowApp : public CWinApp
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
-
 
 /////////////////////////////////////////////////////////////////////////////
 

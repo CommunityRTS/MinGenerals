@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "MeshDeform.H"
 #include "MeshDeformData.H"
 #include "MeshDeformPanel.H"
@@ -55,7 +54,6 @@ static GenSubObjType _SubObjectTypeVertex(1);
 ///////////////////////////////////////////////////////////////////////////
 Class_ID _MeshDeformClassID(0x51981f5b, 0x1db2bf3);
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	MeshDeformClassDesc
@@ -72,7 +70,6 @@ class MeshDeformClassDesc : public ClassDesc
 	const TCHAR* 	Category ()					{ return _T("Westwood Modifiers"); }
 };
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Static class desc instance
@@ -85,7 +82,6 @@ ClassDesc * Get_Mesh_Deform_Desc (void) { return &_MeshDeformCD; }
 ClassDesc * Get_Mesh_Deform_Desc (void) { return NULL; }
 #endif
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	ChannelsUsed
@@ -97,7 +93,6 @@ MeshDeformClass::ChannelsUsed (void)
 	return GEOM_CHANNEL | SELECT_CHANNEL | SUBSEL_TYPE_CHANNEL | VERTCOLOR_CHANNEL;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	ChannelsChanged
@@ -108,7 +103,6 @@ MeshDeformClass::ChannelsChanged (void)
 {
 	return GEOM_CHANNEL | SELECT_CHANNEL | SUBSEL_TYPE_CHANNEL | VERTCOLOR_CHANNEL;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -125,7 +119,6 @@ MeshDeformClass::ModifyObject
 )
 {
 	assert(object_state->obj->IsSubClassOf(triObjectClassID));
-
 
 	MeshDeformModData *mod_data = NULL;
 	if (mod_context.localData == NULL) {
@@ -155,7 +148,6 @@ MeshDeformClass::ModifyObject
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	InputType
@@ -166,7 +158,6 @@ MeshDeformClass::InputType (void)
 {
 	return triObjectClassID;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -185,7 +176,6 @@ MeshDeformClass::NotifyRefChanged
 	return REF_SUCCEED;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	GetCreateMouseCallBack
@@ -196,7 +186,6 @@ MeshDeformClass::GetCreateMouseCallBack (void)
 {
 	return NULL;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -260,7 +249,6 @@ MeshDeformClass::BeginEditParams
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	EndEditParams
@@ -302,7 +290,6 @@ MeshDeformClass::EndEditParams
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	ActivateSubobjSel
@@ -341,7 +328,6 @@ MeshDeformClass::ActivateSubobjSel
 	NotifyDependents(FOREVER, VERTCOLOR_CHANNEL|SELECT_CHANNEL|DISP_ATTRIB_CHANNEL|SUBSEL_TYPE_CHANNEL, REFMSG_CHANGE);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -456,7 +442,6 @@ MeshDeformClass::SelectSubComponent
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	GetSubObjectTMs
@@ -474,7 +459,6 @@ MeshDeformClass::GetSubObjectTMs
 	int test = 0;
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -511,7 +495,6 @@ MeshDeformClass::GetSubObjectCenters
 	callback->Center (box.Center (), 0);
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -621,7 +604,6 @@ MeshDeformClass::Move
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Move
@@ -694,7 +676,6 @@ MeshDeformClass::Scale
 	m_OperationName = "Scale";
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -775,7 +756,6 @@ MeshDeformClass::Rotate
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	TransformStart
@@ -829,7 +809,6 @@ MeshDeformClass::TransformStart (TimeValue time_val)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	TransformFinish
@@ -847,7 +826,6 @@ MeshDeformClass::TransformFinish (TimeValue time_val)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	TransformCancel
@@ -864,7 +842,6 @@ MeshDeformClass::TransformCancel (TimeValue time_val)
 	theHold.Cancel ();
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -885,7 +862,6 @@ MeshDeformClass::Set_Deform_State (float state)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -964,7 +940,6 @@ MeshDeformClass::Set_Vertex_Color (const Point3 &color, bool button_up)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Get_Vertex_Color
@@ -1034,7 +1009,6 @@ MeshDeformClass::Get_Vertex_Color (Point3 &color)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_UI
@@ -1060,7 +1034,6 @@ MeshDeformClass::Update_UI (MeshDeformModData *mod_data)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1095,7 +1068,6 @@ MeshDeformClass::Auto_Apply (bool auto_apply)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1141,7 +1113,6 @@ MeshDeformClass::Set_Max_Deform_Sets (int max)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Set_Count
@@ -1176,7 +1147,6 @@ MeshDeformClass::Update_Set_Count (void)
 
 	return ;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1235,7 +1205,6 @@ MeshDeformClass::Set_Current_Set
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	Update_Current_Set
@@ -1272,7 +1241,6 @@ MeshDeformClass::Update_Current_Set (void)
 	return ;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////
 //
 //	SaveLocalData
@@ -1284,7 +1252,6 @@ MeshDeformClass::SaveLocalData (ISave *save_obj, LocalModData *mod_context)
 	assert (mod_context != NULL);
 	return ((MeshDeformModData *)mod_context)->Save (save_obj);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -1299,11 +1266,6 @@ MeshDeformClass::LoadLocalData (ILoad *load_obj, LocalModData **mod_context)
 	(*mod_context) = mod_data;
 	return mod_data->Load (load_obj);
 }
-
-
-
-
-
 
 #if 0
 
@@ -1420,7 +1382,6 @@ void SkinModifierClass::InvertSelection(int selLevel)
 }
 
 #endif // 0
-
 
 #if defined W3D_MAX4		//defined as in the project (.dsp)
 ////////////////////////////////////////////////////////////////////////////////////////

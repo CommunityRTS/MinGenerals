@@ -584,7 +584,6 @@ static PoolSizeRec sizes[] =
 	{ "EnumeratedIP", 32, 32 },
 	{ "WaterTransparencySetting", 4, 4 },
 
-
 	// W3D pools!
 	{ "BoxPrototypeClass", 512, 32 },
 	{ "SpherePrototypeClass", 32, 32 },

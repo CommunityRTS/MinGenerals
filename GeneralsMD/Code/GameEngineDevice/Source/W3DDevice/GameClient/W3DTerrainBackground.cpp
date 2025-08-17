@@ -82,7 +82,6 @@ const Int PIXELS_PER_GRID = 8; // default tex resolution allocated for each tile
 //         Private Functions
 //-----------------------------------------------------------------------------
 
-
 //=============================================================================
 // W3DTerrainBackground::loadTerrainInVertexAndIndexBuffers
 //=============================================================================
@@ -100,9 +99,7 @@ void W3DTerrainBackground::setFlip(WorldHeightMap *htMap)
 
 	setFlipRecursive(0, 0, m_width);
 
-
 }
-
 
 const Int STEP=4;
 //=============================================================================
@@ -314,7 +311,6 @@ void W3DTerrainBackground::fillVBRecursive(UnsignedShort *ib, Int xOffset, Int y
 
 	if (match) {
 
-
 		UnsignedShort prevNdxLeft;
 		UnsignedShort prevNdxRight;
 		ICoord2D left;
@@ -453,7 +449,6 @@ void W3DTerrainBackground::setFlipRecursive(Int xOffset, Int yOffset, Int width)
 		return;
 	}
 	Int halfWidth = width/2;
-
 
 	setFlipRecursive(xOffset, yOffset, halfWidth);
 	setFlipRecursive(xOffset, yOffset+halfWidth, halfWidth);
@@ -664,7 +659,6 @@ void W3DTerrainBackground::allocateTerrainBuffers(WorldHeightMap *htMap, Int xOr
 	REF_PTR_SET(m_map, htMap);
 }
 
-
 //=============================================================================
 // W3DTerrainBackground::updateCenter
 //=============================================================================
@@ -803,8 +797,4 @@ void W3DTerrainBackground::drawVisiblePolys(RenderInfoClass & rinfo, Bool disabl
 	DX8Wrapper::Draw_Triangles(	0, m_curNumTerrainIndices/3, 0,	m_curNumTerrainVertices);
 #endif
 }
-
-
-
-
 

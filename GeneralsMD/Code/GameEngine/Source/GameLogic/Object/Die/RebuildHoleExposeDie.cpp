@@ -106,7 +106,6 @@ void RebuildHoleExposeDie::onDie( const DamageInfo *damageInfo )
 	if (!isDieApplicable(damageInfo))
 		return;
 
-
 #if defined(_DEBUG) || defined(_INTERNAL) || defined(_ALLOW_DEBUG_CHEATS_IN_RELEASE)
   if(TheSelectionTranslator->isHandOfGodSelectionMode())
   {
@@ -117,10 +116,6 @@ void RebuildHoleExposeDie::onDie( const DamageInfo *damageInfo )
     }
   }
 #endif
-
-
-
-
 
 	const RebuildHoleExposeDieModuleData *modData = getRebuildHoleExposeDieModuleData();
 	Object *us = getObject();

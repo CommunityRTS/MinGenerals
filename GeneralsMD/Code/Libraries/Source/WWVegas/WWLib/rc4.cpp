@@ -85,10 +85,6 @@ static unsigned char RC4_Table_Init[]={
 	255
 };
 
-
-
-
-
 //
 // Don't rely on this to zero the key
 //
@@ -98,8 +94,6 @@ RC4Class::RC4Class()
 	Key.X=0;
 	Key.Y=0;
 }
-
-
 
 //
 // Setup the encryption key.  This must be called before you encrypt/decrypt!
@@ -138,7 +132,6 @@ void RC4Class::Prepare_Key(const unsigned char *key_data_ptr, int key_data_len)
 	} // switch
 }
 
-
 void RC4Class::Print_State(void) {
 	unsigned char	*state;
 	state = &Key.State[0];
@@ -147,8 +140,6 @@ void RC4Class::Print_State(void) {
 	}
 	printf("X = %d		Y = %d\n\n",Key.X,Key.Y);
 }
-
-
 
 //
 // RC4 in standard mode.
@@ -179,9 +170,6 @@ void RC4Class::RC4(unsigned char *buffer_ptr, int buffer_len)
 	Key.Y = y;
 }
 
-
-
-
 //
 // Copy state & key
 //
@@ -196,11 +184,7 @@ RC4Class &RC4Class::operator=(const RC4Class &other) {
 	return(*this);
 }
 
-
-
 //////////////////////////// private methods ////////////////////////////
-
-
 
 //
 // Setup the encryption key.  This must be called before you encrypt/decrypt!
@@ -227,8 +211,6 @@ void RC4Class::Prepare_Key_8bytes(const unsigned char *key_data_ptr)
 		index1 &= 0x07;
 	}
 }
-
-
 
 //
 // Setup the encryption key.  This must be called before you encrypt/decrypt!

@@ -44,5 +44,4 @@ public:
 	virtual void activate(); ///< Become the current tool.
 };
 
-
 #endif //TOOL_H

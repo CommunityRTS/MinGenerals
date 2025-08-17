@@ -48,7 +48,6 @@
 #include "part_emt.h"
 #include "matrix3d.h"
 
-
 /***********************************************************************************************
  * RenderObjectRecyclerClass::Reset -- reset the pool                                          *
  *                                                                                             *
@@ -65,7 +64,6 @@ void RenderObjectRecyclerClass::Reset(void)
 {
 	InactiveModels.Reset_List();
 }
-
 
 /***********************************************************************************************
  * RenderObjectRecyclerClass::Get_Render_Object -- Create/Re-use a render object               *
@@ -111,7 +109,6 @@ RenderObjClass * RenderObjectRecyclerClass::Get_Render_Object(const char * name,
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * RenderObjectRecyclerClass::Return_Render_Object -- Return a render object to the pool       *
  *                                                                                             *
@@ -128,7 +125,6 @@ void RenderObjectRecyclerClass::Return_Render_Object(RenderObjClass * obj)
 {
 	Insert_Inactive_Model(obj);
 }
-
 
 /***********************************************************************************************
  * RenderObjectRecyclerClass::Insert_Inactive_Model -- Internally add a render object to the po*

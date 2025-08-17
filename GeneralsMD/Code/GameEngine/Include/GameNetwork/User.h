@@ -51,7 +51,6 @@ public:
 	inline void SetPort(UnsignedShort port) { m_port = port; }
 	inline void SetIPAddr(UnsignedInt ipaddr) { m_ipaddr = ipaddr; }
 
-
 private:
 	UnicodeString m_name;
 	UnsignedShort m_port;

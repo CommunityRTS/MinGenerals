@@ -73,7 +73,6 @@
 #include "meshsave.h"
 #include "gamemaps.h"
 
-
 /*****************************************************************
 *
 *		GameMtl Class Descriptor
@@ -95,7 +94,6 @@ public:
 static GameMaterialClassDesc _GameMaterialCD;
 
 ClassDesc * Get_Game_Material_Desc() { return &_GameMaterialCD;  }
-
 
 /******************************************************************************
 *
@@ -138,8 +136,6 @@ public:
 	float					Translucency;
 	float					Shininess;
 };
-
-
 
 /******************************************************************************
 *
@@ -210,7 +206,6 @@ public:
 #define GAMEMTL_PASS2_STAGE1_MAPPER_ARGS	0x0102
 #define GAMEMTL_PASS3_STAGE1_MAPPER_ARGS	0x0103
 
-
 /*
 ** Main Parameter Block Definition
 */
@@ -218,7 +213,6 @@ static ParamBlockDescID MainParameterBlockDesc[] =
 {
 	{ TYPE_INT,			NULL,	FALSE,	0 },		// Pass Count
 };
-
 
 /*
 ** ID numbers for parameter block entries. As of version 4 of the
@@ -327,7 +321,6 @@ enum
 	PB_STAGE0_TEXTURE_NO_LOD					= 54,
 	PB_STAGE1_TEXTURE_NO_LOD					= 55,
 };
-
 
 /*
 ** Per-Pass Parameter Block Definition
@@ -558,7 +551,6 @@ static ParamBlockDescID PassParameterBlockDescVer3[] =
 	{ TYPE_INT,			NULL,	FALSE,	54},		// Stage1 UV Channel
 };
 
-
 // Version 4 (old version)
 static ParamBlockDescID PassParameterBlockDescVer4[] =
 {
@@ -627,7 +619,6 @@ static ParamBlockDescID PassParameterBlockDescVer4[] =
 
 	{ TYPE_INT,			NULL,	FALSE,	55},		// Stage1 Mapping Type (new to version 4)
 };
-
 
 // Version 5 (current version)
 static ParamBlockDescID PassParameterBlockDescVer5[] =
@@ -708,14 +699,12 @@ static ParamVersionDesc PassParameterBlockVersions[] = {
 	ParamVersionDesc(PassParameterBlockDescVer4, 56, 4)
 };
 
-
 // Current pass parameter block version
 const int CURRENT_VERSION = 5;
 static ParamVersionDesc CurrentPassParameterBlockVersion(
 							PassParameterBlockDescVer5,
 							sizeof(PassParameterBlockDescVer5) / sizeof(ParamBlockDescID),
 							CURRENT_VERSION);
-
 
 const int DISPLACEMENT_INDEX	= (W3dMaterialClass::MAX_PASSES * W3dMaterialClass::MAX_STAGES);
 
@@ -772,7 +761,6 @@ GameMtl::GameMtl(BOOL loading)
 
 }
 
-
 /***********************************************************************************************
  * GameMtl::~GameMtl -- destructor                                                             *
  *                                                                                             *
@@ -796,7 +784,6 @@ GameMtl::~GameMtl(void)
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtl::ClassID -- returns the max ClassID of the material plugin                          *
  *                                                                                             *
@@ -818,7 +805,6 @@ Class_ID GameMtl::ClassID()
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtl::SuperClassID -- returns the super class ID                                         *
  *                                                                                             *
@@ -835,7 +821,6 @@ SClass_ID GameMtl::SuperClassID()
 {
 	return MATERIAL_CLASS_ID;
 }
-
 
 /***********************************************************************************************
  * GameMtl::GetClassName -- returns the name of this plugin clas                               *
@@ -859,7 +844,6 @@ void GameMtl::GetClassName(TSTR& s)
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtl::NumSubs -- returns the number of sub animations                                    *
  *                                                                                             *
@@ -876,7 +860,6 @@ int GameMtl::NumSubs()
 {
 	return 0;
 }
-
 
 /***********************************************************************************************
  * GameMtl::SubAnimName -- returns the name of the i'th sub animation                          *
@@ -895,7 +878,6 @@ TSTR GameMtl::SubAnimName(int i)
 	return _T("");
 }
 
-
 /***********************************************************************************************
  * GameMtl::SubAnim -- returns the i'th sub-anim                                               *
  *                                                                                             *
@@ -912,7 +894,6 @@ Animatable* GameMtl::SubAnim(int i)
 {
 	return NULL;
 }
-
 
 /***********************************************************************************************
  * GameMtl::Clone -- clones this material                                                      *
@@ -975,7 +956,6 @@ RefTargetHandle GameMtl::Clone(RemapDir &remap)
 	mnew->Ivalid = Ivalid;
 	return mnew;
 }
-
 
 /***********************************************************************************************
  * GameMtl::NotifyRefChanged -- NotifyRefChanged handler                                       *
@@ -1040,7 +1020,6 @@ RefResult GameMtl::NotifyRefChanged
 	return(REF_SUCCEED);
 }
 
-
 /***********************************************************************************************
  * GameMtl::SetReference -- set the i'th reference                                             *
  *                                                                                             *
@@ -1085,7 +1064,6 @@ void GameMtl::SetReference(int i, RefTargetHandle rtarg)
 	}
 }
 
-
 /***********************************************************************************************
  * GameMtl::GetReference -- returnst the i'th reference                                        *
  *                                                                                             *
@@ -1123,7 +1101,6 @@ RefTargetHandle GameMtl::GetReference(int i)
 	return NULL;
 }
 
-
 /***********************************************************************************************
  * GameMtl::NumSubTexmaps -- returns the number of texture maps in this material               *
  *                                                                                             *
@@ -1141,7 +1118,6 @@ int GameMtl::NumSubTexmaps(void)
 	return (W3dMaterialClass::MAX_PASSES * W3dMaterialClass::MAX_STAGES) + 1;
 }
 
-
 /***********************************************************************************************
  * GameMtl::Get_Displacement_Map_Index -- returns the Sub-texmap index for the displacement map.
  *                                                                                             *
@@ -1158,7 +1134,6 @@ int GameMtl::Get_Displacement_Map_Index(void) const
 {
 	return DISPLACEMENT_INDEX;
 }
-
 
 /***********************************************************************************************
  * GameMtl::SetSubTexmap -- set the i'th texture map                                           *
@@ -1188,7 +1163,6 @@ void GameMtl::SetSubTexmap(int i, Texmap * m)
 	NotifyDependents(FOREVER, PART_ALL, REFMSG_CHANGE);
 }
 
-
 /***********************************************************************************************
  * GameMtl::GetSubTexmap -- returns the i'th texture map                                       *
  *                                                                                             *
@@ -1213,7 +1187,6 @@ Texmap * GameMtl::GetSubTexmap(int i)
 	return Texture[pass][stage];
 }
 
-
 /***********************************************************************************************
  * GameMtl::CreateParamDlg -- creates the material editor dialog box                           *
  *                                                                                             *
@@ -1232,7 +1205,6 @@ ParamDlg * GameMtl::CreateParamDlg(HWND hwnd_mtl_edit, IMtlParams *imp)
 	SetParamDlg(dlg);
 	return dlg;
 }
-
 
 /***********************************************************************************************
  * GameMtl::Notify_Changed -- someone has changed this material                                *
@@ -1253,7 +1225,6 @@ void GameMtl::Notify_Changed(void)
 		MaterialDialog->Update_Display();
 	}
 }
-
 
 /***********************************************************************************************
  * GameMtl::Reset -- reset this material to default settings                                   *
@@ -1343,7 +1314,6 @@ void GameMtl::Reset()
 	Set_Pass_Count(1);  // set default value for the main param block
 }
 
-
 /***********************************************************************************************
  * GameMtl::Update -- time has changed                                                         *
  *                                                                                             *
@@ -1365,7 +1335,6 @@ void GameMtl::Update(TimeValue t, Interval &ivalid)
 	ivalid &= Ivalid;
 }
 
-
 /***********************************************************************************************
  * GameMtl::Validity -- return the validity of the material at time t                          *
  *                                                                                             *
@@ -1382,7 +1351,6 @@ Interval GameMtl::Validity(TimeValue t)
 {
 	return FOREVER;
 }
-
 
 /***********************************************************************************************
  * GameMtl::Requirements -- what requirements does this material have?                         *
@@ -1417,7 +1385,6 @@ ULONG GameMtl::Requirements(int subMtlNum)
 
 	return req;
 }
-
 
 /***********************************************************************************************
  * GameMtl::Load -- loading from a MAX file                                                    *
@@ -1654,7 +1621,6 @@ IOResult GameMtl::Load(ILoad *iload)
 	return IO_OK;
 }
 
-
 /***********************************************************************************************
  * GameMtl::Save -- Saving into a MAX file                                                     *
  *                                                                                             *
@@ -1734,7 +1700,6 @@ IOResult GameMtl::Save(ISave *isave)
 
 	return IO_OK;
 }
-
 
 /***********************************************************************************************
  * GameMtl::Shade -- evaluate the material for the renderer.                                   *
@@ -1954,7 +1919,6 @@ void GameMtl::Shade(ShadeContext& sc)
 
 }
 
-
 /***********************************************************************************************
  * GameMtl::ps2_shade -- Emulate the PS2 shader.                                               *
  *                                                                                             *
@@ -2042,7 +2006,6 @@ void GameMtl::ps2_shade(ShadeContext& sc)
 		if (Get_Texture_Enable(pass,0) && Texture[pass][0]) {
 			src = Texture[pass][0]->EvalColor(sc);
 		}
-
 
 		/*
 		** Shader parameters define combination...
@@ -2157,7 +2120,6 @@ void GameMtl::ps2_shade(ShadeContext& sc)
 	sc.out.c.r = dest.r;
 	sc.out.c.g = dest.g;
 	sc.out.c.b = dest.b;
-
 
 }
 
@@ -2309,7 +2271,6 @@ int GameMtl::Compute_PC_Shader_From_PS2_Shader(int pass)
 	return (TRUE);
 }
 
-
 /***********************************************************************************************
  * GameMtl::Compute_PS2_Shader_From_PC_Shader -- Change a W3D material to a PS2 W3D material.  *
 W3DSHADER_PRIGRADIENT_ *                                                                                             *
@@ -2400,7 +2361,6 @@ int GameMtl::Compute_PS2_Shader_From_PC_Shader(int pass)
 			break;
 	}
 
-
 	// Calculate the PC shader.
 	equation_value = param_value[0] * ST_SRC + param_value[1] * ST_DEST;
 
@@ -2489,7 +2449,6 @@ finished:
 			break;
 	}
 
-
 	switch (d_blend[l])
 	{
 		case ST_ZERO:
@@ -2533,7 +2492,6 @@ int GameMtl::Get_Pass_Count(void)
 	MainParameterBlock->GetValue(0, TimeValue(0), pcount, FOREVER);
 	return pcount;
 }
-
 
 Color	GameMtl::Get_Ambient(int pass,TimeValue t)
 {
@@ -2831,7 +2789,6 @@ int GameMtl::Get_Map_Channel(int pass,int stage)
 	}
 	return val;
 }
-
 
 void GameMtl::Set_Ambient(int pass,TimeValue t,Color val)
 {
@@ -3185,7 +3142,6 @@ void GameMtl::Set_Map_Channel(int pass,int stage,int val)
 
 	NotifyDependents(FOREVER,PART_ALL,REFMSG_CHANGE);
 }
-
 
 // This returns the mapping args string buffer for that pass (and stage) after
 // assuring that it can contain a string of length 'len' (if len is 0 no

@@ -638,7 +638,6 @@ void SetUpGameSpy( const char *motdBuffer, const char *configBuffer )
 	TheGameSpyInfo->setDisallowAsianText(pref.getDisallowAsianText());
 	TheGameSpyInfo->setDisallowNonAsianText( pref.getDisallowNonAsianText());
 
-
 	TheGameSpyConfig = GameSpyConfigInterface::create(configBuffer);
 
 	TheLadderList = NEW LadderList;
@@ -731,7 +730,6 @@ void TearDownGameSpy( void )
 	// make sure the notification box doesn't exist
 	deleteNotificationBox();
 }
-
 
 void GameSpyInfo::addToIgnoreList( AsciiString nick )
 {

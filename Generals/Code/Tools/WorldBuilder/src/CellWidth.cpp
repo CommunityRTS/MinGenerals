@@ -36,7 +36,6 @@ CellWidth::CellWidth(int cellWidth, CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void CellWidth::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -44,7 +43,6 @@ void CellWidth::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CellWidth message handlers
@@ -60,7 +58,6 @@ void CellWidth::OnOK()
 	}
 	CDialog::OnOK();
 }
-
 
 /// Set the initial value of cell width into the combobox.
 BOOL CellWidth::OnInitDialog()

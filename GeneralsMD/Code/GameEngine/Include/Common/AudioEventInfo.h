@@ -120,7 +120,6 @@ public:
 
 	AudioType m_soundType;	// This should be either Music, Streaming or SoundEffect
 
-
   // DynamicAudioEventInfo interfacing functions
   virtual Bool isLevelSpecific() const { return false; } ///< If true, this sound is only defined on the current level and can be deleted when that level ends
   virtual DynamicAudioEventInfo * getDynamicAudioEventInfo() { return NULL; }  ///< If this object is REALLY a DynamicAudioEventInfo, return a pointer to the derived class

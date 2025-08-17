@@ -27,7 +27,6 @@
 // Author: Michael S. Booth, January 2002
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/ActionManager.h"
 #include "Common/AudioHandleSpecialValues.h"
 #include "Common/CRCDebug.h"
@@ -328,7 +327,6 @@ AttackStateMachine::AttackStateMachine( Object *obj, AIAttackState* att, AsciiSt
 								AttackStateMachine::AIM_AT_TARGET,
 								AttackStateMachine::AIM_AT_TARGET,
 								attackingObject ? objectConditions : positionConditions );
-
 
 	if (obj->isKindOf(KINDOF_IMMOBILE) == FALSE)
 	{
@@ -741,7 +739,6 @@ AIStateMachine::~AIStateMachine()
 		m_goalSquad->deleteInstance();
 	}
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -1262,7 +1259,6 @@ static Bool cannotPossiblyAttackObject( State *thisState, void* userData )
 	return FALSE;
 }
 
-
 //----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------
@@ -1429,7 +1425,6 @@ StateReturnType AIIdleState::update()
 			return STATE_CONTINUE;
 		}
 
-
 		if (! obj->isDisabledByType( DISABLED_PARALYZED ) &&
 				! obj->isDisabledByType( DISABLED_UNMANNED ) &&
 				! obj->isDisabledByType( DISABLED_EMP ) &&
@@ -1510,7 +1505,6 @@ StateReturnType AIDeadState::onEnter()
 
 	return STATE_CONTINUE;
 }
-
 
 StateReturnType AIDeadState::update()
 {
@@ -1656,8 +1650,6 @@ StateReturnType AIInternalMoveToState::onEnter()
 	// from conditionX into ATTACKING|MOVING... Thanks for reading, MLorenzen,  Jan 2, 2003
 	else if ( obj->isKindOf( KINDOF_DOZER ) && obj->isKindOf( KINDOF_HARVESTER ) )
 		obj->setModelConditionState( MODELCONDITION_MOVING );
-
-
 
 	if( getAdjustsDestination() && !obj->testStatus( OBJECT_STATUS_RIDER8 ) )
 	{
@@ -2198,7 +2190,6 @@ void AIMoveOutOfTheWayState::onExit( StateExitType status )
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -2278,8 +2269,6 @@ Bool AIMoveAndTightenState::computePath()
 	return true; // just use the existing path.  See above.
 }
 
-
-
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
@@ -2342,7 +2331,6 @@ void AIMoveAwayFromRepulsorsState::onExit( StateExitType status )
 		obj->clearModelConditionState(MODELCONDITION_PANICKING);
 	}
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
@@ -2507,7 +2495,6 @@ Bool AIAttackApproachTargetState::computePath()
 		CRCDEBUG_LOG(("AIAttackApproachTargetState::computePath - bailing after repathing at a fixed position for object %d\n", getMachineOwner()->getID()));
 		return true;
 	}
-
 
 	CRCDEBUG_LOG(("AIAttackApproachTargetState::computePath - bailing at end of function for object %d\n", getMachineOwner()->getID()));
 	return true;
@@ -2716,7 +2703,6 @@ StateReturnType AIAttackApproachTargetState::updateInternal()
 			return STATE_SUCCESS;
 		code = AIInternalMoveToState::update();
 
-
 		if (code != STATE_CONTINUE)
 		{
 			return STATE_SUCCESS;	// Always return state success, as state failure exits the attack.
@@ -2828,8 +2814,6 @@ void AIAttackApproachTargetState::onExit( StateExitType status )
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------------------------------------
 /**
  * Compute a valid spot to fire our weapon from.
@@ -2900,7 +2884,6 @@ Bool AIAttackPursueTargetState::computePath()
 
 	return false;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -3270,7 +3253,6 @@ StateReturnType AIFollowPathState::onEnter()
 	//determine which waypoints to plot in the waypoint renderer.
 	ai->friend_setCurrentGoalPathIndex( m_index );
 
-
  	if (getID() == AI_FOLLOW_EXITPRODUCTION_PATH) {
 		ai->setCanPathThroughUnits(true);
 		setAdjustsDestination(false);
@@ -3360,7 +3342,6 @@ StateReturnType AIFollowPathState::update()
 				pos = ai->friend_getGoalPathPosition(m_index);
 			}
 		}
-
 
 		//Assign this value to the AIUpdateInterface so object's can access this value while
 		//determine which waypoints to plot in the waypoint renderer.
@@ -3686,7 +3667,6 @@ StateReturnType AIAttackMoveToState::update()
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -3916,7 +3896,6 @@ void AIFollowWaypointPathState::computeGoal(Bool useGroupOffsets)
 	m_angle = angle;
 #endif
 
-
 	m_goalPosition = dest;
 	m_goalPosition.x += m_groupOffset.x;
 	m_goalPosition.y += m_groupOffset.y;
@@ -4046,7 +4025,6 @@ StateReturnType AIFollowWaypointPathState::onEnter()
 	}
 */
 
-
 	Real speed = FAST_AS_POSSIBLE;
 	if (m_moveAsGroup && m_currentWaypoint) {
 		obj->getTeam()->setCurrentWaypoint(m_currentWaypoint);
@@ -4118,7 +4096,6 @@ StateReturnType AIFollowWaypointPathState::update()
 	}
 	Object *obj = getMachineOwner();
  	AIUpdateInterface *ai = obj->getAI();
-
 
 	getMachine()->setGoalPosition(m_currentWaypoint->getLocation());
 
@@ -4203,8 +4180,6 @@ StateReturnType AIFollowWaypointPathState::update()
 			ai->setCurrentWaypointID( m_currentWaypoint->getID() );
 		//LORENZEN ADDED LORENZEN ADDED LORENZEN ADDED
 
-
-
 		// if there are no links from this waypoint, we're done
 		if (m_currentWaypoint==NULL)	{
 			/// Trigger "end of waypoint path" scripts (jba)
@@ -4243,7 +4218,6 @@ StateReturnType AIFollowWaypointPathState::update()
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -4502,7 +4476,6 @@ void AIAttackFollowWaypointPathState ::onExit( StateExitType status )
 	AIFollowWaypointPathState::onExit(status);
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
@@ -4572,7 +4545,6 @@ StateReturnType AIWanderState::onEnter()
 	return ret;
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 StateReturnType AIWanderState::update()
 {
@@ -4623,7 +4595,6 @@ void AIWanderState::onExit( StateExitType status )
 {
 	AIFollowWaypointPathState::onExit( status );
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
@@ -4693,7 +4664,6 @@ StateReturnType AIWanderInPlaceState::onEnter()
 	StateReturnType ret = AIInternalMoveToState::onEnter();
 	return ret;
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 StateReturnType AIWanderInPlaceState::update()
@@ -4858,7 +4828,6 @@ StateReturnType AIPanicState::update()
 	return STATE_CONTINUE;
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 void AIPanicState::onExit( StateExitType status )
 {
@@ -4913,7 +4882,6 @@ StateReturnType AIAttackAimAtTargetState::onEnter()
 
 	Locomotor* curLoco = sourceAI->getCurLocomotor();
 	m_canTurnInPlace = curLoco ? curLoco->getMinSpeed() == 0.0f : false;
-
 
 //	if (!victim)
 //		return STATE_CONTINUE; // Just continue till we get a victim.
@@ -5240,7 +5208,6 @@ StateReturnType AIAttackFireWeaponState::update()
     // there is currently no support here for linked turrets, as regards Attacking Objects (victims)
     // If the concept of linked turrets is further developed then God help you, and put more code right here
     // that lookl like the //LINKED TURRETS// block, below
-
 
 		obj->fireCurrentWeapon(victim);
 
@@ -6615,7 +6582,6 @@ AIGuardState::~AIGuardState()
 	}
 }
 
-
 #ifdef STATE_MACHINE_DEBUG
 //----------------------------------------------------------------------------------------------------------
 AsciiString AIGuardState::getName(  ) const
@@ -6664,7 +6630,6 @@ void AIGuardState::xfer( Xfer *xfer )
 void AIGuardState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 //----------------------------------------------------------------------------------------------------------
 //Is our guard state in an attack sub-state?
@@ -6766,7 +6731,6 @@ AIGuardRetaliateState::~AIGuardRetaliateState()
 	}
 }
 
-
 #ifdef STATE_MACHINE_DEBUG
 //----------------------------------------------------------------------------------------------------------
 AsciiString AIGuardRetaliateState::getName(  ) const
@@ -6824,7 +6788,6 @@ void AIGuardRetaliateState::loadPostProcess( void )
 {
 }  // end loadPostProcess
 
-
 //----------------------------------------------------------------------------------------------------------
 //Is our retaliate state in an attack sub-state?
 Bool AIGuardRetaliateState::isAttack() const
@@ -6835,7 +6798,6 @@ Bool AIGuardRetaliateState::isAttack() const
 	}
 	return FALSE;
 }
-
 
 //----------------------------------------------------------------------------------------------------------
 /**
@@ -6911,7 +6873,6 @@ AITunnelNetworkGuardState::~AITunnelNetworkGuardState()
 	}
 }
 
-
 #ifdef STATE_MACHINE_DEBUG
 //----------------------------------------------------------------------------------------------------------
 AsciiString AITunnelNetworkGuardState::getName(  ) const
@@ -6960,7 +6921,6 @@ void AITunnelNetworkGuardState::xfer( Xfer *xfer )
 void AITunnelNetworkGuardState::loadPostProcess( void )
 {
 }  // end loadPostProcess
-
 
 //----------------------------------------------------------------------------------------------------------
 //Is our guard tunnel network state in an attack sub-state?
@@ -7242,7 +7202,6 @@ StateReturnType AIHuntState::update()
 	return ret;
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
@@ -7384,11 +7343,9 @@ StateReturnType AIAttackAreaState::update()
 	return ret;
 }
 
-
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

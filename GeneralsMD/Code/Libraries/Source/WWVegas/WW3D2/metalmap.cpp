@@ -142,7 +142,6 @@ MetalMapManagerClass::MetalMapManagerClass(INIClass &ini) :
 
 	WW3DFormat format=(Use16Bit?WW3D_FORMAT_A4R4G4B4:WW3D_FORMAT_A8R8G8B8);
 
-
 	for (int i = 0; i < lp; i++) {
 		Textures[i]=NEW_REF(TextureClass,(METALMAP_SIZE,METALMAP_SIZE,format,MIP_LEVELS_1));
 		Textures[i]->Get_Filter().Set_U_Addr_Mode(TextureFilterClass::TEXTURE_ADDRESS_CLAMP);
@@ -152,7 +151,6 @@ MetalMapManagerClass::MetalMapManagerClass(INIClass &ini) :
 		Textures[i]->Set_Texture_Name(tex_name);
 	}
 }
-
 
 /***********************************************************************************************
  * MMMC::~MetalMapManagerClass -- MetalMapManagerClass destructor                              *
@@ -182,7 +180,6 @@ MetalMapManagerClass::~MetalMapManagerClass(void)
 	}
 }
 
-
 /***********************************************************************************************
  * MMMC::Get_Metal_Map -- Get the texture for a metal map by id number                         *
  *                                                                                             *
@@ -203,7 +200,6 @@ TextureClass * MetalMapManagerClass::Get_Metal_Map(int id)
 	return Textures[id];
 }
 
-
 /***********************************************************************************************
  * MMMC::Metal_Map_Count -- Get the number of metal maps in the manager                        *
  *                                                                                             *
@@ -221,7 +217,6 @@ int MetalMapManagerClass::Metal_Map_Count(void)
 {
 	return MapCount;
 }
-
 
 /***********************************************************************************************
  * MMMC::Update_Lighting -- Update the lighting parameters used for generating the maps        *

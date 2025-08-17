@@ -77,10 +77,8 @@ public:
 
 protected:
 
-
   Bool      m_targetReceived;
   Coord3D   m_target;
-
 
 };
 

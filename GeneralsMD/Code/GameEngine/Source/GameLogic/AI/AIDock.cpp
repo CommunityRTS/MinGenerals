@@ -27,7 +27,6 @@
 // Author: Michael S. Booth, February 2002
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/Module.h"
 #include "Common/Player.h"
 #include "GameLogic/Object.h"
@@ -85,7 +84,6 @@ void AIDockMachine::halt()
 	StateMachine::halt();
 }
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -138,7 +136,6 @@ void AIDockMachine::loadPostProcess( void )
 	// continue to wait
 	return FALSE;
 }
-
 
 //----------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------
@@ -815,5 +812,4 @@ void AIDockMoveToRallyState::onExit( StateExitType status )
 	// this behavior is an extention of basic MoveTo
 	AIInternalMoveToState::onExit( status );
 }
-
 

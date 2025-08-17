@@ -39,15 +39,12 @@
 #ifndef MAXWORLDINFO_H
 #define MAXWORLDINFO_H
 
-
 #include <Max.h>
 #include "meshbuild.h"
 #include "nodelist.h"
 #include "vector.h"
 
-
 class GeometryExportTaskClass;
-
 
 /**
 ** MaxWorldInfoClass - Provides information about the max 'world' (or scene)
@@ -87,7 +84,5 @@ class MaxWorldInfoClass : public WorldInfoClass
 		Matrix3				ExportTrans;
 		bool					SmoothBetweenMeshes;
 };
-
-
 
 #endif

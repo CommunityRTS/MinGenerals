@@ -41,7 +41,6 @@
 #include "chunkio.h"
 #include "w3d_file.h"
 
-
 ShdDefClass::ShdDefClass(uint32 classid) :
 	ClassID(classid),
 	Name("UnNamed"),
@@ -114,9 +113,6 @@ void ShdDefClass::Reset(void)
 	SurfaceType = 0;
 }
 
-
-
-
 /*******************************************************************************
 **
 ** Save-Load methods for ShdDefClass
@@ -129,8 +125,6 @@ enum
 	VARID_NAME =					0x00,
 	VARID_SURFACETYPE,
 };
-
-
 
 //**********************************************************************************************
 //! Serialize this ShdDef into a chunk saver
@@ -149,8 +143,6 @@ bool ShdDefClass::Save (ChunkSaveClass &csave)
 
 	return retval;
 }
-
-
 
 //**********************************************************************************************
 //! Load this ShdDef from a chunk loader
@@ -171,7 +163,6 @@ bool ShdDefClass::Load (ChunkLoadClass &cload)
 	return retval;
 }
 
-
 //**********************************************************************************************
 //! Save the variables for this object
 /*!
@@ -186,7 +177,6 @@ bool ShdDefClass::Save_Variables (ChunkSaveClass &csave)
 	WRITE_MICRO_CHUNK (csave, VARID_SURFACETYPE, SurfaceType);
 	return retval;
 }
-
 
 //**********************************************************************************************
 //! Load the variables for this object from a chunk

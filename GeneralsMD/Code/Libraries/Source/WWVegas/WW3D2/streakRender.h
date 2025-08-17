@@ -54,8 +54,6 @@ struct VertexFormatXYZUV1;
 // the chunk buffer size too much
 #define MAX_STREAK_SUBDIV_LEVELS 7
 
-
-
 /**
 ** StreakRendererClass
 ** This class implements the low-level line rendering functionality used by both SegmentedLineClass
@@ -120,7 +118,6 @@ public:
 	void					Set_End_Caps(int onoff)									{ if (onoff) { Bits |= END_CAPS; } else { Bits &= ~END_CAPS; }; }
 
 	void					Reset_Line(void);
-
 
 	void	Render(	RenderInfoClass & rinfo,
 								const Matrix3D & transform,
@@ -194,8 +191,6 @@ private:
   unsigned int m_vertexBufferSize;
   VertexFormatXYZUV1 *m_vertexBuffer;
 };
-
-
 
 inline StreakRendererClass::TextureMapMode StreakRendererClass::Get_Texture_Mapping_Mode(void) const
 {

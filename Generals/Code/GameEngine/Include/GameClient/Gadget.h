@@ -108,7 +108,6 @@ enum
 	GWS_TAB_PANE					= 0x00004000,
 	GWS_COMBO_BOX					= 0x00008000,
 
-
 	GWS_ALL_SLIDER = GWS_VERT_SLIDER | GWS_HORZ_SLIDER,  // for convenience
 
 	GWS_GADGET_WINDOW			= GWS_PUSH_BUTTON |
@@ -523,7 +522,6 @@ extern WindowMsgHandledType GadgetComboBoxInput( GameWindow *window, UnsignedInt
 																								WindowMsgData mData1, WindowMsgData mData2 );
 extern WindowMsgHandledType GadgetComboBoxSystem( GameWindow *window, UnsignedInt msg,
 																								 WindowMsgData mData1, WindowMsgData mData2 );
-
 
 extern Bool InitializeEntryGadget( void );
 

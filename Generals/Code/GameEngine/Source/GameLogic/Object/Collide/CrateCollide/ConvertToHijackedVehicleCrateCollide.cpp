@@ -32,8 +32,6 @@
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #include "Common/Player.h"
@@ -161,7 +159,6 @@ Bool ConvertToHijackedVehicleCrateCollide::executeCrateBehavior( Object *other )
 	targetAI->aiMoveToPosition( other->getPosition(), CMD_FROM_AI );
 	targetAI->aiIdle( CMD_FROM_AI );
 
-
 	//Just in case this target is a dozer, lets make him stop al his dozer tasks, like building and repairing,
 	//So the previous owner does not benefit from these tasks
 	DozerAIInterface * dozerAI = targetAI->getDozerAIInterface();
@@ -188,7 +185,6 @@ Bool ConvertToHijackedVehicleCrateCollide::executeCrateBehavior( Object *other )
 		jackerExp->setVeterancyLevel( highestLevel );
 		targetExp->setVeterancyLevel( highestLevel );
 	}
-
 
 	Bool targetCanEject = FALSE;
 	BehaviorModule **dmi = NULL;

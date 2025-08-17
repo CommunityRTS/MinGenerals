@@ -61,7 +61,6 @@
 #include	"wwfile.h"
 #include "wwstring.h"
 
-
 #ifndef WWERROR
 #define WWERROR	-1
 #endif
@@ -164,7 +163,6 @@ class RawFileClass : public FileClass
 		unsigned short Time;
 };
 
-
 /***********************************************************************************************
  * RawFileClass::File_Name -- Returns with the filename associate with the file object.        *
  *                                                                                             *
@@ -187,7 +185,5 @@ inline char const * RawFileClass::File_Name(void) const
 {
 	return(Filename);
 }
-
-
 
 #endif

@@ -119,5 +119,4 @@ class Surface
 		int Height;
 };
 
-
 #endif

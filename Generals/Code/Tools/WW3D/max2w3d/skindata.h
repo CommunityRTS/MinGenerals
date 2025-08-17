@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef SKINDATA_H
 #define SKINDATA_H
 
@@ -62,7 +61,6 @@ struct InfluenceStruct
 		BoneIdx[0] = boneidx;
 	}
 };
-
 
 /*
 ** SkinDataClass - a class which contains the bone influence data
@@ -157,6 +155,5 @@ public:
 	};
 
 };
-
 
 #endif

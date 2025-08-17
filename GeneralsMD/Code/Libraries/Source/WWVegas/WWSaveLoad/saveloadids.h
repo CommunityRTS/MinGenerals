@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -66,6 +65,5 @@ enum
 	CHUNKID_WWMATH_BEGIN					= 0x00080000,
 	CHUNKID_WWTRANSLATEDB_BEGIN		= 0x00090000
 };
-
 
 #endif

@@ -112,7 +112,6 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 		ownerPlayerMoney->deposit(value);
 		ownerPlayer->getScoreKeeper()->addMoneyEarned(value);
 
-
 		if( data->m_grantTemporaryStealthFrames > 0 )
 		{
 			StealthUpdate *stealth = docker->getStealth();
@@ -159,7 +158,6 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 
 		TheInGameUI->addFloatingText(moneys, &pos, color);
 	}
-
 
 	return FALSE;
 }

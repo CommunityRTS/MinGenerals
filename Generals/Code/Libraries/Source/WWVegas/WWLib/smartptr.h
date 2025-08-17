@@ -67,5 +67,4 @@ class SmartPtr
 		T * Pointer;
 };
 
-
 #endif

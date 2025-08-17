@@ -98,4 +98,3 @@ void INI::parseControlBarSchemeDefinition( INI *ini )
 
 }  // end parseCommandButtonDefinition
 
-

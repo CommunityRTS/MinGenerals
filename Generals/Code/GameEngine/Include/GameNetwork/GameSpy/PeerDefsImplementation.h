@@ -34,7 +34,6 @@
 #include "GameNetwork/GameSpy/PeerDefs.h"
 #include "GameNetwork/GameSpy/PersistentStorageThread.h"
 
-
 class GameSpyInfo : public GameSpyInfoInterface
 {
 public:

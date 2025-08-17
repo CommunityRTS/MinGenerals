@@ -114,7 +114,6 @@ Bool SupplyCenterDockUpdate::action( Object* docker, Object *drone )
 		TheInGameUI->addFloatingText(moneys, &pos, color);
 	}
 
-
 	return FALSE;
 }
 

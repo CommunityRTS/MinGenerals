@@ -38,7 +38,6 @@
 #include <stdlib.h>
 #include "ttfont.h"
 
-
 //-------------------------------------------------------------------------
 // Custom "Button" Class
 //-------------------------------------------------------------------------
@@ -99,10 +98,5 @@ class DrawButton
 		char		PressedBitmap[ _MAX_FNAME ];
 		char		FocusBitmap  [ _MAX_FNAME ];
 };
-
-
-
-
-
 
 #endif

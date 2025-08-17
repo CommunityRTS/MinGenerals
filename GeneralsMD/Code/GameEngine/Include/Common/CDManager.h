@@ -46,7 +46,6 @@
 #ifndef _COMMON_CDMANAGER_H_
 #define _COMMON_CDMANAGER_H_
 
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -55,12 +54,9 @@
 #include "Common/SubSystemInterface.h"
 #include "Common/AsciiString.h"
 
-
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -129,7 +125,6 @@ class CDDrive : public CDDriveInterface
 		CD::Disk				m_disk;										///< ID of disk in drive
 };
 
-
 //===============================
 // CDManagerInterface
 //===============================
@@ -173,8 +168,6 @@ class CDManager : public CDManagerInterface
 		virtual CDDriveInterface* newDrive( const Char *path );	///< add new drive of specified path
 		virtual void							refreshDrives( void );				///< Refresh drive info
 		virtual void							destroyAllDrives( void );			///< Like it says, destroy all drives
-
-
 
 	protected:
 

@@ -34,12 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
-
 
 #ifndef __PARAMETER_TYPES_H
 #define __PARAMETER_TYPES_H
@@ -63,7 +60,6 @@
 	TYPE_MODELFILENAME
 
 }	ParameterType;*/
-
 
 #endif //__PARAMETER_TYPES_H
 

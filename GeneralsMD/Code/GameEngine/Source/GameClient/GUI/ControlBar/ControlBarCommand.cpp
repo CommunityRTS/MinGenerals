@@ -207,7 +207,6 @@ void ControlBar::doTransportInventoryUI( Object *transport, const CommandSet *co
 			m_commandWindows[ i ]->winHide( FALSE );
 			m_commandWindows[ i ]->winEnable( FALSE );
 
-
 ///////// poopy
 
 			//Clear any potential veterancy rank, or else we'll see it when it's empty!
@@ -218,7 +217,6 @@ void ControlBar::doTransportInventoryUI( Object *transport, const CommandSet *co
  			{
  				m_commandWindows[ i ]->winHide( TRUE );
  			}
-
 
      //  is this where we set the cameos disabled when container is subdued?
 
@@ -488,7 +486,6 @@ void ControlBar::populateCommand( Object *obj )
 	// After Every change to the m_commandWIndows, we need to show fill in the missing blanks with the images
 	// removed from multiplayer branch
 	//showCommandMarkers();
-
 
 	//
 	// for objects that have a production exit interface, we may have a rally point set.
@@ -833,7 +830,6 @@ void ControlBar::updateContextCommand( void )
 		if( command == NULL )
 			continue;
 
-
 // LORENZEN COMMENTED THIS OUT 8/11
     // Reason: ExitCameos can be greyed out when the container object gets subdued
 
@@ -1173,7 +1169,6 @@ CommandAvailability ControlBar::getCommandAvailability( const CommandButton *com
 				return COMMAND_RESTRICTED;//COMMAND_CANT_AFFORD;
 			}
 
-
 			break;
 		}
 
@@ -1391,7 +1386,6 @@ CommandAvailability ControlBar::getCommandAvailability( const CommandButton *com
 
       if ( obj->isDisabledByType( DISABLED_SUBDUED ) )
         return COMMAND_RESTRICTED;
-
 
 			break;
 		}

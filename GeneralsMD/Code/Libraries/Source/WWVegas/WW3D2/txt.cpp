@@ -78,7 +78,6 @@ bool TextTextureClass::Build_Texture(FontClass &font, const char *str, int fore,
 		ForegroundColor	= fore;
 	}
 
-
 	default_font_palette[0] = back;
 	default_font_palette[1] = fore;
 

@@ -128,7 +128,6 @@ void QueueProductionExitUpdate::exitObjectViaDoor( Object *newObj, ExitDoorType 
 			newObjectPhysics->setPitchRate( pitchRate );
 		}
 
-
 		/** @todo This really should be automatically wrapped up in an actication sequence
 		for objects in general */
 		// tell the AI about it
@@ -166,7 +165,6 @@ void QueueProductionExitUpdate::exitObjectViaDoor( Object *newObj, ExitDoorType 
 
 }
 
-
 Bool QueueProductionExitUpdate::getExitPosition( Coord3D& exitPosition ) const
 {
 	const Object *obj = getObject();
@@ -188,7 +186,6 @@ Bool QueueProductionExitUpdate::getExitPosition( Coord3D& exitPosition ) const
 	return TRUE;
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 ExitDoorType QueueProductionExitUpdate::reserveDoorForExit( const ThingTemplate* objType, Object *specificObject )
@@ -264,10 +261,6 @@ void QueueProductionExitUpdate::exitObjectByBudding( Object *newObj, Object *bud
 		m_currentBurstCount--; // fewer and fewer units to burst
 
 }
-
-
-
-
 
 Bool QueueProductionExitUpdate::getNaturalRallyPoint( Coord3D& rallyPoint, Bool offset )  const
 {

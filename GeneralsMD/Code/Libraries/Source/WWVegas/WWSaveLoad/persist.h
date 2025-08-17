@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -49,7 +48,6 @@
 class PersistFactoryClass;
 class ChunkSaveClass;
 class ChunkLoadClass;
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -71,7 +69,5 @@ public:
 	virtual bool								Load (ChunkLoadClass &cload)		{ return true; }
 
 };
-
-
 
 #endif

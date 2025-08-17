@@ -68,7 +68,6 @@
 // PRIVATE FUNCTIONS //////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 
-
 //-----------------------------------------------------------------------------
 // ProcessAnimateWindowSlideFromRight PUBLIC FUNCTIONS ////////////////////////
 //-----------------------------------------------------------------------------
@@ -145,10 +144,8 @@ void ProcessAnimateWindowSlideFromRight::initAnimateWindow( AnimateWindow *animW
 	vel.x = m_maxVel.x;
 	vel.y = 0.0f;
 
-
 	animWin->setAnimData(startPos, endPos, curPos, restPos, vel, timeGetTime() + animWin->getDelay(), 0);
 }
-
 
 //-----------------------------------------------------------------------------
 Bool ProcessAnimateWindowSlideFromRight::updateAnimateWindow( AnimateWindow *animWin )
@@ -645,7 +642,6 @@ void ProcessAnimateWindowSlideFromBottom::initReverseAnimateWindow( AnimateWindo
 
 }
 
-
 void ProcessAnimateWindowSlideFromBottom::initAnimateWindow( AnimateWindow *animWin )
 {
 	ICoord2D restPos = {0,0};
@@ -792,7 +788,6 @@ Bool ProcessAnimateWindowSlideFromBottom::reverseAnimateWindow( AnimateWindow *a
 	return FALSE;
 }
 
-
 //-----------------------------------------------------------------------------
 // ProcessAnimateWindowSlideFromBottomTimed PUBLIC FUNCTIONS ////////////////////////
 //-----------------------------------------------------------------------------
@@ -843,7 +838,6 @@ void ProcessAnimateWindowSlideFromBottomTimed::initReverseAnimateWindow( Animate
 	DEBUG_LOG(("initReverseAnimateWindow at %d (%d->%d)\n", now, now, now + m_maxDuration));
 	animWin->setAnimData(startPos, endPos, curPos, restPos, vel, now, now + m_maxDuration);
 }
-
 
 void ProcessAnimateWindowSlideFromBottomTimed::initAnimateWindow( AnimateWindow *animWin )
 {
@@ -947,7 +941,6 @@ Bool ProcessAnimateWindowSlideFromBottomTimed::reverseAnimateWindow( AnimateWind
 	return updateAnimateWindow(animWin);
 }
 
-
 //-----------------------------------------------------------------------------
 // ProcessAnimateWindowSpiral PUBLIC FUNCTIONS ////////////////////////
 //-----------------------------------------------------------------------------
@@ -1011,7 +1004,6 @@ void ProcessAnimateWindowSpiral::initAnimateWindow( AnimateWindow *animWin )
 	vel.y = m_maxR;
 	startPos.x = curPos.x = (vel.y * cos(vel.x)) + endPos.x;
 	startPos.y = curPos.y = (vel.y * sin(vel.x)) + endPos.y;
-
 
 	//set the window's position to the new start positions.
 	win->winSetPosition(startPos.x, startPos.y);
@@ -1087,8 +1079,6 @@ Bool ProcessAnimateWindowSpiral::reverseAnimateWindow( AnimateWindow *animWin )
 	if(animWin->isFinished())
 		return TRUE;
 
-
-
 	// it's set that the window is passed in as it's current position being it's rest position
 	// so save off the rest position
 	GameWindow *win = animWin->getGameWindow();
@@ -1124,7 +1114,6 @@ Bool ProcessAnimateWindowSpiral::reverseAnimateWindow( AnimateWindow *animWin )
 	animWin->setVel(vel);
 	return FALSE;
 }
-
 
 //-----------------------------------------------------------------------------
 // ProcessAnimateWindowSlideFromTopFast PUBLIC FUNCTIONS ////////////////////////
@@ -1308,7 +1297,6 @@ Bool ProcessAnimateWindowSlideFromTopFast::reverseAnimateWindow( AnimateWindow *
 	return FALSE;
 }
 
-
 //-----------------------------------------------------------------------------
 // ProcessAnimateWindowSlideFromRightFast PUBLIC FUNCTIONS ////////////////////////
 //-----------------------------------------------------------------------------
@@ -1357,9 +1345,6 @@ void ProcessAnimateWindowSlideFromRightFast::initReverseAnimateWindow( AnimateWi
 	tempPos.y = pos.y;
 	animWin->setStartPos(tempPos);
 
-
-
-
 }
 
 //-----------------------------------------------------------------------------
@@ -1404,10 +1389,8 @@ void ProcessAnimateWindowSlideFromRightFast::initAnimateWindow( AnimateWindow *a
 	vel.x = m_maxVel.x;
 	vel.y = 0.0f;
 
-
 	animWin->setAnimData(startPos, endPos, curPos, restPos, vel, timeGetTime() + animWin->getDelay(), 0);
 }
-
 
 //-----------------------------------------------------------------------------
 Bool ProcessAnimateWindowSlideFromRightFast::updateAnimateWindow( AnimateWindow *animWin )

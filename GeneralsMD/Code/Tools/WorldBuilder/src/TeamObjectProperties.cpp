@@ -26,7 +26,6 @@
 #include "Common/MapObject.h"
 #include "Common/WellKnownKeys.h"
 
-
 /////////////////////////////////////////////////////////////////////////////
 // TeamObjectProperties dialog
 
@@ -428,7 +427,6 @@ void TeamObjectProperties::_EnabledToDict(void)
 	m_dictToEdit->setBool(TheKey_teamObjectEnabled, isChecked);
 }
 
-
 void TeamObjectProperties::_IndestructibleToDict(void)
 {
 	CButton *owner = (CButton*) GetDlgItem(IDC_MAPOBJECT_Indestructible);
@@ -653,7 +651,6 @@ void TeamObjectProperties::_UpdateTeamMembers()
 		}
 	}
 }
-
 
 void TeamObjectProperties::_PropertiesToDict()
 {

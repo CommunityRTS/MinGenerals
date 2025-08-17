@@ -659,7 +659,6 @@ void BuildAssistant::iterateFootprint( const ThingTemplate *build,
 
 }  // end iterateFootprint
 
-
 //-------------------------------------------------------------------------------------------------
 /** Check for objects preventing building at this location.  */
 //-------------------------------------------------------------------------------------------------
@@ -761,7 +760,6 @@ Bool BuildAssistant::isLocationClearOfObjects( const Coord3D *worldPos,
 		myExitPos.x += c*offset;
 		myExitPos.y += s*offset;
 	}
-
 
 	for( them = iter2->first(); them; them = iter2->next() )
 	{

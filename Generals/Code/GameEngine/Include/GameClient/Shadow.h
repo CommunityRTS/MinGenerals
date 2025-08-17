@@ -136,10 +136,6 @@ protected:
 		Real	m_localAngle;		/// yaw or rotation around z-axis of shadow image when not bound to robj/drawable.
 };
 
-
-
-
-
 inline void Shadow::enableShadowRender(Bool isEnabled)
 {
 	m_isEnabled=isEnabled;

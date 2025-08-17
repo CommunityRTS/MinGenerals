@@ -321,5 +321,4 @@ struct CPUIDStruct
 	}
 };
 
-
 #endif // WWLIB_CPU_DETECT_H__

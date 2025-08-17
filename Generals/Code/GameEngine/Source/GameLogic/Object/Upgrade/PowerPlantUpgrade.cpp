@@ -116,7 +116,6 @@ void PowerPlantUpgrade::upgradeImplementation( void )
 	if( player )
 		player->addPowerBonus(getObject());
 
-
 	PowerPlantUpdateInterface *ppui;
 	for( BehaviorModule **umi = getObject()->getBehaviorModules(); *umi; ++umi)
 	{

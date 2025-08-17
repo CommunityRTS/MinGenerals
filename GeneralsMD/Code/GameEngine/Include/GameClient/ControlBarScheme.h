@@ -120,7 +120,6 @@ private:
 	UnsignedInt m_currentFrame;							///< This is the last frame (a value between 0 and m_animDuration)
 };
 
-
 // Class that each scheme will have.  Contains all information about that scheme
 //-----------------------------------------------------------------------------
 class ControlBarScheme
@@ -138,7 +137,6 @@ public:
 	void addAnimation( ControlBarSchemeAnimation *schemeAnim );
 	void addImage( ControlBarSchemeImage *schemeImage);
 	void updateAnim (ControlBarSchemeAnimation * anim);
-
 
 	AsciiString m_name;												///< it's name
 	ICoord2D m_ScreenCreationRes;							///< Used to determine what screen res this will look the best on
@@ -199,7 +197,6 @@ public:
 
 	Image *m_genArrow;
 
-
 	ICoord2D m_moneyUL;
 	ICoord2D m_moneyLR;
 
@@ -227,10 +224,6 @@ public:
 	ICoord2D m_powerBarUL;
 	ICoord2D m_powerBarLR;
 
-
-
-
-
 	Image *m_expBarForeground;
 
 	Image *m_commandMarkerImage;
@@ -244,7 +237,6 @@ public:
 	ControlBarSchemeAnimationList m_animations;
 
 };
-
 
 class ControlBarSchemeManager
 {

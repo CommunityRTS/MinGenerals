@@ -130,8 +130,6 @@ public:
 	AISideBuildList*	m_next;
 };
 
-
-
 class TAiData : public Snapshot
 {
 public:
@@ -177,7 +175,6 @@ public:
 		 effective priority for powerplant is 8 (15 -(700/100).  So the tanks
 		 would be attacked first because their distance weighted priority is greater. */
 	Real m_attackPriorityDistanceModifier; // Distance to reduce a relative AttackPriority by 1.
-
 
 	/*
 		How close to a waypoint does a group of units have to be to consider itself at the waypoint?
@@ -298,7 +295,6 @@ protected:
 };
 
 extern AI *TheAI;												///< the Artificial Intelligence singleton
-
 
 class Waypoint;
 class Team;
@@ -824,7 +820,6 @@ public:
 
 };
 
-
 //------------------------------------------------------------------------------------------------------------
 /**
  * An "AIGroup" is a simple collection of AI objects, used by the AI
@@ -978,6 +973,5 @@ private:
 
 	mutable VecObjectID	m_lastRequestedIDList;			///< this is used so we can return by reference, saving a copy
 };
-
 
 #endif // _AI_H_

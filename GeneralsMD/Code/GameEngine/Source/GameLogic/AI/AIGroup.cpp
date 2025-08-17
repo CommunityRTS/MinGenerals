@@ -27,7 +27,6 @@
 // Author: Michael S. Booth, January 2002
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-
 #include "Common/ActionManager.h"
 #include "Common/BuildAssistant.h"
 #include "Common/CRCDebug.h"
@@ -137,7 +136,6 @@ const VecObjectID& AIGroup::getAllIDs( void ) const
 
 	return m_lastRequestedIDList;
 }
-
 
 /**
  * Return the speed of the group's slowest member
@@ -282,7 +280,6 @@ Bool AIGroup::removeAnyObjectsNotOwnedByPlayer( const Player *ownerPlayer )
 	return FALSE;
 }
 
-
 /**
  * Compute the centroid of the group
  */
@@ -393,7 +390,6 @@ Bool AIGroup::getMinMaxAndCenter( Coord2D *min, Coord2D *max, Coord3D *center )
 	if (count<2) isFormation = false;
 	return isFormation;
 }
-
 
 /**
  * Compute the speed of the team (its slowest member's speed),
@@ -816,7 +812,6 @@ Bool AIGroup::friend_moveInfantryToPos( const Coord3D *pos, CommandSourceType cm
 		iter2->makeEmpty();
 	}
 
-
 	iter->sort(ITER_SORTED_FAR_TO_NEAR);
 	Int curIndex = 0;
 	for (theUnit = iter->first(); theUnit; theUnit = iter->next())
@@ -1043,7 +1038,6 @@ void AIGroup::friend_moveFormationToPos( const Coord3D *pos, CommandSourceType c
 	Coord3D center;
 	if (!getCenter( &center )) return;
 
-
 	PathNode *startNode = NULL;
 	PathNode *endNode = NULL;
 	Coord3D endPoint = *pos;
@@ -1082,7 +1076,6 @@ void AIGroup::friend_moveFormationToPos( const Coord3D *pos, CommandSourceType c
 			endNode = NULL;
 		}
 	}
-
 
 	// Move.
 	std::list<Object *>::iterator i;
@@ -1155,7 +1148,6 @@ Bool AIGroup::friend_moveVehicleToPos( const Coord3D *pos, CommandSourceType cmd
 	}
 
 	Int numColumns = 2;
-
 
 	// Get the start & end vectors for the path.
 	Coord3D startPoint = *m_groundPath->getFirstNode()->getPosition();
@@ -1391,9 +1383,6 @@ Bool AIGroup::friend_moveVehicleToPos( const Coord3D *pos, CommandSourceType cmd
 		}
 	}
 
-
-
-
 	curIndex = 0;
 	Int columnFactor[5] = {0,0,0,0,0};
 	PathfindLayerEnum layer = TheTerrainLogic->getLayerForDestination(pos);
@@ -1545,7 +1534,6 @@ void clampWaypointPosition( Coord3D &position, Int margin )
   }
 }
 
-
 /**
  * Move to given position(s)
  */
@@ -1569,7 +1557,6 @@ void AIGroup::groupMoveToPosition( const Coord3D *p_posIn, Bool addWaypoint, Com
   {
     isFormation = false;
   }
-
 
 	if (!addWaypoint && !isFormation) {
 		friend_computeGroundPath(pos, cmdSource);
@@ -1615,9 +1602,6 @@ void AIGroup::groupMoveToPosition( const Coord3D *p_posIn, Bool addWaypoint, Com
 
   Int margin = STD_WAYPOINT_CLAMP_MARGIN + extraMargin;
   clampWaypointPosition( position, margin );
-
-
-
 
 	if (tightenGroup)
 	{
@@ -1817,7 +1801,6 @@ void AIGroup::groupScatter( CommandSourceType cmdSource )
 	}
 }
 
-
 const Real CIRCLE = ( 2.0f * PI );
 
 void getHelicopterOffset( Coord3D& posOut, Int idx )
@@ -1848,7 +1831,6 @@ void getHelicopterOffset( Coord3D& posOut, Int idx )
   posOut.y = tempCtr.y + (cos(angle) * radius);
 
 }
-
 
 /**
  * Move to given position(s), tightening the formation
@@ -1933,9 +1915,6 @@ void AIGroup::groupTightenToPosition( const Coord3D *pos, Bool addWaypoint, Comm
 		TheAI->pathfinder()->updatePos(theUnit, &unitPos);
 	}
 }
-
-
-
 
 /**
  * Start following the path from the given point
@@ -2313,7 +2292,6 @@ void AIGroup::groupHunt( CommandSourceType cmdSource )
 	}
 }
 
-
 /**
  * Repair the given object
  */
@@ -2589,7 +2567,6 @@ void AIGroup::groupHackInternet( CommandSourceType cmdSource )				///< Begin hac
 	}
 }
 
-
 void AIGroup::groupCreateFormation( CommandSourceType cmdSource )				///< Create a formation.
 {
 	Coord3D center;
@@ -2675,7 +2652,6 @@ void AIGroup::groupDoSpecialPower( UnsignedInt specialPowerID, UnsignedInt comma
  */
 void AIGroup::groupDoSpecialPowerAtLocation( UnsignedInt specialPowerID, const Coord3D *location, Real angle, const Object *objectInWay, UnsignedInt commandOptions )
 {
-
 
 	//This one requires a position
 	std::list<Object *>::iterator i;
@@ -2927,7 +2903,6 @@ void AIGroup::groupDoCommandButton( const CommandButton *commandButton, CommandS
 	}  // end for, i
 }
 
-
 //-------------------------------------------------------------------------------------
 // Used by scripts to issue a command button order - Note that it's possible that some
 // commands are not AI commands!
@@ -2984,7 +2959,6 @@ void AIGroup::groupDoCommandButtonAtObject( const CommandButton *commandButton, 
 		source->doCommandButtonAtObject( commandButton, obj, cmdSource );
 	}  // end for, i
 }
-
 
 /**
  * Set the behavior modifier for this agent
@@ -3100,7 +3074,6 @@ void AIGroup::queueUpgrade( const UpgradeTemplate *upgrade )
 		if ( pu->canQueueUpgrade( upgrade ) == CANMAKE_QUEUE_FULL )
 			continue;//So we don't charge them for something that we can't build... happy happy
 
-
 		// queue the upgrade "research"
 		pu->queueUpgrade( upgrade );
 	}
@@ -3155,7 +3128,6 @@ Bool AIGroup::isBusy( void ) const
 		{
 			continue;
 		}
-
 
 		//Kris: Optimization
 		isBusy = ai->isBusy() && !obj->isEffectivelyDead();

@@ -56,13 +56,11 @@
 #include "Common/File.h"
 #include "Common/FileSystem.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //----------------------------------------------------------------------------
 //         Externals
@@ -71,7 +69,6 @@
 #if defined(_DEBUG) || defined(_INTERNAL)
 Bool g_useStringFile = TRUE;
 #endif
-
 
 //----------------------------------------------------------------------------
 //         Defines
@@ -131,7 +128,6 @@ struct NoString
 	struct NoString *next;
 	UnicodeString text;
 };
-
 
 //===============================
 // GameTextManager
@@ -203,8 +199,6 @@ static int _cdecl			compareLUT ( const void *,  const void*);
 //         Private Data
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Public Data
 //----------------------------------------------------------------------------
@@ -215,13 +209,9 @@ GameTextInterface *TheGameText = NULL;
 //         Private Prototypes
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Private Functions
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Public Functions
@@ -235,7 +225,6 @@ GameTextInterface* CreateGameTextInterface( void )
 {
 	return NEW GameTextManager;
 }
-
 
 //============================================================================
 // GameTextManager::GameTextManager
@@ -433,7 +422,6 @@ void GameTextManager::reset( void )
 		m_mapStringLUT = NULL;
 	}
 }
-
 
 //============================================================================
 // GameTextManager::stripSpaces
@@ -639,7 +627,6 @@ void GameTextManager::readToEndOfQuote( File *file, Char *in, Char *out, Char *w
 	}
 
 }
-
 
 //============================================================================
 // GameTextManager::reverseWord
@@ -940,7 +927,6 @@ Bool GameTextManager::parseCSF( const Char *filename )
 
 		m_stringInfo[listCount].label = m_buffer;
 
-
 		if ( len > m_maxLabelLen )
 		{
 			m_maxLabelLen = len;
@@ -1018,7 +1004,6 @@ quit:
 	return ok;
 }
 
-
 //============================================================================
 // GameTextManager::parseStringFile
 //============================================================================
@@ -1061,7 +1046,6 @@ Bool GameTextManager::parseStringFile( const char *filename )
 		m_stringInfo[listCount].label = m_buffer;
 		len = strlen ( m_buffer );
 
-
 		if ( len > m_maxLabelLen )
 		{
 			m_maxLabelLen = len;
@@ -1085,7 +1069,6 @@ Bool GameTextManager::parseStringFile( const char *filename )
 				m_buffer[ len ] = '\n';
 				m_buffer[ len+1] = 0;
 				readToEndOfQuote( file, &m_buffer[1], m_buffer2, m_buffer3, MAX_UITEXT_LENGTH );
-
 
 				if ( readString )
 				{
@@ -1192,7 +1175,6 @@ Bool GameTextManager::parseMapStringFile( const char *filename )
 		m_mapStringInfo[listCount].label = m_buffer;
 		len = strlen ( m_buffer );
 
-
 		if ( len > m_maxLabelLen )
 		{
 			m_maxLabelLen = len;
@@ -1216,7 +1198,6 @@ Bool GameTextManager::parseMapStringFile( const char *filename )
 				m_buffer[ len ] = '\n';
 				m_buffer[ len+1] = 0;
 				readToEndOfQuote( file, &m_buffer[1], m_buffer2, m_buffer3, MAX_UITEXT_LENGTH );
-
 
 				if ( readString )
 				{

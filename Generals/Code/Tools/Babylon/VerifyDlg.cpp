@@ -34,7 +34,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // VerifyDlg dialog
 
-
 VerifyDlg::VerifyDlg( NoxText *ntext, LangID langid,  const char *path, CWnd* pParent /*=NULL*/)
 	: CDialog(VerifyDlg::IDD, pParent)
 {
@@ -47,7 +46,6 @@ VerifyDlg::VerifyDlg( NoxText *ntext, LangID langid,  const char *path, CWnd* pP
 	sprintf ( wavefile, "%s%s\\%s%s.wav", path, linfo->character, ntext->WaveSB(), linfo->character  );
 }
 
-
 void VerifyDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -55,7 +53,6 @@ void VerifyDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(VerifyDlg, CDialog)
 	//{{AFX_MSG_MAP(VerifyDlg)

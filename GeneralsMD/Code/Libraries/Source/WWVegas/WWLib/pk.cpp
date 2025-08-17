@@ -47,7 +47,6 @@
 #include	"rndstraw.h"
 #include	<string.h>
 
-
 #if defined(__BORLANDC__)
 extern BigInt Generate_Prime<BigInt>(Straw &, int, BigInt const *);
 #endif
@@ -55,7 +54,6 @@ extern BigInt Generate_Prime<BigInt>(Straw &, int, BigInt const *);
 #ifdef _MSC_VER
 //BigInt Generate_Prime(Straw &, int, BigInt const *);
 #endif
-
 
 /***********************************************************************************************
  * PKey::PKey -- Construct a key using encoded strings.                                        *
@@ -79,7 +77,6 @@ PKey::PKey(void const * exponent, void const * modulus)
 	Exponent.DERDecode((unsigned char *)exponent);
 	BitPrecision = Modulus.BitCount()-1;
 }
-
 
 /***********************************************************************************************
  * PKey::Encode_Modulus -- Encode the modulus portion of the key.                              *
@@ -105,7 +102,6 @@ int PKey::Encode_Modulus(void * buffer) const
 	return(Modulus.DEREncode((unsigned char *)buffer));
 }
 
-
 /***********************************************************************************************
  * PKey::Encode_Exponent -- Encode the exponent portion of the key into a buffer.              *
  *                                                                                             *
@@ -130,7 +126,6 @@ int PKey::Encode_Exponent(void * buffer) const
 	return(Exponent.DEREncode((unsigned char *)buffer));
 }
 
-
 /***********************************************************************************************
  * PKey::Decode_Modulus -- Decodes the modulus value back into the key.                        *
  *                                                                                             *
@@ -152,7 +147,6 @@ void PKey::Decode_Modulus(void * buffer)
 	BitPrecision = Modulus.BitCount()-1;
 }
 
-
 /***********************************************************************************************
  * PKey::Decode_Exponent -- Decodes the exponent back into the key.                            *
  *                                                                                             *
@@ -172,7 +166,6 @@ void PKey::Decode_Exponent(void * buffer)
 {
 	Exponent.DERDecode((unsigned char *)buffer);
 }
-
 
 /***********************************************************************************************
  * PKey::Generate -- Generate a public and private key.                                        *
@@ -264,7 +257,6 @@ void PKey::Generate(Straw & random, int bits, PKey & fastkey, PKey & slowkey)
 	}
 }
 
-
 /***********************************************************************************************
  * PKey::Encrypt -- Encrypt blocks of plaintext.                                               *
  *                                                                                             *
@@ -314,7 +306,6 @@ int PKey::Encrypt(void const * source, int slen, void * dest) const
 
 	return(total);
 }
-
 
 /***********************************************************************************************
  * PKey::Decrypt -- Decrypt supplied cyphertext into its original plaintext.                   *

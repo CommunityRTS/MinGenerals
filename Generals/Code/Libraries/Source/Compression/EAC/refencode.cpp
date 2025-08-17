@@ -96,7 +96,6 @@ static int refcompress(unsigned char *from, int len, unsigned char *dest, int ma
         hoffset = hashtbl[hash];
         minhoffset = qmax(cptr-from-131071,0);
 
-
         if (hoffset>=minhoffset)
         {
             do
@@ -229,7 +228,6 @@ static int refcompress(unsigned char *from, int len, unsigned char *dest, int ma
     return(to-dest);
 }
 
-
 /****************************************************************/
 /*  Encode Function                                             */
 /****************************************************************/
@@ -240,7 +238,6 @@ int GCALL REF_encode(void *compresseddata, const void *source, int sourcesize, i
     int     quick=0;
     int    plen;
     int    hlen;
-
 
     /* simple fb6 header */
 

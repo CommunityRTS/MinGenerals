@@ -662,8 +662,6 @@ Bool TurretAI::isTurretInNaturalPosition() const
   if( this->getOwner()->testStatus( OBJECT_STATUS_UNDER_CONSTRUCTION))
     return true;//ML so that under-construction base-defenses do not re-center while under construction
 
-
-
 	if( getNaturalTurretAngle() == getTurretAngle() &&
 			getNaturalTurretPitch() == getTurretPitch() )
 	{
@@ -1227,10 +1225,8 @@ StateReturnType TurretAIRecenterTurretState::update()
 {
 	//DEBUG_LOG(("TurretAIRecenterTurretState frame %d: %08lx\n",TheGameLogic->getFrame(),getTurretAI()->getOwner()));
 
-
   if( getMachineOwner()->testStatus( OBJECT_STATUS_UNDER_CONSTRUCTION))
     return STATE_CONTINUE;//ML so that under-construction base-defenses do not re-center while under construction
-
 
 	TurretAI* turret = getTurretAI();
 	Bool angleAligned = turret->friend_turnTowardsAngle(turret->getNaturalTurretAngle(), 0.5f, 0.0f);

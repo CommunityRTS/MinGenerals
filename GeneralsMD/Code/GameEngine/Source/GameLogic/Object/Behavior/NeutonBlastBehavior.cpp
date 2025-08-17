@@ -26,7 +26,6 @@
 // Author: Daniel Teh
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 #include "GameLogic/Module/NeutronBlastBehavior.h"
@@ -92,8 +91,6 @@ void NeutronBlastBehavior::onDie( const DamageInfo *damageInfo )
 		}
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** The update callback. */
@@ -170,7 +167,6 @@ void NeutronBlastBehavior::crc( Xfer *xfer )
 	// extend base class
 	UpdateModule::crc( xfer );
 
-
 }  // end crc
 
 // ------------------------------------------------------------------------------------------------
@@ -199,6 +195,5 @@ void NeutronBlastBehavior::loadPostProcess( void )
 
 	// extend base class
 	UpdateModule::loadPostProcess();
-
 
 }  // end loadPostProcess

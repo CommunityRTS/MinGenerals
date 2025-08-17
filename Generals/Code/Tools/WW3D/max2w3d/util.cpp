@@ -47,13 +47,10 @@
 #include "skindata.h"
 #include "modstack.h"
 
-
 #define MAX_NODE_NAME_LEN 256		// max name size we can handle
 
 const float EPSILON = 0.00001f;
 static char _string[256];
-
-
 
 static int get_geometry_type(INode * node)
 {
@@ -62,7 +59,6 @@ static int get_geometry_type(INode * node)
 
 	//return (get_w3d_bits(node) & GEO_TYPE_MASK);
 }
-
 
 /***********************************************************************************************
  * Cleanup_Orthogonal_Matrix -- removes very small numbers from the matrix                     *
@@ -184,7 +180,6 @@ void Split_Node_Name(const char * name,char * set_base,char * set_exten,int * se
 	}
 }
 
-
 bool Append_Lod_Character (char *meshname, int lod_level, INodeListClass *origin_list)
 {
 	if (meshname == NULL || lod_level < 0)
@@ -245,8 +240,6 @@ bool Append_Lod_Character (char *meshname, int lod_level, INodeListClass *origin
 
 	return true;
 }
-
-
 
 void Create_Full_Path(char *full_path, const char *curr, const char *rel_path)
 {
@@ -425,7 +418,6 @@ bool Is_Full_Path(char * path)
 	return false;
 }
 
-
 /***********************************************************************************************
  * Is_Max_Tri_Mesh -- Is this node a triangle mesh?                                            *
  *                                                                                             *
@@ -447,8 +439,6 @@ bool Is_Max_Tri_Mesh(INode * node)
 	}
 	return false;
 }
-
-
 
 bool Is_Damage_Root(INode *node)
 {
@@ -474,7 +464,6 @@ bool Is_Damage_Root(INode *node)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * Is_Origin -- checks if the node is the origin of a model                                    *
@@ -519,7 +508,6 @@ bool Is_Origin(INode * node)
 	return true;
 }
 
-
 /***********************************************************************************************
  * Is_Base_Origin -- Checks if the node is the origin for the base obect (non-LOD'd).          *
  *                                                                                             *
@@ -558,7 +546,6 @@ bool Is_Base_Origin(INode * node)
 
 	return is_base_origin;
 }
-
 
 int Get_Lod_Level(INode *node)
 {

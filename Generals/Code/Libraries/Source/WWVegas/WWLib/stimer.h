@@ -54,7 +54,6 @@
 
 #define	GRAYFADETIME			(1 * TICKS_PER_SECOND)
 
-
 class SystemTimerClass
 {
 	public:

@@ -85,7 +85,6 @@ const FieldParse TerrainRoadType::m_terrainBridgeFieldParseTable[] =
 	{ "TransitionToOCL",							parseTransitionToOCL,					NULL,	NULL },
 	{ "TransitionToFX",								parseTransitionToFX,					NULL, NULL },
 
-
 	{ NULL,									NULL,													NULL, 0 },
 
 };

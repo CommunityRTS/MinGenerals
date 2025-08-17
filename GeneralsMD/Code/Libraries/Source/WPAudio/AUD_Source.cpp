@@ -59,7 +59,6 @@
 // 'assignment within condition expression'.
 #pragma warning(disable : 4706)
 
-
 DBG_DECLARE_TYPE ( AudioSample )
 DBG_DECLARE_TYPE ( AudioFormat )
 DBG_DECLARE_TYPE ( AudioFrame )
@@ -68,18 +67,13 @@ DBG_DECLARE_TYPE ( AudioFrame )
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **        Private Types                                                     **
 *****************************************************************************/
-
 
 /*****************************************************************************
 **         Private Data                                                     **
@@ -110,9 +104,6 @@ static const int bit_rate[2][15] =
    { 0L,32000L,40000L,48000L,56000L,64000L,80000L,96000L,112000L,128000L,160000L,192000L,224000L,256000L,320000L     }
 };
 
-
-
-
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
@@ -127,17 +118,13 @@ const short MSADPCM_StdCoef[7][2] = {
 			{ 392,-232}
 };
 
-
 /*****************************************************************************
 **         Private Prototypes                                               **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **          Private Functions                                               **
 *****************************************************************************/
-
 
 /*****************************************************************************
 **          Public Functions                                                **
@@ -152,9 +139,7 @@ AudioSample* AudioCreateSample( uint bytes )
 {
 	AudioSample	*sample;
 
-
 	DBG_ASSERT ( bytes > 0 );
-
 
 	ALLOC_STRUCT ( sample, AudioSample );
 
@@ -167,7 +152,6 @@ AudioSample* AudioCreateSample( uint bytes )
 		goto error;
 	}
 
-
     return sample;
 
 error:
@@ -179,7 +163,6 @@ error:
 
 	return NULL;
 }
-
 
 /******************************************************************/
 /*                                                                */
@@ -286,7 +269,6 @@ void AudioSampleSetName ( AudioSample *sample, const char *orig_name )
 
 void		AudioSampleAddFrame ( AudioSample *sample, AudioFrame *frame )
 {
-
 
 	DBG_ASSERT_TYPE ( sample, AudioSample );
 	DBG_ASSERT_TYPE ( frame, AudioFrame );
@@ -455,7 +437,6 @@ int AudioFormatReadMP3File ( File *file, AudioFormat *format, int *datasize )
 
 	int data_start = file->position ();
 
-
 	bytes = file->read ( buffer, sizeof (buffer ));
 
 	pos = 0;
@@ -517,7 +498,6 @@ int AudioFormatReadMP3File ( File *file, AudioFormat *format, int *datasize )
 	format->cdata.mp3.Header = header;
 
 	AudioFormatUpdate ( format );
-
 
 	if ( datasize )
 	{
@@ -626,7 +606,6 @@ int AudioFormatSame ( const AudioFormat *f1, const AudioFormat *f2 )
 	{
 		return FALSE;
 	}
-
 
 	return TRUE;
 }

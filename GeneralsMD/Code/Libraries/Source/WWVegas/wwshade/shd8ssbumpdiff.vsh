@@ -47,7 +47,6 @@ dp4 oT0.y, V_POSITION, c[CV_TEXMAP_1]
 dp4 oT0.z, V_POSITION, c[CV_TEXMAP_2]
 dp4 oT0.w, V_POSITION, c[CV_TEXMAP_3]
 
-
 // Transform basis vectors to world space
 dp3 S_WORLD.x, V_S, c[CV_WORLD_0]
 dp3 S_WORLD.y, V_S, c[CV_WORLD_1]
@@ -60,11 +59,6 @@ dp3 T_WORLD.z, V_T, c[CV_WORLD_2]
 dp3 SxT_WORLD.x, V_SxT, c[CV_WORLD_0]
 dp3 SxT_WORLD.y, V_SxT, c[CV_WORLD_1]
 dp3 SxT_WORLD.z, V_SxT, c[CV_WORLD_2]
-
-
-
-
-
 
 // transform light 0 by basis vectors to put it into texture space
 dp3 LIGHT_LOCAL.x, S_WORLD.xyz, c[CV_LIGHT_DIRECTION_0]
@@ -84,7 +78,6 @@ dp3 WORLD_NORMAL.z, V_NORMAL, c[CV_WORLD_2]
 dp3 WORLD_NORMAL.w, WORLD_NORMAL, WORLD_NORMAL
 rsq WORLD_NORMAL.w, WORLD_NORMAL.w
 mul WORLD_NORMAL, WORLD_NORMAL, WORLD_NORMAL.w
-
 
 // calculate light 0 factor
 dp3 LIGHT_0.w, WORLD_NORMAL, c[CV_LIGHT_DIRECTION_0]	// L.N
@@ -128,8 +121,6 @@ add oD0, LIGHT_LOCAL, c[CV_BUMPINESS].yyy
 // set compliment of diffuse light factor
 add oD0.w, c[CV_CONST].y, -LIGHT_0.w
 
-
-
 // calculate specular term
 
 // calculate half angle
@@ -158,12 +149,10 @@ mul EYE_VECTOR, EYE_VECTOR, EYE_VECTOR.w
 // Add them to average & create half angle vector
 add HALF_ANGLE, c[CV_LIGHT_DIRECTION_0], EYE_VECTOR
 
-
 // Normalize the half angle vector
 dp3 HALF_ANGLE.w, HALF_ANGLE, HALF_ANGLE
 rsq HALF_ANGLE.w, HALF_ANGLE.w
 mul HALF_ANGLE, HALF_ANGLE, HALF_ANGLE.w
-
 
 dp3 LIGHT_LOCAL.x, S_WORLD.xyz, HALF_ANGLE
 dp3 LIGHT_LOCAL.y, T_WORLD.xyz, HALF_ANGLE
@@ -181,8 +170,6 @@ mul LIGHT_LOCAL, LIGHT_LOCAL, LIGHT_LOCAL.w
 // apply bump scale and bias controls
 mul LIGHT_LOCAL, LIGHT_LOCAL, c[CV_BUMPINESS].zzz
 //add oT3, LIGHT_LOCAL, c[CV_BUMPINESS].www
-
-
 
 // calculate light 0 factor
 dp3 LIGHT_0.w, HALF_ANGLE, WORLD_NORMAL	// N.H
@@ -208,14 +195,11 @@ mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 //mad COL, c[CV_LIGHT_COLOR_1], LIGHT_1.w, COL
 //mad COL, c[CV_LIGHT_COLOR_2], LIGHT_2.w, COL
 
-
 //mul oT2, COL, c[CV_SPECULAR]
 
 // Set alpha to 1
 //add oT3.w, c[CV_CONST].y, -LIGHT_0.w
 
-
 //mov oT0, V_TEXTURE
 //mov oT1, V_TEXTURE
-
 

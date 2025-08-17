@@ -65,7 +65,6 @@ m_riverStart(0)
 
 }
 
-
 /**
  PolygonTrigger - Destructor - note - if linked, deletes linked items.
 */
@@ -86,7 +85,6 @@ PolygonTrigger::~PolygonTrigger(void)
 		}
 	}
 }
-
 
 /**
  PolygonTrigger::reallocate - increases the size of the points list.
@@ -289,7 +287,6 @@ void PolygonTrigger::updateBounds(void)	const
 	m_radius = sqrt(halfHeight*halfHeight + halfWidth*halfWidth);
 }
 
-
 /**
  PolygonTrigger::addPolygonTrigger adds a trigger to the list of triggers.
 */
@@ -439,7 +436,6 @@ Real PolygonTrigger::getRadius(void)	const
 	}
 	return m_radius;
 }
-
 
 /**
  PolygonTrigger - pointInTrigger.

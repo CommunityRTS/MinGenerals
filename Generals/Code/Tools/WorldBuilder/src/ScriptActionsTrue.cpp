@@ -52,7 +52,6 @@ void ScriptActionsTrue::DoDataExchange(CDataExchange* pDX)
 	//}}AFX_DATA_MAP
 }
 
-
 BEGIN_MESSAGE_MAP(ScriptActionsTrue, CPropertyPage)
 	//{{AFX_MSG_MAP(ScriptActionsTrue)
 	ON_BN_CLICKED(IDC_EDIT, OnEditAction)
@@ -106,7 +105,6 @@ void ScriptActionsTrue::loadList(void)
 		OnSelchangeActionList();
 	}
 }
-
 
 void ScriptActionsTrue::OnEditAction()
 {
@@ -171,8 +169,6 @@ void ScriptActionsTrue::OnDblclkActionList()
 {
 	OnEditAction();
 }
-
-
 
 void ScriptActionsTrue::OnNew()
 {

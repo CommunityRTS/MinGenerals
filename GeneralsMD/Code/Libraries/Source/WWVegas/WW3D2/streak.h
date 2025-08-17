@@ -77,7 +77,6 @@ class StreakLineClass : public RenderObjClass
 		// entire line. Therefore there must be at least two.
 		int		Get_Num_Points(void);
 
-
 		// Set object-space location for a given point.
 		// NOTE: If given position beyond end of point list, do nothing.
 		void					Set_Point_Location(unsigned int point_idx, const Vector3 &location);
@@ -172,7 +171,6 @@ class StreakLineClass : public RenderObjClass
 																Vector4 *colors = NULL,
 																unsigned int *personalities = NULL);
 
-
 	protected:
 
 		void	Set_Locs(unsigned int num_points, Vector3 *locs);
@@ -187,7 +185,6 @@ class StreakLineClass : public RenderObjClass
 		// Subdivision properties
 		unsigned int					MaxSubdivisionLevels;
 
-
 		// per-particle seeds
 		unsigned int					*Personalities;
 
@@ -200,21 +197,9 @@ class StreakLineClass : public RenderObjClass
 	SimpleDynVecClass<Vector4>	PointColors;   // RGBA
 	SimpleDynVecClass<float>		PointWidths;   // float line thickness
 
-
-
-
-
 	// LineRenderer, contains most of the line settings.
 	SegLineRendererClass		LineRenderer;
 	StreakRendererClass		StreakRenderer;//special, per-point alpha/color/size
 };
-
-
-
-
-
-
-
-
 
 #endif SEGLINE_H

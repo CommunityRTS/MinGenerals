@@ -27,7 +27,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // COptionsPanel dialog
 
-
 COptionsPanel::COptionsPanel(Int dlgid /*=0*/, CWnd* pParent /*=NULL*/)
 	: CDialog(dlgid ? dlgid : COptionsPanel::IDD, pParent)
 {
@@ -36,7 +35,6 @@ COptionsPanel::COptionsPanel(Int dlgid /*=0*/, CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void COptionsPanel::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -44,7 +42,6 @@ void COptionsPanel::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(COptionsPanel, CDialog)
 	//{{AFX_MSG_MAP(COptionsPanel)
@@ -71,7 +68,6 @@ void COptionsPanel::OnMove(int x, int y)
 	}
 
 }
-
 
 void COptionsPanel::OnEditRedo()
 {

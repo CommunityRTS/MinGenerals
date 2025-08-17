@@ -42,7 +42,6 @@
 #include "colmathinlines.h"
 #include <float.h>
 
-
 /***********************************************************************************************
  * AABoxClass::Init_Random -- initializes this box to a random state                           *
  *                                                                                             *
@@ -65,7 +64,6 @@ void AABoxClass::Init_Random(float min_center,float max_center,float min_extent,
 	Extent.Y = min_extent + WWMath::Random_Float() * (max_extent - min_extent);
 	Extent.Z = min_extent + WWMath::Random_Float() * (max_extent - min_extent);
 }
-
 
 void AABoxClass::Transform(const Matrix3D & tm,const AABoxClass & in,AABoxClass * out)
 {

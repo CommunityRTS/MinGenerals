@@ -47,7 +47,6 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(FenceOptions)
@@ -67,7 +66,6 @@ protected:
 	afx_msg void OnChangeFenceSpacingEdit();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 
 protected:
 	static FenceOptions *m_staticThis;

@@ -84,7 +84,6 @@ extern void GameGetColorComponents( Color color,
 //																	  UnsignedByte *blue,
 //																	  UnsignedByte *alpha );
 
-
 extern void GameGetColorComponentsReal( Color color, Real *red, Real *green, Real *blue, Real *alpha );
 
 extern Color GameDarkenColor( Color color, Int percent = 10 );

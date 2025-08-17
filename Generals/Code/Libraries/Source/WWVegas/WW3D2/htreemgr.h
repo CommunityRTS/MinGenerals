@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -90,6 +89,5 @@ private:
 	HTreeClass *				TreePtr[MAX_TREES];		// TODO: no no! make this dynamic...
 
 };
-
 
 #endif

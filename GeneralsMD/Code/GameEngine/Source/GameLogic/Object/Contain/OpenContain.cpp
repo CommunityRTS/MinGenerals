@@ -232,7 +232,6 @@ void OpenContain::addOrRemoveObjFromWorld(Object* obj, Bool add)
 		DEBUG_LOG(( "WARNING: Containing/Removing structures like '%s' is potentially a very expensive and slow operation\n",
 								obj->getTemplate()->getName().str() ));
 
-
 	if (add)
 	{
 		ThePartitionManager->registerObject( obj );
@@ -440,7 +439,6 @@ void OpenContain::killAllContained( void )
 	{
     Object *rider = *it;
 
-
     if ( rider )
     {
 	    it = m_containList.erase(it);
@@ -455,7 +453,6 @@ void OpenContain::killAllContained( void )
       ++it;
 
 	}  // end while
-
 
   DEBUG_ASSERTCRASH( m_containListSize == 0, ("killallcontain just made a booboo, list size != zero.") );
 
@@ -487,11 +484,9 @@ void OpenContain::harmAndForceExitAllContained( DamageInfo *info )
 
 	}  // end while
 
-
   DEBUG_ASSERTCRASH( m_containListSize == 0, ("harmAndForceExitAllContained just made a booboo, list size != zero.") );
 
 }  // end removeAllContained
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -607,10 +602,6 @@ Object* OpenContain::getClosestRider( const Coord3D *pos )
    return closest; //Could be null!
 }
 
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 struct DropData
 {
@@ -656,7 +647,6 @@ void OpenContain::removeFromContainViaIterator( ContainedItemsList::iterator it,
 			}
 		}
 	}
-
 
 	if (isEnclosingContainerFor( rider ))
 	{
@@ -829,7 +819,6 @@ void OpenContain::onCollide( Object *other, const Coord3D *loc, const Coord3D *n
 				removeFromContain( rider, TRUE );
 		}
 	}
-
 
 	// finally, we must have space to contain it.
 	if( !isValidContainerFor( other, TRUE ) )
@@ -1146,7 +1135,6 @@ void OpenContain::exitObjectInAHurry( Object *exitObj )
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 Bool OpenContain::isPassengerAllowedToFire( ObjectID id ) const
 {
@@ -1400,7 +1388,6 @@ void OpenContain::orderAllPassengersToExit( CommandSourceType commandSource, Boo
 	}
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void OpenContain::orderAllPassengersToIdle( CommandSourceType commandSource )
 {
@@ -1434,8 +1421,6 @@ void OpenContain::orderAllPassengersToHackInternet( CommandSourceType commandSou
 		}
 	}
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 void OpenContain::processDamageToContained(Real percentDamage)
@@ -1504,7 +1489,6 @@ Bool OpenContain::hasObjectsWantingToEnterOrExit() const
 	return !m_objectEnterExitInfo.empty();
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void OpenContain::setRallyPoint( const Coord3D *pos )
 {
@@ -1541,12 +1525,6 @@ Bool OpenContain::getNaturalRallyPoint( Coord3D& rallyPoint, Bool offset )  cons
 	return TRUE;
 }
 
-
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 void testForAttackingProc( Object *obj, void *userData )
@@ -1568,16 +1546,6 @@ Bool OpenContain::isAnyRiderAttacking( void ) const
 
   return wellIsHe;
 }
-
-
-
-
-
-
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */
@@ -1758,12 +1726,10 @@ void OpenContain::xfer( Xfer *xfer )
 	// which exit path
 	xfer->xferInt( &m_whichExitPath );
 
-
   if ( version >= 2 )
   {
     xfer->xferBool( &m_passengerAllowedToFire );
   }
-
 
 }  // end xfer
 

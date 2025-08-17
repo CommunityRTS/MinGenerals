@@ -112,5 +112,4 @@ private:
 	Vector2								Specular_Bumpiness;
 };
 
-
 #endif //SHDBUMPSPEC_H

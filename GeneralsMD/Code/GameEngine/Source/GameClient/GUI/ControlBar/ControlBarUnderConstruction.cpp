@@ -98,7 +98,6 @@ void ControlBar::populateUnderConstruction( Object *objectUnderConstruction )
 	if( exit )
 		showRallyPoint( exit->getRallyPoint() );
 
-
 }  // end populateUnderConstruction
 
 //-------------------------------------------------------------------------------------------------

@@ -132,7 +132,6 @@ DIB8Class::DIB8Class(HWND hwnd,int width,int height,PaletteClass & pal):
 	}
 }
 
-
 /***********************************************************************************************
  * DIB8C::~DIB8Class -- destructor                                                             *
  *                                                                                             *
@@ -151,7 +150,6 @@ DIB8Class::~DIB8Class(void)
 	if (Handle) DeleteObject(Handle);
 	if (Surface) delete Surface;
 }
-
 
 /***********************************************************************************************
  * DIB8C::Clear -- clears the DIB                                                              *

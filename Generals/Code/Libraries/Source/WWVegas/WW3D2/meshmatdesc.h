@@ -223,7 +223,6 @@ protected:
 	friend class MeshModelClass;
 };
 
-
 /**
 ** MatBufferClass
 ** This is a ShareBufferClass of pointers to vertex materials.  Could have written as a template but

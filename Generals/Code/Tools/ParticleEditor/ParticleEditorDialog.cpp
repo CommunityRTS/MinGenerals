@@ -27,7 +27,6 @@
 #include "ParticleTypePanels.h"
 #include "VelocityTypePanels.h"
 
-
 #define		ARBITRARY_BUFF_SIZE		128
 
 DebugWindowDialog::DebugWindowDialog(UINT nIDTemplate, CWnd* pParentWnd) : CDialog(nIDTemplate, pParentWnd),
@@ -40,7 +39,6 @@ m_moreParmsDialog(MoreParmsDialog::IDD, this)
 	m_activeVelocityPage = 0;
 	m_activeParticlePage = 0;
 	m_particleSystem = NULL;
-
 
 	m_changeHasOcurred = false;
 	m_shouldWriteINI = false;
@@ -490,7 +488,6 @@ void DebugWindowDialog::getLineFromSystem( IN Int coordNum, OUT Real& linePoint)
 	};
 }
 
-
 void DebugWindowDialog::updateLineToSystem( IN Int coordNum, IN const Real& linePoint)
 {
 	if (!m_particleSystem) {
@@ -583,7 +580,6 @@ void DebugWindowDialog::getVelOrthoFromSystem( IN Int coordNum, OUT Real& ortho)
 	};
 }
 
-
 void DebugWindowDialog::updateVelOrthoToSystem( IN Int coordNum, IN const Real& ortho)
 {
 	if (!m_particleSystem) {
@@ -618,7 +614,6 @@ void DebugWindowDialog::getVelCylinderFromSystem( IN Int coordNum, OUT Real& cyl
 	};
 }
 
-
 void DebugWindowDialog::updateVelCylinderToSystem( IN Int coordNum, IN const Real& cylinder)
 {
 	if (!m_particleSystem) {
@@ -650,7 +645,6 @@ void DebugWindowDialog::getVelOutwardFromSystem( IN Int coordNum, OUT Real& cyli
 		default: return;
 	};
 }
-
 
 void DebugWindowDialog::updateVelOutwardToSystem( IN Int coordNum, IN const Real& cylinder)
 {
@@ -1595,7 +1589,6 @@ void DebugWindowDialog::OnKillAllParticleSystems()
 	m_shouldKillAllParticleSystems = true;
 }
 
-
 void DebugWindowDialog::OnEditMoreParms()
 {
 	CButton *pButton = (CButton*) GetDlgItem(IDC_PSEd_Continued);
@@ -1764,7 +1757,6 @@ BEGIN_MESSAGE_MAP(DebugWindowDialog, CDialog)
 	ON_COMMAND(ID_FILE_SAVECURRENT, OnSaveCurrent)
 	ON_COMMAND(ID_FILE_SAVEALL, OnSaveAll)
 	ON_COMMAND(ID_FILE_RELOADTEXTURES, OnReloadTextures)
-
 
 	ON_EN_KILLFOCUS(IDC_PSEd_CurrentParticleCap, OnParticleCapEdit)
 	ON_EN_KILLFOCUS(IDC_PSEd_AngleXMin, OnParticleSystemEdit)

@@ -9,7 +9,6 @@ library Noxstring
 	importlib("stdole32.tlb");
 	importlib("stdole2.tlb");
 
-
 	//  Primary dispatch interface for CNoxstringDoc
 
 	[ uuid(2BF31248-3BA1-11D3-B9DA-006097B90D93) ]

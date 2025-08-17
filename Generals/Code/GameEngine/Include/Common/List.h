@@ -43,7 +43,6 @@
 
 #pragma once
 
-
 #ifndef	__WSYS_LIST_H
 #define	__WSYS_LIST_H
 
@@ -58,7 +57,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -112,7 +110,6 @@ class	LListNode
 */
 //================================
 
-
 class	LList
 {
 	public:
@@ -129,7 +126,6 @@ class	LList
 		LListNode			m_head;								///< List head node
 		SortMode			m_sortMode;						///< What sorting method to use for this list's Add() operation
 		Bool					m_addToEndOfGroup;		///< Add nodes to end of group of nodes with same priority
-
 
 	public:
 
@@ -168,7 +164,6 @@ inline		void					LListNode::setPriority( Int new_pri ) { m_pri = new_pri; };
 inline		void					LListNode::autoDelete( void ) { m_autoDelete = TRUE; };
 inline		void*					LListNode::item( void ) { return m_item; };
 inline		void					LListNode::setItem( void *item ) { m_item = item; };
-
 
 inline		void					LList::addToHead( LListNode *new_node ) { m_head.append( new_node); };
 inline		void					LList::addToTail( LListNode *new_node ) { m_head.insert( new_node); };

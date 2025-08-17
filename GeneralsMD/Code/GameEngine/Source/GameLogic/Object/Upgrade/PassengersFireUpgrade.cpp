@@ -53,7 +53,6 @@ void PassengersFireUpgrade::upgradeImplementation( )
 {
 	// Just need to flag the containmodule having the passengersallowedtofire true, .
 
-
   Object *obj = getObject();
 //	obj->setWeaponSetFlag( WEAPONSET_PLAYER_UPGRADE );
 

@@ -34,14 +34,11 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #ifndef GAMEMTLSHADERDLG_H
 #define GAMEMTLSHADERDLG_H
 
 #include <Max.h>
 #include "GameMtlForm.h"
-
 
 class GameMtl;
 struct ShaderBlendSettingPreset;

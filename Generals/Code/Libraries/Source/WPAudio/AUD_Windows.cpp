@@ -55,18 +55,13 @@
 // 'assignment within condition expression'.
 #pragma warning(disable : 4706)
 
-
 //----------------------------------------------------------------------------
 //         Externals
 //----------------------------------------------------------------------------
 
-
-
 //----------------------------------------------------------------------------
 //         Defines
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Private Types
@@ -93,12 +88,9 @@ struct _aud_thread
 
 DBG_DECLARE_TYPE ( AUD_Thread )
 
-
 //----------------------------------------------------------------------------
 //         Private Data
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //         Public Data
@@ -111,7 +103,6 @@ static HWND audioMainWindowHandle = NULL;
 //----------------------------------------------------------------------------
 
 static DWORD		WINAPI		AUD_service_thread ( VOID *data );
-
 
 //----------------------------------------------------------------------------
 //         Private Functions
@@ -154,7 +145,6 @@ static DWORD		WINAPI		AUD_service_thread ( VOID *data )
 	return 0;
 }
 
-
 //----------------------------------------------------------------------------
 //         Public Functions
 //----------------------------------------------------------------------------
@@ -182,7 +172,6 @@ AUD_Thread*	AUD_ThreadCreate ( const char *name, AUD_ThreadPriority pri, AUD_Thr
 	AudioServiceInfoInit ( &thread->update );
 	ProfileCPUInit ( thread->cpu );
 	InitializeCriticalSection ( &thread->access );
-
 
 	AUD_ThreadSetInterval ( thread, SECONDS(1)/30 );
 
@@ -348,9 +337,7 @@ int AudioFormatReadWaveFile ( File *file, AudioFormat *format, int *bytes )
 	int result = FALSE;
 	//int mp3 = FALSE;
 
-
 	DBG_ASSERT_TYPE ( format, AudioFormat );
-
 
 	if ( bytes )
 	{
@@ -361,7 +348,6 @@ int AudioFormatReadWaveFile ( File *file, AudioFormat *format, int *bytes )
 	{
 		goto done;
 	}
-
 
 	file->seek ( 0, File::START );
 
@@ -420,7 +406,6 @@ got_data:
 		goto done;
 	}
 
-
 	format->SampleWidth = wformat->wBitsPerSample / 8;
 
 	if ( wformat->wFormatTag == WAVE_FORMAT_IMA_ADPCM )
@@ -456,7 +441,6 @@ got_data:
 	{
 		goto done;
 	}
-
 
 	format->Channels = wformat->nChannels;
 	format->BytesPerSecond = wformat->nAvgBytesPerSec;

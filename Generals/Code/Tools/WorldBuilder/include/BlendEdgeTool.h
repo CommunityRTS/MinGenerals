@@ -48,5 +48,4 @@ public:
 
 };
 
-
 #endif //TOOL_H

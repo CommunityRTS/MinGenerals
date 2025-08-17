@@ -73,7 +73,6 @@ TerrainTextureClass::TerrainTextureClass(int height, MipCountType mipLevelCount)
 {
 }
 
-
 //=============================================================================
 // TerrainTextureClass::update
 //=============================================================================
@@ -283,7 +282,6 @@ int TerrainTextureClass::update(WorldHeightMap *htMap)
 			}
 
 		}
-
 
 		for (cellY = 0; cellY < numRows; cellY++) {
 			for (cellX = 0; cellX < tilesPerRow; cellX++) {
@@ -506,7 +504,6 @@ int TerrainTextureClass::update256(WorldHeightMap *htMap)
 	return(surface_desc.Height*4);
 }
 
-
 //=============================================================================
 // TerrainTextureClass::Apply
 //=============================================================================
@@ -574,7 +571,6 @@ AlphaTerrainTextureClass::AlphaTerrainTextureClass( TextureClass *pBaseTex ):
 	D3DTexture = pBaseTex->Peek_DX8_Texture();
 	D3DTexture->AddRef();
 }
-
 
 //=============================================================================
 // AlphaTerrainTextureClass::Apply
@@ -715,7 +711,6 @@ void AlphaTerrainTextureClass::Apply(unsigned int stage)
 	}
 }
 
-
 /******************************************************************************
 						LightMapTerrainTextureClass
 ******************************************************************************/
@@ -783,13 +778,11 @@ void LightMapTerrainTextureClass::Apply(unsigned int stage)
 	// Two output coordinates are used.
 	DX8Wrapper::Set_DX8_Texture_Stage_State(stage, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT2);
 
-
 	DX8Wrapper::Set_DX8_Texture_Stage_State( stage, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( stage, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
 
 	Matrix4 curView;
 	DX8Wrapper::_Get_DX8_Transform(D3DTS_VIEW, curView);
-
 
 	D3DXMATRIX inv;
 	float det;
@@ -803,21 +796,12 @@ void LightMapTerrainTextureClass::Apply(unsigned int stage)
 		DX8Wrapper::_Set_DX8_Transform(D3DTS_TEXTURE1, *((Matrix4*)&inv));
 	}
 
-
 	if (stage==0) {
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_ALPHABLENDENABLE,true);
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_DESTCOLOR);
 		DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND,D3DBLEND_ZERO);
 	}
 }
-
-
-
-
-
-
-
-
 
 /******************************************************************************
 						AlphaEdgeTextureClass
@@ -971,7 +955,6 @@ void AlphaEdgeTextureClass::Apply(unsigned int stage)
 	}
 }
 
-
 /******************************************************************************
 						CloudMapTerrainTextureClass
 ******************************************************************************/
@@ -1015,7 +998,6 @@ yet another set of uv coordinates.
 void CloudMapTerrainTextureClass::Apply(unsigned int stage)
 {
 
-
 	// Do the base apply.
 	TextureClass::Apply(stage);
 	/* previous setup */
@@ -1033,13 +1015,11 @@ void CloudMapTerrainTextureClass::Apply(unsigned int stage)
 	// Two output coordinates are used.
 	DX8Wrapper::Set_DX8_Texture_Stage_State(stage,  D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT2);
 
-
 	DX8Wrapper::Set_DX8_Texture_Stage_State( stage,  D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
 	DX8Wrapper::Set_DX8_Texture_Stage_State( stage,  D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
 
 	Matrix4 curView;
 	DX8Wrapper::_Get_DX8_Transform(D3DTS_VIEW, curView);
-
 
 	D3DXMATRIX inv;
 	float det;
@@ -1059,7 +1039,6 @@ void CloudMapTerrainTextureClass::Apply(unsigned int stage)
 	if (m_yOffset > 1) m_yOffset -= 1;
 	if (m_xOffset < -1) m_xOffset += 1;
 	if (m_yOffset < -1) m_yOffset += 1;
-
 
 	D3DXMatrixTranslation(&offset, m_xOffset, m_yOffset,0);
 
@@ -1124,7 +1103,6 @@ void CloudMapTerrainTextureClass::restore(void)
 	DX8Wrapper::Set_DX8_Render_State(D3DRS_ALPHABLENDENABLE,false);
 	DX8Wrapper::Set_DX8_Render_State(D3DRS_SRCBLEND,D3DBLEND_SRCALPHA);
 	DX8Wrapper::Set_DX8_Render_State(D3DRS_DESTBLEND,D3DBLEND_INVSRCALPHA);
-
 
 	if (TheGlobalData && !TheGlobalData->m_multiPassTerrain)
 	{
@@ -1207,5 +1185,4 @@ void ScorchTextureClass::Apply(unsigned int stage)
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 1, D3DTSS_COLOROP,   D3DTOP_DISABLE );
 	DX8Wrapper::Set_DX8_Texture_Stage_State( 1, D3DTSS_ALPHAOP,   D3DTOP_DISABLE );
 }
-
 

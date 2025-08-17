@@ -57,7 +57,6 @@
 //external declarations of the Gadgets the callbacks can use
 WindowLayout *popupCommunicatorLayout = NULL;
 
-
 //-------------------------------------------------------------------------------------------------
 /** Input procedure for the left HUD */
 //-------------------------------------------------------------------------------------------------
@@ -318,7 +317,6 @@ WindowMsgHandledType LeftHUDInput( GameWindow *window, UnsignedInt msg,
 				}  // end else
 
 			}
-
 
 	break;
 

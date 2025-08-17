@@ -20,7 +20,6 @@
 // Bin.h
 //
 
-
 #ifndef __BIN_H
 #define __BIN_H
 
@@ -68,9 +67,7 @@ class Bin
 	void				Remove			( OLECHAR *text1, OLECHAR *text2 = NULL );
 	void				Remove			( BinItem *item );
 
-
 };
-
 
 class BinIDItem: public ListNode
 {
@@ -101,8 +98,6 @@ class BinID
 	void				Remove			( int id );
 	void				Remove			( BinIDItem *item );
 
-
 };
-
 
 #endif // __BIN_H

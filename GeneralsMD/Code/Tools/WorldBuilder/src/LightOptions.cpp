@@ -32,7 +32,6 @@ LightOptions *LightOptions::m_staticThis = NULL;
 /////////////////////////////////////////////////////////////////////////////
 /// LightOptions dialog trivial construstor - Create does the real work.
 
-
 LightOptions::LightOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(LightOptions)
@@ -68,7 +67,6 @@ MapObject *LightOptions::getSingleSelectedLight(void)
 	}
 	return(NULL);
 }
-
 
 void LightOptions::updateTheUI(void)
 {
@@ -139,7 +137,6 @@ BOOL LightOptions::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
 BEGIN_MESSAGE_MAP(LightOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(LightOptions)
 	ON_EN_CHANGE(IDC_RA_EDIT, OnChangeLightEdit)
@@ -149,7 +146,6 @@ BEGIN_MESSAGE_MAP(LightOptions, COptionsPanel)
 	ON_EN_CHANGE(IDC_RADIUS_EDIT, OnChangeLightEdit)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 
 void LightOptions::OnChangeLightEdit()
 {

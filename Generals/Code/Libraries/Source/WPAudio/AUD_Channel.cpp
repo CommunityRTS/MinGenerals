@@ -60,31 +60,21 @@ DBG_DECLARE_TYPE ( AudioChannel)
 **          Externals                                                       **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **           Defines                                                        **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **        Private Types                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Private Prototypes                                               **
@@ -107,9 +97,7 @@ AudioChannel*		audioChannelCreate ( AudioDevice *dev )
 {
 	AudioChannel	*chan = NULL;
 
-
 	DBG_ASSERT_TYPE ( dev , AudioDevice );
-
 
 	ALLOC_STRUCT ( chan, AudioChannel );
 
@@ -212,14 +200,11 @@ void		audioChannelRecalcAttribs ( AudioChannel *chan )
 {
 	AudioDevice *dev;
 
-
-
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
 	dev = (AudioDevice *) chan->Device;
 
 	DBG_ASSERT_TYPE ( dev, AudioDevice );
-
 
  	AudioAttribsInit ( &chan->attribs );
  	AudioAttribsApply ( &chan->attribs, &chan->ChannelAttribs );
@@ -262,7 +247,6 @@ void		audioChannelRecalcAttribs ( AudioChannel *chan )
 static		int		audioChannelNextFrame ( AudioChannel *chan )
 {
 	int  err;
-
 
 	DBG_ASSERT ( chan != NULL );
 
@@ -320,7 +304,6 @@ static		int		audioChannelNextFrame ( AudioChannel *chan )
 static		int		audioChannelNextSample ( AudioChannel *chan )
 {
 
-
 	DBG_ASSERT ( chan != NULL );
 
 	if (chan->Control.LoopCount)
@@ -340,7 +323,6 @@ static		int		audioChannelNextSample ( AudioChannel *chan )
 	{
 		chan->CB_NextSample ( chan );
 	}
-
 
 	if ( chan->sample )
 	{
@@ -367,7 +349,6 @@ static		int		audioChannelSampleDone ( AudioChannel *chan )
 	#ifndef IG_FINAL_RELEASE
 		chan->sample_name[0] = 0;
 	#endif
-
 
 	if ( chan->CB_SampleDone )
 	{
@@ -461,8 +442,6 @@ void			AudioChannelDestroy ( AudioChannel *chan)
 
 void		AudioChannelStop ( AudioChannel *chan )
 {
-
-
 
 	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
@@ -597,9 +576,6 @@ int		AudioChannelStart ( AudioChannel *chan )
 {
 	int	err = ERROR_CODE_FAIL;
 
-
-
-
 	DBG_ASSERT ( audioInitialized ); //  AudioSetUp() was not called
 	DBG_ASSERT_TYPE ( chan, AudioChannel );
 
@@ -673,7 +649,6 @@ void			AudioChannelSetSample ( AudioChannel *chan, AudioSample *sample )
 int			AudioChannelSetFormat ( AudioChannel *chan, AudioFormat *new_format )
 {
 
-
 	if ( !memcmp ( new_format, &chan->current_format, sizeof ( AudioFormat )))
 	{
 		chan->format_changed = FALSE;
@@ -696,7 +671,6 @@ int				AudioChannelIsAudible ( AudioChannel *chan )
 {
 		return (chan->Control.Status & mAUDIO_CTRL_PLAYING);
 }
-
 
 /******************************************************************/
 /*                                                                */

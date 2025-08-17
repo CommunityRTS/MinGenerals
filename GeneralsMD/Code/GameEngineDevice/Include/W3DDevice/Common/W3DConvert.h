@@ -63,6 +63,5 @@ extern void PixelScreenToW3DLogicalScreen( Int screenX, Int screenY,
 //           Type Defines
 //=============================================================================
 
-
 #endif // _W3DCONVERT_H_
 

@@ -32,7 +32,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // RetranslateDlg dialog
 
-
 RetranslateDlg::RetranslateDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(RetranslateDlg::IDD, pParent)
 {
@@ -41,7 +40,6 @@ RetranslateDlg::RetranslateDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void RetranslateDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -49,7 +47,6 @@ void RetranslateDlg::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(RetranslateDlg, CDialog)
 	//{{AFX_MSG_MAP(RetranslateDlg)
@@ -69,7 +66,6 @@ BOOL RetranslateDlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	CStatic *text;
 	static char buffer[4*1024];
-
 
 	CDialog::OnInitDialog();
 
@@ -94,7 +90,6 @@ void RetranslateDlg::OnCancelMode()
 void RetranslateDlg::OnRetranslate()
 {
 	// TODO: Add your control notification handler code here
-
 
 	oldtext->SetRetranslate ( TRUE );
 	CDialog::OnOK ();

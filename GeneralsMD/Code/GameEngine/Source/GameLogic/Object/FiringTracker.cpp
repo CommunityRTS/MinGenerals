@@ -179,7 +179,6 @@ void FiringTracker::shotFired(const Weapon* weaponFired, ObjectID victimID)
 		m_frameToStopLoopingSound = 0;
 	}
 
-
 	setWakeFrame(me, calcTimeToSleep());
 }
 
@@ -287,7 +286,6 @@ void FiringTracker::speedUp()
 		clr.set(MODELCONDITION_CONTINUOUS_FIRE_MEAN);
 		clr.set(MODELCONDITION_CONTINUOUS_FIRE_SLOW);
 
-
 	}
 	else
 	{
@@ -322,7 +320,6 @@ void FiringTracker::coolDown()
 		getObject()->clearWeaponBonusCondition( WEAPONBONUSCONDITION_CONTINUOUS_FIRE_MEAN );
 		clr.set(MODELCONDITION_CONTINUOUS_FIRE_FAST);
 		clr.set(MODELCONDITION_CONTINUOUS_FIRE_MEAN);
-
 
 	}
 	else // we stop, now

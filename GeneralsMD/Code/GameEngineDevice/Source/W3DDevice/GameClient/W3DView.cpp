@@ -102,17 +102,10 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
 // 30 fps
 Int TheW3DFrameLengthInMsec = 1000/LOGICFRAMES_PER_SECOND; // default is 33msec/frame == 30fps. but we may change it depending on sys config.
 static const Int MAX_REQUEST_CACHE_SIZE = 40;	// Any size larger than 10, or examine code below for changes. jkmcd.
 static const Real DRAWABLE_OVERSCAN = 75.0f;  ///< 3D world coords of how much to overscan in the 3D screen region
-
-
-
-
-
 
 //=================================================================================================
 inline Real minf(Real a, Real b) { if (a < b) return a; else return b; }
@@ -152,7 +145,6 @@ static Real getHeightAroundPos(Real x, Real y)
 
 	return terrainHeightMax;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -325,7 +317,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 	targetPos.Y = 0;
 	targetPos.Z = 0;
 
-
 	Real factor = 1.0 - (groundLevel/sourcePos.Z );
 
 	// construct a matrix to rotate around the up vector by the given angle
@@ -358,7 +349,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 	//WST height *= m_FXPitch;
 	//WST targetPos.Z = sourcePos.Z - height;
 
-
 	// The following code moves camera down and pitch up when player zooms in.
 	// Use scripts to switch to useRealZoomCam
 	if (m_useRealZoomCam)
@@ -381,7 +371,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 		}
 		m_FXPitch = 1.0f * (0.25f + pitch_adjust*0.75f);
 	}
-
 
 	// do fxPitch adjustment
 	if (m_useRealZoomCam)
@@ -451,7 +440,6 @@ void W3DView::buildCameraTransform( Matrix3D *transform )
 						m_pos.x = position.X;
 						m_pos.y = position.Y;
 						m_pos.z = position.Z;
-
 
 						//DEBUG_LOG(("mpos x%f, y%f, z%f\n", m_pos.x, m_pos.y, m_pos.z ));
 
@@ -648,7 +636,6 @@ void W3DView::init( void )
 
 	// create our 3D camera
 	m_3DCamera = NEW_REF( CameraClass, () );
-
 
 	setCameraTransform();
 
@@ -868,7 +855,6 @@ static void drawDrawableExtents( Drawable *draw, void *userData )
 
 }  // end drawDrawableExtents
 
-
 void drawAudioLocations( Drawable *draw, void *userData );
 // ------------------------------------------------------------------------------------------------
 // Helper for drawAudioLocations
@@ -881,7 +867,6 @@ static void drawContainedAudioLocations( Object *obj, void *userData )
     drawAudioLocations( draw, userData );
 
 }  // end drawContainedAudio
-
 
 //-------------------------------------------------------------------------------------------------
 // Draw the location of audio objects in the world
@@ -1066,7 +1051,6 @@ Bool W3DView::updateCameraMovements()
 	return didUpdate;
 }
 
-
 /** This function performs all actions which affect the camera transform or 3D objects
 	rendered in this frame.
 
@@ -1137,7 +1121,6 @@ void W3DView::update(void)
 				loseLock = true;
 		}
 #endif
-
 
 		if (loseLock)
 		{
@@ -1377,7 +1360,6 @@ void W3DView::update(void)
 		setCameraTransform();
 	}
 
-
 #ifdef DO_SEISMIC_SIMULATIONS
   // Give the terrain a chance to refresh animaing (Seismic) regions, if any.
   TheTerrainVisual->updateSeismicSimulations();
@@ -1518,7 +1500,6 @@ void W3DView::calcDeltaScroll(Coord2D &screenDelta)
 	screenDelta.x = screen.X-prevScreen.X;
 	screenDelta.y = screen.Y-prevScreen.Y;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Draw member for the W3D window, this will literally draw the window
@@ -1865,7 +1846,6 @@ void W3DView::setAngle( Real angle )
 	// call our base class, we are adding functionality
 	View::setAngle( angle );
 
-
 	m_doingMoveCameraOnWaypointPath = false;
 	m_CameraArrivedAtWaypointOnPathFlag = false;
 
@@ -1884,7 +1864,6 @@ void W3DView::setPitch( Real angle )
 {
 	// call our base class, we are extending functionality
 	View::setPitch( angle );
-
 
 	m_doingMoveCameraOnWaypointPath = false;
 	m_doingRotateCamera = false;
@@ -2126,7 +2105,6 @@ Int W3DView::iterateDrawablesInRegion( IRegion2D *screenRegion,
 
 	}  // end if
 
-
 	Drawable *onlyDrawableToTest = NULL;
 	if (regionIsPoint)
 	{
@@ -2277,7 +2255,6 @@ void W3DView::screenToTerrain( const ICoord2D *screen, Coord3D *world )
 		m_locationRequests.erase(m_locationRequests.begin(), m_locationRequests.begin() + 10);
 	}
 
-
 	// We insert them at the end for speed (no copies needed), but using the princ of locality, we should
 	// start searching where we most recently inserted
 	for (int i = m_locationRequests.size() - 1; i >= 0; --i) {
@@ -2328,7 +2305,6 @@ void W3DView::screenToTerrain( const ICoord2D *screen, Coord3D *world )
 void W3DView::lookAt( const Coord3D *o )
 {
 	Coord3D pos = *o;
-
 
 // no, don't call the super-lookAt, since it will munge our coords
 // as for a 2d view. just call setPosition.
@@ -2826,7 +2802,6 @@ Bool W3DView::isCameraMovementFinished(void)
 	return !m_doingMoveCameraOnWaypointPath && !m_doingRotateCamera && !m_doingPitchCamera && !m_doingZoomCamera;
 }
 
-
 Bool W3DView::isCameraMovementAtWaypointAlongPath(void)
 {
 	// WWDEBUG_SAY((( "MBL: Polling W3DView::isCameraMovementAtWaypointAlongPath\n" )));
@@ -2940,7 +2915,6 @@ void W3DView::setupWaypointPath(Bool orient)
 	m_mcwpInfo.cameraAngle[m_mcwpInfo.numWaypoints+1] = m_mcwpInfo.cameraAngle[m_mcwpInfo.numWaypoints];
 	m_mcwpInfo.groundHeight[m_mcwpInfo.numWaypoints+1] = newGround;
 
-
 	cur = m_mcwpInfo.waypoints[2];
 	prev = m_mcwpInfo.waypoints[1];
 	m_mcwpInfo.waypoints[0].x -= cur.x-prev.x;
@@ -3030,7 +3004,6 @@ void W3DView::rotateCameraOneFrame(void)
 		normAngle(m_angle);
 		m_timeMultiplier = m_rcInfo.startTimeMultiplier + REAL_TO_INT_FLOOR(0.5 + (m_rcInfo.endTimeMultiplier-m_rcInfo.startTimeMultiplier)*factor);
 	}
-
 
 	if (m_rcInfo.curFrame >= m_rcInfo.numFrames + m_rcInfo.numHoldFrames) {
 		m_doingRotateCamera = false;
@@ -3237,7 +3210,6 @@ void W3DView::moveAlongWaypointPath(Int milliseconds)
 
 }
 
-
 // ------------------------------------------------------------------------------------------------
 /** Add an impulse force to shake the camera.
  * The camera shake is a simple simulation of an oscillating spring/damper.
@@ -3356,7 +3328,6 @@ void W3DView::Add_Camera_Shake (const Coord3D & position,float radius,float dura
 	vpos.X = position.x;
 	vpos.Y = position.y;
 	vpos.Z = position.z;
-
 
 	CameraShakerSystem.Add_Camera_Shake(vpos,radius,duration,power);
 }

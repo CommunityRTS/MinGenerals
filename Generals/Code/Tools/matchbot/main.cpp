@@ -59,7 +59,6 @@ void paranoidLogMonitor(void *);
 OutputDevice * output_device = NULL;
 OutputDevice * paranoid_output_device = NULL;
 
-
 void Signal_Quit(int)
 {
 	INFMSG("Exiting due to signal.");
@@ -108,8 +107,6 @@ int VerifyFileDescriptors(int requested)
 #endif
 	return requested;
 }
-
-
 
 GeneralsMatcher *s_generalsMatcher = NULL;
 GeneralsClientMatcher *s_generalsClientMatcher = NULL;
@@ -405,5 +402,4 @@ void rotateParanoid(void)
 	PARANOIDMSG("Paranoid: Just been switched.  " << logfilename.get() << ", " <<
 	            newfilename.get());
 }
-
 

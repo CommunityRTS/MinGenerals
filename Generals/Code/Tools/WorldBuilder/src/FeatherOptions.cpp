@@ -33,7 +33,6 @@ Int FeatherOptions::m_currentRadius = 1;
 /////////////////////////////////////////////////////////////////////////////
 /// FeatherOptions dialog trivial construstor - Create does the real work.
 
-
 FeatherOptions::FeatherOptions(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(FeatherOptions)
@@ -63,7 +62,6 @@ void FeatherOptions::setFeather(Int feather)
 	}
 }
 
-
 /// Sets the rate value in the dialog.
 /** Update the value in the edit control and the slider. */
 void FeatherOptions::setRate(Int rate)
@@ -77,7 +75,6 @@ void FeatherOptions::setRate(Int rate)
 	}
 }
 
-
 /// Sets the radius value in the dialog.
 /** Update the value in the edit control and the slider. */
 void FeatherOptions::setRadius(Int radius)
@@ -90,8 +87,6 @@ void FeatherOptions::setRadius(Int radius)
 		if (pEdit) pEdit->SetWindowText(buf);
 	}
 }
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // FeatherOptions message handlers
@@ -108,7 +103,6 @@ BOOL FeatherOptions::OnInitDialog()
 	m_radiusPopup.SetupPopSliderButton(this, IDC_RADIUS_POPUP, this);
 	m_ratePopup.SetupPopSliderButton(this, IDC_RATE_POPUP, this);
 
-
 	m_staticThis = this;
 	m_updating = false;
 	setFeather(m_currentFeather);
@@ -117,7 +111,6 @@ BOOL FeatherOptions::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 /// Handles width edit ui messages.
 /** Gets the new edit control text, converts it to an int, then updates
@@ -141,7 +134,6 @@ void FeatherOptions::OnChangeSizeEdit()
 			m_updating = false;
 		}
 }
-
 
 void FeatherOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax, long *pLineSize, long *pInitial)
 {
@@ -167,7 +159,6 @@ void FeatherOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMa
 			*pInitial = m_currentRate;
 			*pLineSize = 1;
 			break;
-
 
 		default:
 			DEBUG_CRASH(("Slider message from unknown control"));
@@ -225,12 +216,10 @@ void FeatherOptions::PopSliderFinished(const long sliderID, long theVal)
 
 }
 
-
 BEGIN_MESSAGE_MAP(FeatherOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(FeatherOptions)
 	ON_EN_CHANGE(IDC_SIZE_EDIT, OnChangeSizeEdit)
 	ON_WM_HSCROLL()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
-
 

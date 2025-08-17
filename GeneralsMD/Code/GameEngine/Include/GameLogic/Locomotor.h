@@ -136,7 +136,6 @@ public:
 
 protected:
 
-
 private:
 	/**
 		Units check:
@@ -207,7 +206,6 @@ private:
 	Real											m_wanderWidthFactor;
 	Real											m_wanderLengthFactor;
 	Real											m_wanderAboutPointRadius;
-
 
 	Real											m_rudderCorrectionDegree;
 	Real											m_rudderCorrectionRate;
@@ -287,12 +285,10 @@ public:
 	inline Real getMaxWheelCompression() const {return m_template->m_maximumWheelCompression;}
 	inline Real getWheelTurnAngle() const {return m_template->m_wheelTurnAngle;}
 
-
 	inline Real getRudderCorrectionDegree()	  const { return m_template->m_rudderCorrectionDegree;}			///< How much we roll in response to acceleration.
 	inline Real getRudderCorrectionRate()	    const { return m_template->m_rudderCorrectionRate;}			///< How much we roll in response to acceleration.
 	inline Real getElevatorCorrectionDegree() const { return m_template->m_elevatorCorrectionDegree;}			///< How much we roll in response to acceleration.
 	inline Real getElevatorCorrectionRate()	  const { return m_template->m_elevatorCorrectionRate;}			///< How much we roll in response to acceleration.
-
 
 	inline Real getWanderWidthFactor() const {return m_template->m_wanderWidthFactor;}
 	inline Real getWanderAboutPointRadius() const {return m_template->m_wanderAboutPointRadius;}
@@ -455,7 +451,6 @@ private:
 	Real				m_offsetIncrement;
 	UnsignedInt m_donutTimer;				///< Frame time to keep units from doing the donut. jba.
 
-
 };
 
 //-------------------------------------------------------------------------------------------------
@@ -489,7 +484,6 @@ public:
 
 	// locoTemplate is who we're overriding
 	LocomotorTemplate *newOverride(LocomotorTemplate *locoTemplate);
-
 
 	static void parseLocomotorTemplateDefinition(INI* ini);
 

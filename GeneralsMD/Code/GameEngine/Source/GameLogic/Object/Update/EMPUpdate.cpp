@@ -47,18 +47,11 @@
 #include "Common/KindOf.h"
 #include "GameClient/ParticleSys.h"
 
-
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //	Static member initialization
@@ -233,19 +226,9 @@ void EMPUpdate::doDisableAttack( void )
 				}
 			}
 
-
-
-
 //////////////	    // must match our kindof flags (if any)
 //////////////	    if (data && !curVictim->isKindOfMulti(data->m_victimKindOf, data->m_victimKindOfNot))
 //////////////		    continue;
-
-
-
-
-
-
-
 
       if ( !curVictim->isKindOf( KINDOF_VEHICLE ) && !curVictim->isKindOf(KINDOF_STRUCTURE) && !curVictim->isKindOf(KINDOF_SPAWNS_ARE_THE_WEAPONS) )
 			{
@@ -410,9 +393,6 @@ void EMPUpdate::loadPostProcess( void )
 //  /////////////^
 //  ///////////
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 LeafletDropBehavior::LeafletDropBehavior( Thing *thing, const ModuleData* moduleData ) : UpdateModule( thing, moduleData )
@@ -463,7 +443,6 @@ UpdateSleepTime LeafletDropBehavior::update( void )
 
     m_fxFired = TRUE; // hey, at least we tried.
   }
-
 
   if( TheGameLogic->getFrame() < m_startFrame )
   {
@@ -562,24 +541,4 @@ void LeafletDropBehavior::loadPostProcess( void )
 {
 
 }  // end loadPostProcess
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

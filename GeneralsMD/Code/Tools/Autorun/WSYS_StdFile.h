@@ -40,8 +40,6 @@
 #ifndef __WSYS_STDFILE_H
 #define __WSYS_STDFILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -51,8 +49,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -77,7 +73,6 @@ class StdFile : public File
 		StdFile();
 		virtual				~StdFile();
 
-
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a fioe for access
 		virtual void	close( void );																			///< Close the file
 		virtual Int		read( void *buffer, Int bytes );										///< Read the specified number of bytes in to buffer: See File::read
@@ -86,12 +81,8 @@ class StdFile : public File
 
 };
 
-
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __WSYS_STDFILE_H

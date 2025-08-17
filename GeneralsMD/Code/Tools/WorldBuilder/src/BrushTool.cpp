@@ -40,8 +40,6 @@ Int BrushTool::m_brushFeather;
 Bool BrushTool::m_brushSquare;
 Int BrushTool::m_brushHeight;
 
-
-
 /// Constructor
 BrushTool::BrushTool(void) :
 	Tool(ID_BRUSH_TOOL, IDC_BRUSH_CROSS)

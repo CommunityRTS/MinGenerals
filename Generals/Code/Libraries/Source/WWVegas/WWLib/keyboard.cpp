@@ -61,14 +61,12 @@
 //#include	"mono.h"
 #include	"msgloop.h"
 
-
 #define	ARRAY_SIZE(x)		int(sizeof(x)/sizeof(x[0]))
 
 void Stop_Execution (void)
 {
 //	__asm nop			// Is this line needed?
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::WWKeyBoardClass -- Construction for Westwood Keyboard Class                *
@@ -88,7 +86,6 @@ WWKeyboardClass::WWKeyboardClass(void) :
 {
 	memset(KeyState, '\0', sizeof(KeyState));
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Buff_Get -- Lowlevel function to get a key from key buffer                 *
@@ -114,7 +111,6 @@ unsigned short WWKeyboardClass::Buff_Get(void)
 	return(temp);
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Is_Mouse_Key -- Checks to see if specified key refers to the mouse.        *
  *                                                                                             *
@@ -134,7 +130,6 @@ bool WWKeyboardClass::Is_Mouse_Key(unsigned short key)
 	key &= 0xFF;
 	return (key == VK_LBUTTON || key == VK_MBUTTON || key == VK_RBUTTON);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Check -- Checks to see if a key is in the buffer                           *
@@ -156,7 +151,6 @@ unsigned short WWKeyboardClass::Check(void) const
 	return(Peek_Element());
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Get -- Logic to get a metakey from the buffer                              *
  *                                                                                             *
@@ -174,7 +168,6 @@ unsigned short WWKeyboardClass::Get(void)
 	while (!Check()) {}								// wait for key in buffer
 	return (Buff_Get());
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Put -- Logic to insert a key into the keybuffer]                           *
@@ -196,7 +189,6 @@ bool WWKeyboardClass::Put(unsigned short key)
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Put_Key_Message -- Translates and inserts wParam into Keyboard Buffer      *
@@ -244,7 +236,6 @@ bool WWKeyboardClass::Put_Key_Message(unsigned short vk_key, bool release)
 	return(Put(vk_key));
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Put_Mouse_Message -- Stores a mouse type message into the keyboard buffer. *
  *                                                                                             *
@@ -275,7 +266,6 @@ bool WWKeyboardClass::Put_Mouse_Message(unsigned short vk_key, int x, int y, boo
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::To_ASCII -- Convert the key value into an ASCII representation.            *
@@ -351,7 +341,6 @@ char WWKeyboardClass::To_ASCII(unsigned short key)
 	return(buffer[0]);
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Down -- Checks to see if the specified key is being held down.             *
  *                                                                                             *
@@ -371,11 +360,9 @@ bool WWKeyboardClass::Down(unsigned short key)
 	return(GetAsyncKeyState(key & 0xFF) != 0);
 }
 
-
 //extern "C" {
 //	void __cdecl Stop_Execution (void);
 //}
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Fetch_Element -- Extract the next element in the keyboard buffer.          *
@@ -404,7 +391,6 @@ unsigned short WWKeyboardClass::Fetch_Element(void)
 	return(val);
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Peek_Element -- Fetches the next element in the keyboard buffer.           *
  *                                                                                             *
@@ -429,7 +415,6 @@ unsigned short WWKeyboardClass::Peek_Element(void) const
 	}
 	return(0);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Put_Element -- Put a keyboard data element into the buffer.                *
@@ -458,7 +443,6 @@ bool WWKeyboardClass::Put_Element(unsigned short val)
 	return(false);
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Is_Buffer_Full -- Determines if the keyboard buffer is full.               *
  *                                                                                             *
@@ -482,7 +466,6 @@ bool WWKeyboardClass::Is_Buffer_Full(void) const
 	return(false);
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Is_Buffer_Empty -- Checks to see if the keyboard buffer is empty.          *
  *                                                                                             *
@@ -504,7 +487,6 @@ bool WWKeyboardClass::Is_Buffer_Empty(void) const
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Fill_Buffer_From_Syste -- Extract and process any queued windows messages. *
@@ -537,7 +519,6 @@ void WWKeyboardClass::Fill_Buffer_From_System(void)
 	}
 }
 
-
 /***********************************************************************************************
  * WWKeyboardClass::Clear -- Clears the keyboard buffer.                                       *
  *                                                                                             *
@@ -568,7 +549,6 @@ void WWKeyboardClass::Clear(void)
 	Fill_Buffer_From_System();
 	Head = Tail;
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Message_Handler -- Process a windows message as it relates to the keyboard *
@@ -737,7 +717,6 @@ bool WWKeyboardClass::Message_Handler(HWND window, UINT message, UINT wParam, LO
 	}
 	return(false);
 }
-
 
 /***********************************************************************************************
  * WWKeyboardClass::Available_Buffer_Room -- Fetch the quantity of free elements in the keyboa *

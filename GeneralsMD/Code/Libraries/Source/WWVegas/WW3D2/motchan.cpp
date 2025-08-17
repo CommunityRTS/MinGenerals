@@ -43,7 +43,6 @@
  *   BitChannelClass::Load -- Read a bit channel from a w3d chunk                              *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "motchan.h"
 #include "w3d_file.h"
 #include "chunkio.h"
@@ -145,7 +144,6 @@ void MotionChannelClass::Free(void)
 	}
 }
 
-
 /***********************************************************************************************
  * MotionChannelClass::Load -- loads a motion channel from a file                              *
  *                                                                                             *
@@ -195,8 +193,6 @@ bool MotionChannelClass::Load_W3D(ChunkLoadClass & cload)
 	return true;
 }
 
-
-
 /***********************************************************************************************
  * BitChannelClass::BitChannelClass -- Constructor for BitChannelClass                         *
  *                                                                                             *
@@ -218,7 +214,6 @@ BitChannelClass::BitChannelClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * BitChannelClass::~BitChannelClass -- Destructor for BitChannelClass                         *
  *                                                                                             *
@@ -235,7 +230,6 @@ BitChannelClass::~BitChannelClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * BitChannelClass::Free -- Free all "external" memory in use                                  *
@@ -256,7 +250,6 @@ void BitChannelClass::Free(void)
 		Bits = NULL;
 	}
 }
-
 
 /***********************************************************************************************
  * BitChannelClass::Load -- Read a bit channel from a w3d chunk                                *
@@ -307,7 +300,6 @@ bool BitChannelClass::Load_W3D(ChunkLoadClass & cload)
 
 	return true;
 }
-
 
 /***********************************************************************************************
  * TimeCodedMotionChannelClass::TimeCodedMotionChannelClass -- constructor                                       *
@@ -370,7 +362,6 @@ void TimeCodedMotionChannelClass::Free(void)
 	}
 }
 
-
 /***********************************************************************************************
  * TimeCodedMotionChannelClass::Load -- loads a motion channel from a file                              *
  *                                                                                             *
@@ -411,7 +402,6 @@ bool TimeCodedMotionChannelClass::Load_W3D(ChunkLoadClass & cload)
 	}
 	return true;
 }
-
 
 /***********************************************************************************************
  * TimeCodedMotionChannelClass::Get_Vector -- returns the vector for the specified frame #              *
@@ -478,7 +468,6 @@ void	TimeCodedMotionChannelClass::Get_Vector(float32 frame,float * setvec)
 
 }	// Get_Vector
 
-
 Quaternion TimeCodedMotionChannelClass::Get_QuatVector(float32 frame)
 {
 
@@ -537,8 +526,6 @@ Quaternion TimeCodedMotionChannelClass::Get_QuatVector(float32 frame)
 
 } // Get_QuatVector
 
-
-
 /***********************************************************************************************
  * TimeCodedMotionChannelClass::binary_search_index / returns packet index 				        *
  *                                                                                             *
@@ -558,7 +545,6 @@ uint32 TimeCodedMotionChannelClass::binary_search_index(uint32 timecode)
 	int rightIdx = NumTimeCodes - 2;
 	int dx;
 	uint32 time;
-
 
 	int idx = LastTimeCodeIdx;  //((rightIdx+1) * PacketSize;)
 
@@ -607,7 +593,6 @@ uint32 TimeCodedMotionChannelClass::binary_search_index(uint32 timecode)
 	return(0);
 
 }	// binary_search_index
-
 
 /***********************************************************************************************
  * TimeCodedMotionChannelClass::get_index / returns packet index												       *
@@ -678,7 +663,6 @@ void TimeCodedMotionChannelClass::set_identity(float * setvec)
 	}
 }	// set_identity
 
-
 /***********************************************************************************************
  * TimeCodedBitChannelClass::TimeCodedBitChannelClass -- Constructor for BitChannelClass                         *
  *                                                                                             *
@@ -699,7 +683,6 @@ TimeCodedBitChannelClass::TimeCodedBitChannelClass(void) :
 {
 }
 
-
 /***********************************************************************************************
  * TimeCodedBitChannelClass::~TimeCodedBitChannelClass -- Destructor for BitChannelClass                         *
  *                                                                                             *
@@ -716,7 +699,6 @@ TimeCodedBitChannelClass::~TimeCodedBitChannelClass(void)
 {
 	Free();
 }
-
 
 /***********************************************************************************************
  * TimeCodedBitChannelClass::Free -- Free all "external" memory in use                                  *
@@ -737,7 +719,6 @@ void TimeCodedBitChannelClass::Free(void)
 		Bits = NULL;
 	}
 }
-
 
 /***********************************************************************************************
  * TimeCodedBitChannelClass::Load -- Read a bit channel from a w3d chunk                                *
@@ -787,7 +768,6 @@ bool TimeCodedBitChannelClass::Load_W3D(ChunkLoadClass & cload)
 	return true;
 }	 // Load_W3D
 
-
 /***********************************************************************************************
  * TimeCodedBitChannelClass::Get_Bit -- Lookup a bit in the bit channel                                 *
  *                                                                                             *
@@ -809,7 +789,6 @@ int TimeCodedBitChannelClass::Get_Bit(int frame)
 	int idx=0;
 
 	time = Bits[CachedIdx] & ~W3D_TIMECODED_BIT_MASK;
-
 
 	if (frame >= time) {
 
@@ -836,9 +815,7 @@ int TimeCodedBitChannelClass::Get_Bit(int frame)
 
 }	 // Get_Bit
 
-
 // Begin Adaptive Delta
-
 
 /***********************************************************************************************
  * AdaptiveDeltaMotionChannelClass::AdaptiveDeltaMotionChannelClass -- constructor                                       *
@@ -924,7 +901,6 @@ void AdaptiveDeltaMotionChannelClass::Free(void)
 
 }	// Free
 
-
 /***********************************************************************************************
  * AdaptiveDeltaMotionChannelClass::Load -- loads a motion channel from a file                              *
  *                                                                                             *
@@ -966,7 +942,6 @@ bool AdaptiveDeltaMotionChannelClass::Load_W3D(ChunkLoadClass & cload)
 	return true;
 
 }	// Load_W3D
-
 
 /***********************************************************************************************
  * AdaptiveDeltaMotionChannelClass::decompress																  *
@@ -1134,7 +1109,6 @@ void AdaptiveDeltaMotionChannelClass::decompress(uint32 src_idx, float *srcdata,
 
 } // decompress, from continuation
 
-
 /***********************************************************************************************
  * AdaptiveDeltaMotionChannelClass::getframe returns decompressed data for frame/vectorindex   *
  *                                                                                             *
@@ -1235,9 +1209,7 @@ void	AdaptiveDeltaMotionChannelClass::Get_Vector(float32 frame,float * setvec)
 
    *setvec = WWMath::Lerp(value1,value2,ratio);
 
-
 }	// Get_Vector
-
 
 //
 //  Special Case Quats, so we can use Slerp
@@ -1261,7 +1233,6 @@ Quaternion AdaptiveDeltaMotionChannelClass::Get_QuatVector(float32 frame)
 			  getframe(frame2, 1),
 			  getframe(frame2, 2),
 			  getframe(frame2, 3) );
-
 
 	Quaternion q(1);
 
@@ -1322,8 +1293,6 @@ return;
 	delete[] Data;
 	Data=NULL;
 }
-
-
 
 // EOF - motchan.cpp
 

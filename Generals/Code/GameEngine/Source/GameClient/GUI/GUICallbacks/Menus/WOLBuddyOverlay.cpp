@@ -80,7 +80,6 @@ static NameKeyType parentIgnoreID = NAMEKEY_INVALID;
 static NameKeyType listboxIgnoreID = NAMEKEY_INVALID;
 static NameKeyType buttonNotificationID = NAMEKEY_INVALID;
 
-
 // Window Pointers ------------------------------------------------------------------------
 static GameWindow *parent = NULL;
 static GameWindow *buttonHide = NULL;
@@ -236,7 +235,6 @@ WindowMsgHandledType BuddyControlSystem( GameWindow *window, UnsignedInt msg,
 					rcMenu->winBringToTop();
 					rcMenu->winHide(FALSE);
 
-
 					ICoord2D rcSize, rcPos;
 					rcMenu->winGetSize(&rcSize.x, &rcSize.y);
 					rcPos.x = rc->mouseX;
@@ -246,7 +244,6 @@ WindowMsgHandledType BuddyControlSystem( GameWindow *window, UnsignedInt msg,
 					if(rc->mouseY + rcSize.y > TheDisplay->getHeight())
 						rcPos.y = TheDisplay->getHeight() - rcSize.y;
 					rcMenu->winSetPosition(rcPos.x, rcPos.y);
-
 
 					GameSpyRCMenuData *rcData = NEW GameSpyRCMenuData;
 					rcData->m_id = profileID;
@@ -345,7 +342,6 @@ WindowMsgHandledType BuddyControlSystem( GameWindow *window, UnsignedInt msg,
 	}
 	return MSG_HANDLED;
 }
-
 
 static void insertChat( BuddyMessage msg )
 {
@@ -479,7 +475,6 @@ void updateBuddyInfo( void )
 		if (profileID == selectedProfile)
 			selected = index;
 	}
-
 
 	// select the same guy
 	if (selected >= 0)
@@ -732,7 +727,6 @@ void WOLBuddyOverlayInit( WindowLayout *layout, void *userData )
 	parentIgnoreID = TheNameKeyGenerator->nameToKey( AsciiString( "WOLBuddyOverlay.wnd:IgnoreParent" ) );
 	listboxIgnoreID = TheNameKeyGenerator->nameToKey( AsciiString( "WOLBuddyOverlay.wnd:ListboxIgnore" ) );
 
-
 	parent = TheWindowManager->winGetWindowFromId( NULL, parentID );
 	buttonHide = TheWindowManager->winGetWindowFromId( parent,  buttonHideID);
 	buttonAddBuddy = TheWindowManager->winGetWindowFromId( parent,  buttonAddBuddyID);
@@ -787,7 +781,6 @@ void WOLBuddyOverlayShutdown( WindowLayout *layout, void *userData )
 	InitBuddyControls(BUDDY_RESETALL_CRAP);
 
 }  // WOLBuddyOverlayShutdown
-
 
 //-------------------------------------------------------------------------------------------------
 /** WOL Buddy Overlay update method */
@@ -859,7 +852,6 @@ WindowMsgHandledType WOLBuddyOverlaySystem( GameWindow *window, UnsignedInt msg,
 	switch( msg )
 	{
 
-
 		case GWM_CREATE:
 			{
 
@@ -927,8 +919,6 @@ WindowMsgHandledType WOLBuddyOverlaySystem( GameWindow *window, UnsignedInt msg,
 					rcMenu->winGetLayout()->runInit();
 					rcMenu->winBringToTop();
 					rcMenu->winHide(FALSE);
-
-
 
 					rcMenu->winSetPosition(rc->mouseX, rc->mouseY);
 					GameSpyRCMenuData *rcData = NEW GameSpyRCMenuData;
@@ -1151,7 +1141,6 @@ static NameKeyType buttonStatsID = NAMEKEY_INVALID;
 // Window Pointers ------------------------------------------------------------------------
 //static GameWindow *rCparent = NULL;
 
-
 //-------------------------------------------------------------------------------------------------
 /** WOL Buddy Overlay Right Click menu callbacks */
 //-------------------------------------------------------------------------------------------------
@@ -1259,7 +1248,6 @@ WindowMsgHandledType WOLBuddyOverlayRCMenuSystem( GameWindow *window, UnsignedIn
 				//rcMenu = NULL;
 				break;
 			}
-
 
 		case GBM_SELECTED:
 			{
@@ -1401,7 +1389,6 @@ WindowMsgHandledType WOLBuddyOverlayRCMenuSystem( GameWindow *window, UnsignedIn
 	return MSG_HANDLED;
 }
 
-
 void setUnignoreText( WindowLayout *layout, AsciiString nick, GPProfile id)
 {
 	AsciiString controlName;
@@ -1417,7 +1404,6 @@ void setUnignoreText( WindowLayout *layout, AsciiString nick, GPProfile id)
 
 void refreshIgnoreList( void )
 {
-
 
 	SavedIgnoreMap tempMap;
 	tempMap = TheGameSpyInfo->returnSavedIgnoreList();

@@ -317,4 +317,3 @@ GameMessageDisposition PlaceEventTranslator::translateGameMessage(const GameMess
 	return disp;
 }
 
-

@@ -416,9 +416,6 @@ protected:
 	Bool hasUnitCompletedSequentialScript( Object *object, const AsciiString& sequentialScriptName );
 	Bool hasTeamCompletedSequentialScript( Team *team, const AsciiString& sequentialScriptName );
 
-
-
-
 protected:
 	ActionTemplate		m_actionTemplates[ScriptAction::NUM_ITEMS];
 	ConditionTemplate	m_conditionTemplates[Condition::NUM_ITEMS];
@@ -492,6 +489,5 @@ protected:
 };  // end class ScriptEngine
 
 extern ScriptEngine *TheScriptEngine;   ///< singleton definition
-
 
 #endif  // end __SCRIPTENGINE_H_

@@ -39,10 +39,8 @@ enum { PERFMETRICS_LOAD_STOPFRAME = 1 };
 enum { PERFMETRICS_LOGIC_STARTFRAME = 1 };
 enum { PERFMETRICS_LOGIC_STOPFRAME = 1000 };
 
-
 // For showing metrics
 enum { PERFMETRICS_BETWEEN_METRICS = 150 };
 
 #endif /* __PERFMETRICS_H__ */
-
 

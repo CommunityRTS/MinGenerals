@@ -96,7 +96,5 @@ private:
 
 };
 
-
 #endif //GENMTLNAMESDIALOG_H
-
 

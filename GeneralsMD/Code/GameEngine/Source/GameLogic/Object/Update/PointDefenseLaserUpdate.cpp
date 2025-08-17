@@ -45,8 +45,6 @@
 #include "GameLogic\Module\PhysicsUpdate.h"
 #include "GameLogic\Weapon.h"
 
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 PointDefenseLaserUpdateModuleData::PointDefenseLaserUpdateModuleData()
@@ -91,7 +89,6 @@ PointDefenseLaserUpdate::~PointDefenseLaserUpdate( void )
 {
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void PointDefenseLaserUpdate::onObjectCreated()

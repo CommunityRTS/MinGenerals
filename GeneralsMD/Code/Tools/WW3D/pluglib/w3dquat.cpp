@@ -48,7 +48,6 @@
  *   Cached_Slerp -- Quaternion slerping, optimized with cached values                         *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "w3dquat.h"
 #include "matrix3d.h"
 #include "matrix4.h"
@@ -64,12 +63,10 @@
 
 static int _nxt[3] = { 1 , 2 , 0 };
 
-
 // ------------------------------------------------------------
 // 	local functions
 // ------------------------------------------------------------
 static float project_to_sphere(float,float,float);
-
 
 /***********************************************************************************************
  * Quaternion::Quaternion -- constructor                                                       *
@@ -96,7 +93,6 @@ Quaternion::Quaternion(const Vector3 & axis,float angle)
 	Z = s * axis.Z;
 	W = c;
 }
-
 
 /***********************************************************************************************
  * Quaternion::Normalize -- Normalize to a unit quaternion                                     *
@@ -201,7 +197,6 @@ Quaternion Trackball(float x0, float y0, float x1, float y1, float sphsize)
 		return Quaternion(0.0f, 0.0f, 0.0f, 1.0f);	// Zero rotation
 	}
 
-
 	// Compute z coordinates for projection of p1 and p2 to
 	// deformed sphere
 	p1[0] = x0;
@@ -211,7 +206,6 @@ Quaternion Trackball(float x0, float y0, float x1, float y1, float sphsize)
 	p2[0] = x1;
 	p2[1] = y1;
 	p2[2] = project_to_sphere(sphsize, x1, y1);
-
 
 	// Find their cross product
 	Vector3::Cross_Product(p2,p1,&a);
@@ -227,7 +221,6 @@ Quaternion Trackball(float x0, float y0, float x1, float y1, float sphsize)
 
 	return Axis_To_Quat(a, phi);
 }
-
 
 /***********************************************************************************************
  * Axis_To_Quat -- Creates a quaternion given an axis and angle of rotation                    *
@@ -319,7 +312,6 @@ Quaternion Slerp(const Quaternion & p,const Quaternion & q,float alpha)
 
 	return res;
 }
-
 
 /***********************************************************************************************
  * Slerp_Setup -- Get ready to call "Cached_Slerp"                                             *
@@ -580,7 +572,6 @@ Quaternion Build_Quaternion(const Matrix4 & mat)
 	return q;
 }
 
-
 /***********************************************************************************************
  * Build_Matrix -- Creates a Matrix from a Quaternion                                          *
  *                                                                                             *
@@ -695,7 +686,6 @@ float project_to_sphere(float r, float x, float y)
 	return z;
 }
 
-
 void Quaternion::Randomize(void)
 {
 	X = ((float) (rand() & 0xFFFF)) / 65536.0f;
@@ -705,5 +695,4 @@ void Quaternion::Randomize(void)
 
 	Normalize();
 }
-
 

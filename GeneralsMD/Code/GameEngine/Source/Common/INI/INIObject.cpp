@@ -58,4 +58,3 @@ void INI::parseObjectReskinDefinition( INI* ini )
 	ThingFactory::parseObjectDefinition(ini, name, reskinFrom);
 }
 
-

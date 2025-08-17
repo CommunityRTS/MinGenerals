@@ -59,7 +59,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
 enum { OVERLAY_REFRESH_RATE = 6 };  ///< over updates once this many frames
 
@@ -246,7 +245,6 @@ void W3DRadar::radarToPixel( const ICoord2D *radar, ICoord2D *pixel,
 	pixel->y = ((RADAR_CELL_HEIGHT - 1 - radar->y) * radarHeight / RADAR_CELL_HEIGHT) + radarUpperLeftY;
 
 }  // end radarToPixel
-
 
 //-------------------------------------------------------------------------------------------------
 /** Draw a hero icon at a position, given radar box upper left location and dimensions.  */
@@ -599,7 +597,6 @@ void W3DRadar::drawEvents( Int pixelX, Int pixelY, Int width, Int height )
 
 }  // end drawEvents
 
-
 //-------------------------------------------------------------------------------------------------
 /** Draw all the radar icons */
 //-------------------------------------------------------------------------------------------------
@@ -667,7 +664,6 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 		// they are godlike and can see everything)
  		//
 
-
  		if( obj->getRadarPriority() == RADAR_PRIORITY_LOCAL_UNIT_ONLY &&
  				obj->getControllingPlayer() != ThePlayerList->getLocalPlayer() &&
 				ThePlayerList->getLocalPlayer()->isPlayerActive() )
@@ -680,14 +676,11 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 		radarPoint.x = pos->x / (m_mapExtent.width() / RADAR_CELL_WIDTH);
 		radarPoint.y = pos->y / (m_mapExtent.height() / RADAR_CELL_HEIGHT);
 
-
     if ( skip )
       continue;
 
     // get the color we're going to draw in
 		Color c = rObj->getColor();
-
-
 
 		// adjust the alpha for stealth units so they "fade/blink" on the radar for the controller
 		// if( obj->getRadarPriority() == RADAR_PRIORITY_LOCAL_UNIT_ONLY )
@@ -716,9 +709,6 @@ void W3DRadar::renderObjectList( const RadarObject *listHead, TextureClass *text
 			c = GameMakeColor( r, g, b, a );
 
 		}  // end if
-
-
-
 
 		// draw the blip, but make sure the points are legal
 		if( legalRadarPoint( radarPoint.x, radarPoint.y ) )
@@ -1454,12 +1444,7 @@ void W3DRadar::refreshTerrain( TerrainLogic *terrain )
 
 }  // end refreshTerrain
 
-
-
-
-
 ///The following is an "archive" of an attempt to foil the mapshroud hack... saved for later, since it is too close to release to try it
-
 
 /*
  *
@@ -1535,10 +1520,7 @@ void W3DRadar::refreshTerrain( TerrainLogic *terrain )
 		radarPoint.x = pos->x / (m_mapExtent.width() / RADAR_CELL_WIDTH);
 		radarPoint.y = pos->y / (m_mapExtent.height() / RADAR_CELL_HEIGHT);
 
-
 		const UnsignedInt framesForTransition = LOGICFRAMES_PER_SECOND;
-
-
 
 		// adjust the alpha for stealth units so they "fade/blink" on the radar for the controller
 		// if( obj->getRadarPriority() == RADAR_PRIORITY_LOCAL_UNIT_ONLY )
@@ -1565,7 +1547,6 @@ void W3DRadar::refreshTerrain( TerrainLogic *terrain )
       a |= k | b;
 			GameGetColorComponentsWithCheatSpy( c, &r, &g, &b, &a );//this function does not touch the low order bit in 'a'
 
-
 			if( alphaScale > 0.0f )
 				a = REAL_TO_UNSIGNEDBYTE( ((alphaScale - 1.0f) * (255.0f - minAlpha)) + minAlpha );
 			else
@@ -1573,9 +1554,6 @@ void W3DRadar::refreshTerrain( TerrainLogic *terrain )
 			c = GameMakeColor( r, g, b, a );
 
 		}  // end if
-
-
-
 
 		// draw the blip, but make sure the points are legal
 		if( legalRadarPoint( radarPoint.x, radarPoint.y ) )
@@ -1593,14 +1571,10 @@ void W3DRadar::refreshTerrain( TerrainLogic *terrain )
 		if( legalRadarPoint( radarPoint.x, radarPoint.y ) )
 			surface->DrawPixel( radarPoint.x, radarPoint.y, c );
 
-
-
-
 	}  // end for
 	REF_PTR_RELEASE(surface);
 
 }  // end renderObjectList
-
 
  *
  */

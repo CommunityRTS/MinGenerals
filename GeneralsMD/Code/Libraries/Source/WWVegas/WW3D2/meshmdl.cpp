@@ -49,7 +49,6 @@
 #include "dx8renderer.h"
 #include "hashtemplate.h"
 
-
 /*
 ** Temporary Buffers
 ** These buffers are used by the skin code for temporary storage of the deformed vertices and
@@ -60,13 +59,11 @@ static DynamicVectorClass<Vector3>	_TempNormalBuffer;
 static DynamicVectorClass<Vector4>	_TempTransformedVertexBuffer;
 static DynamicVectorClass<unsigned long> _TempClipFlagBuffer;
 
-
 /*
 **
 ** MeshModelClass Implementation
 **
 */
-
 
 MeshModelClass::MeshModelClass(void) :
 	DefMatDesc(NULL),
@@ -433,7 +430,6 @@ struct SideIndexInfo
 	SideIndexInfo() {}
 	SideIndexInfo(int i) { WWASSERT(0); }
 };
-
 
 HashTemplateClass<Vector3, unsigned> LocationHash;
 HashTemplateClass<Vector3, unsigned> DuplicateLocationHash;

@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #pragma once
 
 #ifndef __TEAMGENERIC_H__
@@ -41,7 +40,6 @@ class TeamGeneric : public CPropertyPage
 
 	protected:
 		Dict *m_teamDict;
-
 
 	protected: // Windows Functions
 		virtual BOOL OnInitDialog();

@@ -32,7 +32,6 @@
 #ifndef __CHALLENGEGENERALS_H_
 #define __CHALLENGEGENERALS_H_
 
-
 // INCLUDES //////////////////////////////////////////////////////////////////////////////////
 #include "Common/GameType.h"
 #include "Common/Overridable.h"
@@ -42,7 +41,6 @@
 #define NUM_GENERALS (12)
 
 // FORWARD REFERENCES /////////////////////////////////////////////////////////////////////////////
-
 
 // CLASS DEFINITIONS //////////////////////////////////////////////////////////////////////////////
 class GeneralPersona
@@ -76,7 +74,6 @@ private:
 	AsciiString m_strLossSound;
 	AsciiString m_strPreviewSound;
 	AsciiString m_strNameSound ;
-
 
 public:
 	GeneralPersona( void ) :
@@ -119,7 +116,6 @@ public:
 	const AsciiString& getNameSound() const { return m_strNameSound; }
 };
 
-
 class ChallengeGenerals
 {
 
@@ -150,8 +146,6 @@ protected:
 	static const FieldParse s_fieldParseTable[];
 
 };
-
-
 
 // EXTERNALS //////////////////////////////////////////////////////////////////////////////////////
 extern ChallengeGenerals *TheChallengeGenerals;

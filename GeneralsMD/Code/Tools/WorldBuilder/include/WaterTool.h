@@ -63,5 +63,4 @@ protected:
 	PolygonTrigger *adjustSpacing(PolygonTrigger *trigger, Real spacing);
 };
 
-
 #endif //WaterTool_H

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -352,15 +351,11 @@ protected:
 	friend class DX8PolygonRendererClass;
 };
 
-
-
-
 /*********************************************************************************************************
 **
 ** MeshModelClass Inline Functions
 **
 *********************************************************************************************************/
-
 
 #if 0
 inline void	MeshModelClass::Apply_Deformation (float percent, bool additive)
@@ -383,8 +378,6 @@ inline void	MeshModelClass::Apply_Deformation (const SphereClass &sphere, float 
 	MeshDeformer.Apply (*this, sphere, percent, additive);
 }
 #endif
-
-
 
 #endif
 

@@ -76,7 +76,6 @@
 #include <sys\stat.h>
 #endif
 
-
 /****************************************************************************
 *
 * NAME
@@ -108,7 +107,6 @@ Targa::Targa(void)
 	memset(&Header, 0, sizeof(TGAHeader));
 	memset(&mExtension, 0, sizeof(TGA2Extension));
 	}
-
 
 /****************************************************************************
 *
@@ -143,7 +141,6 @@ Targa::~Targa(void)
 	if ((mImage != NULL) && (mFlags & TGAF_IMAGE))
 		free(mImage);
 }
-
 
 /****************************************************************************
 *
@@ -287,7 +284,6 @@ long Targa::Open(const char* name, long mode)
 	return (error);
 }
 
-
 /****************************************************************************
 *
 * NAME
@@ -325,7 +321,6 @@ void Targa::Close(void)
 	}
 #endif
 }
-
 
 /****************************************************************************
 *
@@ -462,7 +457,6 @@ long Targa::Load(const char* name, char* palette, char* image,bool invert_image)
 	return (error);
 }
 
-
 /****************************************************************************
 *
 * NAME
@@ -560,7 +554,6 @@ long Targa::Load(const char* name, long flags, bool invert_image)
 
 	return (error);
 }
-
 
 /****************************************************************************
 *
@@ -750,7 +743,6 @@ long Targa::Save(const char* name, long flags, bool addextension)
 	return (error);
 	}
 
-
 /****************************************************************************
 *
 * NAME
@@ -803,7 +795,6 @@ void Targa::XFlip(void)
 		}
 	}
 
-
 /****************************************************************************
 *
 * NAME
@@ -855,7 +846,6 @@ void Targa::YFlip(void)
 		}
 	}
 
-
 /****************************************************************************
 *
 * NAME
@@ -899,7 +889,6 @@ char *Targa::SetImage(char *buffer)
 	return (oldbuffer);
 }
 
-
 /****************************************************************************
 *
 * NAME
@@ -942,7 +931,6 @@ char *Targa::SetPalette(char *buffer)
 	return (oldbuffer);
 }
 
-
 bool Targa::IsCompressed(void)
 	{
 	if (Header.ImageType > 8)
@@ -950,7 +938,6 @@ bool Targa::IsCompressed(void)
 
 	return false;
 	}
-
 
 /****************************************************************************
 *
@@ -981,7 +968,6 @@ TGA2Extension *Targa::GetExtension(void)
 
 	return (NULL);
 	}
-
 
 /****************************************************************************
 *
@@ -1073,7 +1059,6 @@ long Targa::DecodeImage()
 
 	return (error);
 	}
-
 
 /****************************************************************************
 *
@@ -1219,7 +1204,6 @@ long Targa::EncodeImage()
 	return (error);
 	}
 
-
 /****************************************************************************
 *
 * NAME
@@ -1275,7 +1259,6 @@ void Targa::InvertImage(void)
 			}
 		}
 	}
-
 
 /*
 ** These functions are just for ease of ifdef'ing between standard io calls and FileClass.

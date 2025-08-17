@@ -21,5 +21,3 @@ this are:
 - instance specific light environment pointer is in the mesh model class
 - lots of other stuff <-- FILL THIS IN!
 
-
-

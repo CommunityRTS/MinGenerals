@@ -34,13 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
-
-
 
 #ifndef __SIMPLE_PARAMETER_H
 #define __SIMPLE_PARAMETER_H
@@ -52,7 +48,6 @@
 #include "matrix3d.h"
 #include "rect.h"
 #include <float.h>
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -175,7 +170,6 @@ typedef SimpleParameterClass<RectClass,ParameterClass::TYPE_RECT>			RectParamete
 typedef SimpleParameterClass<Vector3,	ParameterClass::TYPE_COLOR	>		ColorParameterClass;
 typedef SimpleParameterClass<int,		ParameterClass::TYPE_STRINGSDB_ID>	StringsDBEntryParameterClass;
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //
 //	RangedParameterClass
@@ -208,7 +202,6 @@ private:
 	T				m_Min;
 	T				m_Max;
 };
-
 
 //////////////////////////////////////////////////////////////////////////////////
 //	IntParameterClass

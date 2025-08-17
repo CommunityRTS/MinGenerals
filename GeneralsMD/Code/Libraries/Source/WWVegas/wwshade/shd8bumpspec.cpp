@@ -53,7 +53,6 @@
 #include "shd8ssbumpspec.vsh_code.h"
 #include "shd8ssbumpspec.psh_code.h"
 
-
 ShdHWVertexShader		Shd8BumpSpecClass::Vertex_Shader;
 ShdHWPixelShader		Shd8BumpSpecClass::Pixel_Shader;
 ShdHWPixelShader		Shd8BumpSpecClass::Self_Shadow_Pixel_Shader;
@@ -206,7 +205,6 @@ void Shd8BumpSpecClass::Apply_Instance(int cur_pass, RenderInfoClass& rinfo)
 	else
 	{
 		ZTextureClass* ztex=DX8Wrapper::Get_Shadow_Map(0);
-
 
 		DX8Wrapper::Set_Texture(0, Texture);
 
@@ -363,7 +361,6 @@ bool Shd8BumpSpecClass::Pass_Selection
 
 	return (pass==0);
 }
-
 
 /**********************************************************************************************
 //! Set up transform for shadow maps

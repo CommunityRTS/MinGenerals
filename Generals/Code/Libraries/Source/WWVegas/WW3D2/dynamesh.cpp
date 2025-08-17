@@ -43,8 +43,6 @@
 #include "camera.h"
 #include "dx8fvf.h"
 
-
-
 /*
 ** DynamicMeshModel implementation
 */
@@ -630,7 +628,6 @@ void DynamicMeshClass::Get_Vertex(int index, float &x, float &y, float &z)
 	z = loc[index][2];
 }
 
-
 /*
 ** Offset the entire mesh
 */
@@ -799,5 +796,4 @@ void DynamicScreenMeshClass::Reset( void )
 	Reset_Flags();
 	Reset_Mesh_Counters();
 }
-
 

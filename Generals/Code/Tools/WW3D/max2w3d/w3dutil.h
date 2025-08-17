@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef W3DUTIL_H
 #define W3DUTIL_H
 
@@ -49,8 +48,6 @@
 #define W3DUtilityClassID Class_ID(0x3c362c97, 0x5fc73ab0)
 
 ClassDesc * Get_W3D_Utility_Desc(void);
-
-
 
 /*
 ** W3dExportOptionsStruct - This structure is AppData that is attached
@@ -112,9 +109,6 @@ struct W3dExportOptionsStruct
 	// into one texture page to improve batch rendering of models.
 	bool		EnableMaterialColorToTextureConversion;
 };
-
-
-
 
 /*
 ** Functions to access the W3D AppData of any INode.

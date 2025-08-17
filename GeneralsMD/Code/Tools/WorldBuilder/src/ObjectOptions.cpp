@@ -50,7 +50,6 @@ AsciiString ObjectOptions::m_curOwnerName;
 /////////////////////////////////////////////////////////////////////////////
 // ObjectOptions dialog
 
-
 ObjectOptions::ObjectOptions(CWnd* pParent /*=NULL*/)
 {
 	m_objectsList = NULL;
@@ -61,7 +60,6 @@ ObjectOptions::ObjectOptions(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 ObjectOptions::~ObjectOptions(void)
 {
 	if (m_objectsList) {
@@ -70,7 +68,6 @@ ObjectOptions::~ObjectOptions(void)
 	m_objectsList = NULL;
 }
 
-
 void ObjectOptions::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -78,7 +75,6 @@ void ObjectOptions::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(ObjectOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(ObjectOptions)
@@ -113,7 +109,6 @@ static Int findSideListEntryWithPlayerOfSide(AsciiString side)
 	if (m_staticThis)
 		m_staticThis->updateLabel();
 }
-
 
 void ObjectOptions::updateLabel()
 {
@@ -234,7 +229,6 @@ BOOL ObjectOptions::OnInitDialog()
 	m_updating = true;
 
 //	CWorldBuilderDoc* pDoc = CWorldBuilderDoc::GetActiveDoc();
-
 
 	// add entries from the thing factory as the available objects to use
 	const ThingTemplate *tTemplate;
@@ -364,7 +358,6 @@ BOOL ObjectOptions::OnInitDialog()
 		pMap = pMap->getNext();
 	}
 
-
 	m_staticThis = this;
 	m_updating = false;
 
@@ -448,7 +441,6 @@ HTREEITEM ObjectOptions::_FindOrDont(const char* pLabel, HTREEITEM startPoint)
 	}
 	return NULL;
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /** Add the object hierarchy paths to the tree view. */
@@ -583,7 +575,6 @@ Bool ObjectOptions::setObjectTreeViewSelection(HTREEITEM parent, Int selection)
 	return(false);
 }
 
-
 BOOL ObjectOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {
 	NMTREEVIEW *pHdr = (NMTREEVIEW *)lParam;
@@ -624,7 +615,6 @@ BOOL ObjectOptions::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 
 	return CDialog::OnNotify(wParam, lParam, pResult);
 }
-
 
 MapObject *ObjectOptions::getCurMapObject(void)
 {
@@ -792,7 +782,6 @@ Int ObjectOptions::getObjectNamedIndex(const AsciiString& name)
 	}
 	return(NULL);
 }
-
 
 void ObjectOptions::OnEditchangeOwningteam()
 {

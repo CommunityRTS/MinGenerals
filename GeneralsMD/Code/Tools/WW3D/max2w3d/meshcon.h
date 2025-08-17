@@ -35,10 +35,8 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef MESHCON_H
 #define MESHCON_H
-
 
 #ifndef ALWAYS_H
 #include "always.h"
@@ -64,10 +62,8 @@
 #include "vector.h"
 #endif
 
-
 class GeometryExportTaskClass;
 class GeometryExportContextClass;
-
 
 struct ConnectionStruct
 {
@@ -84,7 +80,6 @@ struct ConnectionStruct
 	operator == (const ConnectionStruct & that) { return false; }
 	operator != (const ConnectionStruct & that) { return !(*this==that); }
 };
-
 
 /**
 ** MeshConnectionsClass
@@ -142,8 +137,6 @@ private:
 	DynamicVectorClass<ConnectionStruct>	Aggregates;
 	DynamicVectorClass<ConnectionStruct>	ProxyObjects;
 
-
 };
-
 
 #endif /*MESHCON_H*/

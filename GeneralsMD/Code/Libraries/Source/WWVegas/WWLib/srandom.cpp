@@ -64,7 +64,6 @@ SecureRandomClass::~SecureRandomClass()
 {
 }
 
-
 //
 // Add seed values to our pool of randomness
 //
@@ -120,8 +119,6 @@ unsigned long SecureRandomClass::Randval(void)
 
 	return(retval);
 }
-
-
 
 /////////////////////////////// Private Methods ///////////////////////////////////////
 

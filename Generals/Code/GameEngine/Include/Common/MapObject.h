@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // MapObject.h
 // Class to encapsulate height map.
 // Author: John Ahlquist, April 2001
@@ -164,7 +163,6 @@ public:
 
 	// The fast version doesn't attempt to verify uniqueness. It goes
 	static void fastAssignAllUniqueIDs(void);
-
 
 	static MapObject *getFirstMapObject(void) { return TheMapObjectListPtr; }
 	static Dict* getWorldDict() { return &TheWorldDict; }

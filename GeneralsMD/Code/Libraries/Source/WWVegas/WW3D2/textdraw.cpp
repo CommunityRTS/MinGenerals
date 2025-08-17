@@ -113,7 +113,6 @@ void	TextDrawClass::Set_Coordinate_Ranges(
 	PixelSize.Y = fabs((src_lr.Y - src_ul.Y) / 480.0f);
 }
 
-
 /*
 **
 */
@@ -183,7 +182,6 @@ void TextDrawClass::Line_Ends( const Vector2 & a, const Vector2 & b, float width
 	Line( b, b_, width );
 }
 
-
 /***********************************************************************************************
  *                                                                                             *
  * float	TextDrawClass::Get_Width( Font3DInstanceClass *, char * )									  *
@@ -219,7 +217,6 @@ float	TextDrawClass::Get_Height( Font3DInstanceClass *font, const char *message 
 {
 	return	font->Char_Height();
 }
-
 
 /***********************************************************************************************
  *                                                                                             *
@@ -287,7 +284,6 @@ float	TextDrawClass::Print( Font3DInstanceClass *font, char ch, float screen_x, 
 	return spacing;
 }
 
-
 /***********************************************************************************************
  *                                                                                             *
  * float	TextDrawClass::Print( Font3DInstanceClass *, char *, float, float, float )						  *
@@ -323,7 +319,6 @@ float	TextDrawClass::Print( Font3DInstanceClass *font, const char *message, floa
 	*/
 	return total_width;
 }
-
 
 /***********************************************************************************************
  *                                                                                             *

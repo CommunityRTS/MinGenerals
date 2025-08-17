@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -62,7 +61,6 @@ public:
 	LayerClass(const LayerClass & src);
 	~LayerClass(void);
 
-
 	/*
 	** The following functions will handle the references of the Scene and Camera
 	** objects properly.
@@ -73,7 +71,6 @@ public:
 	void						Set_Camera(CameraClass * cam);
 	CameraClass *			Get_Camera(void) const;
 	CameraClass *			Peek_Camera(void) const;
-
 
 	// [SKB: Aug 14 2001 @ 1:53pm] :
 	// Add a method to copy one layer to another - I would like to create an assignment
@@ -94,7 +91,5 @@ public:
 
 typedef List<LayerClass *> LayerListClass;
 
-
 #endif //LAYER_H
-
 

@@ -68,11 +68,9 @@ static char * _CD_Volume_Label[] = {
 
 #endif
 
-
 static int _Num_Volumes = ARRAY_SIZE( _CD_Volume_Label );
 
 GetCDClass	CDList;
-
 
 /****************************************************************************
  * GetCDClass -- default constructor										*
@@ -406,9 +404,6 @@ bool CD_Volume_Verification ( int cd_drive, char *volume_label, char *volume_to_
 		}
 	}
 }
-
-
-
 
 /* ==================================================================== */
 

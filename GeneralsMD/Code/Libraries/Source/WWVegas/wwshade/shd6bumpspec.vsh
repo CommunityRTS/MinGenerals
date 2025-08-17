@@ -77,7 +77,6 @@ mul COL, COL, V_DIFFUSE
 mul COL, COL, c[CV_DIFFUSE]
 add oD0, COL, c[CV_AMBIENT]
 
-
 // calculate half angle
 // transform vertex position to world space
 //  to calculate V, vector to viewer in world
@@ -103,7 +102,6 @@ mul EYE_VECTOR, EYE_VECTOR, EYE_VECTOR.w
 
 // Add them to average & create half angle vector
 add HALF_ANGLE, c[CV_LIGHT_DIRECTION_0], EYE_VECTOR
-
 
 // Normalize the half angle vector
 dp3 HALF_ANGLE.w, HALF_ANGLE, HALF_ANGLE
@@ -134,7 +132,5 @@ mul COL, c[CV_LIGHT_COLOR_0], LIGHT_0.w
 
 mul oD1, COL, c[CV_SPECULAR]
 
-
 mov oT0, V_TEXTURE
-
 

@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -58,14 +57,12 @@ class srCamera;
 class srGERD;
 class CameraClass;
 
-
 /*
 ** Macros for setting and clearing a pointer to a surrender object.  There are
 ** similar macros for our ref-counting system in refcount.h...
 */
 #define SR_REF_PTR_SET(dst,src)	{ if (dst) dst->release(); dst = src; if(dst) dst->addReference(); }
 #define SR_REF_PTR_RELEASE(x)		{ if (x) x->release(); x = NULL; }
-
 
 /*
 ** PUSH_TRANSFORM, POP_TRANSFORM macros.  These are just some macros that push
@@ -81,7 +78,6 @@ class CameraClass;
 #define POP_TRANSFORM(renderinfo) \
 	renderinfo.Gerd.matrixMode(srGERD::MODELVIEW); \
 	renderinfo.Gerd.popMatrix();
-
 
 /*
 ** These functions convert between "westwood" (we use right-handed and column vectors)
@@ -119,7 +115,6 @@ void Multiply_Westwood_And_Surrender_Matrix(const Matrix3D& w3d_tm,const srMatri
 ** Yes, this sucks.  In places where we are dealing with surrender vectors a lot,
 ** we should probably just use the surrender math functions.
 */
-
 
 inline Vector3 * As_Vector3(srVector3 * v) { return (Vector3 *)v; }
 inline Vector3 & As_Vector3(srVector3 & v) { return (Vector3 &) v; }
@@ -174,7 +169,6 @@ void Get_Camera_Frustum_Corners(const CameraClass * camera, Vector3 points[8]);
 */
 bool Get_ZClamped_Camera_Frustum_Corners(const CameraClass * camera,
 	Vector3 points[8], float minz, float maxz);
-
 
 // the SRMeshClass is used to store all the information neccessary to perform intersection
 // testing on a particular mesh. It is used by the Intersection class within WW3D, and

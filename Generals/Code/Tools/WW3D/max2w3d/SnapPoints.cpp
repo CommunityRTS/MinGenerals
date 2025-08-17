@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -44,7 +43,6 @@
 #include "Max.h"
 #include "nodelist.h"
 #include "w3d_file.h"
-
 
 class PointFilterClass : public INodeFilterClass
 {
@@ -69,7 +67,6 @@ public:
 		}
 	}
 };
-
 
 void SnapPointsClass::Export_Points(INode * scene_root,TimeValue time,ChunkSaveClass & csave)
 {

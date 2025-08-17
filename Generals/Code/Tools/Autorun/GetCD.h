@@ -34,11 +34,8 @@
 #ifndef GETCD_H
 #define GETCD_H
 
-
 extern char *	_CD_Volume_Label[];
 extern int		_Num_Volumes;
-
-
 
 #ifdef NOT_FOR_WIN95
 
@@ -170,7 +167,6 @@ struct	PlayType {
 };
 #pragma pack(pop)
 
-
 //-----------------------------------------------------------------------------
 // Audio Track Stop request block
 //-----------------------------------------------------------------------------
@@ -185,7 +181,6 @@ struct	StopType {
 #pragma pack(pop)
 
 #endif	//NOT_FOR_WIN95
-
 
 /****************************************************************************
  * GetCDClass -- object which will return logical CD drive					*
@@ -265,7 +260,6 @@ inline int GetCDClass::Get_Next_CD_Drive(void)
 	}
 }
 
-
 /************************************************************************************
  * RedBookClass -- adds red book functionality													*
  *																												*
@@ -318,6 +312,5 @@ extern GetCDClass		CDList;
 // Functions
 //-----------------------------------------------------------------------------
 bool  CD_Volume_Verification ( int cd_drive, char *volume_label, char *volume_to_find );
-
 
 #endif // PLAYCD_H

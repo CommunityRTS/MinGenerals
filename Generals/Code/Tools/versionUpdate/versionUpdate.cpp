@@ -88,7 +88,6 @@ static void usage(char *progname)
 	}
 }
 
-
 // strtrim ====================================================================
 /** Trim leading and trailing whitespace from a character string (in place). */
 //=============================================================================

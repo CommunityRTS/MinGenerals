@@ -44,9 +44,6 @@ class SpecialPowerTemplate;
 struct FieldParse;
 enum ScienceType;
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 class DefectorSpecialPowerModuleData : public SpecialPowerModuleData

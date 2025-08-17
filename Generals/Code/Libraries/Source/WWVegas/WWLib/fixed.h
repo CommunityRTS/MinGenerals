@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef FIXED_H
 #define FIXED_H
 
@@ -215,6 +214,5 @@ class fixed
 			unsigned short Raw;
 		} Data;
 };
-
 
 #endif

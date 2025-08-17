@@ -55,8 +55,6 @@ FeatherTool::~FeatherTool(void)
 	REF_PTR_RELEASE(m_htMapRateCopy);
 }
 
-
-
 /// Shows the brush options panel.
 void FeatherTool::activate()
 {

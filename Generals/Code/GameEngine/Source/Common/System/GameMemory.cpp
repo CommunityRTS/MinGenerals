@@ -70,7 +70,6 @@ DECLARE_PERF_TIMER(MemoryPoolInitFilling)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 // ----------------------------------------------------------------------------
 // DEFINES
 // ----------------------------------------------------------------------------
@@ -192,7 +191,6 @@ DECLARE_PERF_TIMER(MemoryPoolInitFilling)
 	static UsedNPeakMap TheUsedNPeakMap;
 	static Int doingIntenseDMA = 0;
 #endif
-
 
 #endif
 
@@ -1163,7 +1161,6 @@ void MemoryPoolSingleBlock::debugFillInWalls()
 }
 #endif
 
-
 //-----------------------------------------------------------------------------
 // METHODS for MemoryPoolBlob
 //-----------------------------------------------------------------------------
@@ -1806,7 +1803,6 @@ Int MemoryPool::releaseEmpties()
 	return released;
 }
 
-
 //-----------------------------------------------------------------------------
 /**
 	throw away everything in the pool, but keep the pool itself valid.
@@ -2055,7 +2051,6 @@ void DynamicMemoryAllocator::init(MemoryPoolFactory *factory, Int numSubPools, c
 		numSubPools = 7;
 		pParms = defaultDMA;
 	}
-
 
 	m_factory = factory;
 	m_numPools = numSubPools;

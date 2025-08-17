@@ -76,7 +76,6 @@ void CWBFrameWnd::OnMove(int x, int y)
 	}
 }
 
-
 BEGIN_MESSAGE_MAP(CWBFrameWnd, CFrameWnd)
 	//{{AFX_MSG_MAP(CWBFrameWnd)
 	ON_WM_MOVE()
@@ -85,7 +84,6 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CWBFrameWnd message handlers
-
 
 /////////////////////////////////////////////////////////////////////////////
 // CWB3dFrameWnd
@@ -99,7 +97,6 @@ CWB3dFrameWnd::CWB3dFrameWnd()
 CWB3dFrameWnd::~CWB3dFrameWnd()
 {
 }
-
 
 BEGIN_MESSAGE_MAP(CWB3dFrameWnd, CMainFrame)
 	//{{AFX_MSG_MAP(CWB3dFrameWnd)
@@ -125,7 +122,6 @@ BOOL CWB3dFrameWnd::LoadFrame(UINT nIDResource,
 	BOOL ret = CMainFrame::LoadFrame(nIDResource, dwDefaultStyle, CMainFrame::GetMainFrame(), pContext);
 	return(ret);
 }
-
 
 void CWB3dFrameWnd::OnMove(int x, int y)
 {

@@ -44,13 +44,9 @@ class Object;
 class Drawable;
 class GeometryInfo;
 
-
 class WorldHeightMap;
 struct SeismicSimulationNode;
 class SeismicSimulationFilterBase;
-
-
-
 
 #define DEFAULT_SEISMIC_SIMULATION_MAGNITUDE (20.0f)
 struct SeismicSimulationNode; // just a forward declaration folks, no cause for alarm
@@ -67,10 +63,6 @@ public:
   virtual SeismicSimStatusCode filterCallback( WorldHeightMapInterfaceClass *heightMap, const SeismicSimulationNode *node ) = 0;
   virtual Real applyGravityCallback( Real velocityIn ) = 0;
 };
-
-
-
-
 
 struct SeismicSimulationNode
 {
@@ -160,12 +152,6 @@ class DomeStyleSeismicFilter : public SeismicSimulationFilterBase
   virtual SeismicSimStatusCode filterCallback( WorldHeightMapInterfaceClass *heightMap, const SeismicSimulationNode *node );
   virtual Real applyGravityCallback( Real velocityIn );
 };
-
-
-
-
-
-
 
 //-------------------------------------------------------------------------------------------------
 /** LOD values for terrain, keep this in sync with TerrainLODNames[] */
@@ -290,7 +276,6 @@ public:
 	virtual void setRawMapHeight(const ICoord2D *gridPos, Int height)=0;
 	virtual Int getRawMapHeight(const ICoord2D *gridPos)=0;
 
-
   ////////////////////////////////////////////////////
   ////////////////////////////////////////////////////
   ////////////////////////////////////////////////////
@@ -303,8 +288,6 @@ public:
   ////////////////////////////////////////////////////
   ////////////////////////////////////////////////////
   ////////////////////////////////////////////////////
-
-
 
 	/// Replace the skybox texture
 	virtual void replaceSkyboxTextures(const AsciiString *oldTexName[NumSkyboxTextures], const AsciiString *newTexName[NumSkyboxTextures])=0;

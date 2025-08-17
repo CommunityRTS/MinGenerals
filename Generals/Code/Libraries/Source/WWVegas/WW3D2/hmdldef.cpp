@@ -35,14 +35,12 @@
  *   HModelDefClass::HModelDefClass -- Constructor                                             *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "hmdldef.h"
 #include <assert.h>
 #include <string.h>
 #include "w3d_file.h"
 #include "chunkio.h"
 #include "snappts.h"
-
 
 /***********************************************************************************************
  * HModelDefClass::HModelDefClass -- Constructor                                               *
@@ -106,7 +104,6 @@ void HModelDefClass::Free(void)
 		SnapPoints = NULL;
 	}
 }
-
 
 /***********************************************************************************************
  * HModelDefClass::Load -- load a set of mesh connections from a file                          *
@@ -214,7 +211,6 @@ Error:
 	return LOAD_ERROR;
 
 }
-
 
 /***********************************************************************************************
  * HModelDefClass::read_connection -- read a single connection from the file                   *

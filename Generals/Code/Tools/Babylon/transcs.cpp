@@ -41,7 +41,6 @@ void CreateTranslationTable ( void )
 		return;
 	}
 
-
 	fprintf (out, "static unsigned short Utable[0x10000] =\n{" );
 
 	for ( i = 0; i < 0x10000; i++ )

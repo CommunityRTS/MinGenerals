@@ -195,8 +195,6 @@ static void debugDumpPlayerStats( const PSPlayerStats& stats )
 		DEBUG_LOG(("lastLadderHost: %s\n", stats.lastLadderHost.c_str()));
 	}
 
-
-
 }
 
 //-------------------------------------------------------------------------
@@ -454,7 +452,6 @@ private:
 	Int m_opCount;
 	Bool m_sawLocalData;
 };
-
 
 //-------------------------------------------------------------------------
 

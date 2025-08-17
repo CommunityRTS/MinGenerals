@@ -297,7 +297,6 @@ ImageAndColorInfo imageAndColorTable[] =
 	{ GWS_COMBO_BOX, COMBOBOX_LISTBOX_SLIDER_THUMB_HILITE, "[Slider Thumb [Listbox [ComboBox]]] Hilite (Normal)", NULL, 0, 0 },
 	{ GWS_COMBO_BOX, COMBOBOX_LISTBOX_SLIDER_THUMB_HILITE_PUSHED, "[Slider Thumb [Listbox [ComboBox]]] Hilite (Pushed)", NULL, 0, 0 },
 
-
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_ENABLED_LEFT,							"[Bar] Enabled Left End (or color for no images)", NULL, 0, 0 },
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_ENABLED_RIGHT,							"[Bar] Enabled Right End", NULL, 0, 0 },
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_ENABLED_CENTER,						"[Bar] Enabled Repeating Center End", NULL, 0, 0 },
@@ -322,7 +321,6 @@ ImageAndColorInfo imageAndColorTable[] =
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_HILITE_BAR_RIGHT,					"[Bar] Hilite Fill Bar Right End", NULL, 0, 0 },
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_HILITE_BAR_CENTER,					"[Bar] Hilite Fill Bar Repeating Center", NULL, 0, 0 },
 	{ GWS_PROGRESS_BAR, PROGRESS_BAR_HILITE_BAR_SMALL_CENTER,		"[Bar] Hilite Fill Bar Small Repeating Center", NULL, 0, 0 },
-
 
 	{ GWS_STATIC_TEXT, STATIC_TEXT_ENABLED, "[Static Text] Enabled", NULL, 0, 0 },
 	{ GWS_STATIC_TEXT, STATIC_TEXT_DISABLED, "[Static Text] Disabled", NULL, 0, 0 },
@@ -666,7 +664,6 @@ static void saveTooltipDelayTextLabel(HWND dialog, HWND edit, GameWindow *window
 
 }  // end saveTooltipDelayTextLabel
 
-
 // loadTextLabel ==============================================================
 /** Load the edit control with the window text label */
 //=============================================================================
@@ -850,7 +847,6 @@ void CommonDialogInitialize( GameWindow *window, HWND dialog )
 		// load listbox with image names
 	LoadHeaderTemplateListComboBox( GetDlgItem( dialog, COMBO_HEADER ), instData->m_headerTemplateName);
 
-
 	// load the combo box for available properties
 	LoadStateCombo( window->winGetStyle(), GetDlgItem( dialog, COMBO_STATE ) );
 
@@ -882,8 +878,6 @@ void CommonDialogInitialize( GameWindow *window, HWND dialog )
 	HWND tooltipDelay = GetDlgItem( dialog, EDIT_TOOLTIP_DELAY );
 	if( tooltipDelay )
     SetDlgItemInt( dialog, EDIT_TOOLTIP_DELAY, instData->m_tooltipDelay, TRUE );
-
-
 
 }  // end CommonDialogInitialize
 
@@ -923,7 +917,6 @@ static Bool validateName( GameWindow *root, GameWindow *exception, char *name )
 			return FALSE;
 
 		}  // end if
-
 
 	}  // end if
 
@@ -1228,9 +1221,7 @@ void LoadHeaderTemplateListComboBox( HWND comboBox, AsciiString selected )
 	else
 		SendMessage( comboBox, CB_SELECTSTRING, -1, (LPARAM)selected.str() );
 
-
 }  // end LoadHeaderTemplateListComboBox
-
 
 // ComboBoxSelectionToImage ===================================================
 /** Given a combo box assumed to be loaded with a list of image names,

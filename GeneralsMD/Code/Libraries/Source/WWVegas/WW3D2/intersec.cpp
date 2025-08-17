@@ -34,13 +34,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
-
 #include "intersec.h"
 #include "camera.h"
 #include "scene.h"
 #include "intersec.inl"
-
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -50,7 +47,6 @@
 Vector3 IntersectionClass::_RayLocation(0,0,0);
 Vector3 IntersectionClass::_RayDirection(0,0,0);
 Vector3 IntersectionClass::_IntersectionNormal(0,0,0);
-
 
 bool IntersectionClass::Intersect_Screen_Point_RenderObject(float screen_x, float screen_y, const LayerClass &Layer, RenderObjClass *RObj, IntersectionResultClass *FinalResult)
 {
@@ -97,7 +93,6 @@ bool IntersectionClass::Intersect_Screen_Point_Layer_Range
 	}
 	return false;
 }
-
 
 bool IntersectionClass::Intersect_Screen_Point_Layer(float screen_x, float screen_y, const LayerClass &Layer)
 {
@@ -152,7 +147,6 @@ bool IntersectionClass::Intersect_Layer(const LayerClass &Layer, bool Test_All)
 
 	return Result.Intersects;
 }
-
 
 void IntersectionClass::Append_Object_Array(
 	int MaxCount,
@@ -245,7 +239,6 @@ bool IntersectionClass::Intersect_Box(Vector3 &Box_Min, Vector3 &Box_Max, Inters
 	}
 	return FinalResult->Intersects = true; // ray hits box
 }
-
 
 // simply returns true if a ray hits the bounding sphere of any node in a hierarchy
 // note: Result will only contain range, not the intersection point/normal.

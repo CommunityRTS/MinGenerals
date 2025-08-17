@@ -83,7 +83,6 @@ FireWeaponPowerModuleData::FireWeaponPowerModuleData( void )
 
 }  // end buildFieldParse
 
-
 // ------------------------------------------------------------------------------------------------
 FireWeaponPower::FireWeaponPower( Thing *thing, const ModuleData *moduleData )
 												: SpecialPowerModule( thing, moduleData )

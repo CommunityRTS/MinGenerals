@@ -22,7 +22,6 @@
 // Packet should consist of a GlobalHeaderType followed by a GlobalPacketType with the fields set as
 // indicated.
 
-
 /*
 ********************************** Defines **********************************
 */

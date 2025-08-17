@@ -66,7 +66,6 @@
 const Real LINE_THICKNESS = 2.0f;
 const Real HANDLE_SIZE = (2.0f) * LINE_THICKNESS;
 
-
 // Texturing, no zbuffer, disabled zbuffer write, primary gradient, alpha blending
 #define SC_OPAQUE ( SHADE_CNST(ShaderClass::PASS_ALWAYS, ShaderClass::DEPTH_WRITE_DISABLE, ShaderClass::COLOR_WRITE_ENABLE, ShaderClass::SRCBLEND_ONE, \
 	ShaderClass::DSTBLEND_ZERO, ShaderClass::FOG_DISABLE, ShaderClass::GRADIENT_DISABLE, ShaderClass::SECONDARY_GRADIENT_DISABLE, ShaderClass::TEXTURING_ENABLE, \
@@ -91,7 +90,6 @@ const Real HANDLE_SIZE = (2.0f) * LINE_THICKNESS;
 	ShaderClass::ALPHATEST_DISABLE, ShaderClass::CULL_MODE_DISABLE, \
 	ShaderClass::DETAILCOLOR_DISABLE, ShaderClass::DETAILALPHA_DISABLE) )
 
-
 Bool DrawObject::m_squareFeedback = false;
 Int	DrawObject::m_brushWidth = 3;
 Int	DrawObject::m_brushFeatherWidth = 3;
@@ -108,16 +106,12 @@ Coord3D	DrawObject::m_rampStartPoint;
 Coord3D	DrawObject::m_rampEndPoint;
 Real DrawObject::m_rampWidth = 0.0f;
 
-
 Bool DrawObject::m_dragWaypointFeedback = false;
 Coord3D DrawObject::m_dragWayStart;
 Coord3D DrawObject::m_dragWayEnd;
 
 static Int curHighlight = 0;
 static const Int NUM_HIGHLIGHT = 3;
-
-
-
 
 void DrawObject::setWaypointDragFeedback(const Coord3D &start, const Coord3D &end)
 {
@@ -130,8 +124,6 @@ void DrawObject::stopWaypointDragFeedback()
 {
 	m_dragWaypointFeedback = false;
 }
-
-
 
 DrawObject::~DrawObject(void)
 {
@@ -166,14 +158,12 @@ DrawObject::DrawObject(void) :
 	Set_Force_Visible(true);
 }
 
-
 Bool DrawObject::Cast_Ray(RayCollisionTestClass & raytest)
 {
 
 	return false;
 
 }
-
 
 //@todo: MW Handle both of these properly!!
 DrawObject::DrawObject(const DrawObject & src)
@@ -217,7 +207,6 @@ RenderObjClass * DrawObject::Clone(void) const
 	return new DrawObject(*this);
 }
 
-
 Int DrawObject::freeMapResources(void)
 {
 
@@ -245,7 +234,6 @@ Int DrawObject::freeMapResources(void)
 #define NUM_SELECT_TRI 16
 // Height of selection pyramid.
 #define SELECT_PYRAMID_HEIGHT (1.0f)
-
 
 Int DrawObject::initData(void)
 {
@@ -288,7 +276,6 @@ Int DrawObject::initData(void)
 	return 0;
 }
 
-
 /** updateMeshVB puts mesh mold triangles into m_vertexFeedback. */
 
 void DrawObject::updateMeshVB(void)
@@ -319,7 +306,6 @@ void DrawObject::updateMeshVB(void)
 	if (m_moldMesh == NULL) {
 		return;
 	}
-
 
 	m_feedbackVertexCount = 0;
 	m_feedbackIndexCount = 0;
@@ -413,7 +399,6 @@ void DrawObject::updateMeshVB(void)
 	curVb++;
 	m_feedbackVertexCount++;
 
-
 	Int numPoly = m_moldMesh->Get_Model()->Get_Polygon_Count();
 	const TriIndex *pPoly =m_moldMesh->Get_Model()->Get_Polygon_Array();
 	if (3*numPoly+9 >= NUM_FEEDBACK_INDEX) {
@@ -470,7 +455,6 @@ void DrawObject::updateRampVB(void)
 	pre-determined step sizes, with no additional calculation. (IE, we can simply perform
 	linear interpolation.) However, with the curved case, we will need to recalculate the
 	value every step along the way.
-
 
 	Ultimately, what I'd like to do is to precompute what the terrain is actually going to
 	do, and then use the faux-adjusted vertices, but this is much easier to start from. jkmcd
@@ -1177,7 +1161,6 @@ void DrawObject::updatePolygonVB(PolygonTrigger *pTrig, Bool selected, Bool isOp
 	}
 }
 
-
 /** updateFeedbackVB puts brush feedback triangles into m_vertexFeedback. */
 
 void DrawObject::updateFeedbackVB(void)
@@ -1294,7 +1277,6 @@ void DrawObject::updateFeedbackVB(void)
 	}
 }
 
-
 /** Calculate the sign of the cross product.  If the tails of the vectors are both placed
 at 0,0, then the cross product can be interpreted as -1 means v2 is to the right of v1,
 1 means v2 is to the left of v1, and 0 means v2 is parallel to v1. */
@@ -1305,7 +1287,6 @@ static Int xpSign(const ICoord3D &v1, const ICoord3D &v2) {
 	if (xpdct>0) return 1;
 	return 0;
 }
-
 
 /** updateForWater puts a blue rectangle into the vertex buffer. */
 
@@ -1366,9 +1347,7 @@ but doesn't, really.
 						ICoord3D pt2 = *pTrig->getPoint(kPlus1);
 						ICoord3D pt3 = *pTrig->getPoint(kPlus2);
 
-
 */
-
 
 /** updateVB puts a circle with an arrow into the vertex buffer. */
 
@@ -1509,7 +1488,6 @@ Int DrawObject::updateVB(DX8VertexBufferClass	*pVB, Int color, Bool doArrow, Boo
 			theRadius *= 20;
 			halfLineWidth *= 20;
 		}
-
 
 		limit = NUM_SELECT_TRI;
 		curAngle = 0;
@@ -1785,7 +1763,6 @@ void DrawObject::updateVBWithWeaponRange(MapObject *pMapObj, CameraClass* camera
 
   const unsigned long colors[WEAPONSLOT_COUNT] = {0xFF00FF00, 0xFFE0F00A, 0xFFFF0000}; // Green, Yellow, Red
 
-
 	Coord3D pos = *pMapObj->getLocation();
 	if (TheTerrainRenderObject) {
 		// Make sure that the position is on the terrain.
@@ -1824,7 +1801,6 @@ void DrawObject::updateVBWithSoundRanges(MapObject *pMapObj, CameraClass* camera
 
   const unsigned long colors[2] = {0xFF0000FF, 0xFFFF00FF}; // Blue and purple
                                                             // Colors match those used in W3DView.cpp
-
 
   Coord3D pos = *pMapObj->getLocation();
   if (TheTerrainRenderObject) {
@@ -1936,7 +1912,6 @@ void DrawObject::updateVBWithSoundRanges(MapObject *pMapObj, CameraClass* camera
   addCircleToLineRenderer(pos, maxRadius, SOUND_RANGE_LINE_WIDTH, colors[1], camera );
 }
 
-
 #define TEST_ART_HIGHLIGHT_LINE_WIDTH 5.0f
 /** Draw test art with an X on it. **/
 // MLL C&C3
@@ -1948,7 +1923,6 @@ void DrawObject::updateVBWithTestArtHighlight(MapObject *pMapObj, CameraClass* c
 	}
 
 	unsigned long color = 0xFFA000A0; // Purple
-
 
 	Coord3D pos = *pMapObj->getLocation();
 	if (TheTerrainRenderObject) {
@@ -1985,7 +1959,6 @@ void DrawObject::updateVBWithTestArtHighlight(MapObject *pMapObj, CameraClass* c
 	}
 
 }
-
 
 /** Transform a 3D Coordinate into 2D screen space **/
 // MLL C&C3
@@ -2054,7 +2027,6 @@ void DrawObject::setRampFeedbackParms(const Coord3D *start, const Coord3D *end, 
 	m_rampWidth = rampWidth;
 
 }
-
 
 // This routine fails to draw poly triggers in some cases when optimized.
 // So just shut it off for now.  The failure case was new doc, add a poly trigger.
@@ -2299,7 +2271,6 @@ if (pMapObj->isSelected()) {
 		}
 	}
 
-
  	if (BuildListTool::isActive()) for (i=0; i<TheSidesList->getNumSides(); i++) {
 		SidesInfo *pSide = TheSidesList->getSideInfo(i);
 		for (BuildListInfo *pBuild = pSide->getBuildList(); pBuild; pBuild = pBuild->getNext()) {
@@ -2362,8 +2333,6 @@ if (pMapObj->isSelected()) {
 		}
 	}
 
-
-
 #if 1
 	if (m_meshFeedback) {
 		updateMeshVB();
@@ -2416,7 +2385,6 @@ if (pMapObj->isSelected()) {
 
 	DX8Wrapper::Set_Vertex_Buffer(NULL);	//release reference to vertex buffer
 	DX8Wrapper::Set_Index_Buffer(NULL,0);	//release reference to vertex buffer
-
 
 	if (m_ambientSoundFeedback) {
 		updateAmbientSoundVB();
@@ -2505,7 +2473,6 @@ void BuildRectFromSegmentAndWidth(const Coord3D* start, const Coord3D* end, Real
 	Coord3D tl = { end->x + unitVec.X, end->y + unitVec.Y, end->z + unitVec.Z };
 	Coord3D br = { start->x - unitVec.X, start->y - unitVec.Y, start->z - unitVec.Z };
 	Coord3D tr = { end->x - unitVec.X, end->y - unitVec.Y, end->z - unitVec.Z };
-
 
 	// 5)
 	(*outBL) = bl;

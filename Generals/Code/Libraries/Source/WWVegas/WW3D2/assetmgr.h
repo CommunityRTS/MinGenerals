@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -109,7 +108,6 @@ public:
 	virtual int						Current_Item_Class_ID(void) = 0;
 };
 
-
 /*
 
 	WW3DAssetManager
@@ -178,7 +176,6 @@ public:
 	code only seems to be used by tools such as SView but is needed anyway...
 
 */
-
 
 class WW3DAssetManager
 {

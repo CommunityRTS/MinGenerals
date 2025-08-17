@@ -79,7 +79,6 @@ public:
 	void drawWaypoints(RenderInfoClass &rinfo);
 	void freeWaypointBuffers();
 
-
 private:
   void setDefaultLineStyle();
 

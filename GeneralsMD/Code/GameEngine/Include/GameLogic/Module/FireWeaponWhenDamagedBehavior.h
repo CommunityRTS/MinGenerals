@@ -71,7 +71,6 @@ public:
 		m_damageAmount = 0;
 	}
 
-
 	static void buildFieldParse(MultiIniFieldParse& p)
 	{
 		static const FieldParse dataFieldParse[] =
@@ -94,7 +93,6 @@ public:
 		p.add(dataFieldParse);
 		p.add(UpgradeMuxData::getFieldParse(), offsetof( FireWeaponWhenDamagedBehaviorModuleData, m_upgradeMuxData ));
 	}
-
 
 private:
 

@@ -35,7 +35,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #ifndef VXL_H
 #define VXL_H
 
@@ -56,7 +55,6 @@
 #ifndef PROGRESS_H
 #include "progress.h"
 #endif
-
 
 /*
 	This class is used to compute approximate physical properties of a polygon
@@ -139,6 +137,5 @@ private:
 	// returns the position of the center of voxel(i,j,k)
 	Point3 Voxel_Position(int i,int j,int k);
 };
-
 
 #endif /*VXL_H*/

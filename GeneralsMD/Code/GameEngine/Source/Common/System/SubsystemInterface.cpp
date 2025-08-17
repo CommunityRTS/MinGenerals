@@ -58,7 +58,6 @@ m_dumpDraw(false)
 	}
 }
 
-
 SubsystemInterface::~SubsystemInterface()
 {
 	if (TheSubsystemList) {
@@ -121,7 +120,6 @@ void SubsystemInterface::DRAW(void)
 
 }
 #endif
-
 
 //-----------------------------------------------------------------------------
 SubsystemInterfaceList::SubsystemInterfaceList()

@@ -97,7 +97,6 @@ class W3DPropBuffer : Snapshot
 {
 friend class BaseHeightMapRenderObjClass;
 
-
 public:
 
 	W3DPropBuffer(void);

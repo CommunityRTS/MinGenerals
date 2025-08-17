@@ -41,19 +41,16 @@
  *   _gen_lod_ext_dialog_proc -- windows dialog proc                                           *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "genlodextensiondialog.h"
 #include "dllmain.h"
 #include "resource.h"
 #include <Max.h>
-
 
 /**********************************************************************************************
 **
 ** GenLodExtensionDialogClass Implementation
 **
 **********************************************************************************************/
-
 
 /***********************************************************************************************
  * GenLodExtensionDialogClass::GenLodExtensionDialogClass -- Constructor                       *
@@ -74,7 +71,6 @@ GenLodExtensionDialogClass::GenLodExtensionDialogClass(Interface * maxinterface)
 {
 }
 
-
 /***********************************************************************************************
  * GenLodExtensionDialogClass::~GenLodExtensionDialogClass -- Destructor                       *
  *                                                                                             *
@@ -91,7 +87,6 @@ GenLodExtensionDialogClass::~GenLodExtensionDialogClass(void)
 {
 	ReleaseISpinner(LodIndexSpin);
 }
-
 
 /***********************************************************************************************
  * GenLodExtensionDialogClass::Get_Options -- Presents the dialog, gets user input             *
@@ -125,7 +120,6 @@ bool GenLodExtensionDialogClass::Get_Options(OptionsStruct * options)
 		return false;
 	}
 }
-
 
 /***********************************************************************************************
  * GenLodExtensionDialogClass::Dialog_Proc -- Windows message handling                         *
@@ -174,7 +168,6 @@ bool GenLodExtensionDialogClass::Dialog_Proc(HWND hWnd,UINT message,WPARAM wPara
 	return 0;
 }
 
-
 /***********************************************************************************************
  * _gen_lod_ext_dialog_proc -- windows dialog proc                                             *
  *                                                                                             *
@@ -202,7 +195,4 @@ static BOOL CALLBACK _gen_lod_ext_dialog_proc(HWND hwnd,UINT message,WPARAM wpar
 		return FALSE;
 	}
 }
-
-
-
 

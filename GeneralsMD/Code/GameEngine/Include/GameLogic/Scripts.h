@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 // Scripts.h
 // Script data structures.
 // Author: John Ahlquist, November 2001
@@ -87,7 +86,6 @@ class DataChunkOutput;
 // rudimentary support is enabled. jkmcd
 	#define MORE_COMPLEX_SKIRMISH_SCRIPTS
 #endif
-
 
 // There is undoubtedly a more sophisticated way to do this, but for some reason my brain hurts.
 // The corresponding UnsignedInt values that we pass around are:

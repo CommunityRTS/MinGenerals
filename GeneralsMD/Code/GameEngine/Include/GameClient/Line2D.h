@@ -35,7 +35,6 @@
 typedef std::vector<ICoord2D> Coord2DVector;
 typedef std::vector<ICoord3D> Coord3DVector;
 
-
 // PROTOTYPES /////////////////////////////////////////////////////////////////////////////////////
 extern Bool ClipLine2D( ICoord2D *p1, ICoord2D *p2, ICoord2D *c1, ICoord2D *c2,
 												IRegion2D *clipRegion );
@@ -66,7 +65,6 @@ extern Bool PointInsideRect3D( const Coord3D *bl, const Coord3D *tl,
 															 const Coord3D *br, const Coord3D *tr,
 															 const Coord3D *inputPoint);
 
-
 ///< This function will take the ptToTest and will perform even-odd checking against the area.
 ///< If the area is not closed, it will be closed for this check.
 extern Bool PointInsideArea2D( const Coord2D *ptToTest,
@@ -85,7 +83,6 @@ extern Bool PointInsideArea2D( const Coord3D *ptToTest,
 ///< outU will return the U value determined. This is a shortcut for panning
 extern void ShortestDistancePointToSegment2D( const Coord2D *a, const Coord2D *b, const Coord2D *pt,
 																							Real *outDistance, Coord2D *outPosition, Real *outU );
-
 
 #endif // __LINE2D_H_
 

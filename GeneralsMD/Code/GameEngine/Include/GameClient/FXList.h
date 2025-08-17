@@ -160,10 +160,7 @@ public:
 
 	}
 
-
-
 protected:
-
 
 	/**
 		The main guts of the system: actually perform the sound and/or video effects

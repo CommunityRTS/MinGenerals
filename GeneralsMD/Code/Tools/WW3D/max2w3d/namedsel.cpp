@@ -35,9 +35,7 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "namedsel.h"
-
 
 NamedSelSetList::~NamedSelSetList()
 {
@@ -106,7 +104,6 @@ NamedSelSetList& NamedSelSetList::operator=(NamedSelSetList& from)
 	return *this;
 }
 
-
 int NamedSelSetList::Find_Set(TSTR &setname)
 {
 	for (int i=0; i<Names.Count(); i++) {
@@ -116,7 +113,6 @@ int NamedSelSetList::Find_Set(TSTR &setname)
 	}
 	return -1;
 }
-
 
 IOResult NamedSelSetList::Save(ISave *isave)
 {
@@ -139,7 +135,6 @@ IOResult NamedSelSetList::Save(ISave *isave)
 	}
 	return IO_OK;
 }
-
 
 IOResult NamedSelSetList::Load(ILoad *iload)
 {

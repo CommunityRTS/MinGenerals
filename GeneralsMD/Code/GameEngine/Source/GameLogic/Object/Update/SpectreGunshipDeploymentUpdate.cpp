@@ -62,13 +62,11 @@
 #include "GameLogic\Module\AIUpdate.h"
 #include "GameLogic\Module\ContainModule.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -81,7 +79,6 @@ SpectreGunshipDeploymentUpdateModuleData::SpectreGunshipDeploymentUpdateModuleDa
 
 }
 
-
 static const char* TheGunshipCreateLocTypeNames[] =
 {
 	"CREATE_AT_EDGE_NEAR_SOURCE",
@@ -90,8 +87,6 @@ static const char* TheGunshipCreateLocTypeNames[] =
 	"CREATE_AT_EDGE_FARTHEST_FROM_TARGET",
 	NULL
 };
-
-
 
 static Real zero = 0.0f;
 //-------------------------------------------------------------------------------------------------
@@ -175,7 +170,6 @@ Bool SpectreGunshipDeploymentUpdate::initiateIntentToDoSpecialPower(const Specia
     newGunship = NULL;
   }
 
-
   // Lets make a gunship, since we have none.
 	{
 		newGunship = TheThingFactory->newObject( gunshipTemplate, getObject()->getTeam() );
@@ -205,9 +199,6 @@ Bool SpectreGunshipDeploymentUpdate::initiateIntentToDoSpecialPower(const Specia
 			  creationCoord = TheTerrainLogic->findFarthestEdgePoint(targetPos);
 			  break;
 	  }
-
-
-
 
       // HERE WE NEED TO CREATE THE POINT FURTHER OFF THE MAP SO WE CANT SEE THE LAME HOVER AND ACCELLERATE BEHAVIOR
     Coord3D deltaToCreationPoint = m_initialTargetPosition;
@@ -244,9 +235,7 @@ Bool SpectreGunshipDeploymentUpdate::initiateIntentToDoSpecialPower(const Specia
 
     TheGameLogic->selectObject( newGunship, TRUE, getObject()->getControllingPlayer()->getPlayerMask(), TRUE );
 
-
   }
-
 
 	SpecialPowerModuleInterface *spmInterface = getObject()->getSpecialPowerModule( specialPowerTemplate );
 	if( spmInterface )
@@ -258,16 +247,12 @@ Bool SpectreGunshipDeploymentUpdate::initiateIntentToDoSpecialPower(const Specia
   return TRUE;
 }
 
-
-
-
 //-------------------------------------------------------------------------------------------------
 /** The update callback. */
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SpectreGunshipDeploymentUpdate::update()
 {
 //	const SpectreGunshipDeploymentUpdateModuleData *data = getSpectreGunshipDeploymentUpdateModuleData();
-
 
 	Object *me = getObject();
 	// Abort conditions.
@@ -282,15 +267,6 @@ UpdateSleepTime SpectreGunshipDeploymentUpdate::update()
 	return UPDATE_SLEEP_NONE;
 
 }
-
-
-
-
-
-
-
-
-
 
 // ------------------------------------------------------------------------------------------------
 /** CRC */

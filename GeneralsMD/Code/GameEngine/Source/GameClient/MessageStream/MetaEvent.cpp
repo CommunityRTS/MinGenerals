@@ -52,9 +52,7 @@
 
 #include "GameLogic/GameLogic.h" // for TheGameLogic->getFrame()
 
-
 #define dont_DUMP_ALL_KEYS_TO_LOG
-
 
 #ifdef DUMP_ALL_KEYS_TO_LOG
 #include "GameClient\Keyboard.h"
@@ -67,7 +65,6 @@ MetaMap *TheMetaMap = NULL;
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
 
 // DEFINES ////////////////////////////////////////////////////////////////////
 
@@ -306,7 +303,6 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEMO_VTUNE_OFF",														GameMessage::MSG_META_DEBUG_VTUNE_OFF },
 	/// End VTUNE
 
-
 	//lorenzen's feather water
 	{ "DEMO_TOGGLE_FEATHER_WATER",								GameMessage::MSG_META_DEBUG_TOGGLE_FEATHER_WATER },
 
@@ -335,7 +331,6 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEBUG_SLEEPY_UPDATE_PERFORMANCE",					GameMessage::MSG_META_DEBUG_SLEEPY_UPDATE_PERFORMANCE },
 #endif // defined(_DEBUG) || defined(_INTERNAL)
 
-
 #if defined(_INTERNAL) || defined(_DEBUG)
 	{ "DEMO_TOGGLE_AUDIODEBUG",										GameMessage::MSG_META_DEMO_TOGGLE_AUDIODEBUG },
 #endif//defined(_INTERNAL) || defined(_DEBUG)
@@ -343,10 +338,8 @@ static const LookupListRec GameMessageMetaTypeNames[] =
 	{ "DEMO_PERFORM_STATISTICAL_DUMP",						GameMessage::MSG_META_DEMO_PERFORM_STATISTICAL_DUMP },
 #endif//DUMP_PERF_STATS
 
-
 	{ NULL, 0	}// keep this last!
 };
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // PRIVATE DATA ///////////////////////////////////////////////////////////////////////////////////
@@ -378,7 +371,6 @@ MetaEventTranslator::MetaEventTranslator() :
 	for (Int i = 0; i < NUM_MOUSE_BUTTONS; ++i) {
 		m_nextUpShouldCreateDoubleClick[i] = FALSE;
 	}
-
 
 }
 
@@ -428,7 +420,6 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 			newModState |= ALT;
 		}
 
-
     for (const MetaMapRec *map = TheMetaMap->getFirstMetaMapRec(); map; map = map->m_next)
 		{
 			DEBUG_ASSERTCRASH(map->m_meta > GameMessage::MSG_BEGIN_META_MESSAGES &&
@@ -452,10 +443,6 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 			// if the shell is not active and this command is not usable in the game, continue
 			if (TheShell && !TheShell->isShellActive() && !(map->m_usableIn & COMMANDUSABLE_GAME) )
 				continue;
-
-
-
-
 
 			// check for the special case of mods-only-changed.
 			if (
@@ -513,7 +500,6 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 			      break;
 		      }
 
-
 					/*GameMessage *metaMsg =*/ TheMessageStream->appendMessage(map->m_meta);
 					//DEBUG_LOG(("Frame %d: MetaEventTranslator::translateGameMessage() normal: %s\n", TheGameLogic->getFrame(), findGameMessageNameByType(map->m_meta)));
 				}
@@ -522,12 +508,9 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 			}
 		}
 
-
-
 		if (t == GameMessage::MSG_RAW_KEY_DOWN)
     {
 			m_lastKeyDown = key;
-
 
 #ifdef DUMP_ALL_KEYS_TO_LOG
 
@@ -541,11 +524,8 @@ GameMessageDisposition MetaEventTranslator::translateGameMessage(const GameMessa
 
     }
 
-
-
     m_lastModState = newModState;
 	}
-
 
 	if (t > GameMessage::MSG_RAW_MOUSE_BEGIN && t < GameMessage::MSG_RAW_MOUSE_END )
 	{

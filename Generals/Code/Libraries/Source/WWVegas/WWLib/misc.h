@@ -79,7 +79,6 @@ void Set_Palette(void const * palette);
 */
 extern	void (*Audio_Focus_Loss_Function)(void);
 
-
 /*
  *  Flags returned by Get_Video_Hardware_Capabilities
  */
@@ -127,7 +126,6 @@ void Prog_End(void);
 void Delay(int duration);
 void Vsync(void);
 
-
 /*========================= Assembly Routines ==============================*/
 
 #ifdef __cplusplus
@@ -154,8 +152,6 @@ extern int __cdecl Clip_Rect ( int * x , int * y , int * dw , int * dh ,
 	       	   			 int width , int height ) ;
 extern int __cdecl Confine_Rect ( int * x , int * y , int dw , int dh ,
 	      	      			 int width , int height ) ;
-
-
 
 /*=========================================================================*/
 /* The following prototypes are for the file: OPSYS.ASM							*/

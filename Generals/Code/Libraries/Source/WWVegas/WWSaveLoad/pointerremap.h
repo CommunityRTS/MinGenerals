@@ -34,11 +34,9 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
 
 #ifndef POINTERREMAP_H
 #define POINTERREMAP_H
@@ -51,7 +49,6 @@
 #include "vector.h"
 
 class RefCountClass;
-
 
 class PointerRemapClass
 {
@@ -110,6 +107,5 @@ class PointerRemapClass
 		DynamicVectorClass<PtrRemapStruct>	PointerRequestTable;
 		DynamicVectorClass<PtrRemapStruct>	RefCountRequestTable;
 };
-
 
 #endif

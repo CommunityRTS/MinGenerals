@@ -85,7 +85,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //Put on ice until later M Lorenzen
 //static UnsignedByte s_cheaterHasBeenSpied = 0;
 
@@ -130,7 +129,6 @@ void GameGetColorComponentsReal( Color color, Real *red, Real *green, Real *blue
 	*blue		= (color & 0x000000FF) / 255.0f;
 }
 
-
 Color GameDarkenColor( Color color, Int percent )
 {
 	// if they try to go to dark, just return their old color
@@ -147,9 +145,6 @@ Color GameDarkenColor( Color color, Int percent )
 //  TheWritableGlobalData->m_cheaterHasBeenSpiedIfMyLowestBitIsTrue = (r<<24) | (g<<16) | (b<<8) | s_cheaterHasBeenSpied;
 //  DEBUG_ASSERTCRASH( TheWritableGlobalData->m_cheaterHasBeenSpiedIfMyLowestBitIsTrue == FALSE, ("DIRTY ROTTEN CHEATER"));
 //  //my, but this looks like we just stored an alpha value along with rgb into the global data
-
-
-
 
 	return GameMakeColor(r,g,b,a);
 

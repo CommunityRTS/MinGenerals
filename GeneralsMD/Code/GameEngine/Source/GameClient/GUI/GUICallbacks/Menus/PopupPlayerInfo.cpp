@@ -94,7 +94,6 @@ static Bool raiseMessageBox = false;
 static Int lookAtPlayerID = 0;
 static std::string lookAtPlayerName;
 
-
 static const char *rankNames[] = {
 	"Private",
 	"Corporal",
@@ -107,7 +106,6 @@ static const char *rankNames[] = {
 	"Brigadier",
 	"Commander",
 };
-
 
 static const Image* lookupRankImage(AsciiString side, Int rank)
 {
@@ -135,7 +133,6 @@ static const Image* lookupRankImage(AsciiString side, Int rank)
 	DEBUG_ASSERTCRASH( img, ("Could not load rank image: %s", fullImageName.str()));
 	return img;
 }
-
 
 static Int getTotalDisconnectsFromFile(Int playerID)
 {
@@ -665,7 +662,6 @@ static void populateBattleHonors(const PSPlayerStats& stats, Int battleHonors, I
 		BATTLE_HONOR_LOYALTY_GLA, row, column);
 		*/
 
-
 	//insertBattleHonor(list, TheMappedImageCollection->findImageByName("Endurance"), BitTest(battleHonors, BATTLE_HONOR_ENDURANCE),
 		//BATTLE_HONOR_ENDURANCE, row, column);
 
@@ -796,7 +792,6 @@ Int CalculateRank( const PSPlayerStats& stats )
 	rankPoints = max(0, rankPoints); // clip off negative values, since discons can push us below 0.
 
 	return rankPoints;
-
 
 }
 
@@ -1104,8 +1099,6 @@ void PopulatePlayerInfoWindows( AsciiString parentWindowName )
 	}
 }
 
-
-
 void HandlePersistentStorageResponses( void )
 {
 	if (TheGameSpyPSMessageQueue)
@@ -1355,7 +1348,6 @@ void GameSpyPlayerInfoOverlayShutdown( WindowLayout *layout, void *userData )
 	isOverlayActive = false;
 }  // GameSpyPlayerInfoOverlayShutdown
 
-
 //-------------------------------------------------------------------------------------------------
 /** Overlay update method */
 //-------------------------------------------------------------------------------------------------
@@ -1423,7 +1415,6 @@ WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, Unsigne
 
 	switch( msg )
 	{
-
 
 		case GWM_CREATE:
 			{

@@ -106,5 +106,4 @@ protected:
 
 };
 
-
 #endif  // end __JET_SLOW_DEATH_BEHAVIOR_H_

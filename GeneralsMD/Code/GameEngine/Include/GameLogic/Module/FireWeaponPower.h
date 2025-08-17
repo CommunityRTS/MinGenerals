@@ -66,7 +66,6 @@ public:
 	UnsignedInt m_maxShotsToFire;
 };
 
-
 //-------------------------------------------------------------------------------------------------
 class FireWeaponPower : public SpecialPowerModule
 {

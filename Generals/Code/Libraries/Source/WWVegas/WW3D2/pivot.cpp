@@ -42,7 +42,6 @@
 #include "wwmath.h"
 #include <string.h>
 
-
 /***********************************************************************************************
  * PivotClass::PivotClass -- Constructor for PivotClass                                        *
  *                                                                                             *

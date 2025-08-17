@@ -46,8 +46,6 @@
 #ifndef __LOCALFILE_H
 #define __LOCALFILE_H
 
-
-
 //----------------------------------------------------------------------------
 //           Includes
 //----------------------------------------------------------------------------
@@ -66,7 +64,6 @@
 //----------------------------------------------------------------------------
 //           Forward References
 //----------------------------------------------------------------------------
-
 
 //----------------------------------------------------------------------------
 //           Type Defines
@@ -99,7 +96,6 @@ class LocalFile : public File
 		LocalFile();
 		//virtual				~LocalFile();
 
-
 		virtual Bool	open( const Char *filename, Int access = 0 );				///< Open a file for access
 		virtual void	close( void );																			///< Close the file
 		virtual Int		read( void *buffer, Int bytes );										///< Read the specified number of bytes in to buffer: See File::read
@@ -121,12 +117,8 @@ class LocalFile : public File
 
 };
 
-
-
-
 //----------------------------------------------------------------------------
 //           Inlining
 //----------------------------------------------------------------------------
-
 
 #endif // __LOCALFILE_H

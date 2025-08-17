@@ -68,7 +68,6 @@ static const char *TheSlowDeathPhaseNames[] =
 };
 #endif
 
-
 //-------------------------------------------------------------------------------------------------
 class SlowDeathBehaviorModuleData : public UpdateModuleData
 {

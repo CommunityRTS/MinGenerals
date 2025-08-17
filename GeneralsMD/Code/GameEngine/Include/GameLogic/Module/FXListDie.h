@@ -128,9 +128,7 @@ protected:
 
 	virtual Bool isSubObjectsUpgrade() { return false; }
 
-
 };
-
 
 #endif // __FXListDie_H_
 

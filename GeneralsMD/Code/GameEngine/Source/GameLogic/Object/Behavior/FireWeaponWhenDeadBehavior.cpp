@@ -60,7 +60,6 @@ const Int MAX_IDX = 32;
 const Real BEGIN_MIDPOINT_RATIO = 0.35f;
 const Real END_MIDPOINT_RATIO = 0.65f;
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 FireWeaponWhenDeadBehavior::FireWeaponWhenDeadBehavior( Thing *thing, const ModuleData* moduleData ) :
@@ -97,7 +96,6 @@ void FireWeaponWhenDeadBehavior::onDie( const DamageInfo *damageInfo )
 	// a one hitpoint one percent building will too.
 	if( obj->getStatusBits().test( OBJECT_STATUS_UNDER_CONSTRUCTION ) )
 		return;
-
 
 	UpgradeMaskType activation, conflicting;
 	getUpgradeActivationMasks( activation, conflicting );

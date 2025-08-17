@@ -35,7 +35,6 @@
  *   nstrdup -- duplicates a string using new[]                            *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "always.h"
 #include "string.h"
 #include "nstrdup.h"
@@ -62,5 +61,4 @@ char * nstrdup(const char *str)
 	strcpy(retval, str);
 	return retval;
 }
-
 

@@ -27,7 +27,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // SaveMap dialog
 
-
 SaveMap::SaveMap(TSaveMapInfo *pInfo, CWnd* pParent /*=NULL*/)
 	: CDialog(SaveMap::IDD, pParent),
 	m_pInfo(pInfo)
@@ -43,7 +42,6 @@ SaveMap::SaveMap(TSaveMapInfo *pInfo, CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void SaveMap::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -51,7 +49,6 @@ void SaveMap::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(SaveMap, CDialog)
 	//{{AFX_MSG_MAP(SaveMap)

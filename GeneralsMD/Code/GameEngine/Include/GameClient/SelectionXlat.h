@@ -61,8 +61,6 @@ private:
 	Bool selectFriends( Drawable *draw, GameMessage *createTeamMsg, Bool dragSelecting );
 	Bool killThemKillThemAll( Drawable *draw, GameMessage *killThemAllMsg );
 
-
-
 public:
 	SelectionTranslator();
 	~SelectionTranslator();

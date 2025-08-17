@@ -49,7 +49,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 #include <wpaudio/altypes.h>
 #include <wpaudio/cache.h>
 #include <wpaudio/events.h>
@@ -70,8 +69,6 @@ DBG_DECLARE_TYPE ( AudioEventHandle )
 /*****************************************************************************
 **          Externals                                                       **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **           Defines                                                        **
@@ -112,7 +109,6 @@ typedef enum
 
 } AudioEventState;
 
-
 struct AudioEventClassTag
 {
 	ListNode								nd;
@@ -134,8 +130,6 @@ struct AudioEventClassTag
 
 	AudioAttribs						*fadeAttribs;			//	Fader to use for this event
 	AudioAttribs						*masterAttribs;		//	Master control to use for this event
-
-
 
 	ListHead								local;						//	local events list
 	int											lastFrame;				//	id of the last frame the local list was sorted
@@ -217,7 +211,6 @@ struct AudioEventTag
 	DBG_TYPE ()
 
 };
-
 
 typedef struct EClassBucketTag
 {
@@ -591,7 +584,6 @@ static int todAdjustEnd( AudioEvent *event )
 /*                                                                */
 /******************************************************************/
 
-
 static int eventLoadSchedule( AudioEvent *event )
 {
 	AudioEventClass		*eclass;
@@ -672,7 +664,6 @@ static int eventLoadSchedule( AudioEvent *event )
 		item_ndx = event->loadSequence[ event->loadNdx ];
 		event->loadNdx++;
 	}
-
 
 	return item_ndx;
 }
@@ -907,7 +898,6 @@ static	int	audioEventSampleDone ( AudioChannel *chan )
 {
 	AudioEvent *event = (AudioEvent *) chan->Data;
 	AudioEventState new_state;
-
 
 	DBG_ASSERT_TYPE ( event, AudioEvent );
 
@@ -1198,7 +1188,6 @@ static AudioChannel*	audioPrepareChannel ( int pri, int flags )
 {
 	AudioChannel		*chan = NULL;
 
-
 	if ( audioDevice && ( chan = AudioDeviceGetChannel( audioDevice, AUDIO_CHANNEL_TYPE_STD )))
 	{
 		if ( !(chan->Control.Status & (mAUDIO_CTRL_PLAYING|mAUDIO_CTRL_PAUSED|mAUDIO_CTRL_INUSE) ) || chan->Control.Priority <= pri )
@@ -1251,7 +1240,6 @@ static int		audioEventPrep ( AudioEvent *event )
 {
 	AudioEventClass	*eclass;
 
-
 	DBG_ASSERT_TYPE ( event, AudioEvent );
 
 	eclass = event->eclass;
@@ -1284,7 +1272,6 @@ static int		audioEventPrep ( AudioEvent *event )
 
 	event->channel->FadeAttribs = eclass->fadeAttribs;
 	event->channel->GroupAttribs = eclass->masterAttribs;
-
 
 	if ( eclass->maxDelay > EVENT_MIN_DELAY )
 	{
@@ -1319,7 +1306,6 @@ static int audioEventStart ( AudioEvent *event )
 
 	DBG_MSGASSERT ( event->state == AUDIO_EVENT_START_PLAYING, ("event in a bad state"));
 	DBG_MSGASSERT ( !AudioEventIsPaused(event), ("trying to start a paused event"));
-
 
 	if ( event != (AudioEvent *)event->channel->Data )
 	{
@@ -1411,7 +1397,6 @@ int AudioEventSetUp( AudioDevice *device, AudioCache *cache )
 
 	AudioEventsCount = AudioEventsPeak = 0;
 
-
 	initialized = TRUE;
 	eventsOn = TRUE;
 	eventsOK = FALSE;
@@ -1421,7 +1406,6 @@ int AudioEventSetUp( AudioDevice *device, AudioCache *cache )
 	{
 		return FALSE;
 	}
-
 
 	audioEventPool = MemoryPoolCreate ( MAX_EVENTS, sizeof ( AudioEvent ) );
 	DBGPRINTF (( "event mempool size = %d\n", MAX_EVENTS * sizeof (AudioEvent )));
@@ -1472,7 +1456,6 @@ void AudioEventCloseDown( void )
 	initialized = FALSE;
 }
 
-
 /******************************************************************/
 /*                                                                */
 /*                                                                */
@@ -1493,7 +1476,6 @@ void				AudioServiceAllEvents ( void )
 	}
 
 	in = TRUE;
-
 
 	#ifndef IG_FINAL_RELEASE
 	{
@@ -1695,11 +1677,9 @@ void				AudioServiceAllEvents ( void )
 		event = next;
 	}
 
-
 //	DBGPRINTF (("compression = %3d (%5d) - active events = %3d of %3d; preped = %3d\n",
 //					(AudioAttribsGetVolume ( &audioCompressionAttribs ) *100) /AUDIO_LEVEL_MAX,
 //					loudness,	activeEvents, processedEvents, prepedEvents));
-
 
 	in = FALSE;
 }
@@ -1712,7 +1692,6 @@ void				AudioServiceAllEvents ( void )
 void				AudioKillAllEvents ( void )
 {
 	AudioEvent	*event, *next, *head;
-
 
 	if ( !initialized )
 	{
@@ -1733,7 +1712,6 @@ void				AudioKillAllEvents ( void )
 		event = next;
 	}
 
-
 }
 
 /******************************************************************/
@@ -1744,7 +1722,6 @@ void				AudioKillAllEvents ( void )
 void				AudioPauseAllEvents ( void )
 {
 	AudioEvent	*event, *head;
-
 
 	if ( !initialized )
 	{
@@ -1771,7 +1748,6 @@ void				AudioResumeAllEvents ( void )
 {
 	AudioEvent	*event, *head;
 
-
 	if ( !initialized )
 	{
 		return;
@@ -1796,7 +1772,6 @@ void				AudioResumeAllEvents ( void )
 void				AudioFlushAllDeadEvents ( void )
 {
 	AudioEvent	*event, *next, *head;
-
 
 	if ( !initialized )
 	{
@@ -1945,7 +1920,6 @@ AudioEvent	*AudioEventCreate ( AudioEventClass	*eclass )
 	}
 
 	DBG_ASSERT_TYPE ( eclass, AudioEventClass );
-
 
 	if ( !eclass->valid )
 	{
@@ -2143,8 +2117,6 @@ void				AudioEventService ( AudioEvent *event )
 		event->state = AUDIO_EVENT_DONE;
 	}
 
-
-
 retry:
 
 	switch ( event->state )
@@ -2184,7 +2156,6 @@ retry:
 			do_ending:
 
 				AudioChannel *chan = event->channel;
-
 
 				if ( chan )
 				{
@@ -2242,7 +2213,6 @@ retry:
 
 		default:
 			DBG_MSGASSERT ( FALSE, ("bad event type"));
-
 
 	}
 }
@@ -2326,7 +2296,6 @@ void				AudioEventHandleStopLooping ( AudioEventHandle *handle )
 
 }
 
-
 /******************************************************************/
 /*                                                                */
 /*                                                                */
@@ -2406,7 +2375,6 @@ void				AudioEventHandleSet ( AudioEventHandle *handle, AudioEvent *event, Audio
 AudioEvent*	AudioEventHandleGet ( AudioEventHandle *handle )
 {
 	AudioEvent *event;
-
 
 	DBG_ASSERT_TYPE ( handle, AudioEventHandle );
 
@@ -2510,7 +2478,6 @@ void			AudioEventSetPan ( AudioEvent *event, int new_pan )
 
 	DBG_ASSERT_TYPE ( event, AudioEvent );
 
-
 	AudioLevelSet ( &event->attribs.PanPosition, eventCalcPan ( new_pan ) );
 }
 
@@ -2583,8 +2550,6 @@ void						AudioEventSetTimeOfDay ( AudioEvent *event, int new_tod )
 	DBG_ASSERT_TYPE ( event, AudioEvent );
 	event->timeOfDay = new_tod;
 }
-
-
 
 /******************************************************************/
 /*                                                                */
@@ -2726,7 +2691,6 @@ AudioEventClass *AudioEventClassCreate ( void )
 		return NULL;
 	}
 
-
 	ALLOC_STRUCT ( eclass, AudioEventClass );
 
 	audioInitEventClass ( eclass );
@@ -2841,7 +2805,6 @@ void						AudioEventClassSetNightSoundCount( AudioEventClass *eclass, int count 
 	msg_assert ( count >= 0,("Night Sound count must be positive")  );
 	eclass->nightCount = count;
 }
-
 
 /******************************************************************/
 /*                                                                */
@@ -3014,7 +2977,6 @@ void	AudioEventClassReset ( AudioEventClass *eclass )
 	AudioAttribs *fadeAttribs;
 	AudioAttribs *masterAttribs;
 
-
 	// save fields that do not change
 	nd = eclass->nd;
 	name = eclass->name;
@@ -3065,8 +3027,6 @@ int	AudioEventClassNeverEnds ( AudioEventClass *eclass )
 
 	return ((eclass->control & AUDIO_EVENT_CTRL_LOOP) && !eclass->limitLoop);
 }
-
-
 
 /******************************************************************/
 /*                                                                */
@@ -3128,5 +3088,4 @@ void					AudioFlushCache ( void )
 		while ( AudioCacheFreeOldestItem( audioCache ) );
 	}
 }
-
 

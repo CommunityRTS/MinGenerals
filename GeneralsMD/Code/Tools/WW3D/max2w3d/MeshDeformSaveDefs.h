@@ -110,5 +110,4 @@ struct DeformDataChunk
 	uint32					reserved[2];
 };
 
-
 #endif //__MESH_DEFORM_SAVE_DEFS_H

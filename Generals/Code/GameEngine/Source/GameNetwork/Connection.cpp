@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
 #include "GameNetwork/Connection.h"
@@ -149,7 +148,6 @@ void Connection::sendNetCommandMsg(NetCommandMsg *msg, UnsignedByte relay) {
 	if (packet == NULL) {
 		packet = newInstance(NetPacket);
 	}
-
 
 	if (m_isQuitting)
 		return;

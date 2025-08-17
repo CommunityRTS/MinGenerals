@@ -44,7 +44,6 @@
 */
 DEFINE_AUTO_POOL(MultiListNodeClass, 256);
 
-
 /***********************************************************************************************
 
   MultiListObjectClass Implementation.
@@ -57,7 +56,6 @@ MultiListObjectClass::~MultiListObjectClass(void)
 		ListNode->List->Internal_Remove(this);
 	}
 }
-
 
 /***********************************************************************************************
 
@@ -239,7 +237,4 @@ MultiListObjectClass * GenericMultiListClass::Internal_Remove_List_Head(void)
 	// here you go.
 	return obj;
 }
-
-
-
 

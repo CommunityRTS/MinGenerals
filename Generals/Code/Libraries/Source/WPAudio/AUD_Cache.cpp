@@ -58,15 +58,12 @@
 // 'assignment within condition expression'.
 #pragma warning(disable : 4706)
 
-
 DBG_DECLARE_TYPE ( AudioCache );
 DBG_DECLARE_TYPE ( AudioCacheItem );
 
 /*****************************************************************************
 **          Externals                                                       **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **           Defines                                                        **
@@ -78,24 +75,17 @@ DBG_DECLARE_TYPE ( AudioCacheItem );
 **        Private Types                                                     **
 *****************************************************************************/
 
-
 /*****************************************************************************
 **         Private Data                                                     **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **         Public Data                                                      **
 *****************************************************************************/
 
-
-
 /*****************************************************************************
 **         Private Prototypes                                               **
 *****************************************************************************/
-
-
 
 /*****************************************************************************
 **          Private Functions                                               **
@@ -162,7 +152,6 @@ int audioCacheAssetRead ( AudioCache *cache, void *data, int bytes )
 		return cache->assetFile ? cache->assetFile->read ( data, bytes ) : 0 ;
 }
 
-
 /*****************************************************************************
 **          Public Functions                                                **
 *****************************************************************************/
@@ -216,7 +205,6 @@ void				AudioCacheDestroy ( AudioCache *cache )
 {
 	AudioCacheItem	*item;
 
-
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
 	while ( ( item = (AudioCacheItem *) ListNodeNext ( &cache->items )) )
@@ -248,7 +236,6 @@ AudioCacheItem*		AudioCacheGetItem ( AudioCache *cache, const char *name )
 {
 	AudioCacheItem	*item, *head;
 
-
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
 	item = head = (AudioCacheItem *) &cache->items ;
@@ -272,7 +259,6 @@ AudioCacheItem*		AudioCacheGetItem ( AudioCache *cache, const char *name )
 void		AudioCacheInvalidate ( AudioCache *cache )
 {
 	AudioCacheItem	*item, *head;
-
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -308,7 +294,6 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 {
 	AudioCacheItem *item;
 	int			error;
-
 
 	DBG_ASSERT_TYPE ( cache, AudioCache );
 
@@ -441,7 +426,6 @@ AudioCacheItem*		AudioCacheLoadItem ( AudioCache *cache, const char *name )
 	//  update the format structure
 	memcpy ( &item->format, &cache->assetFormat, sizeof ( AudioFormat) );
 
-
 	ListNodeAppend ( &cache->items, &item->nd );
 	item->valid = TRUE;
 	audioCacheAssetClose ( cache );
@@ -487,7 +471,6 @@ int				AudioCacheFreeOldestItem( AudioCache *cache )
 	return FALSE;
 }
 
-
 /******************************************************************/
 /*                                                                */
 /*                                                                */
@@ -495,7 +478,6 @@ int				AudioCacheFreeOldestItem( AudioCache *cache )
 
 void				AudioCacheItemLock ( AudioCacheItem *item )
 {
-
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
@@ -511,7 +493,6 @@ void				AudioCacheItemLock ( AudioCacheItem *item )
 void				AudioCacheItemUnlock ( AudioCacheItem *item )
 {
 
-
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
 	LockRelease ( &item->lock );
@@ -525,7 +506,6 @@ void				AudioCacheItemUnlock ( AudioCacheItem *item )
 int				AudioCacheItemInUse ( AudioCacheItem *item )
 {
 
-
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 
 	return Locked ( &item->lock );
@@ -538,7 +518,6 @@ int				AudioCacheItemInUse ( AudioCacheItem *item )
 
 void				AudioCacheItemFree ( AudioCacheItem *item )
 {
-
 
 	DBG_ASSERT_TYPE ( item, AudioCacheItem );
 

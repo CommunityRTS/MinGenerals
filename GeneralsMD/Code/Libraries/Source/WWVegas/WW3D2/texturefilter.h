@@ -61,7 +61,6 @@ enum MipCountType
 	MIP_LEVELS_MAX			// This isn't to be used (use MIP_LEVELS_ALL instead), it is just an enum for creating static tables etc.
 };
 
-
 // NOTE: Since "texture wrapping" (NOT TEXTURE WRAP MODE - THIS IS
 // SOMETHING ELSE) is a global state that affects all texture stages,
 // and this class only affects its own stage, we will not worry about

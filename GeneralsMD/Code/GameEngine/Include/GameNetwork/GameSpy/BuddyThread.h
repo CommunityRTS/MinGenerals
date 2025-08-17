@@ -175,5 +175,4 @@ public:
 
 extern GameSpyBuddyMessageQueueInterface *TheGameSpyBuddyMessageQueue;
 
-
 #endif // __BUDDYTHREAD_H__

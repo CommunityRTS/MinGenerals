@@ -180,7 +180,6 @@ Int ScoreKeeper::getTotalObjectsBuilt( const ThingTemplate *pTemplate )
 	return count;
 }
 
-
 void ScoreKeeper::removeObjectBuilt( const Object *o)
 {
 	if (TheGameLogic->isScoringEnabled() == FALSE) {
@@ -246,8 +245,6 @@ void ScoreKeeper::addObjectCaptured( const Object *o )
 		m_objectsCaptured[o->getTemplate()] = existingCount + 1;
 	}
 }
-
-
 
 void ScoreKeeper::addObjectDestroyed( const Object *o)
 {

@@ -36,7 +36,6 @@
 
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 
-
 // for now we maintain old legacy files
 // #define MAINTAIN_LEGACY_FILES
 
@@ -263,7 +262,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 
 	}  // end if
 
-
 	// We Need to be able to "temporarily copy over the map preview for whichever directory it came from
 	if( m_fileExists == FALSE  && TheGlobalData)
 	{
@@ -295,8 +293,6 @@ char const * GameFileClass::Set_Name( char const *filename )
 		m_fileExists = TheFileSystem->doesFileExist( m_filePath );
 
 	}  // end if
-
-
 
 	return m_filename;
 
@@ -410,7 +406,6 @@ void GameFileClass::Close(void)
 		m_theFile = NULL;
 	}
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // W3DFileSystem Class ////////////////////////////////////////////////////////////////////////////

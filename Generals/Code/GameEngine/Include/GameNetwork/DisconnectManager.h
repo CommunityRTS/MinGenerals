@@ -22,7 +22,6 @@
 //																																						//
 ////////////////////////////////////////////////////////////////////////////////
 
-
 #pragma once
 
 #ifndef __DISCONNECTMANAGER_H
@@ -128,6 +127,5 @@ protected:
 	Int m_pingsRecieved;
 	UnsignedInt m_pingFrame;
 };
-
 
 #endif // #ifndef __DISCONNECTMANAGER_H

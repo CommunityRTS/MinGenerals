@@ -88,7 +88,6 @@ public:
 	virtual Bool shouldExit(const StateMachine* machine) const;
 };
 
-
 // FORWARD DECLARATIONS ///////////////////////////////////////////////////////
 
 //--------------------------------------------------------------------------------------
@@ -237,7 +236,6 @@ private:
 	UnsignedInt m_nextReturnScanTime;
 };
 EMPTY_DTOR(AIGuardReturnState)
-
 
 //--------------------------------------------------------------------------------------
 class AIGuardPickUpCrateState : public AIPickUpCrateState

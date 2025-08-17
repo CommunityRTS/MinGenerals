@@ -46,7 +46,6 @@ RankInfo::~RankInfo()
 {
 }
 
-
 //-----------------------------------------------------------------------------
 RankInfoStore::~RankInfoStore()
 {
@@ -61,7 +60,6 @@ RankInfoStore::~RankInfoStore()
 	}
 	m_rankInfos.clear();
 }
-
 
 //-----------------------------------------------------------------------------
 void RankInfoStore::init()

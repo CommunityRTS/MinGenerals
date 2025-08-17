@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -66,14 +65,11 @@
 #include "proxy.h"
 #endif
 
-
 class DistLODClass;
 class HModelClass;
 class HLodDefClass;
 class HModelDefClass;
 class ProxyArrayClass;
-
-
 
 /*
 
@@ -230,7 +226,6 @@ protected:
 
 protected:
 
-
 	class ModelNodeClass
 	{
 	public:
@@ -283,7 +278,6 @@ protected:
 	float								LODBias;
 };
 
-
 /*
 ** Loaders for HLodClass
 */
@@ -293,7 +287,6 @@ public:
 	virtual int						Chunk_Type (void)  { return W3D_CHUNK_HLOD; }
 	virtual PrototypeClass *	Load_W3D(ChunkLoadClass & cload);
 };
-
 
 /**
 ** HLodDefClass
@@ -362,7 +355,6 @@ private:
 	friend class HLodClass;
 };
 
-
 /*
 ** Prototype for HLod objects
 */
@@ -390,6 +382,5 @@ private:
 ** Instance of the loaders which the asset manager install
 */
 extern HLodLoaderClass			_HLodLoader;
-
 
 #endif

@@ -49,4 +49,3 @@ void INI::parseAIDataDefinition( INI* ini )
 	AI::parseAiDataDefinition(ini);
 }
 
-

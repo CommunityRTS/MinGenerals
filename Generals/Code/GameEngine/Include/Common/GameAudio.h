@@ -49,7 +49,6 @@
 #include "Common/STLTypedefs.h"
 #include "Common/SubsystemInterface.h"
 
-
 // Forward Declarations
 
 class AsciiString;
@@ -59,7 +58,6 @@ class Drawable;
 class MusicManager;
 class Object;
 class SoundManager;
-
 
 enum AudioAffect;
 enum AudioType;
@@ -72,7 +70,6 @@ struct MiscAudio;
 typedef std::hash_map<AsciiString, AudioEventInfo*, rts::hash<AsciiString>, rts::equal_to<AsciiString> > AudioEventInfoHash;
 typedef AudioEventInfoHash::iterator AudioEventInfoHashIt;
 typedef UnsignedInt AudioHandle;
-
 
 // Defines
 enum
@@ -346,7 +343,6 @@ class AudioManager : public SubsystemInterface
 		Real m_systemSound3DVolume;
 		Real m_systemSpeechVolume;
 		Real m_zoomVolume;
-
 
 		AudioEventRTS *m_silentAudioEvent;
 

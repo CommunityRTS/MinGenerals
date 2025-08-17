@@ -40,7 +40,6 @@
 MessageStream *TheMessageStream = NULL;
 CommandList *TheCommandList = NULL;
 
-
 //------------------------------------------------------------------------------------------------
 // GameMessage
 //
@@ -57,7 +56,6 @@ GameMessage::GameMessage( GameMessage::Type type )
 	m_argCount = 0;
 	m_list = 0;
 }
-
 
 /**
  * Destructor
@@ -474,7 +472,6 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
 	CHECK_IF(MSG_META_DEMO_TOGGLE_DEBUG_STATS)
 #endif // defined(_DEBUG) || defined(_INTERNAL)
 
-
 #if defined(_INTERNAL) || defined(_DEBUG) || defined(_PLAYTEST)
 	CHECK_IF(MSG_META_DEMO_TOGGLE_AUDIODEBUG)
 #endif//defined(_INTERNAL) || defined(_DEBUG) || defined(_PLAYTEST)
@@ -635,7 +632,6 @@ AsciiString GameMessage::getCommandTypeAsAsciiString(GameMessage::Type t)
 	return commandName;
 }
 
-
 //------------------------------------------------------------------------------------------------
 // GameMessageList
 //
@@ -751,7 +747,6 @@ Bool GameMessageList::containsMessageOfType( GameMessage::Type type )
 //------------------------------------------------------------------------------------------------
 // MessageStream
 //
-
 
 /**
  * Constructor
@@ -947,7 +942,6 @@ void MessageStream::removeTranslator( TranslatorID id )
 		}
 }
 
-
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
 #if defined(_DEBUG) || defined(_INTERNAL)
@@ -1058,7 +1052,6 @@ void MessageStream::propagateMessages( void )
 		}
 	}
 
-
 	// transfer all messages that reached the end of the stream to TheCommandList
 	TheCommandList->appendMessageList( m_firstMessage );
 
@@ -1067,7 +1060,6 @@ void MessageStream::propagateMessages( void )
 	m_lastMessage = NULL;
 
 }
-
 
 //------------------------------------------------------------------------------------------------
 // CommandList

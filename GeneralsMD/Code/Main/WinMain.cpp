@@ -509,7 +509,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 
 					}  // end VK_ESCAPE
 
-
 				}  // end switch
 
 				return 0;
@@ -555,7 +554,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 				return 0;
 
 			}  // end WM_MOUSEWHEEL
-
 
 			//-------------------------------------------------------------------------
 			case WM_MOUSEMOVE:
@@ -730,7 +728,6 @@ static Bool initializeAppWindows( HINSTANCE hInstance, Int nCmdShow, Bool runWin
 														0L,
 														hInstance,
 														0L );
-
 
 	if (!runWindowed)
 	{	SetWindowPos(hWnd, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOSIZE |SWP_NOMOVE);
@@ -911,7 +908,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		}
 		::SetCurrentDirectory(buffer);
 
-
 		/*
 		** Convert WinMain arguments to simple main argc and argv
 		*/
@@ -954,12 +950,9 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			_CrtSetDbgFlag( tmpFlag );
 		#endif
 
-
-
 		// install debug callbacks
 	//	WWDebug_Install_Message_Handler(WWDebug_Message_Callback);
 	//	WWDebug_Install_Assert_Handler(WWAssert_Callback);
-
 
 // Force "splash image" to be loaded from a file, not a resource so same exe can be used in different localizations.
 #if defined _DEBUG || defined _INTERNAL || defined _PROFILE
@@ -984,7 +977,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		gLoadScreenBitmap = (HBITMAP)LoadImage(hInstance, "Install_Final.bmp", IMAGE_BITMAP, 0, 0, LR_SHARED|LR_LOADFROMFILE);
 #endif
 
-
 		// register windows class and create application window
 		if( initializeAppWindows( hInstance, nCmdShow, ApplicationIsWindowed) == false )
 			return 0;
@@ -994,14 +986,12 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			gLoadScreenBitmap = NULL;
 		}
 
-
 		// BGC - initialize COM
 	//	OleInitialize(NULL);
 
 		// start the log
 		DEBUG_INIT(DEBUG_FLAGS_DEFAULT);
 		initMemoryManager();
-
 
 		// Set up version info
 		TheVersion = NEW Version;
@@ -1020,7 +1010,6 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 			return 0;
 		}
 #endif
-
 
 		//Create a mutex with a unique name to Generals in order to determine if
 		//our app is already running.

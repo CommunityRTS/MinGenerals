@@ -59,7 +59,6 @@ typedef struct
 	TerrainType *terrainType;
 } TGlobalTextureClass;
 
-
 class WorldHeightMapEdit : public WorldHeightMap
 {
 protected:
@@ -138,7 +137,6 @@ public: // Editing methods.
 	Bool optimizeTiles(void); ///< Optimizes tile allocations.
 
 	void showTileStatusInfo(void); ///< pops up a dialog box with tile mem usage.
-
 
 	Bool selectDuplicates(void); ///< Selects any dupicate map objects.
 	Bool selectSimilar(void); ///< Selects any dupicate map objects.

@@ -79,5 +79,4 @@ class BlowPipe : public Pipe
 		BlowPipe & operator = (BlowPipe const & pipe);
 };
 
-
 #endif

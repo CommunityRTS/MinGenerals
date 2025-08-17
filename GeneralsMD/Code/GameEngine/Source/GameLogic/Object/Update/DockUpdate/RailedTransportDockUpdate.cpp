@@ -160,7 +160,6 @@ Bool RailedTransportDockUpdate::action( Object *docker, Object *drone )
 			// hold the object so physics doesn't mess with it anymore
 			docker->setDisabled( DISABLED_HELD );
 
-
 			// now that we know how far we must go, now much distance should we travel every frame
 			m_pullInsideDistancePerFrame = mag / modData->m_pullInsideDurationInFrames;
 

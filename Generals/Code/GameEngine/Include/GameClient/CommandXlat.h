@@ -44,7 +44,6 @@ public:
 
 	enum CommandEvaluateType { DO_COMMAND, DO_HINT, EVALUATE_ONLY };
 
-
 	GameMessage::Type evaluateForceAttack( Drawable *draw, const Coord3D *pos, CommandEvaluateType type );
 	GameMessage::Type evaluateContextCommand( Drawable *draw, const Coord3D *pos, CommandEvaluateType type );
 
@@ -70,7 +69,6 @@ private:
 
 	virtual GameMessageDisposition translateGameMessage(const GameMessage *msg);
 };
-
 
 enum FilterTypes
 {
@@ -103,8 +101,6 @@ enum FilterModes
 	FM_VIEW_MB_IN_SATURATE, // Motion blur filter in saturated blur
 	FM_VIEW_MB_OUT_SATURATE, // Motion blur filter out saturated blur
 	FM_VIEW_MB_END_PAN_ALPHA, // Moton blur on screen pan (for camera tracks object mode)
-
-
 
 	// NOTE: This has to be the last entry in this enum.
 	// Add new entries before this one.  jba.

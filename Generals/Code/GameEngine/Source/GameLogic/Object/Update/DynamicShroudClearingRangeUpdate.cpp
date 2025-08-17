@@ -34,9 +34,6 @@
 #include "GameLogic/Object.h"
 #include "GameLogic/Module/DynamicShroudClearingRangeUpdate.h"
 
-
-
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -94,7 +91,6 @@ DynamicShroudClearingRangeUpdate::DynamicShroudClearingRangeUpdate( Thing *thing
 	m_changeIntervalCountdown = 0;
 	m_visionChangePerInterval = 0.0f;
 
-
 	m_stateCountDown = md->m_shrinkDelay + md->m_shrinkTime;// total time
 	m_totalFrames = max(1,m_stateCountDown);
 	m_shrinkStartDeadline = m_stateCountDown - md->m_shrinkDelay;
@@ -141,7 +137,6 @@ DynamicShroudClearingRangeUpdate::~DynamicShroudClearingRangeUpdate( void )
 
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void DynamicShroudClearingRangeUpdate::createGridDecals( const RadiusDecalTemplate& tmpl, Real radius, const Coord3D& pos )
 {
@@ -152,9 +147,7 @@ void DynamicShroudClearingRangeUpdate::createGridDecals( const RadiusDecalTempla
 		m_gridDecal[d].setPosition(pos);
 	}
 
-
 }
-
 
 //-------------------------------------------------------------------------------------------------
 void DynamicShroudClearingRangeUpdate::animateGridDecals( void )
@@ -183,9 +176,7 @@ void DynamicShroudClearingRangeUpdate::animateGridDecals( void )
 
 	}
 
-
 }
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -197,8 +188,6 @@ void DynamicShroudClearingRangeUpdate::killGridDecals()
 	}
 
 }
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -219,7 +208,6 @@ UpdateSleepTime DynamicShroudClearingRangeUpdate::update( void )
 	}
 	//-----------------------------------------------------
 
-
 	if( m_stateCountDown <= 0 || currentFrame > m_doneForeverFrame )
 		m_state = DSCRU_DONE_FOREVER;
 	else if ( m_stateCountDown <= m_shrinkStartDeadline  )
@@ -228,7 +216,6 @@ UpdateSleepTime DynamicShroudClearingRangeUpdate::update( void )
 		m_state = DSCRU_SUSTAINING;
 	else if ( m_stateCountDown <= m_growStartDeadline )
 		m_state = DSCRU_GROWING;
-
 
 	switch (m_state)
 	{
@@ -271,7 +258,6 @@ UpdateSleepTime DynamicShroudClearingRangeUpdate::update( void )
 	if ( m_stateCountDown > 0 ) m_stateCountDown --;// it is important that this gets called every frame without sleeping
 	//beacuse it handles animation and may need to respond to changing vision range from scripts & stuff
 
-
 	if( m_changeIntervalCountdown > 0 )
 		m_changeIntervalCountdown--;
 	else
@@ -284,8 +270,6 @@ UpdateSleepTime DynamicShroudClearingRangeUpdate::update( void )
 	}
 
 	return UPDATE_SLEEP_NONE;
-
-
 
 //	if( !m_shrinkStarted )
 //	{

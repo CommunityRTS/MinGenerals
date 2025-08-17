@@ -195,7 +195,6 @@ private:
 
 	Real										m_curTrackingZ;
 
-
 	Bool										m_projection; ///< True if top down projection instead of "isometric" perspective.
 	Bool										m_showEntireMap; ///< True if drawing entire map instead of cached fast subset.
 	Bool										m_showShadows; ///< True if drawing shadows.
@@ -203,7 +202,6 @@ private:
 	Bool										m_showLayersList;	///< Flag whether the layers list is visible or not.
 	Bool										m_showMapBoundaries;	///< Flag whether to show all the map boundaries or not
 	Bool										m_showAmbientSounds;	///< Flag whether to show all the ambient sounds or not
-
 
 	ID3DXFont*							m3DFont;
 	Int											m_pickPixels;
@@ -298,7 +296,6 @@ public:
 
 inline UINT WbView3d::getLastDrawTime() { return m_time; }
 inline Bool WbView3d::getShowWireframe() { return m_showWireframe; }
-
 
 /////////////////////////////////////////////////////////////////////////////
 

@@ -93,4 +93,3 @@ protected:
 
 #endif // __WEAPON_BONUS_UPGRADE_H_
 
-

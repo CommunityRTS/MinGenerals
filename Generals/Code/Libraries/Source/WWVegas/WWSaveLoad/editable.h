@@ -34,15 +34,12 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
 
-
 #ifndef __EDITABLE_H
 #define __EDITABLE_H
-
 
 #include "always.h"
 #include "persist.h"
@@ -151,7 +148,6 @@ EditableClass::Unlock_Parameter (int i)
 	//		#endif
 	//
 	//////////////////////////////////////////////////////////////////////////////////
-
 
 	#define EDITABLE_PARAM(_class, type, data)						plist_##_class.Add (&(data), #data, type);
 	#define NAMED_EDITABLE_PARAM(_class, type, data, name)		plist_##_class.Add (&(data), name, type);
@@ -272,7 +268,6 @@ EditableClass::Unlock_Parameter (int i)
 		param->Set_Name (#data);																\
 		plist_##_class.Add (param); }
 
-
 #else
 
 	#define DECLARE_EDITABLE(_class, _parent)
@@ -301,8 +296,5 @@ EditableClass::Unlock_Parameter (int i)
 
 #endif //PARAM_EDITING_ON
 
-
 #endif //__EDITABLE_H
-
-
 

@@ -303,5 +303,3 @@ unsigned long bswap(unsigned long val);
 #endif /* __GIMEX_H */
 /* END ABSTRACT */
 
-
-

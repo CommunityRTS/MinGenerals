@@ -45,7 +45,6 @@
 #include "units.h"
 #include "presetexportoptionsdialog.h"
 
-
 #define ENABLE_MESH_OPTIMIZING 0
 
 /*
@@ -59,7 +58,6 @@ static void					_init_ofn(void);
 */
 static bool					_OfnInited = false;
 static OPENFILENAME 		_HierarchyFileOFN;
-
 
 /***********************************************************************************************
  * W3dOptionsDialogClass::W3dOptionsDialogClass -- constructor for the options dialog object   *
@@ -118,7 +116,6 @@ bool W3dOptionsDialogClass::Get_Export_Options(W3dExportOptionsStruct * options)
 	}
 }
 
-
 /***********************************************************************************************
  * W3dOptionsDialogClass::Dialog_Proc -- Handles the windows message for the options dialog    *
  *                                                                                             *
@@ -153,7 +150,6 @@ bool W3dOptionsDialogClass::Dialog_Proc
 
 			Dialog_Init();
 			return 1;
-
 
 		/*******************************************************************
 		* WM_COMMAND
@@ -346,7 +342,6 @@ void W3dOptionsDialogClass::Dialog_Init()
 
 	SetDlgItemText(Hwnd, IDC_ANIMATION_FPS_STATIC, string);
 
-
   // initialize animation combo/list boxes
 
 	HwndReduce = GetDlgItem(Hwnd, IDC_REDUCE_ANIMATION_COMBO);
@@ -363,7 +358,6 @@ void W3dOptionsDialogClass::Dialog_Init()
 	ComboBox_AddString(HwndFlavor, "TimeCoded");
 	ComboBox_AddString(HwndFlavor, "Adaptive Delta");
 
-
 	if ((Options->ReduceAnimationPercent < 1) || (Options->ReduceAnimationPercent > 99)) {
 		Options->ReduceAnimationPercent = 50;
 
@@ -376,7 +370,6 @@ void W3dOptionsDialogClass::Dialog_Init()
 	ComboBox_SetCurSel(HwndReduce, Options->ReduceAnimationPercent-1);
 	ComboBox_SetCurSel(HwndFlavor, Options->CompressAnimationFlavor);
 
-
 	HwndTError = GetDlgItem(Hwnd, IDC_MAX_TRANS_ERROR_EDIT);
 	HwndRError = GetDlgItem(Hwnd, IDC_MAX_ROT_ERROR_EDIT);
 
@@ -385,7 +378,6 @@ void W3dOptionsDialogClass::Dialog_Init()
 
 	sprintf(string, "%f", Options->CompressAnimationRotationError);
 	Edit_SetText(HwndRError, string);
-
 
 	// Make sure everything under animations is properly active/inactive
 
@@ -398,7 +390,6 @@ void W3dOptionsDialogClass::Dialog_Init()
 		CheckDlgButton(Hwnd,IDC_WHA_NO_EXPORT_RADIO,BST_CHECKED);
 		Disable_WHA_Export();
 	}
-
 
 	// initialize the frame-range spinners
 	int ticksperframe = GetTicksPerFrame();
@@ -690,7 +681,6 @@ void W3dOptionsDialogClass::WTM_Export_Radio_Changed(void)
 	}
 }
 
-
 void W3dOptionsDialogClass::WHA_Compress_Animation_Check_Changed(void)
 {
 	if (IsDlgButtonChecked(Hwnd, IDC_COMPRESS_ANIMATION_CHECK) == BST_CHECKED) {
@@ -715,7 +705,6 @@ void W3dOptionsDialogClass::WHA_Compression_Flavor_Changed()
 
 	switch (flavor) {
 
-
 		case ANIM_FLAVOR_TIMECODED: {
 			WHA_Reduce_Animation_Check_Changed();
 			EnableWindow(GetDlgItem(Hwnd,IDC_REDUCE_ANIMATION_CHECK), TRUE);
@@ -735,7 +724,6 @@ void W3dOptionsDialogClass::WHA_Compression_Flavor_Changed()
 			break;
 		}
 
-
 		default:
 			assert(0);  // invalid compressed flavor setting
 			break;
@@ -743,8 +731,6 @@ void W3dOptionsDialogClass::WHA_Compression_Flavor_Changed()
 	}
 
 }
-
-
 
 /***********************************************************************************************
  * _options_dialog_proc -- thunks into the Options dialog class's windows message handler      *
@@ -779,7 +765,6 @@ BOOL CALLBACK _options_dialog_proc
 		return FALSE;
 	}
 }
-
 
 /***********************************************************************************************
  * _init_ofn -- initialize the OpenFilename struct.                                            *

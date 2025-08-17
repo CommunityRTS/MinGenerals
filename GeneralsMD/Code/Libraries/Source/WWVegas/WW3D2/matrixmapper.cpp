@@ -49,10 +49,8 @@
  *   CompositeMatrixMapperClass::Calculate_Texture_Matrix -- Calculate texture matrix          *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "matrixmapper.h"
 #include "dx8wrapper.h"
-
 
 /***********************************************************************************************
  * MatrixMapperClass::MatrixMapperClass -- Constructor                                         *
@@ -275,7 +273,6 @@ void MatrixMapperClass::Apply(int uv_array_index)
 		DX8Wrapper::Set_DX8_Texture_Stage_State(Stage,D3DTSS_TEXTURETRANSFORMFLAGS,D3DTTFF_COUNT2);
 		break;
 	}
-
 
 }
 

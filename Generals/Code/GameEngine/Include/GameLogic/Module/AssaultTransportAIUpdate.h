@@ -78,7 +78,6 @@ public:
 	virtual void beginAssault( const Object *designatedTarget ) const = 0;
 };
 
-
 //-------------------------------------------------------------------------------------------------
 class AssaultTransportAIUpdate : public AIUpdateInterface, public AssaultTransportAIInterface
 {

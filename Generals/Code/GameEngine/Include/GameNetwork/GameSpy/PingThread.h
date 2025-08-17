@@ -79,5 +79,4 @@ public:
 
 extern PingerInterface *ThePinger;
 
-
 #endif // __PINGTHREAD_H__

@@ -113,7 +113,6 @@ void BorderTool::mouseMoved(TTrackingMode m, CPoint viewPt, WbView* pView, CWorl
 			currentBorder.y = 0;
 		}
 
-
 		pDoc->changeBoundary(m_modifyBorderNdx, &currentBorder);
 	}
 }

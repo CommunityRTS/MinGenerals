@@ -39,7 +39,6 @@
 
 #include	<limits.h>
 
-
 /*
 **	This engine will process data blocks by encryption and decryption.
 **	The "Blowfish" algorithm is in the public domain. It uses

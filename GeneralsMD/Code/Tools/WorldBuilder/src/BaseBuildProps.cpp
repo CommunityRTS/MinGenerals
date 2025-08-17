@@ -27,7 +27,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // BaseBuildProps dialog
 
-
 BaseBuildProps::BaseBuildProps(CWnd* pParent /*=NULL*/)
 	: CDialog(BaseBuildProps::IDD, pParent)
 {
@@ -35,7 +34,6 @@ BaseBuildProps::BaseBuildProps(CWnd* pParent /*=NULL*/)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
 }
-
 
 void BaseBuildProps::DoDataExchange(CDataExchange* pDX)
 {
@@ -77,7 +75,6 @@ BOOL BaseBuildProps::OnInitDialog()
 
 	return TRUE;
 }
-
 
 BEGIN_MESSAGE_MAP(BaseBuildProps, CDialog)
 	//{{AFX_MSG_MAP(BaseBuildProps)

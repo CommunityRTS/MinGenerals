@@ -438,10 +438,3 @@ void Win32Mouse::releaseCapture( void )
 
 }  // end releaseCapture
 
-
-
-
-
-
-
-

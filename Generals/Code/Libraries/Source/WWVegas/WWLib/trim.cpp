@@ -117,5 +117,3 @@ wchar_t * wcstrim(wchar_t * buffer)
 	return(buffer);
 }
 
-
-

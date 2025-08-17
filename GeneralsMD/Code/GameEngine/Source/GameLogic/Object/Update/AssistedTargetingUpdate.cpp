@@ -41,14 +41,11 @@
 #include "GameLogic/Module/AssistedTargetingUpdate.h"
 #include "GameLogic/Module/LaserUpdate.h"
 
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -106,7 +103,6 @@ void AssistedTargetingUpdate::assistAttack( const Object *requestingObject, Obje
 	me->setWeaponLock( md->m_weaponSlot, LOCKED_TEMPORARILY );
 	me->getAI()->aiAttackObject( victimObject, md->m_clipSize, CMD_FROM_AI );
 
-
 	if( m_laserFromAssisted )
 		makeFeedbackLaser( m_laserFromAssisted, requestingObject, me );
 	if( m_laserToTarget )
@@ -149,9 +145,7 @@ UpdateSleepTime AssistedTargetingUpdate::update( void )
 
 	m_laserFromAssisted = TheThingFactory->findTemplate( d->m_laserFromAssistedName );
 
-
 	m_laserToTarget =TheThingFactory->findTemplate( d->m_laserFromAssistedName );
-
 
 	return UPDATE_SLEEP_FOREVER;
 }

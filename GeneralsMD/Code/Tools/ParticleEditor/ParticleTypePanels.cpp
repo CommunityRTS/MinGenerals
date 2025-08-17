@@ -147,7 +147,6 @@ void ParticlePanelDrawable::performUpdate( IN Bool toUI )
 				}
 			}
 
-
 			if (toUI) {
 				pParent->getDrawableNameFromSystem(buff, ARBITRARY_BUFF_SIZE - 1);
 				pWnd->SelectString(-1, buff);

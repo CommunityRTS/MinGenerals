@@ -286,5 +286,3 @@ HWND InitCheckBoxPropertiesDialog( GameWindow *window )
 
 }  // end InitCheckBoxPropertiesDialog
 
-
-

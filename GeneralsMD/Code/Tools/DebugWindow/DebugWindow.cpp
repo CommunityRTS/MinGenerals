@@ -90,7 +90,6 @@ CDebugWindowApp::~CDebugWindowApp()
 {
 }
 
-
 /////////////////////////////////////////////////////////////////////////////
 // The one and only CDebugWindowApp object
 
@@ -188,7 +187,6 @@ void __declspec(dllexport) SetFrameNumber(int frameNumber)
 	}
 }
 
-
 void __declspec(dllexport) AppendMessageAndPause(const char* messageToPass)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState( ));
@@ -200,7 +198,6 @@ void __declspec(dllexport) AppendMessageAndPause(const char* messageToPass)
 		pDbg->ForcePause();
 	}
 }
-
 
 void __declspec(dllexport) AdjustVariable(const char* variable, const char* value)
 {

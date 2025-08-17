@@ -37,7 +37,6 @@
 #ifndef SHASTRAW_H
 #define SHASTRAW_H
 
-
 #include	"sha.h"
 #include	"straw.h"
 
@@ -66,6 +65,5 @@ class SHAStraw : public Straw
 		SHAStraw(SHAStraw & rvalue);
 		SHAStraw & operator = (SHAStraw const & straw);
 };
-
 
 #endif

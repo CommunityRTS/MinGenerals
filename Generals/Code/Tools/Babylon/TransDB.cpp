@@ -523,7 +523,6 @@ void					TransDB::AddToTree		( CTreeCtrl *tc, HTREEITEM parent, int changes, voi
 		}
 	}
 
-
 }
 
 TransDB*			TransDB::Next				( void )
@@ -558,7 +557,6 @@ NoxLabel::NoxLabel ( void )
 	context = new OLEString ( );
 	speaker = new OLEString ( );
 	listener = new OLEString ( );
-
 
 }
 
@@ -701,7 +699,6 @@ NoxText*			NoxLabel::FindText ( OLECHAR *find_text )
 
 	return NULL;
 }
-
 
 void					NoxLabel::SetDB				( TransDB *new_db )
 {
@@ -886,7 +883,6 @@ void NoxText::init ( void )
 	retranslate = FALSE;
 	sent = FALSE;
 
-
 }
 
 NoxText::~NoxText( )
@@ -906,7 +902,6 @@ void					NoxText::SetDB				( TransDB *new_db )
 	{
 		db->RemoveText ( this );
 	}
-
 
 	if ( (db = new_db) )
 	{
@@ -965,7 +960,6 @@ int						NoxText::DialogIsValid ( const char *path, LangID langid, int check )
 		attribs = (DBAttribs *) trans;
 		winfo = &trans->WaveInfo;
 	}
-
 
 	if ( winfo->Valid () && check )
 	{
@@ -1118,7 +1112,6 @@ Translation*			NoxText::GetTranslation		( LangID langid )
 
 		trans = NextTranslation ( sh );
 	}
-
 
 	return trans;
 }
@@ -1540,8 +1533,6 @@ int TransDB::Errors ( CNoxstringDlg *dlg )
 		dlg->Status ( "Creating error report...", FALSE );
 	}
 
-
-
 	label_bin->Clear();
 
 	label = FirstLabel ( sh_label );
@@ -1726,7 +1717,6 @@ int TransDB::ReportDialog( DLGREPORT *report, LangID langid, void (*print) ( con
 	}
 
 	memset ( info, 0, sizeof ( DLGREPORT ));
-
 
 	label = FirstLabel ( sh_label );
 

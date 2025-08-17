@@ -51,7 +51,6 @@ static int ZERO=0;
     bitsunshifted =  qs[1] | (bitsunshifted << 8);\
     qs += 2;
 
-
 #define SQgetbits(v,n)\
     if (n) \
     { \
@@ -67,7 +66,6 @@ static int ZERO=0;
         bits = bitsunshifted<<(-bitsleft);\
         bitsleft += 16;\
     }
-
 
 #define SQgetnum(v) \
     if ((int)bits<0)\
@@ -389,7 +387,6 @@ nextloop:
                 {
                     unsigned char   code;
 
-
                     if (numbits!=96)
                     {
                         cmp = (unsigned int) (bits>>16);  /* 16 bit left justified compare */
@@ -403,7 +400,6 @@ nextloop:
                     }
                     else
                         numbits = cluelen;
-
 
                     cmp = bits >> (32-(numbits));
                     bits <<= (numbits);
@@ -466,7 +462,6 @@ nextloop:
                 }
 
             }
-
 
 /****************************************************************/
 /*  Undelta                                                     */
@@ -537,7 +532,6 @@ bool GCALL HUFF_is(const void *compresseddata)
 
     return(ok);
 }
-
 
 /****************************************************************/
 /*  Decode Functions                                            */

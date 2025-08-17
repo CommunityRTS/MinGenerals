@@ -95,7 +95,6 @@ void ControlBar::populateOCLTimer( Object *creatorObject )
 	setControlCommand( win, commandButton );
 	win->winSetStatus( WIN_STATUS_USE_OVERLAY_STATES );
 
-
 	// set the text percent and bar of our timer we are displaying
 	updateContextOCLTimer( );
 

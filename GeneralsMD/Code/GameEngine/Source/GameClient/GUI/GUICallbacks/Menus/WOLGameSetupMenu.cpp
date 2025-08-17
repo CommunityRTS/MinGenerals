@@ -76,7 +76,6 @@ void WOLDisplaySlotList( void );
 extern std::list<PeerResponse> TheLobbyQueuedUTMs;
 extern void MapSelectorTooltip(GameWindow *window, WinInstanceData *instData,	UnsignedInt mouse);
 
-
 #if defined(_DEBUG) || defined(_INTERNAL)
 extern Bool g_debugSlots;
 void slotListDebugLog(const char *fmt, ...)
@@ -293,7 +292,6 @@ void WOLPositionStartSpots( void )
 
 				// get text of the map to load
 				map = GadgetListBoxGetText( listboxMap, selected, 0 );
-
 
 				// set the map name in the global data map name
 				AsciiString asciiMap;
@@ -517,7 +515,6 @@ void pingTooltip(GameWindow *window, WinInstanceData *instData, UnsignedInt mous
 	x = LOLONGTOSHORT(mouse);
 	y = HILONGTOSHORT(mouse);
 
-
 	Int winPosX, winPosY, winWidth, winHeight;
 
 	window->winGetScreenPosition(&winPosX, &winPosY);
@@ -629,7 +626,6 @@ static void handlePlayerTemplateSelection(int index)
 			slot->setStartPos(-1);
 		}
 
-
 		if (TheGameSpyInfo->amIHost())
 		{
 			// send around a new slotlist
@@ -654,7 +650,6 @@ static void handlePlayerTemplateSelection(int index)
 		}
 	}
 }
-
 
 static void handleStartPositionSelection(Int player, int startPos)
 {
@@ -719,8 +714,6 @@ static void handleStartPositionSelection(Int player, int startPos)
 		}
 	}
 }
-
-
 
 static void handleTeamSelection(int index)
 {
@@ -812,7 +805,6 @@ static void handleLimitSuperweaponsClick()
     }
   }
 }
-
 
 static void StartPressed(void)
 {
@@ -1040,7 +1032,6 @@ void WOLDisplayGameOptions( void )
 
   DEBUG_ASSERTCRASH( index < itemCount, ("Could not find new starting cash amount %d in list", theGame->getStartingCash().countMoney() ) );
 }
-
 
 //  -----------------------------------------------------------------------------------------
 // The Bad munkee slot list displaying function
@@ -1430,7 +1421,6 @@ void WOLGameSetupMenuInit( WindowLayout *layout, void *userData )
 
 			game->adjustSlotsForMap(); // BGC- adjust the slots for the new map.
 		}
-
 
 		WOLDisplaySlotList();
 		WOLDisplayGameOptions();
@@ -2430,7 +2420,6 @@ void WOLGameSetupMenuUpdate( WindowLayout * layout, void *userData)
 			}
 		}
 
-
 	}
 }// void WOLGameSetupMenuUpdate( WindowLayout * layout, void *userData)
 
@@ -2487,7 +2476,6 @@ WindowMsgHandledType WOLGameSetupMenuInput( GameWindow *window, UnsignedInt msg,
 	*/
 	return MSG_IGNORED;
 }//WindowMsgHandledType WOLGameSetupMenuInput( GameWindow *window, UnsignedInt msg,
-
 
 // Slash commands -------------------------------------------------------------------------
 extern "C" {
@@ -2809,7 +2797,6 @@ WindowMsgHandledType WOLGameSetupMenuSystem( GameWindow *window, UnsignedInt msg
 					}
 				}
 
-
 				break;
 			}// case GBM_SELECTED:
 		//-------------------------------------------------------------------------------------------------
@@ -2883,5 +2870,4 @@ WindowMsgHandledType WOLGameSetupMenuSystem( GameWindow *window, UnsignedInt msg
 	}//Switch
 	return MSG_HANDLED;
 }//WindowMsgHandledType WOLGameSetupMenuSystem( GameWindow *window, UnsignedInt msg,
-
 

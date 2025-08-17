@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
@@ -150,7 +149,6 @@ private:
 
 };
 
-
 /*
 ** Default Prototype Loaders for Meshes and HModels
 */
@@ -170,14 +168,11 @@ public:
 	virtual PrototypeClass *	Load_W3D(ChunkLoadClass & cload);
 };
 
-
 /*
 ** Instances of the default loaders which the asset manager can
 ** automatically install at creation time
 */
 extern MeshLoaderClass			_MeshLoader;
 extern HModelLoaderClass		_HModelLoader;
-
-
 
 #endif

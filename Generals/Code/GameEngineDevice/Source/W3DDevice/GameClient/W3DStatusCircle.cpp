@@ -67,7 +67,6 @@
 #define VERTEX_BUFFER_TILE_LENGTH	32		//tiles of side length 32 (grid of 33x33 vertices).
 #define VERTS_IN_BLOCK_ROW			(VERTEX_BUFFER_TILE_LENGTH+1)
 
-
 static ShaderClass detailOpaqueShader(SC_ALPHA);
 Bool W3DStatusCircle::m_needUpdate;
 Int W3DStatusCircle::m_diffuse=255; // blue.
@@ -85,14 +84,12 @@ W3DStatusCircle::W3DStatusCircle(void)
 	m_vertexBufferScreen=NULL;
 }
 
-
 bool W3DStatusCircle::Cast_Ray(RayCollisionTestClass & raytest)
 {
 
 	return false;
 
 }
-
 
 //@todo: MW Handle both of these properly!!
 W3DStatusCircle::W3DStatusCircle(const W3DStatusCircle & src)
@@ -130,7 +127,6 @@ RenderObjClass * W3DStatusCircle::Clone(void) const
 {
 	return NEW W3DStatusCircle(*this);
 }
-
 
 Int W3DStatusCircle::freeMapResources(void)
 {
@@ -176,10 +172,8 @@ Int W3DStatusCircle::initData(void)
 
 	m_shaderClass = ShaderClass::ShaderClass(SC_ALPHA);// _PresetOpaque2DShader;//; //_PresetOpaqueShader;
 
-
 	return 0;
 }
-
 
 /** updateCircleVB puts a circle with a team color vertex buffer. */
 
@@ -335,7 +329,6 @@ void W3DStatusCircle::Render(RenderInfoClass & rinfo)
 		DX8Wrapper::Set_Transform(D3DTS_WORLD,tm);
 		DX8Wrapper::Draw_Triangles(	0,NUM_TRI, 0,	(m_numTriangles*3));
 	}
-
 
 	ScriptEngine::TFade fade = TheScriptEngine->getFade();
 	if (fade == ScriptEngine::FADE_NONE) {

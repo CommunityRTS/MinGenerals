@@ -234,7 +234,6 @@ void CaveContain::onDie( const DamageInfo * damageInfo )
 	myTracker->onTunnelDestroyed( getObject() );
 }
 
-
 //-------------------------------------------------------------------------------------------------
 void CaveContain::onCreate( void )
 {

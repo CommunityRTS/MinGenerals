@@ -39,7 +39,6 @@
 
 //-------------------------------------------------------------------------------------------------
 
-
 #include "Common/QuickTrig.h"
 W3DParticleSystemManager::W3DParticleSystemManager()
 {
@@ -112,7 +111,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 	/// @todo lorenzen sez: this should be debug only:
 	m_onScreenParticleCount = 0;
 
-
  	const FrustumClass & frustum = rinfo.Camera.Get_Frustum();
 	AABoxClass bbox;
 
@@ -132,7 +130,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 
 	unsigned int personalities[MAX_POINTS_PER_GROUP];
 
-
 	m_fieldParticleCount = 0;
 
 	ParticleSystemManager::ParticleSystemList &particleSysList = TheParticleSystemManager->getAllParticleSystems();
@@ -147,7 +144,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 		if (sys->isUsingDrawables())
 			continue;
 
-
 		/// @todo lorenzen sez: declare these outside the sys loop, and put some in registers
 		// initialize them here still, of course
 		// build W3D particle buffer
@@ -159,8 +155,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 		const Coord3D *pos;
 		const RGBColor *color;
 		Real psize;
-
-
 
 		//set-up all the per-particle
 		for (Particle *p = sys->getFirstParticle(); p; p = p->m_systemNext)
@@ -249,7 +243,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 			RGBAArray[0].Z = 0;
 			RGBAArray[0].W = 0;
 
-
 			//RENDER STREAK!
 			m_streakLine->Render( rinfo );
 
@@ -302,7 +295,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 			}
 		}
 
-
 		/// @todo lorenzen sez: this should be debug only:
 		//add particle count to total
 		m_onScreenParticleCount += count;
@@ -323,7 +315,6 @@ void W3DParticleSystemManager::doParticles(RenderInfoClass &rinfo)
 		Color colorEnd = GameMakeColor( 255, 128, 128, 255 );
 		TheDisplay->drawLine( pixelStart.x, pixelStart.y, pixelEnd.x, pixelEnd.y, 1.0f, colorStart, colorEnd );
 	*/
-
 
 	}// next system
 

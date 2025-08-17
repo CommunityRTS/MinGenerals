@@ -870,7 +870,6 @@ void NetPacket::FillBufferWithGameCommand(UnsignedByte *buffer, NetCommandRef *m
 	memcpy(buffer + offset, &newType, sizeof(GameMessage::Type));
 	offset += sizeof(GameMessage::Type);
 
-
 	GameMessageParser *parser = newInstance(GameMessageParser)(gmsg);
 	UnsignedByte numTypes = parser->getNumTypes();
 	memcpy(buffer + offset, &numTypes, sizeof(numTypes));
@@ -1896,7 +1895,6 @@ void NetPacket::FillBufferWithFrameResendRequestMessage(UnsignedByte *buffer, Ne
 	offset += sizeof(frameToResend);
 }
 
-
 /**
  * Constructor
  */
@@ -2427,7 +2425,6 @@ Bool NetPacket::addFileCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -2530,7 +2527,6 @@ Bool NetPacket::addFileAnnounceCommand(NetCommandRef *msg) {
 			m_packetLen += sizeof(UnsignedShort);
 		}
 		m_lastCommandID = cmdMsg->getID();
-
 
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
@@ -2640,7 +2636,6 @@ Bool NetPacket::addFileProgressCommand(NetCommandRef *msg) {
 		}
 		m_lastCommandID = cmdMsg->getID();
 
-
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
 
@@ -2740,7 +2735,6 @@ Bool NetPacket::addWrapperCommand(NetCommandRef *msg) {
 			m_packetLen += sizeof(UnsignedShort);
 		}
 		m_lastCommandID = cmdMsg->getID();
-
 
 		m_packet[m_packetLen] = 'D';
 		++m_packetLen;
@@ -2923,8 +2917,6 @@ Bool NetPacket::isRoomForTimeOutGameStartMessage(NetCommandRef *msg) {
 	return TRUE;
 }
 
-
-
 /**
  * Add a Progress command to the packet. Returns true if successful.
  */
@@ -3017,9 +3009,6 @@ Bool NetPacket::isRoomForLoadCompleteMessage(NetCommandRef *msg) {
 	return TRUE;
 }
 
-
-
-
 /**
  * Add a Progress command to the packet. Returns true if successful.
  */
@@ -3103,8 +3092,6 @@ Bool NetPacket::isRoomForProgressMessage(NetCommandRef *msg) {
 	}
 	return TRUE;
 }
-
-
 
 Bool NetPacket::addDisconnectVoteCommand(NetCommandRef *msg) {
 	Bool needNewCommandID = FALSE;
@@ -3712,7 +3699,6 @@ Bool NetPacket::isRoomForDisconnectPlayerMessage(NetCommandRef *msg) {
 	return TRUE;
 }
 
-
 /**
  * Add a keep alive command to the packet. Returns true if successful.
  */
@@ -4230,7 +4216,6 @@ Bool NetPacket::isRoomForRunAheadMetricsMessage(NetCommandRef *msg) {
 	}
 	return TRUE;
 }
-
 
 /**
  * Add a player leave command to the packet. Returns true if successful.
@@ -4766,7 +4751,6 @@ Bool NetPacket::addGameCommand(NetCommandRef *msg) {
 		GameMessage::Type newType = gmsg->getType();
 		memcpy(m_packet + m_packetLen, &newType, sizeof(GameMessage::Type));
 		m_packetLen += sizeof(GameMessage::Type);
-
 
 		GameMessageParser *parser = newInstance(GameMessageParser)(gmsg);
 		UnsignedByte numTypes = parser->getNumTypes();
@@ -5593,7 +5577,6 @@ NetCommandMsg * NetPacket::readChatMessage(UnsignedByte *data, Int &i) {
 	text[length] = 0;
 	memcpy(&playerMask, data + i, sizeof(Int));
 	i += sizeof(Int);
-
 
 	UnicodeString unitext;
 	unitext.set(text);

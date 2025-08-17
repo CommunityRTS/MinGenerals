@@ -108,7 +108,6 @@ public:
 
 	void init( void );  ///< initialize default values if desired
 
-
 	// setting text
 	void setTooltipText( UnicodeString tip );  ///< set tooltip text
 	void setText( UnicodeString text );  ///< set instance text text

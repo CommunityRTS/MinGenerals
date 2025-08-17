@@ -39,7 +39,6 @@
 #include	"always.h"
 #include	"crcstraw.h"
 
-
 /***********************************************************************************************
  * CRCStraw::Get -- Fetch the data requested and calculate CRC on it.                          *
  *                                                                                             *
@@ -70,7 +69,6 @@ int CRCStraw::Get(void * source, int slen)
 	CRC(source, counter);
 	return(counter);
 }
-
 
 /***********************************************************************************************
  * CRCStraw::Result -- Returns with the CRC of all data passed through the straw.              *

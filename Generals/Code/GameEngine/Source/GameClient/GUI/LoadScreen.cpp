@@ -159,7 +159,6 @@ void LoadScreen::update( Int percent )
 	setFPMode();
 }
 
-
 // SinglePlayerLoadScreen Class ///////////////////////////////////////////////
 //-----------------------------------------------------------------------------
 SinglePlayerLoadScreen::SinglePlayerLoadScreen( void )
@@ -397,7 +396,6 @@ void SinglePlayerLoadScreen::init( GameInfo *game )
 	DEBUG_ASSERTCRASH(m_objectiveWin, ("Can't initialize the m_objectiveWin for the single player loadscreen"));
 	m_objectiveWin->winHide(TRUE);
 
-
 	Mission *mission = TheCampaignManager->getCurrentMission();
 	AsciiString lineName;
 	for(Int i = 0; i < MAX_OBJECTIVE_LINES; ++i)
@@ -424,8 +422,6 @@ void SinglePlayerLoadScreen::init( GameInfo *game )
 	DEBUG_ASSERTCRASH(m_location, ("Can't initialize the m_objectiveWin for the single player loadscreen"));
 	m_location->winHide(TRUE);
 	GadgetStaticTextSetText(m_location, TheGameText->fetch(mission->m_locationNameLabel));
-
-
 
 	m_currentObjectiveLine = 0;
 	m_currentObjectiveWidthOffset = 0;
@@ -577,7 +573,6 @@ void SinglePlayerLoadScreen::init( GameInfo *game )
 			currTime = timeGetTime();
 		}
 
-
 		TheWindowManager->update();
 		TheDisplay->draw();
 
@@ -628,7 +623,6 @@ ShellGameLoadScreen::~ShellGameLoadScreen( void )
 void ShellGameLoadScreen::init( GameInfo *game )
 {
 	static BOOL firstLoad = TRUE;
-
 
 	// create the layout of the load screen
 	m_loadScreen = TheWindowManager->winCreateFromScript( AsciiString( "Menus/ShellGameLoadScreen.wnd" ) );
@@ -786,7 +780,6 @@ void MultiPlayerLoadScreen::init( GameInfo *game )
 		pt = ThePlayerTemplateStore->findPlayerTemplate( TheNameKeyGenerator->nameToKey("FactionObserver") );
 	const Image *loadScreenImage = TheMappedImageCollection->findImageByName(pt->getLoadScreen());
 
-
 	AsciiString musicName = pt->getLoadScreenMusic();
 	if ( ! musicName.isEmpty() )
 	{
@@ -798,7 +791,6 @@ void MultiPlayerLoadScreen::init( GameInfo *game )
 		TheAudio->update();//Since GameEngine::update() is suspended until after I am gone...
 
 	}
-
 
 	if(loadScreenImage)
 		m_loadScreen->winSetEnabledImage(0, loadScreenImage);
@@ -827,7 +819,6 @@ void MultiPlayerLoadScreen::init( GameInfo *game )
 		winName.format( "MultiplayerLoadScreen.wnd:ButtonMapStartPosition%d",i);
 		m_buttonMapStartPosition[i] = TheWindowManager->winGetWindowFromId( m_loadScreen,TheNameKeyGenerator->nameToKey( winName ));
 		DEBUG_ASSERTCRASH(m_buttonMapStartPosition[i], ("Can't initialize the MapStart Positions for the MultiplayerLoadScreen loadscreen"));
-
 
 		// Load the Player's name
 		winName.format( "MultiplayerLoadScreen.wnd:StaticTextPlayer%d",i);
@@ -899,7 +890,6 @@ void MultiPlayerLoadScreen::init( GameInfo *game )
 			m_mapPreview->winClearStatus(WIN_STATUS_IMAGE);
 		}
 	}
-
 
 	TheGameLogic->initTimeOutValues();
 }
@@ -1044,7 +1034,6 @@ GameSlot *lSlot = game->getSlot(game->getLocalSlotNum());
 		winName.format( "GameSpyLoadScreen.wnd:ButtonMapStartPosition%d",i);
 		m_buttonMapStartPosition[i] = TheWindowManager->winGetWindowFromId( m_loadScreen,TheNameKeyGenerator->nameToKey( winName ));
 		DEBUG_ASSERTCRASH(m_buttonMapStartPosition[i], ("Can't initialize the MapStart Positions for the GameSpyLoadScreen loadscreen"));
-
 
 		// Load the Player's Side
 		winName.format( "GameSpyLoadScreen.wnd:StaticTextSide%d",i);

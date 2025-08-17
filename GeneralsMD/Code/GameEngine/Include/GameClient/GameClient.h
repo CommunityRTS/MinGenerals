@@ -76,7 +76,6 @@ public:
 	virtual ~GameClientMessageDispatcher() { }
 };
 
-
 //-----------------------------------------------------------------------------
 /**
  * The GameClient class is used to instantiate a singleton which
@@ -152,7 +151,6 @@ public:
 	UnsignedInt getRenderedObjectCount() const { return m_renderedObjectCount; }
 	void incrementRenderedObjectCount() { m_renderedObjectCount++; }
 	virtual void notifyTerrainObjectMoved(Object *obj) = 0;
-
 
 protected:
 
@@ -254,7 +252,6 @@ inline Drawable* GameClient::findDrawableByID( const DrawableID id )
 
 	return NULL;
 }
-
 
 // the singleton
 extern GameClient *TheGameClient;

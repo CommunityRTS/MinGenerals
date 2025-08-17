@@ -67,7 +67,6 @@ W3DDisplayStringManager::~W3DDisplayStringManager( void )
 		freeDisplayString( m_formationLetterDisplayString );
 	m_formationLetterDisplayString = NULL;
 
-
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -100,7 +99,6 @@ void W3DDisplayStringManager::postProcessLoad( void )
 	AsciiString displayLetter;
 	displayLetter.format("LABEL:FORMATION");
 	m_formationLetterDisplayString->setText(TheGameText->fetch(displayLetter));
-
 
 }
 

@@ -52,4 +52,3 @@ public:
 
 #endif  // end __GUICOMMANDTRANSLATOR_H_
 
-

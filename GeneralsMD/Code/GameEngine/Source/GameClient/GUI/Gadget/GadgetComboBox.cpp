@@ -552,7 +552,6 @@ WindowMsgHandledType GadgetComboBoxSystem( GameWindow *window, UnsignedInt msg,
 			return( (WindowMsgHandledType) addedIndex );
 		}  // end add entry
 
-
 		// ------------------------------------------------------------------------
 		case GWM_CREATE:
 			break;
@@ -631,7 +630,6 @@ WindowMsgHandledType GadgetComboBoxSystem( GameWindow *window, UnsignedInt msg,
 			break;
 
 		}  // end input focus
-
 
 		case GBM_SELECTED:
 		{

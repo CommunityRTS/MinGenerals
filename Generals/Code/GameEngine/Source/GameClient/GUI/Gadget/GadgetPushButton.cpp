@@ -226,7 +226,6 @@ WindowMsgHandledType GadgetPushButtonInput( GameWindow *window,
 			else
 				buttonClick.setEventName("GUIClick");
 
-
 			if( BitTest( instData->getStatus(), WIN_STATUS_RIGHT_CLICK ) )
 			{
 				// Need to be specially marked to care about right mouse events
@@ -365,7 +364,6 @@ WindowMsgHandledType GadgetPushButtonInput( GameWindow *window,
 							BitSet( instData->m_state, WIN_STATE_SELECTED );
 
 						}  // end else
-
 
 					}  // end else
 
@@ -661,7 +659,6 @@ void GadgetButtonDrawOverlayImage( GameWindow *g, const Image *image )
 	pData->overlayImage = image;
 	g->winSetUserData(pData);
 }
-
 
 // GadgetButtonSetData ======================================================
 /** Sets random data that the user can contain on the button */

@@ -83,7 +83,6 @@ enum ChinookAIStateType
 	MOVE_TO_AND_EVAC_AND_EXIT_INIT
 };
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -332,7 +331,6 @@ public:
 			// some bridge layer.
 			obj->setLayer(LAYER_GROUND);
 		}
-
 
 	}
 
@@ -820,7 +818,6 @@ public:
 };
 EMPTY_DTOR(ChinookRecordCreationState)
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -1084,8 +1081,6 @@ UpdateSleepTime ChinookAIUpdate::update()
 		setAirfieldForHealing(INVALID_ID);
 	}
 
-
-
 	// have to call our parent's isIdle, because we override it to never return true
 	// when we have a pending command...
 	ContainModuleInterface* contain = getObject()->getContain();
@@ -1110,7 +1105,6 @@ UpdateSleepTime ChinookAIUpdate::update()
 				setMyState(TAKING_OFF, NULL, NULL, CMD_FROM_AI);
 			}
 		}
-
 
     if ( TheGameLogic->getFrame()%10 == 1 )
     {
@@ -1143,13 +1137,7 @@ UpdateSleepTime ChinookAIUpdate::update()
       }
     }
 
-
-
-
 	}
-
-
-
 
   // Just a handy spot to handle that groovy client effect of the rotor wash
   if ( getObject()->getShroudedStatus( ThePlayerList->getLocalPlayer()->getPlayerIndex()) == OBJECTSHROUD_CLEAR )
@@ -1177,9 +1165,6 @@ UpdateSleepTime ChinookAIUpdate::update()
 
     }
   }
-
-
-
 
 	return SupplyTruckAIUpdate::update();
 }
@@ -1392,10 +1377,6 @@ void ChinookAIUpdate::loadPostProcess( void )
 	SupplyTruckAIUpdate::loadPostProcess();
 }  // end loadPostProcess
 
-
-
-
-
 //----------------------------------------------------------------------------------------
 /**
  * Enter idle state.
@@ -1420,7 +1401,6 @@ void ChinookAIUpdate::privateIdle(CommandSourceType cmdSource)
   SupplyTruckAIUpdate::privateIdle( cmdSource );
 
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /**
@@ -1450,7 +1430,6 @@ void ChinookAIUpdate::privateAttackObject( Object *victim, Int maxShotsToFire, C
 				  Object *passenger = *passengerIterator;
 				  //Advance to the next iterator
 				  passengerIterator++;
-
 
           if ( ! contain->isPassengerAllowedToFire( passenger->getID() ) )
             continue;
@@ -1485,8 +1464,6 @@ void ChinookAIUpdate::privateAttackObject( Object *victim, Int maxShotsToFire, C
 	AIUpdateInterface::privateAttackObject( victim, maxShotsToFire, cmdSource );
 }
 
-
-
 void ChinookAIUpdate::private___TellPortableStructureToAttackWithMe( Object *victim, Int maxShotsToFire, CommandSourceType cmdSource )
 {
   ContainModuleInterface* contain = getObject()->getContain();
@@ -1509,7 +1486,6 @@ void ChinookAIUpdate::private___TellPortableStructureToAttackWithMe( Object *vic
 		}
   }
 }
-
 
 //-------------------------------------------------------------------------------------------------
 /**
@@ -1564,7 +1540,6 @@ void ChinookAIUpdate::privateForceAttackObject( Object *victim, Int maxShotsToFi
 
 			  }
       }
-
 
       //--------- THE GATTLING UPGRADE OR THE GUYS IN THE BUNKER_NOT_A_BUNKER-------------
       Object *rider = (Object*)contain->friend_getRider();

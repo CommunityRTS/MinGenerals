@@ -44,17 +44,13 @@
 #include "GameClient/InGameUI.h" // selection logic
 #include "GameLogic/ExperienceTracker.h" //veterancy logic
 
-
 #define NONE_SPAWNED_YET (0xffffffff)
-
 
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
-
-
 
 #define SPAWN_DELAY_MIN_FRAMES (16) // about as rapidly as you'd expect people to successively exit through the same door
 //-------------------------------------------------------------------------------------------------
@@ -87,8 +83,6 @@ SpawnBehavior::SpawnBehavior( Thing *thing, const ModuleData* moduleData )
 	// The initializing of the initial bursters is handled in the first update @todo invent an object::postConstructionProcess() some day
 	m_initialBurstCountdown = md->m_initialBurst;
 	m_initialBurstTimesInited = FALSE;
-
-
 
 	m_aggregateHealth = md->m_aggregateHealth;
 
@@ -231,8 +225,6 @@ UpdateSleepTime SpawnBehavior::update( void )
 		}
 	}
 
-
-
 	//SPARSELY SOLVED
 	if (--m_framesToWait > 0)
 	{
@@ -279,7 +271,6 @@ Bool SpawnBehavior::maySpawnSelfTaskAI( Real maxSelfTaskersRatio )
 	if ( maxSelfTaskersRatio == 0)
 		return FALSE;
 
-
 	//if my last attack command was from player or script, I need to forbid my spawn from disobeying that command
 	//otherwise (since my attack state was autoacquired my ny own ai), let them deviate by the ratio specified.
 	Object* obj = getObject();
@@ -291,10 +282,8 @@ Bool SpawnBehavior::maySpawnSelfTaskAI( Real maxSelfTaskersRatio )
 
 	CommandSourceType lastAttackCommandSource = ai->getLastCommandSource();
 
-
 	if ( lastAttackCommandSource != CMD_FROM_AI )
 		return FALSE;
-
 
 	Real curSelfTaskersRatio = (Real)m_selfTaskingSpawnCount / (Real)m_spawnCount;
 
@@ -450,7 +439,6 @@ CanAttackResult SpawnBehavior::getCanAnySlavesUseWeaponAgainstTarget( AbleToAtta
 	return ATTACKRESULT_NOT_POSSIBLE;
 }
 
-
 // ------------------------------------------------------------------------------------------------
 Bool SpawnBehavior::canAnySlavesAttack()
 {
@@ -467,7 +455,6 @@ Bool SpawnBehavior::canAnySlavesAttack()
 	}
 	return false;
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
@@ -608,7 +595,6 @@ Bool SpawnBehavior::createSpawn()
 		}
 	}
 
-
 	newSpawn->setProducer(parent);
 
 	// If they have a SlavedUpdate, then I have to tell them who their daddy is from now on.
@@ -692,7 +678,6 @@ Bool SpawnBehavior::createSpawn()
 	if( md->m_isOneShotData )
 		m_oneShotCountdown--;
 
-
 	if ( m_spawnCount == NONE_SPAWNED_YET )
 	{
 		m_spawnCount = 1;
@@ -701,7 +686,6 @@ Bool SpawnBehavior::createSpawn()
 	{
 		++ m_spawnCount;
 	}
-
 
 	return TRUE;
 }
@@ -844,7 +828,6 @@ void SpawnBehavior::computeAggregateStates(void)
 
 	WeaponBonusConditionFlags spawnWeaponBonus;
 
-
 	m_selfTaskingSpawnCount = 0;
 
 	for( objectIDListIterator iter = m_spawnIDs.begin(); iter != m_spawnIDs.end(); iter++)
@@ -864,7 +847,6 @@ void SpawnBehavior::computeAggregateStates(void)
 					break;
 				}
 			}
-
 
 			// VETERANCY LEVEL *************************************
 			VeterancyLevel spawnVetLevel = currentSpawn->getVeterancyLevel();
@@ -900,8 +882,6 @@ void SpawnBehavior::computeAggregateStates(void)
 		}
 	} // next iter
 
-
-
 	// SELECTION STATE *****************************************
 	// THIS LOGIC IS SIMPLE
 	// IF ANY ONE OF MY SPAWN ARE SELECTED RIGHT NOW,
@@ -924,7 +904,6 @@ void SpawnBehavior::computeAggregateStates(void)
 				{
 					spawnDraw = currentSpawn->getDrawable();
 
-
 					if ( ! spawnDraw->isSelected())
 					{
 						TheInGameUI->selectDrawable( spawnDraw );
@@ -946,15 +925,11 @@ void SpawnBehavior::computeAggregateStates(void)
 
 	}
 
-
-
 	// HEALTH BOX POSITION *****************************
 	// pick a centered, average spot to draw the health box
 	avgSpawnPos.scale(1.0f / spawnCount);
 	avgSpawnPos.sub(obj->getPosition());
 	obj->setHealthBoxOffset(avgSpawnPos);
-
-
 
 	// HEALTH STATE *************************************
 	// make my health an aggregate of all my spawns' healths
@@ -969,7 +944,6 @@ void SpawnBehavior::computeAggregateStates(void)
 	{
 		obj->getBodyModule()->setInitialHealth(0);// I been sick <
 	}
-
 
 	// HOUSEKEEPING *************************************
 	//make sure no enemies are shooting at the nexus, since it doesn't 'exist'
@@ -1006,7 +980,6 @@ void SpawnBehavior::xfer( Xfer *xfer )
 
 	// extend base class
 	BehaviorModule::xfer( xfer );
-
 
 	if (version >= 2) {
 		xfer->xferBool(&m_initialBurstTimesInited);

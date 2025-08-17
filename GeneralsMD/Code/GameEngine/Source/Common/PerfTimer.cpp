@@ -144,7 +144,6 @@ void InitPrecisionTimer()
 	s_ticksPerSec = s_ticksPerMSec * 1000.0f;
 	s_ticksPerUSec = s_ticksPerSec / 1000000.0f;
 
-
 #else
 
 	//Kris: With total disrespect, this code costs 5 real seconds of init time
@@ -275,7 +274,6 @@ static char s_buf[256] = "";
 PerfGather*		PerfGather::m_active[MAX_ACTIVE_STACK] = { 0 };
 PerfGather**	PerfGather::m_activeHead = &PerfGather::m_active[0];
 Int64					PerfGather::s_stopStartOverhead = -1;
-
 
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------

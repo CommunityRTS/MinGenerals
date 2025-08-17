@@ -19,7 +19,6 @@
 #ifndef MONOD_HEADER
 #define MONOD_HEADER
 
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "odevice.h"
@@ -29,7 +28,6 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <winioctl.h>
-
 
 /*
 **  This is the identifier for the Monochrome Display Driver

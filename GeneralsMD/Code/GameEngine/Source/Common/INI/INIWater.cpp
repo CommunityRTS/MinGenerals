@@ -141,4 +141,3 @@ void INI::parseWaterTransparencyDefinition( INI *ini )
 	}
 }
 
-

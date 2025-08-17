@@ -34,7 +34,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditAction dialog
 
-
 EditAction::EditAction(CWnd* pParent /*=NULL*/)
 	: CDialog(EditAction::IDD, pParent)
 {
@@ -43,7 +42,6 @@ EditAction::EditAction(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditAction::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -51,7 +49,6 @@ void EditAction::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditAction, CDialog)
 	//{{AFX_MSG_MAP(EditAction)
@@ -94,11 +91,9 @@ static HTREEITEM findOrAdd(CTreeCtrl *tree, HTREEITEM parent, const char *pLabel
 /////////////////////////////////////////////////////////////////////////////
 // EditAction message handlers
 
-
 BOOL EditAction::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
 
 //	CDC *pDc =GetDC();
 	CRect rect;
@@ -210,7 +205,6 @@ BOOL EditAction::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
 void EditAction::formatScriptActionText(Int parameterNdx) {
 	CHARFORMAT2 cf;
 	m_updating = true;
@@ -297,8 +291,6 @@ void EditAction::formatScriptActionText(Int parameterNdx) {
 	m_curLinkChrg.cpMin = startSel;
 	m_updating = false;
 }
-
-
 
 BOOL EditAction::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

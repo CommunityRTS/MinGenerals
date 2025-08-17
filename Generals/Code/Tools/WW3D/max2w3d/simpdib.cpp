@@ -36,7 +36,6 @@
 
 #include "simpdib.h"
 
-
 SimpleDIBClass::SimpleDIBClass(HWND hwnd,int width,int height,PaletteClass & pal):
 	IsZombie(false),
 	Info(NULL),
@@ -111,7 +110,6 @@ SimpleDIBClass::~SimpleDIBClass(void)
 	if (Info) delete [] Info;
 	if (Handle) DeleteObject(Handle);
 }
-
 
 void SimpleDIBClass::Clear(unsigned char color)
 {

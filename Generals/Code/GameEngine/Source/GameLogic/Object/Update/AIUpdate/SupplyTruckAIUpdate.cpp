@@ -91,7 +91,6 @@ SupplyTruckAIUpdate::~SupplyTruckAIUpdate( void )
 	m_supplyTruckStateMachine->deleteInstance();
 }
 
-
 //-------------------------------------------------------------------------------------------------
 UpdateSleepTime SupplyTruckAIUpdate::update( void )
 {
@@ -152,7 +151,6 @@ Bool SupplyTruckAIUpdate::gainOneBox( Int remainingStock )
 	if( getSupplyTruckAIUpdateModuleData() && m_numberBoxes >= getSupplyTruckAIUpdateModuleData()->m_maxBoxesData )
 		return FALSE;
 	++m_numberBoxes;
-
 
 	//if I just took the last box,
 	//i will announce that this supply source is now empty
@@ -383,7 +381,6 @@ TheInGameUI->DEBUG_addFloatingText("entering idle state", getMachineOwner()->get
 	return STATE_CONTINUE;
 }
 
-
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------
@@ -612,7 +609,6 @@ void RegroupingState::onExit(StateExitType status)
 	TheInGameUI->DEBUG_addFloatingText("exiting regroup state", getMachineOwner()->getPosition(), GameMakeColor(255, 0, 0, 255));
 #endif
 }
-
 
 //-------------------------------------------------------------------------------------------------
 StateReturnType DockingState::onEnter()

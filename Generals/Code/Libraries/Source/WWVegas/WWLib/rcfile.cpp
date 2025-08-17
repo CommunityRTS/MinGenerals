@@ -34,12 +34,10 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "rcfile.h"
 #include <stdlib.h>
 
 const char * RESOURCE_FILE_TYPE_NAME = "File";
-
 
 ResourceFileClass::ResourceFileClass(HMODULE hmodule, char const *filename) :
 	ResourceName(NULL),

@@ -173,7 +173,6 @@ static const FieldParse TheAIFieldParseTable[] =
 	{ "AttackUsesLineOfSight",	INI::parseBool,NULL,		offsetof( TAiData, m_attackUsesLineOfSight ) },
 	{ "AttackIgnoreInsignificantBuildings",	INI::parseBool,NULL,		offsetof( TAiData, m_attackIgnoreInsignificantBuildings ) },
 
-
 	{ "AttackPriorityDistanceModifier", INI::parseReal,NULL, offsetof( TAiData, m_attackPriorityDistanceModifier) },
  	{ "MaxRecruitRadius",				INI::parseReal,NULL,		offsetof( TAiData, m_maxRecruitDistance ) },
 	{ "SkirmishBaseDefenseExtraDistance",	INI::parseReal,NULL,	offsetof( TAiData, m_skirmishBaseDefenseExtraDistance ) },
@@ -182,9 +181,7 @@ static const FieldParse TheAIFieldParseTable[] =
 
 	{ "SideInfo",			AI::parseSideInfo,			NULL, NULL },
 
-
 	{ "SkirmishBuildList",			AI::parseSkirmishBuildList,			NULL, NULL },
-
 
  	{ "MinInfantryForGroup",		INI::parseInt,NULL,			offsetof( TAiData, m_minInfantryForGroup ) },
  	{ "MinVehiclesForGroup",		INI::parseInt,NULL,			offsetof( TAiData, m_minVehiclesForGroup ) },
@@ -203,7 +200,6 @@ static const FieldParse TheAIFieldParseTable[] =
 
  	{ "MaxRetaliationDistance",	INI::parseReal,NULL,			offsetof( TAiData, m_maxRetaliateDistance ) },
  	{ "RetaliationFriendsRadius",	INI::parseReal,NULL,			offsetof( TAiData, m_retaliateFriendsRadius ) },
-
 
 	{ NULL,					NULL,						NULL,						0 }  // keep this last
 
@@ -303,7 +299,6 @@ void AI::parseSkirmishBuildList(INI *ini, void *instance, void* /*store*/, const
 /// The AI system singleton
 AI *TheAI = NULL;
 
-
 /**
  * Constructor for the AI system
  */
@@ -382,7 +377,6 @@ AI::~AI()
 	}
 }
 
-
 void AI::newOverride(void)
 {
 	TAiData *cur = m_aiData;
@@ -436,9 +430,6 @@ void AI::parseAiDataDefinition( INI* ini )
 	ini->initFromINI( TheAI->m_aiData, TheAIFieldParseTable );
 
 }
-
-
-
 
 //--------------------------------------------------------------------------------------------------------
 /**
@@ -562,7 +553,6 @@ public:
 #endif
 };
 
-
 typedef struct
 {
 	Int priority;
@@ -578,7 +568,6 @@ static void priorityFunc(Object *obj, void *userData)
 		dp->priority = curPriority;
 	}
 }
-
 
 //-----------------------------------------------------------------------------
 /**
@@ -728,9 +717,6 @@ Object *AI::findClosestEnemy( const Object *me, Real range, UnsignedInt qualifie
 	return bestEnemy;
 }
 
-
-
-
  /////////////////////////////
 /**
  * Return the closest ally, according to the qualifiers.
@@ -768,8 +754,6 @@ Object *AI::findClosestAlly( const Object *me, Real range, UnsignedInt qualifier
 	return ThePartitionManager->getClosestObject( me, range, FROM_BOUNDINGSPHERE_2D, filters );
 }
 /////////////////////////////
-
-
 
  /////////////////////////////
 /**
@@ -1042,5 +1026,4 @@ void AI::loadPostProcess( void )
 {
 
 }  // end loadPostProcess
-
 

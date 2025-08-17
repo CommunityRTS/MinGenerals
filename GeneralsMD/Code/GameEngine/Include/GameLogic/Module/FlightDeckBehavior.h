@@ -37,7 +37,6 @@
 #include "GameLogic/Module/DieModule.h"
 #include "GameLogic/Module/AIUpdate.h"
 
-
 #define MAX_RUNWAYS			2 //***NOTE: If you change this, make sure you update the parsing section!
 													//And also do a search for MAX_RUNWAYS and evaluate any special case comments!
 
@@ -208,7 +207,6 @@ private:
 	FlightDeckInfo* findEmptyPPI();
 
   const ThingTemplate *m_thingTemplate;
-
 
 	std::vector<FlightDeckInfo>		m_spaces;
 	std::vector<RunwayInfo>				m_runways;

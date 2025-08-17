@@ -31,7 +31,6 @@
 #ifndef _LANPLAYER_H_
 #define _LANPLAYER_H_
 
-
 /**
  * LAN player class.  This is for players sitting in the lobby.  Players are
  * uniquely identified by their IP addresses.

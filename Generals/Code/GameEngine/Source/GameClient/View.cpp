@@ -38,7 +38,6 @@ UnsignedInt View::m_idNext = 1;
 // the tactical view singleton
 View *TheTacticalView = NULL;
 
-
 View::View( void )
 {
 	//Added By Sadullah Nader
@@ -200,7 +199,6 @@ void View::getLocation( ViewLocation *location )
 	location->init( pos->x, pos->y, pos->z, getAngle(), getPitch(), getZoom() );
 
 }
-
 
 /**
  * set the view's current location from to the view location object

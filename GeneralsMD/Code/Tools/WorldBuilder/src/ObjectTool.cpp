@@ -78,8 +78,6 @@ Real ObjectTool::calcAngle(Coord3D downPt, Coord3D curPt, WbView* pView)
 	return((Real)angle);
 }
 
-
-
 /// Turn off object tracking.
 void ObjectTool::deactivate()
 {

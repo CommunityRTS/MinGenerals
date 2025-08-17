@@ -63,7 +63,6 @@
 
 RectClass							Render2DClass::ScreenResolution( 0,0,0,0 );
 
-
 /*
 ** Render2DClass
 */
@@ -235,7 +234,6 @@ Vector2 Render2DClass::Convert_Vert( const Vector2 & v )
 		out.Y -= 0.5f;
 	}
 
-
 	// Convert back to (-1,1)-(1,-1)
 	out.X = out.X / (Get_Screen_Resolution().Width() * 0.5f) - 1.0f;
 	out.Y = out.Y / (Get_Screen_Resolution().Height() * -0.5f) + 1.0f;
@@ -284,14 +282,12 @@ void	Render2DClass::Force_Alpha( float alpha )		// Force all alphas
 	}
 }
 
-
 void	Render2DClass::Force_Color( int color )		// Force all alphas
 {
 	for ( int i = 0; i < Colors.Count(); i++ ) {
 		Colors[i] = color;
 	}
 }
-
 
 /*
 ** Internal Add Quad Elements
@@ -372,7 +368,6 @@ void	Render2DClass::Internal_Add_Quad_HColors( unsigned long color1, unsigned lo
 	*colors=color2;
 }
 
-
 void	Render2DClass::Internal_Add_Quad_Indicies( int start_vert_index, bool backfaced )
 {
 	unsigned short * indices;
@@ -409,7 +404,6 @@ void	Render2DClass::Internal_Add_Quad_Indicies( int start_vert_index, bool backf
 
 }
 
-
 void	Render2DClass::Add_Quad( const Vector2 & v0, const Vector2 & v1, const Vector2 & v2, const Vector2 & v3, const RectClass & uv, unsigned long color )
 {
 	Internal_Add_Quad_Indicies( Vertices.Count() );
@@ -442,7 +436,6 @@ void	Render2DClass::Add_Quad_HGradient( const Vector2 & v0, const Vector2 & v1, 
 	Internal_Add_Quad_HColors( left_color, right_color );
 }
 
-
 void	Render2DClass::Add_Quad_VGradient( const RectClass & screen, unsigned long top_color, unsigned long bottom_color )
 {
 	Internal_Add_Quad_Indicies( Vertices.Count() );
@@ -458,7 +451,6 @@ void	Render2DClass::Add_Quad_HGradient( const RectClass & screen, unsigned long 
 	Internal_Add_Quad_UVs( RectClass( 0,0,1,1 ) );
 	Internal_Add_Quad_HColors( left_color, right_color );
 }
-
 
 void	Render2DClass::Add_Quad( const RectClass & screen, const RectClass & uv, unsigned long color )
 {
@@ -540,7 +532,6 @@ void	Render2DClass::Add_Line( const Vector2 & a, const Vector2 & b, float width,
 	//Add_Quad_HGradient( const RectClass & screen, unsigned long left_color, unsigned long right_color );
 }
 
-
 void	Render2DClass::Add_Line( const Vector2 & a, const Vector2 & b, float width, unsigned long color, unsigned long color2 )
 {
 	Add_Line( a, b, width, RectClass( 0,0,1,1 ), color, color2 );
@@ -558,7 +549,6 @@ void Render2DClass::Add_Line( const Vector2 & a, const Vector2 & b, float width,
 	Add_Quad_HGradient( a - corner_offset, a + corner_offset, b - corner_offset, b + corner_offset, uv, color,color2);
 	//Add_Quad_HGradient(RectClass( a.X -corner_offset.X ,a.Y,b.X,b.Y ), color, color2);
 }
-
 
 void	Render2DClass::Add_Rect( const RectClass & rect, float border_width, uint32 border_color, uint32 fill_color )
 {
@@ -705,7 +695,6 @@ void Render2DClass::Render(void)
 
 }
 
-
 /*
 ** Render2DTextClass
 */
@@ -752,7 +741,6 @@ void	Render2DTextClass::Set_Font( Font3DInstanceClass *font )
 		BlockUV.Inflate( Vector2(-BlockUV.Width()/4, -BlockUV.Height()/4) );
 	}
 }
-
 
 /*
 **

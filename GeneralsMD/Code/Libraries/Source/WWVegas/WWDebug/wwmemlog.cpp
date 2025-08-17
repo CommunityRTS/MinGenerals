@@ -65,7 +65,6 @@
 	#define FREE_MEMORY(p) ::free(p)
 #endif
 
-
 /*
 ** Enable one of the following #defines to specify which thread-sychronization
 ** method to use.
@@ -120,7 +119,6 @@ static char * _MemoryCategoryNames[] =
 	"<undefined>",
 };
 
-
 /**
 ** MemoryCounterClass
 ** This object will store statistics for each memory category.  It can provide things like
@@ -141,8 +139,6 @@ protected:
 	int		CurrentAllocation;
 	int		PeakAllocation;
 };
-
-
 
 /**
 ** ActiveCategoryStackClass
@@ -183,8 +179,6 @@ protected:
 	int		Count;
 };
 
-
-
 /**
 ** ActiveCategoryClass
 ** This is a dynamic vector of ActiveCategoryStackClasses which adds a new stack each time
@@ -209,7 +203,6 @@ protected:
 
 	int		Count;
 };
-
 
 /**
 ** MemLogClass
@@ -240,7 +233,6 @@ private:
 	ActiveCategoryClass		_ActiveCategoryTracker;
 
 };
-
 
 /**
 ** Static Variables
@@ -366,8 +358,6 @@ public:
 	~MemLogMutexLockClass(void) { Unlock_Mem_Log_Mutex(); }
 };
 
-
-
 /***************************************************************************************************
 **
 ** ActiveCategoryStackClass Implementation
@@ -383,7 +373,6 @@ ActiveCategoryStackClass::operator = (const ActiveCategoryStackClass & that)
 	}
 	return *this;
 }
-
 
 /***************************************************************************************************
 **
@@ -413,7 +402,6 @@ ActiveCategoryStackClass & ActiveCategoryClass::Get_Active_Stack(void)
 	Count++;
 	return (*this)[Count-1];
 }
-
 
 /***************************************************************************************************
 **
@@ -471,8 +459,6 @@ void MemLogClass::Pop_Active_Category(void)
 	_ActiveCategoryTracker.Pop();
 }
 
-
-
 /***************************************************************************************************
 **
 ** WWMemoryLogClass Implementation
@@ -523,12 +509,10 @@ void WWMemoryLogClass::Register_Memory_Released(int category,int size)
 	Get_Log()->Register_Memory_Released(category,size);
 }
 
-
 static void _MemLogCleanup(void)
 {
 	delete _TheMemLog;
 }
-
 
 MemLogClass * WWMemoryLogClass::Get_Log(void)
 {
@@ -552,7 +536,6 @@ MemLogClass * WWMemoryLogClass::Get_Log(void)
 	}
 	return _TheMemLog;
 }
-
 
 /***********************************************************************************************
  * WWMemoryLogClass::Release_Log -- Free the memory used by WWMemoryLogClass so it doesn't leak*
@@ -580,7 +563,6 @@ void WWMemoryLogClass::Release_Log(void)
 	}
 }
 
-
 /***************************************************************************************************
 **
 ** Allocating and Freeing memory
@@ -595,7 +577,6 @@ void WWMemoryLogClass::Release_Log(void)
 
 const int WWMEMLOG_KEY0 = (unsigned('G')<<24) | (unsigned('g')<<16) | (unsigned('0')<<8) | unsigned('l');
 const int WWMEMLOG_KEY1 = (unsigned('~')<<24) | (unsigned('_')<<16) | (unsigned('d')<<8) | unsigned('3');
-
 
 /**
 ** MemoryLogStruct
@@ -620,8 +601,6 @@ struct MemoryLogStruct
 	int		Category;		// category this memory belongs to
 	int		Size;				// size of the allocation
 };
-
-
 
 /***********************************************************************************************
  * WWMemoryLogClass::Allocate_Memory -- allocates memory                                       *
@@ -685,7 +664,6 @@ void * WWMemoryLogClass::Allocate_Memory(size_t size)
 	}
 #endif //DISABLE_MEMLOG
 }
-
 
 /***********************************************************************************************
  * WWMemoryLogClass::Release_Memory -- frees memory                                            *

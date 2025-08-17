@@ -60,8 +60,6 @@ typedef struct Point2DStruct
 //}
 //#endif
 
-
-
 template<class T> class TRect;
 
 /***********************************************************************************************
@@ -120,7 +118,6 @@ class TPoint2D {
 		T Y;
 };
 
-
 /***********************************************************************************************
 **	This typedef provides an uncluttered type name for use by simple integer points.
 */
@@ -140,20 +137,17 @@ class Point2D : public TPoint2D<int>
 		Point2D const operator + (Point2D const & rvalue) const {return(Point2D(int(X + rvalue.X), int(Y + rvalue.Y)));}
 };
 
-
 template<class T>
 T Distance(TPoint2D<T> const & point1, TPoint2D<T> const & point2)
 {
 	return((point1 - point2).Length());
 }
 
-
 template<class T>
 TPoint2D<T> const Cross_Product(TPoint2D<T> const & lvalue, TPoint2D<T> const & rvalue)
 {
 	return(lvalue.Cross_Product(rvalue));
 }
-
 
 /***********************************************************************************************
 **	This describes a point in 3 dimensional space using arbitrary
@@ -221,7 +215,6 @@ class TPoint3D : public TPoint2D<T> {
 		T Z;
 };
 
-
 /***********************************************************************************************
 **	This typedef provides a simple uncluttered type name for use by
 **	integer 3D points.
@@ -233,6 +226,5 @@ TPoint3D<T> const Cross_Product(TPoint3D<T> const & lvalue, TPoint3D<T> const & 
 {
 	return(lvalue.Cross_Product(rvalue));
 }
-
 
 #endif

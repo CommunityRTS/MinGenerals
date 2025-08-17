@@ -114,7 +114,6 @@ protected:
 	DecalMeshClass *										NextVisible;
 };
 
-
 /*
 ** RigidDecalMeshClass: a concrete class derived from DecalMeshClass which is
 ** used for decals on rigid (non-skin) meshes.
@@ -179,7 +178,6 @@ protected:
 	SimpleDynVecClass<DecalStruct>					Decals;
 };
 
-
 /*
 ** SkinDecalMeshClass: a concrete class derived from DecalMeshClass which is
 ** used for decals on skin meshes.
@@ -243,7 +241,6 @@ protected:
 	SimpleDynVecClass<DecalStruct>					Decals;
 };
 
-
 /*
 ** DecalMeshClass inline functions
 */
@@ -257,7 +254,6 @@ inline DecalSystemClass * DecalMeshClass::Peek_System(void)
 {
 	return DecalSystem;
 }
-
 
 /*
 ** RigidDecalMeshClass inline functions
@@ -273,7 +269,6 @@ inline uint32 RigidDecalMeshClass::Get_Decal_ID(int decal_index)
 	return Decals[decal_index].DecalID;
 }
 
-
 /*
 ** SkinDecalMeshClass inline functions
 */
@@ -287,7 +282,6 @@ inline uint32 SkinDecalMeshClass::Get_Decal_ID(int decal_index)
 {
 	return Decals[decal_index].DecalID;
 }
-
 
 #endif //DECALMSH_H
 

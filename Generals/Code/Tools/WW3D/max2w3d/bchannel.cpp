@@ -39,7 +39,6 @@
 #include "logdlg.h"
 #include "exportlog.h"
 
-
 BitChannelClass::BitChannelClass
 (
 	uint32 id,
@@ -85,7 +84,6 @@ void BitChannelClass::Set_Bits(BooleanVectorClass & bits)
 	}
 }
 
-
 bool BitChannelClass::Get_Bit(int frameidx)
 {
 	assert(frameidx >= 0);
@@ -93,7 +91,6 @@ bool BitChannelClass::Get_Bit(int frameidx)
 
 	return Data[frameidx];
 }
-
 
 bool BitChannelClass::Save(ChunkSaveClass & csave, bool compress)
 {
@@ -149,7 +146,6 @@ bool BitChannelClass::Save(ChunkSaveClass & csave, bool compress)
 	 float percent = (((float) channelsize) / originalchannelsize) * 100.0f;
 
 	 ExportLog::printf("%.0f", percent);
-
 
     // save
 
@@ -216,7 +212,6 @@ bool BitChannelClass::Save(ChunkSaveClass & csave, bool compress)
 	return true;
 }
 
-
 bool BitChannelClass::is_default(bool bit)
 {
 	return (bit == DefaultVal);
@@ -234,7 +229,6 @@ void BitChannelClass::compute_range(void)
 		End--;
 	}
 }	 // compute_range
-
 
 //
 // find a packet that isn't needed, and return the index
@@ -264,7 +258,6 @@ uint32 BitChannelClass::find_useless_packet(W3dTimeCodedBitChannelStruct * c)
 	return( PACKETS_ALL_USEFUL );
 
 } // find_useless_packet
-
 
 //
 //  Remove a packet from a W3dTimeCodedBitChannelStruct
@@ -312,8 +305,5 @@ void BitChannelClass::compress(W3dTimeCodedBitChannelStruct * c)
 	}
 
 } // compress
-
-
-
 
 // EOF - bchannel.cpp

@@ -48,7 +48,6 @@
 #include "winfix.h"
 //#include "autorun.h"
 
-
 //-----------------------------------------------------------------------------
 // private defines...
 //-----------------------------------------------------------------------------
@@ -69,7 +68,6 @@ char DebugFile	[ MAX_PATH ] = { '\0' };
 //	 FILE *Windows_File_Streams[ MAX_FILES_OPEN_AT_A_TIME ];
 // #endif
 
-
 //-----------------------------------------------------------------------------
 // non-class private functions in this module...
 //-----------------------------------------------------------------------------
@@ -77,7 +75,6 @@ char DebugFile	[ MAX_PATH ] = { '\0' };
 // #if( SUPPORT_STREAMS )
 //	 FILE *Get_Internal_File_Stream( void );
 // #endif
-
 
 //-----------------------------------------------------------------------------
 // public file class functions...
@@ -88,7 +85,6 @@ void __cdecl Msg( int, char *, char *, ... ) { };	// line, file, fmt
 void 	Delete_Msg_File ( void )  { };
 #endif
 #endif
-
 
 #ifdef _DEBUG
 
@@ -164,7 +160,6 @@ void __cdecl Msg( int line, char *filename, char *fmt, ... )
 	OutputDebugString( szBuffer1 );
 
 } /* Msg */
-
 
 /****************************************************************************
  * MSG -- Write Message to Debug file with line and filename.				*
@@ -256,7 +251,6 @@ void __cdecl Msg( int line, char *filename, wchar_t *fmt, UINT codepage, ... )
 
 } /* Msg */
 
-
 /***************************************************************************
  * DELETE_MSG_FILE -- Delete the Debug file.							   *
  *                                                                         *
@@ -320,7 +314,6 @@ void Delete_Msg_File ( void )
 }
 
 #endif
-
 
 //------------------------------------------------------------------------------
 // StandardFileClass::StandardFileClass
@@ -942,7 +935,6 @@ char *StandardFileClass::Query_Name_String( void )
 	return( File_Name );
 }
 
-
 #if( SUPPORT_STREAMS )
 
 //------------------------------------------------------------------------------
@@ -959,7 +951,6 @@ FILE *StandardFileClass::Query_File_Stream_Pointer( void )
 //------------------------------------------------------------------------------
 // private file class functions...
 //------------------------------------------------------------------------------
-
 
 //------------------------------------------------------------------------------
 // void StandardFileClass::Reset
@@ -979,7 +970,6 @@ void StandardFileClass::Reset( void )
 	Currently_Open = FALSE;
 	File_Name[ 0 ] = '\0';
 }
-
 
 int StandardFileClass::End_Of_File	( void )
 {
@@ -1006,7 +996,6 @@ int StandardFileClass::Flush ( void )
    	return( fflush( File_Stream_Ptr ));
 	#endif
 }
-
 
 //------------------------------------------------------------------------------
 // non-class public functions from wnd_file.h
@@ -1539,7 +1528,6 @@ int Get_Internal_File_Handle( void )
 }
 #endif
 
-
 #endif // SUPPORT_HANDLES
 
 #if( SUPPORT_STREAMS )
@@ -1609,7 +1597,6 @@ bool CD_File_Exists( char const *file_name )
 	}
 	return( FALSE );
 }
-
 
 #if( 0 )
 //------------------------------------------------------------------------------

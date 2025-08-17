@@ -111,7 +111,6 @@ enum Scorches
 	CRATER_7 = 14,
 	CRATER_8 = 15,
 
-
 	MISC_DECAL_1 = 16,
 	MISC_DECAL_2 = 17,
 	MISC_DECAL_3 = 18,

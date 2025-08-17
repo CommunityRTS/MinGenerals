@@ -341,7 +341,6 @@ protected:
 
 private:
 
-
 	void startRotOrPitchSound();					///< start turret rotation sound
 	void stopRotOrPitchSound();						///< stop turret rotation sound
 	void removeSelfAsTargeter();

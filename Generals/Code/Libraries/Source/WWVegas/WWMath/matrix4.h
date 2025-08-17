@@ -52,11 +52,9 @@
  *   Matrix4::operator /= -- "divide equals" operator                                          *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #if defined(_MSC_VER)
 #pragma once
 #endif
-
 
 #ifndef MATRIX4_H
 #define MATRIX4_H
@@ -65,7 +63,6 @@
 #include "vector4.h"
 #include "matrix3d.h"
 #include "matrix3.h"
-
 
 class Matrix4
 {
@@ -182,7 +179,6 @@ protected:
 
 };
 
-
 /***********************************************************************************************
  * Matrix4::Matrix4 -- Constructor, optionally initialize to Identitiy matrix                  *
  *                                                                                             *
@@ -253,7 +249,6 @@ WWINLINE Matrix4::Matrix4(const Vector4 & r0, const Vector4 & r1, const Vector4 
 	Init(r0,r1,r2,r3);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Make_Identity -- Initializes the matrix to Identity                                *
  *                                                                                             *
@@ -274,7 +269,6 @@ WWINLINE void Matrix4::Make_Identity(void)
 	Row[3].Set(0.0,0.0,0.0,1.0);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init -- Initializes from the contents of the give Matrix3D                         *
  *                                                                                             *
@@ -292,7 +286,6 @@ WWINLINE void Matrix4::Init(const Matrix3D & m)
 	Row[0] = m[0]; Row[1] = m[1]; Row[2] = m[2]; Row[3] = Vector4(0.0,0.0,0.0,1.0);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init -- Initializes the rows from the given Vector4s                               *
  *                                                                                             *
@@ -309,7 +302,6 @@ WWINLINE void Matrix4::Init(const Vector4 & r0, const Vector4 & r1, const Vector
 {
 	Row[0] = r0; Row[1] = r1; Row[2] = r2; Row[3] = r3;
 }
-
 
 /***********************************************************************************************
  * Matrix4::Init_Ortho -- Initialize to an orthographic projection matrix                      *
@@ -356,7 +348,6 @@ WWINLINE void Matrix4::Init_Ortho
 	Row[2][3] = -(zfar + znear) / (zfar - znear);
 }
 
-
 /***********************************************************************************************
  * Matrix4::Init_Perspective -- Initialize to a perspective projection matrix                  *
  *                                                                                             *
@@ -397,7 +388,6 @@ WWINLINE void Matrix4::Init_Perspective(float hfov,float vfov,float znear,float 
 	Row[3][2] = -1.0f;
 	Row[3][3] = 0.0f;
 }
-
 
 /***********************************************************************************************
  * Matrix4::Init_Perspective -- Initialize to a perspective projection matrix                  *
@@ -763,7 +753,6 @@ WWINLINE void Matrix4::Transform_Vector(const Matrix4 & A,const Vector3 & in,Vec
 	out->Z = (A[2][0] * v->X + A[2][1] * v->Y + A[2][2] * v->Z + A[2][3]);
 }
 
-
 WWINLINE void Matrix4::Transform_Vector(const Matrix4 & A,const Vector3 & in,Vector4 * out)
 {
 	out->X = (A[0][0] * in.X + A[0][1] * in.Y + A[0][2] * in.Z + A[0][3]);
@@ -790,6 +779,5 @@ WWINLINE void	Matrix4::Transform_Vector(const Matrix4 & A,const Vector4 & in,Vec
 	out->Z = (A[2][0] * v->X + A[2][1] * v->Y + A[2][2] * v->Z + A[2][3] * v->W);
 	out->W = (A[3][0] * v->X + A[3][1] * v->Y + A[3][2] * v->Z + A[3][3] * v->W);
 }
-
 
 #endif /*MATRIX4_H*/

@@ -34,7 +34,6 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 /*
 ** AppData.cpp - Implementation of some Westwood
 ** extensions to the MAXScript language.
@@ -48,14 +47,12 @@
 #include "w3dutil.h"	// W3DAppData*Struct accessor functions!
 #include "w3ddesc.h"
 
-
 /*
 ** Let MAXScript know we're implementing new built-in functions.
 */
 def_visible_primitive(copy_app_data,			"wwCopyAppData");
 def_visible_primitive(set_origin_app_data,	"wwSetOriginAppData");
 def_visible_primitive(get_hierarchy_file,		"wwGetHierarchyFile");
-
 
 /*
 **
@@ -111,7 +108,6 @@ Value * copy_app_data_cf (Value **arg_list, int count)
 	dest_node->AddAppDataChunk(W3DUtilityClassID, UTILITY_CLASS_ID, W3D_APPDATA_1,
 										sizeof(W3DAppData1Struct), copy_data_1);
 
-
 	/*
 	** Copy W3DAppData2Struct
 	*/
@@ -138,7 +134,6 @@ Value * copy_app_data_cf (Value **arg_list, int count)
 		if (copy_dazzle_data == NULL)
 			throw RuntimeError("Out of memory.");
 
-
 		// Copy the app data and give it to the target node.
 		*copy_dazzle_data = *dazzle_app_data;
 		dest_node->AddAppDataChunk(W3DUtilityClassID, UTILITY_CLASS_ID, W3D_DAZZLE_APPDATA,
@@ -147,8 +142,6 @@ Value * copy_app_data_cf (Value **arg_list, int count)
 
 	return &ok;
 }
-
-
 
 /*
 **
@@ -220,7 +213,4 @@ Value * get_hierarchy_file_cf (Value **arg_list, int count)
 	}
 	return_value(vl.htree_file);
 }
-
-
-
 

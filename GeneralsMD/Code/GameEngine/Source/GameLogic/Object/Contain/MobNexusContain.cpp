@@ -99,8 +99,6 @@ void MobNexusContainModuleData::buildFieldParse(MultiIniFieldParse& p)
   p.add(dataFieldParse);
 }
 
-
-
 // PRIVATE ////////////////////////////////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------------------------------
@@ -168,7 +166,6 @@ Bool MobNexusContain::isValidContainerFor(const Object* rider, Bool checkCapacit
 	{
 		//blech! This case may or may not occur... in which case, just use the supplied object.
 	}
-
 
 	// extend functionality
 	if( OpenContain::isValidContainerFor( rider, checkCapacity ) == false )
@@ -328,7 +325,6 @@ void MobNexusContain::onObjectCreated()
 		}
 	}
 }
-
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------

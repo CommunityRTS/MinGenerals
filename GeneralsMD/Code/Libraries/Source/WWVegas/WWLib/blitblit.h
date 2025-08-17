@@ -37,7 +37,6 @@
 #ifndef BLITBLIT_H
 #define BLITBLIT_H
 
-
 /*
 **	This module contains the pixel-pushing blitter objects. These objects only
 **	serve one purpose. That is, to move pixels from one location to another. These
@@ -60,11 +59,9 @@
 **	the pixel to the logical palette color index appropriate for the display.
 */
 
-
 #include	"blitter.h"
 #include	<assert.h>
 #include	<string.h>
-
 
 /*
 ** Blits without translation and source and dest are same pixel format. Note that
@@ -79,7 +76,6 @@ class BlitPlain : public Blitter {
 		virtual void BlitForward(void * dest, void const * source, int length) const {memcpy(dest, source, length*sizeof(T));}
 		virtual void BlitBackward(void * dest, void const * source, int length) const {memmove(dest, source, length*sizeof(T));}
 };
-
 
 /*
 ** Blits with transparency checking when and source and dest are same pixel format.
@@ -105,7 +101,6 @@ class BlitTrans : public Blitter {
 		*/
 		virtual void BlitBackward(void * dest, void const * source, int length) const {BlitForward(dest, source, length);}
 };
-
 
 /*
 ** Blits when source 8 bits and dest is T. This process is typically used
@@ -136,7 +131,6 @@ class BlitPlainXlat : public Blitter {
 	private:
 		T const * TranslateTable;
 };
-
 
 /*
 ** Blits with source 8 bit with transparency and dest is T. This process is used
@@ -169,7 +163,6 @@ class BlitTransXlat : public Blitter {
 	private:
 		T const * TranslateTable;
 };
-
 
 /*
 **	Blits with source 8 bit, transparency check, then translate to pixel format T. This
@@ -204,7 +197,6 @@ class BlitTransRemapXlat : public Blitter {
 		unsigned char const * RemapTable;
 		T const * TranslateTable;
 };
-
 
 /*
 **	Blits with source 8 bit with transparency then remap and dest is T. This is probably
@@ -242,7 +234,6 @@ class BlitTransZRemapXlat : public Blitter {
 		T const * TranslateTable;
 };
 
-
 /*
 **	Algorithmic darkening of hicolor pixels controlled by the source pixels. The source
 **	pixels are examined only to determine if the destination pixel should be darkened.
@@ -276,7 +267,6 @@ class BlitTransDarken : public Blitter {
 		T Mask;
 };
 
-
 /*
 **	This will remap the destination pixels but under the control of the source pixels.
 **	Where the source pixel is not transparent, the dest pixel is remapped. This algorithm
@@ -309,7 +299,6 @@ class BlitTransRemapDest : public Blitter {
 		T const * RemapTable;
 };
 
-
 /*
 **	This is similar to BlitTransDarken but instead of examining the source to determine what
 **	pixels should be darkened, every destination pixel is darkened. This means that the source
@@ -337,7 +326,6 @@ class BlitDarken : public Blitter {
 	private:
 		T Mask;
 };
-
 
 /*
 **	This blitter performs 50% translucency as it draws. It is commonly used for animation
@@ -372,7 +360,6 @@ class BlitTransLucent50 : public Blitter {
 		T Mask;
 };
 
-
 /*
 **	This blitter performs 25% translucency as it draws. This effect is less than spectacular,
 **	but there are some uses for it. It only works with hicolor pixels.
@@ -406,7 +393,6 @@ class BlitTransLucent25 : public Blitter {
 		T const * TranslateTable;
 		T Mask;
 };
-
 
 /*
 **	This blitter performs 75% translucency as it draws. This is quite useful for explosions and
@@ -443,7 +429,6 @@ class BlitTransLucent75 : public Blitter {
 		T Mask;
 };
 
-
 /*
 **	Assembly versions of some of the templated blitter object functions. Borland and
 **	Visual C++ support a compatible inline-assembly formats. However, Borland compiler
@@ -476,7 +461,6 @@ again:
 fini:;
 }
 
-
 inline void BlitTransXlat<unsigned short>::BlitForward(void * dest, void const * source, int len) const
 {
 	unsigned short const * xlator = TranslateTable;
@@ -505,7 +489,6 @@ again:
 	}
 over:;
 }
-
 
 inline void BlitTransRemapXlat<unsigned short>::BlitForward(void * dest, void const * source, int len) const
 {
@@ -543,7 +526,6 @@ again:
 over:;
 }
 
-
 inline void BlitTransZRemapXlat<unsigned short>::BlitForward(void * dest, void const * source, int len) const
 {
 	unsigned short const * translator = TranslateTable;
@@ -580,7 +562,6 @@ again:
 over:;
 }
 
-
 inline void BlitPlainXlat<unsigned short>::BlitForward(void * dest, void const * source, int len) const
 {
 	unsigned short const * remapper = TranslateTable;
@@ -607,8 +588,6 @@ again:
 	}
 }
 
-
 #endif
-
 
 #endif

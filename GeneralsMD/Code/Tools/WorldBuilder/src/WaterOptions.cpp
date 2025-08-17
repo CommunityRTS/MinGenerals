@@ -41,7 +41,6 @@ Bool WaterOptions::m_creatingWaterAreas = false;
 /////////////////////////////////////////////////////////////////////////////
 /// WaterOptions dialog trivial construstor - Create does the real work.
 
-
 WaterOptions::WaterOptions(CWnd* pParent /*=NULL*/):
 m_moveUndoable(NULL)
 {
@@ -126,7 +125,6 @@ BOOL WaterOptions::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-
 BEGIN_MESSAGE_MAP(WaterOptions, COptionsPanel)
 	//{{AFX_MSG_MAP(WaterOptions)
 	ON_CBN_KILLFOCUS(IDC_WATERNAME_EDIT, OnChangeWaterEdit)
@@ -183,7 +181,6 @@ void WaterOptions::OnChangeWaterEdit()
 		}
 	}
 }
-
 
 void WaterOptions::OnWaterPolygon()
 {
@@ -348,7 +345,6 @@ void WaterOptions::GetPopSliderInfo(const long sliderID, long *pMin, long *pMax,
 {
 	switch (sliderID) {
 
-
 		case IDC_HEIGHT_POPUP:
 			*pMin = 0;
 			*pMax = 255*MAP_HEIGHT_SCALE;
@@ -369,7 +365,6 @@ void WaterOptions::PopSliderChanged(const long sliderID, long theVal)
 	CWnd *pEdit;
 	switch (sliderID) {
 
-
 		case IDC_HEIGHT_POPUP:
 			m_waterHeight = theVal;
 			str.Format("%d",m_waterHeight);
@@ -380,7 +375,6 @@ void WaterOptions::PopSliderChanged(const long sliderID, long theVal)
 			updateHeight();
 			m_updating = false;
 			break;
-
 
 		default:
 			// uh-oh!
@@ -431,7 +425,6 @@ void WaterOptions::startUpdateHeight(void)
 	pDoc->AddAndDoUndoable(m_moveUndoable);
 }
 
-
 void WaterOptions::updateHeight(void)
 {
 	PolygonTrigger *theTrigger = WaypointOptions::getSingleSelectedPolygon();
@@ -461,7 +454,6 @@ void WaterOptions::endUpdateHeight(void)
 {
 	REF_PTR_RELEASE(m_moveUndoable); // belongs to pDoc now.
 }
-
 
  /// Handles width edit ui messages.
 /** Gets the new edit control text, converts it to an int, then updates

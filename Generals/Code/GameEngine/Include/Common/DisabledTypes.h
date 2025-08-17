@@ -102,8 +102,6 @@ inline void FLIP_DISABLEDMASK(DisabledMaskType& m)
 	m.flip();
 }
 
-
-
 // defined in Common/System/DisabledTypes.cpp
 extern const char *TheDisabledNames[];
 extern DisabledMaskType DISABLEDMASK_NONE;	// inits to all zeroes

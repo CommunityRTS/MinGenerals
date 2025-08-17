@@ -510,7 +510,6 @@ BOOL LayersList::OnInitDialog()
 	pTree->SetImageList(&mImageList, LVSIL_NORMAL);
 	pTree->InsertItem(TheDefaultLayerName.c_str(), 0, 0);
 
-
 	return 1;
 
 }
@@ -832,8 +831,6 @@ void LayersList::OnMergeViewSelection(UINT commandID)
 	}
 }
 
-
-
 MapObject *LayersList::findObjectByUID(AsciiString objectIDToFind)
 {
 	MapObject *obj = MapObject::getFirstMapObject();
@@ -862,8 +859,6 @@ BEGIN_MESSAGE_MAP(LayersList, CDialog)
 	ON_COMMAND_RANGE(ID_LAYERSLIST_MERGEOBJECTINTO_BEGIN, ID_LAYERSLIST_MERGEOBJECTINTO_END, OnMergeObject)
 	ON_COMMAND_RANGE(ID_LAYERSLIST_MERGEVIEWSELECTIONINTO_BEGIN, ID_LAYERSLIST_MERGEVIEWSELECTIONINTO_END, OnMergeViewSelection)
 END_MESSAGE_MAP()
-
-
 
 // for purposes of linking.
 // TheDefaultLayerName is NOT constant, because it is okay to change it.

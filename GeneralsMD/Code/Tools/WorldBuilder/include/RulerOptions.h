@@ -16,7 +16,6 @@
 **	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef __RULEROPTIONS_H_
 #define __RULEROPTIONS_H_
 
@@ -43,7 +42,6 @@ public:
 	enum { IDD = IDD_RULER_OPTIONS };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-
 
 // Overrides
 	// ClassWizard generated virtual function overrides

@@ -69,7 +69,6 @@ public:
 	Real				m_trailerRotationFactor;
 	Real				m_rotationDampingFactor;
 
-
 	Real				m_rotationSpeedMultiplier;
 	Real				m_powerslideRotationAddition;
 

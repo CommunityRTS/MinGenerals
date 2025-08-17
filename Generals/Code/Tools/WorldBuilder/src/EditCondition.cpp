@@ -28,7 +28,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // EditCondition dialog
 
-
 EditCondition::EditCondition(CWnd* pParent /*=NULL*/)
 	: CDialog(EditCondition::IDD, pParent)
 {
@@ -37,7 +36,6 @@ EditCondition::EditCondition(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 }
 
-
 void EditCondition::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -45,7 +43,6 @@ void EditCondition::DoDataExchange(CDataExchange* pDX)
 		// NOTE: the ClassWizard will add DDX and DDV calls here
 	//}}AFX_DATA_MAP
 }
-
 
 BEGIN_MESSAGE_MAP(EditCondition, CDialog)
 	//{{AFX_MSG_MAP(EditCondition)
@@ -57,11 +54,9 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // EditCondition message handlers
 
-
 BOOL EditCondition::OnInitDialog()
 {
 	CDialog::OnInitDialog();
-
 
 //	CDC *pDc =GetDC();
 
@@ -93,7 +88,6 @@ BOOL EditCondition::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void EditCondition::formatConditionText(Int parameterNdx) {
 	CHARFORMAT2 cf;
@@ -165,8 +159,6 @@ void EditCondition::formatConditionText(Int parameterNdx) {
 	m_myEditCtrl.SetSel(startSel, endSel);
 	m_updating = false;
 }
-
-
 
 BOOL EditCondition::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 {

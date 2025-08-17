@@ -70,9 +70,6 @@
 //#pragma MESSAGE("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
-
-
 //-----------------------------------------------------------------------------
 //         Private Functions
 //-----------------------------------------------------------------------------
@@ -92,8 +89,6 @@ void W3DPropBuffer::cull(CameraClass * camera)
 		m_props[curProp].visible=visible;
 	}
 }
-
-
 
 //-----------------------------------------------------------------------------
 //         Public Functions
@@ -129,10 +124,6 @@ W3DPropBuffer::W3DPropBuffer(void)
 	m_propShroudMaterialPass = NEW_REF(W3DShroudMaterialPassClass,());
 	m_initialized = true;
 }
-
-
-
-
 
 //=============================================================================
 // W3DPropBuffer::clearAllProps
@@ -301,8 +292,6 @@ void W3DPropBuffer::removePropsForConstruction(const Coord3D* pos, const Geometr
 	}
 }
 
-
-
 //=============================================================================
 // W3DPropBuffer::notifyShroudChanged
 //=============================================================================
@@ -315,7 +304,6 @@ void W3DPropBuffer::notifyShroudChanged()
 		m_props[i].ss = ThePartitionManager?OBJECTSHROUD_INVALID:OBJECTSHROUD_CLEAR;
 	}
 }
-
 
 DECLARE_PERF_TIMER(Prop_Render)
 
@@ -390,7 +378,6 @@ void W3DPropBuffer::drawProps(RenderInfoClass &rinfo)
 
 }
 
-
 // ------------------------------------------------------------------------------------------------
 /** CRC */
 // ------------------------------------------------------------------------------------------------
@@ -411,7 +398,6 @@ void W3DPropBuffer::xfer( Xfer *xfer )
 	XferVersion currentVersion = 1;
 	XferVersion version = currentVersion;
 	xfer->xferVersion( &version, currentVersion );
-
 
 }  // end xfer
 

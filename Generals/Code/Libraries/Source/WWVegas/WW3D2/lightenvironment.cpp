@@ -36,25 +36,21 @@
  * Functions:                                                                                  *
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-
 #include "lightenvironment.h"
 #include "matrix3d.h"
 #include "camera.h"
 #include "light.h"
-
 
 /*
 ** Constants
 */
 const float DIFFUSE_TO_AMBIENT_FRACTION = 1.0f;
 
-
 /*
 ** Static variables
 */
 static _LightingLODCutoff			= 0.5f;
 static _LightingLODCutoff2			= 0.5f * 0.5f;
-
 
 /************************************************************************************************
 **
@@ -105,8 +101,6 @@ void LightEnvironmentClass::InputLightStruct::Init_From_Point_Or_Spot_Light
 	float atten = 1.0f - (dist - atten_start) / (atten_end - atten_start);
 	atten = WWMath::Clamp(atten,0.0f,1.0f);
 
-
-
 	if (light.Get_Type() == LightClass::SPOT) {
 
 		Vector3 spot_dir;
@@ -149,7 +143,6 @@ void LightEnvironmentClass::InputLightStruct::Init_From_Point_Or_Spot_Light
 	}
 }
 
-
 void LightEnvironmentClass::InputLightStruct::Init_From_Directional_Light
 (
 	const LightClass & light,
@@ -163,12 +156,10 @@ void LightEnvironmentClass::InputLightStruct::Init_From_Directional_Light
 	light.Get_Diffuse(&Diffuse);
 }
 
-
 float LightEnvironmentClass::InputLightStruct::Contribution(void)
 {
 	return Diffuse.Length2();
 }
-
 
 /************************************************************************************************
 **
@@ -186,8 +177,6 @@ void LightEnvironmentClass::OutputLightStruct::Init
 	Matrix3D::Inverse_Rotate_Vector(camera_tm,input.Direction,&Direction);
 }
 
-
-
 /************************************************************************************************
 **
 ** LightEnvironmentClass Implementation
@@ -201,11 +190,9 @@ LightEnvironmentClass::LightEnvironmentClass(void) :
 {
 }
 
-
 LightEnvironmentClass::~LightEnvironmentClass(void)
 {
 }
-
 
 void LightEnvironmentClass::Reset(const Vector3 & object_center,const Vector3 & ambient)
 {
@@ -213,7 +200,6 @@ void LightEnvironmentClass::Reset(const Vector3 & object_center,const Vector3 & 
 	ObjectCenter = object_center;
 	OutputAmbient = ambient;
 }
-
 
 void LightEnvironmentClass::Add_Light(const LightClass & light)
 {

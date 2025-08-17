@@ -53,7 +53,6 @@
 //#pragma message("************************************** WARNING, optimization disabled for debugging purposes")
 #endif
 
-
 //-----------------------------------------------------------------------------
 // USER INCLUDES //////////////////////////////////////////////////////////////
 //-----------------------------------------------------------------------------
@@ -94,20 +93,16 @@ void CreditsMenuInit( WindowLayout *layout, void *userData )
 	parentMainMenuID = TheNameKeyGenerator->nameToKey( AsciiString("CreditsMenu.wnd:ParentCreditsWindow") );
 	parentMainMenu = TheWindowManager->winGetWindowFromId( NULL, parentMainMenuID );
 
-
 	// show menu
 	layout->hide( FALSE );
 
 	// set keyboard focus to main parent
 	TheWindowManager->winSetFocus( parentMainMenu );
 
-
-
 	TheAudio->removeAudioEvent( AHSV_StopTheMusicFade );
 	AudioEventRTS event( AsciiString( "Credits" ) );
 	event.setShouldFade( TRUE );
 	TheAudio->addAudioEvent( &event );
-
 
 }  // end CreditsMenuInit
 
@@ -211,7 +206,6 @@ WindowMsgHandledType CreditsMenuSystem( GameWindow *window, UnsignedInt msg,
 		// --------------------------------------------------------------------------------------------
 		case GWM_CREATE:
 		{
-
 
 			break;
 
