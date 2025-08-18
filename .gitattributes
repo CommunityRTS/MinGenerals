@@ -1,6 +1,9 @@
 # Auto-detect text files
 * text=auto
 
+# Apply consistent whitespace rules to all files
+* whitespace=trailing-space,tab-in-indent,space-before-tab,tabwidth=2
+
 # Text files where line endings should be preserved
 *.patch -text
 *.diff  -text
@@ -106,15 +109,15 @@
 *.ini               text eol=lf
 *.toml              text eol=lf
 *.xml               text eol=lf
-*.yaml              text eol=lf
-*.yml               text eol=lf
-*.json              text eol=lf
+*.yaml              text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2
+*.yml               text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2
+*.json              text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2
 # (Fix syntax highlighting on GitHub to allow comments)
-*.jsonc             text eol=lf
-*.cjson             text eol=lf
-.vscode/*.json      text eol=lf
-devcontainer.json   text eol=lf
-.devcontainer.json  text eol=lf
+*.jsonc             text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2 linguist-language=JSON-with-Comments
+*.cjson             text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2 linguist-language=JSON-with-Comments
+.vscode/*.json      text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2 linguist-language=JSON-with-Comments
+devcontainer.json   text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2 linguist-language=JSON-with-Comments
+.devcontainer.json  text eol=lf    whitespace=trailing-space,tab-in-indent,tabwidth=2 linguist-language=JSON-with-Comments
 
 # ---------- Documents ----------
 *.bibtex            text eol=lf    diff=bibtex
@@ -124,7 +127,7 @@ devcontainer.json   text eol=lf
 *.pdf                              diff=astextplain
 *.rtf                              diff=astextplain
 *.epub                             diff=astextplain
-*.md                text eol=lf    diff=markdown linguist-detectable
+*.md                text eol=lf    diff=markdown linguist-detectable whitespace=blank-at-eof,tab-in-indent,tabwidth=4
 *.mdx               text eol=lf    diff=markdown
 *.css               text eol=lf    diff=css
 *.scss              text eol=lf    diff=css
@@ -150,10 +153,10 @@ devcontainer.json   text eol=lf
 meson.build         text eol=lf
 *.cmake             text eol=lf
 *.ninja             text eol=lf
-*.mk                text eol=lf
-*.mak               text eol=lf
-*[Mm]akefile        text eol=lf
-*[Gg]nu[Mm]akefile  text eol=lf
+*.mk                text eol=lf    whitespace=trailing-space,tab,tabwidth=4
+*.mak               text eol=lf    whitespace=trailing-space,tab,tabwidth=4
+*[Mm]akefile        text eol=lf    whitespace=trailing-space,tab,tabwidth=4
+*[Gg]nu[Mm]akefile  text eol=lf    whitespace=trailing-space,tab,tabwidth=4
 
 # ---------- Project-specific ----------
 *.vdf               text eol=lf
