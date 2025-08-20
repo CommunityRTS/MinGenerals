@@ -15,34 +15,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "Compress"=.\Tools\Compress\Compress.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name Compression
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "Compression"=.\Libraries\Source\Compression\Compression.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "DatGen"=.\Tools\Launcher\DatGen\DatGen.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -276,57 +249,6 @@ Package=<4>
 
 ###############################################################################
 
-Project: "MapCacheBuilder"=.\Tools\MapCacheBuilder\MapCacheBuilder.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name Compression
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngine
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngineDevice
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyHTTP
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPatching
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPeer
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPresence
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyStats
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name ww3d2
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name WWDownload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwlib
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwmath
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwsaveload
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "Miles"=.\LIBRARIES\SOURCE\Miles\Miles.dsp - Package Owner=<4>
 
 Package=<5>
@@ -406,9 +328,6 @@ Package=<4>
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name versionUpdate
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name launcher
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name DebugWindow
@@ -496,57 +415,6 @@ Package=<4>
 ###############################################################################
 
 Project: "buildVersionUpdate"=.\Tools\buildVersionUpdate\buildVersionUpdate.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "launcher"=.\Tools\Launcher\launcher.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "max2w3d"=.\Tools\WW3D\max2w3d\max2w3d.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name pluglib
-    End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "pluglib"=.\Tools\WW3D\pluglib\pluglib.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "textureCompress"=.\Tools\textureCompress\textureCompress.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
