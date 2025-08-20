@@ -15,31 +15,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "CRCDiff"=.\Tools\CRCDiff\CRCDiff.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "Compression"=.\Libraries\Source\Compression\Compression.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "DatGen"=.\TOOLS\LAUNCHER\DatGen\DatGen.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -297,66 +273,6 @@ Package=<4>
 
 ###############################################################################
 
-Project: "MapCacheBuilder"=.\Tools\MapCacheBuilder\MapCacheBuilder.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name EABrowserDispatch
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngine
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngineDevice
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyHTTP
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPatching
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPeer
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPresence
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyStats
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name ww3d2
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwdebug
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name WWDownload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwlib
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwmath
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwsaveload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwutil
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwshade
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "Miles"=.\Libraries\Source\Miles\Miles.dsp - Package Owner=<4>
 
 Package=<5>
@@ -449,9 +365,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name versionUpdate
     End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name launcher
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -531,18 +444,6 @@ Package=<4>
 
 ###############################################################################
 
-Project: "assetcull"=.\Tools\assetcull\assetcull.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "buildVersionUpdate"=.\Tools\buildVersionUpdate\buildVersionUpdate.dsp - Package Owner=<4>
 
 Package=<5>
@@ -563,36 +464,6 @@ Package=<5>
 
 Package=<4>
 {{{
-}}}
-
-###############################################################################
-
-Project: "launcher"=.\Tools\Launcher\launcher.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "patchgrabber"=.\Tools\PATCHGET\patchgrabber.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name GameSpyHTTP
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name WWDownload
-    End Project Dependency
 }}}
 
 ###############################################################################
