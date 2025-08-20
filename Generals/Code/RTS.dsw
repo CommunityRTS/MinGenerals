@@ -27,18 +27,6 @@ Package=<4>
 
 ###############################################################################
 
-Project: "DebugWindow"=.\Tools\DebugWindow\DebugWindow.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "EABrowserDispatch"=.\Libraries\Source\EABrowserDispatch\EABrowserDispatch.dsp - Package Owner=<4>
 
 Package=<5>
@@ -47,57 +35,6 @@ Package=<5>
 
 Package=<4>
 {{{
-}}}
-
-###############################################################################
-
-Project: "GUIEdit"=.\Tools\GUIEdit\GUIEdit.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name ww3d2
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwlib
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwmath
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngine
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwsaveload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name Compression
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngineDevice
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyHTTP
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPatching
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPeer
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPresence
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyStats
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name WWDownload
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -198,70 +135,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "ImagePacker"=.\Tools\ImagePacker\ImagePacker.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name Compression
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngine
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameEngineDevice
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyHTTP
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPatching
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPeer
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyPresence
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name GameSpyStats
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name ww3d2
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwlib
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwmath
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name WWDownload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwsaveload
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "Miles"=.\LIBRARIES\SOURCE\Miles\Miles.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "ParticleEditor"=.\Tools\ParticleEditor\ParticleEditor.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -328,12 +202,6 @@ Package=<4>
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name versionUpdate
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name DebugWindow
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name ParticleEditor
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name Compression
