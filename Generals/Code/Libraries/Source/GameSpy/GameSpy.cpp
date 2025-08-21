@@ -70,6 +70,8 @@ GPResult gpSendBuddyRequest(GPConnection*, ...) { return GP_NO_ERROR; }
 GPResult gpSetInfoMask(GPConnection*, ...) { return GP_NO_ERROR; }
 
 // ghttp stubs
+void ghttpStartup(void) {}
+void ghttpCleanup(void) {}
 GHTTPBool ghttpGet(const char*, GHTTPBool, void*, void*) { return GHTTPFalse; }
 GHTTPBool ghttpHead(const char*, GHTTPBool, void*, void*) { return GHTTPFalse; }
 const char* ghttpGetHeaders(ghttpRequest) { return NULL; }

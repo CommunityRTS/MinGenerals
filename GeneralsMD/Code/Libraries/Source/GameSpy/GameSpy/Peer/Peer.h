@@ -14,6 +14,10 @@ typedef void (*peerListingGamesCallback)(PEER, ...);
 enum peerRequestType { PEER_REQUEST_UNKNOWN = 0 };
 enum peerResponseType { PEER_RESPONSE_UNKNOWN = 0 };
 
+typedef enum { ROOMTYPE_NONE = 0 } RoomType;
+
+#define PEER_FLAG_OP 0x01
+
 #define PEERTrue 1
 #define PEERFalse 0
 

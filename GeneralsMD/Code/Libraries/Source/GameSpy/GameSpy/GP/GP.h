@@ -8,7 +8,24 @@ typedef void* GPConnection;
 typedef int GPProfile;
 typedef int GPResult;
 typedef int GPBool;
+typedef int GPEnum;
+typedef int GPErrorCode;
 typedef void (*GPCallback)(GPConnection*, void*, void*);
+
+#define GP_NICK_LEN 32
+#define GP_EMAIL_LEN 64
+#define GP_PASSWORD_LEN 32
+#define GP_STATUS_STRING_LEN 64
+#define GP_LOCATION_STRING_LEN 64
+#define GP_COUNTRYCODE_LEN 4
+#define GP_REASON_LEN 256
+
+#define GP_OFFLINE 0
+#define GP_ONLINE 1
+#define GP_CHATTING 2
+#define GP_PLAYING 3
+
+#define GP_RECV_GAME_INVITE 4
 
 #define GP_ERROR 0
 #define GP_RECV_BUDDY_REQUEST 1
@@ -16,8 +33,6 @@ typedef void (*GPCallback)(GPConnection*, void*, void*);
 #define GP_RECV_BUDDY_STATUS 3
 #define GP_FIREWALL 0
 #define GP_NON_BLOCKING 0
-#define GP_CHATTING 0
-#define GP_ONLINE 1
 
 #define GP_NO_ERROR 0
 #define GP_MEMORY_ERROR 1

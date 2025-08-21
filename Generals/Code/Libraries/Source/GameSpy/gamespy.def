@@ -57,6 +57,8 @@ gpGetInfo
 gpSendBuddyMessage
 gpSendBuddyRequest
 gpSetInfoMask
+ghttpStartup
+ghttpCleanup
 ghttpGet
 ghttpHead
 ghttpGetHeaders
