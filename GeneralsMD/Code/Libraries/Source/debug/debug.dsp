@@ -43,7 +43,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
+# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "NDEBUG" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
 # SUBTRACT CPP /Oa
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -72,7 +72,7 @@ PostBuild_Cmds=copy release\debug.lib ..\..\lib
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GZ /c
+# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /ZI /Od /D "_DEBUG" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GZ /c
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -100,7 +100,7 @@ PostBuild_Cmds=copy debug\debugdebug.lib ..\..\lib
 # PROP Intermediate_Dir "Internal"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Oa /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "_INTERNAL" /Yu"_pch.h" /FD /GF /Gs /c
+# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "NDEBUG" /D "_INTERNAL" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
 # SUBTRACT CPP /Oa
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -129,7 +129,7 @@ PostBuild_Cmds=copy internal\debuginternal.lib ..\..\lib
 # PROP Intermediate_Dir "Profile"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Oa /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "_PROFILE" /Yu"_pch.h" /FD /GF /Gs /c
+# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "NDEBUG" /D "_PROFILE" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
 # SUBTRACT CPP /Oa
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
