@@ -1,0 +1,4 @@
+#define LOCAL_BUILD_STRING "0"
+#define VERSION_LOCALBUILDNUM 0
+#define VERSION_BUILDUSER "CommunityRTS"
+#define VERSION_BUILDLOC "MinGenerals-Repo"

@@ -215,12 +215,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name debug
     End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name buildVersionUpdate
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name versionUpdate
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -300,18 +294,6 @@ Package=<4>
 
 ###############################################################################
 
-Project: "buildVersionUpdate"=.\Tools\buildVersionUpdate\buildVersionUpdate.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
 Project: "debug"=.\Libraries\Source\debug\debug.dsp - Package Owner=<4>
 
 Package=<5>
@@ -325,18 +307,6 @@ Package=<4>
 ###############################################################################
 
 Project: "profile"=.\Libraries\Source\profile\profile.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "versionUpdate"=.\Tools\versionUpdate\versionUpdate.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
