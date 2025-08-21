@@ -108,137 +108,9 @@ LIB32=link.exe -lib
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
-# Begin Group "Zlib"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\ZLib\adler32.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\compress.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\crc32.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\deflate.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\gzio.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infblock.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infcodes.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inffast.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inflate.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inftrees.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infutil.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\maketree.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\trees.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\uncompr.c
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\zutil.c
-# End Source File
-# End Group
-# Begin Group "NoxLZH"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Hdec_g.tbl
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Hdec_s.tbl
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Hdisp.tbl
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Henc.tbl
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Huff.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Lz.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Lzhl.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibSource\Lzhl_tcp.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\NoxCompress.cpp
-# End Source File
-# End Group
 # Begin Group "EAC"
 
 # PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\EAC\btreeabout.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\btreedecode.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\btreeencode.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\huffabout.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\huffdecode.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\huffencode.cpp
-# End Source File
 # Begin Source File
 
 SOURCE=.\EAC\refabout.cpp
@@ -260,89 +132,9 @@ SOURCE=.\CompressionManager.cpp
 # Begin Group "Header Files"
 
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
-# Begin Group "Zlib.H"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\ZLib\deflate.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infblock.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infcodes.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inffast.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inffixed.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\inftrees.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\infutil.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\trees.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\zconf.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\zlib.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\ZLib\zutil.h
-# End Source File
-# End Group
-# Begin Group "NoxLZH.H"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibHeader\_huff.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibHeader\_lz.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibHeader\_lzhl.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibHeader\Lzhl.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\CompLibHeader\Lzhl_tcp.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LZHCompress\NoxCompress.h
-# End Source File
-# End Group
 # Begin Group "EAC.H"
 
 # PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\EAC\btreecodex.h
-# End Source File
 # Begin Source File
 
 SOURCE=.\EAC\codex.h
@@ -350,10 +142,6 @@ SOURCE=.\EAC\codex.h
 # Begin Source File
 
 SOURCE=.\EAC\gimex.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\EAC\huffcodex.h
 # End Source File
 # Begin Source File
 
