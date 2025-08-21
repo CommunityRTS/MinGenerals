@@ -201,13 +201,7 @@ Package=<4>
     Project_Dep_Name GameSpyStats
     End Project Dependency
     Begin Project Dependency
-    Project_Dep_Name versionUpdate
-    End Project Dependency
-    Begin Project Dependency
     Project_Dep_Name Compression
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name buildVersionUpdate
     End Project Dependency
 }}}
 
@@ -278,30 +272,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name GameSpyStats
     End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "buildVersionUpdate"=.\Tools\buildVersionUpdate\buildVersionUpdate.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "versionUpdate"=.\Tools\versionUpdate\versionUpdate.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
 }}}
 
 ###############################################################################
