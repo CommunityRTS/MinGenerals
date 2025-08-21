@@ -14,7 +14,28 @@ typedef void (*peerListingGamesCallback)(PEER, ...);
 enum peerRequestType { PEER_REQUEST_UNKNOWN = 0 };
 enum peerResponseType { PEER_RESPONSE_UNKNOWN = 0 };
 
-typedef enum { ROOMTYPE_NONE = 0 } RoomType;
+typedef enum {
+    NormalRoom = 0,
+    StagingRoom,
+    GroupRoom
+} RoomType;
+
+typedef enum {
+    PEERJoinSuccess = 0,
+    PEERFullRoom,
+    PEERInviteOnlyRoom,
+    PEERBannedFromRoom,
+    PEERBadPassword,
+    PEERAlreadyInRoom,
+    PEERNoConnection
+} PEERJoinResult;
+
+typedef enum {
+    PEER_CLEAR = 0,
+    PEER_ADD,
+    PEER_UPDATE,
+    PEER_REMOVE
+} PEERChangeType;
 
 #define PEER_FLAG_OP 0x01
 
