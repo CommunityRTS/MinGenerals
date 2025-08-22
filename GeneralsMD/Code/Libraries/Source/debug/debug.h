@@ -38,7 +38,6 @@
   Generally speaking there are four different library variants:
   - Internal: all asserts/checks/logs, full optimizations (_INTERNAL macro defined)
   - %Debug: all asserts/checks/logs, no optimizations (_DEBUG macro defined)
-  - Profile: all asserts/checks/logs, full optimizations, profiling active (_PROFILE macro defined)
   - Release: no asserts/checks/logs, full optimizations
 
   These variants will be broken down into separate features which
@@ -49,7 +48,6 @@
     <td><b>HAS_ASSERTS</b></td>
     <td><b>HAS_LOGS</b></td>
     <td><b>HAS_OPT</b></td>
-    <td><b>HAS_PROFILE</b></td>
   </tr><tr>
     <td>Internal</td>
     <td><center>Y</center></td>
@@ -63,12 +61,6 @@
     <td><center></center></td>
     <td><center></center></td>
   </tr><tr>
-    <td>Profile</td>
-    <td><center>Y</center></td>
-    <td><center>Y</center></td>
-    <td><center>Y</center></td>
-    <td><center>Y</center></td>
-  </tr><tr>
     <td>Release</td>
     <td><center></center></td>
     <td><center></center></td>
@@ -80,7 +72,6 @@
   library variant:
   - Internal: XXXInternal.lib
   - %Debug: XXXDebug.lib
-  - Profile: XXXProfile.lib
   - Release: XXX.lib
 */
 
@@ -98,12 +89,6 @@
 #  pragma comment (lib,"debugdebug.lib")
 #  define HAS_ASSERTS
 #  define HAS_LOGS
-#elif defined(_PROFILE)
-#  pragma comment (lib,"debugprofile.lib")
-#  define HAS_ASSERTS
-#  define HAS_LOGS
-#  define HAS_OPT
-#  define HAS_PROFILE
 #else
 #  pragma comment (lib,"debug.lib")
 #  define HAS_OPT
