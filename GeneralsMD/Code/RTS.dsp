@@ -4,7 +4,7 @@
 
 # TARGTYPE "Win32 (x86) Application" 0x0101
 
-CFG=RTS - Win32 DebugW3D
+CFG=RTS - Win32 Release
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
@@ -13,15 +13,13 @@ CFG=RTS - Win32 DebugW3D
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "RTS.mak" CFG="RTS - Win32 DebugW3D"
+!MESSAGE NMAKE /f "RTS.mak" CFG="RTS - Win32 Release"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
 !MESSAGE "RTS - Win32 Release" (based on "Win32 (x86) Application")
 !MESSAGE "RTS - Win32 Debug" (based on "Win32 (x86) Application")
 !MESSAGE "RTS - Win32 Internal" (based on "Win32 (x86) Application")
-!MESSAGE "RTS - Win32 DebugW3D" (based on "Win32 (x86) Application")
-!MESSAGE "RTS - Win32 Profile" (based on "Win32 (x86) Application")
 !MESSAGE 
 
 # Begin Project
@@ -115,64 +113,6 @@ LINK32=link.exe
 # ADD LINK32 WW3D2Internal.lib WWDebugInternal.lib WWLibInternal.lib WWUtilInternal.lib WWMathInternal.lib GameEngineInternal.lib GameEngineDeviceInternal.lib binkw32.lib dxguid.lib dinput8.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8.lib mss32.lib d3d8.lib winmm.lib vfw32.lib dsound.lib wsock32.lib imm32.lib wininet.lib /nologo /subsystem:windows /pdb:"..\Run\RTSI.pdb" /map:"..\Run\RTSI.map" /debug /machine:I386 /nodefaultlib:"libc.lib" /out:"..\Run\RTSI.exe" /libpath:"GameEngine\Lib" /libpath:"GameEngineDevice\Lib" /libpath:"Libraries\Lib" /libpath:"GameEngine" /fixed:no
 # SUBTRACT LINK32 /pdb:none
 
-!ELSEIF  "$(CFG)" == "RTS - Win32 DebugW3D"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "DebugW3D"
-# PROP BASE Intermediate_Dir "DebugW3D"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Main\DebugW3D"
-# PROP Intermediate_Dir "Main\DebugW3D"
-# PROP Ignore_Export_Lib 0
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /GX /ZI /Od /I "Libraries\Include" /I "GameEngine\Include" /I "gameenginedevice\Include" /I "Libraries\Source\WWVegas" /I "Libraries\Source\WWVegas\WWLib" /I "Libraries\Source\WWVegas\WWMath" /I "Libraries\Source\WWVegas\WWDebug" /I "Libraries\Source\WWVegas\WWSaveLoad" /I "Libraries\Source\WWVegas\WW3D2" /I "Libraries\Include\Granny" /I "Libraries\Source\Bink" /I "Libraries\Source\Miles" /D "_DEBUG" /D WINVER=0x400 /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# SUBTRACT CPP /Fr
-# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
-# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
-# ADD BASE RSC /l 0x409 /d "_DEBUG"
-# ADD RSC /l 0x409 /d "_DEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /debug /machine:I386
-# ADD LINK32 WWDownloadDebug.lib GameSpyHTTPDebug.lib GameSpyPresenceDebug.lib GameSpyStatsDebug.lib GameSpyPeerDebug.lib GameSpyPatchingDebug.lib WW3D2DebugW3D.lib WWDebugDebugW3D.lib WWUtilDebugW3D.lib WWLibDebugW3D.lib WWMathDebugW3D.lib GameEngineDebug.lib GameEngineDeviceDebug.lib binkw32.lib dxguid.lib dinput8.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8.lib mss32.lib d3d8.lib winmm.lib vfw32.lib dsound.lib wsock32.lib imm32.lib wininet.lib /nologo /subsystem:windows /pdb:"..\Run\RTSDW3D.pdb" /map:"..\Run\RTSDW3D.map" /debug /machine:I386 /nodefaultlib:"libcd.lib" /out:"..\Run\RTSDW3D.exe" /libpath:"GameEngine" /libpath:"GameEngine\Lib" /libpath:"GameEngineDevice\Lib" /libpath:"Libraries\Lib"
-# SUBTRACT LINK32 /pdb:none
-
-!ELSEIF  "$(CFG)" == "RTS - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Ignore_Export_Lib 0
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Main\Profile"
-# PROP Intermediate_Dir "Main\Profile"
-# PROP Ignore_Export_Lib 0
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /G6 /MD /W3 /WX /GX /O2 /Ob2 /I "Libraries\Include" /I "GameEngine\Include" /I "gameenginedevice\Include" /I "Libraries\Source\WWVegas" /I "Libraries\Source\WWVegas\WWLib" /I "Libraries\Source\WWVegas\WWMath" /I "Libraries\Source\WWVegas\WWDebug" /I "Libraries\Source\WWVegas\WWSaveLoad" /I "Libraries\Source\WWVegas\WW3D2" /I "Libraries\Include\Granny" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# SUBTRACT BASE CPP /Fr
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /O2 /Ob2 /I "Libraries\Include" /I "GameEngine\Include" /I "gameenginedevice\Include" /I "Libraries\Source\WWVegas" /I "Libraries\Source\WWVegas\WWLib" /I "Libraries\Source\WWVegas\WWMath" /I "Libraries\Source\WWVegas\WWDebug" /I "Libraries\Source\WWVegas\WWSaveLoad" /I "Libraries\Source\WWVegas\WW3D2" /I "Libraries\Include\Granny" /I "Libraries\Source\Bink" /I "Libraries\Source\Miles" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D "_PROFILE" /D WINVER=0x400 /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /Gh /c
-# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 WW3D2.lib WWDebug.lib WWLib.lib WWUtil.lib WWMath.lib GameEngine.lib GameEngineDevice.lib binkw32.lib dxguid.lib dinput8.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8.lib mss32.lib d3d8.lib winmm.lib vfw32.lib dsound.lib wsock32.lib imm32.lib wininet.lib /nologo /subsystem:windows /machine:I386 /nodefaultlib:"libc.lib" /out:"..\Run\RTS.exe" /libpath:"..\..\GameEngine" /libpath:"GameEngine\Lib" /libpath:"GameEngineDevice\Lib" /libpath:"Libraries\Lib" /libpath:"GameEngine"
-# SUBTRACT BASE LINK32 /pdb:none /debug
-# ADD LINK32 WW3D2Profile.lib WWDebugProfile.lib WWLibProfile.lib WWUtilProfile.lib WWMathProfile.lib GameEngineProfile.lib GameEngineDeviceProfile.lib binkw32.lib dxguid.lib dinput8.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib d3dx8.lib mss32.lib d3d8.lib winmm.lib vfw32.lib dsound.lib wsock32.lib imm32.lib wininet.lib gamespyhttp.lib /nologo /subsystem:windows /pdb:"..\Run\RTSP.pdb" /map:"..\Run\RTSP.map" /debug /machine:I386 /nodefaultlib:"libc.lib" /nodefaultlib:"gameengine.lib" /out:"..\Run\RTSP.exe" /libpath:"GameEngine\Lib" /libpath:"GameEngineDevice\Lib" /libpath:"Libraries\Lib" /libpath:"GameEngine"
-# SUBTRACT LINK32 /pdb:none
-
 !ENDIF 
 
 # Begin Target
@@ -180,8 +120,6 @@ LINK32=link.exe
 # Name "RTS - Win32 Release"
 # Name "RTS - Win32 Debug"
 # Name "RTS - Win32 Internal"
-# Name "RTS - Win32 DebugW3D"
-# Name "RTS - Win32 Profile"
 # Begin Group "Main"
 
 # PROP Default_Filter ""

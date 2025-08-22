@@ -20,7 +20,6 @@ CFG=GameEngine - Win32 Debug
 !MESSAGE "GameEngine - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "GameEngine - Win32 Debug" (based on "Win32 (x86) Static Library")
 !MESSAGE "GameEngine - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "GameEngine - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -102,30 +101,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"Lib/GameEngineInternal.lib"
 
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /G6 /MD /W3 /WX /GX /O2 /Ob2 /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/GameSpy" /I "../Libraries/Source/Compression" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /c
-# SUBTRACT BASE CPP /Fr
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /O2 /Ob2 /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/GameSpy" /I "../Libraries/Source/Compression" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D "_PROFILE" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /Gh /c
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"Lib/GameEngine.lib"
-# ADD LIB32 /nologo /out:"Lib/GameEngineProfile.lib"
-
 !ENDIF 
 
 # Begin Target
@@ -133,7 +108,6 @@ LIB32=link.exe -lib
 # Name "GameEngine - Win32 Release"
 # Name "GameEngine - Win32 Debug"
 # Name "GameEngine - Win32 Internal"
-# Name "GameEngine - Win32 Profile"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
@@ -595,19 +569,6 @@ SOURCE=.\Source\Common\crc.cpp
 # Begin Source File
 
 SOURCE=.\Source\Common\CRCDebug.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# ADD CPP /w /W0 /WX
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
@@ -2551,122 +2512,27 @@ SOURCE=.\Source\GameNetwork\GameSpy\StagingRoomGameInfo.cpp
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\GameSpy.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
 # PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\GameSpyChat.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
 # PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\GameSpyGameInfo.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
 # PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\GameSpyGP.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
 # PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\GameSpyPersistentStorage.cpp
-
-!IF  "$(CFG)" == "GameEngine - Win32 Release"
-
 # PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Debug"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Internal"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "GameEngine - Win32 Profile"
-
-# PROP BASE Exclude_From_Build 1
-# PROP Exclude_From_Build 1
-
-!ENDIF 
-
 # End Source File
 # End Group
 # Begin Group "InGameNetwork"

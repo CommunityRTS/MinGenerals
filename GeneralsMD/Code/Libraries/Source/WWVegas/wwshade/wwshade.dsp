@@ -19,9 +19,7 @@ CFG=wwshade - Win32 DebugW3D
 !MESSAGE 
 !MESSAGE "wwshade - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwshade - Win32 Debug" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwshade - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwshade - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwshade - Win32 DebugW3D" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -77,29 +75,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWShadeDebug.lib"
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /GX /O2 /I "..\DirectX\include" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "..\wwsaveload" /I "..\ww3d2" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /Zi /O2 /I "..\DirectX\include" /I "$(ProjDir)/DXSDK\INCLUDE" /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /I "../STLPORT" /I "../../../../DXSDK/INCLUDE" /D "NDEBUG" /D "_MBCS" /D "_LIB" /D "_PROFILE" /D WINVER=0x400 /D "WIN32" /YX /FD /Gh /c
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWShadeProfile.lib"
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
 
 # PROP BASE Use_MFC 0
@@ -123,39 +98,13 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWShadeRelease.lib"
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWShadeInternal.lib"
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "DebugW3D"
-# PROP BASE Intermediate_Dir "DebugW3D"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 1
-# PROP Output_Dir "DebugW3D"
-# PROP Intermediate_Dir "DebugW3D"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /D "_MBCS" /D "_LIB" /D "WWDEBUG" /D "_DEBUG" /D "WIN32" /FR /FD /GZ /c
-# SUBTRACT BASE CPP /YX
-# ADD CPP /nologo /G6 /MTd /W3 /Gm /GX /ZI /Od /I "..\wwsaveload" /I "..\ww3d2" /I "..\wwlib" /I "..\wwmath" /I "..\wwdebug" /D "_MBCS" /D "_LIB" /D "WWDEBUG" /D "_DEBUG" /D WINVER=0x400 /D "WIN32" /FR /FD /GZ /c
-# ADD BASE RSC /l 0x409 /d "_DEBUG"
-# ADD RSC /l 0x409 /d "_DEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWShadeDebug.lib"
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWShadeDebugW3D.lib"
-
 !ENDIF 
 
 # Begin Target
 
 # Name "wwshade - Win32 Release"
 # Name "wwshade - Win32 Debug"
-# Name "wwshade - Win32 Profile"
 # Name "wwshade - Win32 Internal"
-# Name "wwshade - Win32 DebugW3D"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
@@ -306,27 +255,7 @@ InputPath=.\shd6bumpspec.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd6bumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd6bumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd6bumpspec.vsh
@@ -379,27 +308,7 @@ InputPath=.\shd7bumpspecpass0.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd7bumpspecpass0.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd7bumpspecpass0.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd7bumpspecpass0.vsh
@@ -436,27 +345,7 @@ InputPath=.\shd7bumpspecpass1.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd7bumpspecpass1.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd7bumpspecpass1.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd7bumpspecpass1.vsh
@@ -501,27 +390,7 @@ InputPath=.\shd8bumpspec.psh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8bumpspec.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8bumpspec.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8bumpspec.psh
@@ -558,27 +427,7 @@ InputPath=.\shd8bumpspec.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8bumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8bumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8bumpspec.vsh
@@ -619,27 +468,7 @@ InputPath=.\shd8ssbumpspec.psh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpspec.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpspec.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8ssbumpspec.psh
@@ -676,27 +505,7 @@ InputPath=.\shd8ssbumpspec.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpspec.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8ssbumpspec.vsh
@@ -753,27 +562,7 @@ InputPath=.\shd6bumpdiff.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd6bumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd6bumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd6bumpdiff.vsh
@@ -826,27 +615,7 @@ InputPath=.\shd7bumpdiffpass0.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd7bumpdiffpass0.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd7bumpdiffpass0.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd7bumpdiffpass0.vsh
@@ -883,27 +652,7 @@ InputPath=.\shd7bumpdiffpass1.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd7bumpdiffpass1.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd7bumpdiffpass1.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd7bumpdiffpass1.vsh
@@ -948,27 +697,7 @@ InputPath=.\shd8bumpdiff.psh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8bumpdiff.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8bumpdiff.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8bumpdiff.psh
@@ -1005,27 +734,7 @@ InputPath=.\shd8bumpdiff.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8bumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8bumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8bumpdiff.vsh
@@ -1066,27 +775,7 @@ InputPath=.\shd8ssbumpdiff.psh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpdiff.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpdiff.psh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8ssbumpdiff.psh
@@ -1123,27 +812,7 @@ InputPath=.\shd8ssbumpdiff.vsh
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "wwshade - Win32 Profile"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
 !ELSEIF  "$(CFG)" == "wwshade - Win32 Internal"
-
-# Begin Custom Build
-InputPath=.\shd8ssbumpdiff.vsh
-
-"$(InputPath)_code.h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	shdpp $(InputPath)
-
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "wwshade - Win32 DebugW3D"
 
 # Begin Custom Build
 InputPath=.\shd8ssbumpdiff.vsh

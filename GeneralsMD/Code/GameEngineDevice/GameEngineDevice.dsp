@@ -20,7 +20,6 @@ CFG=GameEngineDevice - Win32 Debug
 !MESSAGE "GameEngineDevice - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "GameEngineDevice - Win32 Debug" (based on "Win32 (x86) Static Library")
 !MESSAGE "GameEngineDevice - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "GameEngineDevice - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -102,30 +101,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo /out:"Lib\GameEngineDevice.lib"
 # ADD LIB32 /nologo /out:"Lib\GameEngineDeviceInternal.lib"
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /G6 /MD /W3 /WX /GX /O2 /Ob2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /D "_LIB" /D "_WINDOWS" /D "IG_DEBUG_STACKTRACE" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_RELEASE" /YX /FD /c
-# SUBTRACT BASE CPP /Fr
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /O2 /Ob2 /I "..\Main" /I "Include" /I "..\GameEngine\Include" /I "..\Libraries\Include" /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WW3D2" /I "..\Libraries\Source\WWVegas\WWLib" /I "..\Libraries\Source\WWVegas\WWDebug" /I "..\Libraries\Source\WWVegas\WWMath" /I "..\Libraries\Source\WWVegas\WWSaveLoad" /I "..\Libraries\Include\Granny" /I "..\Libraries\Source\Bink" /I "..\Libraries\Source\Miles" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D "_PROFILE" /D WINVER=0x400 /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "_MBCS" /YX /FD /Gh /c
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"Lib\GameEngineDevice.lib"
-# ADD LIB32 /nologo /out:"Lib\GameEngineDeviceProfile.lib"
-
 !ENDIF 
 
 # Begin Target
@@ -133,7 +108,6 @@ LIB32=link.exe -lib
 # Name "GameEngineDevice - Win32 Release"
 # Name "GameEngineDevice - Win32 Debug"
 # Name "GameEngineDevice - Win32 Internal"
-# Name "GameEngineDevice - Win32 Profile"
 # Begin Group "Source"
 
 # PROP Default_Filter ""
@@ -409,17 +383,6 @@ InputPath=.\Source\W3DDevice\GameClient\Water\wave.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Water\wave.nvp
-
-"$(WkspDir)\..\Run\wave.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\wave.pso
-
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -462,17 +425,6 @@ InputPath=.\Source\W3DDevice\GameClient\Water\wave.nvv
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Water\wave.nvv
-
-"$(WkspDir)\..\Run\wave.vso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\wave.vso
-
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -500,8 +452,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\fterrain.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
 !ENDIF 
 
 # End Source File
@@ -524,8 +474,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\fterrain0.nvp
 	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
 	
 # End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 !ENDIF 
 
@@ -550,8 +498,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\fterrainnoise.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
 !ENDIF 
 
 # End Source File
@@ -574,8 +520,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\fterrainnoise2.nvp
 	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
 	
 # End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 !ENDIF 
 
@@ -609,18 +553,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\invmonochrome.nvp
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Internal"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\invmonochrome.nvp
-
-"$(WkspDir)\..\Run\Shaders\invmonochrome.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\invmonochrome.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 # Begin Custom Build
 WkspDir=.
@@ -675,18 +607,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\monochrome.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\monochrome.nvp
-
-"$(WkspDir)\..\Run\Shaders\monochrome.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\monochrome.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -719,18 +639,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\motionblur.nvp
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Internal"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\motionblur.nvp
-
-"$(WkspDir)\..\Run\Shaders\motionblur.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\motionblur.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 # Begin Custom Build
 WkspDir=.
@@ -783,17 +691,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\MotionBlur.nvv
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\MotionBlur.nvv
-
-"$(WkspDir)\..\Run\Shaders\MotionBlur.vso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\MotionBlur.vso
-
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -826,18 +723,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\roadnoise2.nvp
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Internal"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\roadnoise2.nvp
-
-"$(WkspDir)\..\Run\Shaders\roadnoise2.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\roadnoise2.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 # Begin Custom Build
 WkspDir=.
@@ -892,18 +777,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\terrain.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\terrain.nvp
-
-"$(WkspDir)\..\Run\Shaders\terrain.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\terrain.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -936,18 +809,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\terrainnoise.nvp
 # End Custom Build
 
 !ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Internal"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\terrainnoise.nvp
-
-"$(WkspDir)\..\Run\Shaders\terrainnoise.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\terrainnoise.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
 
 # Begin Custom Build
 WkspDir=.
@@ -1002,18 +863,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\terrainnoise2.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# Begin Custom Build
-WkspDir=.
-InputPath=.\Source\W3DDevice\GameClient\Shaders\terrainnoise2.nvp
-
-"$(WkspDir)\..\Run\Shaders\terrainnoise2.pso" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	..\tools\nvasm\nvasm -d $(InputPath) $(WkspDir)\..\Run\Shaders\terrainnoise2.pso 
-	if ERRORLEVEL 7 ECHO Warning: Output File Read Only! 
-	
-# End Custom Build
-
 !ENDIF 
 
 # End Source File
@@ -1057,8 +906,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\Trees.nvp
 	
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
 !ENDIF 
 
 # End Source File
@@ -1100,8 +947,6 @@ InputPath=.\Source\W3DDevice\GameClient\Shaders\Trees.nvv
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
 !ENDIF 
 
 # End Source File
@@ -1129,19 +974,6 @@ SOURCE=.\Source\W3DDevice\GameClient\Shadow\W3DVolumetricShadow.cpp
 # Begin Source File
 
 SOURCE=.\Source\W3DDevice\GameClient\BaseHeightMap.cpp
-
-!IF  "$(CFG)" == "GameEngineDevice - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Internal"
-
-!ELSEIF  "$(CFG)" == "GameEngineDevice - Win32 Profile"
-
-# ADD CPP /FAcs
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 

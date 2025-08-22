@@ -19,9 +19,7 @@ CFG=wwutil - Win32 DebugW3D
 !MESSAGE 
 !MESSAGE "wwutil - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwutil - Win32 Debug" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwutil - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwutil - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwutil - Win32 DebugW3D" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -79,29 +77,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWUtilDebug.lib"
 
-!ELSEIF  "$(CFG)" == "wwutil - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /WX /GX /Zi /O2 /Op /Ob2 /I "..\wwlib" /I "..\wwdebug" /I "..\wwmath" /D "NDEBUG" /D "WWDEBUG" /D "_PROFILE" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "WIN32" /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /YX /FD /Gh /c
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWUtilProfile.lib"
-
 !ELSEIF  "$(CFG)" == "wwutil - Win32 Internal"
 
 # PROP BASE Use_MFC 0
@@ -126,39 +101,13 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWUtil.lib"
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWUtilInternal.lib"
 
-!ELSEIF  "$(CFG)" == "wwutil - Win32 DebugW3D"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "DebugW3D"
-# PROP BASE Intermediate_Dir "DebugW3D"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 1
-# PROP Output_Dir "DebugW3D"
-# PROP Intermediate_Dir "DebugW3D"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MDd /W3 /WX /Gm /Gi /GX /ZI /Od /I "..\wwlib" /I "..\wwdebug" /I "..\wwmath" /D "_DEBUG" /D "WWDEBUG" /D "_MBCS" /D "_LIB" /D "WIN32" /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /Gi /GX /ZI /Od /I "..\wwlib" /I "..\wwdebug" /I "..\wwmath" /D "_DEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "WIN32" /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /YX /FD /GZ /c
-# SUBTRACT CPP /Fr
-# ADD BASE RSC /l 0x409 /d "_DEBUG"
-# ADD RSC /l 0x409 /d "_DEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWUtilDebug.lib"
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWUtilDebugW3D.lib"
-
 !ENDIF 
 
 # Begin Target
 
 # Name "wwutil - Win32 Release"
 # Name "wwutil - Win32 Debug"
-# Name "wwutil - Win32 Profile"
 # Name "wwutil - Win32 Internal"
-# Name "wwutil - Win32 DebugW3D"
 # Begin Source File
 
 SOURCE=.\mathutil.cpp
