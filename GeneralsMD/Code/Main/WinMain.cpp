@@ -65,8 +65,6 @@
 #include "GeneratedVersion.h"
 #include "Resource.h"
 
-#include <rts/profile.h>
-
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -852,10 +850,6 @@ static CriticalSection critSec1, critSec2, critSec3, critSec4, critSec5;
 Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
                       LPSTR lpCmdLine, Int nCmdShow )
 {
-#ifdef _PROFILE
-  Profile::StartRange("init");
-#endif
-
 	try {
 
 		_set_se_translator( DumpExceptionInfo ); // Hook that allows stack trace.
@@ -938,7 +932,7 @@ Int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
 
 // Force "splash image" to be loaded from a file, not a resource so same exe can be used in different localizations.
-#if defined _DEBUG || defined _INTERNAL || defined _PROFILE
+#if defined _DEBUG || defined _INTERNAL
 
 			// check both localized directory and root dir
 		char filePath[_MAX_PATH];

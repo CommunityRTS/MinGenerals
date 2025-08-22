@@ -100,7 +100,7 @@ enum
 
 static Bool raiseMessageBoxes = TRUE;
 static Bool campaignSelected = FALSE;
-#if defined _DEBUG || defined _INTERNAL || defined _PROFILE
+#if defined _DEBUG || defined _INTERNAL
 static NameKeyType campaignID = NAMEKEY_INVALID;
 static GameWindow *buttonCampaign = NULL;
 #ifdef TEST_COMPRESSION
@@ -525,7 +525,7 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	
 	showSelectiveButtons(SHOW_NONE);
 	// Set up the version number
-#if defined _DEBUG || defined _INTERNAL || defined _PROFILE
+#if defined _DEBUG || defined _INTERNAL
 	WinInstanceData instData;
 #ifdef TEST_COMPRESSION
 	instData.init();
@@ -1280,7 +1280,7 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 			
 			if(buttonPushed)
 				break;
-#if defined _DEBUG || defined _INTERNAL || defined _PROFILE
+#if defined _DEBUG || defined _INTERNAL
 			if( control == buttonCampaign )
 			{
 				buttonPushed = TRUE;

@@ -1438,8 +1438,6 @@ void Debug::WriteBuildInfo(void)
     operator<<(" internal");
   #elif defined(_DEBUG)
     operator<<(" debug");
-  #elif defined(_PROFILE)
-    operator<<(" profile");
   #else
     operator<<(" release");
   #endif
