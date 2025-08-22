@@ -397,7 +397,7 @@ BOOL CWorldBuilderApp::InitInstance()
 	//  [2/11/2003]
 	ini.load( AsciiString( "Data\\Scripts\\Scripts.ini" ), INI_LOAD_OVERWRITE, NULL );
 
-	// need this before TheAudio in case we're running off of CD - TheAudio can try to open Music.big on the CD...
+        // need this before TheAudio in case we're running off of CD - TheAudio can try to open MusicZH.big on the CD...
 	initSubsystem(TheCDManager, CreateCDManager(), NULL);
 	initSubsystem(TheAudio, (AudioManager*)new MilesAudioManager());
 	if (!TheAudio->isMusicAlreadyLoaded())
