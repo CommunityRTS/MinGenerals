@@ -46,7 +46,7 @@
 #ifndef __ARCHIVEFILESYSTEM_H_
 #define __ARCHIVEFILESYSTEM_H_
 
-#define MUSIC_BIG "Music.big"
+#define MUSIC_BIG "MusicZH.big"
 
 //----------------------------------------------------------------------------
 //           Includes                                                      

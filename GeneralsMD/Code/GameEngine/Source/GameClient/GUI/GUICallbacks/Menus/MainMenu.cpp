@@ -73,7 +73,6 @@
 #include "GameNetwork/DownloadManager.h"
 #include "GameNetwork/GameSpy/MainMenuUtils.h"
 
-#include "GameClient/CDCheck.h"
 //Added By Saad
 //for accessing the InGameUI
 #include "GameClient/InGameUI.h"
@@ -309,24 +308,6 @@ void prepareCampaignGame(GameDifficulty diff)
 	setupGameStart(TheCampaignManager->getCurrentMap(), diff );
 }
 
-static MessageBoxReturnType cancelStartBecauseOfNoCD( void *userData )
-{
-	return MB_RETURN_CLOSE;
-}
-
-static MessageBoxReturnType checkCDCallback( void *userData )
-{
-	if (!IsFirstCDPresent())
-	{
-		return MB_RETURN_KEEPOPEN;
-	}
-	else
-	{
-		prepareCampaignGame((GameDifficulty)(Int)(Int *)userData);
-		return MB_RETURN_CLOSE;
-	}
-}
-
 static void doGameStart( void )
 {
 	startGame = FALSE;
@@ -346,16 +327,7 @@ static void doGameStart( void )
 
 static void checkCDBeforeCampaign(GameDifficulty diff)
 {
-	if (!IsFirstCDPresent())
-	{
-		// popup a dialog asking for a CD
-		ExMessageBoxOkCancel(TheGameText->fetch("GUI:InsertCDPrompt"), TheGameText->fetch("GUI:InsertCDMessage"),
-			(void *)diff, checkCDCallback, cancelStartBecauseOfNoCD);
-	}
-	else
-	{
-		prepareCampaignGame(diff);
-	}
+        prepareCampaignGame(diff);
 }
 
 static void shutdownComplete( WindowLayout *layout )
