@@ -72,7 +72,6 @@
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/ScriptEngine.h"
 #include "GameLogic/VictoryConditions.h"
-#include "GameClient/CDCheck.h"
 #include "GameClient/Display.h"
 #include "GameClient/GUICallbacks.h"
 #include "GameClient/WindowLayout.h"
@@ -471,7 +470,7 @@ WindowMsgHandledType ScoreScreenSystem( GameWindow *window, UnsignedInt msg,
 					}
 					else
 					{
-						CheckForCDAtGameStart( startNextCampaignGame );
+                                            startNextCampaignGame();
 					}
 				}
 #endif

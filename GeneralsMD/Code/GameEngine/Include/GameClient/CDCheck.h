@@ -32,9 +32,6 @@
 #ifndef __CDCHECK_H_
 #define __CDCHECK_H_
 
-typedef void (*gameStartCallback) (void);
-
-Bool IsFirstCDPresent(void);
-void CheckForCDAtGameStart( gameStartCallback callback );
+// Legacy CD check removed; discs are no longer required.
 
 #endif //__CDCHECK_H_

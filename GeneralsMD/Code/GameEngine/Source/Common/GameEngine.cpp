@@ -575,31 +575,12 @@ void GameEngine::init( int argc, char *argv[] )
 		// load music dialog will still cause the game to quit.
 		// m_quitting = FALSE;
 
-		// for fingerprinting, we need to ensure the presence of these files
-
-
-#if !defined(_INTERNAL) && !defined(_DEBUG)
-		AsciiString dirName;
-    dirName = TheArchiveFileSystem->getArchiveFilenameForFile("generalsbzh.sec");
-
-    if (dirName.compareNoCase("genseczh.big") != 0)
-		{
-			DEBUG_LOG(("generalsbzh.sec was not found in genseczh.big - it was in '%s'\n", dirName.str()));
-			m_quitting = TRUE;
-		}
-		
-		dirName = TheArchiveFileSystem->getArchiveFilenameForFile("generalsazh.sec");
-		const char *noPath = dirName.reverseFind('\\');
-		if (noPath) {
-			dirName = noPath + 1;
-		}
-
-		if (dirName.compareNoCase("musiczh.big") != 0)
-		{
-			DEBUG_LOG(("generalsazh.sec was not found in musiczh.big - it was in '%s'\n", dirName.str()));
-			m_quitting = TRUE;
-		}
-#endif
+                // Legacy disc fingerprinting relied on hidden `.sec` files packaged
+                // within `genseczh.big` and `musiczh.big`. If those files were not
+                // found, the game would quit and prompt for the original discs.
+                // This copy protection is obsolete for the open-source release, so
+                // the checks have been removed to allow running purely from the
+                // installed data without requiring any game media.
 
 
 		// initialize the MapCache
