@@ -209,9 +209,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name wwshade
     End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name debug
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -284,18 +281,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name wwshade
     End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "debug"=.\Libraries\Source\debug\debug.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
 }}}
 
 ###############################################################################
