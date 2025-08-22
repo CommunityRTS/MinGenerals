@@ -19,9 +19,7 @@ CFG=wwlib - Win32 DebugW3D
 !MESSAGE 
 !MESSAGE "wwlib - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwlib - Win32 Debug" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwlib - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwlib - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwlib - Win32 DebugW3D" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -79,29 +77,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWLibdebug.lib"
 
-!ELSEIF  "$(CFG)" == "wwlib - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "wwlib___"
-# PROP BASE Intermediate_Dir "wwlib___"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /WX /GX /Zi /O2 /Op /Ob2 /I "..\wwdebug" /D "NDEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "REGEX_MALLOC" /D "STDC_HEADERS" /D "_PROFILE" /YX /FD /Gh /c
-# ADD BASE RSC /l 0x409
-# ADD RSC /l 0x409
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWLibProfile.lib"
-
 !ELSEIF  "$(CFG)" == "wwlib - Win32 Internal"
 
 # PROP BASE Use_MFC 0
@@ -127,39 +102,13 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWLib.lib"
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWLibInternal.lib"
 
-!ELSEIF  "$(CFG)" == "wwlib - Win32 DebugW3D"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "DebugW3D"
-# PROP BASE Intermediate_Dir "DebugW3D"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 1
-# PROP Output_Dir "DebugW3D"
-# PROP Intermediate_Dir "DebugW3D"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MDd /W3 /WX /Gm /Gi /GR /GX /ZI /Od /I "..\wwdebug" /D "_DEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "REGEX_MALLOC" /D "STDC_HEADERS" /Fr /YX /FD /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /Gi /GX /ZI /Od /I "..\wwdebug" /D "_DEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "REGEX_MALLOC" /D "STDC_HEADERS" /YX /FD /c
-# SUBTRACT CPP /Fr
-# ADD BASE RSC /l 0x409
-# ADD RSC /l 0x409
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWLibdebug.lib"
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWLibdebugW3D.lib"
-
 !ENDIF 
 
 # Begin Target
 
 # Name "wwlib - Win32 Release"
 # Name "wwlib - Win32 Debug"
-# Name "wwlib - Win32 Profile"
 # Name "wwlib - Win32 Internal"
-# Name "wwlib - Win32 DebugW3D"
 # Begin Group "Source"
 
 # PROP Default_Filter "cpp"

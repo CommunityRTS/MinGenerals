@@ -4,7 +4,7 @@
 
 # TARGTYPE "Win32 (x86) Static Library" 0x0104
 
-CFG=wwdebug - Win32 DebugW3D
+CFG=wwdebug - Win32 Release
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
@@ -13,15 +13,13 @@ CFG=wwdebug - Win32 DebugW3D
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "wwdebug.mak" CFG="wwdebug - Win32 DebugW3D"
+!MESSAGE NMAKE /f "wwdebug.mak" CFG="wwdebug - Win32 Release"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
 !MESSAGE "wwdebug - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwdebug - Win32 Debug" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwdebug - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE "wwdebug - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "wwdebug - Win32 DebugW3D" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -77,29 +75,6 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWDebugDebug.lib"
 
-!ELSEIF  "$(CFG)" == "wwdebug - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "wwdebug_"
-# PROP BASE Intermediate_Dir "wwdebug_"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /WX /GX /Zi /O2 /Op /Ob2 /I "..\wwlib" /I "$(ProjDir)/DXSDK\INCLUDE" /I "../STLPORT" /I "../DXSDK/INCLUDE" /D "NDEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "_PROFILE" /YX /FD /Gh /c
-# ADD BASE RSC /l 0x409
-# ADD RSC /l 0x409
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"..\Libs\release\wwdebug.lib"
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWDebugProfile.lib"
-
 !ELSEIF  "$(CFG)" == "wwdebug - Win32 Internal"
 
 # PROP BASE Use_MFC 0
@@ -124,38 +99,13 @@ LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo /out:"..\..\..\Lib\WWDebug.lib"
 # ADD LIB32 /nologo /out:"..\..\..\Lib\WWDebugInternal.lib"
 
-!ELSEIF  "$(CFG)" == "wwdebug - Win32 DebugW3D"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Max4Release"
-# PROP BASE Intermediate_Dir "Max4Release"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "DebugW3D"
-# PROP Intermediate_Dir "DebugW3D"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MDd /W3 /WX /Gm /Gi /GR /GX /ZI /Od /I "..\wwlib" /D "_DEBUG" /D "WWDEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /Fr /YX /FD /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gi /GX /Zi /O2 /I "..\wwlib" /D "_DEBUG" /D WINVER=0x400 /D "_WINDOWS" /D "WIN32_LEAN_AND_MEAN" /D "WIN32" /D "WWDEBUG" /YX /FD /c
-# ADD BASE RSC /l 0x409
-# ADD RSC /l 0x409
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo /out:"..\Libs\Max4Release\wwdebug.lib"
-# ADD LIB32 /nologo /out:"..\..\..\Lib\WWDebugDebugW3D.lib"
-
 !ENDIF 
 
 # Begin Target
 
 # Name "wwdebug - Win32 Release"
 # Name "wwdebug - Win32 Debug"
-# Name "wwdebug - Win32 Profile"
 # Name "wwdebug - Win32 Internal"
-# Name "wwdebug - Win32 DebugW3D"
 # Begin Group "Source"
 
 # PROP Default_Filter "cpp;c"

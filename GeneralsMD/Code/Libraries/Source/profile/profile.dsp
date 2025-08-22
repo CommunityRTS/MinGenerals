@@ -20,7 +20,6 @@ CFG=profile - Win32 Debug
 !MESSAGE "profile - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "profile - Win32 Debug" (based on "Win32 (x86) Static Library")
 !MESSAGE "profile - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "profile - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -116,35 +115,6 @@ PostBuild_Desc=copying
 PostBuild_Cmds=copy internal\profileinternal.lib ..\..\lib
 # End Special Build Tool
 
-!ELSEIF  "$(CFG)" == "profile - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Oa /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GF /Gs /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "NDEBUG" /D "_PROFILE" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
-# SUBTRACT CPP /Oa /Ow
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"Profile\profileprofile.lib"
-# Begin Special Build Tool
-SOURCE="$(InputPath)"
-PostBuild_Desc=copying
-PostBuild_Cmds=copy profile\profileprofile.lib ..\..\lib
-# End Special Build Tool
-
 !ENDIF 
 
 # Begin Target
@@ -152,7 +122,6 @@ PostBuild_Cmds=copy profile\profileprofile.lib ..\..\lib
 # Name "profile - Win32 Release"
 # Name "profile - Win32 Debug"
 # Name "profile - Win32 Internal"
-# Name "profile - Win32 Profile"
 # Begin Group "Precompiled header"
 
 # PROP Default_Filter ""
@@ -192,19 +161,6 @@ SOURCE=.\internal_funclevel.h
 # Begin Source File
 
 SOURCE=.\profile_funclevel.cpp
-
-!IF  "$(CFG)" == "profile - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Internal"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Profile"
-
-# ADD CPP /FAcs
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
@@ -237,20 +193,6 @@ SOURCE=.\internal_cmd.h
 # Begin Source File
 
 SOURCE=.\profile_cmd.cpp
-
-!IF  "$(CFG)" == "profile - Win32 Release"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Internal"
-
-!ELSEIF  "$(CFG)" == "profile - Win32 Profile"
-
-# ADD CPP /FAcs
-# SUBTRACT CPP /Oa /Ow
-
-!ENDIF 
-
 # End Source File
 # End Group
 # Begin Group "Result functions"

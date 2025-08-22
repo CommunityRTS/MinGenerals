@@ -20,7 +20,6 @@ CFG=debug - Win32 Debug
 !MESSAGE "debug - Win32 Release" (based on "Win32 (x86) Static Library")
 !MESSAGE "debug - Win32 Debug" (based on "Win32 (x86) Static Library")
 !MESSAGE "debug - Win32 Internal" (based on "Win32 (x86) Static Library")
-!MESSAGE "debug - Win32 Profile" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -116,35 +115,6 @@ PostBuild_Desc=copying
 PostBuild_Cmds=copy internal\debuginternal.lib ..\..\lib
 # End Special Build Tool
 
-!ELSEIF  "$(CFG)" == "debug - Win32 Profile"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Profile"
-# PROP BASE Intermediate_Dir "Profile"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Profile"
-# PROP Intermediate_Dir "Profile"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Oa /Og /Oi /Oy /Ob2 /Gy /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /Zi /Ot /Og /Oi /Oy /Ob2 /Gy /D "NDEBUG" /D "_PROFILE" /D WINVER=0x400 /D "WIN32" /D "_MBCS" /D "_LIB" /Yu"_pch.h" /FD /GF /Gs /c
-# SUBTRACT CPP /Oa
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LIB32=link.exe -lib
-# ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"Profile\debugprofile.lib"
-# Begin Special Build Tool
-SOURCE="$(InputPath)"
-PostBuild_Desc=copying
-PostBuild_Cmds=copy profile\debugprofile.lib ..\..\lib
-# End Special Build Tool
-
 !ENDIF 
 
 # Begin Target
@@ -152,7 +122,6 @@ PostBuild_Cmds=copy profile\debugprofile.lib ..\..\lib
 # Name "debug - Win32 Release"
 # Name "debug - Win32 Debug"
 # Name "debug - Win32 Internal"
-# Name "debug - Win32 Profile"
 # Begin Group "Precompiled header"
 
 # PROP Default_Filter ""
@@ -286,8 +255,6 @@ SOURCE=.\debug_debug.cpp
 !ELSEIF  "$(CFG)" == "debug - Win32 Internal"
 
 # ADD CPP /FAcs
-
-!ELSEIF  "$(CFG)" == "debug - Win32 Profile"
 
 !ENDIF 
 
