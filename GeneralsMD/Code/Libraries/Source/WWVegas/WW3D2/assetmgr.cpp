@@ -121,8 +121,6 @@
 #include "ringobj.h"
 #include "sphereobj.h"
 
-#include "shdlib.h"
-
 /*
 ** Static member variable which keeps track of the single instanced asset manager
 */
@@ -225,10 +223,7 @@ WW3DAssetManager::WW3DAssetManager(void) :
 	Prototypes.Set_Growth_Step(PROTOTYPES_GROWTH_RATE);
 
 	// install the default loaders
-#ifndef USE_WWSHADE
 	Register_Prototype_Loader(&_MeshLoader);
-#endif
-
 	Register_Prototype_Loader(&_HModelLoader);
 	Register_Prototype_Loader(&_CollectionLoader);
 	Register_Prototype_Loader(&_BoxLoader);
@@ -239,8 +234,6 @@ WW3DAssetManager::WW3DAssetManager(void) :
 	Register_Prototype_Loader(&_DazzleLoader);
 	Register_Prototype_Loader (&_RingLoader);
 	Register_Prototype_Loader (&_SphereLoader);
-
-	SHD_REG_LOADER;
 	
 	// allocate the hash table and clear it.
 	PrototypeHashTable = W3DNEWARRAY PrototypeClass * [PROTOTYPE_HASH_TABLE_SIZE];

@@ -4,7 +4,7 @@
 
 # TARGTYPE "Win32 (x86) Static Library" 0x0104
 
-CFG=ww3d2 - Win32 DebugW3D
+CFG=ww3d2 - Win32 Release
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
@@ -13,7 +13,7 @@ CFG=ww3d2 - Win32 DebugW3D
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "ww3d2.mak" CFG="ww3d2 - Win32 DebugW3D"
+!MESSAGE NMAKE /f "ww3d2.mak" CFG="ww3d2 - Win32 Release"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
@@ -924,10 +924,6 @@ SOURCE=.\shader.h
 # Begin Source File
 
 SOURCE=.\shattersystem.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\shdlib.h
 # End Source File
 # Begin Source File
 
