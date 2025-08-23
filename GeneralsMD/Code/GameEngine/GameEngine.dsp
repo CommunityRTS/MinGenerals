@@ -2425,7 +2425,8 @@ SOURCE=.\Source\GameClient\Water.cpp
 # End Group
 # Begin Group "GameNetwork"
 
-# PROP Default_Filter ""# Begin Group "GameSpy"
+# PROP Default_Filter ""
+# Begin Group "GameSpy"
 
 # PROP Default_Filter ""
 # Begin Group "Thread"
@@ -4658,7 +4659,6 @@ SOURCE=.\Include\GameClient\WinInstanceData.h
 # End Group
 # Begin Group "GameNetwork.H"
 
-# PROP Default_Filter ""# Begin Group "GameSpyLibs.H"
 
 # PROP Default_Filter ""
 # Begin Group "md5"

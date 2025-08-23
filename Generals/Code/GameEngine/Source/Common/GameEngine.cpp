@@ -170,7 +170,6 @@ void initSubsystem(SUBSYSTEM*& sysref, AsciiString name, SUBSYSTEM* sys, Xfer *p
 
 //-------------------------------------------------------------------------------------------------
 extern HINSTANCE ApplicationHInstance;  ///< our application instance
-extern CComModule _Module;
 
 //-------------------------------------------------------------------------------------------------
 static void updateTGAtoDDS();
@@ -190,8 +189,6 @@ GameEngine::GameEngine( void )
 	m_maxFPS = 0;
 	m_quitting = FALSE;
 	m_isActive = FALSE;
-
-	_Module.Init(NULL, ApplicationHInstance);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -225,8 +222,6 @@ GameEngine::~GameEngine()
 	TheFileSystem = NULL;
 
 	Drawable::killStaticImages();
-
-	_Module.Term();
 
 #ifdef PERF_TIMERS
 	PerfGather::termPerfDump();

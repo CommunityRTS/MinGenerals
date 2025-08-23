@@ -716,7 +716,6 @@ void WOLLoginMenuShutdown( WindowLayout *layout, void *userData )
 	isShuttingDown = true;
 	loggedInOK = false;
 	TheWindowManager->clearTabList();
-	}
 
 	// if we are shutting down for an immediate pop, skip the animations
 	Bool popImmediate = *(Bool *)userData;
@@ -1408,7 +1407,10 @@ WindowMsgHandledType WOLLoginMenuSystem( GameWindow *window, UnsignedInt msg,
 				else if ( controlID == buttonTOSID )
 				{
 					parentTOS->winHide(FALSE);
-                                        						// Okay, no web browser.  This means we're looking at a UTF-8 text file.
+
+					if (1)
+					{
+						// Okay, no web browser.  This means we're looking at a UTF-8 text file.
 						GadgetListBoxReset(listboxTOS);
 						AsciiString fileName;
 						fileName.format("Data\\%s\\TOS.txt", GetRegistryLanguage().str());
@@ -1465,11 +1467,6 @@ WindowMsgHandledType WOLLoginMenuSystem( GameWindow *window, UnsignedInt msg,
 					EnableLoginControls( TRUE );
 
 					parentTOS->winHide(TRUE);
-					{
-						if (listboxTOS != NULL)
-						{
-						}
-					}
 
 					OptionPreferences optionPref;
 					optionPref["SawTOS"] = "yes";

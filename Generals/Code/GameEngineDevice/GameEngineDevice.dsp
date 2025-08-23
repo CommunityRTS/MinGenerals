@@ -906,9 +906,6 @@ SOURCE=.\Source\W3DDevice\GameClient\W3dWaypointBuffer.cpp
 # End Source File
 # Begin Source File
 
-# End Source File
-# Begin Source File
-
 SOURCE=.\Source\W3DDevice\GameClient\WorldHeightMap.cpp
 # End Source File
 # End Group
@@ -1274,9 +1271,6 @@ SOURCE=.\Include\W3DDevice\GameClient\W3DWaterTracks.h
 # Begin Source File
 
 SOURCE=.\Include\W3DDevice\GameClient\W3DWaypointBuffer.h
-# End Source File
-# Begin Source File
-
 # End Source File
 # Begin Source File
 
