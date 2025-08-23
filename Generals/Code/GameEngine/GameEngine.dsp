@@ -434,10 +434,6 @@ SOURCE=.\Source\Common\INI\INIWater.cpp
 
 SOURCE=.\Source\Common\INI\INIWeapon.cpp
 # End Source File
-# Begin Source File
-
-SOURCE=.\Source\Common\INI\INIWebpageURL.cpp
-# End Source File
 # End Group
 # Begin Group "Audio"
 
@@ -2266,16 +2262,7 @@ SOURCE=.\Source\GameClient\Water.cpp
 # End Group
 # Begin Group "GameNetwork"
 
-# PROP Default_Filter ""
-# Begin Group "WOLBrowser"
-
-# PROP Default_Filter ".cpp"
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\WOLBrowser\WebBrowser.cpp
-# End Source File
-# End Group
-# Begin Group "GameSpy"
+# PROP Default_Filter ""# Begin Group "GameSpy"
 
 # PROP Default_Filter ""
 # Begin Group "Thread"
@@ -4360,20 +4347,7 @@ SOURCE=.\Include\GameClient\WinInstanceData.h
 # End Group
 # Begin Group "GameNetwork.H"
 
-# PROP Default_Filter ""
-# Begin Group "WOLBrowser H"
-
-# PROP Default_Filter ".h"
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\WOLBrowser\FEBDispatch.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\WOLBrowser\WebBrowser.h
-# End Source File
-# End Group
-# Begin Group "GameSpyLibs.H"
+# PROP Default_Filter ""# Begin Group "GameSpyLibs.H"
 
 # PROP Default_Filter ""
 # Begin Group "md5"
