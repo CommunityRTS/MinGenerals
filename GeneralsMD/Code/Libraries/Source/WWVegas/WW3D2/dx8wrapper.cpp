@@ -81,8 +81,6 @@
 #include "bound.h"
 #include "dx8webbrowser.h"
 
-#include "shdlib.h"
-
 const int DEFAULT_RESOLUTION_WIDTH = 640;
 const int DEFAULT_RESOLUTION_HEIGHT = 480;
 const int DEFAULT_BIT_DEPTH = 32;
@@ -380,7 +378,6 @@ void DX8Wrapper::Do_Onetime_Device_Dependent_Inits(void)
 	MissingTexture::_Init();
 	TextureFilterClass::_Init_Filters((TextureFilterClass::TextureFilterMode)WW3D::Get_Texture_Filter());
 	TheDX8MeshRenderer.Init();
-	SHD_INIT;
 	BoxRenderObjClass::Init();
 	VertexMaterialClass::Init();
 	PointGroupClass::_Init(); // This needs the VertexMaterialClass to be initted
@@ -486,7 +483,6 @@ void DX8Wrapper::Do_Onetime_Device_Dependent_Shutdowns(void)
 	PointGroupClass::_Shutdown();
 	VertexMaterialClass::Shutdown();
 	BoxRenderObjClass::Shutdown();
-	SHD_SHUTDOWN;
 	TheDX8MeshRenderer.Shutdown();
 	MissingTexture::_Deinit();
 
@@ -636,7 +632,6 @@ bool DX8Wrapper::Reset_Device(bool reload_assets)
 		DynamicVBAccessClass::_Deinit();
 		DynamicIBAccessClass::_Deinit();
 		DX8TextureManagerClass::Release_Textures();
-		SHD_SHUTDOWN_SHADERS;
 
 		// Reset frame count to reflect the flipping chain being reset by Reset()
 		FrameCount = 0;
@@ -662,7 +657,6 @@ bool DX8Wrapper::Reset_Device(bool reload_assets)
 		}
 		Invalidate_Cached_Render_States();
 		Set_Default_Global_Render_States();
-		SHD_INIT_SHADERS;
 		WWDEBUG_SAY(("Device reset completed\n"));
 		return true;
 	}
