@@ -226,10 +226,6 @@ SOURCE=.\dx8vertexbuffer.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\dx8webbrowser.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\dx8wrapper.cpp
 # End Source File
 # Begin Source File
@@ -680,10 +676,6 @@ SOURCE=.\dx8texman.h
 # Begin Source File
 
 SOURCE=.\dx8vertexbuffer.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\dx8webbrowser.h
 # End Source File
 # Begin Source File
 

@@ -226,10 +226,6 @@ SOURCE=.\keyboard.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\LaunchWeb.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\lcw.cpp
 # End Source File
 # Begin Source File
@@ -599,10 +595,6 @@ SOURCE=.\iostruct.h
 # Begin Source File
 
 SOURCE=.\keyboard.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\LaunchWeb.h
 # End Source File
 # Begin Source File
 

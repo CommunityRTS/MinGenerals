@@ -72,7 +72,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /GX /ZI /Od /I "Libraries\Include" /I "GameEngine\Include" /I "gameenginedevice\Include" /I "Libraries\Source\WWVegas" /I "Libraries\Source\WWVegas\WWLib" /I "Libraries\Source\WWVegas\WWMath" /I "Libraries\Source\WWVegas\WWDebug" /I "Libraries\Source\WWVegas\WWSaveLoad" /I "Libraries\Source\WWVegas\WW3D2" /I "Libraries\Include\Granny" /I "Libraries\Source\Bink" /I "Libraries\Source\Miles" /D "_DEBUG" /D "BROWSER_DEBUG" /D WINVER=0x400 /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /GX /ZI /Od /I "Libraries\Include" /I "GameEngine\Include" /I "gameenginedevice\Include" /I "Libraries\Source\WWVegas" /I "Libraries\Source\WWVegas\WWLib" /I "Libraries\Source\WWVegas\WWMath" /I "Libraries\Source\WWVegas\WWDebug" /I "Libraries\Source\WWVegas\WWSaveLoad" /I "Libraries\Source\WWVegas\WW3D2" /I "Libraries\Include\Granny" /I "Libraries\Source\Bink" /I "Libraries\Source\Miles" /D "_DEBUG" /D WINVER=0x400 /D "WIN32" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
 # SUBTRACT CPP /Fr
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
