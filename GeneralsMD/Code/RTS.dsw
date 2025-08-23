@@ -180,9 +180,6 @@ Package=<4>
     Project_Dep_Name wwlib
     End Project Dependency
     Begin Project Dependency
-    Project_Dep_Name wwutil
-    End Project Dependency
-    Begin Project Dependency
     Project_Dep_Name wwsaveload
     End Project Dependency
     Begin Project Dependency
@@ -244,9 +241,6 @@ Package=<4>
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name wwsaveload
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwutil
     End Project Dependency
     Begin Project Dependency
     Project_Dep_Name GameEngineDevice
@@ -328,18 +322,6 @@ Package=<4>
 ###############################################################################
 
 Project: "wwsaveload"=.\Libraries\Source\WWVegas\WWSaveLoad\wwsaveload.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "wwutil"=.\Libraries\Source\WWVegas\Wwutil\wwutil.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
