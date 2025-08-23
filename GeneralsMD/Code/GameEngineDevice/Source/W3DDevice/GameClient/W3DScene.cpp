@@ -64,7 +64,6 @@
 #include "WW3D2/DX8Caps.h"
 #include "WW3D2/colorspace.h"
 
-#include "WW3D2/shdlib.h"
 #ifdef _INTERNAL
 // for occasional debugging...
 //#pragma optimize("", off)
@@ -845,9 +844,6 @@ void RTS3DScene::Flush(RenderInfoClass & rinfo)
 		flushOccludedObjectsIntoStencil(rinfo);
 #endif
 
-	// (gth) CNC3 Flush the shader meshes	
-	SHD_FLUSH;
-
 	// Draw the trees last so they alpha blend onto everything correctly.
 	DoTrees(rinfo);
 
@@ -1420,13 +1416,11 @@ void RTS3DScene::flushOccludedObjectsIntoStencil(RenderInfoClass & rinfo)
 					if (drawInfo->m_flags & DrawableInfo::ERF_IS_TRANSLUCENT)
 					{	
 						TheDX8MeshRenderer.Flush();	//render all the submitted meshes using current stencil function
-						SHD_FLUSH;
 						//Disable writing to color buffer since translucent objects are rendered at end of frame.
 						DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFUNC,  D3DCMP_NEVER );	//never allow frame buffer writes.
 						DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFAIL,  D3DSTENCILOP_REPLACE );	//always replace existing stencil value
 						renderOneObject(rinfo, (*renderList), localPlayerIndex);
 						TheDX8MeshRenderer.Flush();	//render all the submitted meshes using current stencil function
-						SHD_FLUSH;
 						DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFAIL,  D3DSTENCILOP_KEEP );
 						DX8Wrapper::Set_DX8_Render_State(D3DRS_STENCILFUNC,  D3DCMP_ALWAYS );
 					}

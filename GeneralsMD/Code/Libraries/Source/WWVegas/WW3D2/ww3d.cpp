@@ -120,8 +120,6 @@
 #include "animatedsoundmgr.h"
 #include "static_sort_list.h"
 
-#include "shdlib.h"
-
 #ifndef _UNIX
 #include "framgrab.h"
 #endif
@@ -1059,7 +1057,6 @@ WW3DErrorType WW3D::Render(
 void WW3D::Flush(RenderInfoClass & rinfo)
 {
 	TheDX8MeshRenderer.Flush();
-	SHD_FLUSH;
 	WW3D::Render_And_Clear_Static_Sort_Lists(rinfo);	//draws things like water
 
 	SortingRendererClass::Flush();

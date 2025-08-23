@@ -206,9 +206,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name GameSpyStats
     End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwshade
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -278,9 +275,6 @@ Package=<4>
     Begin Project Dependency
     Project_Dep_Name EABrowserDispatch
     End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name wwshade
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -334,18 +328,6 @@ Package=<4>
 ###############################################################################
 
 Project: "wwsaveload"=.\Libraries\Source\WWVegas\WWSaveLoad\wwsaveload.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "wwshade"=.\Libraries\Source\WWVegas\wwshade\wwshade.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
