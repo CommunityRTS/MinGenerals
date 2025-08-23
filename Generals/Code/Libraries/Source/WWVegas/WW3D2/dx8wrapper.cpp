@@ -72,7 +72,6 @@
 #include "formconv.h"
 #include "dx8texman.h"
 #include "bound.h"
-#include "dx8webbrowser.h"
 
 #define WW3D_DEVTYPE D3DDEVTYPE_HAL
 
@@ -1425,7 +1424,6 @@ void DX8Wrapper::Begin_Scene(void)
 	DX8_THREAD_ASSERT();
 	DX8CALL(BeginScene());
 
-	DX8WebBrowser::Update();
 }
 
 void DX8Wrapper::End_Scene(bool flip_frames)
@@ -1433,7 +1431,6 @@ void DX8Wrapper::End_Scene(bool flip_frames)
 	DX8_THREAD_ASSERT();
 	DX8CALL(EndScene());
 
-	DX8WebBrowser::Render(0);
 
 	if (flip_frames) {
 		DX8_Assert();

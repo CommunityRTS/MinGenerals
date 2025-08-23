@@ -46,7 +46,6 @@
 #define WW3D_DEVTYPE D3DDEVTYPE_HAL
 
 #include "dx8wrapper.h"
-#include "dx8webbrowser.h"
 #include "dx8fvf.h"
 #include "dx8vertexbuffer.h"
 #include "dx8indexbuffer.h"
@@ -79,7 +78,6 @@
 #include "formconv.h"
 #include "dx8texman.h"
 #include "bound.h"
-#include "dx8webbrowser.h"
 
 const int DEFAULT_RESOLUTION_WIDTH = 640;
 const int DEFAULT_RESOLUTION_HEIGHT = 480;
@@ -1677,13 +1675,8 @@ void DX8Wrapper::Begin_Scene(void)
 {
 	DX8_THREAD_ASSERT();
 
-#if ENABLE_EMBEDDED_BROWSER
-	DX8WebBrowser::Update();
-#endif
-	
 	DX8CALL(BeginScene());
 
-	DX8WebBrowser::Update();
 }
 
 void DX8Wrapper::End_Scene(bool flip_frames)
@@ -1691,7 +1684,6 @@ void DX8Wrapper::End_Scene(bool flip_frames)
 	DX8_THREAD_ASSERT();
 	DX8CALL(EndScene());
 
-	DX8WebBrowser::Render(0);
 
 	if (flip_frames) {
 		DX8_Assert();

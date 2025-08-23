@@ -52,7 +52,6 @@ class ModuleFactory;
 class ThingFactory;
 class FunctionLexicon;
 class Radar;
-class WebBrowser;
 class ParticleSystemManager;
 
 /**
@@ -96,7 +95,6 @@ protected:
 	virtual ThingFactory *createThingFactory( void ) = 0;				///< Factory for the thing factory
 	virtual FunctionLexicon *createFunctionLexicon( void ) = 0;	///< Factory for Function Lexicon
 	virtual Radar *createRadar( void ) = 0;											///< Factory for radar
-	virtual WebBrowser *createWebBrowser( void ) = 0;						///< Factory for embedded browser
 	virtual ParticleSystemManager* createParticleSystemManager( void ) = 0;
 	virtual AudioManager *createAudioManager( void ) = 0;				///< Factory for Audio Manager
 

@@ -18,7 +18,6 @@
 
 
 #include "Common/SimplePlayer.h"
-#include "Common/URLLaunch.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -577,31 +576,6 @@ HRESULT STDMETHODCALLTYPE CSimplePlayer::OnStatus(
 
     case WMT_CONNECTING:
         DEBUG_LOG(( "OnStatus( WMT_CONNECTING )\n"  ));
-        break;
-
-    case WMT_NO_RIGHTS:
-        {
-            LPWSTR pwszEscapedURL = NULL;
-
-            hr = MakeEscapedURL( m_pszUrl, &pwszEscapedURL );
-
-            if( SUCCEEDED( hr ) )
-            {
-                WCHAR wszURL[ 0x1000 ];
-
-                swprintf( wszURL, L"%s&filename=%s&embedded=false", pValue, pwszEscapedURL );
-
-                hr = LaunchURL( wszURL );
-
-                if( FAILED( hr ) )
-                {
-                    DEBUG_LOG(( "Unable to launch web browser to retrieve playback license (hr=0x%08x)\n" , hr ));
-                }
-
-                delete [] pwszEscapedURL;
-				pwszEscapedURL = NULL ;
-            }
-        }
         break;
 
     case WMT_MISSING_CODEC:
