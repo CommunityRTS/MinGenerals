@@ -378,7 +378,6 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message,
 
 			// ------------------------------------------------------------------------
 			case WM_CLOSE:
-			TheGameEngine->checkAbnormalQuitting();
 			TheGameEngine->reset();
 			TheGameEngine->setQuitting(TRUE);
 			_exit(EXIT_SUCCESS);

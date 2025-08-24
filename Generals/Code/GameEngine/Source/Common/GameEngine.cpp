@@ -101,9 +101,6 @@
 
 #include "GameNetwork/NetworkInterface.h"
 #include "GameNetwork/LANAPI.h"
-#include "GameNetwork/GameSpy/GameResultsThread.h"
-#include "GameNetwork/GameSpy/PeerDefs.h"
-#include "GameNetwork/GameSpy/PersistentStorageThread.h"
 #include "Common/Player.h"
 
 
@@ -744,113 +741,6 @@ logging code that is usually called from another thread.  I'm doing it here
 because there's no way to guarantee the other thread will execute before we
 exit the app.
 */
-void GameEngine::checkAbnormalQuitting(void)
-{
-	if (TheRecorder->isMultiplayer() && TheGameLogic->isInInternetGame())
-	{	//Should not be quitting at this time, record it as a cheat.
-
-		Int localID = TheGameSpyInfo->getLocalProfileID();
-		PSPlayerStats stats = TheGameSpyPSMessageQueue->findPlayerStatsByID(localID);
-		
-		Player *player=ThePlayerList->getLocalPlayer();
-
-		Int ptIdx;
-		const PlayerTemplate *myTemplate = player->getPlayerTemplate();
-		DEBUG_LOG(("myTemplate = %X(%s)\n", myTemplate, myTemplate->getName().str()));
-		for (ptIdx = 0; ptIdx < ThePlayerTemplateStore->getPlayerTemplateCount(); ++ptIdx)
-		{
-			const PlayerTemplate *nthTemplate = ThePlayerTemplateStore->getNthPlayerTemplate(ptIdx);
-			DEBUG_LOG(("nthTemplate = %X(%s)\n", nthTemplate, nthTemplate->getName().str()));
-			if (nthTemplate == myTemplate)
-			{
-					break;
-			}
-		}
-
-		PSRequest req;
-
-		req.requestType = PSRequest::PSREQUEST_UPDATEPLAYERSTATS;
-		req.email = TheGameSpyInfo->getLocalEmail().str();
-		req.nick = TheGameSpyInfo->getLocalBaseName().str();
-		req.password = TheGameSpyInfo->getLocalPassword().str();
-		req.player = stats;
-		req.addDesync = FALSE;
-		req.addDiscon = TRUE;
-		req.lastHouse = ptIdx;
-
-		UserPreferences pref;
-		AsciiString userPrefFilename;
-		userPrefFilename.format("GeneralsOnline\\MiscPref%d.ini", stats.id);
-		DEBUG_LOG(("using the file %s\n", userPrefFilename.str()));
-		pref.load(userPrefFilename);
-
-		Int addedInDesyncs2 = pref.getInt("0", 0);
-		DEBUG_LOG(("addedInDesyncs2 = %d\n", addedInDesyncs2));
-		if (addedInDesyncs2 < 0)
-			addedInDesyncs2 = 10;
-		Int addedInDesyncs3 = pref.getInt("1", 0);
-		DEBUG_LOG(("addedInDesyncs3 = %d\n", addedInDesyncs3));
-		if (addedInDesyncs3 < 0)
-			addedInDesyncs3 = 10;
-		Int addedInDesyncs4 = pref.getInt("2", 0);
-		DEBUG_LOG(("addedInDesyncs4 = %d\n", addedInDesyncs4));
-		if (addedInDesyncs4 < 0)
-			addedInDesyncs4 = 10;
-		Int addedInDiscons2 = pref.getInt("3", 0);
-		DEBUG_LOG(("addedInDiscons2 = %d\n", addedInDiscons2));
-		if (addedInDiscons2 < 0)
-			addedInDiscons2 = 10;
-		Int addedInDiscons3 = pref.getInt("4", 0);
-		DEBUG_LOG(("addedInDiscons3 = %d\n", addedInDiscons3));
-		if (addedInDiscons3 < 0)
-			addedInDiscons3 = 10;
-		Int addedInDiscons4 = pref.getInt("5", 0);
-		DEBUG_LOG(("addedInDiscons4 = %d\n", addedInDiscons4));
-		if (addedInDiscons4 < 0)
-			addedInDiscons4 = 10;
-
-		DEBUG_LOG(("req.addDesync=%d, req.addDiscon=%d, addedInDesync=%d,%d,%d, addedInDiscon=%d,%d,%d\n",
-			req.addDesync, req.addDiscon, addedInDesyncs2, addedInDesyncs3, addedInDesyncs4,
-			addedInDiscons2, addedInDiscons3, addedInDiscons4));
-
-		if (req.addDesync || req.addDiscon)
-		{
-			AsciiString val;
-			if (req.lastHouse == 2)
-			{
-				val.format("%d", addedInDesyncs2 + req.addDesync);
-				pref["0"] = val;
-				val.format("%d", addedInDiscons2 + req.addDiscon);
-				pref["3"] = val;
-				DEBUG_LOG(("house 2 req.addDesync || req.addDiscon: %d %d\n",
-					addedInDesyncs2 + req.addDesync, addedInDiscons2 + req.addDiscon));
-			}
-			else if (req.lastHouse == 3)
-			{
-				val.format("%d", addedInDesyncs3 + req.addDesync);
-				pref["1"] = val;
-				val.format("%d", addedInDiscons3 + req.addDiscon);
-				pref["4"] = val;
-				DEBUG_LOG(("house 3 req.addDesync || req.addDiscon: %d %d\n",
-					addedInDesyncs3 + req.addDesync, addedInDiscons3 + req.addDiscon));
-			}
-			else
-			{
-				val.format("%d", addedInDesyncs4 + req.addDesync);
-				pref["2"] = val;
-				val.format("%d", addedInDiscons4 + req.addDiscon);
-				pref["5"] = val;
-				DEBUG_LOG(("house 4 req.addDesync || req.addDiscon: %d %d\n",
-					addedInDesyncs4 + req.addDesync, addedInDiscons4 + req.addDiscon));
-			}
-			pref.write();
-		}
-	}
-}
-
-//-------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------
 #define CONVERT_EXEC1	"..\\Build\\nvdxt -list buildDDS.txt -dxt5 -full -outdir Art\\Textures > buildDDS.out"
 
 void updateTGAtoDDS()

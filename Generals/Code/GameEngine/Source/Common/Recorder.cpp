@@ -38,7 +38,6 @@
 
 #include "GameNetwork/LANAPICallbacks.h"
 #include "GameNetwork/GameMessageParser.h"
-#include "GameNetwork/GameSpy/PeerDefs.h"
 #include "GameNetwork/NetworkUtil.h"
 #include "GameLogic/GameLogic.h"
 #include "Common/RandomValue.h"

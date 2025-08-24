@@ -48,7 +48,6 @@
 #include "Common/QuotedPrintable.h"
 #include "Common/MultiplayerSettings.h"
 #include "GameClient/MapUtil.h"
-#include "GameNetwork/GameSpy/PeerDefs.h"
 
 #ifdef _INTERNAL
 // for occasional debugging...
