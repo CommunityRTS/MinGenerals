@@ -63,7 +63,6 @@
 #include "GameClient/GUICallbacks.h"
 #include "GameNetwork/FirewallHelper.h"
 #include "GameNetwork/IPEnumeration.h"
-#include "GameNetwork/GameSpyOverlay.h"
 #include "GameNetwork/GameSpy/PeerDefs.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/ScriptEngine.h"

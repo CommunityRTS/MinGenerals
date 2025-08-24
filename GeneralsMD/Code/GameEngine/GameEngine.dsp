@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /O2 /Ob2 /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/GameSpy" /I "../Libraries/Source/Compression" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /WX /GX /O2 /Ob2 /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/Compression" /D "IG_DEBUG_STACKTRACE" /D "NDEBUG" /D "_RELEASE" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /c
 # SUBTRACT CPP /Fr
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -66,7 +66,7 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /GX /ZI /Od /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WWLib" /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/GameSpy" /I "../Libraries/Source/Compression" /D "_DEBUG" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /GZ /c
+# ADD CPP /nologo /G6 /MDd /W3 /WX /Gm /GX /ZI /Od /I "..\Libraries\Source\WWVegas" /I "..\Libraries\Source\WWVegas\WWLib" /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/Compression" /D "_DEBUG" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /GZ /c
 # SUBTRACT CPP /Fr
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -90,7 +90,7 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Internal"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GR /GX /O2 /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /Od /I "../Libraries/Source/Compression" /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /I "../Libraries/Source/GameSpy" /D "NDEBUG" /D "_INTERNAL" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /c
+# ADD CPP /nologo /G6 /MD /W3 /WX /GX /Zi /Od /I "../Libraries/Source/Compression" /I "Include/Precompiled" /I "../Libraries/Source/WWVegas" /I "../Libraries/Source/WWVegas\WWLib" /I "Include" /I "../Libraries/Include" /D "NDEBUG" /D "_INTERNAL" /D WINVER=0x400 /D "_MBCS" /D "_LIB" /D "_WINDOWS" /D "WIN32" /D "Z_PREFIX" /Yu"PreRTS.h" /FD /c
 # SUBTRACT CPP /Fr
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -2426,102 +2426,26 @@ SOURCE=.\Source\GameClient\Water.cpp
 # Begin Group "GameNetwork"
 
 # PROP Default_Filter ""
-# Begin Group "GameSpy"
-
-# PROP Default_Filter ""
-# Begin Group "Thread"
-
-# PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\BuddyThread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\GameResultsThread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\PeerThread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\PersistentStorageThread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\PingThread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Thread\ThreadUtils.cpp
-# End Source File
-# End Group
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy\Chat.cpp
-# End Source File
 # Begin Source File
 
 SOURCE=.\Source\GameNetwork\DownloadManager.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpyOverlay.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\GSConfig.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\LadderDefs.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\LobbyUtils.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\MainMenuUtils.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\PeerDefs.cpp
-# End Source File
 # Begin Source File
 
-SOURCE=.\Source\GameNetwork\GameSpy\StagingRoomGameInfo.cpp
-# End Source File
-# End Group
-# Begin Group "GameSpyEvalImplementation"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpy.cpp
-# PROP Exclude_From_Build 1
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpyChat.cpp
-# PROP Exclude_From_Build 1
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpyGameInfo.cpp
-# PROP Exclude_From_Build 1
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpyGP.cpp
-# PROP Exclude_From_Build 1
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameNetwork\GameSpyPersistentStorage.cpp
-# PROP Exclude_From_Build 1
-# End Source File
 # End Group
 # Begin Group "InGameNetwork"
 
@@ -2855,10 +2779,6 @@ SOURCE=.\Include\Common\GameSounds.h
 # Begin Source File
 
 SOURCE=.\Include\Common\GameSpeech.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\Common\GameSpyMiscPreferences.h
 # End Source File
 # Begin Source File
 
@@ -4666,209 +4586,90 @@ SOURCE=.\Include\GameClient\WinInstanceData.h
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\md5.h
-# End Source File
 # End Group
 # Begin Group "queryreporting"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\queryreporting\gqueryreporting.h
-# End Source File
 # End Group
 # Begin Group "pinger"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\pinger\pinger.h
-# End Source File
 # End Group
 # Begin Group "CEngine"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\CEngine\goaceng.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\CEngine\gserver.h
-# End Source File
 # End Group
 # Begin Group "hashtable"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\hashtable.h
-# End Source File
 # End Group
 # Begin Group "chat"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chat.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chatCallbacks.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chatChannel.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\Chat\chatCrypt.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chatHandlers.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chatMain.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\chat\chatSocket.h
-# End Source File
 # End Group
 # Begin Group "nonport"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\nonport.h
-# End Source File
 # End Group
 # Begin Group "darray"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\darray.h
-# End Source File
 # End Group
 # Begin Group "peer.H"
 
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peer.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerCallbacks.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerCEngine.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerGlobalCallbacks.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerKeys.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerMain.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerMangle.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerOperations.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerPing.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerPlayers.h
-# End Source File
 # Begin Source File
 
-SOURCE=..\Libraries\Source\GameSpy\GameSpy\peer\peerRooms.h
-# End Source File
 # End Group
 # End Group
-# Begin Group "GameSpy.H"
-
-# PROP Default_Filter ""
-# Begin Group "Thread.H"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\BuddyThread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\GameResultsThread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PeerThread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PersistentStorageThread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PingThread.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\ThreadUtils.h
-# End Source File
-# End Group
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\BuddyDefs.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\GSConfig.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\LadderDefs.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\LobbyUtils.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\MainMenuUtils.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PeerDefs.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PeerDefsImplementation.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\PersistentStorageDefs.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy\StagingRoomGameInfo.h
-# End Source File
 # End Group
 # Begin Source File
 
@@ -4913,34 +4714,6 @@ SOURCE=.\Include\GameNetwork\GameInfo.h
 # Begin Source File
 
 SOURCE=.\Include\GameNetwork\GameMessageParser.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpy.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyChat.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyGameInfo.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyGP.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyOverlay.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyPersistentStorage.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\Include\GameNetwork\GameSpyThread.h
 # End Source File
 # Begin Source File
 

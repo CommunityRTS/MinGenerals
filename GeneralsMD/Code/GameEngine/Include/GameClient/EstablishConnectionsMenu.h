@@ -25,7 +25,16 @@
 //// EstablishConnectionsMenu.h /////////////////////////
 
 #include "GameNetwork/NetworkDefs.h"
-#include "GameNetwork/NAT.h"
+
+// NAT traversal support has been removed; provide a minimal stub for compatibility.
+enum NATConnectionState {
+        NATCONNECTIONSTATE_WAITINGFORMANGLERRESPONSE,
+        NATCONNECTIONSTATE_WAITINGFORMANGLEDPORT,
+        NATCONNECTIONSTATE_WAITINGFORRESPONSE,
+        NATCONNECTIONSTATE_DONE,
+        NATCONNECTIONSTATE_FAILED,
+        NATCONNECTIONSTATE_WAITINGTOBEGIN
+};
 
 enum EstablishConnectionsMenuStateType {
 	ESTABLISHCONNECTIONSMENUSTATETYPE_SCREENON,

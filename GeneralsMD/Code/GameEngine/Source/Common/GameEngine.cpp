@@ -103,7 +103,6 @@
 
 #include "GameNetwork/NetworkInterface.h"
 #include "GameNetwork/LANAPI.h"
-#include "GameNetwork/GameSpy/GameResultsThread.h"
 
 #include "Common/Version.h"
 

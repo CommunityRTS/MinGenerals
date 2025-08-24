@@ -81,7 +81,6 @@
 #include "GameClient/ChallengeGenerals.h"
 #include "GameLogic/FPUControl.h"
 #include "GameLogic/GameLogic.h"
-#include "GameNetwork/GameSpy/PeerDefs.h"
 #include "GameNetwork/GameSpy/PersistentStorageThread.h"
 #include "GameNetwork/NetworkInterface.h"
 #include "GameNetwork/RankPointValue.h"
