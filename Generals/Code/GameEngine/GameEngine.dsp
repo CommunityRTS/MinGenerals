@@ -1904,58 +1904,6 @@ SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\SkirmishGameOptionsMenu.cpp
 
 SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\SkirmishMapSelectMenu.cpp
 # End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLBuddyOverlay.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLCustomScoreScreen.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLGameSetupMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLLadderScreen.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLLobbyMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLLocaleSelectPopup.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLLoginMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLMapSelectMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLMessageWindow.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLQMScoreScreen.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLQuickMatchMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLStatusMenu.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\Source\GameClient\GUI\GUICallbacks\Menus\WOLWelcomeMenu.cpp
-# End Source File
 # End Group
 # Begin Source File
 
@@ -4348,6 +4296,7 @@ SOURCE=.\Include\GameClient\WinInstanceData.h
 # End Group
 # Begin Group "GameNetwork.H"
 
+# PROP Default_Filter ""
 # Begin Group "GameSpyLibs.H"
 
 # PROP Default_Filter ""
