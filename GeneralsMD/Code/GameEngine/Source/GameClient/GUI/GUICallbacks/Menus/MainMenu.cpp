@@ -30,8 +30,6 @@
 // INCLUDES ///////////////////////////////////////////////////////////////////////////////////////
 #include "PreRTS.h"	// This must go first in EVERY cpp file int the GameEngine
 
-#include "GameSpy/ghttp/ghttp.h"
-
 #include "Lib/BaseType.h"
 #include "Common/GameEngine.h"
 #include "Common/GameState.h"
@@ -62,16 +60,11 @@
 #include "GameClient/GameClient.h"
 #include "GameLogic/GameLogic.h"
 #include "GameLogic/ScriptEngine.h"
-#include "GameNetwork/GameSpyOverlay.h"
 #include "GameClient/GameWindowTransitions.h"
 #include "GameClient/ChallengeGenerals.h"
 
-#include "GameNetwork/GameSpy/PeerDefs.h"
-#include "GameNetwork/GameSpy/PeerThread.h"
-#include "GameNetwork/GameSpy/BuddyThread.h"
 
 #include "GameNetwork/DownloadManager.h"
-#include "GameNetwork/GameSpy/MainMenuUtils.h"
 
 //Added By Saad
 //for accessing the InGameUI
@@ -481,7 +474,9 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 	buttonSinglePlayer = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonSinglePlayerID );
 	buttonMultiPlayer = TheWindowManager->winGetWindowFromId( parentMainMenu, buttonMultiPlayerID );
 	buttonSkirmish = TheWindowManager->winGetWindowFromId( parentMainMenu, skirmishID );
-	buttonOnline = TheWindowManager->winGetWindowFromId( parentMainMenu, onlineID );
+    buttonOnline = TheWindowManager->winGetWindowFromId( parentMainMenu, onlineID );
+    if (buttonOnline)
+            buttonOnline->winHide(TRUE);
 	buttonNetwork = TheWindowManager->winGetWindowFromId( parentMainMenu, networkID );
 	buttonOptions = TheWindowManager->winGetWindowFromId( parentMainMenu, optionsID );
 	buttonExit = TheWindowManager->winGetWindowFromId( parentMainMenu, exitID );
@@ -595,12 +590,6 @@ void MainMenuInit( WindowLayout *layout, void *userData )
 		//getUpdate->winEnable( FALSE );
 	}
 	/**/
-
-	if (TheGameSpyPeerMessageQueue && !TheGameSpyPeerMessageQueue->isConnected())
-	{
-		DEBUG_LOG(("Tearing down GameSpy from MainMenuInit()\n"));
-		TearDownGameSpy();
-	}
 	if (TheMapCache)
 		TheMapCache->updateCache();
 
@@ -901,7 +890,6 @@ void MainMenuUpdate( WindowLayout *layout, void *userData )
 	}
 
 	HTTPThinkWrapper();
-	GameSpyUpdateOverlays();
 //	if(localAnimateWindowManager)
 //		localAnimateWindowManager->update();
 //	if(localAnimateWindowManager && pendingDropDown != DROPDOWN_NONE && localAnimateWindowManager->isFinished())
@@ -1031,15 +1019,12 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 		}  // end case
 
 		//---------------------------------------------------------------------------------------------
-		case GWM_DESTROY:
-		{
-			ghttpCleanup();
-			DEBUG_LOG(("Tearing down GameSpy from MainMenuSystem(GWM_DESTROY)\n"));
-			TearDownGameSpy();
-			StopAsyncDNSCheck(); // kill off the async DNS check thread in case it is still running
-			break;
+                case GWM_DESTROY:
+                {
+                        StopAsyncDNSCheck(); // kill off the async DNS check thread in case it is still running
+                        break;
 
-		}  // end case
+                }  // end case
 
 		// --------------------------------------------------------------------------------------------
 		case GWM_INPUT_FOCUS:
@@ -1055,13 +1040,9 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 		//---------------------------------------------------------------------------------------------
 		case GBM_MOUSE_ENTERING:
 		{
-			GameWindow *control = (GameWindow *)mData1;
-			Int controlID = control->winGetWindowId();
-			if(controlID == onlineID)
-			{
-				TheScriptEngine->signalUIInteract(TheShellHookNames[SHELL_SCRIPT_HOOK_MAIN_MENU_ONLINE_HIGHLIGHTED]);
-			}
-			else if(controlID == networkID)
+GameWindow *control = (GameWindow *)mData1;
+Int controlID = control->winGetWindowId();
+if(controlID == networkID)
 			{
 				TheScriptEngine->signalUIInteract(TheShellHookNames[SHELL_SCRIPT_HOOK_MAIN_MENU_NETWORK_HIGHLIGHTED]);
 			}
@@ -1173,14 +1154,10 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 		//---------------------------------------------------------------------------------------------
 		case GBM_MOUSE_LEAVING:
 		{
-			GameWindow *control = (GameWindow *)mData1;
-			Int controlID = control->winGetWindowId();
+GameWindow *control = (GameWindow *)mData1;
+Int controlID = control->winGetWindowId();
 
-			if(controlID == onlineID)
-			{
-				TheScriptEngine->signalUIInteract(TheShellHookNames[SHELL_SCRIPT_HOOK_MAIN_MENU_ONLINE_UNHIGHLIGHTED]);
-			}
-			else if(controlID == networkID)
+if(controlID == networkID)
 			{
 				TheScriptEngine->signalUIInteract(TheShellHookNames[SHELL_SCRIPT_HOOK_MAIN_MENU_NETWORK_UNHIGHLIGHTED]);
 			}
@@ -1437,20 +1414,6 @@ WindowMsgHandledType MainMenuSystem( GameWindow *window, UnsignedInt msg,
 				TheShell->push( AsciiString("Menus/SkirmishGameOptionsMenu.wnd") );
 				TheScriptEngine->signalUIInteract(TheShellHookNames[SHELL_SCRIPT_HOOK_MAIN_MENU_SKIRMISH_SELECTED]);
 			}
-			else if( controlID == onlineID )
-			{
-				if(dontAllowTransitions)
-					break;
-				dontAllowTransitions = TRUE;
-				buttonPushed = TRUE;
-				dropDownWindows[DROPDOWN_MULTIPLAYER]->winHide(FALSE);
-				TheTransitionHandler->reverse("MainMenuMultiPlayerMenuTransitionToNext");
-
-				StartPatchCheck();
-//				localAnimateWindowManager->reverseAnimateWindow();
-				dropDown = DROPDOWN_NONE;
-
-			}  // end else if
 			else if( controlID == networkID )
 			{
 				if(dontAllowTransitions)
