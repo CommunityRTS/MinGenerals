@@ -263,12 +263,6 @@ extern WindowMsgHandledType WOLBuddyOverlayInput( GameWindow *window, UnsignedIn
 extern void WOLBuddyOverlayRCMenuInit( WindowLayout *layout, void *userData );
 extern WindowMsgHandledType WOLBuddyOverlayRCMenuSystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 
-//  GameSpy Player Info Overlay ---------------------------------------------------------------------------------
-extern void GameSpyPlayerInfoOverlayInit( WindowLayout *layout, void *userData );
-extern void GameSpyPlayerInfoOverlayUpdate( WindowLayout *layout, void *userData );
-extern void GameSpyPlayerInfoOverlayShutdown( WindowLayout *layout, void *userData );
-extern WindowMsgHandledType GameSpyPlayerInfoOverlaySystem( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
-extern WindowMsgHandledType GameSpyPlayerInfoOverlayInput( GameWindow *window, UnsignedInt msg, WindowMsgData mData1, WindowMsgData mData2 );
 
 // Popup host Game Internet -----------------------------------------------------------------------------------
 extern void PopupHostGameInit( WindowLayout *layout, void *userData );

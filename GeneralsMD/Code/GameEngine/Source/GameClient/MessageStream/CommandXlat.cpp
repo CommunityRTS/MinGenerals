@@ -83,7 +83,6 @@
 
 #include "GameNetwork/NetworkInterface.h"
 #include "GameNetwork/GameInfo.h"
-#include "GameNetwork/GameSpyOverlay.h"
 #include "GameNetwork/GameSpy/BuddyThread.h"
 
 #ifdef _INTERNAL

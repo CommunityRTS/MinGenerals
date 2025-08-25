@@ -59,7 +59,6 @@
 #include "Common/Xfer.h"
 #include "Common/XferCRC.h"
 #include "Common/XferDeepCRC.h"
-#include "Common/GameSpyMiscPreferences.h"
 
 #include "GameClient/ControlBar.h"
 #include "GameClient/Drawable.h"
@@ -103,12 +102,8 @@
 #include "Common/DataChunk.h"
 #include "GameLogic/Scripts.h"
 
-#include "GameNetwork/GameSpy/BuddyThread.h"
-#include "GameNetwork/GameSpy/PeerDefs.h"
-#include "GameNetwork/GameSpy/ThreadUtils.h"
 #include "GameNetwork/LANAPICallbacks.h"
 #include "GameNetwork/NetworkInterface.h"
-#include "GameNetwork/GameSpy/PersistentStorageThread.h"
 
 DECLARE_PERF_TIMER(SleepyMaintenance)
 

@@ -916,17 +916,11 @@ void W3DMainMenuInit( WindowLayout *layout, void *userData )
 	NameKeyType buttonUSAID = TheNameKeyGenerator->nameToKey( "MainMenu.wnd:ButtonUSA" );
 	NameKeyType buttonGLAID = TheNameKeyGenerator->nameToKey( "MainMenu.wnd:ButtonGLA" );
 	NameKeyType buttonChinaID = TheNameKeyGenerator->nameToKey( "MainMenu.wnd:ButtonChina" );
-	NameKeyType skirmishID = TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:ButtonSkirmish") );
-	NameKeyType onlineID = TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:ButtonOnline") );
-	NameKeyType networkID = TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:ButtonNetwork") );
+	NameKeyType skirmishID = TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:ButtonSkirmish") );	NameKeyType networkID = TheNameKeyGenerator->nameToKey( AsciiString("MainMenu.wnd:ButtonNetwork") );
 	
 	GameWindow *button = TheWindowManager->winGetWindowFromId( parent, skirmishID );
 	if (button)
-		button->winSetDrawFunc(W3DMainMenuButtonDropShadowDraw);
-	button = TheWindowManager->winGetWindowFromId( parent, onlineID );
-	if (button)
-		button->winSetDrawFunc(W3DMainMenuButtonDropShadowDraw);
-	button = TheWindowManager->winGetWindowFromId( parent, networkID );
+		button->winSetDrawFunc(W3DMainMenuButtonDropShadowDraw);	button = TheWindowManager->winGetWindowFromId( parent, networkID );
 	if (button)
 		button->winSetDrawFunc(W3DMainMenuButtonDropShadowDraw);
 

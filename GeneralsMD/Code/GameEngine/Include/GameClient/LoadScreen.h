@@ -258,41 +258,6 @@ private:
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // class MultiPlayerLoadScreen is to be used for multiplayer communication on the loadscreens
 ////	///////////////////////////////////////////////////////////////////////////////////////////////
-class GameSpyLoadScreen : public LoadScreen
-{
-public:
-	GameSpyLoadScreen( void );
-	virtual ~GameSpyLoadScreen( void );
-
-	virtual void init( GameInfo *game );		///< Init the loadscreen
-	virtual void reset( void );		///< Reset the system
-	virtual void update( void )
-	{	
-		DEBUG_CRASH(("Call update(Int) instead.  This update isn't supported"));
-	}; 
-	virtual void update(Int percent);		 ///< Update the state of the progress bar
-	void processProgress(Int playerId, Int percentage);
-	virtual void setProgressRange( Int min, Int max ) { }
-private:
-	GameWindow *m_progressBars[MAX_SLOTS];	///< pointer array to all the progress bars on the window
-	GameWindow *m_playerNames[MAX_SLOTS];		///< pointer array to all the static text player names on the window
-	GameWindow *m_playerSide[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerFavoriteFactions[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerTotalDisconnects[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerWin[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerWinLosses[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerRank[MAX_SLOTS];		///< pointer array to all the static text player sides
-	GameWindow *m_playerOfficerMedal[MAX_SLOTS];		///< pointer array to all the static text player munkees
-	GameWindow *m_mapPreview;
-	GameWindow *m_buttonMapStartPosition[MAX_SLOTS];
-
-	Int m_playerLookup[MAX_SLOTS];					///< lookup table to translate network slot info screen slot (to account for holes in the slot list)
-
-	GameWindow *m_portraitLocalGeneral;
-	GameWindow *m_featuresLocalGeneral;
-	GameWindow *m_nameLocalGeneral;
-};
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // class MapTransferLoadScreen is to be used for map transfers before multiplayer game load screens
 ////	///////////////////////////////////////////////////////////////////////////////////////////////

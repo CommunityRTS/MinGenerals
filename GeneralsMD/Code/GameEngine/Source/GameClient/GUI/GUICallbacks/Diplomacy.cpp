@@ -54,8 +54,6 @@
 #include "GameLogic/VictoryConditions.h"
 #include "GameNetwork/GameInfo.h"
 #include "GameNetwork/NetworkInterface.h"
-#include "GameNetwork/GameSpy/BuddyDefs.h"
-#include "GameNetwork/GameSpy/peerDefs.h"
 
 #ifdef _INTERNAL
 // for occasional debugging...
